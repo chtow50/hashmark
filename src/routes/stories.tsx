@@ -62,7 +62,7 @@ function StoriesPage() {
             key={story.slug}
             to="/stories/$slug"
             params={{ slug: story.slug }}
-            className="flex min-h-44 flex-col rounded-xl bg-surface p-5 shadow-[var(--shadow-border)] transition-[box-shadow] duration-150 hover:shadow-[var(--shadow-border-hover)]"
+            className="flex flex-col rounded-xl bg-surface p-5 shadow-[var(--shadow-border)] transition-[box-shadow] duration-150 hover:shadow-[var(--shadow-border-hover)]"
           >
             <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-faint">
               {story.kicker} · {story.date}
