@@ -1,0 +1,38 @@
+{
+  "url": "http://127.0.0.1:8081/teams/georgia",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "Georgia · HASHMARK",
+      "hasCanvas": false,
+      "bodyTextLen": 3366,
+      "bodyTextHash": "32921504e963e5017bfc95fd319d6d3df63b974c308d21e69fa495e8acb4b59f",
+      "bodyTextPrefix": "HASHMARK Board Rankings Matchup Recruiting Talent States The Mod",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/georgia-lb-built.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "Georgia · HASHMARK",
+      "hasCanvas": false,
+      "bodyTextLen": 3277,
+      "bodyTextHash": "1f9661a93009b78227522710e51e0065987decbec9eff7e35620dc3dd53a36ad",
+      "bodyTextPrefix": "HASHMARK SEC · ATHENS, GA Georgia Bulldogs · 11–3 last season · ",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/georgia-lb-built-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/georgia-lb-built.json",
+  "divergesFromBaseline": false,
+  "baselineReasons": []
+}

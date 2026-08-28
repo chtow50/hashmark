@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/teams/texas-am",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "Texas A&M · HASHMARK",
+      "hasCanvas": false,
+      "bodyTextLen": 3248,
+      "bodyTextHash": "bd21c3d4a9bb2042a81897cf588e894521acd1a674970c47ad6feff53368ca66",
+      "bodyTextPrefix": "HASHMARK Board Rankings Matchup Recruiting Talent States The Mod",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/tam.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "Texas A&M · HASHMARK",
+      "hasCanvas": false,
+      "bodyTextLen": 3159,
+      "bodyTextHash": "0105b4fc5c1e946d682f97570f8c9138c8562ccaf2392804e5cfa30fb8fb30e7",
+      "bodyTextPrefix": "HASHMARK SEC · COLLEGE STATION, TX Texas A&M Aggies · 11–2 last ",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/tam-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/tam.json"
+}

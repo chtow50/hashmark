@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/recruiting?year=2023&board=class",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "Composite Recruiting · HASHMARK",
+      "hasCanvas": false,
+      "bodyTextLen": 5151,
+      "bodyTextHash": "305d03784c713ac34e735c17472d99087388d539210a73f4aa63397b712dd293",
+      "bodyTextPrefix": "HASHMARK Board Rankings Matchup Recruiting Talent States The Mod",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/recruiting.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "Composite Recruiting · HASHMARK",
+      "hasCanvas": false,
+      "bodyTextLen": 5078,
+      "bodyTextHash": "56661d564006806521316fa9f58c244c2279cfcaecce4757119ed699ec43dfdf",
+      "bodyTextPrefix": "HASHMARK 247SPORTS COMPOSITE Class of 2023 Incoming high-school ",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/recruiting-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/recruiting.json"
+}

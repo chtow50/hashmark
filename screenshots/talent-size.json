@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/talent?board=size",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "Roster Talent · HASHMARK",
+      "hasCanvas": false,
+      "bodyTextLen": 7345,
+      "bodyTextHash": "1376973100c388e145a686d5bdfd551f8bd920561267e38aad7186c0c4c887ac",
+      "bodyTextPrefix": "HASHMARK Board Rankings Matchup Recruiting Talent States The Mod",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/talent-size.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "Roster Talent · HASHMARK",
+      "hasCanvas": false,
+      "bodyTextLen": 7919,
+      "bodyTextHash": "ba9e0b1d5b85a75e27756d7b56d614e7c43056645f5c750ccad6acfbd24de419",
+      "bodyTextPrefix": "HASHMARK TWO-DEEP COMPOSITE Roster talent Who is on the roster n",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/talent-size-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/talent-size.json"
+}

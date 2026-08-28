@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/recruiting?year=2026&board=cycle",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "Composite Recruiting · HASHMARK",
+      "hasCanvas": false,
+      "bodyTextLen": 3340,
+      "bodyTextHash": "193a2d6ccef1a3335229ceab52e032fd9f3bcf172dc91c96b9e7c7826111fc61",
+      "bodyTextPrefix": "HASHMARK Board Rankings Matchup Recruiting Talent States The Mod",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/recruiting-cycle.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "Composite Recruiting · HASHMARK",
+      "hasCanvas": false,
+      "bodyTextLen": 3267,
+      "bodyTextHash": "ab1dc8c2c55c9483d84d40c4e0b78d964d69a13b9ece883f2e199548ae68aa66",
+      "bodyTextPrefix": "HASHMARK 247SPORTS COMPOSITE Four-year cycle Incoming high-schoo",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/recruiting-cycle-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/recruiting-cycle.json"
+}

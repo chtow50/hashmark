@@ -1,0 +1,38 @@
+{
+  "url": "http://127.0.0.1:8081/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "HASHMARK · 2026 Preseason Board",
+      "hasCanvas": false,
+      "bodyTextLen": 1873,
+      "bodyTextHash": "ae2ab1d2c7a50bb0beb1ed86605d5bdcdb37bc473817ceffd1b6f9390a9c6ae7",
+      "bodyTextPrefix": "HASHMARK Board Rankings Matchup Recruiting Talent States The Mod",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "HASHMARK · 2026 Preseason Board",
+      "hasCanvas": false,
+      "bodyTextLen": 1650,
+      "bodyTextHash": "95b67c561b5a14ede0696636ce2ba06b9ba1f297ccf8a728b236f007197b4bc2",
+      "bodyTextPrefix": "HASHMARK 2026 PRESEASON · HX 2026.1 The board is posted. HASHMAR",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-built.json",
+  "divergesFromBaseline": false,
+  "baselineReasons": []
+}
