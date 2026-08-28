@@ -51,6 +51,7 @@ function ModelPage() {
           <p className="mt-2 text-sm text-muted">
             Walk-forward Top 25 balanced ≈ 0.646. Only talent and prior rating beat season-to-season noise.
             QB continuity, coach tenure, and SOS were tested and zeroed — they made the score worse.
+            A separate Connelly-residual term moved ten new-HC ratings on this board. Tenure stays zeroed.
           </p>
           <ul className="mt-4 space-y-4">
             {WEIGHTS.map((row) => (
@@ -121,6 +122,12 @@ prev    = d × ${MODEL.pointsPerElo}`}
           <p>
             Offensive-line mass is on the talent Size board as a measurable. It is not a term in
             HX. The talent composite is the depth-weighted 247 of the two-deep, transfers included.
+          </p>
+          <p>
+            Ten 2026 coach changes carry a Connelly residual on the rankings board
+            (κ = −0.25, 15% OC bump). Ole Miss drops to 8th; Florida climbs to 24th;
+            Virginia Tech to 49th. Week 0 matchup win% is frozen at the pre-move HX,
+            including Hawaiʻi at Stanford (Hawaiʻi 53.8%, HAW −1.4).
           </p>
         </div>
       </Panel>

@@ -225,7 +225,7 @@ export const getTeam = createServerFn({ method: "GET" })
               ht.name as "homeName", at.name as "awayName",
               ht.short_name as "homeShort", at.short_name as "awayShort",
               ht.color_primary as "homeColor", at.color_primary as "awayColor",
-              hr.hx_rating as "homeHx", ar.hx_rating as "awayHx",
+              coalesce(g.lock_home_hx, hr.hx_rating) as "homeHx", coalesce(g.lock_away_hx, ar.hx_rating) as "awayHx",
               hr.hx_rank as "homeRank", ar.hx_rank as "awayRank",
               hr.offense_rating as "homeOff", ar.offense_rating as "awayOff",
               hr.defense_rating as "homeDef", ar.defense_rating as "awayDef",
@@ -312,7 +312,7 @@ export const listGames = createServerFn({ method: "GET" }).handler(async () => {
             ht.name as "homeName", at.name as "awayName",
             ht.short_name as "homeShort", at.short_name as "awayShort",
             ht.color_primary as "homeColor", at.color_primary as "awayColor",
-            hr.hx_rating as "homeHx", ar.hx_rating as "awayHx",
+            coalesce(g.lock_home_hx, hr.hx_rating) as "homeHx", coalesce(g.lock_away_hx, ar.hx_rating) as "awayHx",
             hr.hx_rank as "homeRank", ar.hx_rank as "awayRank",
             hr.offense_rating as "homeOff", ar.offense_rating as "awayOff",
             hr.defense_rating as "homeDef", ar.defense_rating as "awayDef",
@@ -357,12 +357,35 @@ export const getMatchup = createServerFn({ method: "GET" })
       [home.id, away.id],
     );
     const mappedPlayers = players.map(mapPlayer);
+    let prediction = predictMatchup(home, away);
+    const locked = await sql.query<{
+      lockHomeHx: number;
+      lockAwayHx: number;
+      neutral: boolean;
+    }>(
+      `select g.lock_home_hx as "lockHomeHx", g.lock_away_hx as "lockAwayHx", g.neutral
+       from games g
+       join teams ht on ht.id = g.home_team_id
+       join teams at on at.id = g.away_team_id
+       where g.lock_home_hx is not null
+         and ht.slug = $1 and at.slug = $2
+       limit 1`,
+      [data.home, data.away],
+    );
+    const lock = locked[0];
+    if (lock) {
+      prediction = predictMatchup(
+        { ...home, hxRating: Number(lock.lockHomeHx) },
+        { ...away, hxRating: Number(lock.lockAwayHx) },
+        { neutral: Boolean(lock.neutral) },
+      );
+    }
     return {
       home,
       away,
       homePlayers: mappedPlayers.filter((p) => p.teamId === home.id),
       awayPlayers: mappedPlayers.filter((p) => p.teamId === away.id),
-      prediction: predictMatchup(home, away),
+      prediction,
     };
   });
 
