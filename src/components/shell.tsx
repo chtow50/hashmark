@@ -100,11 +100,22 @@ export function AppShell({ children }: { children: ReactNode }) {
       </header>
       <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10">{children}</div>
       <footer className="border-t border-line">
-        <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-8 text-sm text-muted sm:flex-row sm:items-center sm:justify-between sm:px-6">
-          <span className="font-display tracking-[0.16em] text-faint">
-            HASHMARK · HX {MODEL.version}
-          </span>
-          <span>Power ratings, composite recruiting, roster science.</span>
+        <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-8 text-sm text-muted sm:px-6">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+            <span className="font-display tracking-[0.16em] text-faint">
+              HASHMARK · HX {MODEL.version} · hashmarkcfb.com
+            </span>
+            <a href="mailto:hello@hashmarkcfb.com" className="hover:text-fg">
+              hello@hashmarkcfb.com
+            </a>
+          </div>
+          <nav className="flex flex-wrap gap-x-4 gap-y-2">
+            <Link to="/" className="hover:text-fg">Board</Link>
+            <Link to="/schedule" className="hover:text-fg">Schedule</Link>
+            <Link to="/rankings" className="hover:text-fg">Rankings</Link>
+            <Link to="/matchup" className="hover:text-fg">Matchup</Link>
+            <Link to="/model" className="hover:text-fg">The Model</Link>
+          </nav>
         </div>
       </footer>
     </div>

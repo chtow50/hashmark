@@ -3,29 +3,34 @@ import { ArrowRight } from "lucide-react";
 import { PageHead, Panel } from "@/components/shell";
 import { Button } from "@/components/ui/button";
 import { DeltaChip, RankNum, Stat, TeamLink, TeamSwatch, WinBar } from "@/components/marks";
-import { listGames, listTeams } from "@/lib/cfb/queries";
+import { listGames, listSchedule, listTeams } from "@/lib/cfb/queries";
+import { todayChicago } from "@/lib/cfb/chicago";
 import { predictMatchup } from "@/lib/cfb/model";
 import { apLabel, fmtNum, fmtPct } from "@/lib/utils";
 
 export const Route = createFileRoute("/")({
   loader: async () => {
-    const [teams, games] = await Promise.all([listTeams(), listGames()]);
+    const date = todayChicago();
+    const [teams, games, slate] = await Promise.all([
+      listTeams(),
+      listGames(),
+      listSchedule({ data: { date } }),
+    ]);
     const top = new Set(teams.slice(0, 20).map((t) => t.slug));
     const notable = games.filter((g) => top.has(g.homeSlug) && top.has(g.awaySlug));
-    return { teams, games: notable.length ? notable : games.slice(0, 12) };
+    const featured = slate.find((g) => g.status !== "final") ?? slate[0] ?? null;
+    return { teams, games: notable.length ? notable : games.slice(0, 12), featured };
   },
   component: Home,
   head: () => ({
-    meta: [{ title: "HASHMARK · 2026 Preseason Board" }],
+    meta: [{ title: "HASHMARK · Week 0 board" }],
   }),
 });
 
 function Home() {
-  const { teams, games } = Route.useLoaderData();
+  const { teams, games, featured } = Route.useLoaderData();
   const top = teams.slice(0, 25);
   const one = teams[0];
-  const featured =
-    games.find((g) => g.homeSlug === "texas" && g.awaySlug === "ohio-state") ?? games[0];
   const featurePred = featured
     ? predictMatchup(
         { hxRating: featured.homeHx, offenseRating: featured.homeOff, defenseRating: featured.homeDef },
@@ -46,9 +51,9 @@ function Home() {
   return (
     <div className="space-y-10">
       <PageHead
-        kicker="2026 Preseason · HX 2026.2"
-        title="The board is posted."
-        lede="HASHMARK runs a single rating — HX — from recruiting talent, last year’s SP+/Elo/SRS, four-year win trend, returning production, and portal net. Full FBS. The AP column is the Aug 17 preseason ballot."
+        kicker="Week 0 · HX 2026.2"
+        title="Week 0 board"
+        lede="HASHMARK runs a single rating — HX — from recruiting talent, last year’s SP+/Elo/SRS, four-year win trend, returning production, and portal net. Full 136 FBS. The AP column is the Aug 17 preseason ballot."
       />
 
       {one ? (
@@ -111,7 +116,9 @@ function Home() {
                 Week {featured.week} · {featured.location}
               </p>
               <h2 className="mt-2 font-display text-2xl tracking-wide">
-                {featured.awayShort} at {featured.homeShort}
+                {featured.neutral
+                  ? `${featured.awayShort} vs ${featured.homeShort}`
+                  : `${featured.awayShort} at ${featured.homeShort}`}
               </h2>
               <p className="mt-1 text-sm text-muted">{featured.headline ?? "Model matchup"}</p>
               <div className="mt-5">
@@ -130,7 +137,11 @@ function Home() {
               <Button asChild variant="outline" className="mt-5 w-full">
                 <Link
                   to="/matchup"
-                  search={{ home: featured.homeSlug, away: featured.awaySlug }}
+                  search={{
+                    home: featured.homeSlug,
+                    away: featured.awaySlug,
+                    ...(featured.neutral ? { neutral: true } : {}),
+                  }}
                 >
                   Open matchup
                   <ArrowRight className="size-4" />
