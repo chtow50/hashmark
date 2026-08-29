@@ -8,6 +8,9 @@ import { todayChicago } from "@/lib/cfb/chicago";
 import { predictMatchup } from "@/lib/cfb/model";
 import { apLabel, fmtNum, fmtPct } from "@/lib/utils";
 
+/** HASHMARK board week. Opening weekend is Week 0; games.week in seed is NCAA week 1. */
+const BOARD_WEEK = 0;
+
 export const Route = createFileRoute("/")({
   loader: async () => {
     const date = todayChicago();
@@ -23,7 +26,7 @@ export const Route = createFileRoute("/")({
   },
   component: Home,
   head: () => ({
-    meta: [{ title: "HASHMARK · Week 0 board" }],
+    meta: [{ title: `HASHMARK · Week ${BOARD_WEEK} board` }],
   }),
 });
 
@@ -51,8 +54,8 @@ function Home() {
   return (
     <div className="space-y-10">
       <PageHead
-        kicker="Week 0 · HX 2026.2"
-        title="Week 0 board"
+        kicker={`Week ${BOARD_WEEK} · HX 2026.2`}
+        title={`Week ${BOARD_WEEK} board`}
         lede="HASHMARK runs a single rating — HX — from recruiting talent, last year’s SP+/Elo/SRS, four-year win trend, returning production, and portal net. Full 136 FBS. The AP column is the Aug 17 preseason ballot."
       />
 
@@ -113,7 +116,7 @@ function Home() {
           {featured && featurePred ? (
             <Panel>
               <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-faint">
-                Week {featured.week} · {featured.location}
+                Week {BOARD_WEEK} · {featured.location}
               </p>
               <h2 className="mt-2 font-display text-2xl tracking-wide">
                 {featured.neutral
