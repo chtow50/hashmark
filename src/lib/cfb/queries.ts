@@ -332,6 +332,7 @@ export const getMatchup = createServerFn({ method: "GET" })
     z.object({
       home: z.string().min(1),
       away: z.string().min(1),
+      neutral: z.boolean().optional(),
     }),
   )
   .handler(async ({ data }) => {
@@ -345,7 +346,9 @@ export const getMatchup = createServerFn({ method: "GET" })
     const mapped = rows.map(mapTeam);
     const home = mapped.find((t) => t.slug === data.home) ?? null;
     const away = mapped.find((t) => t.slug === data.away) ?? null;
-    if (!home || !away) return { home, away, homePlayers: [], awayPlayers: [], prediction: null };
+    if (!home || !away) {
+      return { home, away, homePlayers: [], awayPlayers: [], prediction: null, appliedNeutral: false };
+    }
 
     const players = await sql.query<Player>(
       `select id, team_id as "teamId", name, jersey, position, depth,
@@ -357,13 +360,25 @@ export const getMatchup = createServerFn({ method: "GET" })
       [home.id, away.id],
     );
     const mappedPlayers = players.map(mapPlayer);
-    let prediction = predictMatchup(home, away);
+    const scheduled = await sql.query<{ neutral: boolean }>(
+      `select g.neutral
+       from games g
+       join teams ht on ht.id = g.home_team_id
+       join teams at on at.id = g.away_team_id
+       where (ht.slug = $1 and at.slug = $2) or (ht.slug = $2 and at.slug = $1)
+       order by g.kickoff_date
+       limit 1`,
+      [data.home, data.away],
+    );
+    const appliedNeutral = data.neutral ?? Boolean(scheduled[0]?.neutral);
+
+    let homeForPred = home;
+    let awayForPred = away;
     const locked = await sql.query<{
       lockHomeHx: number;
       lockAwayHx: number;
-      neutral: boolean;
     }>(
-      `select g.lock_home_hx as "lockHomeHx", g.lock_away_hx as "lockAwayHx", g.neutral
+      `select g.lock_home_hx as "lockHomeHx", g.lock_away_hx as "lockAwayHx"
        from games g
        join teams ht on ht.id = g.home_team_id
        join teams at on at.id = g.away_team_id
@@ -374,18 +389,17 @@ export const getMatchup = createServerFn({ method: "GET" })
     );
     const lock = locked[0];
     if (lock) {
-      prediction = predictMatchup(
-        { ...home, hxRating: Number(lock.lockHomeHx) },
-        { ...away, hxRating: Number(lock.lockAwayHx) },
-        { neutral: Boolean(lock.neutral) },
-      );
+      homeForPred = { ...home, hxRating: Number(lock.lockHomeHx) };
+      awayForPred = { ...away, hxRating: Number(lock.lockAwayHx) };
     }
+    const prediction = predictMatchup(homeForPred, awayForPred, { neutral: appliedNeutral });
     return {
       home,
       away,
       homePlayers: mappedPlayers.filter((p) => p.teamId === home.id),
       awayPlayers: mappedPlayers.filter((p) => p.teamId === away.id),
       prediction,
+      appliedNeutral,
     };
   });
 

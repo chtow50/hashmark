@@ -5,21 +5,35 @@ import { RosterDuel } from "@/components/roster-duel";
 import { getMatchup, listTeams } from "@/lib/cfb/queries";
 import { fmtNum, fmtPct } from "@/lib/utils";
 
-type Search = { home?: string; away?: string };
+type Search = { home?: string; away?: string; neutral?: boolean };
+
+function parseNeutral(v: unknown): boolean | undefined {
+  if (v === true || v === "1" || v === "true") return true;
+  if (v === false || v === "0" || v === "false") return false;
+  return undefined;
+}
 
 export const Route = createFileRoute("/matchup")({
   validateSearch: (s: Record<string, unknown>): Search => ({
     home: typeof s.home === "string" ? s.home : "texas",
     away: typeof s.away === "string" ? s.away : "ohio-state",
+    ...(parseNeutral(s.neutral) !== undefined ? { neutral: parseNeutral(s.neutral) } : {}),
   }),
   loaderDeps: ({ search }) => ({
     home: search.home ?? "texas",
     away: search.away ?? "ohio-state",
+    neutral: search.neutral,
   }),
   loader: async ({ deps }) => {
     const [teams, match] = await Promise.all([
       listTeams(),
-      getMatchup({ data: { home: deps.home, away: deps.away } }),
+      getMatchup({
+        data: {
+          home: deps.home,
+          away: deps.away,
+          ...(deps.neutral !== undefined ? { neutral: deps.neutral } : {}),
+        },
+      }),
     ]);
     return { teams, match };
   },
@@ -33,10 +47,16 @@ function MatchupPage() {
   const navigate = useNavigate({ from: "/matchup" });
   const homeSlug = search.home ?? "texas";
   const awaySlug = search.away ?? "ohio-state";
+  const appliedNeutral = match.appliedNeutral ?? false;
 
-  function setPair(next: { home?: string; away?: string }) {
+  function setPair(next: { home?: string; away?: string; neutral?: boolean }) {
+    const neutral = next.neutral ?? appliedNeutral;
     navigate({
-      search: { home: next.home ?? homeSlug, away: next.away ?? awaySlug },
+      search: {
+        home: next.home ?? homeSlug,
+        away: next.away ?? awaySlug,
+        ...(neutral ? { neutral: true } : { neutral: false }),
+      },
     });
   }
 
@@ -47,7 +67,7 @@ function MatchupPage() {
       <PageHead
         kicker="Predictive model"
         title="Head to head"
-        lede="Type a school or pick from the list. HX seeds an Elo rating (1500 + 55 × composite). Home-field is 60 Elo points. Win probability and spread come from that gap — the same engine calibrated at 70.8% straight-up on 2019–2025."
+        lede="Type a school or pick from the list. HX seeds an Elo rating (1500 + 55 × composite). Home-field is 60 Elo points unless Neutral site is on (Dublin, CFP, etc.). Win probability and spread come from that gap."
       />
 
       <div className="mb-6 grid gap-4 sm:grid-cols-[1fr_auto_1fr] sm:items-start">
@@ -58,8 +78,8 @@ function MatchupPage() {
           teams={teams}
           onChange={(slug) => setPair({ home: slug })}
         />
-        <div className="flex flex-col">
-          <span className="mb-2 hidden text-[11px] uppercase tracking-[0.14em] text-transparent sm:block" aria-hidden>
+        <div className="flex flex-col gap-2">
+          <span className="mb-0 hidden text-[11px] uppercase tracking-[0.14em] text-transparent sm:block" aria-hidden>
             Home
           </span>
           <button
@@ -68,6 +88,18 @@ function MatchupPage() {
             onClick={() => setPair({ home: awaySlug, away: homeSlug })}
           >
             Swap
+          </button>
+          <button
+            type="button"
+            aria-pressed={appliedNeutral}
+            className={
+              appliedNeutral
+                ? "h-12 w-full rounded-lg bg-accent px-4 text-sm text-accent-fg sm:w-auto"
+                : "h-12 w-full rounded-lg bg-raised px-4 text-sm text-muted hover:text-fg sm:w-auto"
+            }
+            onClick={() => setPair({ neutral: !appliedNeutral })}
+          >
+            Neutral site
           </button>
         </div>
         <TeamSelect
@@ -112,7 +144,7 @@ function MatchupPage() {
 
           <div className="grid gap-6 lg:grid-cols-3">
             <Panel>
-              <Stat label="HX edge" value={prediction.edge > 0 ? `+${fmtNum(prediction.edge, 2)}` : fmtNum(prediction.edge, 2)} hint="Includes home field" />
+              <Stat label="HX edge" value={prediction.edge > 0 ? `+${fmtNum(prediction.edge, 2)}` : fmtNum(prediction.edge, 2)} hint={appliedNeutral ? "Neutral site · HFA off" : "Includes home field"} />
             </Panel>
             <Panel>
               <Stat label="Home win" value={fmtPct(prediction.homeWinPct * 100, 1)} />
