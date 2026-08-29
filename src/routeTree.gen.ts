@@ -14,6 +14,7 @@ import { Route as MatchupRouteImport } from './routes/matchup'
 import { Route as ModelRouteImport } from './routes/model'
 import { Route as RankingsRouteImport } from './routes/rankings'
 import { Route as RecruitingRouteImport } from './routes/recruiting'
+import { Route as ScheduleRouteImport } from './routes/schedule'
 import { Route as StatesRouteImport } from './routes/states'
 import { Route as StoriesRouteImport } from './routes/stories'
 import { Route as TalentRouteImport } from './routes/talent'
@@ -43,6 +44,11 @@ const RankingsRoute = RankingsRouteImport.update({
 const RecruitingRoute = RecruitingRouteImport.update({
   id: '/recruiting',
   path: '/recruiting',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ScheduleRoute = ScheduleRouteImport.update({
+  id: '/schedule',
+  path: '/schedule',
   getParentRoute: () => rootRouteImport,
 } as any)
 const StatesRoute = StatesRouteImport.update({
@@ -77,6 +83,7 @@ export interface FileRoutesByFullPath {
   '/model': typeof ModelRoute
   '/rankings': typeof RankingsRoute
   '/recruiting': typeof RecruitingRoute
+  '/schedule': typeof ScheduleRoute
   '/states': typeof StatesRoute
   '/stories': typeof StoriesRouteWithChildren
   '/talent': typeof TalentRoute
@@ -89,6 +96,7 @@ export interface FileRoutesByTo {
   '/model': typeof ModelRoute
   '/rankings': typeof RankingsRoute
   '/recruiting': typeof RecruitingRoute
+  '/schedule': typeof ScheduleRoute
   '/states': typeof StatesRoute
   '/stories': typeof StoriesRouteWithChildren
   '/talent': typeof TalentRoute
@@ -102,6 +110,7 @@ export interface FileRoutesById {
   '/model': typeof ModelRoute
   '/rankings': typeof RankingsRoute
   '/recruiting': typeof RecruitingRoute
+  '/schedule': typeof ScheduleRoute
   '/states': typeof StatesRoute
   '/stories': typeof StoriesRouteWithChildren
   '/talent': typeof TalentRoute
@@ -116,6 +125,7 @@ export interface FileRouteTypes {
     | '/model'
     | '/rankings'
     | '/recruiting'
+    | '/schedule'
     | '/states'
     | '/stories'
     | '/talent'
@@ -128,6 +138,7 @@ export interface FileRouteTypes {
     | '/model'
     | '/rankings'
     | '/recruiting'
+    | '/schedule'
     | '/states'
     | '/stories'
     | '/talent'
@@ -140,6 +151,7 @@ export interface FileRouteTypes {
     | '/model'
     | '/rankings'
     | '/recruiting'
+    | '/schedule'
     | '/states'
     | '/stories'
     | '/talent'
@@ -153,6 +165,7 @@ export interface RootRouteChildren {
   ModelRoute: typeof ModelRoute
   RankingsRoute: typeof RankingsRoute
   RecruitingRoute: typeof RecruitingRoute
+  ScheduleRoute: typeof ScheduleRoute
   StatesRoute: typeof StatesRoute
   StoriesRoute: typeof StoriesRouteWithChildren
   TalentRoute: typeof TalentRoute
@@ -194,6 +207,13 @@ declare module '@tanstack/react-router' {
       path: '/recruiting'
       fullPath: '/recruiting'
       preLoaderRoute: typeof RecruitingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/schedule': {
+      id: '/schedule'
+      path: '/schedule'
+      fullPath: '/schedule'
+      preLoaderRoute: typeof ScheduleRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/states': {
@@ -251,6 +271,7 @@ const rootRouteChildren: RootRouteChildren = {
   ModelRoute: ModelRoute,
   RankingsRoute: RankingsRoute,
   RecruitingRoute: RecruitingRoute,
+  ScheduleRoute: ScheduleRoute,
   StatesRoute: StatesRoute,
   StoriesRoute: StoriesRouteWithChildren,
   TalentRoute: TalentRoute,

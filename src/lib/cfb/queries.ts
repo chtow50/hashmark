@@ -3,7 +3,17 @@ import { z } from "zod";
 import { getSql } from "@/lib/db";
 import { predictMatchup } from "./model";
 import { POS_SQL_ARRAY, TALENT_UNITS_JOIN } from "./positions";
-import type { GameRow, Player, RecruitingClass, StateCommit, StateRow, TeamSummary } from "./types";
+import { CHICAGO_TZ, ymdInTimeZone } from "./chicago";
+import type {
+  GameRow,
+  GameStatus,
+  Player,
+  RecruitingClass,
+  ScheduleGame,
+  StateCommit,
+  StateRow,
+  TeamSummary,
+} from "./types";
 
 type TeamDb = {
   id: number;
@@ -326,6 +336,84 @@ export const listGames = createServerFn({ method: "GET" }).handler(async () => {
   );
   return rows.map(numGame);
 });
+
+type ScheduleDb = GameRow & {
+  kickoffAt: unknown;
+  vegasSpread: number | string | null;
+  vegasTotal: number | string | null;
+  homeScore: number | null;
+  awayScore: number | null;
+  status: string | null;
+};
+
+function isoTs(value: unknown): string | null {
+  if (value == null) return null;
+  if (value instanceof Date) return Number.isNaN(value.getTime()) ? null : value.toISOString();
+  if (typeof value === "string") {
+    const parsed = new Date(value);
+    return Number.isNaN(parsed.getTime()) ? null : parsed.toISOString();
+  }
+  return null;
+}
+
+function mapSchedule(g: ScheduleDb): ScheduleGame {
+  const base = numGame(g);
+  const status: GameStatus = g.status === "final" ? "final" : "scheduled";
+  return {
+    ...base,
+    kickoffAt: isoTs(g.kickoffAt),
+    vegasSpread: g.vegasSpread == null ? null : Number(g.vegasSpread),
+    vegasTotal: g.vegasTotal == null ? null : Number(g.vegasTotal),
+    homeScore: g.homeScore == null ? null : Number(g.homeScore),
+    awayScore: g.awayScore == null ? null : Number(g.awayScore),
+    status,
+  };
+}
+
+/** FBS slate for one America/Chicago civil date. Uses lock HX the same way as listGames. */
+export const listSchedule = createServerFn({ method: "GET" })
+  .validator(z.object({ date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/) }))
+  .handler(async ({ data }) => {
+    const sql = await getSql();
+    const rows = await sql.query<ScheduleDb>(
+      `select g.id, g.week, g.kickoff_date as "kickoffDate",
+              ht.slug as "homeSlug", at.slug as "awaySlug",
+              ht.name as "homeName", at.name as "awayName",
+              ht.short_name as "homeShort", at.short_name as "awayShort",
+              ht.color_primary as "homeColor", at.color_primary as "awayColor",
+              coalesce(g.lock_home_hx, hr.hx_rating) as "homeHx", coalesce(g.lock_away_hx, ar.hx_rating) as "awayHx",
+              hr.hx_rank as "homeRank", ar.hx_rank as "awayRank",
+              hr.offense_rating as "homeOff", ar.offense_rating as "awayOff",
+              hr.defense_rating as "homeDef", ar.defense_rating as "awayDef",
+              g.neutral, g.location, g.headline,
+              g.kickoff_at as "kickoffAt",
+              g.vegas_spread as "vegasSpread",
+              g.vegas_total as "vegasTotal",
+              g.home_score as "homeScore",
+              g.away_score as "awayScore",
+              g.status
+       from games g
+       join teams ht on ht.id = g.home_team_id
+       join teams at on at.id = g.away_team_id
+       join rankings hr on hr.team_id = ht.id and hr.season = 2026 and hr.week = 0
+       join rankings ar on ar.team_id = at.id and ar.season = 2026 and ar.week = 0
+       where g.kickoff_date between ($1::date - 1) and ($1::date + 1)
+       order by g.kickoff_at nulls last, g.id`,
+      [data.date],
+    );
+    return rows
+      .map(mapSchedule)
+      .filter((g) => {
+        const ymd = g.kickoffAt ? ymdInTimeZone(new Date(g.kickoffAt), CHICAGO_TZ) : g.kickoffDate;
+        return ymd === data.date;
+      })
+      .sort((a, b) => {
+        const ta = a.kickoffAt ? Date.parse(a.kickoffAt) : Number.POSITIVE_INFINITY;
+        const tb = b.kickoffAt ? Date.parse(b.kickoffAt) : Number.POSITIVE_INFINITY;
+        if (ta !== tb) return ta - tb;
+        return a.id - b.id;
+      });
+  });
 
 export const getMatchup = createServerFn({ method: "GET" })
   .validator(

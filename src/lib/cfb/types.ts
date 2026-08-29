@@ -124,6 +124,18 @@ export type GameRow = {
   headline: string | null;
 };
 
+export type GameStatus = "scheduled" | "final";
+
+/** Game row plus the schedule-board columns from 0006. */
+export type ScheduleGame = GameRow & {
+  kickoffAt: string | null;
+  vegasSpread: number | null;
+  vegasTotal: number | null;
+  homeScore: number | null;
+  awayScore: number | null;
+  status: GameStatus;
+};
+
 export type StateRow = {
   code: string;
   name: string;
