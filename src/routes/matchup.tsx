@@ -1,8 +1,10 @@
+import { useEffect, useState } from "react";
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { PageHead, Panel, TeamSelect } from "@/components/shell";
 import { CompareRow, Stat, TeamSwatch, WinBar } from "@/components/marks";
 import { RosterDuel } from "@/components/roster-duel";
 import { getMatchup, listTeams } from "@/lib/cfb/queries";
+import { RESTAMP_PERIODS, restamp, type RestampPeriod } from "@/lib/cfb/restamp";
 import { fmtNum, fmtPct } from "@/lib/utils";
 
 type Search = { home?: string; away?: string; neutral?: boolean };
@@ -48,6 +50,7 @@ function MatchupPage() {
   const homeSlug = search.home ?? "texas";
   const awaySlug = search.away ?? "ohio-state";
   const appliedNeutral = match.appliedNeutral ?? false;
+  const pairKey = `${homeSlug}|${awaySlug}|${appliedNeutral}`;
 
   function setPair(next: { home?: string; away?: string; neutral?: boolean }) {
     const swapped = next.home !== undefined && next.away !== undefined;
@@ -63,6 +66,28 @@ function MatchupPage() {
   }
 
   const { home, away, prediction, homePlayers, awayPlayers } = match;
+  const [period, setPeriod] = useState<RestampPeriod | null>(null);
+  const [homeScore, setHomeScore] = useState("");
+  const [awayScore, setAwayScore] = useState("");
+  const homePts = homeScore === "" ? NaN : Number(homeScore);
+  const awayPts = awayScore === "" ? NaN : Number(awayScore);
+  const stamped =
+    prediction && period && Number.isFinite(homePts) && Number.isFinite(awayPts)
+      ? restamp(prediction.spread, homePts, awayPts, period)
+      : null;
+  const winPct = stamped?.pHome ?? prediction?.homeWinPct;
+  const periodLabel: Record<RestampPeriod, string> = {
+    Q1: "Q1",
+    half: "Half",
+    Q3: "Q3",
+    FINAL: "FINAL",
+  };
+
+  useEffect(() => {
+    setPeriod(null);
+    setHomeScore("");
+    setAwayScore("");
+  }, [pairKey]);
 
   return (
     <div>
@@ -137,11 +162,24 @@ function MatchupPage() {
             </div>
             <div className="mt-8">
               <WinBar
-                homePct={prediction.homeWinPct}
+                homePct={winPct ?? prediction.homeWinPct}
                 homeName={home.shortName}
                 awayName={away.shortName}
               />
             </div>
+            <RestampBar
+              key={pairKey}
+              homeName={home.shortName}
+              awayName={away.shortName}
+              period={period}
+              periodLabel={periodLabel}
+              homeScore={homeScore}
+              awayScore={awayScore}
+              stamped={stamped}
+              onPeriod={setPeriod}
+              onHomeScore={setHomeScore}
+              onAwayScore={setAwayScore}
+            />
           </Panel>
 
           <div className="grid gap-6 lg:grid-cols-3">
@@ -210,6 +248,106 @@ function MatchupPage() {
           </Panel>
         </div>
       )}
+    </div>
+  );
+}
+
+
+function RestampBar({
+  homeName,
+  awayName,
+  period,
+  periodLabel,
+  homeScore,
+  awayScore,
+  stamped,
+  onPeriod,
+  onHomeScore,
+  onAwayScore,
+}: {
+  homeName: string;
+  awayName: string;
+  period: RestampPeriod | null;
+  periodLabel: Record<RestampPeriod, string>;
+  homeScore: string;
+  awayScore: string;
+  stamped: ReturnType<typeof restamp> | null;
+  onPeriod: (p: RestampPeriod | null) => void;
+  onHomeScore: (v: string) => void;
+  onAwayScore: (v: string) => void;
+}) {
+  const missing = period != null && (homeScore === "" || awayScore === "");
+  return (
+    <div className="mt-8 border-t border-line pt-6">
+      <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-faint">In-game restamp</p>
+      <p className="mt-1 text-sm text-muted">
+        Same HX prior. Type the score at the stamp. Not a live feed.
+      </p>
+      <div className="mt-4 flex flex-wrap gap-2">
+        <button
+          type="button"
+          aria-pressed={period == null}
+          className={
+            period == null
+              ? "h-10 rounded-lg bg-accent px-3 text-sm text-accent-fg"
+              : "h-10 rounded-lg bg-raised px-3 text-sm text-muted hover:text-fg"
+          }
+          onClick={() => onPeriod(null)}
+        >
+          Pregame
+        </button>
+        {RESTAMP_PERIODS.map((p) => (
+          <button
+            key={p}
+            type="button"
+            aria-pressed={period === p}
+            className={
+              period === p
+                ? "h-10 rounded-lg bg-accent px-3 text-sm text-accent-fg"
+                : "h-10 rounded-lg bg-raised px-3 text-sm text-muted hover:text-fg"
+            }
+            onClick={() => onPeriod(p)}
+          >
+            {periodLabel[p]}
+          </button>
+        ))}
+      </div>
+      {period ? (
+        <div className="mt-4 flex flex-wrap items-end gap-3">
+          <label className="text-sm text-muted">
+            {homeName}
+            <input
+              inputMode="numeric"
+              className="mt-1 block h-11 w-20 rounded-lg bg-raised px-3 tabular text-fg"
+              value={homeScore}
+              onChange={(e) => onHomeScore(e.target.value.replace(/[^0-9]/g, ""))}
+            />
+          </label>
+          <span className="pb-3 text-muted">–</span>
+          <label className="text-sm text-muted">
+            {awayName}
+            <input
+              inputMode="numeric"
+              className="mt-1 block h-11 w-20 rounded-lg bg-raised px-3 tabular text-fg"
+              value={awayScore}
+              onChange={(e) => onAwayScore(e.target.value.replace(/[^0-9]/g, ""))}
+            />
+          </label>
+        </div>
+      ) : null}
+      {missing ? (
+        <p className="mt-3 text-sm text-muted">Type both scores to restamp.</p>
+      ) : null}
+      {stamped ? (
+        <p className="mt-3 text-sm text-muted">
+          {periodLabel[stamped.period]} restamp{" "}
+          {stamped.restampedSpread >= 0
+            ? `${homeName} −${fmtNum(stamped.restampedSpread, 1)}`
+            : `${awayName} −${fmtNum(-stamped.restampedSpread, 1)}`}
+          {" · "}
+          {homeName} {fmtPct(stamped.pHome * 100, 1)}
+        </p>
+      ) : null}
     </div>
   );
 }
