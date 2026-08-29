@@ -21,7 +21,11 @@ export const Route = createFileRoute("/")({
     ]);
     const top = new Set(teams.slice(0, 20).map((t) => t.slug));
     const notable = games.filter((g) => top.has(g.homeSlug) && top.has(g.awaySlug));
-    const featured = slate.find((g) => g.status !== "final") ?? slate[0] ?? null;
+    const now = Date.now();
+    const upcoming = slate.find(
+      (g) => g.status !== "final" && g.kickoffAt != null && Date.parse(g.kickoffAt) > now,
+    );
+    const featured = upcoming ?? slate.find((g) => g.status === "final") ?? slate[0] ?? null;
     return { teams, games: notable.length ? notable : games.slice(0, 12), featured };
   },
   component: Home,
