@@ -50,14 +50,16 @@ function MatchupPage() {
   const appliedNeutral = match.appliedNeutral ?? false;
 
   function setPair(next: { home?: string; away?: string; neutral?: boolean }) {
-    const neutral = next.neutral ?? appliedNeutral;
-    navigate({
-      search: {
-        home: next.home ?? homeSlug,
-        away: next.away ?? awaySlug,
-        ...(neutral ? { neutral: true } : { neutral: false }),
-      },
-    });
+    const swapped = next.home !== undefined && next.away !== undefined;
+    const toggling = next.neutral !== undefined;
+    const search: Search = {
+      home: next.home ?? homeSlug,
+      away: next.away ?? awaySlug,
+    };
+    if (toggling || swapped) {
+      search.neutral = next.neutral ?? appliedNeutral;
+    }
+    navigate({ search });
   }
 
   const { home, away, prediction, homePlayers, awayPlayers } = match;
