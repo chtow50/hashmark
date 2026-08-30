@@ -18,12 +18,23 @@ export const Route = createRootRoute({
           "HASHMARK is a college football intelligence desk: HX power rankings, composite recruiting, roster talent, and head-to-head matchup modeling.",
       },
       { name: "theme-color", content: "#09090b" },
+      { property: "og:site_name", content: APP_NAME },
+      { property: "og:title", content: APP_NAME },
+      {
+        property: "og:description",
+        content:
+          "College football ratings desk. One number: HX. Full 136 FBS.",
+      },
+      { property: "og:image", content: "https://hashmarkcfb.com/og.jpg" },
+      { property: "og:url", content: "https://hashmarkcfb.com" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: "https://hashmarkcfb.com/og.jpg" },
     ],
     links: [
       { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
+      { rel: "apple-touch-icon", href: "/favicon.svg" },
       { rel: "stylesheet", href: appCss },
-      { rel: "manifest", href: "/__grok/manifest.webmanifest" },
-      { rel: "apple-touch-icon", href: "/__grok/icon-180.png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {

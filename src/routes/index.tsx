@@ -58,7 +58,7 @@ function Home() {
   return (
     <div className="space-y-10">
       <PageHead
-        kicker={`Week ${BOARD_WEEK} · HX 2026.2`}
+        kicker={`Week ${BOARD_WEEK} locked · HX 2026.2`}
         title={`Week ${BOARD_WEEK} board`}
         lede="HASHMARK runs a single rating — HX — from recruiting talent, last year’s SP+/Elo/SRS, four-year win trend, returning production, and portal net. Full 136 FBS. The AP column is the Aug 17 preseason ballot."
       />
@@ -87,7 +87,7 @@ function Home() {
             <div className="grid grid-cols-3 gap-3 sm:gap-6">
               <Stat label="HX" value={fmtNum(one.hxRating, 2)} />
               <Stat label="AP" value={apLabel(one.apRank)} />
-              <Stat label="Playoff" value={fmtPct(one.playoffOdds, 0)} />
+              <Stat label="Make 12" value={fmtPct(one.playoffOdds, 0)} />
             </div>
           </div>
         </Panel>

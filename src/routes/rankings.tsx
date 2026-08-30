@@ -91,7 +91,7 @@ function RankingsPage() {
                   Proj W
                 </Th>
                 <Th onClick={() => toggle("playoffOdds")} active={sort === "playoffOdds"}>
-                  CFP
+                  Make 12
                 </Th>
                 <Th onClick={() => toggle("talentScore")} active={sort === "talentScore"}>
                   Talent

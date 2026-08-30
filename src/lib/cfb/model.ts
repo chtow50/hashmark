@@ -12,7 +12,7 @@ export const MODEL = {
   version: "2026.2",
   season: 2026,
   week: 0,
-  weekLabel: "2026 Preseason",
+  weekLabel: "Week 0 locked · next update after Week 1 Sunday",
   eloBase: 1500,
   eloScale: 55,
   homeFieldElo: 60,

@@ -74,7 +74,7 @@ function RecruitingPage() {
       <PageHead
         kicker="247Sports composite"
         title={board === "cycle" ? "Four-year cycle" : `Class of ${year}`}
-        lede="Incoming high-school classes only. Flip the year. This is not roster talent — transfers sit on the talent board, not here."
+        lede="Incoming high-school classes only. Class avg is the mean of 247 Composite decimals (×100). Points are 247 Composite. Frozen with the Week 0 board. This is not roster talent — transfers sit on the talent board."
       />
 
       <div className="mb-6 grid grid-cols-2 gap-2 sm:grid-cols-5">

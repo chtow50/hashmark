@@ -77,12 +77,12 @@ function ModelPage() {
             spread is a quadratic on that same gap. Calibrated on 2019–2025 FBS
             games at 70.8% straight-up.
           </p>
-          <pre className="mt-4 overflow-x-auto rounded-lg bg-inset p-4 font-mono text-xs leading-relaxed text-accent">
-{`Elo = ${MODEL.eloBase} + ${MODEL.eloScale} × HX
-P(home) = 1 / (1 + 10^{−(EloΔ + HFA) / ${MODEL.eloDenom}})
+          <pre className="mt-4 overflow-x-auto whitespace-pre-wrap rounded-lg bg-inset p-4 font-mono text-xs leading-relaxed text-accent">
+{`Elo     = ${MODEL.eloBase} + ${MODEL.eloScale} × HX
+P(home) = 1 / (1 + 10^(−(EloΔ + HFA) / ${MODEL.eloDenom}))
 d       = EloΔ + HFA
-spread  = ${MODEL.spreadA} d + ${MODEL.spreadB.toExponential()} d |d|
-prev    = d × ${MODEL.pointsPerElo}`}
+spread  = 0.050835 × d
+        + 4.5795×10⁻⁵ × d × |d|`}
           </pre>
           <p className="mt-3 text-sm leading-relaxed text-muted">
             The old linear map compressed blowouts; this curve was fit on 2019–2023 FBS actual MOV

@@ -43,7 +43,7 @@ function TeamPage() {
           <div className="grid grid-cols-2 gap-6 sm:grid-cols-4">
             <Stat label="HX" value={fmtNum(team.hxRating, 2)} />
             <Stat label="AP" value={apLabel(team.apRank)} hint={apHint(team.hxRank, team.apRank)} />
-            <Stat label="Playoff" value={fmtPct(team.playoffOdds, 1)} />
+            <Stat label="Make 12" value={fmtPct(team.playoffOdds, 1)} />
             <Stat label="Proj W" value={fmtNum(team.projectedWins, 1)} />
           </div>
         </div>
