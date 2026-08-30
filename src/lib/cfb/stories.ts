@@ -15,6 +15,26 @@ export const STORY_DATE = "Friday, Aug 28, 2026";
 
 export const STORIES: Story[] = [
   {
+    slug: "week-0-tape",
+    kicker: "Week 0 tape",
+    headline: "Week 0 tape: 3/6 SU, 1/6 ATS",
+    dek: "Six on the board. Hits USC, UVA, FSU. Misses Dublin, Hawaiʻi, Memphis. HX not retuned.",
+    date: "Sunday, Aug 30, 2026",
+    body: [
+      "The Week 0 board is in. HASHMARK went 3-for-6 straight up and 1-for-6 ATS against the close. Vegas went 4-for-6 SU. This is the first live 2026 proof. The 70.8% SU mark is 2019–2025, not this Saturday.",
+      "Hits: USC 42–26 (HX USC 95.0% / −37.8, Vegas −38.5). Virginia 34–8 (UVA 52.9% / −1.1, Vegas −4) — the ATS hit. FSU 34–17 (FSU 87.7% / −22.6, Vegas −31.5). HX was closer than Vegas on FSU.",
+      "Misses: Dublin, UNC 15–10. HASHMARK had TCU 74.2% / −10.9 Neutral; Vegas TCU −8.5. Hawaiʻi flip: HASHMARK UH 53.8% / −1.4, Vegas Stanford −4, Stanford 37–27. Coach-change was frozen on the matchup; Stanford would have been ~59.6% / −3.6. That is a note, not a retune. Memphis 27–21 at UNLV (HX UNLV 63.5% / −5.3, Vegas UNLV −4).",
+      "NDSU and Sac State proposed lines both hit. They stay off this piece. Not on the 136.",
+    ],
+    whyItMatters: "Sunday tape vs the close is the first 2026 proof. HX stays put.",
+    sources: [
+      {
+        label: "HASHMARK Schedule",
+        href: "https://hashmarkcfb.com/schedule",
+      },
+    ],
+  },
+  {
     slug: "dublin-unc-tcu",
     kicker: "Week 0 · Dublin",
     headline: "College football’s 2026 season opens in Dublin — UNC–TCU, take two",
