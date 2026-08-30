@@ -3,65 +3,81 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { PageHead, Panel } from "@/components/shell";
 import { TeamSwatch } from "@/components/marks";
 import { Button } from "@/components/ui/button";
-import {
-  addDaysYmd,
-  formatChicagoTitle,
-  formatKickCt,
-  isYmd,
-  todayChicago,
-} from "@/lib/cfb/chicago";
+import { formatKickCt, todayChicago } from "@/lib/cfb/chicago";
 import { predictMatchup } from "@/lib/cfb/model";
-import { listSchedule } from "@/lib/cfb/queries";
+import { HASHMARK_MAX_WEEK, listScheduleWeek } from "@/lib/cfb/queries";
 import type { Prediction, ScheduleGame } from "@/lib/cfb/types";
 import { cn, fmtNum, fmtPct } from "@/lib/utils";
 
-type Search = { d?: string };
+type Search = { w?: number };
+
+function parseWeek(v: unknown): number | undefined {
+  const n = typeof v === "number" ? v : typeof v === "string" ? Number(v) : NaN;
+  if (!Number.isInteger(n) || n < 0 || n > HASHMARK_MAX_WEEK) return undefined;
+  return n;
+}
+
+function defaultWeek(ymd: string): number {
+  if (ymd <= "2026-08-30") return 0;
+  if (ymd <= "2026-09-07") return 1;
+  return Math.min(HASHMARK_MAX_WEEK, 2);
+}
 
 export const Route = createFileRoute("/schedule")({
   validateSearch: (s: Record<string, unknown>): Search => {
-    const d = typeof s.d === "string" && isYmd(s.d) ? s.d : undefined;
-    return d ? { d } : {};
+    const w = parseWeek(s.w);
+    return w !== undefined ? { w } : {};
   },
-  loaderDeps: ({ search }) => ({ d: search.d }),
+  loaderDeps: ({ search }) => ({ w: search.w }),
   loader: async ({ deps }) => {
-    const date = deps.d ?? todayChicago();
-    const games = await listSchedule({ data: { date } });
-    return { date, games };
+    const week = deps.w ?? defaultWeek(todayChicago());
+    const games = await listScheduleWeek({ data: { week } });
+    return { week, games };
   },
   component: SchedulePage,
   head: () => ({ meta: [{ title: "Schedule · HASHMARK" }] }),
 });
 
 function SchedulePage() {
-  const { date, games } = Route.useLoaderData();
-  const title = formatChicagoTitle(date);
-  const prev = addDaysYmd(date, -1);
-  const next = addDaysYmd(date, 1);
+  const { week, games } = Route.useLoaderData();
+  const prev = week > 0 ? week - 1 : null;
+  const next = week < HASHMARK_MAX_WEEK ? week + 1 : null;
 
   return (
     <div>
       <PageHead
-        kicker="Week 0 · The slate"
-        title={title}
-        lede="HASHMARK spread and win% from HX. Vegas is the Research CFB consensus — spread and total. Times in America/Chicago."
+        kicker={`Week ${week} · The slate`}
+        title={`Week ${week} slate`}
+        lede="HASHMARK spread and win% from HX. Vegas is the Research CFB consensus. FINAL is locked on the tape. Sorted by kick, America/Chicago."
       />
 
       <div className="mb-5 flex items-center justify-between gap-3">
-        <Button asChild variant="outline" size="sm">
-          <Link to="/schedule" search={{ d: prev }} aria-label={`Previous day, ${formatChicagoTitle(prev)}`}>
+        {prev !== null ? (
+          <Button asChild variant="outline" size="sm">
+            <Link to="/schedule" search={{ w: prev }} aria-label={`Week ${prev}`}>
+              <ChevronLeft className="size-4" />
+              Week {prev}
+            </Link>
+          </Button>
+        ) : (
+          <Button variant="outline" size="sm" disabled>
             <ChevronLeft className="size-4" />
-            Prev
-          </Link>
-        </Button>
+            Week 0
+          </Button>
+        )}
         <p className="text-center font-mono text-[11px] uppercase tracking-[0.14em] text-faint">
           {games.length === 1 ? "1 game" : `${games.length} games`} · CT
         </p>
-        <Button asChild variant="outline" size="sm">
-          <Link to="/schedule" search={{ d: next }} aria-label={`Next day, ${formatChicagoTitle(next)}`}>
-            Next
-            <ChevronRight className="size-4" />
-          </Link>
-        </Button>
+        {next !== null ? (
+          <Button asChild variant="outline" size="sm">
+            <Link to="/schedule" search={{ w: next }} aria-label={`Week ${next}`}>
+              Week {next}
+              <ChevronRight className="size-4" />
+            </Link>
+          </Button>
+        ) : (
+          <span />
+        )}
       </div>
 
       {games.length === 0 ? (
@@ -153,7 +169,14 @@ function ScheduleRow({ game: g }: { game: ScheduleGame }) {
             label="Vegas"
             value={formatVegas(vegasLine, g.vegasTotal)}
           />
-          <StatBlock label="Kick" value={formatKickCt(g.kickoffAt)} className="hidden sm:block" />
+          {g.status === "final" && g.homeScore != null && g.awayScore != null ? (
+            <StatBlock
+              label="FINAL"
+              value={`${g.awayShort} ${g.awayScore}–${g.homeScore} ${g.homeShort}`}
+            />
+          ) : (
+            <StatBlock label="Kick" value={formatKickCt(g.kickoffAt)} className="hidden sm:block" />
+          )}
         </div>
       </Link>
     </li>

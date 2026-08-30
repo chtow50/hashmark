@@ -415,6 +415,54 @@ export const listSchedule = createServerFn({ method: "GET" })
       });
   });
 
+
+/** HASHMARK week: Aug 29–30 2026 is Week 0; later dates use games.week (NCAA 1–13). */
+export const HASHMARK_MAX_WEEK = 13;
+
+export function hashmarkWeekFromRow(kickoffDate: string, ncaaWeek: number): number {
+  return kickoffDate <= "2026-08-30" ? 0 : ncaaWeek;
+}
+
+/** FBS slate for one HASHMARK week, sorted by kick. Uses lock HX the same way as listGames. */
+export const listScheduleWeek = createServerFn({ method: "GET" })
+  .validator(z.object({ week: z.number().int().min(0).max(HASHMARK_MAX_WEEK) }))
+  .handler(async ({ data }) => {
+    const sql = await getSql();
+    const rows = await sql.query<ScheduleDb>(
+      `select g.id, g.week, g.kickoff_date as "kickoffDate",
+              ht.slug as "homeSlug", at.slug as "awaySlug",
+              ht.name as "homeName", at.name as "awayName",
+              ht.short_name as "homeShort", at.short_name as "awayShort",
+              ht.color_primary as "homeColor", at.color_primary as "awayColor",
+              coalesce(g.lock_home_hx, hr.hx_rating) as "homeHx", coalesce(g.lock_away_hx, ar.hx_rating) as "awayHx",
+              hr.hx_rank as "homeRank", ar.hx_rank as "awayRank",
+              hr.offense_rating as "homeOff", ar.offense_rating as "awayOff",
+              hr.defense_rating as "homeDef", ar.defense_rating as "awayDef",
+              g.neutral, g.location, g.headline,
+              g.kickoff_at as "kickoffAt",
+              g.vegas_spread as "vegasSpread",
+              g.vegas_total as "vegasTotal",
+              g.home_score as "homeScore",
+              g.away_score as "awayScore",
+              g.status
+       from games g
+       join teams ht on ht.id = g.home_team_id
+       join teams at on at.id = g.away_team_id
+       join rankings hr on hr.team_id = ht.id and hr.season = 2026 and hr.week = 0
+       join rankings ar on ar.team_id = at.id and ar.season = 2026 and ar.week = 0
+       where case when g.kickoff_date <= date '2026-08-30' then 0 else g.week end = $1
+       order by g.kickoff_at nulls last, g.kickoff_date, g.id`,
+      [data.week],
+    );
+    return rows.map(mapSchedule).sort((a, b) => {
+      const ta = a.kickoffAt ? Date.parse(a.kickoffAt) : Number.POSITIVE_INFINITY;
+      const tb = b.kickoffAt ? Date.parse(b.kickoffAt) : Number.POSITIVE_INFINITY;
+      if (ta !== tb) return ta - tb;
+      if (a.kickoffDate !== b.kickoffDate) return a.kickoffDate < b.kickoffDate ? -1 : 1;
+      return a.id - b.id;
+    });
+  });
+
 export const getMatchup = createServerFn({ method: "GET" })
   .validator(
     z.object({

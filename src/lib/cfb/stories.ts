@@ -17,16 +17,16 @@ export const STORIES: Story[] = [
   {
     slug: "week-0-tape",
     kicker: "Week 0 tape",
-    headline: "Week 0 tape: 3/6 SU, 1/6 ATS",
-    dek: "Six on the board. Hits USC, UVA, FSU. Misses Dublin, Hawaiʻi, Memphis. HX not retuned.",
+    headline: "Week 0 tape: 3/6 SU, 1/6 ATS. HX not retuned.",
+    dek: "Hits USC, Virginia, Florida State. Misses Dublin, the Hawaiʻi flip, Memphis at UNLV. Vegas 4/6.",
     date: "Sunday, Aug 30, 2026",
     body: [
-      "The Week 0 board is in. HASHMARK went 3-for-6 straight up and 1-for-6 ATS against the close. Vegas went 4-for-6 SU. This is the first live 2026 proof. The 70.8% SU mark is 2019–2025, not this Saturday.",
-      "Hits: USC 42–26 (HX USC 95.0% / −37.8, Vegas −38.5). Virginia 34–8 (UVA 52.9% / −1.1, Vegas −4) — the ATS hit. FSU 34–17 (FSU 87.7% / −22.6, Vegas −31.5). HX was closer than Vegas on FSU.",
-      "Misses: Dublin, UNC 15–10. HASHMARK had TCU 74.2% / −10.9 Neutral; Vegas TCU −8.5. Hawaiʻi flip: HASHMARK UH 53.8% / −1.4, Vegas Stanford −4, Stanford 37–27. Coach-change was frozen on the matchup; Stanford would have been ~59.6% / −3.6. That is a note, not a retune. Memphis 27–21 at UNLV (HX UNLV 63.5% / −5.3, Vegas UNLV −4).",
-      "NDSU and Sac State proposed lines both hit. They stay off this piece. Not on the 136.",
+      "Pregame locks from /schedule. Elo = 1500 + 55×HX, HFA 60 (off on Neutral), quadratic spread. Win% was frozen. 70.8% SU is a 2019–2025 claim, not this tape.",
+      "Hits: San José St at USC — HASHMARK USC 95.0% / −37.8, Vegas −38.5, final USC 42–26. SU hit, ATS no. NC State at Virginia — UVA 52.9% / −1.1, Vegas −4.0, final UVA 34–8. SU and ATS both hit. NM State at Florida St — FSU 87.7% / −22.6, Vegas −31.5, final FSU 34–17. SU hit, closer than Vegas, ATS no.",
+      "Misses: UNC vs TCU, Dublin Neutral — TCU 74.2% / −10.9, Vegas −8.5, final UNC 15–10. Rain, 25 points, TCU WR Jordan Dwyer out. Dwyer is a note. We did not haircut the number. Hawaiʻi at Stanford, the flag — HASHMARK UH 53.8% / −1.4, Vegas Stanford −4.0, final Stanford 37–27. Frozen coach-change. If C20 had been on the matchup, Stanford ~59.6% / −3.6, near the close. That is a note, not a retune. Memphis at UNLV — UNLV 63.5% / −5.3, Vegas −4.0, final Memphis 27–21.",
+      "NDSU and Sacramento State stay off this piece. They are not on the 136. Next week the matchup shows HX* win% and a units score. If they disagree by 4, the site flags it.",
     ],
-    whyItMatters: "Sunday tape vs the close is the first 2026 proof. HX stays put.",
+    whyItMatters: "First 2026 public ledger vs the close. The 70.8% number waits until this tape has a season behind it.",
     sources: [
       {
         label: "HASHMARK Schedule",
