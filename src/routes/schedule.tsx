@@ -3,7 +3,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { PageHead, Panel } from "@/components/shell";
 import { TeamSwatch } from "@/components/marks";
 import { Button } from "@/components/ui/button";
-import { formatKickCt, todayChicago } from "@/lib/cfb/chicago";
+import { formatChicagoTitle, formatKickCt, todayChicago } from "@/lib/cfb/chicago";
 import { predictMatchup } from "@/lib/cfb/model";
 import { HASHMARK_MAX_WEEK, listScheduleWeek } from "@/lib/cfb/queries";
 import type { Prediction, ScheduleGame } from "@/lib/cfb/types";
@@ -157,7 +157,12 @@ function ScheduleRow({ game: g }: { game: ScheduleGame }) {
               </p>
             ) : null}
           </div>
-          <p className="shrink-0 font-mono text-sm tabular text-muted">{formatKickCt(g.kickoffAt)}</p>
+          <p className="shrink-0 text-right font-mono text-sm tabular text-muted">
+            {formatChicagoTitle(g.kickoffDate)}
+            <br />
+            {formatKickCt(g.kickoffAt)}
+            {g.tv ? ` · ${g.tv}` : ""}
+          </p>
         </div>
 
         <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
@@ -175,7 +180,11 @@ function ScheduleRow({ game: g }: { game: ScheduleGame }) {
               value={`${g.awayShort} ${g.awayScore}–${g.homeScore} ${g.homeShort}`}
             />
           ) : (
-            <StatBlock label="Kick" value={formatKickCt(g.kickoffAt)} className="hidden sm:block" />
+            <StatBlock
+              label="Kick"
+              value={g.tv ? `${formatKickCt(g.kickoffAt)} · ${g.tv}` : formatKickCt(g.kickoffAt)}
+              className="hidden sm:block"
+            />
           )}
         </div>
       </Link>

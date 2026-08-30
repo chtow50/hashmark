@@ -344,6 +344,7 @@ type ScheduleDb = GameRow & {
   homeScore: number | null;
   awayScore: number | null;
   status: string | null;
+  tv: string | null;
 };
 
 function isoTs(value: unknown): string | null {
@@ -367,6 +368,7 @@ function mapSchedule(g: ScheduleDb): ScheduleGame {
     homeScore: g.homeScore == null ? null : Number(g.homeScore),
     awayScore: g.awayScore == null ? null : Number(g.awayScore),
     status,
+    tv: g.tv ?? null,
   };
 }
 
@@ -391,7 +393,8 @@ export const listSchedule = createServerFn({ method: "GET" })
               g.vegas_total as "vegasTotal",
               g.home_score as "homeScore",
               g.away_score as "awayScore",
-              g.status
+              g.status,
+              g.tv as "tv"
        from games g
        join teams ht on ht.id = g.home_team_id
        join teams at on at.id = g.away_team_id
@@ -444,7 +447,8 @@ export const listScheduleWeek = createServerFn({ method: "GET" })
               g.vegas_total as "vegasTotal",
               g.home_score as "homeScore",
               g.away_score as "awayScore",
-              g.status
+              g.status,
+              g.tv as "tv"
        from games g
        join teams ht on ht.id = g.home_team_id
        join teams at on at.id = g.away_team_id

@@ -134,6 +134,7 @@ export type ScheduleGame = GameRow & {
   homeScore: number | null;
   awayScore: number | null;
   status: GameStatus;
+  tv: string | null;
 };
 
 export type StateRow = {
