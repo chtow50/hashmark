@@ -4,6 +4,7 @@ import { ConfPills, PageHead, Panel } from "@/components/shell";
 import { RankMove, RankNum, RankSpark, TeamSwatch } from "@/components/marks";
 import { inConf, parseConf, type ConfFilter } from "@/lib/cfb/conferences";
 import { listRecruiting } from "@/lib/cfb/queries";
+import { COMPOSITE_SOURCE } from "@/lib/cfb/recruiting";
 import { cn, fmtNum } from "@/lib/utils";
 import type { RecruitingClass } from "@/lib/cfb/types";
 
@@ -74,7 +75,7 @@ function RecruitingPage() {
       <PageHead
         kicker="247Sports composite"
         title={board === "cycle" ? "Four-year cycle" : `Class of ${year}`}
-        lede="Incoming high-school classes only. Class avg is the mean of 247 Composite decimals (×100). Points are 247 Composite. Frozen with the Week 0 board. This is not roster talent — transfers sit on the talent board."
+        lede="Incoming high-school classes only. Class avg is the mean of rated 247 Composite decimals (×100) — unrated (NA) commits are dropped from the average, never from points. Points are 247 Composite. Frozen with the Week 0 board. This is not roster talent — transfers sit on the talent board."
       />
 
       <div className="mb-6 grid grid-cols-2 gap-2 sm:grid-cols-5">
@@ -130,6 +131,10 @@ function RecruitingPage() {
           </div>
         </Link>
       </div>
+
+      <p className="mb-5 font-mono text-[11px] uppercase tracking-[0.16em] text-faint">
+        {COMPOSITE_SOURCE.board} · rated commits only
+      </p>
 
       <div className="mb-5">
         <ConfPills

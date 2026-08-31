@@ -4,6 +4,7 @@ import { getSql } from "@/lib/db";
 import { predictMatchup } from "./model";
 import { POS_SQL_ARRAY, TALENT_UNITS_JOIN } from "./positions";
 import { CHICAGO_TZ, ymdInTimeZone } from "./chicago";
+import { ratedOnlyClassAvg } from "./recruiting";
 import type {
   GameRow,
   GameStatus,
@@ -258,15 +259,19 @@ export const getTeam = createServerFn({ method: "GET" })
   });
 
 function mapClass(row: RecruitingClass): RecruitingClass {
+  const commits = Number(row.commits);
+  const fiveStars = Number(row.fiveStars);
+  const fourStars = Number(row.fourStars);
+  const threeStars = Number(row.threeStars);
   return {
     ...row,
-    avgRating: Number(row.avgRating),
+    avgRating: ratedOnlyClassAvg(Number(row.avgRating), commits, fiveStars, fourStars, threeStars),
     points: Number(row.points),
     compositeRank: Number(row.compositeRank),
-    commits: Number(row.commits),
-    fiveStars: Number(row.fiveStars),
-    fourStars: Number(row.fourStars),
-    threeStars: Number(row.threeStars),
+    commits,
+    fiveStars,
+    fourStars,
+    threeStars,
     hxRank: Number(row.hxRank),
   };
 }
