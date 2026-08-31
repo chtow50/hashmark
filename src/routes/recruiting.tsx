@@ -4,7 +4,12 @@ import { ConfPills, PageHead, Panel } from "@/components/shell";
 import { RankMove, RankNum, RankSpark, TeamSwatch } from "@/components/marks";
 import { inConf, parseConf, type ConfFilter } from "@/lib/cfb/conferences";
 import { listRecruiting } from "@/lib/cfb/queries";
-import { COMPOSITE_SOURCE } from "@/lib/cfb/recruiting";
+import {
+  COMPOSITE_SOURCE,
+  featuredByComposite,
+  ratedStarCount,
+  visibleClassAvg,
+} from "@/lib/cfb/recruiting";
 import { cn, fmtNum } from "@/lib/utils";
 import type { RecruitingClass } from "@/lib/cfb/types";
 
@@ -41,7 +46,7 @@ function RecruitingPage() {
     const prevMap = new Map(
       rows.filter((r) => r.classYear === year - 1).map((r) => [r.slug, r.compositeRank]),
     );
-    const base = rows
+    return rows
       .filter((r) => r.classYear === year)
       .filter((r) => inConf(r.conference, conf))
       .map((r) => {
@@ -52,14 +57,17 @@ function RecruitingPage() {
           delta: prev == null ? null : prev - r.compositeRank,
         };
       });
+  }, [rows, year, conf]);
+  const featured = useMemo(() => featuredByComposite(ofYear), [ofYear]);
+  const tableRows = useMemo(() => {
     const mul = dir === "asc" ? 1 : -1;
-    return [...base].sort((a, b) => {
+    return [...ofYear].sort((a, b) => {
       const av = sort === "delta" ? (a.delta ?? 0) : a[sort];
       const bv = sort === "delta" ? (b.delta ?? 0) : b[sort];
-      if (av === bv) return a.compositeRank - b.compositeRank;
+      if (av === bv) return a.compositeRank - b.compositeRank || b.points - a.points;
       return (av < bv ? -1 : 1) * mul;
     });
-  }, [rows, year, conf, sort, dir]);
+  }, [ofYear, sort, dir]);
   const cycle = useMemo(() => fourYearBoard(rows, conf), [rows, conf]);
 
   function toggle(key: SortKey) {
@@ -153,7 +161,7 @@ function RecruitingPage() {
       ) : (
         <>
           <div className="mb-6 grid gap-4 sm:grid-cols-3">
-            {ofYear.slice(0, 3).map((t) => (
+            {featured.map((t) => (
               <Panel key={t.slug}>
                 <div className="flex items-start justify-between gap-3">
                   <div className="font-display text-3xl tabular text-muted">{t.compositeRank}</div>
@@ -168,7 +176,15 @@ function RecruitingPage() {
                   {t.name}
                 </Link>
                 <p className="mt-2 text-sm text-muted">
-                  {t.commits} commits · {fmtNum(t.avgRating, 2)} avg · {t.fiveStars} five-stars
+                  {t.commits} commits ·{" "}
+                  <ClassAvg
+                    avg={t.avgRating}
+                    five={t.fiveStars}
+                    four={t.fourStars}
+                    three={t.threeStars}
+                    withLabel
+                  />{" "}
+                  · {t.fiveStars} five-stars
                 </p>
               </Panel>
             ))}
@@ -200,7 +216,7 @@ function RecruitingPage() {
                   </tr>
                 </thead>
                 <tbody>
-                  {ofYear.map((t) => (
+                  {tableRows.map((t) => (
                     <tr key={t.slug} className="border-b border-line last:border-0 hover:bg-raised/60">
                       <td className="px-4 py-3">
                         <RankNum rank={t.compositeRank} className="text-lg text-fg" />
@@ -222,7 +238,9 @@ function RecruitingPage() {
                         <RankMove delta={t.delta} />
                       </td>
                       <td className="px-3 py-3 tabular">{t.commits}</td>
-                      <td className="px-3 py-3 tabular">{fmtNum(t.avgRating, 2)}</td>
+                      <td className="px-3 py-3">
+                        <ClassAvg avg={t.avgRating} five={t.fiveStars} four={t.fourStars} three={t.threeStars} />
+                      </td>
                       <td className="px-3 py-3 tabular">{fmtNum(t.points, 1)}</td>
                       <td className="px-3 py-3">
                         <StarBar five={t.fiveStars} four={t.fourStars} three={t.threeStars} />
@@ -395,5 +413,29 @@ function StarBar({ five, four, three }: { five: number; four: number; three: num
         {five} / {four} / {three}
       </div>
     </div>
+  );
+}
+
+function ClassAvg({
+  avg,
+  five,
+  four,
+  three,
+  withLabel = false,
+}: {
+  avg: number;
+  five: number;
+  four: number;
+  three: number;
+  withLabel?: boolean;
+}) {
+  const rated = ratedStarCount(five, four, three);
+  const shown = visibleClassAvg(avg, rated);
+  return (
+    <span className="tabular">
+      {shown == null ? "—" : fmtNum(shown, 2)}
+      {withLabel ? " avg" : ""}
+      <span className="text-muted"> · {rated} rated</span>
+    </span>
   );
 }
