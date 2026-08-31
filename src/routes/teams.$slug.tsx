@@ -4,7 +4,7 @@ import { DeltaChip, MixBar, RankMove, Stat, TeamSwatch, WinBar } from "@/compone
 import { RosterList } from "@/components/roster-duel";
 import { TALENT_UNITS } from "@/lib/cfb/positions";
 import { getTeam } from "@/lib/cfb/queries";
-import { COMPOSITE_SOURCE } from "@/lib/cfb/recruiting";
+import { COMPOSITE_SOURCE, ratedStarCount, visibleClassAvg } from "@/lib/cfb/recruiting";
 import { modelShare, predictMatchup, MODEL } from "@/lib/cfb/model";
 import { apLabel, fmtHeight, fmtNum, fmtPct } from "@/lib/utils";
 
@@ -169,7 +169,14 @@ function TeamPage() {
                       <RankMove delta={delta} />
                     </td>
                     <td className="py-2.5 pr-3 tabular">{c.commits}</td>
-                    <td className="py-2.5 pr-3 tabular">{fmtNum(c.avgRating, 2)}</td>
+                    <td className="py-2.5 pr-3 tabular">
+                      {visibleClassAvg(
+                        c.avgRating,
+                        ratedStarCount(c.fiveStars, c.fourStars, c.threeStars),
+                      ) == null
+                        ? "—"
+                        : fmtNum(c.avgRating, 2)}
+                    </td>
                     <td className="py-2.5 pr-3 tabular">{fmtNum(c.points, 1)}</td>
                     <td className="py-2.5 tabular">
                       {c.fiveStars} / {c.fourStars} / {c.threeStars}

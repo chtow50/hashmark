@@ -4,7 +4,7 @@ import { getSql } from "@/lib/db";
 import { predictMatchup } from "./model";
 import { POS_SQL_ARRAY, TALENT_UNITS_JOIN } from "./positions";
 import { CHICAGO_TZ, ymdInTimeZone } from "./chicago";
-import { ratedOnlyClassAvg } from "./recruiting";
+import { apply247Roster, compositeClassAvg, keep247Rosters } from "./recruiting";
 import type {
   GameRow,
   GameStatus,
@@ -146,7 +146,15 @@ function mapTeam(row: TeamDb): TeamSummary {
     talentScore: Number(row.roster_talent ?? row.talent_score),
     recRank: row.rec_rank,
     commits: row.commits,
-    recAvg: Number(row.rec_avg),
+    recAvg: compositeClassAvg({
+      storedAvg: Number(row.rec_avg),
+      commits: row.commits,
+      fiveStars: row.five_stars,
+      fourStars: row.four_stars,
+      threeStars: row.three_stars,
+      slug: row.slug,
+      classYear: 2026,
+    }),
     recPoints: Number(row.rec_points),
     fiveStars: row.five_stars,
     fourStars: row.four_stars,
@@ -253,7 +261,7 @@ export const getTeam = createServerFn({ method: "GET" })
     return {
       team,
       players: players.map(mapPlayer),
-      classes: classes.map(mapClass),
+      classes: keep247Rosters(classes.map(mapClass)),
       games: games.map(numGame),
     };
   });
@@ -263,17 +271,19 @@ function mapClass(row: RecruitingClass): RecruitingClass {
   const fiveStars = Number(row.fiveStars);
   const fourStars = Number(row.fourStars);
   const threeStars = Number(row.threeStars);
-  return {
+  const classYear = Number(row.classYear);
+  return apply247Roster({
     ...row,
-    avgRating: ratedOnlyClassAvg(Number(row.avgRating), commits, fiveStars, fourStars, threeStars),
+    avgRating: Number(row.avgRating),
     points: Number(row.points),
     compositeRank: Number(row.compositeRank),
+    classYear,
     commits,
     fiveStars,
     fourStars,
     threeStars,
     hxRank: Number(row.hxRank),
-  };
+  });
 }
 
 export const listRecruiting = createServerFn({ method: "GET" }).handler(async () => {
@@ -290,7 +300,7 @@ export const listRecruiting = createServerFn({ method: "GET" }).handler(async ()
      join rankings r on r.team_id = t.id and r.season = 2026 and r.week = 0
      order by rec.class_year, rec.composite_rank, t.name`,
   );
-  return rows.map(mapClass);
+  return keep247Rosters(rows.map(mapClass));
 });
 
 function mapPlayer(p: Player): Player {
