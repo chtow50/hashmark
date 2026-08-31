@@ -166,7 +166,7 @@ function RecruitingPage() {
         <>
           <div className="mb-6 grid gap-4 sm:grid-cols-3">
             {featured.map((t) => (
-              <Panel key={t.slug}>
+              <Panel key={`${t.slug}-${t.classYear}`}>
                 <div className="flex items-start justify-between gap-3">
                   <div className="font-display text-3xl tabular text-muted">{t.compositeRank}</div>
                   <RankMove delta={t.delta} />
@@ -221,7 +221,7 @@ function RecruitingPage() {
                 </thead>
                 <tbody>
                   {tableRows.map((t) => (
-                    <tr key={t.slug} className="border-b border-line last:border-0 hover:bg-raised/60">
+                    <tr key={`${t.slug}-${t.classYear}`} className="border-b border-line last:border-0 hover:bg-raised/60">
                       <td className="px-4 py-3">
                         <RankNum rank={t.compositeRank} className="text-lg text-fg" />
                       </td>

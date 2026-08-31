@@ -4,7 +4,7 @@ import { getSql } from "@/lib/db";
 import { predictMatchup } from "./model";
 import { POS_SQL_ARRAY, TALENT_UNITS_JOIN } from "./positions";
 import { CHICAGO_TZ, ymdInTimeZone } from "./chicago";
-import { compositeClassAvg } from "./recruiting";
+import { apply247Roster, compositeClassAvg, keep247Rosters } from "./recruiting";
 import type {
   GameRow,
   GameStatus,
@@ -261,7 +261,7 @@ export const getTeam = createServerFn({ method: "GET" })
     return {
       team,
       players: players.map(mapPlayer),
-      classes: classes.map(mapClass),
+      classes: keep247Rosters(classes.map(mapClass)),
       games: games.map(numGame),
     };
   });
@@ -272,17 +272,9 @@ function mapClass(row: RecruitingClass): RecruitingClass {
   const fourStars = Number(row.fourStars);
   const threeStars = Number(row.threeStars);
   const classYear = Number(row.classYear);
-  return {
+  return apply247Roster({
     ...row,
-    avgRating: compositeClassAvg({
-      storedAvg: Number(row.avgRating),
-      commits,
-      fiveStars,
-      fourStars,
-      threeStars,
-      slug: row.slug,
-      classYear,
-    }),
+    avgRating: Number(row.avgRating),
     points: Number(row.points),
     compositeRank: Number(row.compositeRank),
     classYear,
@@ -291,7 +283,7 @@ function mapClass(row: RecruitingClass): RecruitingClass {
     fourStars,
     threeStars,
     hxRank: Number(row.hxRank),
-  };
+  });
 }
 
 export const listRecruiting = createServerFn({ method: "GET" }).handler(async () => {
@@ -308,7 +300,7 @@ export const listRecruiting = createServerFn({ method: "GET" }).handler(async ()
      join rankings r on r.team_id = t.id and r.season = 2026 and r.week = 0
      order by rec.class_year, rec.composite_rank, t.name`,
   );
-  return rows.map(mapClass);
+  return keep247Rosters(rows.map(mapClass));
 });
 
 function mapPlayer(p: Player): Player {

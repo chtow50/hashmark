@@ -27,9 +27,9 @@ const STAR_MEAN = { five: 98.5, four: 91.5, three: 86.0 } as const;
 
 /**
  * Typical 3-star-only 247 Composite (×100). 90s is a 4-star class; G5 3-star
- * boards (Ball State, Missouri State) sit here, not at 95.
+ * boards sit here (Ball State ~84 from NA-drop, Missouri State ~83).
  */
-const THREE_STAR_COMPOSITE = 84;
+const THREE_STAR_COMPOSITE = 83;
 /** High 3-star, still not a 4-star mean. */
 const THREE_STAR_CEILING = 88;
 /** NA-drop may not overshoot the star-mix mean by more than this. */
@@ -73,12 +73,122 @@ type HistoryFile = {
 
 const HISTORY_CLASSES = (recHistory as unknown as HistoryFile).classes ?? {};
 
-/** CFBTrack team avg from recruiting-history.json, or null if that class is not on the board. */
-export function historyClassAvg(slug: string | undefined, classYear: number | undefined): number | null {
+/** CFBTrack 247 team row, or null if that class is not on the board. */
+export function historyClass(
+  slug: string | undefined,
+  classYear: number | undefined,
+): HistoryTuple | null {
   if (!slug || classYear == null) return null;
   const row = HISTORY_CLASSES[String(classYear)]?.[slug];
   if (!row || typeof row[2] !== "number") return null;
-  return row[2];
+  return row;
+}
+
+/** CFBTrack team avg from recruiting-history.json, or null if that class is not on the board. */
+export function historyClassAvg(slug: string | undefined, classYear: number | undefined): number | null {
+  const row = historyClass(slug, classYear);
+  return row ? row[2] : null;
+}
+
+export type CompositeRoster = {
+  slug: string;
+  classYear: number;
+  compositeRank: number;
+  commits: number;
+  avgRating: number;
+  points: number;
+  fiveStars: number;
+  fourStars: number;
+  threeStars: number;
+};
+
+/**
+ * 0–1 Composite treated as a mean or as points — not 247 team-ranking points.
+ * Missouri State 52.9 is this; 151.6 is 247 Composite points.
+ */
+export function isGaussian01Roster(row: {
+  avgRating: number;
+  points: number;
+  fiveStars: number;
+  fourStars: number;
+  threeStars: number;
+}): boolean {
+  const starred = ratedStarCount(row.fiveStars, row.fourStars, row.threeStars);
+  if (row.points > 0 && row.points < 90 && starred > 0) return true;
+  if (starred > 0 && row.avgRating > 0 && row.avgRating < 60) return true;
+  return false;
+}
+
+/**
+ * One 247 Composite roster per team. Drops 0–1 Gaussian snapshots when a 247
+ * Points row exists, and drops a prior-year player-level shadow of the latest
+ * 247 class (Ball State 16/118.6 vs 19/170). JSON board classes always stay.
+ * Points on kept rows are unchanged.
+ */
+export function keep247Rosters<T extends CompositeRoster>(rows: T[]): T[] {
+  const bySlug = new Map<string, T[]>();
+  for (const r of rows) {
+    const list = bySlug.get(r.slug) ?? [];
+    list.push(r);
+    bySlug.set(r.slug, list);
+  }
+  const out: T[] = [];
+  for (const [, list] of bySlug) {
+    const onBoard = (r: T) => historyClass(r.slug, r.classYear) != null;
+    const ghost = (r: T) => isGaussian01Roster(r) && !onBoard(r);
+    const has247 = list.some((r) => !ghost(r));
+    let keep = has247 ? list.filter((r) => !ghost(r)) : list;
+
+    const latest247 = [...keep]
+      .filter((r) => !isGaussian01Roster(r) || onBoard(r))
+      .sort((a, b) => b.classYear - a.classYear || b.points - a.points)[0];
+    if (latest247) {
+      keep = keep.filter((r) => {
+        if (onBoard(r) || r === latest247) return true;
+        if (r.classYear !== latest247.classYear - 1) return true;
+        const rStar = ratedStarCount(r.fiveStars, r.fourStars, r.threeStars);
+        const lStar = ratedStarCount(
+          latest247.fiveStars,
+          latest247.fourStars,
+          latest247.threeStars,
+        );
+        if (r.commits < latest247.commits && r.points < latest247.points && rStar <= lStar) {
+          return false;
+        }
+        return true;
+      });
+    }
+    out.push(...keep);
+  }
+  return out;
+}
+
+/** Overlay CFBTrack 247 commits / avg / stars / rank. Never writes Points or HX. */
+export function apply247Roster<T extends CompositeRoster>(row: T): T {
+  const board = historyClass(row.slug, row.classYear);
+  if (!board) {
+    return {
+      ...row,
+      avgRating: compositeClassAvg({
+        storedAvg: row.avgRating,
+        commits: row.commits,
+        fiveStars: row.fiveStars,
+        fourStars: row.fourStars,
+        threeStars: row.threeStars,
+        slug: row.slug,
+        classYear: row.classYear,
+      }),
+    };
+  }
+  return {
+    ...row,
+    compositeRank: board[0],
+    commits: board[1],
+    avgRating: board[2],
+    fiveStars: board[4],
+    fourStars: board[5],
+    threeStars: board[6],
+  };
 }
 
 export type ClassAvgInput = {
