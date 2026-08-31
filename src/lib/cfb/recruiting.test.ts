@@ -1,7 +1,11 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import {
+  avgSortValue,
+  compareAvgSort,
+  compositeClassAvg,
   featuredByComposite,
+  historyClassAvg,
   ratedOnlyClassAvg,
   ratedStarCount,
   visibleClassAvg,
@@ -71,6 +75,138 @@ test("hide class avg when n rated (5+4+3) is under 8", () => {
   assert.equal(visibleClassAvg(84.3, 6), null); // NMSU 2026
   assert.equal(visibleClassAvg(83.63, 8), 83.63); // Navy 2026 — boundary shows
   assert.equal(visibleClassAvg(92.08, 34), 92.08);
-  // Missouri State 2026 HASHMARK avg stays 90.53 — display gate does not restamp it.
-  assert.equal(visibleClassAvg(90.53, 12), 90.53);
+  assert.equal(visibleClassAvg(84, 12), 84); // Missouri State 2026 after Composite lock
+});
+
+test("history board prefers CFBTrack team avg over the commits/starred lift", () => {
+  assert.equal(historyClassAvg("colorado", 2025), 89.43);
+  assert.equal(historyClassAvg("texas-am", 2023), 91.6);
+  assert.equal(historyClassAvg("arkansas", 2023), 88.48);
+  assert.equal(historyClassAvg("georgia", 2026), null); // 2026 is not on the JSON board
+  assert.equal(
+    compositeClassAvg({
+      storedAvg: 83.19,
+      commits: 16,
+      fiveStars: 0,
+      fourStars: 8,
+      threeStars: 6,
+      slug: "colorado",
+      classYear: 2025,
+    }),
+    89.43,
+  );
+});
+
+test("12 threes cannot average 95.81 — Ball State 2025 sits in the 80s", () => {
+  // Screenshot row: rank 119, 16 commits, 118.63 pts, 0/0/12. Stored 71.86
+  // lifted to 95.81 via storedAvg * commits / starred. That is not Composite.
+  const fromSeed = ratedOnlyClassAvg(71.86, 16, 0, 0, 12);
+  const alreadyLifted = ratedOnlyClassAvg(95.81, 16, 0, 0, 12);
+  assert.equal(fromSeed, 84);
+  assert.equal(alreadyLifted, 84);
+  assert.notEqual(fromSeed, 95.81);
+});
+
+test("Ball State 2026 Points row keeps the rated Composite mean (~84)", () => {
+  // 19 commits / 170.02 pts / 0/0/18. One leftover NA. Not the 16/118.6 row.
+  assert.equal(ratedOnlyClassAvg(79.85, 19, 0, 0, 18), 84.29);
+  assert.equal(
+    compositeClassAvg({
+      storedAvg: 79.85,
+      commits: 19,
+      fiveStars: 0,
+      fourStars: 0,
+      threeStars: 18,
+      slug: "ball-state",
+      classYear: 2026,
+    }),
+    84.29,
+  );
+});
+
+test("Missouri State 2026 0/0/12 cannot show 90.53 — 3-star class in the 80s", () => {
+  // Seed 77.6 * 14 / 12 = 90.53. 247 / CFBTrack for this Points row is ~83.
+  const fromSeed = ratedOnlyClassAvg(77.6, 14, 0, 0, 12);
+  const alreadyLifted = ratedOnlyClassAvg(90.53, 14, 0, 0, 12);
+  assert.equal(fromSeed, 84);
+  assert.equal(alreadyLifted, 84);
+  assert.ok(fromSeed >= 82 && fromSeed <= 88);
+});
+
+test("Avg cell and Avg sort share the same 0–100 number; hidden rows cannot win", () => {
+  const ball25 = {
+    name: "Ball State",
+    compositeRank: 119,
+    points: 118.63,
+    avgRating: compositeClassAvg({
+      storedAvg: 71.86,
+      commits: 16,
+      fiveStars: 0,
+      fourStars: 0,
+      threeStars: 12,
+      slug: "ball-state",
+      classYear: 2025,
+    }),
+    fiveStars: 0,
+    fourStars: 0,
+    threeStars: 12,
+  };
+  const colorado25 = {
+    name: "Colorado",
+    compositeRank: 37,
+    points: 209.08,
+    avgRating: compositeClassAvg({
+      storedAvg: 83.19,
+      commits: 16,
+      fiveStars: 0,
+      fourStars: 8,
+      threeStars: 6,
+      slug: "colorado",
+      classYear: 2025,
+    }),
+    fiveStars: 0,
+    fourStars: 8,
+    threeStars: 6,
+  };
+  const ball26 = {
+    name: "Ball State 2026",
+    compositeRank: 113,
+    points: 170.02,
+    avgRating: compositeClassAvg({
+      storedAvg: 79.85,
+      commits: 19,
+      fiveStars: 0,
+      fourStars: 0,
+      threeStars: 18,
+      slug: "ball-state",
+      classYear: 2026,
+    }),
+    fiveStars: 0,
+    fourStars: 0,
+    threeStars: 18,
+  };
+  const ulm = {
+    name: "ULM",
+    compositeRank: 127,
+    points: 160.28,
+    avgRating: 84.49,
+    fiveStars: 0,
+    fourStars: 0,
+    threeStars: 5,
+  };
+
+  assert.equal(ball25.avgRating, 84);
+  assert.equal(colorado25.avgRating, 89.43);
+  assert.equal(ball26.avgRating, 84.29);
+  assert.equal(avgSortValue(ball25), ball25.avgRating);
+  assert.equal(avgSortValue(colorado25), colorado25.avgRating);
+  assert.equal(avgSortValue(ulm), null);
+
+  const sorted = [ball25, colorado25, ball26, ulm].sort((a, b) => compareAvgSort(a, b, "desc"));
+  assert.deepEqual(
+    sorted.map((r) => r.name),
+    ["Colorado", "Ball State 2026", "Ball State", "ULM"],
+  );
+  // The 16/118.6 row does not beat the 19/170 Composite / Points row.
+  assert.ok(sorted.indexOf(ball26) < sorted.indexOf(ball25));
 });
