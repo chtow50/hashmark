@@ -21,8 +21,10 @@ function round2(n: number) {
 
 /**
  * If `storedAvg` is the mean of rated composites plus NA zeros, lift it back
- * to the rated-only mean. Leave already-correct rows (Georgia 2026 = 92.1)
- * and classes whose leftover commits are rated 2-stars (rescale would exceed 100).
+ * to the rated-only mean. The 70–99.5 gate is on that *corrected* mean, not
+ * the stored floor — Army 2026 stored 5.00 becomes 83.33 and must move.
+ * Leave already-correct rows (Georgia 2026 = 92.1) and classes whose leftover
+ * commits are rated 2-stars (rescale would exceed 100).
  */
 export function ratedOnlyClassAvg(
   storedAvg: number,
