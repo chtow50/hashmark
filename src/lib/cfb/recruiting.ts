@@ -12,8 +12,36 @@ export const COMPOSITE_SOURCE = {
   board: "247 Composite · CFBTrack",
 } as const;
 
+/** Hide class avg in the recruiting UI when fewer than this many commits are starred. */
+export const MIN_RATED_FOR_AVG = 8;
+
 /** Typical 247 Composite (×100) by star, used only to detect NA-as-zero means. */
 const STAR_MEAN = { five: 98.5, four: 91.5, three: 86.0 } as const;
+
+/** Starred commit count (5★+4★+3★). Schema has no separate rated-n column. */
+export function ratedStarCount(fiveStars: number, fourStars: number, threeStars: number) {
+  return fiveStars + fourStars + threeStars;
+}
+
+/**
+ * Class avg for display. Returns null (render an em dash) when n rated < 8.
+ * Does not change the stored / formula avg — Missouri State 2026 stays in the DB.
+ */
+export function visibleClassAvg(avgRating: number, ratedCount: number): number | null {
+  return ratedCount >= MIN_RATED_FOR_AVG ? avgRating : null;
+}
+
+type FeaturedRow = { compositeRank: number; points: number };
+
+/**
+ * Top 3 of a year (or conf-filtered year) by 247 Composite order: rank, then Points.
+ * Never by avg — featured cards must ignore the table's current sort.
+ */
+export function featuredByComposite<T extends FeaturedRow>(rows: T[]): T[] {
+  return [...rows]
+    .sort((a, b) => a.compositeRank - b.compositeRank || b.points - a.points)
+    .slice(0, 3);
+}
 
 function round2(n: number) {
   return Math.round(n * 100 + Number.EPSILON) / 100;

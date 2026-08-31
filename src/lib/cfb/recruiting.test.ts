@@ -1,6 +1,11 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { ratedOnlyClassAvg } from "./recruiting.ts";
+import {
+  featuredByComposite,
+  ratedOnlyClassAvg,
+  ratedStarCount,
+  visibleClassAvg,
+} from "./recruiting.ts";
 
 test("Texas A&M 2023: Research CFB live-check — 1740.4/19, not /20", () => {
   // Rank 15, 20 enrollees, 19 rated. HASHMARK stored 87.02 = 1740.4/20.
@@ -30,4 +35,42 @@ test("2026 academies: NA-as-zero floors jump; points stay out of this helper", (
   assert.equal(ratedOnlyClassAvg(5.0, 50, 0, 0, 3), 83.33);
   assert.equal(ratedOnlyClassAvg(13.38, 50, 0, 0, 8), 83.63);
   assert.equal(ratedOnlyClassAvg(17.04, 49, 0, 0, 10), 83.5);
+});
+
+test("featured cards are composite-rank / Points leaders, not highest avg", () => {
+  const rows = [
+    { name: "Ball State", compositeRank: 119, points: 118.63, avgRating: 95.81 },
+    { name: "Colorado", compositeRank: 37, points: 209.08, avgRating: 95.07 },
+    { name: "Oregon", compositeRank: 3, points: 303.22, avgRating: 92.38 },
+    { name: "Alabama", compositeRank: 2, points: 303.79, avgRating: 92.04 },
+    { name: "USC", compositeRank: 1, points: 310.67, avgRating: 92.08 },
+  ];
+  assert.deepEqual(
+    featuredByComposite(rows).map((r) => r.name),
+    ["USC", "Alabama", "Oregon"],
+  );
+});
+
+test("featuredByComposite returns the same row objects the table holds", () => {
+  const usc = { name: "USC", compositeRank: 1, points: 310.67, commits: 34, avgRating: 92.08 };
+  const bama = { name: "Alabama", compositeRank: 2, points: 303.79, commits: 26, avgRating: 92.04 };
+  const oregon = { name: "Oregon", compositeRank: 3, points: 303.22, commits: 25, avgRating: 92.38 };
+  const ball = { name: "Ball State", compositeRank: 113, points: 170.02, commits: 19, avgRating: 84.29 };
+  const featured = featuredByComposite([ball, oregon, usc, bama]);
+  assert.equal(featured[0], usc);
+  assert.equal(featured[0].commits, 34);
+  assert.equal(featured[0].avgRating, 92.08);
+});
+
+test("hide class avg when n rated (5+4+3) is under 8", () => {
+  assert.equal(ratedStarCount(0, 0, 5), 5);
+  assert.equal(ratedStarCount(0, 0, 7), 7);
+  assert.equal(ratedStarCount(0, 0, 6), 6);
+  assert.equal(visibleClassAvg(84.49, 5), null); // ULM 2026
+  assert.equal(visibleClassAvg(85.47, 7), null); // Akron 2026
+  assert.equal(visibleClassAvg(84.3, 6), null); // NMSU 2026
+  assert.equal(visibleClassAvg(83.63, 8), 83.63); // Navy 2026 — boundary shows
+  assert.equal(visibleClassAvg(92.08, 34), 92.08);
+  // Missouri State 2026 HASHMARK avg stays 90.53 — display gate does not restamp it.
+  assert.equal(visibleClassAvg(90.53, 12), 90.53);
 });
