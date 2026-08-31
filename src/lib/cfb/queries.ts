@@ -4,7 +4,7 @@ import { getSql } from "@/lib/db";
 import { predictMatchup } from "./model";
 import { POS_SQL_ARRAY, TALENT_UNITS_JOIN } from "./positions";
 import { CHICAGO_TZ, ymdInTimeZone } from "./chicago";
-import { ratedOnlyClassAvg } from "./recruiting";
+import { compositeClassAvg } from "./recruiting";
 import type {
   GameRow,
   GameStatus,
@@ -146,7 +146,15 @@ function mapTeam(row: TeamDb): TeamSummary {
     talentScore: Number(row.roster_talent ?? row.talent_score),
     recRank: row.rec_rank,
     commits: row.commits,
-    recAvg: Number(row.rec_avg),
+    recAvg: compositeClassAvg({
+      storedAvg: Number(row.rec_avg),
+      commits: row.commits,
+      fiveStars: row.five_stars,
+      fourStars: row.four_stars,
+      threeStars: row.three_stars,
+      slug: row.slug,
+      classYear: 2026,
+    }),
     recPoints: Number(row.rec_points),
     fiveStars: row.five_stars,
     fourStars: row.four_stars,
@@ -263,11 +271,21 @@ function mapClass(row: RecruitingClass): RecruitingClass {
   const fiveStars = Number(row.fiveStars);
   const fourStars = Number(row.fourStars);
   const threeStars = Number(row.threeStars);
+  const classYear = Number(row.classYear);
   return {
     ...row,
-    avgRating: ratedOnlyClassAvg(Number(row.avgRating), commits, fiveStars, fourStars, threeStars),
+    avgRating: compositeClassAvg({
+      storedAvg: Number(row.avgRating),
+      commits,
+      fiveStars,
+      fourStars,
+      threeStars,
+      slug: row.slug,
+      classYear,
+    }),
     points: Number(row.points),
     compositeRank: Number(row.compositeRank),
+    classYear,
     commits,
     fiveStars,
     fourStars,

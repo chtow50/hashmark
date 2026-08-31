@@ -6,6 +6,7 @@ import { inConf, parseConf, type ConfFilter } from "@/lib/cfb/conferences";
 import { listRecruiting } from "@/lib/cfb/queries";
 import {
   COMPOSITE_SOURCE,
+  compareAvgSort,
   featuredByComposite,
   ratedStarCount,
   visibleClassAvg,
@@ -60,6 +61,9 @@ function RecruitingPage() {
   }, [rows, year, conf]);
   const featured = useMemo(() => featuredByComposite(ofYear), [ofYear]);
   const tableRows = useMemo(() => {
+    if (sort === "avgRating") {
+      return [...ofYear].sort((a, b) => compareAvgSort(a, b, dir));
+    }
     const mul = dir === "asc" ? 1 : -1;
     return [...ofYear].sort((a, b) => {
       const av = sort === "delta" ? (a.delta ?? 0) : a[sort];
