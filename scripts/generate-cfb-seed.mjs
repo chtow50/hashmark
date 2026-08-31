@@ -507,7 +507,7 @@ function build() {
           year,
           rank: known[0],
           commits: known[1],
-          avg: known[2],
+          avg: known[2], // rated 247 Composite mean (0–100); NA commits are not in this number
           points: known[3],
           five: known[4],
           four: known[5],

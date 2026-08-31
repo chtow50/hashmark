@@ -4,6 +4,7 @@ import { DeltaChip, MixBar, RankMove, Stat, TeamSwatch, WinBar } from "@/compone
 import { RosterList } from "@/components/roster-duel";
 import { TALENT_UNITS } from "@/lib/cfb/positions";
 import { getTeam } from "@/lib/cfb/queries";
+import { COMPOSITE_SOURCE } from "@/lib/cfb/recruiting";
 import { modelShare, predictMatchup, MODEL } from "@/lib/cfb/model";
 import { apLabel, fmtHeight, fmtNum, fmtPct } from "@/lib/utils";
 
@@ -137,7 +138,7 @@ function TeamPage() {
       <Panel className="mb-6">
         <div className="mb-4 flex flex-wrap items-baseline justify-between gap-2">
           <h2 className="font-display text-2xl tracking-wide">Composite classes</h2>
-          <span className="text-sm text-muted">247Sports · 2023–2026</span>
+          <span className="text-sm text-muted">{COMPOSITE_SOURCE.board} · 2023–2026</span>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full min-w-lg text-left text-sm">

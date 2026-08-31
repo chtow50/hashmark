@@ -77,7 +77,7 @@ EXTRA_META = {
     "charlotte": ("Charlotte", "Charlotte", "NC", "#005035", "#a49665"),
     "coastal-carolina": ("Coastal", "Conway", "SC", "#006f71", "#a27752"),
     "delaware": ("Delaware", "Newark", "DE", "#00539f", "#ffd200"),
-    "hawaii": ("Hawai'i", "Honolulu", "HI", "#024731", "#c8b18b"),
+    "hawaii": ("Hawaiʻi", "Honolulu", "HI", "#024731", "#c8b18b"),
     "jacksonville-state": ("Jax State", "Jacksonville", "AL", "#b50538", "#ffffff"),
     "kennesaw-state": ("Kennesaw", "Kennesaw", "GA", "#000000", "#febc11"),
     "kent-state": ("Kent St", "Kent", "OH", "#002664", "#eaaa00"),
@@ -124,6 +124,7 @@ SLUG_OVERRIDES = {
     "nc state": "nc-state",
     "miami (oh)": "miami-oh",
     "hawai'i": "hawaii",
+    "hawaiʻi": "hawaii",
     "ul monroe": "ul-monroe",
     "south florida": "usf",
     "florida international": "fiu",
@@ -621,7 +622,7 @@ def load_recruiting(conn, by_norm, by_loose, fbs_ids):
                 "points": r["points"] or 0.0,
                 "commits": 0, "avg": 0.0, "five": 0, "four": 0, "three": 0,
             }
-    stars = defaultdict(lambda: defaultdict(lambda: {"n": 0, "sum": 0.0, "five": 0, "four": 0, "three": 0}))
+    stars = defaultdict(lambda: defaultdict(lambda: {"n": 0, "rated": 0, "sum": 0.0, "five": 0, "four": 0, "three": 0}))
     for r in conn.execute(
         "SELECT year, committed_to, stars, rating FROM recruits WHERE year BETWEEN 2023 AND 2026 AND committed_to IS NOT NULL"
     ):
@@ -631,7 +632,13 @@ def load_recruiting(conn, by_norm, by_loose, fbs_ids):
         b = stars[r["year"]][tid]
         b["n"] += 1
         if r["rating"] is not None:
-            b["sum"] += r["rating"]
+            val = float(r["rating"])
+            # 247 Composite is 0–1; a few CFBTrack rows are already 0–100.
+            if val > 1.5:
+                val = val / 100.0
+            if val > 0:
+                b["sum"] += val
+                b["rated"] += 1
         if r["stars"] == 5:
             b["five"] += 1
         elif r["stars"] == 4:
@@ -642,7 +649,8 @@ def load_recruiting(conn, by_norm, by_loose, fbs_ids):
         for tid, b in teams.items():
             row = board[year].setdefault(tid, {"rank": 136, "points": 0.0, "commits": 0, "avg": 0.0, "five": 0, "four": 0, "three": 0})
             row["commits"] = b["n"]
-            row["avg"] = (b["sum"] / b["n"] * 100) if b["n"] and b["sum"] else 0.0
+            # Mean of rated 247 Composite decimals × 100. NA / zeros stay out of the denominator.
+            row["avg"] = (b["sum"] / b["rated"] * 100) if b["rated"] else 0.0
             row["five"] = b["five"]
             row["four"] = b["four"]
             row["three"] = b["three"]
