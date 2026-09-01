@@ -3,29 +3,31 @@ import { ArrowRight } from "lucide-react";
 import { PageHead, Panel } from "@/components/shell";
 import { Button } from "@/components/ui/button";
 import { DeltaChip, RankNum, Stat, TeamLink, TeamSwatch, WinBar } from "@/components/marks";
-import { listGames, listSchedule, listTeams } from "@/lib/cfb/queries";
-import { todayChicago } from "@/lib/cfb/chicago";
+import { formatKickCt } from "@/lib/cfb/chicago";
+import {
+  BOARD_WEEK,
+  FEATURED_SLATE_WEEK,
+  favoriteLine,
+  featuredBook,
+  featuredSlateWeek,
+  selectFeaturedKick,
+  spreadGap,
+} from "@/lib/cfb/featured";
+import { listGames, listScheduleWeek, listTeams } from "@/lib/cfb/queries";
 import { predictMatchup } from "@/lib/cfb/model";
+import type { Prediction, ScheduleGame } from "@/lib/cfb/types";
 import { apLabel, fmtNum, fmtPct } from "@/lib/utils";
-
-/** HASHMARK board week. Opening weekend is Week 0; games.week in seed is NCAA week 1. */
-const BOARD_WEEK = 0;
 
 export const Route = createFileRoute("/")({
   loader: async () => {
-    const date = todayChicago();
     const [teams, games, slate] = await Promise.all([
       listTeams(),
       listGames(),
-      listSchedule({ data: { date } }),
+      listScheduleWeek({ data: { week: FEATURED_SLATE_WEEK } }),
     ]);
     const top = new Set(teams.slice(0, 20).map((t) => t.slug));
     const notable = games.filter((g) => top.has(g.homeSlug) && top.has(g.awaySlug));
-    const now = Date.now();
-    const upcoming = slate.find(
-      (g) => g.status !== "final" && g.kickoffAt != null && Date.parse(g.kickoffAt) > now,
-    );
-    const featured = upcoming ?? slate.find((g) => g.status === "final") ?? slate[0] ?? null;
+    const featured = selectFeaturedKick(slate, Date.now());
     return { teams, games: notable.length ? notable : games.slice(0, 12), featured };
   },
   component: Home,
@@ -118,43 +120,7 @@ function Home() {
 
         <div className="space-y-6">
           {featured && featurePred ? (
-            <Panel>
-              <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-faint">
-                Week {BOARD_WEEK} · {featured.location}
-              </p>
-              <h2 className="mt-2 font-display text-2xl tracking-wide">
-                {featured.neutral
-                  ? `${featured.awayShort} vs ${featured.homeShort}`
-                  : `${featured.awayShort} at ${featured.homeShort}`}
-              </h2>
-              <p className="mt-1 text-sm text-muted">{featured.headline ?? "Model matchup"}</p>
-              <div className="mt-5">
-                <WinBar
-                  homePct={featurePred.homeWinPct}
-                  homeName={featured.homeShort}
-                  awayName={featured.awayShort}
-                />
-              </div>
-              <p className="mt-4 text-sm text-muted">
-                Projected {featurePred.homeScore}–{featurePred.awayScore}
-                {featurePred.spread >= 0
-                  ? ` · ${featured.homeShort} −${fmtNum(featurePred.spread, 1)}`
-                  : ` · ${featured.awayShort} −${fmtNum(-featurePred.spread, 1)}`}
-              </p>
-              <Button asChild variant="outline" className="mt-5 w-full">
-                <Link
-                  to="/matchup"
-                  search={{
-                    home: featured.homeSlug,
-                    away: featured.awaySlug,
-                    ...(featured.neutral ? { neutral: true } : {}),
-                  }}
-                >
-                  Open matchup
-                  <ArrowRight className="size-4" />
-                </Link>
-              </Button>
-            </Panel>
+            <FeaturedKick featured={featured} pred={featurePred} />
           ) : null}
 
           <Panel>
@@ -242,5 +208,78 @@ function Home() {
         </div>
       </Panel>
     </div>
+  );
+}
+
+function FeaturedKick({ featured, pred }: { featured: ScheduleGame; pred: Prediction }) {
+  const week = featuredSlateWeek(featured);
+  const hxLine = favoriteLine(featured.homeShort, featured.awayShort, pred.spread);
+  const hxWin = pred.spread >= 0 ? pred.homeWinPct : pred.awayWinPct;
+  const book = featuredBook(featured);
+  const bookLine = book ? favoriteLine(featured.homeShort, featured.awayShort, book.spread) : null;
+  const gap = book ? spreadGap(pred.spread, book.spread) : null;
+  const kick = formatKickCt(featured.kickoffAt);
+
+  return (
+    <Panel>
+      <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-faint">
+        Week {week} · {featured.location}
+      </p>
+      <h2 className="mt-2 font-display text-2xl tracking-wide">
+        {featured.neutral
+          ? `${featured.awayShort} vs ${featured.homeShort}`
+          : `${featured.awayShort} at ${featured.homeShort}`}
+      </h2>
+      <p className="mt-1 text-sm text-muted">
+        {kick}
+        {featured.tv ? ` · ${featured.tv}` : ""}
+        {featured.neutral ? " · Neutral" : ""}
+      </p>
+      {gap != null && bookLine ? (
+        <p className="mt-3 inline-flex h-6 items-center rounded-full bg-raised px-2 text-[11px] uppercase tracking-[0.12em] text-warn">
+          Spread gap
+        </p>
+      ) : null}
+      <div className="mt-5">
+        <WinBar
+          homePct={pred.homeWinPct}
+          homeName={featured.homeShort}
+          awayName={featured.awayShort}
+        />
+      </div>
+      <div className="mt-5 grid grid-cols-2 gap-3">
+        <div>
+          <div className="text-[11px] uppercase tracking-[0.14em] text-faint">HASHMARK</div>
+          <div className="mt-1 font-display text-xl tabular leading-none text-fg sm:text-2xl">
+            {hxLine} / {fmtPct(hxWin * 100, 1)}
+          </div>
+        </div>
+        <div>
+          <div className="text-[11px] uppercase tracking-[0.14em] text-faint">{book?.label ?? "Vegas"}</div>
+          <div className="mt-1 font-display text-xl tabular leading-none text-fg sm:text-2xl">
+            {book && bookLine ? `${bookLine} · ${book.total}` : "—"}
+          </div>
+        </div>
+      </div>
+      {gap != null && bookLine ? (
+        <p className="mt-4 text-sm text-warn">
+          HASHMARK {hxLine} vs book {bookLine} · same favorite
+        </p>
+      ) : null}
+      {book?.note ? <p className="mt-2 text-xs leading-relaxed text-muted">{book.note}</p> : null}
+      <Button asChild variant="outline" className="mt-5 w-full">
+        <Link
+          to="/matchup"
+          search={{
+            home: featured.homeSlug,
+            away: featured.awaySlug,
+            ...(featured.neutral ? { neutral: true } : {}),
+          }}
+        >
+          Open matchup
+          <ArrowRight className="size-4" />
+        </Link>
+      </Button>
+    </Panel>
   );
 }
