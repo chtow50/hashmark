@@ -3,7 +3,7 @@ import { z } from "zod";
 import { getSql } from "@/lib/db";
 import { predictMatchup } from "./model";
 import { POS_SQL_ARRAY, TALENT_UNITS_JOIN } from "./positions";
-import { CHICAGO_TZ, ymdInTimeZone } from "./chicago";
+import { kickoffCivilYmd } from "./chicago";
 import { compositeClassAvg } from "./recruiting";
 import type {
   GameRow,
@@ -383,9 +383,11 @@ function isoTs(value: unknown): string | null {
 function mapSchedule(g: ScheduleDb): ScheduleGame {
   const base = numGame(g);
   const status: GameStatus = g.status === "final" ? "final" : "scheduled";
+  const kickoffAt = isoTs(g.kickoffAt);
   return {
     ...base,
-    kickoffAt: isoTs(g.kickoffAt),
+    kickoffAt,
+    kickoffDate: kickoffCivilYmd(kickoffAt, base.kickoffDate),
     vegasSpread: g.vegasSpread == null ? null : Number(g.vegasSpread),
     vegasTotal: g.vegasTotal == null ? null : Number(g.vegasTotal),
     homeScore: g.homeScore == null ? null : Number(g.homeScore),
@@ -429,10 +431,7 @@ export const listSchedule = createServerFn({ method: "GET" })
     );
     return rows
       .map(mapSchedule)
-      .filter((g) => {
-        const ymd = g.kickoffAt ? ymdInTimeZone(new Date(g.kickoffAt), CHICAGO_TZ) : g.kickoffDate;
-        return ymd === data.date;
-      })
+      .filter((g) => g.kickoffDate === data.date)
       .sort((a, b) => {
         const ta = a.kickoffAt ? Date.parse(a.kickoffAt) : Number.POSITIVE_INFINITY;
         const tb = b.kickoffAt ? Date.parse(b.kickoffAt) : Number.POSITIVE_INFINITY;

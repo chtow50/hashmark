@@ -3,7 +3,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { PageHead, Panel } from "@/components/shell";
 import { TeamSwatch } from "@/components/marks";
 import { Button } from "@/components/ui/button";
-import { formatChicagoTitle, formatKickCt, todayChicago } from "@/lib/cfb/chicago";
+import { formatKickCt, formatKickDayTitle, todayChicago } from "@/lib/cfb/chicago";
 import { predictMatchup } from "@/lib/cfb/model";
 import { HASHMARK_MAX_WEEK, listScheduleWeek } from "@/lib/cfb/queries";
 import type { Prediction, ScheduleGame } from "@/lib/cfb/types";
@@ -158,7 +158,7 @@ function ScheduleRow({ game: g }: { game: ScheduleGame }) {
             ) : null}
           </div>
           <p className="shrink-0 text-right font-mono text-sm tabular text-muted">
-            {formatChicagoTitle(g.kickoffDate)}
+            {formatKickDayTitle(g.kickoffAt, g.kickoffDate)}
             <br />
             {formatKickCt(g.kickoffAt)}
             {g.tv ? ` · ${g.tv}` : ""}

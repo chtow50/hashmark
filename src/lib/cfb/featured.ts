@@ -1,3 +1,4 @@
+import { chicagoWeekday } from "./chicago";
 import type { ScheduleGame } from "./types";
 
 /** Rankings stay on HASHMARK Week 0 until the Sunday after Week 1. */
@@ -10,6 +11,12 @@ export const FEATURED_SLATE_WEEK = 1;
 export const WEEK1_FLAG = {
   homeSlug: "georgia-tech",
   awaySlug: "colorado",
+} as const;
+
+/** Friday desk flag after Thursday FINALs: Miami at Stanford. */
+export const WEEK1_FRIDAY_FLAG = {
+  homeSlug: "stanford",
+  awaySlug: "miami",
 } as const;
 
 /**
@@ -32,14 +39,19 @@ export function isColoradoAtGt(g: Pick<ScheduleGame, "homeSlug" | "awaySlug">): 
   return g.homeSlug === WEEK1_FLAG.homeSlug && g.awaySlug === WEEK1_FLAG.awaySlug;
 }
 
+export function isMiamiAtStanford(g: Pick<ScheduleGame, "homeSlug" | "awaySlug">): boolean {
+  return g.homeSlug === WEEK1_FRIDAY_FLAG.homeSlug && g.awaySlug === WEEK1_FRIDAY_FLAG.awaySlug;
+}
+
 export function isUpcomingKick(g: Pick<ScheduleGame, "status" | "kickoffAt">, nowMs: number): boolean {
   return g.status !== "final" && g.kickoffAt != null && Date.parse(g.kickoffAt) > nowMs;
 }
 
 /**
  * Next featured kick from a kick-sorted HASHMARK week slate.
- * Prefers Colorado at GT while that kick is still in the future (Thursday
- * night desk flag + sourced book). After that kick, first remaining future
+ * Prefers Colorado at GT while that kick is still in the future.
+ * After GT/Illinois Thursday FINALs, prefers Miami at Stanford (Friday
+ * desk flag), else the first remaining Friday kick, else the next future
  * non-final. Never an in-progress or FINAL game, never a fallback to tape.
  */
 export function selectFeaturedKick<T extends Pick<ScheduleGame, "status" | "kickoffAt" | "homeSlug" | "awaySlug">>(
@@ -47,8 +59,12 @@ export function selectFeaturedKick<T extends Pick<ScheduleGame, "status" | "kick
   nowMs: number,
 ): T | null {
   const upcoming = slate.filter((g) => isUpcomingKick(g, nowMs));
-  const flag = upcoming.find((g) => isColoradoAtGt(g));
-  return flag ?? upcoming[0] ?? null;
+  const thursday = upcoming.find((g) => isColoradoAtGt(g));
+  if (thursday) return thursday;
+  const fridayFlag = upcoming.find((g) => isMiamiAtStanford(g));
+  if (fridayFlag) return fridayFlag;
+  const friday = upcoming.find((g) => g.kickoffAt != null && chicagoWeekday(g.kickoffAt) === "Friday");
+  return friday ?? upcoming[0] ?? null;
 }
 
 /** Same rule as hashmarkWeekFromRow: Aug 29–30 2026 is Week 0. */
