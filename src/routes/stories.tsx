@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, Outlet, useChildMatches } from "@tanstack/react-router";
 import { PageHead, Panel } from "@/components/shell";
 import { listStories, WEEK0_SLATE, type SlateHx } from "@/lib/cfb/stories";
 
@@ -28,7 +28,12 @@ function SideName({ side }: { side: SlateHx }) {
 }
 
 function StoriesPage() {
+  const childMatches = useChildMatches();
   const stories = Route.useLoaderData();
+  if (childMatches.length > 0) {
+    return <Outlet />;
+  }
+
   const lead = stories[0];
   const rest = stories.slice(1);
 
