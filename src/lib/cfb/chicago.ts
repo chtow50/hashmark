@@ -31,8 +31,32 @@ export function addDaysYmd(ymd: string, delta: number): string {
   return `${yy}-${mm}-${dd}`;
 }
 
+export function civilYmd(value: string): string {
+  return value.length >= 10 ? value.slice(0, 10) : value;
+}
+
+/**
+ * Visible slate day: America/Chicago civil date of kickoff_at.
+ * Never the UTC calendar date of the instant (Thu 19:00 CT = Fri 00:00 UTC).
+ */
+export function kickoffCivilYmd(kickoffAt: string | null, fallbackYmd: string): string {
+  if (kickoffAt) {
+    const when = new Date(kickoffAt);
+    if (!Number.isNaN(when.getTime())) return ymdInTimeZone(when, CHICAGO_TZ);
+  }
+  return civilYmd(fallbackYmd);
+}
+
+export function chicagoWeekday(iso: string): string {
+  return new Intl.DateTimeFormat("en-US", {
+    timeZone: CHICAGO_TZ,
+    weekday: "long",
+  }).format(new Date(iso));
+}
+
 export function formatChicagoTitle(ymd: string): string {
-  const [y, m, d] = ymd.split("-").map(Number);
+  const civil = civilYmd(ymd);
+  const [y, m, d] = civil.split("-").map(Number);
   // 17:00 UTC is midday in Chicago year-round, so the weekday/date stay on `ymd`.
   const probe = new Date(Date.UTC(y, m - 1, d, 17));
   return new Intl.DateTimeFormat("en-US", {
@@ -41,6 +65,23 @@ export function formatChicagoTitle(ymd: string): string {
     month: "short",
     day: "numeric",
   }).format(probe);
+}
+
+/** Weekday + calendar date of the kick, always America/Chicago. */
+export function formatKickDayTitle(kickoffAt: string | null, fallbackYmd?: string): string {
+  if (kickoffAt) {
+    const when = new Date(kickoffAt);
+    if (!Number.isNaN(when.getTime())) {
+      return new Intl.DateTimeFormat("en-US", {
+        timeZone: CHICAGO_TZ,
+        weekday: "long",
+        month: "short",
+        day: "numeric",
+      }).format(when);
+    }
+  }
+  if (fallbackYmd) return formatChicagoTitle(fallbackYmd);
+  return "—";
 }
 
 export function formatKickCt(iso: string | null): string {

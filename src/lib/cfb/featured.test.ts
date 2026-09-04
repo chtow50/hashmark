@@ -74,6 +74,48 @@ const utah = game({
   location: "Rice-Eccles Stadium",
 });
 
+const gtFinal = game({
+  ...gt,
+  status: "final",
+  homeScore: 13,
+  awayScore: 14,
+});
+
+const illinoisFinal = game({
+  id: 21,
+  homeSlug: "illinois",
+  awaySlug: "uab",
+  kickoffDate: "2026-09-03",
+  kickoffAt: "2026-09-04T01:00:00.000Z",
+  status: "final",
+  homeScore: 42,
+  awayScore: 23,
+  location: "Gies Memorial Stadium",
+  tv: "BTN",
+});
+
+const emuFriday = game({
+  id: 40,
+  homeSlug: "eastern-michigan",
+  awaySlug: "san-jose-state",
+  kickoffDate: "2026-09-04",
+  kickoffAt: "2026-09-04T22:30:00.000Z",
+  location: "Rynearson Stadium",
+  tv: "ESPN+",
+});
+
+const miamiFriday = game({
+  id: 41,
+  homeSlug: "stanford",
+  awaySlug: "miami",
+  kickoffDate: "2026-09-04",
+  kickoffAt: "2026-09-05T01:00:00.000Z",
+  location: "Stanford Stadium",
+  tv: "ESPN",
+  homeShort: "Stanford",
+  awayShort: "Miami",
+});
+
 const dublinFinal = game({
   id: 1,
   week: 1,
@@ -97,6 +139,7 @@ const osuTexas = game({
 
 const beforeThursday = Date.parse("2026-09-01T22:00:00.000Z");
 const afterGtKick = Date.parse("2026-09-04T00:01:00.000Z");
+const fridayAfternoon = Date.parse("2026-09-04T18:00:00.000Z");
 
 test("Colorado at GT is HASHMARK GT −10.3 / 73.3% at home, Neutral off", () => {
   const pred = predictMatchup(
@@ -118,6 +161,21 @@ test("featured kick is Colorado at GT while that kick is still ahead, even if Ru
 test("after GT kicks, featured walks to the next future Week 1 kick", () => {
   const featured = selectFeaturedKick([rutgers, gt, utah], afterGtKick);
   assert.equal(featured?.homeSlug, "utah");
+});
+
+test("after GT and Illinois FINALs, featured prefers Miami over an earlier Friday kick", () => {
+  const featured = selectFeaturedKick(
+    [gtFinal, illinoisFinal, emuFriday, miamiFriday],
+    fridayAfternoon,
+  );
+  assert.equal(featured?.homeSlug, "stanford");
+  assert.equal(featured?.awaySlug, "miami");
+  assert.equal(featured?.tv, "ESPN");
+});
+
+test("after Thursday FINALs, first Friday kick features when Miami is absent", () => {
+  const featured = selectFeaturedKick([gtFinal, illinoisFinal, emuFriday], fridayAfternoon);
+  assert.equal(featured?.homeSlug, "eastern-michigan");
 });
 
 test("never features a FINAL or an in-progress kick", () => {
