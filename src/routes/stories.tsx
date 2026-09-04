@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, Outlet, useChildMatches } from "@tanstack/react-router";
 import { PageHead, Panel } from "@/components/shell";
 import { listStories, WEEK0_SLATE, type SlateHx } from "@/lib/cfb/stories";
 
@@ -28,17 +28,36 @@ function SideName({ side }: { side: SlateHx }) {
 }
 
 function StoriesPage() {
+  const childMatches = useChildMatches();
   const stories = Route.useLoaderData();
+  if (childMatches.length > 0) {
+    return <Outlet />;
+  }
+
   const lead = stories[0];
   const rest = stories.slice(1);
 
   return (
     <div>
       <PageHead
-        kicker="Week 0 · 2026"
-        title="The desk is open."
-        lede="HASHMARK is covering the first FBS Saturday (Aug. 29) with HX in the copy."
+        kicker="Week 1 · 2026"
+        title="The Friday desk."
+        lede="HX is still Week 0–locked until Sunday. The LSU–Clemson gap leads. Vegas in this package is the four sourced closes on the Week 1 schedule."
       />
+
+      <p className="mb-8 font-mono text-[11px] uppercase tracking-[0.16em] text-faint">
+        <Link
+          to="/schedule"
+          search={{ w: 1 }}
+          className="text-fg underline decoration-border underline-offset-4 hover:text-accent"
+        >
+          Week 1 schedule
+        </Link>
+        <span className="mx-2" aria-hidden>
+          ·
+        </span>
+        HX Week 0–locked until Sunday
+      </p>
 
       {lead ? (
         <Link
@@ -73,10 +92,12 @@ function StoriesPage() {
         ))}
       </div>
 
-      <Panel className="mt-8 overflow-hidden p-0 sm:p-0">
-        <div className="border-b border-line px-4 py-4 sm:px-5">
-          <h2 className="font-display text-2xl tracking-wide">Week 0 slate</h2>
-          <p className="mt-1 text-sm text-muted">Saturday, Aug. 29 · times CT · HX where HASHMARK has the team</p>
+      <Panel className="mt-10 overflow-hidden p-0 opacity-80 sm:p-0">
+        <div className="border-b border-line px-4 py-3 sm:px-5">
+          <h2 className="font-display text-lg tracking-wide text-muted">Week 0, already played</h2>
+          <p className="mt-1 text-xs text-faint">
+            Saturday, Aug. 29 · times CT. USC already has tape. Stanford beat Hawaiʻi 37–27.
+          </p>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full min-w-[560px] text-left text-sm">
