@@ -12,8 +12,186 @@ export type Story = {
 };
 
 export const STORY_DATE = "Friday, Aug 28, 2026";
+export const STORY_DATE_WEEK1 = "Friday, Sep 4, 2026";
 
 export const STORIES: Story[] = [
+  {
+    slug: "week-1-lsu-clemson-gap",
+    kicker: "Week 1 · HX Flag",
+    headline: "HX sees Clemson–LSU as a one-score game. Vegas does not.",
+    dek: "Lane Kiffin’s debut in Baton Rouge is priced like a double-digit home favorite. HASHMARK is barely buying it.",
+    date: STORY_DATE_WEEK1,
+    body: [
+      "Clemson visits LSU Saturday night (6:30 CT, ABC). Live HX has LSU at −3.6 (59.5% win probability). The sourced Vegas close on the Week 1 schedule is LSU −10.5 with O/U 51.5 — nearly seven points of daylight, the largest HX-vs-Vegas disagreement on the Week 1 slate.",
+      "Preseason AP has LSU 11th. HX has them 20th (4.02), nine spots below the ballot, the largest HX–AP rank gap among ranked teams. Clemson is HX 21st and unranked in AP. ESPN FPI’s preseason title-odds table still keeps LSU in the top-10 championship conversation. HX is cooler on the Kiffin reboot until the tape proves otherwise.",
+      "This is the cleanest trust-the-model-or-trust-the-market card of Week 1.",
+    ],
+    whyItMatters: "Biggest live HX–Vegas gap; also the largest HX–AP rank gap among ranked teams.",
+    sources: [
+      {
+        label: "HASHMARK Schedule",
+        href: "https://hashmarkcfb.com/schedule?w=1",
+      },
+      {
+        label: "HASHMARK Board",
+        href: "https://hashmarkcfb.com/",
+      },
+      {
+        label: "NBC Sports",
+        href: "https://www.nbcsports.com/betting/college-football/news/lsu-vs-clemson-prediction-odds-expert-picks-team-and-player-news-betting-trends-and-stats",
+      },
+      {
+        label: "Action Network",
+        href: "https://www.actionnetwork.com/ncaaf-game/clemson-lsu-score-odds-september-5-2026/287971",
+      },
+      {
+        label: "AP Top 25",
+        href: "https://apnews.com/hub/ap-top-25-college-football-poll",
+      },
+    ],
+  },
+  {
+    slug: "week-1-georgia-hx-one",
+    kicker: "Week 1 · Board",
+    headline: "HX opens Week 1 with Georgia on top — and Ohio State as the consensus counterweight",
+    dek: "A 0.04 HX edge over the Buckeyes puts Kirby Smart ahead of AP, FPI, and SP+.",
+    date: STORY_DATE_WEEK1,
+    body: [
+      "The live Top 25 still reads Georgia 7.89, Ohio State 7.85. Preseason AP has Ohio State No. 1 and Georgia No. 3. ESPN’s preseason FPI posts Ohio State No. 1 (FPI 28.7) with the highest national-title odds; Georgia sits fifth in that title-odds ordering. Bill Connelly’s final preseason SP+ crowned Ohio State No. 1 (32.7) with Georgia around No. 4 (26.4).",
+      "Roster talent composite still lists Georgia first (94.3). Ohio State hosts Ball State Saturday (11:30 CT, BTN) as a −68.7 HX smash. HX is a talent-and-efficiency prior, not a résumé poll. That 0.04 gap is the brand disagreement.",
+    ],
+    whyItMatters: "Defines HASHMARK vs AP/FPI/SP+ for the season-long comparison desk.",
+    sources: [
+      {
+        label: "HASHMARK Board",
+        href: "https://hashmarkcfb.com/",
+      },
+      {
+        label: "AP Top 25",
+        href: "https://sportsdata.usatoday.com/football/ncaaf/ap-poll",
+      },
+      {
+        label: "On3 · ESPN FPI",
+        href: "https://www.on3.com/teams/ohio-state-buckeyes/news/ohio-state-buckeyes-football-espn-fpi-preseason-top-25-rankings-2/",
+      },
+      {
+        label: "On3 · Preseason Top 25",
+        href: "https://www.on3.com/news/espn-reveals-final-update-to-preseason-top-25-rankings-ahead-of-2026-college-football-season/",
+      },
+      {
+        label: "ESPN · SP+",
+        href: "https://www.espn.com/college-football/story/_/id/49593338/final-preseason-college-football-sp+-rankings-takeaways-2026",
+      },
+    ],
+  },
+  {
+    slug: "week-1-miami-stanford-gap",
+    kicker: "Week 1 · HX Flag",
+    headline: "Miami −17 at Stanford on HX. Vegas wants −23.5.",
+    dek: "Friday night in Palo Alto is the other big market disagreement on the live HASHMARK board.",
+    date: STORY_DATE_WEEK1,
+    body: [
+      "No. 7 / HX No. 10 Miami opens at Stanford Friday (8:00 CT, ESPN). HASHMARK posts Miami −17.0 (82.5%). The sourced Vegas close on the Week 1 schedule is Miami −23.5 — a 6.5-point chill from HX versus the market, second only to the LSU gap.",
+      "Miami is still top-10 (5.23) but three spots below preseason AP (No. 7). Stanford already has a Week 0 win (37–27 over Hawaiʻi). HX is not fading Miami so much as refusing to price a three-touchdown road cover off one Cardinal tape.",
+    ],
+    whyItMatters: "Second-largest sourced HX–Vegas gap; clean Friday lead.",
+    sources: [
+      {
+        label: "HASHMARK Schedule",
+        href: "https://hashmarkcfb.com/schedule?w=1",
+      },
+      {
+        label: "HASHMARK Board",
+        href: "https://hashmarkcfb.com/",
+      },
+      {
+        label: "NCAA.com TV schedule",
+        href: "https://www.ncaa.com/news/football/article/college-football-tv-schedule-game-times-preview",
+      },
+    ],
+  },
+  {
+    slug: "week-1-oregon-boise",
+    kicker: "Week 1 · Matchup",
+    headline: "No. 2 Oregon hosts a CFP-proven Boise State — HX still wants a multi-score Autzen night",
+    dek: "The Ducks’ nonconference home streak meets a Pac-12 flagship with playoff recent history.",
+    date: STORY_DATE_WEEK1,
+    body: [
+      "Saturday at Autzen (2:30 CT, CBS). Preseason AP No. 2 Oregon (HX No. 4, 6.97) hosts Boise State. HX has Oregon −25.1 (89.4%). Public books sit in the mid-20s — CBS Sports / Bleacher Report around Oregon −24.5, total near 51.5. HASHMARK’s Vegas column on this game is blank, so that is not a HASHMARK close.",
+      "Oregon’s long FBS nonconference home streak meets a Pac-12 flagship with recent CFP history. HX is slightly cooler than AP (−2) and still top-five. If Boise keeps it inside two scores, that is a national story.",
+    ],
+    whyItMatters: "Best on-paper Week 1 game that isn’t ranked-ranked; CFP path optics.",
+    sources: [
+      {
+        label: "HASHMARK Schedule",
+        href: "https://hashmarkcfb.com/schedule?w=1",
+      },
+      {
+        label: "CBS Sports",
+        href: "https://www.cbssports.com/college-football/news/oregon-boise-state-prediction-pick-odds-spread-where-to-watch-live/",
+      },
+      {
+        label: "Oregon Public Broadcasting",
+        href: "https://www.opb.org/article/2026/09/03/oregon-hosts-boise-state-indiana-opens-title-defense-big-ten-football/",
+      },
+      {
+        label: "NCAA.com",
+        href: "https://www.ncaa.com/game/6604288",
+      },
+    ],
+  },
+  {
+    slug: "week-1-ole-miss-louisville",
+    kicker: "Week 1 · Ranked",
+    headline: "Ole Miss–Louisville in Nashville is Week 1’s only Top 25 collision — and HX almost agrees with Vegas",
+    dek: "A rare case where HASHMARK and the market are within a point and a half.",
+    date: STORY_DATE_WEEK1,
+    body: [
+      "Sunday night at Nissan Stadium (6:30 CT, ABC): inaugural Music City Kickoff, the only ranked-on-ranked game in Week 1 — AP No. 9 Ole Miss vs No. 24 Louisville. HX has Ole Miss −7.9 (68.9%). The sourced Vegas close is Ole Miss −6.5 (O/U 55.5).",
+      "HX ranks Ole Miss eighth (5.49, +1 vs AP). This is the models-agree counterpoint to the LSU card. The first regular-season AP poll posts Tuesday, Sept. 8.",
+    ],
+    whyItMatters: "Sole ranked-ranked Week 1 game; clean HX≈Vegas control story.",
+    sources: [
+      {
+        label: "HASHMARK Schedule",
+        href: "https://hashmarkcfb.com/schedule?w=1",
+      },
+      {
+        label: "Associated Press",
+        href: "https://apnews.com/live/top-25-college-football-poll-8-17-2026",
+      },
+      {
+        label: "NCAA.com TV schedule",
+        href: "https://www.ncaa.com/news/football/article/college-football-tv-schedule-game-times-preview",
+      },
+    ],
+  },
+  {
+    slug: "week-1-notre-dame-lambeau",
+    kicker: "Week 1 · Board",
+    headline: "Notre Dame at Lambeau, plus the HX cards that don’t look like chalk",
+    dek: "HX backs the Irish by three scores and quietly likes Toledo at Michigan State.",
+    date: STORY_DATE_WEEK1,
+    body: [
+      "Sunday, Wisconsin vs No. 4 Notre Dame at Lambeau Field (6:30 CT, NBC). HX has Notre Dame −21.9 (87.1%). The sourced Vegas close is Notre Dame −20.5 (O/U 47.5). HX ranks the Irish third (7.09).",
+      "Quiet notes off the same board: Cal −1.3 over UCLA (53.5%) is the only game in the 45–55% zone. Toledo −7.0 at Michigan State (67.1%, Friday 7:00 CT, FS1) — flag it; HASHMARK’s Vegas column is blank, so there is no HASHMARK close. Monday, SMU at Florida State is HX SMU −8.3 (69.6%).",
+    ],
+    whyItMatters: "Packages Sunday brand game with board curios that need Vegas fills.",
+    sources: [
+      {
+        label: "HASHMARK Schedule",
+        href: "https://hashmarkcfb.com/schedule?w=1",
+      },
+      {
+        label: "Oregon Public Broadcasting",
+        href: "https://www.opb.org/article/2026/09/03/oregon-hosts-boise-state-indiana-opens-title-defense-big-ten-football/",
+      },
+      {
+        label: "HASHMARK Board",
+        href: "https://hashmarkcfb.com/",
+      },
+    ],
+  },
   {
     slug: "week-0-tape",
     kicker: "Week 0 tape",
