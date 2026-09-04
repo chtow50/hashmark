@@ -1,4 +1,4 @@
-import { chicagoWeekday } from "./chicago";
+import { chicagoWeekday } from "./chicago.ts";
 import type { ScheduleGame } from "./types";
 
 /** Rankings stay on HASHMARK Week 0 until the Sunday after Week 1. */
