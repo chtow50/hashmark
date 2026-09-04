@@ -138,7 +138,7 @@ test("GT featured week is HASHMARK Week 1, not Week 0", () => {
   assert.equal(featuredSlateWeek({ kickoffDate: "2026-08-29", week: 1 }), 0);
 });
 
-test("GT book is the current Thursday book, not a close, and does not invent a total", () => {
+test("unstamped GT book is the current Thursday book, not a close, and does not invent a total", () => {
   const book = featuredBook(gt);
   assert.ok(book);
   assert.equal(book.kind, "current");
@@ -148,6 +148,26 @@ test("GT book is the current Thursday book, not a close, and does not invent a t
   assert.match(book.note ?? "", /Not a close until kick/);
   assert.equal(gt.vegasSpread, null);
   assert.equal(gt.vegasTotal, null);
+});
+
+test("stamped GT close is Vegas −6.5 / 50.5, not the current-book range", () => {
+  const stamped = game({
+    homeSlug: "georgia-tech",
+    awaySlug: "colorado",
+    homeShort: "Georgia Tech",
+    awayShort: "Colorado",
+    vegasSpread: 6.5,
+    vegasTotal: 50.5,
+    status: "final",
+  });
+  const book = featuredBook(stamped);
+  assert.ok(book);
+  assert.equal(book.kind, "close");
+  assert.equal(book.label, "Vegas");
+  assert.equal(book.spread, 6.5);
+  assert.equal(book.total, "50.5");
+  assert.equal(book.note, null);
+  assert.equal(favoriteLine("Georgia Tech", "Colorado", stamped.vegasSpread ?? 0), "Georgia Tech −6.5");
 });
 
 test("same-favorite spread gap vs −6.5 is the flag", () => {

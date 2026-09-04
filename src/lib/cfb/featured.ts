@@ -13,10 +13,8 @@ export const WEEK1_FLAG = {
 } as const;
 
 /**
- * Research CFB Thursday books for Colorado at GT. Current book, not a close.
- * USA Today −6.5 / 51; FanDuel and Action −6.5 / 50.5; opened −7.5.
- * Same favorite as HASHMARK. Do not invent a single total or write this
- * onto games.vegas_* (those columns are closes).
+ * Pre-kick Thursday books for Colorado at GT. Used only when the row has no
+ * stamped close. After kick the close is Georgia Tech −6.5 / 50.5 on games.vegas_*.
  */
 export const GT_THURSDAY_BOOK = {
   homeSlug: WEEK1_FLAG.homeSlug,
@@ -67,8 +65,18 @@ export type FeaturedBook = {
   note: string | null;
 };
 
-/** Sourced current book on the GT flag; scheduled closes elsewhere. Never invent. */
+/** Stamped close when present. Unstamped GT still shows the pre-kick current book. Never invent. */
 export function featuredBook(g: Pick<ScheduleGame, "homeSlug" | "awaySlug" | "vegasSpread" | "vegasTotal">): FeaturedBook | null {
+  if (g.vegasSpread != null || g.vegasTotal != null) {
+    const total = g.vegasTotal == null ? "—" : String(g.vegasTotal);
+    return {
+      kind: "close",
+      label: "Vegas",
+      spread: g.vegasSpread ?? 0,
+      total,
+      note: null,
+    };
+  }
   if (isColoradoAtGt(g)) {
     return {
       kind: "current",
@@ -78,15 +86,7 @@ export function featuredBook(g: Pick<ScheduleGame, "homeSlug" | "awaySlug" | "ve
       note: `${GT_THURSDAY_BOOK.sources}. Not a close until kick.`,
     };
   }
-  if (g.vegasSpread == null && g.vegasTotal == null) return null;
-  const total = g.vegasTotal == null ? "—" : String(g.vegasTotal);
-  return {
-    kind: "close",
-    label: "Vegas",
-    spread: g.vegasSpread ?? 0,
-    total,
-    note: null,
-  };
+  return null;
 }
 
 export function favoriteLine(homeShort: string, awayShort: string, spread: number): string {
