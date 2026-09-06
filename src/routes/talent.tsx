@@ -2,9 +2,11 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import { ConfPills, PageHead, Panel, TeamSelect } from "@/components/shell";
-import { CompareRow, MixBar, TeamSwatch } from "@/components/marks";
+import { CompareRow, TeamSwatch } from "@/components/marks";
+import { TalentSliceChart, TalentSliceLeaders, TalentSliceMixCell, TalentSliceStats } from "@/components/talent-slices";
 import { inConf, parseConf, type ConfFilter } from "@/lib/cfb/conferences";
 import { TALENT_UNITS } from "@/lib/cfb/positions";
+import { hasPortalMix, hasPortalSlice } from "@/lib/cfb/talent-slices";
 import { listTeams } from "@/lib/cfb/queries";
 import { cn, fmtHeight, fmtNum, fmtPct } from "@/lib/utils";
 import type { TeamSummary } from "@/lib/cfb/types";
@@ -70,7 +72,7 @@ function TalentPage() {
       <PageHead
         kicker="Two-deep composite"
         title="Roster talent"
-        lede="Who is on the roster now — high-school signees plus portal transfers. Starters carry full weight, backups 0.4. Size (including OL mass) is a separate board. It is not the talent ranking and not an HX term."
+        lede="Who is on the roster now — high-school signees plus portal transfers. HS and portal are separate two-deep ratings and a weight mix, not additive slices of the composite. Starters carry full weight, backups 0.4. Size is a separate board — not talent and not HX."
       />
 
       <div className="mb-6 grid grid-cols-2 gap-2">
@@ -186,6 +188,20 @@ function CompositeBoard({
   return (
     <>
       <Panel className="mb-6">
+        <h2 className="font-display text-2xl tracking-wide">High school vs portal</h2>
+        <p className="mt-2 text-sm text-muted">
+          Separate weighted 247 ratings on the listed two-deep — HS signees vs portal transfers — plus portal weight share.
+          Sourced from roster players (transfer flag) and TWO·DEEP depth weights.
+        </p>
+        <div className="mt-5">
+          <TalentSliceLeaders teams={ranked} />
+        </div>
+        <div className="mt-6">
+          <TalentSliceChart teams={ranked} />
+        </div>
+      </Panel>
+
+      <Panel className="mb-6">
         <h2 className="font-display text-2xl tracking-wide">How the composite is built</h2>
         <ul className="mt-4 grid gap-3 text-sm text-muted sm:grid-cols-3">
           <li>
@@ -221,9 +237,8 @@ function CompositeBoard({
               <TeamSwatch color={t.colorPrimary} />
               {t.name}
             </Link>
-            <p className="mt-2 text-sm text-muted">
-              {fmtNum(t.talentScore, 1)} composite · {t.transferCount} transfers · {fmtPct(t.portalShare, 0)} portal weight
-            </p>
+            <p className="mt-2 text-sm text-muted">{fmtNum(t.talentScore, 1)} composite</p>
+            <TalentSliceStats team={t} className="mt-4" />
           </Panel>
         ))}
       </div>
@@ -236,10 +251,21 @@ function CompositeBoard({
         </div>
         {left && right ? (
           <div className="mt-6">
-            <CompareRow label="Talent composite" a={left.talentScore} b={right.talentScore} max={100} format={(n) => fmtNum(n, 1)} />
+            <p className="mb-2 text-[11px] uppercase tracking-[0.12em] text-faint">HS vs portal slices</p>
             <CompareRow label="HS two-deep" a={left.hsTalent} b={right.hsTalent} max={100} format={(n) => fmtNum(n, 1)} />
-            <CompareRow label="Portal two-deep" a={left.portalTalent} b={right.portalTalent} max={100} format={(n) => fmtNum(n, 1)} />
-            <CompareRow label="Portal weight" a={left.portalShare} b={right.portalShare} max={100} format={(n) => fmtPct(n, 0)} />
+            {hasPortalSlice(left) || hasPortalSlice(right) ? (
+              <CompareRow
+                label="Portal two-deep"
+                a={left.portalTalent}
+                b={right.portalTalent}
+                max={100}
+                format={(n) => fmtNum(n, 1)}
+              />
+            ) : null}
+            {hasPortalMix(left) || hasPortalMix(right) ? (
+              <CompareRow label="Portal weight" a={left.portalShare} b={right.portalShare} max={100} format={(n) => fmtPct(n, 0)} />
+            ) : null}
+            <CompareRow label="Talent composite" a={left.talentScore} b={right.talentScore} max={100} format={(n) => fmtNum(n, 1)} />
             <CompareRow label="Starter talent" a={left.starterTalent} b={right.starterTalent} max={100} format={(n) => fmtNum(n, 1)} />
             <CompareRow label="Offense" a={left.offTalent} b={right.offTalent} max={100} format={(n) => fmtNum(n, 1)} />
             <CompareRow label="Defense" a={left.defTalent} b={right.defTalent} max={100} format={(n) => fmtNum(n, 1)} />
@@ -356,14 +382,17 @@ function CompositeBoard({
                   <td className="px-3 py-3 tabular">{fmtNum(t.talentScore, 1)}</td>
                   <td className="px-3 py-3 tabular">{fmtNum(t.hsTalent, 1)}</td>
                   <td className="px-3 py-3 tabular">
-                    {fmtNum(t.portalTalent, 1)}
-                    <span className="ml-1 text-xs text-muted">{t.transferCount}</span>
+                    {hasPortalSlice(t) ? (
+                      <>
+                        {fmtNum(t.portalTalent, 1)}
+                        <span className="ml-1 text-xs text-muted">{t.transferCount}</span>
+                      </>
+                    ) : (
+                      <span className="text-faint">—</span>
+                    )}
                   </td>
                   <td className="px-3 py-3">
-                    <div className="flex h-1.5 w-20 overflow-hidden rounded-full bg-raised">
-                      <div className="h-full bg-accent" style={{ width: `${100 - t.portalShare}%` }} />
-                      <div className="h-full bg-faint" style={{ width: `${t.portalShare}%` }} />
-                    </div>
+                    <TalentSliceMixCell team={t} />
                   </td>
                   <td className="px-3 py-3 tabular text-muted">{fmtNum(t.offTalent, 1)}</td>
                   <td className="px-3 py-3 tabular text-muted">{fmtNum(t.defTalent, 1)}</td>
@@ -586,14 +615,8 @@ function TalentCard({ team, place, lens }: { team: TeamSummary; place: number; l
         </div>
         <span className="font-display text-xl tabular">{fmtNum(team[lens], 1)}</span>
       </div>
-      <div className="mt-3 grid grid-cols-3 gap-2 text-xs tabular text-muted">
-        <span>Comp {fmtNum(team.talentScore, 1)}</span>
-        <span>HS {fmtNum(team.hsTalent, 1)}</span>
-        <span>Portal {fmtNum(team.portalTalent, 1)}</span>
-      </div>
-      <div className="mt-3">
-        <MixBar leftPct={100 - team.portalShare} leftLabel="HS" rightLabel="Portal" />
-      </div>
+      <div className="mt-3 text-xs tabular text-muted">Composite {fmtNum(team.talentScore, 1)}</div>
+      <TalentSliceStats team={team} className="mt-3" />
     </Link>
   );
 }
