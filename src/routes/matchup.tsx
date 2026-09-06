@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { PageHead, Panel, TeamSelect } from "@/components/shell";
-import { CompareRow, DeskChip, Stat, TeamSwatch, WinBar } from "@/components/marks";
+import { CompareRow, DeskChip, Stat, TeamMark, WinBar } from "@/components/marks";
 import { RosterDuel } from "@/components/roster-duel";
 import { formatKickCt } from "@/lib/cfb/chicago";
 import { favoriteLine, spreadGap } from "@/lib/cfb/featured";
@@ -69,6 +69,8 @@ function MatchupPage() {
   }
 
   const { home, away, prediction, homePlayers, awayPlayers, game } = match;
+  const homeTeam = home ? { slug: home.slug, color: home.colorPrimary } : undefined;
+  const awayTeam = away ? { slug: away.slug, color: away.colorPrimary } : undefined;
   const [period, setPeriod] = useState<RestampPeriod | null>(null);
   const [homeScore, setHomeScore] = useState("");
   const [awayScore, setAwayScore] = useState("");
@@ -266,30 +268,32 @@ function MatchupPage() {
             <p className="mb-4 text-sm text-muted">
               Two-deep composite, transfers included. Unit slices sit under that. OL mass is size, not the ranking.
             </p>
-            <CompareRow label="HX rating" a={home.hxRating} b={away.hxRating} max={10} format={(n) => fmtNum(n, 2)} />
-            <CompareRow label="Talent composite" a={home.talentScore} b={away.talentScore} max={100} format={(n) => fmtNum(n, 1)} />
-            <CompareRow label="HS two-deep" a={home.hsTalent} b={away.hsTalent} max={100} format={(n) => fmtNum(n, 1)} />
-            <CompareRow label="Portal two-deep" a={home.portalTalent} b={away.portalTalent} max={100} format={(n) => fmtNum(n, 1)} />
-            <CompareRow label="Offense two-deep" a={home.offTalent} b={away.offTalent} max={100} format={(n) => fmtNum(n, 1)} />
-            <CompareRow label="Defense two-deep" a={home.defTalent} b={away.defTalent} max={100} format={(n) => fmtNum(n, 1)} />
-            <CompareRow label="QB" a={home.qbTalent} b={away.qbTalent} max={100} format={(n) => fmtNum(n, 1)} />
-            <CompareRow label="Skill" a={home.skillTalent} b={away.skillTalent} max={100} format={(n) => fmtNum(n, 1)} />
-            <CompareRow label="OL" a={home.olTalent} b={away.olTalent} max={100} format={(n) => fmtNum(n, 1)} />
-            <CompareRow label="DL" a={home.dlTalent} b={away.dlTalent} max={100} format={(n) => fmtNum(n, 1)} />
-            <CompareRow label="LB" a={home.lbTalent} b={away.lbTalent} max={100} format={(n) => fmtNum(n, 1)} />
-            <CompareRow label="DB" a={home.dbTalent} b={away.dbTalent} max={100} format={(n) => fmtNum(n, 1)} />
-            <CompareRow label="Blue-chip %" a={home.blueChipPct} b={away.blueChipPct} max={100} format={(n) => fmtPct(n, 0)} />
-            <CompareRow label="Portal share" a={home.portalShare} b={away.portalShare} max={100} format={(n) => fmtPct(n, 0)} />
-            <CompareRow label="2026 class pts" a={home.recPoints} b={away.recPoints} max={320} format={(n) => fmtNum(n, 0)} />
-            <CompareRow label="Returning" a={home.returningProduction} b={away.returningProduction} max={100} format={(n) => fmtPct(n, 0)} />
-            <CompareRow label="Offense rating" a={home.offenseRating} b={away.offenseRating} max={45} format={(n) => fmtNum(n, 1)} />
-            <CompareRow label="Defense rating" a={home.defenseRating} b={away.defenseRating} max={45} format={(n) => fmtNum(n, 1)} />
+            <CompareRow label="HX rating" a={home.hxRating} b={away.hxRating} max={10} format={(n) => fmtNum(n, 2)} aTeam={homeTeam} bTeam={awayTeam} />
+            <CompareRow label="Talent composite" a={home.talentScore} b={away.talentScore} max={100} format={(n) => fmtNum(n, 1)} aTeam={homeTeam} bTeam={awayTeam} />
+            <CompareRow label="HS two-deep" a={home.hsTalent} b={away.hsTalent} max={100} format={(n) => fmtNum(n, 1)} aTeam={homeTeam} bTeam={awayTeam} />
+            <CompareRow label="Portal two-deep" a={home.portalTalent} b={away.portalTalent} max={100} format={(n) => fmtNum(n, 1)} aTeam={homeTeam} bTeam={awayTeam} />
+            <CompareRow label="Offense two-deep" a={home.offTalent} b={away.offTalent} max={100} format={(n) => fmtNum(n, 1)} aTeam={homeTeam} bTeam={awayTeam} />
+            <CompareRow label="Defense two-deep" a={home.defTalent} b={away.defTalent} max={100} format={(n) => fmtNum(n, 1)} aTeam={homeTeam} bTeam={awayTeam} />
+            <CompareRow label="QB" a={home.qbTalent} b={away.qbTalent} max={100} format={(n) => fmtNum(n, 1)} aTeam={homeTeam} bTeam={awayTeam} />
+            <CompareRow label="Skill" a={home.skillTalent} b={away.skillTalent} max={100} format={(n) => fmtNum(n, 1)} aTeam={homeTeam} bTeam={awayTeam} />
+            <CompareRow label="OL" a={home.olTalent} b={away.olTalent} max={100} format={(n) => fmtNum(n, 1)} aTeam={homeTeam} bTeam={awayTeam} />
+            <CompareRow label="DL" a={home.dlTalent} b={away.dlTalent} max={100} format={(n) => fmtNum(n, 1)} aTeam={homeTeam} bTeam={awayTeam} />
+            <CompareRow label="LB" a={home.lbTalent} b={away.lbTalent} max={100} format={(n) => fmtNum(n, 1)} aTeam={homeTeam} bTeam={awayTeam} />
+            <CompareRow label="DB" a={home.dbTalent} b={away.dbTalent} max={100} format={(n) => fmtNum(n, 1)} aTeam={homeTeam} bTeam={awayTeam} />
+            <CompareRow label="Blue-chip %" a={home.blueChipPct} b={away.blueChipPct} max={100} format={(n) => fmtPct(n, 0)} aTeam={homeTeam} bTeam={awayTeam} />
+            <CompareRow label="Portal share" a={home.portalShare} b={away.portalShare} max={100} format={(n) => fmtPct(n, 0)} aTeam={homeTeam} bTeam={awayTeam} />
+            <CompareRow label="2026 class pts" a={home.recPoints} b={away.recPoints} max={320} format={(n) => fmtNum(n, 0)} aTeam={homeTeam} bTeam={awayTeam} />
+            <CompareRow label="Returning" a={home.returningProduction} b={away.returningProduction} max={100} format={(n) => fmtPct(n, 0)} aTeam={homeTeam} bTeam={awayTeam} />
+            <CompareRow label="Offense rating" a={home.offenseRating} b={away.offenseRating} max={45} format={(n) => fmtNum(n, 1)} aTeam={homeTeam} bTeam={awayTeam} />
+            <CompareRow label="Defense rating" a={home.defenseRating} b={away.defenseRating} max={45} format={(n) => fmtNum(n, 1)} aTeam={homeTeam} bTeam={awayTeam} />
             <CompareRow
               label="OL mass"
               a={home.olAvgWeightLbs}
               b={away.olAvgWeightLbs}
               max={360}
               format={(n) => `${fmtNum(n, 0)} lb`}
+              aTeam={homeTeam}
+              bTeam={awayTeam}
             />
           </Panel>
 
@@ -307,6 +311,10 @@ function MatchupPage() {
               away={awayPlayers}
               homeName={home.shortName}
               awayName={away.shortName}
+              homeSlug={home.slug}
+              awaySlug={away.slug}
+              homeColor={home.colorPrimary}
+              awayColor={away.colorPrimary}
             />
           </Panel>
         </div>
@@ -426,7 +434,7 @@ function TeamHead({
     <div className="min-w-0 flex-1">
       <p className="text-[11px] uppercase tracking-[0.14em] text-faint">{side}</p>
       <div className="mt-2 flex items-center gap-2">
-        <TeamSwatch color={team.colorPrimary} className="h-8 w-1.5" />
+        <TeamMark slug={team.slug} color={team.colorPrimary} swatchClassName="h-8 w-1.5" logoSize={24} />
         <div>
           <div className="font-display text-3xl tracking-wide">{team.name}</div>
           <div className="text-sm text-muted">

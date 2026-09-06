@@ -183,6 +183,8 @@ export function CompareRow({
   max,
   format,
   invert,
+  aTeam,
+  bTeam,
 }: {
   label: string;
   a: number;
@@ -190,12 +192,17 @@ export function CompareRow({
   max: number;
   format: (n: number) => string;
   invert?: boolean;
+  aTeam?: { slug: string; color: string };
+  bTeam?: { slug: string; color: string };
 }) {
   const aWin = invert ? a < b : a > b;
   const bWin = invert ? b < a : b > a;
   return (
     <div className="grid grid-cols-[1fr_7.5rem_1fr] items-center gap-3 py-2.5 sm:grid-cols-[1fr_8rem_1fr]">
       <div className="flex min-w-0 flex-col items-end gap-1">
+        {aTeam ? (
+          <TeamMark slug={aTeam.slug} color={aTeam.color} logoSize={16} swatchClassName="h-4 w-1" />
+        ) : null}
         <span className={cn("text-sm tabular", aWin ? "text-fg" : "text-muted")}>
           {format(a)}
         </span>
@@ -210,6 +217,9 @@ export function CompareRow({
         {label}
       </div>
       <div className="flex min-w-0 flex-col items-start gap-1">
+        {bTeam ? (
+          <TeamMark slug={bTeam.slug} color={bTeam.color} logoSize={16} swatchClassName="h-4 w-1" />
+        ) : null}
         <span className={cn("text-sm tabular", bWin ? "text-fg" : "text-muted")}>
           {format(b)}
         </span>
