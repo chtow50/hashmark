@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { PageHead, Panel } from "@/components/shell";
-import { TeamSwatch } from "@/components/marks";
+import { TeamMark } from "@/components/marks";
 import { Button } from "@/components/ui/button";
 import { formatKickCt, formatKickDayTitle, todayChicago } from "@/lib/cfb/chicago";
 import { predictMatchup } from "@/lib/cfb/model";
@@ -134,12 +134,12 @@ function ScheduleRow({ game: g }: { game: ScheduleGame }) {
             </div>
             <div className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1">
               <span className="inline-flex items-center gap-2">
-                <TeamSwatch color={g.awayColor} />
+                <TeamMark slug={g.awaySlug} color={g.awayColor} />
                 <span className="font-medium">{g.awayName}</span>
               </span>
               <span className="text-faint">{g.neutral ? "vs" : "@"}</span>
               <span className="inline-flex items-center gap-2">
-                <TeamSwatch color={g.homeColor} />
+                <TeamMark slug={g.homeSlug} color={g.homeColor} />
                 <span className="font-medium">{g.homeName}</span>
               </span>
             </div>

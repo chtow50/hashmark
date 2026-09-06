@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState, type ReactNode } from "react";
 import { ConfPills, PageHead, Panel } from "@/components/shell";
-import { DeltaChip, RankNum, TeamSwatch } from "@/components/marks";
+import { DeltaChip, RankNum, TeamMark, TeamSwatch } from "@/components/marks";
 import { inConf, parseConf, type ConfFilter } from "@/lib/cfb/conferences";
 import { MODEL } from "@/lib/cfb/model";
 import { listTeams } from "@/lib/cfb/queries";
@@ -124,7 +124,7 @@ function RankingsPage() {
                       params={{ slug: t.slug }}
                       className="flex min-h-11 items-center gap-2.5"
                     >
-                      <TeamSwatch color={t.colorPrimary} />
+                      <TeamMark slug={t.slug} color={t.colorPrimary} />
                       <span>
                         <span className="block whitespace-nowrap font-medium">{t.name}</span>
                         <span className="block whitespace-nowrap text-xs text-muted">

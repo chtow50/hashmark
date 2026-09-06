@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { PageHead, Panel } from "@/components/shell";
 import { Button } from "@/components/ui/button";
-import { DeltaChip, RankNum, Stat, TeamLink, TeamSwatch, WinBar } from "@/components/marks";
+import { DeltaChip, RankNum, Stat, TeamLink, TeamMark, TeamSwatch, WinBar } from "@/components/marks";
 import { formatKickCt } from "@/lib/cfb/chicago";
 import {
   BOARD_WEEK,
@@ -71,7 +71,7 @@ function Home() {
             <div>
               <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-faint">HX No. 1</p>
               <div className="mt-3 flex items-center gap-3">
-                <TeamSwatch color={one.colorPrimary} className="h-10 w-1.5 rounded-sm" />
+                <TeamMark slug={one.slug} color={one.colorPrimary} swatchClassName="h-10 w-1.5 rounded-sm" logoSize={20} />
                 <div>
                   <Link
                     to="/teams/$slug"
@@ -166,7 +166,7 @@ function Home() {
             >
               <div className="font-display text-2xl tabular text-muted">{t.recRank}</div>
               <div className="mt-2 flex items-center gap-2">
-                <TeamSwatch color={t.colorPrimary} />
+                <TeamMark slug={t.slug} color={t.colorPrimary} />
                 <span className="font-medium">{t.shortName}</span>
               </div>
               <div className="mt-2 text-xs tabular text-muted">
@@ -197,7 +197,7 @@ function Home() {
             >
               <div className="font-display text-2xl tabular text-muted">{t.talentRank}</div>
               <div className="mt-2 flex items-center gap-2">
-                <TeamSwatch color={t.colorPrimary} />
+                <TeamMark slug={t.slug} color={t.colorPrimary} />
                 <span className="font-medium">{t.shortName}</span>
               </div>
               <div className="mt-2 text-xs tabular text-muted">

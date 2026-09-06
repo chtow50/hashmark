@@ -1,4 +1,6 @@
 import { Link } from "@tanstack/react-router";
+import { TeamLogo } from "@/components/team-logo";
+import { hasTeamLogo } from "@/lib/cfb/team-logos";
 import { cn, deltaVsAp, fmtHeight, fmtNum } from "@/lib/utils";
 
 export function TeamSwatch({
@@ -14,6 +16,30 @@ export function TeamSwatch({
       style={{ background: color }}
       aria-hidden
     />
+  );
+}
+
+/** Color bar + optional logo — fails soft to swatch-only when asset missing. */
+export function TeamMark({
+  slug,
+  color,
+  swatchClassName,
+  logoSize = 18,
+  className,
+}: {
+  slug: string;
+  color: string;
+  swatchClassName?: string;
+  logoSize?: number;
+  className?: string;
+}) {
+  const showLogo = hasTeamLogo(slug);
+
+  return (
+    <span className={cn("inline-flex shrink-0 items-center", showLogo ? "gap-1.5" : "", className)}>
+      <TeamSwatch color={color} className={swatchClassName} />
+      {showLogo ? <TeamLogo slug={slug} size={logoSize} /> : null}
+    </span>
   );
 }
 
@@ -38,7 +64,7 @@ export function TeamLink({
         className,
       )}
     >
-      <TeamSwatch color={color} />
+      <TeamMark slug={slug} color={color} />
       <span className="font-medium tracking-tight">{name}</span>
     </Link>
   );
