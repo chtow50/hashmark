@@ -54,7 +54,14 @@ export type TeamSummary = {
   olAvgWeightLbs: number;
   skillAvgHeightIn: number;
   skillAvgWeightLbs: number;
+  qbAvgHeightIn: number;
+  qbAvgWeightLbs: number;
+  dlAvgHeightIn: number;
+  dlAvgWeightLbs: number;
+  lbAvgHeightIn: number;
+  lbAvgWeightLbs: number;
   dbAvgHeightIn: number;
+  dbAvgWeightLbs: number;
   returningStarters: number;
   zTalent: number;
   zRetention: number;

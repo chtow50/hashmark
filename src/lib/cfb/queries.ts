@@ -3,6 +3,7 @@ import { z } from "zod";
 import { getSql } from "@/lib/db";
 import { predictMatchup } from "./model";
 import { POS_SQL_ARRAY, TALENT_UNITS_JOIN } from "./positions";
+import { SIZE_UNITS_JOIN } from "./size-groups";
 import { kickoffCivilYmd } from "./chicago";
 import { compositeClassAvg } from "./recruiting";
 import type {
@@ -74,7 +75,14 @@ type TeamDb = {
   ol_avg_weight_lbs: number;
   skill_avg_height_in: number;
   skill_avg_weight_lbs: number;
+  qb_avg_height_in: number;
+  qb_avg_weight_lbs: number;
+  dl_avg_height_in: number;
+  dl_avg_weight_lbs: number;
+  lb_avg_height_in: number;
+  lb_avg_weight_lbs: number;
   db_avg_height_in: number;
+  db_avg_weight_lbs: number;
   returning_starters: number;
   z_talent: number;
   z_retention: number;
@@ -105,8 +113,19 @@ const TEAM_SELECT = `
   coalesce(u.dl_talent, p.dl_talent, 0) as dl_talent,
   coalesce(u.lb_talent, p.lb_talent, 0) as lb_talent,
   coalesce(u.db_talent, p.db_talent, 0) as db_talent,
-  p.avg_height_in, p.avg_weight_lbs, p.ol_avg_height_in, p.ol_avg_weight_lbs,
-  p.skill_avg_height_in, p.skill_avg_weight_lbs, p.db_avg_height_in,
+  p.avg_height_in, p.avg_weight_lbs,
+  coalesce(sz.ol_avg_height_in, p.ol_avg_height_in) as ol_avg_height_in,
+  coalesce(sz.ol_avg_weight_lbs, p.ol_avg_weight_lbs) as ol_avg_weight_lbs,
+  coalesce(sz.skill_avg_height_in, p.skill_avg_height_in) as skill_avg_height_in,
+  coalesce(sz.skill_avg_weight_lbs, p.skill_avg_weight_lbs) as skill_avg_weight_lbs,
+  coalesce(sz.qb_avg_height_in, 0) as qb_avg_height_in,
+  coalesce(sz.qb_avg_weight_lbs, 0) as qb_avg_weight_lbs,
+  coalesce(sz.dl_avg_height_in, 0) as dl_avg_height_in,
+  coalesce(sz.dl_avg_weight_lbs, 0) as dl_avg_weight_lbs,
+  coalesce(sz.lb_avg_height_in, 0) as lb_avg_height_in,
+  coalesce(sz.lb_avg_weight_lbs, 0) as lb_avg_weight_lbs,
+  coalesce(sz.db_avg_height_in, p.db_avg_height_in) as db_avg_height_in,
+  coalesce(sz.db_avg_weight_lbs, 0) as db_avg_weight_lbs,
   p.returning_starters, p.two_deep_source
 `;
 
@@ -116,6 +135,7 @@ const TEAM_FROM = `
   join recruiting rec on rec.team_id = t.id and rec.class_year = 2026
   join roster_profile p on p.team_id = t.id
   ${TALENT_UNITS_JOIN}
+  ${SIZE_UNITS_JOIN}
 `;
 
 function mapTeam(row: TeamDb): TeamSummary {
@@ -183,7 +203,14 @@ function mapTeam(row: TeamDb): TeamSummary {
     olAvgWeightLbs: Number(row.ol_avg_weight_lbs),
     skillAvgHeightIn: Number(row.skill_avg_height_in),
     skillAvgWeightLbs: Number(row.skill_avg_weight_lbs),
+    qbAvgHeightIn: Number(row.qb_avg_height_in),
+    qbAvgWeightLbs: Number(row.qb_avg_weight_lbs),
+    dlAvgHeightIn: Number(row.dl_avg_height_in),
+    dlAvgWeightLbs: Number(row.dl_avg_weight_lbs),
+    lbAvgHeightIn: Number(row.lb_avg_height_in),
+    lbAvgWeightLbs: Number(row.lb_avg_weight_lbs),
     dbAvgHeightIn: Number(row.db_avg_height_in),
+    dbAvgWeightLbs: Number(row.db_avg_weight_lbs),
     returningStarters: row.returning_starters,
     zTalent: Number(row.z_talent),
     zRetention: Number(row.z_retention),

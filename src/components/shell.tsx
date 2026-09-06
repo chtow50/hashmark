@@ -112,8 +112,10 @@ export function AppShell({ children }: { children: ReactNode }) {
           <nav className="flex flex-wrap gap-x-4 gap-y-2">
             <Link to="/" className="hover:text-fg">Board</Link>
             <Link to="/schedule" className="hover:text-fg">Schedule</Link>
+            <Link to="/stories" className="hover:text-fg">Stories</Link>
             <Link to="/rankings" className="hover:text-fg">Rankings</Link>
             <Link to="/matchup" className="hover:text-fg">Matchup</Link>
+            <Link to="/talent" className="hover:text-fg">Talent</Link>
             <Link to="/model" className="hover:text-fg">The Model</Link>
           </nav>
         </div>
@@ -359,7 +361,7 @@ export function ConfPills({
   searchFor,
 }: {
   value: ConfFilter;
-  to: "/rankings" | "/recruiting" | "/talent";
+  to: "/rankings" | "/recruiting" | "/talent" | "/schedule";
   searchFor: (conf: ConfFilter) => Record<string, unknown>;
 }) {
   return (

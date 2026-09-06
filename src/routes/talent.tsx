@@ -1,11 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
+import { Fragment, useMemo, useState } from "react";
 import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import { ConfPills, PageHead, Panel, TeamSelect } from "@/components/shell";
 import { CompareRow, TeamSwatch } from "@/components/marks";
 import { TalentSliceChart, TalentSliceLeaders, TalentSliceMixCell, TalentSliceStats } from "@/components/talent-slices";
 import { inConf, parseConf, type ConfFilter } from "@/lib/cfb/conferences";
 import { TALENT_UNITS } from "@/lib/cfb/positions";
+import { SIZE_GROUPS, sizeSortLabel, type SizeSortKey } from "@/lib/cfb/size-groups";
 import { hasPortalMix, hasPortalSlice } from "@/lib/cfb/talent-slices";
 import { listTeams } from "@/lib/cfb/queries";
 import { cn, fmtHeight, fmtNum, fmtPct } from "@/lib/utils";
@@ -13,7 +14,6 @@ import type { TeamSummary } from "@/lib/cfb/types";
 
 type Board = "composite" | "size";
 type Lens = "talentScore" | "hsTalent" | "portalTalent" | "starterTalent" | "offTalent" | "defTalent";
-type SizeLens = "olAvgWeightLbs" | "olAvgHeightIn" | "avgWeightLbs" | "skillAvgHeightIn" | "dbAvgHeightIn";
 
 type Search = { board?: Board; conf?: ConfFilter };
 
@@ -26,13 +26,10 @@ const LENSES: { key: Lens; label: string }[] = [
   { key: "defTalent", label: "Defense" },
 ];
 
-const SIZE_LENSES: { key: SizeLens; label: string }[] = [
-  { key: "olAvgWeightLbs", label: "OL weight" },
-  { key: "olAvgHeightIn", label: "OL height" },
-  { key: "avgWeightLbs", label: "Roster weight" },
-  { key: "skillAvgHeightIn", label: "Skill height" },
-  { key: "dbAvgHeightIn", label: "DB height" },
-];
+const SIZE_SORT_OPTIONS: { key: SizeSortKey; label: string }[] = SIZE_GROUPS.flatMap((g) => [
+  { key: g.weightKey, label: `${g.label} weight` },
+  { key: g.heightKey, label: `${g.label} height` },
+]);
 
 export const Route = createFileRoute("/talent")({
   validateSearch: (s: Record<string, unknown>): Search => ({
@@ -51,7 +48,7 @@ function TalentPage() {
   const [a, setA] = useState("ohio-state");
   const [b, setB] = useState("georgia");
   const [lens, setLens] = useState<Lens>("talentScore");
-  const [sizeLens, setSizeLens] = useState<SizeLens>("olAvgWeightLbs");
+  const [sizeLens, setSizeLens] = useState<SizeSortKey>("olAvgWeightLbs");
   const left = teams.find((t) => t.slug === a);
   const right = teams.find((t) => t.slug === b);
 
@@ -115,7 +112,7 @@ function TalentPage() {
           </div>
           <div className="font-display text-2xl tracking-wide sm:text-3xl">Size</div>
           <p className={cn("mt-1 text-sm", board === "size" ? "text-accent-fg/80" : "text-muted")}>
-            OL mass, not talent
+            Height and weight by group
           </p>
         </Link>
       </div>
@@ -432,46 +429,65 @@ function SizeBoard({
   setA: (s: string) => void;
   setB: (s: string) => void;
   conf: ConfFilter;
-  sizeLens: SizeLens;
-  setSizeLens: (l: SizeLens) => void;
+  sizeLens: SizeSortKey;
+  setSizeLens: (l: SizeSortKey) => void;
 }) {
   const chart = ranked.slice(0, 12).map((t) => ({
     name: t.shortName,
     ol: Math.round(t.olAvgWeightLbs),
   }));
 
+  function formatSize(team: TeamSummary, key: SizeSortKey): string {
+    if (key.endsWith("HeightIn")) return fmtHeight(team[key]);
+    return `${fmtNum(team[key], 0)} lb`;
+  }
+
   return (
     <>
       <Panel className="mb-6">
-        <h2 className="font-display text-2xl tracking-wide">A feature, not the composite</h2>
+        <h2 className="font-display text-2xl tracking-wide">Measurables by position group</h2>
         <p className="mt-3 text-sm leading-relaxed text-muted">
-          Offensive-line mass is a size comparison, not the talent ranking and not an HX term.
-          Use this board for height and weight. Rank talent on{" "}
+          Average height and weight on the listed two-deep for QB, skill, OL, DL, LB, and DB.
+          This board is separate from the talent composite — open{" "}
           <Link
             to="/talent"
             search={{ board: "composite", conf: conf === "All" ? undefined : conf }}
             className="text-fg underline decoration-border underline-offset-4"
           >
             Composite
-          </Link>
-          .
+          </Link>{" "}
+          for roster ratings.
         </p>
       </Panel>
 
       <Panel className="mb-6">
-        <h2 className="font-display text-2xl tracking-wide">Compare size</h2>
+        <h2 className="font-display text-2xl tracking-wide">Compare two teams</h2>
         <div className="mt-4 grid gap-4 sm:grid-cols-2">
           <TeamSelect id="size-a" label="Team A" value={a} teams={teams} onChange={setA} />
           <TeamSelect id="size-b" label="Team B" value={b} teams={teams} onChange={setB} />
         </div>
         {left && right ? (
           <div className="mt-6">
-            <CompareRow label="OL weight" a={left.olAvgWeightLbs} b={right.olAvgWeightLbs} max={360} format={(n) => `${fmtNum(n, 0)} lb`} />
-            <CompareRow label="OL height" a={left.olAvgHeightIn} b={right.olAvgHeightIn} max={82} format={(n) => fmtHeight(n)} />
-            <CompareRow label="Skill height" a={left.skillAvgHeightIn} b={right.skillAvgHeightIn} max={80} format={(n) => fmtHeight(n)} />
-            <CompareRow label="DB height" a={left.dbAvgHeightIn} b={right.dbAvgHeightIn} max={78} format={(n) => fmtHeight(n)} />
-            <CompareRow label="Roster weight" a={left.avgWeightLbs} b={right.avgWeightLbs} max={280} format={(n) => `${fmtNum(n, 0)} lb`} />
+            {SIZE_GROUPS.map((g) => (
+              <div key={g.key} className="border-b border-line last:border-0">
+                <CompareRow
+                  label={`${g.label} weight`}
+                  a={left[g.weightKey]}
+                  b={right[g.weightKey]}
+                  max={360}
+                  format={(n) => `${fmtNum(n, 0)} lb`}
+                />
+                <CompareRow
+                  label={`${g.label} height`}
+                  a={left[g.heightKey]}
+                  b={right[g.heightKey]}
+                  max={84}
+                  format={(n) => fmtHeight(n)}
+                />
+              </div>
+            ))}
             <div className="mt-2 border-t border-line pt-2">
+              <CompareRow label="Roster weight" a={left.avgWeightLbs} b={right.avgWeightLbs} max={280} format={(n) => `${fmtNum(n, 0)} lb`} />
               <CompareRow label="Talent composite" a={left.talentScore} b={right.talentScore} max={100} format={(n) => fmtNum(n, 1)} />
             </div>
           </div>
@@ -479,8 +495,8 @@ function SizeBoard({
       </Panel>
 
       <Panel className="mb-6">
-        <h2 className="mb-1 font-display text-2xl tracking-wide">Heaviest lines</h2>
-        <p className="mb-4 text-sm text-muted">Average listed offensive-line weight. This chart does not rank talent.</p>
+        <h2 className="mb-1 font-display text-2xl tracking-wide">Heaviest offensive lines</h2>
+        <p className="mb-4 text-sm text-muted">Average OL weight on the two-deep.</p>
         <div className="h-64">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={chart} margin={{ top: 8, right: 8, left: 0, bottom: 8 }}>
@@ -512,7 +528,7 @@ function SizeBoard({
       />
 
       <div className="mb-5 flex gap-2 overflow-x-auto pb-1">
-        {SIZE_LENSES.map((c) => (
+        {SIZE_SORT_OPTIONS.map((c) => (
           <button
             key={c.key}
             type="button"
@@ -528,7 +544,7 @@ function SizeBoard({
       </div>
 
       <p className="mb-3 text-sm text-muted">
-        Sorted by {SIZE_LENSES.find((l) => l.key === sizeLens)?.label ?? "OL weight"}. Composite stays on the right so size never pretends to be talent.
+        Sorted by {sizeSortLabel(sizeLens)}.
       </p>
 
       <div className="space-y-3 sm:hidden">
@@ -545,15 +561,14 @@ function SizeBoard({
                 <TeamSwatch color={t.colorPrimary} />
                 <span className="font-medium">{t.name}</span>
               </div>
-              <span className="font-display text-xl tabular">
-                {sizeLens.includes("Height") || sizeLens.endsWith("In")
-                  ? fmtHeight(t[sizeLens])
-                  : `${fmtNum(t[sizeLens], 0)} lb`}
-              </span>
+              <span className="font-display text-xl tabular">{formatSize(t, sizeLens)}</span>
             </div>
-            <div className="mt-3 grid grid-cols-2 gap-2 text-xs tabular text-muted">
-              <span>OL {fmtHeight(t.olAvgHeightIn)} / {fmtNum(t.olAvgWeightLbs, 0)} lb</span>
-              <span>Talent {fmtNum(t.talentScore, 1)}</span>
+            <div className="mt-3 grid grid-cols-2 gap-x-3 gap-y-1 text-xs tabular text-muted">
+              {SIZE_GROUPS.map((g) => (
+                <span key={g.key}>
+                  {g.label} {fmtHeight(t[g.heightKey])} / {fmtNum(t[g.weightKey], 0)} lb
+                </span>
+              ))}
             </div>
           </Link>
         ))}
@@ -561,17 +576,28 @@ function SizeBoard({
 
       <Panel className="hidden overflow-hidden p-0 sm:block sm:p-0">
         <div className="overflow-x-auto">
-          <table className="w-full min-w-3xl text-left text-sm">
+          <table className="w-full min-w-5xl text-left text-sm">
             <thead>
               <tr className="border-b border-line text-[11px] uppercase tracking-[0.12em] text-faint">
                 <th className="px-4 py-3 font-medium">Rk</th>
                 <th className="px-3 py-3 font-medium">Team</th>
-                <th className="px-3 py-3 font-medium">OL wt</th>
-                <th className="px-3 py-3 font-medium">OL ht</th>
-                <th className="px-3 py-3 font-medium">Skill ht</th>
-                <th className="px-3 py-3 font-medium">DB ht</th>
-                <th className="px-3 py-3 font-medium">Roster wt</th>
+                {SIZE_GROUPS.map((g) => (
+                  <th key={g.key} className="px-3 py-3 font-medium" colSpan={2}>
+                    {g.label}
+                  </th>
+                ))}
                 <th className="px-3 py-3 font-medium">Composite</th>
+              </tr>
+              <tr className="border-b border-line text-[10px] uppercase tracking-[0.1em] text-faint">
+                <th className="px-4 py-2" />
+                <th className="px-3 py-2" />
+                {SIZE_GROUPS.map((g) => (
+                  <Fragment key={g.key}>
+                    <th className="px-3 py-2 font-medium">Wt</th>
+                    <th className="px-3 py-2 font-medium">Ht</th>
+                  </Fragment>
+                ))}
+                <th className="px-3 py-2" />
               </tr>
             </thead>
             <tbody>
@@ -588,11 +614,10 @@ function SizeBoard({
                       {t.name}
                     </Link>
                   </td>
-                  <td className="px-3 py-3 tabular">{fmtNum(t.olAvgWeightLbs, 0)}</td>
-                  <td className="px-3 py-3 tabular">{fmtHeight(t.olAvgHeightIn)}</td>
-                  <td className="px-3 py-3 tabular">{fmtHeight(t.skillAvgHeightIn)}</td>
-                  <td className="px-3 py-3 tabular">{fmtHeight(t.dbAvgHeightIn)}</td>
-                  <td className="px-3 py-3 tabular text-muted">{fmtNum(t.avgWeightLbs, 0)}</td>
+                  {SIZE_GROUPS.flatMap((g) => [
+                    <td key={`${t.slug}-${g.key}-wt`} className="px-3 py-3 tabular">{fmtNum(t[g.weightKey], 0)}</td>,
+                    <td key={`${t.slug}-${g.key}-ht`} className="px-3 py-3 tabular">{fmtHeight(t[g.heightKey])}</td>,
+                  ])}
                   <td className="px-3 py-3 tabular">{fmtNum(t.talentScore, 1)}</td>
                 </tr>
               ))}

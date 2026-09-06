@@ -1,3 +1,4 @@
+import { TeamMark } from "@/components/marks";
 import { fmtHeight, fmtNum } from "@/lib/utils";
 import { POS_ORDER } from "@/lib/cfb/positions";
 import type { Player } from "@/lib/cfb/types";
@@ -43,11 +44,19 @@ export function RosterDuel({
   away,
   homeName,
   awayName,
+  homeSlug,
+  awaySlug,
+  homeColor,
+  awayColor,
 }: {
   home: Player[];
   away: Player[];
   homeName: string;
   awayName: string;
+  homeSlug?: string;
+  awaySlug?: string;
+  homeColor?: string;
+  awayColor?: string;
 }) {
   const h = group(home);
   const a = group(away);
@@ -66,9 +75,27 @@ export function RosterDuel({
       <table className="w-full min-w-[640px] text-left text-sm">
         <thead>
           <tr className="border-b border-line text-[11px] uppercase tracking-[0.14em] text-faint">
-            <th className="py-3 pr-3 font-medium">{homeName}</th>
+            <th className="py-3 pr-3 font-medium">
+              {homeSlug && homeColor ? (
+                <span className="inline-flex items-center gap-2">
+                  <TeamMark slug={homeSlug} color={homeColor} logoSize={18} />
+                  {homeName}
+                </span>
+              ) : (
+                homeName
+              )}
+            </th>
             <th className="py-3 px-2 text-center font-medium">Pos</th>
-            <th className="py-3 pl-3 font-medium text-right">{awayName}</th>
+            <th className="py-3 pl-3 font-medium text-right">
+              {awaySlug && awayColor ? (
+                <span className="inline-flex items-center justify-end gap-2">
+                  {awayName}
+                  <TeamMark slug={awaySlug} color={awayColor} logoSize={18} />
+                </span>
+              ) : (
+                awayName
+              )}
+            </th>
           </tr>
         </thead>
         <tbody>
