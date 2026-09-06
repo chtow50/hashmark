@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as LogosRouteImport } from './routes/logos'
 import { Route as MatchupRouteImport } from './routes/matchup'
 import { Route as ModelRouteImport } from './routes/model'
 import { Route as RankingsRouteImport } from './routes/rankings'
@@ -24,6 +25,11 @@ import { Route as TeamsSlugRouteImport } from './routes/teams.$slug'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LogosRoute = LogosRouteImport.update({
+  id: '/logos',
+  path: '/logos',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MatchupRoute = MatchupRouteImport.update({
@@ -79,6 +85,7 @@ const TeamsSlugRoute = TeamsSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/logos': typeof LogosRoute
   '/matchup': typeof MatchupRoute
   '/model': typeof ModelRoute
   '/rankings': typeof RankingsRoute
@@ -92,6 +99,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/logos': typeof LogosRoute
   '/matchup': typeof MatchupRoute
   '/model': typeof ModelRoute
   '/rankings': typeof RankingsRoute
@@ -106,6 +114,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/logos': typeof LogosRoute
   '/matchup': typeof MatchupRoute
   '/model': typeof ModelRoute
   '/rankings': typeof RankingsRoute
@@ -121,6 +130,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/logos'
     | '/matchup'
     | '/model'
     | '/rankings'
@@ -134,6 +144,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/logos'
     | '/matchup'
     | '/model'
     | '/rankings'
@@ -147,6 +158,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/logos'
     | '/matchup'
     | '/model'
     | '/rankings'
@@ -161,6 +173,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  LogosRoute: typeof LogosRoute
   MatchupRoute: typeof MatchupRoute
   ModelRoute: typeof ModelRoute
   RankingsRoute: typeof RankingsRoute
@@ -179,6 +192,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/logos': {
+      id: '/logos'
+      path: '/logos'
+      fullPath: '/logos'
+      preLoaderRoute: typeof LogosRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/matchup': {
@@ -267,6 +287,7 @@ const StoriesRouteWithChildren =
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  LogosRoute: LogosRoute,
   MatchupRoute: MatchupRoute,
   ModelRoute: ModelRoute,
   RankingsRoute: RankingsRoute,
