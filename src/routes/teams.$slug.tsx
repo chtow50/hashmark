@@ -1,11 +1,13 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { PageHead, Panel } from "@/components/shell";
-import { DeltaChip, MixBar, RankMove, Stat, TeamSwatch, WinBar } from "@/components/marks";
+import { DeltaChip, MixBar, RankMove, Stat, TeamSwatch } from "@/components/marks";
 import { RosterList } from "@/components/roster-duel";
+import { Make12Panel, RemainingScheduleSection } from "@/components/season-sim";
 import { TALENT_UNITS } from "@/lib/cfb/positions";
 import { getTeam } from "@/lib/cfb/queries";
 import { COMPOSITE_SOURCE, ratedStarCount, visibleClassAvg } from "@/lib/cfb/recruiting";
-import { modelShare, predictMatchup, MODEL } from "@/lib/cfb/model";
+import { modelShare, MODEL } from "@/lib/cfb/model";
+import { buildRemainingSchedule, make12FromTeam } from "@/lib/cfb/season-sim";
 import { apLabel, fmtHeight, fmtNum, fmtPct } from "@/lib/utils";
 
 export const Route = createFileRoute("/teams/$slug")({
@@ -23,6 +25,8 @@ export const Route = createFileRoute("/teams/$slug")({
 function TeamPage() {
   const { team, players, games, classes } = Route.useLoaderData();
   const share = modelShare(team);
+  const make12 = make12FromTeam(team);
+  const remaining = buildRemainingSchedule(team.slug, games);
 
   return (
     <div>
@@ -41,10 +45,9 @@ function TeamPage() {
               <div className="mt-1 text-sm text-muted">HX rank</div>
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-6 sm:grid-cols-4">
+          <div className="grid grid-cols-2 gap-6 sm:grid-cols-3">
             <Stat label="HX" value={fmtNum(team.hxRating, 2)} />
             <Stat label="AP" value={apLabel(team.apRank)} hint={apHint(team.hxRank, team.apRank)} />
-            <Stat label="Make 12" value={fmtPct(team.playoffOdds, 1)} />
             <Stat label="Proj W" value={fmtNum(team.projectedWins, 1)} />
           </div>
         </div>
@@ -52,6 +55,12 @@ function TeamPage() {
           <DeltaChip hxRank={team.hxRank} apRank={team.apRank} />
         </div>
       </Panel>
+
+      <Panel className="mb-6">
+        <Make12Panel odds={make12} />
+      </Panel>
+
+      <RemainingScheduleSection rows={remaining} teamShortName={team.shortName} />
 
       <div className="mb-6 grid gap-6 lg:grid-cols-2">
         <Panel>
@@ -188,55 +197,6 @@ function TeamPage() {
           </table>
         </div>
       </Panel>
-
-      {games.length > 0 ? (
-        <Panel className="mb-6">
-          <h2 className="mb-4 font-display text-2xl tracking-wide">On the slate</h2>
-          <ul className="divide-y divide-line">
-            {games.map((g) => {
-              const homeIs = g.homeSlug === team.slug;
-              const pred = predictMatchup(
-                { hxRating: g.homeHx, offenseRating: g.homeOff, defenseRating: g.homeDef },
-                { hxRating: g.awayHx, offenseRating: g.awayOff, defenseRating: g.awayDef },
-                { neutral: g.neutral },
-              );
-              const opp = homeIs ? g.awayName : g.homeName;
-              const oppSlug = homeIs ? g.awaySlug : g.homeSlug;
-              const win = homeIs ? pred.homeWinPct : pred.awayWinPct;
-              return (
-                <li key={g.id} className="py-4">
-                  <div className="flex flex-wrap items-center justify-between gap-3">
-                    <div>
-                      <div className="text-[11px] uppercase tracking-[0.14em] text-faint">
-                        Week {g.week} · {g.kickoffDate} · {g.location}
-                      </div>
-                      <Link
-                        to="/matchup"
-                        search={{ home: g.homeSlug, away: g.awaySlug }}
-                        className="mt-1 inline-block font-medium"
-                      >
-                        {homeIs ? "vs" : "@"} {opp}
-                      </Link>
-                    </div>
-                    <div className="w-full max-w-xs sm:w-56">
-                      <WinBar
-                        homePct={win}
-                        homeName={team.shortName}
-                        awayName={homeIs ? g.awayShort : g.homeShort}
-                      />
-                    </div>
-                  </div>
-                  <div className="mt-2">
-                    <Link to="/teams/$slug" params={{ slug: oppSlug }} className="text-xs text-muted hover:text-fg">
-                      Opponent page
-                    </Link>
-                  </div>
-                </li>
-              );
-            })}
-          </ul>
-        </Panel>
-      ) : null}
 
       <Panel>
         <div className="mb-4 flex flex-wrap items-baseline justify-between gap-2">
