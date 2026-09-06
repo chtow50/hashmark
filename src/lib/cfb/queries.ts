@@ -15,6 +15,7 @@ import type {
   StateRow,
   TeamSummary,
 } from "./types";
+import type { TeamScheduleGame } from "./season-sim";
 
 type TeamDb = {
   id: number;
@@ -238,7 +239,7 @@ export const getTeam = createServerFn({ method: "GET" })
        order by rec.class_year`,
       [team.id],
     );
-    const games = await sql.query<GameRow>(
+    const games = await sql.query<TeamGameDb>(
       `select g.id, g.week, g.kickoff_date as "kickoffDate",
               ht.slug as "homeSlug", at.slug as "awaySlug",
               ht.name as "homeName", at.name as "awayName",
@@ -248,7 +249,8 @@ export const getTeam = createServerFn({ method: "GET" })
               hr.hx_rank as "homeRank", ar.hx_rank as "awayRank",
               hr.offense_rating as "homeOff", ar.offense_rating as "awayOff",
               hr.defense_rating as "homeDef", ar.defense_rating as "awayDef",
-              g.neutral, g.location, g.headline
+              g.neutral, g.location, g.headline,
+              g.status, g.home_score as "homeScore", g.away_score as "awayScore"
        from games g
        join teams ht on ht.id = g.home_team_id
        join teams at on at.id = g.away_team_id
@@ -262,7 +264,7 @@ export const getTeam = createServerFn({ method: "GET" })
       team,
       players: players.map(mapPlayer),
       classes: classes.map(mapClass),
-      games: games.map(numGame),
+      games: games.map(mapTeamGame),
     };
   });
 
@@ -324,6 +326,12 @@ function mapPlayer(p: Player): Player {
   };
 }
 
+type TeamGameDb = GameRow & {
+  status: string | null;
+  homeScore: number | null;
+  awayScore: number | null;
+};
+
 function numGame(g: GameRow): GameRow {
   return {
     ...g,
@@ -334,6 +342,17 @@ function numGame(g: GameRow): GameRow {
     homeDef: Number(g.homeDef),
     awayDef: Number(g.awayDef),
     neutral: Boolean(g.neutral),
+  };
+}
+
+function mapTeamGame(g: TeamGameDb): TeamScheduleGame {
+  const base = numGame(g);
+  const status: GameStatus = g.status === "final" ? "final" : "scheduled";
+  return {
+    ...base,
+    status,
+    homeScore: g.homeScore == null ? null : Number(g.homeScore),
+    awayScore: g.awayScore == null ? null : Number(g.awayScore),
   };
 }
 
