@@ -3,9 +3,10 @@ import { PageHead, Panel } from "@/components/shell";
 import { TeamLogo } from "@/components/team-logo";
 import { TEAM_LOGO_ESPN_IDS } from "@/lib/cfb/team-logos";
 import { listTeams } from "@/lib/cfb/queries";
+import type { TeamSummary } from "@/lib/cfb/types";
 
 export const Route = createFileRoute("/logos")({
-  loader: () => listTeams(),
+  loader: async (): Promise<TeamSummary[]> => listTeams(),
   component: LogosPage,
   head: () => ({ meta: [{ title: "Team logos · HASHMARK" }] }),
 });
@@ -23,7 +24,7 @@ function LogosPage() {
     <div className="mx-auto max-w-6xl space-y-6 px-4 py-8">
       <PageHead
         title="Team logos"
-        subtitle={`${slugs.length} FBS slugs in registry — vendored PNGs under /logos/{slug}.png`}
+        lede={`${slugs.length} FBS slugs in registry — vendored PNGs under /logos/{slug}.png`}
       />
       <Panel>
         <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
