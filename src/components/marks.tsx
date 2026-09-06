@@ -116,6 +116,27 @@ export function RankSpark({
   );
 }
 
+export function DeskChip({
+  children,
+  tone = "muted",
+}: {
+  children: string;
+  tone?: "muted" | "accent" | "warn";
+}) {
+  return (
+    <span
+      className={cn(
+        "inline-flex h-6 items-center rounded-full px-2 text-[11px] uppercase tracking-[0.12em]",
+        tone === "accent" && "bg-accent text-accent-fg",
+        tone === "warn" && "bg-raised text-warn",
+        tone === "muted" && "bg-raised text-muted",
+      )}
+    >
+      {children}
+    </span>
+  );
+}
+
 export function DeltaChip({
   hxRank,
   apRank,

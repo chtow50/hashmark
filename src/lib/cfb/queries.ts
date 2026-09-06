@@ -489,6 +489,67 @@ export const listScheduleWeek = createServerFn({ method: "GET" })
     });
   });
 
+function orientScheduleToMatchup(game: ScheduleGame, homeSlug: string, awaySlug: string): ScheduleGame {
+  if (game.homeSlug === homeSlug && game.awaySlug === awaySlug) return game;
+  if (game.homeSlug !== awaySlug || game.awaySlug !== homeSlug) return game;
+  return {
+    ...game,
+    homeSlug,
+    awaySlug,
+    homeName: game.awayName,
+    awayName: game.homeName,
+    homeShort: game.awayShort,
+    awayShort: game.homeShort,
+    homeColor: game.awayColor,
+    awayColor: game.homeColor,
+    homeHx: game.awayHx,
+    awayHx: game.homeHx,
+    homeRank: game.awayRank,
+    awayRank: game.homeRank,
+    homeOff: game.awayOff,
+    awayOff: game.homeOff,
+    homeDef: game.awayDef,
+    awayDef: game.homeDef,
+    vegasSpread: game.vegasSpread == null ? null : -game.vegasSpread,
+    homeScore: game.awayScore,
+    awayScore: game.homeScore,
+  };
+}
+
+async function fetchMatchupGame(sql: Awaited<ReturnType<typeof getSql>>, homeSlug: string, awaySlug: string) {
+  const rows = await sql.query<ScheduleDb>(
+    `select g.id, g.week, g.kickoff_date as "kickoffDate",
+            ht.slug as "homeSlug", at.slug as "awaySlug",
+            ht.name as "homeName", at.name as "awayName",
+            ht.short_name as "homeShort", at.short_name as "awayShort",
+            ht.color_primary as "homeColor", at.color_primary as "awayColor",
+            coalesce(g.lock_home_hx, hr.hx_rating) as "homeHx", coalesce(g.lock_away_hx, ar.hx_rating) as "awayHx",
+            hr.hx_rank as "homeRank", ar.hx_rank as "awayRank",
+            hr.offense_rating as "homeOff", ar.offense_rating as "awayOff",
+            hr.defense_rating as "homeDef", ar.defense_rating as "awayDef",
+            g.neutral, g.location, g.headline,
+            g.kickoff_at as "kickoffAt",
+            g.vegas_spread as "vegasSpread",
+            g.vegas_total as "vegasTotal",
+            g.home_score as "homeScore",
+            g.away_score as "awayScore",
+            g.status,
+            g.tv as "tv"
+     from games g
+     join teams ht on ht.id = g.home_team_id
+     join teams at on at.id = g.away_team_id
+     join rankings hr on hr.team_id = ht.id and hr.season = 2026 and hr.week = 0
+     join rankings ar on ar.team_id = at.id and ar.season = 2026 and ar.week = 0
+     where (ht.slug = $1 and at.slug = $2) or (ht.slug = $2 and at.slug = $1)
+     order by g.kickoff_date
+     limit 1`,
+    [homeSlug, awaySlug],
+  );
+  const row = rows[0];
+  if (!row) return null;
+  return orientScheduleToMatchup(mapSchedule(row), homeSlug, awaySlug);
+}
+
 export const getMatchup = createServerFn({ method: "GET" })
   .validator(
     z.object({
@@ -509,7 +570,15 @@ export const getMatchup = createServerFn({ method: "GET" })
     const home = mapped.find((t) => t.slug === data.home) ?? null;
     const away = mapped.find((t) => t.slug === data.away) ?? null;
     if (!home || !away) {
-      return { home, away, homePlayers: [], awayPlayers: [], prediction: null, appliedNeutral: false };
+      return {
+        home,
+        away,
+        homePlayers: [],
+        awayPlayers: [],
+        prediction: null,
+        appliedNeutral: false,
+        game: null,
+      };
     }
 
     const players = await sql.query<Player>(
@@ -522,17 +591,8 @@ export const getMatchup = createServerFn({ method: "GET" })
       [home.id, away.id],
     );
     const mappedPlayers = players.map(mapPlayer);
-    const scheduled = await sql.query<{ neutral: boolean }>(
-      `select g.neutral
-       from games g
-       join teams ht on ht.id = g.home_team_id
-       join teams at on at.id = g.away_team_id
-       where (ht.slug = $1 and at.slug = $2) or (ht.slug = $2 and at.slug = $1)
-       order by g.kickoff_date
-       limit 1`,
-      [data.home, data.away],
-    );
-    const appliedNeutral = data.neutral ?? Boolean(scheduled[0]?.neutral);
+    const game = await fetchMatchupGame(sql, data.home, data.away);
+    const appliedNeutral = data.neutral ?? Boolean(game?.neutral);
 
     let homeForPred = home;
     let awayForPred = away;
@@ -562,6 +622,7 @@ export const getMatchup = createServerFn({ method: "GET" })
       awayPlayers: mappedPlayers.filter((p) => p.teamId === away.id),
       prediction,
       appliedNeutral,
+      game,
     };
   });
 
