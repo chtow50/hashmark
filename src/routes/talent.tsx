@@ -6,7 +6,7 @@ import { CompareRow, TeamSwatch } from "@/components/marks";
 import { TalentSliceChart, TalentSliceLeaders, TalentSliceMixCell, TalentSliceStats } from "@/components/talent-slices";
 import { inConf, parseConf, type ConfFilter } from "@/lib/cfb/conferences";
 import { TALENT_UNITS } from "@/lib/cfb/positions";
-import { SIZE_GROUPS, sizeSortLabel, type SizeSortKey } from "@/lib/cfb/size-groups";
+import { SIZE_GROUPS, sizeLensFor, sizeSortLabel, type SizeGroupKey, type SizeSortKey } from "@/lib/cfb/size-groups";
 import { hasPortalMix, hasPortalSlice } from "@/lib/cfb/talent-slices";
 import { listTeams } from "@/lib/cfb/queries";
 import { cn, fmtHeight, fmtNum, fmtPct } from "@/lib/utils";
@@ -26,10 +26,7 @@ const LENSES: { key: Lens; label: string }[] = [
   { key: "defTalent", label: "Defense" },
 ];
 
-const SIZE_SORT_OPTIONS: { key: SizeSortKey; label: string }[] = SIZE_GROUPS.flatMap((g) => [
-  { key: g.weightKey, label: `${g.label} weight` },
-  { key: g.heightKey, label: `${g.label} height` },
-]);
+type SizeMetricKind = "weight" | "height";
 
 export const Route = createFileRoute("/talent")({
   validateSearch: (s: Record<string, unknown>): Search => ({
@@ -48,7 +45,9 @@ function TalentPage() {
   const [a, setA] = useState("ohio-state");
   const [b, setB] = useState("georgia");
   const [lens, setLens] = useState<Lens>("talentScore");
-  const [sizeLens, setSizeLens] = useState<SizeSortKey>("olAvgWeightLbs");
+  const [sizeGroup, setSizeGroup] = useState<SizeGroupKey>("OL");
+  const [sizeMetric, setSizeMetric] = useState<SizeMetricKind>("weight");
+  const sizeLens = sizeLensFor(sizeGroup, sizeMetric);
   const left = teams.find((t) => t.slug === a);
   const right = teams.find((t) => t.slug === b);
 
@@ -142,8 +141,11 @@ function TalentPage() {
           setA={setA}
           setB={setB}
           conf={conf}
+          sizeGroup={sizeGroup}
+          setSizeGroup={setSizeGroup}
+          sizeMetric={sizeMetric}
+          setSizeMetric={setSizeMetric}
           sizeLens={sizeLens}
-          setSizeLens={setSizeLens}
         />
       )}
     </div>
@@ -417,8 +419,11 @@ function SizeBoard({
   setA,
   setB,
   conf,
+  sizeGroup,
+  setSizeGroup,
+  sizeMetric,
+  setSizeMetric,
   sizeLens,
-  setSizeLens,
 }: {
   ranked: TeamSummary[];
   left?: TeamSummary;
@@ -429,8 +434,11 @@ function SizeBoard({
   setA: (s: string) => void;
   setB: (s: string) => void;
   conf: ConfFilter;
+  sizeGroup: SizeGroupKey;
+  setSizeGroup: (g: SizeGroupKey) => void;
+  sizeMetric: SizeMetricKind;
+  setSizeMetric: (m: SizeMetricKind) => void;
   sizeLens: SizeSortKey;
-  setSizeLens: (l: SizeSortKey) => void;
 }) {
   const chart = ranked.slice(0, 12).map((t) => ({
     name: t.shortName,
@@ -527,18 +535,37 @@ function SizeBoard({
         })}
       />
 
-      <div className="mb-5 flex gap-2 overflow-x-auto pb-1">
-        {SIZE_SORT_OPTIONS.map((c) => (
+      <div className="mb-3 flex gap-2 overflow-x-auto pb-1" role="tablist" aria-label="Position group">
+        {SIZE_GROUPS.map((g) => (
           <button
-            key={c.key}
+            key={g.key}
             type="button"
-            onClick={() => setSizeLens(c.key)}
+            role="tab"
+            aria-selected={sizeGroup === g.key}
+            onClick={() => setSizeGroup(g.key)}
             className={cn(
               "h-10 shrink-0 rounded-full px-4 text-sm transition-colors duration-150",
-              sizeLens === c.key ? "bg-accent text-accent-fg" : "bg-raised text-muted hover:text-fg",
+              sizeGroup === g.key ? "bg-accent text-accent-fg" : "bg-raised text-muted hover:text-fg",
             )}
           >
-            {c.label}
+            {g.label}
+          </button>
+        ))}
+      </div>
+
+      <div className="mb-5 flex gap-2">
+        {(["weight", "height"] as const).map((metric) => (
+          <button
+            key={metric}
+            type="button"
+            aria-pressed={sizeMetric === metric}
+            onClick={() => setSizeMetric(metric)}
+            className={cn(
+              "h-9 rounded-full px-3 text-sm capitalize transition-colors duration-150",
+              sizeMetric === metric ? "bg-raised text-fg" : "bg-transparent text-muted hover:text-fg",
+            )}
+          >
+            {metric}
           </button>
         ))}
       </div>
