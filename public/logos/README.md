@@ -2,11 +2,12 @@
 
 Local PNG assets keyed by team `slug` (matches `teams.slug` in the DB).
 
-## Spike (Big 12)
+## Full FBS (136)
 
-Sixteen files for the Big 12 conference. Registry: `src/lib/cfb/team-logos.ts`.
+All 136 HASHMARK team slugs are registered in `src/lib/cfb/team-logos.ts` with ESPN ids.
+Preview grid: `/logos` route in the app.
 
-## Expand to full 136 FBS
+## Re-fetch / add teams
 
 1. Add `slug → ESPN id` pairs to `TEAM_LOGO_ESPN_IDS` in `src/lib/cfb/team-logos.ts`.
    ESPN ids are stable; a community-maintained list lives at
