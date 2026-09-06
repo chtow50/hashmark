@@ -12428,4 +12428,4 @@ var BarChart = function generateCategoricalChart(_ref6) {
 	formatAxisMap
 });
 //#endregion
-export { Bar as a, CartesianGrid as i, YAxis as n, ResponsiveContainer as o, XAxis as r, Tooltip as s, BarChart as t };
+export { Bar as a, Legend as c, CartesianGrid as i, YAxis as n, ResponsiveContainer as o, XAxis as r, Tooltip as s, BarChart as t };

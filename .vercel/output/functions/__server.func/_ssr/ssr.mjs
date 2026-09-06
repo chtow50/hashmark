@@ -1,6 +1,6 @@
 import { r as __exportAll } from "../_runtime.mjs";
 import { n as require_react } from "../_libs/@radix-ui/react-compose-refs+[...].mjs";
-import { A as _getRenderedMatches, B as isNotFound, D as getStylesheetHref, E as getScriptPreloadAttrs, I as isRedirect, L as isResolvedRedirect, M as invariant, O as resolveManifestAssetLink, R as parseRedirect, a as isSsrResponse, c as stripSsrResponseBody, f as RouterProvider, i as disposeSsrResponseDetached, j as executeRewriteInput, k as resolveManifestCssLink, n as bindSsrResponseToRequest, o as normalizeSsrResponse, r as defineHandlerCallback, s as replaceSsrResponse, t as renderRouterToStream, x as require_jsx_runtime, z as rootRouteId } from "../_libs/@tanstack/react-router+[...].mjs";
+import { A as resolveManifestCssLink, B as rootRouteId, D as getScriptPreloadAttrs, L as isRedirect, M as executeRewriteInput, N as invariant, O as getStylesheetHref, R as isResolvedRedirect, S as require_jsx_runtime, V as isNotFound, a as isSsrResponse, c as stripSsrResponseBody, f as RouterProvider, i as disposeSsrResponseDetached, j as _getRenderedMatches, k as resolveManifestAssetLink, n as bindSsrResponseToRequest, o as normalizeSsrResponse, r as defineHandlerCallback, s as replaceSsrResponse, t as renderRouterToStream, z as parseRedirect } from "../_libs/@tanstack/react-router+[...].mjs";
 import { n as createMemoryHistory } from "../_libs/tanstack__history.mjs";
 import { a as getOrigin, c as createSerializationAdapter, d as toCrossJSONAsync, f as toCrossJSONStream, i as getNormalizedURL, l as makeSerovalPlugin, n as mergeHeaders, o as defaultSerovalPlugins, r as attachRouterServerSsrUtils, s as createRawStreamRPCPlugin, t as waitForRequest, u as fromJSON } from "../_libs/@tanstack/router-core+[...].mjs";
 import { n as toResponse, t as H3Event } from "../_libs/h3-v2+rou3.mjs";
@@ -88,7 +88,7 @@ var HEADERS = { TSS_SHELL: "X-TSS_SHELL" };
 * the dev styles URL for route-scoped CSS collection.
 */
 async function getStartManifest(matchedRoutes) {
-	const { tsrStartManifest } = await import("../_tanstack-start-manifest_v-Bifdtun2.mjs");
+	const { tsrStartManifest } = await import("../_tanstack-start-manifest_v-FmYFh4ib.mjs");
 	const startManifest = tsrStartManifest();
 	let routes = startManifest.routes;
 	routes[rootRouteId];
@@ -110,31 +110,39 @@ async function getStartManifest(matchedRoutes) {
 var manifest = {
 	"212fff7d2072b94c01d35d756a6846efbcca652fa93e6206b5e625d8fd64ecc1": {
 		functionName: "listTeams_createServerFn_handler",
-		importer: () => import("./queries-D1H1eNxM.mjs")
+		importer: () => import("./queries-DyF7fIwz.mjs")
 	},
 	"245d4daa33d1f4543fb00eb58f19731eeb1b55fa11f6b5859d8efe1c0915d423": {
 		functionName: "listGames_createServerFn_handler",
-		importer: () => import("./queries-D1H1eNxM.mjs")
+		importer: () => import("./queries-DyF7fIwz.mjs")
 	},
 	"7bd9c5bd2dac37273cb6e205f595eb0bc550bfd9c6ffff5b5b31dcf74c2250bb": {
 		functionName: "getTeam_createServerFn_handler",
-		importer: () => import("./queries-D1H1eNxM.mjs")
+		importer: () => import("./queries-DyF7fIwz.mjs")
+	},
+	"9ad172d35fd2eca98874454de1af972b7e747ffcef39b3001b6739144dfe4457": {
+		functionName: "listSchedule_createServerFn_handler",
+		importer: () => import("./queries-DyF7fIwz.mjs")
 	},
 	"9e7264d9dac7ca986bcb4f134e9bd2a0a4dbce110f243ebdee63580e3b08ec00": {
 		functionName: "listStates_createServerFn_handler",
-		importer: () => import("./queries-D1H1eNxM.mjs")
+		importer: () => import("./queries-DyF7fIwz.mjs")
+	},
+	"a86900331928441127b7b8d77aaf20878746d66deb7c81c2cb47f2c898494144": {
+		functionName: "listScheduleWeek_createServerFn_handler",
+		importer: () => import("./queries-DyF7fIwz.mjs")
 	},
 	"bab9328854859b702258836ae2f74acf39b2bd6bc01cd038d2facb244149f301": {
 		functionName: "getStateDetail_createServerFn_handler",
-		importer: () => import("./queries-D1H1eNxM.mjs")
+		importer: () => import("./queries-DyF7fIwz.mjs")
 	},
 	"e848cc7c6a78d9034685b108649e3e18d710ecbbe452bcc72388a9cb1e28bc5d": {
 		functionName: "getMatchup_createServerFn_handler",
-		importer: () => import("./queries-D1H1eNxM.mjs")
+		importer: () => import("./queries-DyF7fIwz.mjs")
 	},
 	"eefaa67313e68bdbcc1c8f6789d44047383841a9720a2e2ed8b4294d8674c7ca": {
 		functionName: "listRecruiting_createServerFn_handler",
-		importer: () => import("./queries-D1H1eNxM.mjs")
+		importer: () => import("./queries-DyF7fIwz.mjs")
 	}
 };
 async function getServerFnById(id, access) {
@@ -1404,7 +1412,7 @@ var getBaseManifest = getProdBaseManifest;
 var createEarlyHintsForRequest = createEarlyHintsCollector;
 async function loadEntries() {
 	const [routerEntry, startEntry, pluginAdapters] = await Promise.all([
-		import("./router-DJlRrram.mjs").then((n) => n.t),
+		import("./router-BESdhWwq.mjs").then((n) => n.t),
 		import("./start-5Z2QO8AU.mjs"),
 		import("./empty-plugin-adapters-D9UWiqvJ.mjs")
 	]);

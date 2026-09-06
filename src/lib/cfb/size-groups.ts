@@ -66,6 +66,15 @@ export const SIZE_GROUPS: {
 
 export type SizeSortKey = SizeMetric;
 
+export function sizeLensFor(group: SizeGroupKey, metric: "weight" | "height"): SizeSortKey {
+  const g = SIZE_GROUPS.find((x) => x.key === group);
+  return metric === "height" ? (g?.heightKey ?? "olAvgHeightIn") : (g?.weightKey ?? "olAvgWeightLbs");
+}
+
+export function sizeGroupLabels(): string[] {
+  return SIZE_GROUPS.map((g) => g.label);
+}
+
 export function sizeSortLabel(key: SizeSortKey): string {
   for (const g of SIZE_GROUPS) {
     if (g.heightKey === key) return `${g.label} height`;
