@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { PageHead, Panel, TeamSelect } from "@/components/shell";
-import { CompareRow, Stat, TeamSwatch, WinBar } from "@/components/marks";
+import { CompareRow, DeskChip, Stat, TeamSwatch, WinBar } from "@/components/marks";
 import { RosterDuel } from "@/components/roster-duel";
+import { formatKickCt } from "@/lib/cfb/chicago";
+import { favoriteLine, spreadGap } from "@/lib/cfb/featured";
 import { getMatchup, listTeams } from "@/lib/cfb/queries";
 import { RESTAMP_PERIODS, restamp, type RestampPeriod } from "@/lib/cfb/restamp";
+import { isWinnerFlip, matchupChips } from "@/lib/cfb/schedule-flags";
 import { fmtNum, fmtPct } from "@/lib/utils";
 
 type Search = { home?: string; away?: string; neutral?: boolean };
@@ -65,10 +68,27 @@ function MatchupPage() {
     navigate({ search });
   }
 
-  const { home, away, prediction, homePlayers, awayPlayers } = match;
+  const { home, away, prediction, homePlayers, awayPlayers, game } = match;
   const [period, setPeriod] = useState<RestampPeriod | null>(null);
   const [homeScore, setHomeScore] = useState("");
   const [awayScore, setAwayScore] = useState("");
+  const hxLine =
+    prediction != null ? favoriteLine(home?.shortName ?? "", away?.shortName ?? "", prediction.spread) : null;
+  const vegasLine =
+    game?.vegasSpread != null && home && away
+      ? favoriteLine(home.shortName, away.shortName, game.vegasSpread)
+      : null;
+  const chips =
+    prediction != null
+      ? matchupChips(prediction, {
+          neutral: appliedNeutral,
+          vegasSpread: game?.vegasSpread ?? null,
+          status: game?.status ?? "scheduled",
+        })
+      : [];
+  const flip = prediction != null ? isWinnerFlip(prediction, game?.vegasSpread ?? null) : false;
+  const gap =
+    prediction != null && game?.vegasSpread != null ? spreadGap(prediction.spread, game.vegasSpread) : null;
   const homePts = homeScore === "" ? NaN : Number(homeScore);
   const awayPts = awayScore === "" ? NaN : Number(awayScore);
   const stamped =
@@ -88,6 +108,18 @@ function MatchupPage() {
     setHomeScore("");
     setAwayScore("");
   }, [pairKey]);
+
+  useEffect(() => {
+    if (
+      game?.status === "final" &&
+      game.homeScore != null &&
+      game.awayScore != null
+    ) {
+      setPeriod("FINAL");
+      setHomeScore(String(game.homeScore));
+      setAwayScore(String(game.awayScore));
+    }
+  }, [pairKey, game?.status, game?.homeScore, game?.awayScore]);
 
   return (
     <div>
@@ -145,6 +177,37 @@ function MatchupPage() {
       ) : (
         <div className="space-y-6">
           <Panel>
+            {chips.length > 0 || game ? (
+              <div className="mb-6 border-b border-line pb-5">
+                {chips.length > 0 ? (
+                  <div className="flex flex-wrap items-center gap-2">
+                    {chips.map((chip) => (
+                      <DeskChip key={chip.kind} tone={chip.tone}>{chip.label}</DeskChip>
+                    ))}
+                  </div>
+                ) : null}
+                {game ? (
+                  <p className="mt-2 text-sm text-muted">
+                    {game.kickoffAt ? formatKickCt(game.kickoffAt) : null}
+                    {game.tv ? `${game.kickoffAt ? " · " : ""}${game.tv}` : null}
+                    {game.location ? ` · ${game.location}` : null}
+                    {game.status === "final" && game.homeScore != null && game.awayScore != null
+                      ? ` · Tape ${away.shortName} ${game.awayScore}–${game.homeScore} ${home.shortName}`
+                      : null}
+                  </p>
+                ) : null}
+                {flip && hxLine && vegasLine ? (
+                  <p className="mt-2 text-sm text-warn">
+                    HASHMARK takes {hxLine} · Vegas has {vegasLine}
+                  </p>
+                ) : null}
+                {!flip && gap != null && hxLine && vegasLine ? (
+                  <p className="mt-2 text-sm text-warn">
+                    HASHMARK {hxLine} vs Vegas {vegasLine} · same favorite
+                  </p>
+                ) : null}
+              </div>
+            ) : null}
             <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
               <TeamHead team={home} side="Home" />
               <div className="text-center">

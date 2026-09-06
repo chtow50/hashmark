@@ -1,13 +1,15 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { PageHead, Panel } from "@/components/shell";
-import { TeamMark } from "@/components/marks";
+import { DeskChip, TeamMark } from "@/components/marks";
 import { Button } from "@/components/ui/button";
 import { formatKickCt, formatKickDayTitle, todayChicago } from "@/lib/cfb/chicago";
+import { favoriteLine } from "@/lib/cfb/featured";
 import { predictMatchup } from "@/lib/cfb/model";
 import { HASHMARK_MAX_WEEK, listScheduleWeek } from "@/lib/cfb/queries";
-import type { Prediction, ScheduleGame } from "@/lib/cfb/types";
-import { cn, fmtNum, fmtPct } from "@/lib/utils";
+import { isWinnerFlip, matchupChips } from "@/lib/cfb/schedule-flags";
+import type { ScheduleGame } from "@/lib/cfb/types";
+import { fmtNum, fmtPct } from "@/lib/utils";
 
 type Search = { w?: number };
 
@@ -111,6 +113,7 @@ function ScheduleRow({ game: g }: { game: ScheduleGame }) {
   const hxWin = pred.spread >= 0 ? pred.homeWinPct : pred.awayWinPct;
   const vegasLine = g.vegasSpread == null ? null : favoriteLine(g.homeShort, g.awayShort, g.vegasSpread);
   const flip = isWinnerFlip(pred, g.vegasSpread);
+  const chips = matchupChips(pred, { neutral: g.neutral, vegasSpread: g.vegasSpread, status: g.status });
 
   return (
     <li>
@@ -126,11 +129,9 @@ function ScheduleRow({ game: g }: { game: ScheduleGame }) {
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div className="min-w-0">
             <div className="flex flex-wrap items-center gap-2">
-              {g.neutral ? (
-                <Chip>Neutral</Chip>
-              ) : null}
-              {g.status === "final" ? <Chip tone="accent">Final</Chip> : null}
-              {flip ? <Chip tone="warn">Winner flip</Chip> : null}
+              {chips.map((chip) => (
+                <DeskChip key={chip.kind} tone={chip.tone}>{chip.label}</DeskChip>
+              ))}
             </div>
             <div className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1">
               <span className="inline-flex items-center gap-2">
@@ -192,45 +193,11 @@ function ScheduleRow({ game: g }: { game: ScheduleGame }) {
   );
 }
 
-function favoriteLine(homeShort: string, awayShort: string, spread: number): string {
-  if (Math.abs(spread) < 0.05) return "PK";
-  return spread > 0
-    ? `${homeShort} −${fmtNum(spread, 1)}`
-    : `${awayShort} −${fmtNum(-spread, 1)}`;
-}
-
-function isWinnerFlip(pred: Prediction, vegasSpread: number | null): boolean {
-  if (vegasSpread == null) return false;
-  if (Math.abs(pred.spread) < 0.05 || Math.abs(vegasSpread) < 0.05) return false;
-  return pred.spread > 0 !== vegasSpread > 0;
-}
-
 function formatVegas(line: string | null, total: number | null): string {
   if (line == null && total == null) return "—";
   if (line == null) return `O/U ${fmtNum(total as number, 1)}`;
   if (total == null) return line;
   return `${line} · O/U ${fmtNum(total, 1)}`;
-}
-
-function Chip({
-  children,
-  tone = "muted",
-}: {
-  children: string;
-  tone?: "muted" | "accent" | "warn";
-}) {
-  return (
-    <span
-      className={cn(
-        "inline-flex h-6 items-center rounded-full px-2 text-[11px] uppercase tracking-[0.12em]",
-        tone === "accent" && "bg-accent text-accent-fg",
-        tone === "warn" && "bg-raised text-warn",
-        tone === "muted" && "bg-raised text-muted",
-      )}
-    >
-      {children}
-    </span>
-  );
 }
 
 function StatBlock({
