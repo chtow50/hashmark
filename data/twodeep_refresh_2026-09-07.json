@@ -1,0 +1,316 @@
+{
+  "fetched": "2026-09-07",
+  "source": "https://www.thetwodeep.com",
+  "ok": 136,
+  "fail": {},
+  "prev_ok": 89,
+  "newly_listed": [
+    "air-force",
+    "akron",
+    "arkansas-state",
+    "bowling-green",
+    "buffalo",
+    "central-michigan",
+    "charlotte",
+    "coastal-carolina",
+    "delaware",
+    "eastern-michigan",
+    "fiu",
+    "florida-atlantic",
+    "georgia-southern",
+    "georgia-state",
+    "hawaii",
+    "jacksonville-state",
+    "kennesaw-state",
+    "kent-state",
+    "louisiana",
+    "louisiana-tech",
+    "marshall",
+    "massachusetts",
+    "miami-oh",
+    "middle-tennessee",
+    "missouri-state",
+    "nevada",
+    "new-mexico",
+    "new-mexico-state",
+    "northern-illinois",
+    "ohio",
+    "old-dominion",
+    "oregon-state",
+    "rice",
+    "sam-houston",
+    "san-jose-state",
+    "south-alabama",
+    "southern-miss",
+    "temple",
+    "troy",
+    "tulsa",
+    "uab",
+    "ul-monroe",
+    "utah-state",
+    "utep",
+    "western-kentucky",
+    "western-michigan",
+    "wyoming"
+  ],
+  "qb1_changes": [
+    {
+      "slug": "ball-state",
+      "from": "Tyler Mizzell",
+      "to": "Keldric Luster"
+    },
+    {
+      "slug": "iowa",
+      "from": "Jeremy Hecklinski",
+      "to": "Hank Brown"
+    },
+    {
+      "slug": "uconn",
+      "from": "Jake Merklinger",
+      "to": "Kalieb Osborne"
+    }
+  ],
+  "top_composite_deltas": [
+    {
+      "slug": "uconn",
+      "old": 85.59,
+      "new": 84.72,
+      "delta": -0.87,
+      "n_old": 44,
+      "n_new": 47
+    },
+    {
+      "slug": "iowa-state",
+      "old": 84.9,
+      "new": 84.16,
+      "delta": -0.74,
+      "n_old": 46,
+      "n_new": 46
+    },
+    {
+      "slug": "mississippi-state",
+      "old": 88.9,
+      "new": 88.18,
+      "delta": -0.72,
+      "n_old": 44,
+      "n_new": 44
+    },
+    {
+      "slug": "nc-state",
+      "old": 87.41,
+      "new": 86.7,
+      "delta": -0.71,
+      "n_old": 45,
+      "n_new": 44
+    },
+    {
+      "slug": "texas-state",
+      "old": 84.65,
+      "new": 83.98,
+      "delta": -0.67,
+      "n_old": 44,
+      "n_new": 46
+    },
+    {
+      "slug": "notre-dame",
+      "old": 92.16,
+      "new": 91.54,
+      "delta": -0.62,
+      "n_old": 45,
+      "n_new": 44
+    },
+    {
+      "slug": "georgia-tech",
+      "old": 87.9,
+      "new": 87.31,
+      "delta": -0.59,
+      "n_old": 45,
+      "n_new": 51
+    },
+    {
+      "slug": "ucf",
+      "old": 85.2,
+      "new": 85.78,
+      "delta": 0.58,
+      "n_old": 43,
+      "n_new": 44
+    },
+    {
+      "slug": "maryland",
+      "old": 85.93,
+      "new": 86.46,
+      "delta": 0.53,
+      "n_old": 44,
+      "n_new": 45
+    },
+    {
+      "slug": "duke",
+      "old": 85.78,
+      "new": 85.27,
+      "delta": -0.51,
+      "n_old": 44,
+      "n_new": 43
+    },
+    {
+      "slug": "missouri",
+      "old": 88.9,
+      "new": 88.44,
+      "delta": -0.46,
+      "n_old": 44,
+      "n_new": 46
+    },
+    {
+      "slug": "usc",
+      "old": 89.91,
+      "new": 90.35,
+      "delta": 0.44,
+      "n_old": 44,
+      "n_new": 44
+    },
+    {
+      "slug": "syracuse",
+      "old": 86.66,
+      "new": 86.22,
+      "delta": -0.44,
+      "n_old": 44,
+      "n_new": 44
+    },
+    {
+      "slug": "memphis",
+      "old": 85.27,
+      "new": 84.83,
+      "delta": -0.44,
+      "n_old": 44,
+      "n_new": 46
+    },
+    {
+      "slug": "louisville",
+      "old": 86.85,
+      "new": 87.27,
+      "delta": 0.42,
+      "n_old": 44,
+      "n_new": 44
+    },
+    {
+      "slug": "auburn",
+      "old": 88.78,
+      "new": 88.36,
+      "delta": -0.42,
+      "n_old": 44,
+      "n_new": 43
+    },
+    {
+      "slug": "arizona",
+      "old": 85.05,
+      "new": 84.63,
+      "delta": -0.42,
+      "n_old": 44,
+      "n_new": 46
+    },
+    {
+      "slug": "unlv",
+      "old": 86.23,
+      "new": 85.82,
+      "delta": -0.41,
+      "n_old": 45,
+      "n_new": 45
+    },
+    {
+      "slug": "arizona-state",
+      "old": 87.27,
+      "new": 86.87,
+      "delta": -0.4,
+      "n_old": 44,
+      "n_new": 48
+    },
+    {
+      "slug": "baylor",
+      "old": 86.35,
+      "new": 85.97,
+      "delta": -0.38,
+      "n_old": 44,
+      "n_new": 43
+    },
+    {
+      "slug": "east-carolina",
+      "old": 84.5,
+      "new": 84.14,
+      "delta": -0.36,
+      "n_old": 42,
+      "n_new": 44
+    },
+    {
+      "slug": "michigan",
+      "old": 91.37,
+      "new": 91.07,
+      "delta": -0.3,
+      "n_old": 45,
+      "n_new": 41
+    },
+    {
+      "slug": "smu",
+      "old": 88.42,
+      "new": 88.14,
+      "delta": -0.28,
+      "n_old": 44,
+      "n_new": 44
+    },
+    {
+      "slug": "nebraska",
+      "old": 88.11,
+      "new": 87.86,
+      "delta": -0.25,
+      "n_old": 44,
+      "n_new": 44
+    },
+    {
+      "slug": "florida",
+      "old": 90.95,
+      "new": 90.7,
+      "delta": -0.25,
+      "n_old": 46,
+      "n_new": 48
+    },
+    {
+      "slug": "pittsburgh",
+      "old": 85.93,
+      "new": 85.7,
+      "delta": -0.23,
+      "n_old": 44,
+      "n_new": 44
+    },
+    {
+      "slug": "alabama",
+      "old": 92.16,
+      "new": 92.39,
+      "delta": 0.23,
+      "n_old": 46,
+      "n_new": 46
+    },
+    {
+      "slug": "stanford",
+      "old": 86.27,
+      "new": 86.49,
+      "delta": 0.22,
+      "n_old": 45,
+      "n_new": 48
+    },
+    {
+      "slug": "boston-college",
+      "old": 85.67,
+      "new": 85.48,
+      "delta": -0.19,
+      "n_old": 44,
+      "n_new": 44
+    },
+    {
+      "slug": "west-virginia",
+      "old": 85.67,
+      "new": 85.5,
+      "delta": -0.17,
+      "n_old": 45,
+      "n_new": 44
+    }
+  ],
+  "note": "Composite = depth-weighted mean (starter 1.0, backup 0.4) of 247-style ratings on listed two-deep. HX zTalent NOT auto-updated \u2014 display/roster refresh separate from O/D \u0394 unless Chase approves talent recompute."
+}
