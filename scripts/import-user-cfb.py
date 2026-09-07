@@ -775,6 +775,32 @@ def build_projected(roster, dest_names, rec_idx, team_school, team_state, team_i
     return out
 
 
+# TWO·DEEP slot names that are offense even when the fetch tagged unit=DEF
+# (WR2/TE2/RB-A etc. are not in the short OFF_POS used by the scraper).
+_LISTED_OFF_EXACT = {
+    "QB", "RB", "FB", "HB", "TB", "SB", "SLOT", "WR", "TE",
+    "LT", "LG", "C", "RG", "RT", "OT", "OG", "OL", "OC",
+    "QT", "QG", "SG", "ST", "Y",
+}
+_LISTED_OFF_PREFIX = (
+    "WR", "RB", "TE", "QB", "OL", "OT", "OG", "FB", "SLOT", "IWR", "OWR", "SWR", "SB",
+)
+
+
+def listed_unit(pos: str, fallback: str | None = None) -> str:
+    """Offense/defense from the listed slot, not the scraper unit flag."""
+    p = (pos or "").upper()
+    if p in _LISTED_OFF_EXACT:
+        return "OFF"
+    for base in _LISTED_OFF_PREFIX:
+        rest = p[len(base):]
+        if p == base or p.startswith(base + "-") or p.startswith(base + "/") or (p.startswith(base) and rest.isdigit()):
+            return "OFF"
+    if fallback == "OFF":
+        return "OFF"
+    return "DEF"
+
+
 def build_listed(td_players, dest_names, rec_idx, team_school, team_state, team_id):
     out = []
     for p in td_players:
@@ -790,11 +816,12 @@ def build_listed(td_players, dest_names, rec_idx, team_school, team_state, team_
         rating = p.get("rating")
         if rating is None:
             rating = to_247(None, stars)
+        pos = p.get("position") or "WR"
         out.append({
             "team_id": team_id,
             "name": p["name"],
             "jersey": jersey,
-            "position": p.get("position") or "WR",
+            "position": pos,
             "depth": int(p.get("depth") or 1),
             "class_year": cls,
             "height": int(p.get("heightIn") or 73),
@@ -802,7 +829,7 @@ def build_listed(td_players, dest_names, rec_idx, team_school, team_state, team_
             "stars": stars,
             "rating": round2(float(rating), 2),
             "hometown": hometown if hometown in STATE_META else (hometown[:2].upper() if hometown else team_state),
-            "unit": "DEF" if p.get("unit") == "DEF" else "OFF",
+            "unit": listed_unit(pos, p.get("unit")),
             "transfer": transfer,
         })
     return out
@@ -827,14 +854,32 @@ def roster_profile(players, returning_pct):
             return 0.0
         return sum(fn(p) for p in arr) / len(arr)
 
-    ol = [p for p in players if p["position"] in {"LT", "LG", "C", "RG", "RT", "OT", "OG", "OL", "QT", "QG", "SG", "ST"}]
+    ol = [p for p in players if p["position"] in {
+        "LT", "LG", "C", "RG", "RT", "OT", "OG", "OL", "QT", "QG", "SG", "ST", "OC",
+    }]
     skill = [p for p in players if p["position"] in {
-        "RB", "RB-A", "RB-B", "FB", "SB", "WR", "WR-X", "WR-Z", "WR-F", "WR-Y", "SLOT", "TE", "TE-Y", "TE-H", "TE-F",
+        "RB", "RB-A", "RB-B", "RB2", "RB3", "FB", "SB", "SB-A", "SB-Z",
+        "WR", "WR-X", "WR-Z", "WR-F", "WR-Y", "WR2", "WR3", "WR4", "SLOT",
+        "TE", "TE-Y", "TE-H", "TE-F", "TE2",
+        "IWR-1", "IWR-2", "OWR-1", "OWR-2", "SWR", "Y",
     }]
     qb = [p for p in players if p["position"] == "QB"]
-    dl = [p for p in players if p["position"] in {"DE", "LDE", "RDE", "JACK", "EDGE", "DT", "NT", "LDT", "RDT", "DL"}]
-    lb = [p for p in players if p["position"] in {"MLB", "WLB", "ILB", "OLB", "LB", "MAC", "MONEY", "SLB"}]
-    db = [p for p in players if p["position"] in {"CB", "LCB", "RCB", "FCB", "BCB", "NB", "FS", "SS", "S", "DB"}]
+    dl = [p for p in players if p["position"] in {
+        "DE", "LDE", "RDE", "JACK", "EDGE", "DT", "NT", "LDT", "RDT", "DL",
+        "DE2", "DT2", "EDGE2", "NT2", "END", "VYPER", "VIPER", "DE-HAMMER",
+        "LEO", "RUSH", "STUD", "JOKER", "STING", "SPEAR",
+    }]
+    lb = [p for p in players if p["position"] in {
+        "MLB", "WLB", "ILB", "OLB", "LB", "MAC", "MONEY", "SLB",
+        "LILB", "RILB", "LOLB", "ROLB", "CASH", "BUCK", "WOLF", "DOG",
+        "LB2", "LB3", "LB4", "SAM", "WLB2", "MLB2", "LB-M", "LB-W", "LB-1", "LB-2", "OLB-JACK",
+    }]
+    db = [p for p in players if p["position"] in {
+        "CB", "LCB", "RCB", "FCB", "BCB", "NB", "FS", "SS", "S", "DB",
+        "CB2", "LCB2", "RCB2", "CB-1", "CB-2", "LC", "RC", "SAF", "SAF2",
+        "S2", "S3", "S-1", "S-2", "NI", "NIC", "NKL", "N", "BAN", "ROV",
+        "BS", "ROVER", "SPUR", "BANDIT", "HUSKY", "CAT", "CHEETAH",
+    }]
     off = [p for p in players if p["unit"] == "OFF"]
     defn = [p for p in players if p["unit"] == "DEF"]
     starters = [p for p in players if p["depth"] == 1]
@@ -1227,5 +1272,238 @@ def main():
         print("A&M two-deep source", am["source"], "QBs", [(p["name"], p["depth"], p["jersey"]) for p in qbs])
 
 
+def seed_team_slugs() -> list[str]:
+    """HASHMARK slugs from the live seed — id order is HX, not alpha."""
+    text = (ROOT / "migrations" / "0003_seed.sql").read_text()
+    block = text.split("insert into teams", 1)[1].split(";", 1)[0]
+    slugs = re.findall(r"\(\d+, '([a-z0-9-]+)'", block)
+    if len(slugs) != 136:
+        raise SystemExit(f"expected 136 team slugs in 0003_seed.sql, got {len(slugs)}")
+    return slugs
+
+
+def hometown_sql(raw) -> str:
+    ht = raw if raw in STATE_META else (str(raw)[:2].upper() if raw else "--")
+    if ht not in STATE_META:
+        ht = "--"
+    return ht
+
+
+def emit_twodeep_refresh(out_path: Path | None = None) -> Path:
+    """Write players + roster_profile only. Never touches rankings / games / teams."""
+    if out_path is None:
+        out_path = ROOT / "migrations" / "0019_twodeep_refresh_2026_09_07.sql"
+    if not TWODEEP_PATH.exists():
+        raise SystemExit(f"missing {TWODEEP_PATH}")
+    payload = json.loads(TWODEEP_PATH.read_text())
+    twodeep = payload.get("teams") or {}
+    failures = payload.get("failures") or {}
+    if failures:
+        raise SystemExit(f"twodeep-rosters.json still has failures: {failures}")
+    slugs = seed_team_slugs()
+    missing = [s for s in slugs if s not in twodeep or not twodeep[s]]
+    extra = sorted(set(twodeep) - set(slugs))
+    if missing or extra:
+        raise SystemExit(f"slug mismatch missing={missing} extra={extra}")
+
+    empty_dest: set[str] = set()
+    empty_idx: dict = {}
+    by_slug: dict[str, list] = {}
+    profiles = []
+    all_players: list[tuple[str, dict]] = []
+    for slug in slugs:
+        meta = EXTRA_META.get(slug) or {}
+        state = meta[2] if isinstance(meta, tuple) else "US"
+        plist = build_listed(twodeep[slug], empty_dest, empty_idx, slug, state, None)
+        by_slug[slug] = plist
+        for p in plist:
+            all_players.append((slug, p))
+        prof = roster_profile(plist, None)
+        prof["slug"] = slug
+        prof["source"] = "listed"
+        profiles.append(prof)
+    profiles.sort(key=lambda p: (-p["talent_score"], p["slug"]))
+    for i, p in enumerate(profiles, 1):
+        p["talent_rank"] = i
+
+    # Spot-check vs AMD summary (QB1 flips + composite deltas).
+    amd_path = ROOT / "data" / "twodeep_refresh_2026-09-07.json"
+    qb1 = {}
+    for slug, plist in by_slug.items():
+        qbs = sorted((p for p in plist if p["position"] == "QB"), key=lambda p: p["depth"])
+        qb1[slug] = qbs[0]["name"] if qbs else None
+    expect_qb1 = {"iowa": "Hank Brown", "ball-state": "Keldric Luster", "uconn": "Kalieb Osborne"}
+    qb_miss = {k: qb1.get(k) for k, v in expect_qb1.items() if qb1.get(k) != v}
+    if qb_miss:
+        raise SystemExit(f"QB1 mismatch: {qb_miss}")
+    if amd_path.exists():
+        amd = json.loads(amd_path.read_text())
+        score_by_slug = {p["slug"]: p["talent_score"] for p in profiles}
+        for row in amd.get("top_composite_deltas") or []:
+            got = score_by_slug[row["slug"]]
+            if abs(got - row["new"]) > 0.011:
+                raise SystemExit(f"composite mismatch {row['slug']}: amd={row['new']} got={got}")
+        newly = amd.get("newly_listed") or []
+        if len(newly) != 47:
+            raise SystemExit(f"expected 47 newly_listed, amd has {len(newly)}")
+
+    lines: list[str] = []
+    a = lines.append
+    fetched = payload.get("fetched") or "2026-09-07"
+    source = payload.get("source") or "https://www.thetwodeep.com"
+    a("-- TWO·DEEP refresh — players + roster_profile only")
+    a(f"-- Source: {source}  fetched {fetched}  {len(slugs)}/{len(slugs)} listed, 0 projected")
+    a("-- Generated by scripts/import-user-cfb.py --players-roster-only")
+    a("--   (build_listed + roster_profile). Do not run a full reseed.")
+    a("-- DOES NOT touch rankings, games, recruiting, teams, states, Vegas, or HX.")
+    a("-- returning_starters left as-is (CFBD retention, not a two-deep field).")
+    a("-- Idempotent: DELETE FROM players (not TRUNCATE) then INSERT listed;")
+    a("-- UPDATE roster_profile … JOIN teams ON slug.")
+    a("")
+    a("delete from players;")
+    a("")
+
+    chunk = 80
+    for i in range(0, len(all_players), chunk):
+        slice_p = all_players[i:i + chunk]
+        a(
+            "insert into players (team_id, name, jersey, position, depth, class_year, "
+            "height_in, weight_lbs, stars, rating, hometown_state, unit, transfer)"
+        )
+        a(
+            "select t.id, v.name, v.jersey, v.position, v.depth, v.class_year, "
+            "v.height_in, v.weight_lbs, v.stars, v.rating, v.hometown_state, v.unit, v.transfer"
+        )
+        a("from (values")
+        for j, (slug, p) in enumerate(slice_p):
+            comma = "" if j == len(slice_p) - 1 else ","
+            jersey = "null" if p["jersey"] in (None, 0) else int(p["jersey"])
+            ht = hometown_sql(p["hometown"])
+            name = sql_str((p["name"] or "")[:80])
+            pos = sql_str(p["position"] or "WR")
+            cls = sql_str(str(p["class_year"] or "SO")[:12])
+            unit = sql_str(p["unit"])
+            cast = j == 0
+            if cast:
+                jersey_sql = "null::int" if jersey == "null" else f"{jersey}::int"
+                a(
+                    f"  ({sql_str(slug)}::text, {name}::text, {jersey_sql}, {pos}::text, "
+                    f"{int(p['depth'])}::int, {cls}::text, {int(p['height'])}::int, "
+                    f"{int(p['weight'])}::int, {int(p['stars'] or 0)}::int, "
+                    f"{p['rating']}::double precision, {sql_str(ht)}::text, {unit}::text, "
+                    f"{sql_bool(p['transfer'])}::boolean){comma}"
+                )
+            else:
+                jersey_sql = "null" if jersey == "null" else str(jersey)
+                a(
+                    f"  ({sql_str(slug)}, {name}, {jersey_sql}, {pos}, {int(p['depth'])}, "
+                    f"{cls}, {int(p['height'])}, {int(p['weight'])}, {int(p['stars'] or 0)}, "
+                    f"{p['rating']}, {sql_str(ht)}, {unit}, {sql_bool(p['transfer'])}){comma}"
+                )
+        a(
+            ") as v(slug, name, jersey, position, depth, class_year, height_in, weight_lbs, "
+            "stars, rating, hometown_state, unit, transfer)"
+        )
+        a("join teams t on t.slug = v.slug;")
+        a("")
+
+    prof_cols = (
+        "slug, talent_rank, talent_score, blue_chip_pct, transfer_pct, transfer_count, "
+        "off_talent, def_talent, starter_talent, hs_talent, portal_talent, portal_share, "
+        "qb_talent, skill_talent, ol_talent, dl_talent, lb_talent, db_talent, avg_rating, "
+        "avg_height_in, avg_weight_lbs, ol_avg_height_in, ol_avg_weight_lbs, "
+        "skill_avg_height_in, skill_avg_weight_lbs, db_avg_height_in, two_deep_source"
+    )
+    a("update roster_profile rp set")
+    a("  talent_rank = v.talent_rank,")
+    a("  talent_score = v.talent_score,")
+    a("  blue_chip_pct = v.blue_chip_pct,")
+    a("  transfer_pct = v.transfer_pct,")
+    a("  transfer_count = v.transfer_count,")
+    a("  off_talent = v.off_talent,")
+    a("  def_talent = v.def_talent,")
+    a("  starter_talent = v.starter_talent,")
+    a("  hs_talent = v.hs_talent,")
+    a("  portal_talent = v.portal_talent,")
+    a("  portal_share = v.portal_share,")
+    a("  qb_talent = v.qb_talent,")
+    a("  skill_talent = v.skill_talent,")
+    a("  ol_talent = v.ol_talent,")
+    a("  dl_talent = v.dl_talent,")
+    a("  lb_talent = v.lb_talent,")
+    a("  db_talent = v.db_talent,")
+    a("  avg_rating = v.avg_rating,")
+    a("  avg_height_in = v.avg_height_in,")
+    a("  avg_weight_lbs = v.avg_weight_lbs,")
+    a("  ol_avg_height_in = v.ol_avg_height_in,")
+    a("  ol_avg_weight_lbs = v.ol_avg_weight_lbs,")
+    a("  skill_avg_height_in = v.skill_avg_height_in,")
+    a("  skill_avg_weight_lbs = v.skill_avg_weight_lbs,")
+    a("  db_avg_height_in = v.db_avg_height_in,")
+    a("  two_deep_source = v.two_deep_source")
+    a("from (values")
+    ordered = sorted(profiles, key=lambda p: p["slug"])
+    for i, p in enumerate(ordered):
+        comma = "" if i == len(ordered) - 1 else ","
+        if i == 0:
+            a(
+                f"  ({sql_str(p['slug'])}::text, {p['talent_rank']}::int, {p['talent_score']}::double precision, "
+                f"{p['blue_chip_pct']}::double precision, {p['transfer_pct']}::double precision, "
+                f"{p['transfer_count']}::int, {p['off_talent']}::double precision, "
+                f"{p['def_talent']}::double precision, {p['starter_talent']}::double precision, "
+                f"{p['hs_talent']}::double precision, {p['portal_talent']}::double precision, "
+                f"{p['portal_share']}::double precision, {p['qb_talent']}::double precision, "
+                f"{p['skill_talent']}::double precision, {p['ol_talent']}::double precision, "
+                f"{p['dl_talent']}::double precision, {p['lb_talent']}::double precision, "
+                f"{p['db_talent']}::double precision, {p['avg_rating']}::double precision, "
+                f"{p['avg_height']}::double precision, {p['avg_weight']}::double precision, "
+                f"{p['ol_h']}::double precision, {p['ol_w']}::double precision, "
+                f"{p['sk_h']}::double precision, {p['sk_w']}::double precision, "
+                f"{p['db_h']}::double precision, {sql_str(p['source'])}::text){comma}"
+            )
+        else:
+            a(
+                f"  ({sql_str(p['slug'])}, {p['talent_rank']}, {p['talent_score']}, "
+                f"{p['blue_chip_pct']}, {p['transfer_pct']}, {p['transfer_count']}, "
+                f"{p['off_talent']}, {p['def_talent']}, {p['starter_talent']}, "
+                f"{p['hs_talent']}, {p['portal_talent']}, {p['portal_share']}, "
+                f"{p['qb_talent']}, {p['skill_talent']}, {p['ol_talent']}, "
+                f"{p['dl_talent']}, {p['lb_talent']}, {p['db_talent']}, {p['avg_rating']}, "
+                f"{p['avg_height']}, {p['avg_weight']}, {p['ol_h']}, {p['ol_w']}, "
+                f"{p['sk_h']}, {p['sk_w']}, {p['db_h']}, {sql_str(p['source'])}){comma}"
+            )
+    a(f") as v({prof_cols})")
+    a("join teams t on t.slug = v.slug")
+    a("where rp.team_id = t.id;")
+    a("")
+
+    out_path.write_text("\n".join(lines) + "\n")
+    print(f"Wrote {out_path} ({out_path.stat().st_size / 1024:.0f} KB)")
+    print(f"Teams {len(slugs)}  players {len(all_players)}  listed {len(slugs)}  projected 0")
+    print(f"QB1 iowa={qb1['iowa']}  ball-state={qb1['ball-state']}  uconn={qb1['uconn']}")
+    top = sorted(profiles, key=lambda p: p["talent_rank"])[:5]
+    print("Talent board top 5:", ", ".join(f"{p['talent_rank']}. {p['slug']} {p['talent_score']}" for p in top))
+    return out_path
+
+
 if __name__ == "__main__":
-    main()
+    import argparse
+
+    parser = argparse.ArgumentParser(description="HASHMARK CFB seed / TWO·DEEP refresh emitter")
+    parser.add_argument(
+        "--players-roster-only",
+        action="store_true",
+        help="Emit players + roster_profile refresh SQL only (no truncate, no rankings).",
+    )
+    parser.add_argument(
+        "-o",
+        "--output",
+        type=Path,
+        default=None,
+        help="Output path for --players-roster-only (default migrations/0019_twodeep_refresh_2026_09_07.sql)",
+    )
+    args = parser.parse_args()
+    if args.players_roster_only:
+        emit_twodeep_refresh(args.output)
+    else:
+        main()

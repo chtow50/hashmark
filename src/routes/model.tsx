@@ -104,8 +104,8 @@ spread  = 0.050835 × d
           <p>
             The board is the full 136-team FBS set from the HASHMARK database — recruiting, portal,
             returning production, SP+/Elo/SRS, and 2026 rosters. Two-deeps are the listed TWO·DEEP
-            charts for 89 programs and a rating-sorted projection for the rest (CFBD publishes no
-            depth chart). Projected two-deeps are labelled as estimates.
+            charts for all 136 programs (thetwodeep.com, refreshed 2026-09-07). HX talent z-scores
+            stay on the prior listed/projected mix until a talent recompute is cleared.
           </p>
           <p>
             Indiana is sixth on the preseason AP ballot after a national title. HX has the Hoosiers

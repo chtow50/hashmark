@@ -205,7 +205,7 @@ function CompositeBoard({
         <ul className="mt-4 grid gap-3 text-sm text-muted sm:grid-cols-3">
           <li>
             <div className="font-medium text-fg">The two-deep</div>
-            <p className="mt-1">Listed TWO·DEEP charts where we have them; rating-sorted projection otherwise. 247 composite, transfers included.</p>
+            <p className="mt-1">Listed TWO·DEEP charts from thetwodeep.com for all 136 FBS programs (2026-09-07). 247 composite, transfers included.</p>
           </li>
           <li>
             <div className="font-medium text-fg">Transfers count</div>
