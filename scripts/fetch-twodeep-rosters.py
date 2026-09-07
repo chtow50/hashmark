@@ -53,6 +53,9 @@ POS_NORM = {
 OFF_POS = {
     "QB", "RB", "FB", "WR", "WR-X", "WR-Z", "SLOT", "TE",
     "LT", "LG", "C", "RG", "RT", "OT", "OG", "OL",
+    "WR-F", "WR-Y", "WR2", "WR3", "WR4", "TE-Y", "TE-H", "TE-F", "TE2",
+    "RB-A", "RB-B", "RB2", "RB3", "SB", "SB-A", "SB-Z", "OC",
+    "IWR-1", "IWR-2", "OWR-1", "OWR-2", "SWR", "Y",
 }
 
 STATE_NAME = {
