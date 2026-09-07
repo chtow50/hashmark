@@ -1,13 +1,13 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { PageHead, Panel } from "@/components/shell";
-import { DeltaChip, MixBar, RankMove, Stat, TeamSwatch } from "@/components/marks";
+import { DeltaChip, MixBar, RankMove, Stat, TeamMark } from "@/components/marks";
 import { RosterList } from "@/components/roster-duel";
-import { Make12Panel, RemainingScheduleSection } from "@/components/season-sim";
+import { Make12Panel, RemainingScheduleSection, SeasonScheduleSection } from "@/components/season-sim";
 import { TALENT_UNITS } from "@/lib/cfb/positions";
 import { getTeam } from "@/lib/cfb/queries";
 import { COMPOSITE_SOURCE, ratedStarCount, visibleClassAvg } from "@/lib/cfb/recruiting";
 import { modelShare, MODEL } from "@/lib/cfb/model";
-import { buildRemainingSchedule, make12FromTeam } from "@/lib/cfb/season-sim";
+import { buildRemainingSchedule, buildSeasonSchedule, make12FromTeam } from "@/lib/cfb/season-sim";
 import { apLabel, fmtHeight, fmtNum, fmtPct } from "@/lib/utils";
 
 export const Route = createFileRoute("/teams/$slug")({
@@ -27,6 +27,7 @@ function TeamPage() {
   const share = modelShare(team);
   const make12 = make12FromTeam(team);
   const remaining = buildRemainingSchedule(team.slug, games);
+  const season = buildSeasonSchedule(team.slug, games);
 
   return (
     <div>
@@ -39,7 +40,7 @@ function TeamPage() {
       <Panel className="mb-6">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div className="flex items-center gap-3">
-            <TeamSwatch color={team.colorPrimary} className="h-12 w-1.5" />
+            <TeamMark slug={team.slug} color={team.colorPrimary} swatchClassName="h-12 w-1.5" logoSize={32} />
             <div>
               <div className="font-display text-5xl tabular leading-none">{team.hxRank}</div>
               <div className="mt-1 text-sm text-muted">HX rank</div>
@@ -61,6 +62,8 @@ function TeamPage() {
       </Panel>
 
       <RemainingScheduleSection rows={remaining} teamShortName={team.shortName} />
+
+      <SeasonScheduleSection rows={season} />
 
       <div className="mb-6 grid gap-6 lg:grid-cols-2">
         <Panel>

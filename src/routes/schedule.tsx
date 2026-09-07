@@ -6,7 +6,7 @@ import { DeskChip, TeamMark } from "@/components/marks";
 import { Button } from "@/components/ui/button";
 import { formatKickCt, formatKickDayTitle, todayChicago } from "@/lib/cfb/chicago";
 import { type ConfFilter, parseConf } from "@/lib/cfb/conferences";
-import { favoriteLine } from "@/lib/cfb/featured";
+import { favoriteLine, formatVegas } from "@/lib/cfb/featured";
 import { predictMatchup } from "@/lib/cfb/model";
 import { HASHMARK_MAX_WEEK, listScheduleWeek, listTeams } from "@/lib/cfb/queries";
 import {
@@ -16,7 +16,7 @@ import {
 } from "@/lib/cfb/schedule-filter";
 import { isWinnerFlip, matchupChips } from "@/lib/cfb/schedule-flags";
 import type { ScheduleGame } from "@/lib/cfb/types";
-import { cn, fmtNum, fmtPct } from "@/lib/utils";
+import { cn, fmtPct } from "@/lib/utils";
 
 type Search = { w?: number; view?: ScheduleView; conf?: ConfFilter };
 
@@ -282,13 +282,6 @@ function ScheduleRow({ game: g }: { game: ScheduleGame }) {
       </Link>
     </li>
   );
-}
-
-function formatVegas(line: string | null, total: number | null): string {
-  if (line == null && total == null) return "—";
-  if (line == null) return `O/U ${fmtNum(total as number, 1)}`;
-  if (total == null) return line;
-  return `${line} · O/U ${fmtNum(total, 1)}`;
 }
 
 function StatBlock({

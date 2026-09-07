@@ -110,6 +110,13 @@ export function favoriteLine(homeShort: string, awayShort: string, spread: numbe
   return spread > 0 ? `${homeShort} −${spread.toFixed(1)}` : `${awayShort} −${(-spread).toFixed(1)}`;
 }
 
+export function formatVegas(line: string | null, total: number | null): string {
+  if (line == null && total == null) return "—";
+  if (line == null) return `O/U ${total!.toFixed(1)}`;
+  if (total == null) return line;
+  return `${line} · O/U ${total.toFixed(1)}`;
+}
+
 /** Same-favorite gap vs the current book. Null when sides disagree or no book. */
 export function spreadGap(hxSpread: number, bookSpread: number): number | null {
   if (Math.abs(hxSpread) < 0.05 || Math.abs(bookSpread) < 0.05) return null;
