@@ -1,13 +1,14 @@
 import { fcsStubsForTeam } from "./fcs-stubs.ts";
-import type { GameRow, GameStatus, TeamSummary } from "./types.ts";
+import type { GameStatus, ScheduleGame, TeamSummary } from "./types.ts";
 
-/** One row on a team hub remaining-schedule panel. */
-export type RemainingScheduleRow = {
+/** One row on a team hub schedule panel. */
+export type TeamScheduleRow = {
   key: string;
   week: number;
   kickoffDate: string;
   opponentLabel: string;
   opponentSlug: string | null;
+  opponentColor: string | null;
   home: boolean;
   neutral: boolean;
   location: string | null;
@@ -15,7 +16,12 @@ export type RemainingScheduleRow = {
   homeScore: number | null;
   awayScore: number | null;
   isFcs: boolean;
+  /** Full FBS game row for odds / matchup link — null for FCS stubs. */
+  game: ScheduleGame | null;
 };
+
+/** @deprecated Use ScheduleGame — kept for test fixtures. */
+export type TeamScheduleGame = ScheduleGame;
 
 export type Make12Source = "amd-draws" | "legacy-playoff-odds" | "pending";
 
@@ -27,11 +33,28 @@ export type Make12Odds = {
   winTitleSource: Make12Source;
 };
 
-export type TeamScheduleGame = GameRow & {
-  status: GameStatus;
-  homeScore: number | null;
-  awayScore: number | null;
-};
+function toScheduleRow(teamSlug: string, g: ScheduleGame): TeamScheduleRow {
+  const homeIs = g.homeSlug === teamSlug;
+  const oppSlug = homeIs ? g.awaySlug : g.homeSlug;
+  const oppName = homeIs ? g.awayName : g.homeName;
+  const oppColor = homeIs ? g.awayColor : g.homeColor;
+  return {
+    key: `fbs-${g.id}`,
+    week: g.week,
+    kickoffDate: g.kickoffDate,
+    opponentLabel: oppName,
+    opponentSlug: oppSlug,
+    opponentColor: oppColor,
+    home: homeIs,
+    neutral: g.neutral,
+    location: g.location,
+    status: g.status,
+    homeScore: g.homeScore,
+    awayScore: g.awayScore,
+    isFcs: false,
+    game: g,
+  };
+}
 
 /** Map preseason playoff_odds (logistic make-field curve) until AMD draws land. */
 export function make12FromTeam(team: Pick<TeamSummary, "playoffOdds">): Make12Odds {
@@ -46,36 +69,17 @@ export function make12FromTeam(team: Pick<TeamSummary, "playoffOdds">): Make12Od
 
 export function buildRemainingSchedule(
   teamSlug: string,
-  games: TeamScheduleGame[],
-): RemainingScheduleRow[] {
-  const fbsRows: RemainingScheduleRow[] = games
-    .filter((g) => g.status !== "final")
-    .map((g) => {
-      const homeIs = g.homeSlug === teamSlug;
-      const oppSlug = homeIs ? g.awaySlug : g.homeSlug;
-      const oppName = homeIs ? g.awayName : g.homeName;
-      return {
-        key: `fbs-${g.id}`,
-        week: g.week,
-        kickoffDate: g.kickoffDate,
-        opponentLabel: oppName,
-        opponentSlug: oppSlug,
-        home: homeIs,
-        neutral: g.neutral,
-        location: g.location,
-        status: g.status,
-        homeScore: null,
-        awayScore: null,
-        isFcs: false,
-      };
-    });
+  games: ScheduleGame[],
+): TeamScheduleRow[] {
+  const fbsRows = games.filter((g) => g.status !== "final").map((g) => toScheduleRow(teamSlug, g));
 
-  const fcsRows: RemainingScheduleRow[] = fcsStubsForTeam(teamSlug).map((stub, i) => ({
+  const fcsRows: TeamScheduleRow[] = fcsStubsForTeam(teamSlug).map((stub, i) => ({
     key: `fcs-${teamSlug}-${stub.kickoffDate}-${i}`,
     week: stub.week,
     kickoffDate: stub.kickoffDate,
     opponentLabel: stub.opponentLabel,
     opponentSlug: null,
+    opponentColor: null,
     home: stub.home,
     neutral: false,
     location: null,
@@ -83,6 +87,7 @@ export function buildRemainingSchedule(
     homeScore: null,
     awayScore: null,
     isFcs: true,
+    game: null,
   }));
 
   return [...fbsRows, ...fcsRows].sort((a, b) => {
@@ -90,6 +95,11 @@ export function buildRemainingSchedule(
     if (a.week !== b.week) return a.week - b.week;
     return a.opponentLabel.localeCompare(b.opponentLabel);
   });
+}
+
+/** Full FBS season slate for a team hub — played and unplayed. */
+export function buildSeasonSchedule(teamSlug: string, games: ScheduleGame[]): TeamScheduleRow[] {
+  return games.map((g) => toScheduleRow(teamSlug, g));
 }
 
 export function make12FieldLabel(source: Make12Source): string | undefined {
