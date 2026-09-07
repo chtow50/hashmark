@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Fragment, useMemo, useState } from "react";
 import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import { ConfPills, PageHead, Panel, TeamSelect } from "@/components/shell";
-import { CompareRow, TeamSwatch } from "@/components/marks";
+import { CompareRow, TeamMark } from "@/components/marks";
 import { TalentSliceChart, TalentSliceLeaders, TalentSliceMixCell, TalentSliceStats } from "@/components/talent-slices";
 import { inConf, parseConf, type ConfFilter } from "@/lib/cfb/conferences";
 import { TALENT_UNITS } from "@/lib/cfb/positions";
@@ -233,7 +233,7 @@ function CompositeBoard({
               params={{ slug: t.slug }}
               className="mt-2 flex items-center gap-2 font-display text-2xl tracking-wide"
             >
-              <TeamSwatch color={t.colorPrimary} />
+              <TeamMark slug={t.slug} color={t.colorPrimary} logoSize={20} />
               {t.name}
             </Link>
             <p className="mt-2 text-sm text-muted">{fmtNum(t.talentScore, 1)} composite</p>
@@ -374,7 +374,7 @@ function CompositeBoard({
                       params={{ slug: t.slug }}
                       className="flex min-h-11 items-center gap-2.5"
                     >
-                      <TeamSwatch color={t.colorPrimary} />
+                      <TeamMark slug={t.slug} color={t.colorPrimary} logoSize={20} />
                       {t.name}
                     </Link>
                   </td>
@@ -585,7 +585,7 @@ function SizeBoard({
             <div className="flex items-start justify-between gap-3">
               <div className="flex items-center gap-2.5">
                 <span className="font-display text-xl tabular text-muted">{i + 1}</span>
-                <TeamSwatch color={t.colorPrimary} />
+                <TeamMark slug={t.slug} color={t.colorPrimary} logoSize={20} />
                 <span className="font-medium">{t.name}</span>
               </div>
               <span className="font-display text-xl tabular">{formatSize(t, sizeLens)}</span>
@@ -637,7 +637,7 @@ function SizeBoard({
                       params={{ slug: t.slug }}
                       className="flex min-h-11 items-center gap-2.5"
                     >
-                      <TeamSwatch color={t.colorPrimary} />
+                      <TeamMark slug={t.slug} color={t.colorPrimary} logoSize={20} />
                       {t.name}
                     </Link>
                   </td>
@@ -662,7 +662,7 @@ function TalentCard({ team, place, lens }: { team: TeamSummary; place: number; l
       <div className="flex items-start justify-between gap-3">
         <div className="flex items-center gap-2.5">
           <span className="font-display text-xl tabular text-muted">{place}</span>
-          <TeamSwatch color={team.colorPrimary} />
+          <TeamMark slug={team.slug} color={team.colorPrimary} />
           <span className="font-medium">{team.name}</span>
         </div>
         <span className="font-display text-xl tabular">{fmtNum(team[lens], 1)}</span>

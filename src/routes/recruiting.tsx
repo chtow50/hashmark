@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { ConfPills, PageHead, Panel } from "@/components/shell";
-import { RankMove, RankNum, RankSpark, TeamSwatch } from "@/components/marks";
+import { RankMove, RankNum, RankSpark, TeamMark } from "@/components/marks";
 import { inConf, parseConf, type ConfFilter } from "@/lib/cfb/conferences";
 import { listRecruiting } from "@/lib/cfb/queries";
 import {
@@ -176,7 +176,7 @@ function RecruitingPage() {
                   params={{ slug: t.slug }}
                   className="mt-2 flex items-center gap-2 font-display text-2xl tracking-wide"
                 >
-                  <TeamSwatch color={t.colorPrimary} />
+                  <TeamMark slug={t.slug} color={t.colorPrimary} logoSize={20} />
                   {t.name}
                 </Link>
                 <p className="mt-2 text-sm text-muted">
@@ -231,7 +231,7 @@ function RecruitingPage() {
                           params={{ slug: t.slug }}
                           className="flex min-h-11 items-center gap-2.5"
                         >
-                          <TeamSwatch color={t.colorPrimary} />
+                          <TeamMark slug={t.slug} color={t.colorPrimary} logoSize={20} />
                           <span>
                             <span className="block font-medium">{t.name}</span>
                             <span className="block text-xs text-muted">{t.conference}</span>
@@ -306,7 +306,7 @@ function CycleTable({
                     params={{ slug: row.slug }}
                     className="flex min-h-11 items-center gap-2.5"
                   >
-                    <TeamSwatch color={row.colorPrimary} />
+                    <TeamMark slug={row.slug} color={row.colorPrimary} />
                     {row.name}
                   </Link>
                 </td>

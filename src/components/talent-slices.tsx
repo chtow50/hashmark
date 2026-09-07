@@ -2,7 +2,7 @@ import { Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAx
 import { hasHsSlice, hasPortalMix, hasPortalSlice } from "@/lib/cfb/talent-slices";
 import type { TeamSummary } from "@/lib/cfb/types";
 import { fmtNum, fmtPct } from "@/lib/utils";
-import { MixBar } from "./marks";
+import { MixBar, TeamMark } from "./marks";
 
 export function TalentSliceStats({
   team,
@@ -127,14 +127,20 @@ export function TalentSliceLeaders({ teams }: { teams: TeamSummary[] }) {
       {hsLeader ? (
         <div className="rounded-lg bg-raised/60 p-4">
           <div className="text-[11px] uppercase tracking-[0.12em] text-faint">Top HS two-deep</div>
-          <div className="mt-2 font-medium">{hsLeader.name}</div>
+          <div className="mt-2 flex items-center gap-2 font-medium">
+            <TeamMark slug={hsLeader.slug} color={hsLeader.colorPrimary} logoSize={18} />
+            {hsLeader.name}
+          </div>
           <div className="mt-1 font-display text-3xl tabular">{fmtNum(hsLeader.hsTalent, 1)}</div>
         </div>
       ) : null}
       {portalLeader ? (
         <div className="rounded-lg bg-raised/60 p-4">
           <div className="text-[11px] uppercase tracking-[0.12em] text-faint">Top portal two-deep</div>
-          <div className="mt-2 font-medium">{portalLeader.name}</div>
+          <div className="mt-2 flex items-center gap-2 font-medium">
+            <TeamMark slug={portalLeader.slug} color={portalLeader.colorPrimary} logoSize={18} />
+            {portalLeader.name}
+          </div>
           <div className="mt-1 font-display text-3xl tabular">{fmtNum(portalLeader.portalTalent, 1)}</div>
           <div className="mt-1 text-xs text-muted">{portalLeader.transferCount} transfers</div>
         </div>
@@ -142,7 +148,10 @@ export function TalentSliceLeaders({ teams }: { teams: TeamSummary[] }) {
       {mixLeader ? (
         <div className="rounded-lg bg-raised/60 p-4">
           <div className="text-[11px] uppercase tracking-[0.12em] text-faint">Heaviest portal mix</div>
-          <div className="mt-2 font-medium">{mixLeader.name}</div>
+          <div className="mt-2 flex items-center gap-2 font-medium">
+            <TeamMark slug={mixLeader.slug} color={mixLeader.colorPrimary} logoSize={18} />
+            {mixLeader.name}
+          </div>
           <div className="mt-1 font-display text-3xl tabular">{fmtPct(mixLeader.portalShare, 0)}</div>
           <div className="mt-1 text-xs text-muted">portal weight on two-deep</div>
         </div>
