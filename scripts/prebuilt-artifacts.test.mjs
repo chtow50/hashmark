@@ -45,4 +45,12 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /dlAvgWeightLbs/);
     assert.match(text, /lbAvgWeightLbs/);
   });
+
+  it("includes PR #28 Week 1 tape, gaps, and Make≠title in committed output", () => {
+    const text = corpus();
+    assert.match(text, /36\/43/);
+    assert.match(text, /make_field/);
+    assert.match(text, /73\.81/);
+    assert.match(text, /make12FromSim|amd-draws|make-field, not title/);
+  });
 });
