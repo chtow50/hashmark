@@ -1,4 +1,4 @@
-import { FCS_STUB_GAMES, fcsStubIsFinal, fcsStubsForTeam, type FcsStubGame } from "./fcs-stubs";
+import { FCS_STUB_GAMES, fcsStubIsFinal, fcsStubsForTeam, type FcsStubGame } from "./fcs-stubs.ts";
 
 /** One FINAL game used to tally this-year W–L. Ties increment neither side. */
 export type SeasonRecordGame = {
