@@ -1,18 +1,19 @@
 import type { Prediction, TeamSummary } from "./types";
 
 /**
- * HASHMARK Index — the user's validated preseason model (2026.2).
+ * HASHMARK Index — the user's validated model (HX 2026.3 chrome after Week 1 units + ΔHX).
  * Weights from power_rankings.py DEFAULT_WEIGHTS, walk-forward Top 25
  * balanced ≈ 0.646. Talent and prior_rating carry the real signal.
  * Matchup math is the Elo mapping from matchup.py (70.8% SU, 2019–2025).
  * Spread is a quadratic on Elo gap, fit on 2019–2023 FBS MOV (holdout 2024–2025).
+ * Quadratic / talent / z* weights / team-HFA / weather / QB tenure SOS — unchanged.
  */
 export const MODEL = {
   name: "HX Rating",
-  version: "2026.2",
+  version: "2026.3",
   season: 2026,
-  week: 0,
-  weekLabel: "Week 0 locked · next update after Week 1 Sunday",
+  week: 2,
+  weekLabel: "Week 2 board",
   eloBase: 1500,
   eloScale: 55,
   homeFieldElo: 60,

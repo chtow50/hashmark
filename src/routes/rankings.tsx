@@ -3,6 +3,7 @@ import { useMemo, useState, type ReactNode } from "react";
 import { ConfPills, PageHead, Panel } from "@/components/shell";
 import { DeltaChip, RankNum, TeamMark, TeamSwatch } from "@/components/marks";
 import { inConf, parseConf, type ConfFilter } from "@/lib/cfb/conferences";
+import { BOARD_WEEK } from "@/lib/cfb/featured";
 import { MODEL } from "@/lib/cfb/model";
 import { listTeams } from "@/lib/cfb/queries";
 import { cn, fmtNum, fmtPct } from "@/lib/utils";
@@ -61,7 +62,7 @@ function RankingsPage() {
   return (
     <div>
       <PageHead
-        kicker={`Week 1 · HX ${MODEL.version}`}
+        kicker={`Week ${BOARD_WEEK} · HX ${MODEL.version}`}
         title="Power rankings"
         lede="Every FBS program, ranked by HX. Talent is listed two-deep composite, not class rank — TWO·DEEP / 247. Talent and prior-year SP+/Elo/SRS carry the real signal. Make 12 is make-field, not title odds; projected wins are Elo vs the 2026 slate. AP is the Aug 17 preseason ballot."
       />
