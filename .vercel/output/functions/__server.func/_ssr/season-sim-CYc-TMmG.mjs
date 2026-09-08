@@ -1,0 +1,2489 @@
+import { n as fcsStubIsFinal, r as fcsStubsForTeam } from "./season-record-Bop-q4Ke.mjs";
+//#region node_modules/.nitro/vite/services/ssr/assets/season-sim-CYc-TMmG.js
+var week1_hx_vs_ap_gaps_2026_default = {
+	as_of: "2026-09-08",
+	source_ap: "week1_ap_top25_2026 / Research clear",
+	source_hx: "week1_od_hx_ship_2026.json",
+	gaps: [
+		{
+			"name": "Virginia",
+			"ap": 25,
+			"hx": 45,
+			"hx_rating": 1.4645,
+			"delta": -20
+		},
+		{
+			"name": "Houston",
+			"ap": 22,
+			"hx": 40,
+			"hx_rating": 1.6041,
+			"delta": -18
+		},
+		{
+			"name": "LSU",
+			"ap": 8,
+			"hx": 19,
+			"hx_rating": 4.0619,
+			"delta": -11
+		},
+		{
+			"name": "Missouri",
+			"ap": 23,
+			"hx": 14,
+			"hx_rating": 4.3308,
+			"delta": 9
+		},
+		{
+			"name": "USC",
+			"ap": 14,
+			"hx": 21,
+			"hx_rating": 3.8873,
+			"delta": -7
+		},
+		{
+			"name": "Indiana",
+			"ap": 5,
+			"hx": 11,
+			"hx_rating": 4.981,
+			"delta": -6
+		},
+		{
+			"name": "Texas Tech",
+			"ap": 13,
+			"hx": 7,
+			"hx_rating": 5.9024,
+			"delta": 6
+		},
+		{
+			"name": "Washington",
+			"ap": 19,
+			"hx": 25,
+			"hx_rating": 3.3275,
+			"delta": -6
+		},
+		{
+			"name": "Oklahoma",
+			"ap": 11,
+			"hx": 16,
+			"hx_rating": 4.1987,
+			"delta": -5
+		},
+		{
+			"name": "Utah",
+			"ap": 20,
+			"hx": 15,
+			"hx_rating": 4.2403,
+			"delta": 5
+		},
+		{
+			"name": "Texas A&M",
+			"ap": 10,
+			"hx": 6,
+			"hx_rating": 6.1871,
+			"delta": 4
+		},
+		{
+			"name": "Miami",
+			"ap": 7,
+			"hx": 10,
+			"hx_rating": 5.2345,
+			"delta": -3
+		},
+		{
+			"name": "Alabama",
+			"ap": 12,
+			"hx": 9,
+			"hx_rating": 5.343,
+			"delta": 3
+		},
+		{
+			"name": "BYU",
+			"ap": 15,
+			"hx": 18,
+			"hx_rating": 4.0673,
+			"delta": -3
+		},
+		{
+			"name": "Penn State",
+			"ap": 16,
+			"hx": 13,
+			"hx_rating": 4.4001,
+			"delta": 3
+		}
+	],
+	hx_not_in_ap: [
+		{
+			"hx_rank": 12,
+			"name": "Michigan",
+			"hx": 4.8893
+		},
+		{
+			"hx_rank": 22,
+			"name": "Clemson",
+			"hx": 3.8551
+		},
+		{
+			"hx_rank": 24,
+			"name": "Florida",
+			"hx": 3.4941
+		}
+	],
+	ap_not_in_hx25: [
+		{
+			"ap": 25,
+			"name": "Virginia",
+			"hx_rank": 45
+		},
+		{
+			"ap": 22,
+			"name": "Houston",
+			"hx_rank": 40
+		},
+		{
+			"ap": 24,
+			"name": "Louisville",
+			"hx_rank": 26
+		}
+	]
+};
+var week1_accountability_pack_2026_default = {
+	as_of: "2026-09-08",
+	tape: {
+		"n": 43,
+		"su_pct": 83.7,
+		"su": "36/43",
+		"hx_closer_pct": 46.5,
+		"hx_closer": "20/43",
+		"source": "metrics/weekly_hx_vs_vegas.jsonl week 1"
+	},
+	movers_by_abs_dhx: [
+		{
+			"name": "Rutgers",
+			"slug": "rutgers",
+			"hx_rank_pre": 70,
+			"hx_rank_post": 70,
+			"delta_hx": -.068,
+			"delta_off": -1.622,
+			"delta_def": -2.118,
+			"term": "O/D EPA"
+		},
+		{
+			"name": "Massachusetts",
+			"slug": "massachusetts",
+			"hx_rank_pre": 136,
+			"hx_rank_post": 136,
+			"delta_hx": .068,
+			"delta_off": 2.118,
+			"delta_def": 1.622,
+			"term": "O/D EPA"
+		},
+		{
+			"name": "James Madison",
+			"slug": "james-madison",
+			"hx_rank_pre": 41,
+			"hx_rank_post": 43,
+			"delta_hx": -.0655,
+			"delta_off": -2.029,
+			"delta_def": -1.574,
+			"term": "O/D EPA"
+		},
+		{
+			"name": "Liberty",
+			"slug": "liberty",
+			"hx_rank_pre": 75,
+			"hx_rank_post": 75,
+			"delta_hx": .0655,
+			"delta_off": 1.574,
+			"delta_def": 2.029,
+			"term": "O/D EPA"
+		},
+		{
+			"name": "Notre Dame",
+			"slug": "notre-dame",
+			"hx_rank_pre": 3,
+			"hx_rank_post": 3,
+			"delta_hx": -.0567,
+			"delta_off": -1.001,
+			"delta_def": -2.118,
+			"term": "O/D EPA"
+		},
+		{
+			"name": "Wisconsin",
+			"slug": "wisconsin",
+			"hx_rank_pre": 51,
+			"hx_rank_post": 50,
+			"delta_hx": .0567,
+			"delta_off": 2.118,
+			"delta_def": 1.001,
+			"term": "O/D EPA"
+		},
+		{
+			"name": "TCU",
+			"slug": "tcu",
+			"hx_rank_pre": 31,
+			"hx_rank_post": 32,
+			"delta_hx": -.0473,
+			"delta_off": -.892,
+			"delta_def": -1.707,
+			"term": "O/D EPA"
+		},
+		{
+			"name": "North Carolina",
+			"slug": "north-carolina",
+			"hx_rank_pre": 85,
+			"hx_rank_post": 84,
+			"delta_hx": .0473,
+			"delta_off": 1.707,
+			"delta_def": .892,
+			"term": "O/D EPA"
+		},
+		{
+			"name": "Western Kentucky",
+			"slug": "western-kentucky",
+			"hx_rank_pre": 62,
+			"hx_rank_post": 63,
+			"delta_hx": -.0464,
+			"delta_off": -.435,
+			"delta_def": -2.118,
+			"term": "O/D EPA"
+		},
+		{
+			"name": "Nevada",
+			"slug": "nevada",
+			"hx_rank_pre": 130,
+			"hx_rank_post": 130,
+			"delta_hx": .0464,
+			"delta_off": 2.118,
+			"delta_def": .435,
+			"term": "O/D EPA"
+		}
+	],
+	gaps_file: "/workspace/cfb/week1_hx_vs_ap_gaps_2026.json",
+	sim_file: "/workspace/cfb/sim_10k_2026.json",
+	ship_hx: "/workspace/cfb/week1_od_hx_ship_2026.json"
+};
+var sim_10k_2026_default = {
+	meta: {
+		"n_sims": 1e4,
+		"seed": 20260906,
+		"as_of": "2026-09-06",
+		"as_of_tz": "America/Chicago",
+		"hx_source": "/workspace/cfb/teams.json",
+		"hx_policy": "frozen teams.json hxRating; no Sunday O/D Δ into HX",
+		"c20_policy": "od_matchup.hx_star for matchup draws (Connelly residual 10)",
+		"c20_teams": [
+			{
+				"team": "Florida",
+				"hx_board": 2.126,
+				"adj_hx": 1.38,
+				"hx_star": 3.506
+			},
+			{
+				"team": "North Texas",
+				"hx_board": .517,
+				"adj_hx": -2.741,
+				"hx_star": -2.224
+			},
+			{
+				"team": "Oklahoma State",
+				"hx_board": -4.015,
+				"adj_hx": 2.76,
+				"hx_star": -1.255
+			},
+			{
+				"team": "Ole Miss",
+				"hx_board": 6.676,
+				"adj_hx": -1.184,
+				"hx_star": 5.492
+			},
+			{
+				"team": "Oregon State",
+				"hx_board": -2.793,
+				"adj_hx": 1.645,
+				"hx_star": -1.148
+			},
+			{
+				"team": "South Florida",
+				"hx_board": 1.43,
+				"adj_hx": -1.243,
+				"hx_star": .187
+			},
+			{
+				"team": "Stanford",
+				"hx_board": -2.472,
+				"adj_hx": 1.713,
+				"hx_star": -.759
+			},
+			{
+				"team": "Tulane",
+				"hx_board": .579,
+				"adj_hx": -1.723,
+				"hx_star": -1.144
+			},
+			{
+				"team": "UConn",
+				"hx_board": -.408,
+				"adj_hx": -1.459,
+				"hx_star": -1.867
+			},
+			{
+				"team": "Virginia Tech",
+				"hx_board": -.714,
+				"adj_hx": 1.87,
+				"hx_star": 1.156
+			}
+		],
+		"engine": {
+			"elo": "1500+55*HX*",
+			"hfa": 60,
+			"p": "1/(1+10^(-d/400))",
+			"draw": "Bernoulli",
+			"spread_curve_A": .050835,
+			"spread_curve_B": 45795e-9,
+			"spread_note": "Quadratic spread documented only; CFP path is win/loss Bernoulli on P, not ATS"
+		},
+		"fcs_stub": {
+			"rule": "Unrated FCS / non-HASHMARK opponent: fixed P(FBS wins)=0.92 home, 0.88 away, 0.90 neutral. NDSU and Sacramento State are not rated.",
+			"remaining_fcs_games": 98,
+			"fcs_opponent_names_sample": [
+				"Alabama State",
+				"Bucknell",
+				"Cal Poly",
+				"Campbell",
+				"Central Arkansas",
+				"Central Connecticut",
+				"Charleston Southern",
+				"Chattanooga",
+				"Colgate",
+				"Delaware State",
+				"Duquesne",
+				"East Tennessee State",
+				"East Texas A&M",
+				"Eastern Washington",
+				"Elon",
+				"Florida A&M",
+				"Fordham",
+				"Gardner-Webb",
+				"Grambling",
+				"Holy Cross",
+				"Houston Christian",
+				"Howard",
+				"Illinois State",
+				"Incarnate Word",
+				"Lindenwood"
+			],
+			"n_fcs_opponent_names": 70
+		},
+		"schedule": {
+			"source": "hashmark-repo/data/cfb.db (ESPN 2026 slate; chtow50/hashmark data)",
+			"scoreboard_finals": "/workspace/cfb/data/espn_week1_2026_scoreboard.json",
+			"n_schedule_games_fbs_involved": 886,
+			"n_locked_finals": 92,
+			"n_remaining_draws": 794,
+			"incomplete_rs_under_12": [
+				{
+					"team": "Boise State",
+					"games_listed": 11
+				},
+				{
+					"team": "Colorado State",
+					"games_listed": 11
+				},
+				{
+					"team": "Fresno State",
+					"games_listed": 11
+				},
+				{
+					"team": "Oregon State",
+					"games_listed": 11
+				},
+				{
+					"team": "San Diego State",
+					"games_listed": 11
+				},
+				{
+					"team": "Texas State",
+					"games_listed": 11
+				},
+				{
+					"team": "Utah State",
+					"games_listed": 11
+				},
+				{
+					"team": "Washington State",
+					"games_listed": 11
+				}
+			],
+			"incomplete_note": "Eight teams list 11 games in DB (not 12). Opponents were NOT invented; missing game is untreated (usually a missing FCS stub). Documented only."
+		},
+		"cfp_2026_assumptions": {
+			"field_size": 12,
+			"aq": "P4 champions (ACC/Big Ten/Big 12/SEC) auto; highest-ranked G6 team (American/CUSA/MAC/MW/Pac-12/Sun Belt) auto regardless of champ; Notre Dame auto if proxy-ranked top 12",
+			"seeding": "Seeds 1-12 by committee proxy among selected; top 4 get first-round byes",
+			"first_round": "5v12, 6v11, 7v10, 8v9 at higher seed home (HFA=60)",
+			"later_rounds": "QF/SF/NG neutral (HFA=0); bracket no re-seed (1 vs 8/9, 2 vs 7/10, 3 vs 6/11, 4 vs 5/12)",
+			"ranking_proxy": "Sort by season wins, then matchup HX*, then fewer losses — not the official committee",
+			"ccg": "Synthetic neutral CCG for SEC/B1G/Big12/ACC/American/CUSA/MAC/MW/Sun Belt (top-2 conf record). Pac-12 crown by record/H2H (2 teams). Independents: none.",
+			"source": "NCAA.com 2026-08-11 CFP format explainer"
+		},
+		"runtime_sec": 5.67
+	},
+	teams: [
+		{
+			"name": "Notre Dame",
+			"slug": "notre-dame",
+			"conference": "Independent",
+			"hx_board": 7.086,
+			"hx_matchup": 7.086,
+			"make_field": 86.46,
+			"win_title": 15.66,
+			"proj_wins": 10.584,
+			"conf_title": 0,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Texas Tech",
+			"slug": "texas-tech",
+			"conference": "Big 12",
+			"hx_board": 5.917,
+			"hx_matchup": 5.917,
+			"make_field": 86.05,
+			"win_title": 9.23,
+			"proj_wins": 11.024,
+			"conf_title": 57.78,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Georgia",
+			"slug": "georgia",
+			"conference": "SEC",
+			"hx_board": 7.888,
+			"hx_matchup": 7.888,
+			"make_field": 73.81,
+			"win_title": 20.35,
+			"proj_wins": 10.403,
+			"conf_title": 48.73,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Miami",
+			"slug": "miami",
+			"conference": "ACC",
+			"hx_board": 5.226,
+			"hx_matchup": 5.226,
+			"make_field": 70.12,
+			"win_title": 4.78,
+			"proj_wins": 10.122,
+			"conf_title": 49.87,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Ohio State",
+			"slug": "ohio-state",
+			"conference": "Big Ten",
+			"hx_board": 7.846,
+			"hx_matchup": 7.846,
+			"make_field": 67.61,
+			"win_title": 18.19,
+			"proj_wins": 10.06,
+			"conf_title": 44.76,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Oregon",
+			"slug": "oregon",
+			"conference": "Big Ten",
+			"hx_board": 6.97,
+			"hx_matchup": 6.97,
+			"make_field": 64.68,
+			"win_title": 11.26,
+			"proj_wins": 10.055,
+			"conf_title": 31.72,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "UNLV",
+			"slug": "unlv",
+			"conference": "Mountain West",
+			"hx_board": 1.753,
+			"hx_matchup": 1.753,
+			"make_field": 52.7,
+			"win_title": .21,
+			"proj_wins": 9.81,
+			"conf_title": 52.9,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Utah",
+			"slug": "utah",
+			"conference": "Big 12",
+			"hx_board": 4.245,
+			"hx_matchup": 4.245,
+			"make_field": 43.05,
+			"win_title": 1.46,
+			"proj_wins": 9.303,
+			"conf_title": 19.02,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Memphis",
+			"slug": "memphis",
+			"conference": "American",
+			"hx_board": 1.089,
+			"hx_matchup": 1.089,
+			"make_field": 41.1,
+			"win_title": .11,
+			"proj_wins": 9.669,
+			"conf_title": 33.51,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "SMU",
+			"slug": "smu",
+			"conference": "ACC",
+			"hx_board": 4.035,
+			"hx_matchup": 4.035,
+			"make_field": 40.3,
+			"win_title": 1.18,
+			"proj_wins": 9.129,
+			"conf_title": 23.11,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "James Madison",
+			"slug": "james-madison",
+			"conference": "Sun Belt",
+			"hx_board": 1.574,
+			"hx_matchup": 1.574,
+			"make_field": 37.18,
+			"win_title": .19,
+			"proj_wins": 9.253,
+			"conf_title": 39.89,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Penn State",
+			"slug": "penn-state",
+			"conference": "Big Ten",
+			"hx_board": 4.393,
+			"hx_matchup": 4.393,
+			"make_field": 35.61,
+			"win_title": 1.32,
+			"proj_wins": 9.076,
+			"conf_title": 6.44,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Texas A&M",
+			"slug": "texas-am",
+			"conference": "SEC",
+			"hx_board": 6.201,
+			"hx_matchup": 6.201,
+			"make_field": 34.01,
+			"win_title": 3.78,
+			"proj_wins": 8.864,
+			"conf_title": 12.96,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Toledo",
+			"slug": "toledo",
+			"conference": "MAC",
+			"hx_board": 1.494,
+			"hx_matchup": 1.494,
+			"make_field": 33.72,
+			"win_title": .13,
+			"proj_wins": 9.213,
+			"conf_title": 40.33,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Texas",
+			"slug": "texas",
+			"conference": "SEC",
+			"hx_board": 6.382,
+			"hx_matchup": 6.382,
+			"make_field": 32.92,
+			"win_title": 3.8,
+			"proj_wins": 8.631,
+			"conf_title": 17.76,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Indiana",
+			"slug": "indiana",
+			"conference": "Big Ten",
+			"hx_board": 4.999,
+			"hx_matchup": 4.999,
+			"make_field": 30.1,
+			"win_title": 1.52,
+			"proj_wins": 8.795,
+			"conf_title": 7.96,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "BYU",
+			"slug": "byu",
+			"conference": "Big 12",
+			"hx_board": 4.064,
+			"hx_matchup": 4.064,
+			"make_field": 29.12,
+			"win_title": .72,
+			"proj_wins": 8.683,
+			"conf_title": 13.8,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "UTSA",
+			"slug": "utsa",
+			"conference": "American",
+			"hx_board": 1.362,
+			"hx_matchup": 1.362,
+			"make_field": 26.55,
+			"win_title": .11,
+			"proj_wins": 8.928,
+			"conf_title": 39.15,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Alabama",
+			"slug": "alabama",
+			"conference": "SEC",
+			"hx_board": 5.343,
+			"hx_matchup": 5.343,
+			"make_field": 25.08,
+			"win_title": 1.78,
+			"proj_wins": 8.543,
+			"conf_title": 6.56,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Ole Miss",
+			"slug": "ole-miss",
+			"conference": "SEC",
+			"hx_board": 6.676,
+			"hx_matchup": 5.492,
+			"make_field": 19.69,
+			"win_title": 1.19,
+			"proj_wins": 8.213,
+			"conf_title": 6.58,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Clemson",
+			"slug": "clemson",
+			"conference": "ACC",
+			"hx_board": 3.895,
+			"hx_matchup": 3.895,
+			"make_field": 18.2,
+			"win_title": .35,
+			"proj_wins": 8.172,
+			"conf_title": 11.21,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Louisville",
+			"slug": "louisville",
+			"conference": "ACC",
+			"hx_board": 2.979,
+			"hx_matchup": 2.979,
+			"make_field": 16.66,
+			"win_title": .25,
+			"proj_wins": 7.998,
+			"conf_title": 8.21,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Michigan",
+			"slug": "michigan",
+			"conference": "Big Ten",
+			"hx_board": 4.891,
+			"hx_matchup": 4.891,
+			"make_field": 15.73,
+			"win_title": .74,
+			"proj_wins": 8.155,
+			"conf_title": 4.12,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "South Florida",
+			"slug": "usf",
+			"conference": "American",
+			"hx_board": 1.43,
+			"hx_matchup": .187,
+			"make_field": 14.91,
+			"win_title": .02,
+			"proj_wins": 8.629,
+			"conf_title": 9.69,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Kansas State",
+			"slug": "kansas-state",
+			"conference": "Big 12",
+			"hx_board": 2.356,
+			"hx_matchup": 2.356,
+			"make_field": 12.51,
+			"win_title": .14,
+			"proj_wins": 8.001,
+			"conf_title": 2.97,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Ohio",
+			"slug": "ohio",
+			"conference": "MAC",
+			"hx_board": .234,
+			"hx_matchup": .234,
+			"make_field": 11.99,
+			"win_title": .01,
+			"proj_wins": 8.305,
+			"conf_title": 17.46,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Western Michigan",
+			"slug": "western-michigan",
+			"conference": "MAC",
+			"hx_board": .468,
+			"hx_matchup": .468,
+			"make_field": 11.83,
+			"win_title": .01,
+			"proj_wins": 8.145,
+			"conf_title": 26.19,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Iowa",
+			"slug": "iowa",
+			"conference": "Big Ten",
+			"hx_board": 3.763,
+			"hx_matchup": 3.763,
+			"make_field": 10.55,
+			"win_title": .31,
+			"proj_wins": 7.861,
+			"conf_title": 1.72,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Marshall",
+			"slug": "marshall",
+			"conference": "Sun Belt",
+			"hx_board": .228,
+			"hx_matchup": .228,
+			"make_field": 9.56,
+			"win_title": .02,
+			"proj_wins": 8.024,
+			"conf_title": 20.43,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Virginia",
+			"slug": "virginia",
+			"conference": "ACC",
+			"hx_board": 1.431,
+			"hx_matchup": 1.431,
+			"make_field": 8.9,
+			"win_title": 0,
+			"proj_wins": 7.95,
+			"conf_title": 2.07,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Tennessee",
+			"slug": "tennessee",
+			"conference": "SEC",
+			"hx_board": 4.073,
+			"hx_matchup": 4.073,
+			"make_field": 8.72,
+			"win_title": .22,
+			"proj_wins": 7.582,
+			"conf_title": 1.85,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "LSU",
+			"slug": "lsu",
+			"conference": "SEC",
+			"hx_board": 4.022,
+			"hx_matchup": 4.022,
+			"make_field": 8.57,
+			"win_title": .23,
+			"proj_wins": 7.635,
+			"conf_title": 1.41,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Liberty",
+			"slug": "liberty",
+			"conference": "CUSA",
+			"hx_board": -.638,
+			"hx_matchup": -.638,
+			"make_field": 8.54,
+			"win_title": 0,
+			"proj_wins": 8.03,
+			"conf_title": 26.48,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Missouri",
+			"slug": "missouri",
+			"conference": "SEC",
+			"hx_board": 4.319,
+			"hx_matchup": 4.319,
+			"make_field": 7.9,
+			"win_title": .17,
+			"proj_wins": 7.46,
+			"conf_title": 2.01,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "USC",
+			"slug": "usc",
+			"conference": "Big Ten",
+			"hx_board": 3.876,
+			"hx_matchup": 3.876,
+			"make_field": 7.83,
+			"win_title": .19,
+			"proj_wins": 7.654,
+			"conf_title": 1.34,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "NC State",
+			"slug": "nc-state",
+			"conference": "ACC",
+			"hx_board": 2.151,
+			"hx_matchup": 2.151,
+			"make_field": 6.26,
+			"win_title": .05,
+			"proj_wins": 7.475,
+			"conf_title": 2.09,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Washington",
+			"slug": "washington",
+			"conference": "Big Ten",
+			"hx_board": 3.352,
+			"hx_matchup": 3.352,
+			"make_field": 6.08,
+			"win_title": .04,
+			"proj_wins": 7.372,
+			"conf_title": 1.01,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Arizona",
+			"slug": "arizona",
+			"conference": "Big 12",
+			"hx_board": 2.368,
+			"hx_matchup": 2.368,
+			"make_field": 5.36,
+			"win_title": .04,
+			"proj_wins": 7.241,
+			"conf_title": 1.9,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Houston",
+			"slug": "houston",
+			"conference": "Big 12",
+			"hx_board": 1.642,
+			"hx_matchup": 1.642,
+			"make_field": 5.33,
+			"win_title": .01,
+			"proj_wins": 7.503,
+			"conf_title": 1.08,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Louisiana",
+			"slug": "louisiana",
+			"conference": "Sun Belt",
+			"hx_board": -1.084,
+			"hx_matchup": -1.084,
+			"make_field": 4.7,
+			"win_title": 0,
+			"proj_wins": 7.472,
+			"conf_title": 10.17,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "East Carolina",
+			"slug": "east-carolina",
+			"conference": "American",
+			"hx_board": -.441,
+			"hx_matchup": -.441,
+			"make_field": 4.44,
+			"win_title": 0,
+			"proj_wins": 7.426,
+			"conf_title": 9.28,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Jacksonville State",
+			"slug": "jacksonville-state",
+			"conference": "CUSA",
+			"hx_board": -.911,
+			"hx_matchup": -.911,
+			"make_field": 3.98,
+			"win_title": 0,
+			"proj_wins": 7.471,
+			"conf_title": 17.69,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Southern Miss",
+			"slug": "southern-miss",
+			"conference": "Sun Belt",
+			"hx_board": -.648,
+			"hx_matchup": -.648,
+			"make_field": 3.74,
+			"win_title": .01,
+			"proj_wins": 7.066,
+			"conf_title": 10.11,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Miami (OH)",
+			"slug": "miami-oh",
+			"conference": "MAC",
+			"hx_board": -.98,
+			"hx_matchup": -.98,
+			"make_field": 3.54,
+			"win_title": 0,
+			"proj_wins": 7.48,
+			"conf_title": 12.28,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "New Mexico",
+			"slug": "new-mexico",
+			"conference": "Mountain West",
+			"hx_board": -2,
+			"hx_matchup": -2,
+			"make_field": 3.31,
+			"win_title": 0,
+			"proj_wins": 7.701,
+			"conf_title": 2.96,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Oklahoma",
+			"slug": "oklahoma",
+			"conference": "SEC",
+			"hx_board": 4.173,
+			"hx_matchup": 4.173,
+			"make_field": 3.1,
+			"win_title": .08,
+			"proj_wins": 6.77,
+			"conf_title": .87,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Western Kentucky",
+			"slug": "western-kentucky",
+			"conference": "CUSA",
+			"hx_board": .347,
+			"hx_matchup": .347,
+			"make_field": 2.82,
+			"win_title": 0,
+			"proj_wins": 7.5,
+			"conf_title": 46.15,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Duke",
+			"slug": "duke",
+			"conference": "ACC",
+			"hx_board": 1.494,
+			"hx_matchup": 1.494,
+			"make_field": 2.81,
+			"win_title": 0,
+			"proj_wins": 6.973,
+			"conf_title": .83,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Florida",
+			"slug": "florida",
+			"conference": "SEC",
+			"hx_board": 2.126,
+			"hx_matchup": 3.506,
+			"make_field": 2.63,
+			"win_title": .03,
+			"proj_wins": 6.803,
+			"conf_title": .59,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "TCU",
+			"slug": "tcu",
+			"conference": "Big 12",
+			"hx_board": 2.245,
+			"hx_matchup": 2.245,
+			"make_field": 2.52,
+			"win_title": 0,
+			"proj_wins": 6.478,
+			"conf_title": 1.64,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Pittsburgh",
+			"slug": "pittsburgh",
+			"conference": "ACC",
+			"hx_board": .896,
+			"hx_matchup": .896,
+			"make_field": 2.24,
+			"win_title": 0,
+			"proj_wins": 7.157,
+			"conf_title": .35,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "San Diego State",
+			"slug": "san-diego-state",
+			"conference": "Mountain West",
+			"hx_board": .828,
+			"hx_matchup": .828,
+			"make_field": 1.75,
+			"win_title": 0,
+			"proj_wins": 6.565,
+			"conf_title": 10.02,
+			"schedule_games_listed": 11
+		},
+		{
+			"name": "Boise State",
+			"slug": "boise-state",
+			"conference": "Mountain West",
+			"hx_board": 1.319,
+			"hx_matchup": 1.319,
+			"make_field": 1.67,
+			"win_title": .01,
+			"proj_wins": 6.621,
+			"conf_title": 16.93,
+			"schedule_games_listed": 11
+		},
+		{
+			"name": "Minnesota",
+			"slug": "minnesota",
+			"conference": "Big Ten",
+			"hx_board": 1.928,
+			"hx_matchup": 1.928,
+			"make_field": 1.62,
+			"win_title": .02,
+			"proj_wins": 6.569,
+			"conf_title": .13,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Illinois",
+			"slug": "illinois",
+			"conference": "Big Ten",
+			"hx_board": 1.677,
+			"hx_matchup": 1.677,
+			"make_field": 1.62,
+			"win_title": 0,
+			"proj_wins": 6.705,
+			"conf_title": .16,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Georgia Tech",
+			"slug": "georgia-tech",
+			"conference": "ACC",
+			"hx_board": 1.672,
+			"hx_matchup": 1.672,
+			"make_field": 1.54,
+			"win_title": 0,
+			"proj_wins": 5.856,
+			"conf_title": 1.31,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Vanderbilt",
+			"slug": "vanderbilt",
+			"conference": "SEC",
+			"hx_board": 2.472,
+			"hx_matchup": 2.472,
+			"make_field": 1.53,
+			"win_title": .01,
+			"proj_wins": 6.421,
+			"conf_title": .2,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Nebraska",
+			"slug": "nebraska",
+			"conference": "Big Ten",
+			"hx_board": 1.989,
+			"hx_matchup": 1.989,
+			"make_field": 1.53,
+			"win_title": 0,
+			"proj_wins": 6.733,
+			"conf_title": .13,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Arizona State",
+			"slug": "arizona-state",
+			"conference": "Big 12",
+			"hx_board": 1.569,
+			"hx_matchup": 1.569,
+			"make_field": 1.51,
+			"win_title": .01,
+			"proj_wins": 6.472,
+			"conf_title": .71,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "South Carolina",
+			"slug": "south-carolina",
+			"conference": "SEC",
+			"hx_board": 2.896,
+			"hx_matchup": 2.896,
+			"make_field": 1.45,
+			"win_title": .03,
+			"proj_wins": 6.385,
+			"conf_title": .38,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "UCLA",
+			"slug": "ucla",
+			"conference": "Big Ten",
+			"hx_board": 1.268,
+			"hx_matchup": 1.268,
+			"make_field": 1.37,
+			"win_title": 0,
+			"proj_wins": 6.827,
+			"conf_title": .18,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Troy",
+			"slug": "troy",
+			"conference": "Sun Belt",
+			"hx_board": -1.108,
+			"hx_matchup": -1.108,
+			"make_field": 1.34,
+			"win_title": 0,
+			"proj_wins": 6.565,
+			"conf_title": 4.2,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Old Dominion",
+			"slug": "old-dominion",
+			"conference": "Sun Belt",
+			"hx_board": -1.31,
+			"hx_matchup": -1.31,
+			"make_field": 1.26,
+			"win_title": 0,
+			"proj_wins": 6.314,
+			"conf_title": 3.87,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "UConn",
+			"slug": "uconn",
+			"conference": "Independent",
+			"hx_board": -.408,
+			"hx_matchup": -1.867,
+			"make_field": 1.26,
+			"win_title": 0,
+			"proj_wins": 6.837,
+			"conf_title": 0,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Virginia Tech",
+			"slug": "virginia-tech",
+			"conference": "ACC",
+			"hx_board": -.714,
+			"hx_matchup": 1.156,
+			"make_field": 1.16,
+			"win_title": .01,
+			"proj_wins": 6.483,
+			"conf_title": .38,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Iowa State",
+			"slug": "iowa-state",
+			"conference": "Big 12",
+			"hx_board": .836,
+			"hx_matchup": .836,
+			"make_field": 1.11,
+			"win_title": 0,
+			"proj_wins": 6.518,
+			"conf_title": .47,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Hawai'i",
+			"slug": "hawaii",
+			"conference": "Mountain West",
+			"hx_board": -.898,
+			"hx_matchup": -.898,
+			"make_field": .92,
+			"win_title": 0,
+			"proj_wins": 7.273,
+			"conf_title": 4.14,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Auburn",
+			"slug": "auburn",
+			"conference": "SEC",
+			"hx_board": 2.243,
+			"hx_matchup": 2.243,
+			"make_field": .88,
+			"win_title": .01,
+			"proj_wins": 6.291,
+			"conf_title": .08,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Northwestern",
+			"slug": "northwestern",
+			"conference": "Big Ten",
+			"hx_board": 1.758,
+			"hx_matchup": 1.758,
+			"make_field": .88,
+			"win_title": .01,
+			"proj_wins": 6.287,
+			"conf_title": .12,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Arkansas State",
+			"slug": "arkansas-state",
+			"conference": "Sun Belt",
+			"hx_board": -1.518,
+			"hx_matchup": -1.518,
+			"make_field": .83,
+			"win_title": 0,
+			"proj_wins": 6.361,
+			"conf_title": 4.91,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Kansas",
+			"slug": "kansas",
+			"conference": "Big 12",
+			"hx_board": .75,
+			"hx_matchup": .75,
+			"make_field": .75,
+			"win_title": 0,
+			"proj_wins": 6.159,
+			"conf_title": .28,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Tulsa",
+			"slug": "tulsa",
+			"conference": "American",
+			"hx_board": -3.174,
+			"hx_matchup": -3.174,
+			"make_field": .69,
+			"win_title": 0,
+			"proj_wins": 6.562,
+			"conf_title": .73,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Tulane",
+			"slug": "tulane",
+			"conference": "American",
+			"hx_board": .579,
+			"hx_matchup": -1.144,
+			"make_field": .64,
+			"win_title": 0,
+			"proj_wins": 6.013,
+			"conf_title": 3.66,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Fresno State",
+			"slug": "fresno-state",
+			"conference": "Mountain West",
+			"hx_board": .25,
+			"hx_matchup": .25,
+			"make_field": .61,
+			"win_title": 0,
+			"proj_wins": 6.218,
+			"conf_title": 9.52,
+			"schedule_games_listed": 11
+		},
+		{
+			"name": "Wisconsin",
+			"slug": "wisconsin",
+			"conference": "Big Ten",
+			"hx_board": 1.05,
+			"hx_matchup": 1.05,
+			"make_field": .57,
+			"win_title": 0,
+			"proj_wins": 6.161,
+			"conf_title": .17,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "App State",
+			"slug": "app-state",
+			"conference": "Sun Belt",
+			"hx_board": -2.237,
+			"hx_matchup": -2.237,
+			"make_field": .56,
+			"win_title": 0,
+			"proj_wins": 6.085,
+			"conf_title": 2.07,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "California",
+			"slug": "california",
+			"conference": "ACC",
+			"hx_board": .615,
+			"hx_matchup": .615,
+			"make_field": .46,
+			"win_title": 0,
+			"proj_wins": 5.446,
+			"conf_title": .39,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "San José State",
+			"slug": "san-jose-state",
+			"conference": "Mountain West",
+			"hx_board": -4.306,
+			"hx_matchup": -4.306,
+			"make_field": .45,
+			"win_title": 0,
+			"proj_wins": 6.612,
+			"conf_title": .21,
+			"schedule_games_listed": 13
+		},
+		{
+			"name": "Coastal Carolina",
+			"slug": "coastal-carolina",
+			"conference": "Sun Belt",
+			"hx_board": -2.009,
+			"hx_matchup": -2.009,
+			"make_field": .38,
+			"win_title": 0,
+			"proj_wins": 5.541,
+			"conf_title": 2.16,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Delaware",
+			"slug": "delaware",
+			"conference": "CUSA",
+			"hx_board": -2.638,
+			"hx_matchup": -2.638,
+			"make_field": .38,
+			"win_title": 0,
+			"proj_wins": 5.866,
+			"conf_title": 3.43,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Florida International",
+			"slug": "fiu",
+			"conference": "CUSA",
+			"hx_board": -3.077,
+			"hx_matchup": -3.077,
+			"make_field": .38,
+			"win_title": 0,
+			"proj_wins": 5.995,
+			"conf_title": 2.21,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Baylor",
+			"slug": "baylor",
+			"conference": "Big 12",
+			"hx_board": .96,
+			"hx_matchup": .96,
+			"make_field": .32,
+			"win_title": 0,
+			"proj_wins": 5.64,
+			"conf_title": .24,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Buffalo",
+			"slug": "buffalo",
+			"conference": "MAC",
+			"hx_board": -3.35,
+			"hx_matchup": -3.35,
+			"make_field": .31,
+			"win_title": 0,
+			"proj_wins": 6.218,
+			"conf_title": .97,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "UAB",
+			"slug": "uab",
+			"conference": "American",
+			"hx_board": -2.099,
+			"hx_matchup": -2.099,
+			"make_field": .28,
+			"win_title": 0,
+			"proj_wins": 5.815,
+			"conf_title": 1.05,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Georgia Southern",
+			"slug": "georgia-southern",
+			"conference": "Sun Belt",
+			"hx_board": -1.891,
+			"hx_matchup": -1.891,
+			"make_field": .24,
+			"win_title": 0,
+			"proj_wins": 5.479,
+			"conf_title": 1.57,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Florida State",
+			"slug": "florida-state",
+			"conference": "ACC",
+			"hx_board": .33,
+			"hx_matchup": .33,
+			"make_field": .22,
+			"win_title": 0,
+			"proj_wins": 5.3,
+			"conf_title": .13,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "North Texas",
+			"slug": "north-texas",
+			"conference": "American",
+			"hx_board": .517,
+			"hx_matchup": -2.224,
+			"make_field": .18,
+			"win_title": 0,
+			"proj_wins": 5.803,
+			"conf_title": 1.86,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Louisiana Tech",
+			"slug": "louisiana-tech",
+			"conference": "CUSA",
+			"hx_board": -2.101,
+			"hx_matchup": -2.101,
+			"make_field": .17,
+			"win_title": 0,
+			"proj_wins": 5.925,
+			"conf_title": 0,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "UCF",
+			"slug": "ucf",
+			"conference": "Big 12",
+			"hx_board": -.719,
+			"hx_matchup": -.719,
+			"make_field": .17,
+			"win_title": 0,
+			"proj_wins": 5.438,
+			"conf_title": .03,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Florida Atlantic",
+			"slug": "florida-atlantic",
+			"conference": "American",
+			"hx_board": -3.103,
+			"hx_matchup": -3.103,
+			"make_field": .16,
+			"win_title": 0,
+			"proj_wins": 5.512,
+			"conf_title": .55,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Eastern Michigan",
+			"slug": "eastern-michigan",
+			"conference": "MAC",
+			"hx_board": -2.747,
+			"hx_matchup": -2.747,
+			"make_field": .15,
+			"win_title": 0,
+			"proj_wins": 5.797,
+			"conf_title": 1,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Texas State",
+			"slug": "texas-state",
+			"conference": "Sun Belt",
+			"hx_board": .734,
+			"hx_matchup": .734,
+			"make_field": .15,
+			"win_title": 0,
+			"proj_wins": 6.287,
+			"conf_title": 0,
+			"schedule_games_listed": 11
+		},
+		{
+			"name": "Washington State",
+			"slug": "washington-state",
+			"conference": "Pac-12",
+			"hx_board": .782,
+			"hx_matchup": .782,
+			"make_field": .15,
+			"win_title": 0,
+			"proj_wins": 5.847,
+			"conf_title": 67.78,
+			"schedule_games_listed": 11
+		},
+		{
+			"name": "Colorado",
+			"slug": "colorado",
+			"conference": "Big 12",
+			"hx_board": -.432,
+			"hx_matchup": -.432,
+			"make_field": .12,
+			"win_title": 0,
+			"proj_wins": 5.497,
+			"conf_title": .05,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Nevada",
+			"slug": "nevada",
+			"conference": "Mountain West",
+			"hx_board": -5.408,
+			"hx_matchup": -5.408,
+			"make_field": .11,
+			"win_title": 0,
+			"proj_wins": 5.882,
+			"conf_title": .26,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Missouri State",
+			"slug": "missouri-state",
+			"conference": "CUSA",
+			"hx_board": -2.744,
+			"hx_matchup": -2.744,
+			"make_field": .09,
+			"win_title": 0,
+			"proj_wins": 5.237,
+			"conf_title": 2.71,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "South Alabama",
+			"slug": "south-alabama",
+			"conference": "Sun Belt",
+			"hx_board": -2.815,
+			"hx_matchup": -2.815,
+			"make_field": .09,
+			"win_title": 0,
+			"proj_wins": 5.208,
+			"conf_title": .54,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Wake Forest",
+			"slug": "wake-forest",
+			"conference": "ACC",
+			"hx_board": -.261,
+			"hx_matchup": -.261,
+			"make_field": .09,
+			"win_title": 0,
+			"proj_wins": 5.392,
+			"conf_title": .01,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Wyoming",
+			"slug": "wyoming",
+			"conference": "Mountain West",
+			"hx_board": -3.759,
+			"hx_matchup": -3.759,
+			"make_field": .09,
+			"win_title": 0,
+			"proj_wins": 5.969,
+			"conf_title": .11,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Kennesaw State",
+			"slug": "kennesaw-state",
+			"conference": "CUSA",
+			"hx_board": -3.933,
+			"hx_matchup": -3.933,
+			"make_field": .08,
+			"win_title": 0,
+			"proj_wins": 5.01,
+			"conf_title": .66,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Army",
+			"slug": "army",
+			"conference": "American",
+			"hx_board": -4.382,
+			"hx_matchup": -4.382,
+			"make_field": .05,
+			"win_title": 0,
+			"proj_wins": 5.024,
+			"conf_title": .05,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Central Michigan",
+			"slug": "central-michigan",
+			"conference": "MAC",
+			"hx_board": -3.321,
+			"hx_matchup": -3.321,
+			"make_field": .05,
+			"win_title": 0,
+			"proj_wins": 5.45,
+			"conf_title": .51,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Maryland",
+			"slug": "maryland",
+			"conference": "Big Ten",
+			"hx_board": -.266,
+			"hx_matchup": -.266,
+			"make_field": .05,
+			"win_title": 0,
+			"proj_wins": 5.192,
+			"conf_title": .01,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Rutgers",
+			"slug": "rutgers",
+			"conference": "Big Ten",
+			"hx_board": -.041,
+			"hx_matchup": -.041,
+			"make_field": .05,
+			"win_title": 0,
+			"proj_wins": 4.602,
+			"conf_title": .03,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Air Force",
+			"slug": "air-force",
+			"conference": "Mountain West",
+			"hx_board": -6.457,
+			"hx_matchup": -6.457,
+			"make_field": .04,
+			"win_title": 0,
+			"proj_wins": 4.966,
+			"conf_title": .07,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Temple",
+			"slug": "temple",
+			"conference": "American",
+			"hx_board": -3.367,
+			"hx_matchup": -3.367,
+			"make_field": .04,
+			"win_title": 0,
+			"proj_wins": 5.327,
+			"conf_title": .25,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Cincinnati",
+			"slug": "cincinnati",
+			"conference": "Big 12",
+			"hx_board": -.985,
+			"hx_matchup": -.985,
+			"make_field": .03,
+			"win_title": 0,
+			"proj_wins": 5.016,
+			"conf_title": 0,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Kentucky",
+			"slug": "kentucky",
+			"conference": "SEC",
+			"hx_board": .248,
+			"hx_matchup": .248,
+			"make_field": .03,
+			"win_title": 0,
+			"proj_wins": 4.274,
+			"conf_title": .02,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Middle Tennessee",
+			"slug": "middle-tennessee",
+			"conference": "CUSA",
+			"hx_board": -4.824,
+			"hx_matchup": -4.824,
+			"make_field": .03,
+			"win_title": 0,
+			"proj_wins": 4.604,
+			"conf_title": .2,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Northern Illinois",
+			"slug": "northern-illinois",
+			"conference": "MAC",
+			"hx_board": -4.854,
+			"hx_matchup": -4.854,
+			"make_field": .03,
+			"win_title": 0,
+			"proj_wins": 5.31,
+			"conf_title": 0,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Rice",
+			"slug": "rice",
+			"conference": "American",
+			"hx_board": -3.668,
+			"hx_matchup": -3.668,
+			"make_field": .03,
+			"win_title": 0,
+			"proj_wins": 4.554,
+			"conf_title": .17,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "West Virginia",
+			"slug": "west-virginia",
+			"conference": "Big 12",
+			"hx_board": -1.21,
+			"hx_matchup": -1.21,
+			"make_field": .03,
+			"win_title": 0,
+			"proj_wins": 5.12,
+			"conf_title": .01,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Akron",
+			"slug": "akron",
+			"conference": "MAC",
+			"hx_board": -3.541,
+			"hx_matchup": -3.541,
+			"make_field": .02,
+			"win_title": 0,
+			"proj_wins": 4.979,
+			"conf_title": .98,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "North Carolina",
+			"slug": "north-carolina",
+			"conference": "ACC",
+			"hx_board": -1.095,
+			"hx_matchup": -1.095,
+			"make_field": .02,
+			"win_title": 0,
+			"proj_wins": 4.764,
+			"conf_title": .02,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Oklahoma State",
+			"slug": "oklahoma-state",
+			"conference": "Big 12",
+			"hx_board": -4.015,
+			"hx_matchup": -1.255,
+			"make_field": .02,
+			"win_title": 0,
+			"proj_wins": 3.929,
+			"conf_title": .02,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Syracuse",
+			"slug": "syracuse",
+			"conference": "ACC",
+			"hx_board": -1.37,
+			"hx_matchup": -1.37,
+			"make_field": .02,
+			"win_title": 0,
+			"proj_wins": 4.21,
+			"conf_title": .01,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Arkansas",
+			"slug": "arkansas",
+			"conference": "SEC",
+			"hx_board": .613,
+			"hx_matchup": .613,
+			"make_field": .01,
+			"win_title": 0,
+			"proj_wins": 4.304,
+			"conf_title": 0,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Georgia State",
+			"slug": "georgia-state",
+			"conference": "Sun Belt",
+			"hx_board": -4.454,
+			"hx_matchup": -4.454,
+			"make_field": .01,
+			"win_title": 0,
+			"proj_wins": 4.336,
+			"conf_title": .06,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Mississippi State",
+			"slug": "mississippi-state",
+			"conference": "SEC",
+			"hx_board": .118,
+			"hx_matchup": .118,
+			"make_field": .01,
+			"win_title": 0,
+			"proj_wins": 4.412,
+			"conf_title": 0,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Navy",
+			"slug": "navy",
+			"conference": "American",
+			"hx_board": -5.018,
+			"hx_matchup": -5.018,
+			"make_field": .01,
+			"win_title": 0,
+			"proj_wins": 4.479,
+			"conf_title": .03,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "New Mexico State",
+			"slug": "new-mexico-state",
+			"conference": "CUSA",
+			"hx_board": -4.776,
+			"hx_matchup": -4.776,
+			"make_field": .01,
+			"win_title": 0,
+			"proj_wins": 4.102,
+			"conf_title": .17,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Sam Houston",
+			"slug": "sam-houston",
+			"conference": "CUSA",
+			"hx_board": -4.285,
+			"hx_matchup": -4.285,
+			"make_field": .01,
+			"win_title": 0,
+			"proj_wins": 4.693,
+			"conf_title": .3,
+			"schedule_games_listed": 13
+		},
+		{
+			"name": "Stanford",
+			"slug": "stanford",
+			"conference": "ACC",
+			"hx_board": -2.472,
+			"hx_matchup": -.759,
+			"make_field": .01,
+			"win_title": 0,
+			"proj_wins": 4.374,
+			"conf_title": .01,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Ball State",
+			"slug": "ball-state",
+			"conference": "MAC",
+			"hx_board": -5.422,
+			"hx_matchup": -5.422,
+			"make_field": 0,
+			"win_title": 0,
+			"proj_wins": 4.626,
+			"conf_title": .08,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Boston College",
+			"slug": "boston-college",
+			"conference": "ACC",
+			"hx_board": -2.346,
+			"hx_matchup": -2.346,
+			"make_field": 0,
+			"win_title": 0,
+			"proj_wins": 3.384,
+			"conf_title": 0,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Bowling Green",
+			"slug": "bowling-green",
+			"conference": "MAC",
+			"hx_board": -4.357,
+			"hx_matchup": -4.357,
+			"make_field": 0,
+			"win_title": 0,
+			"proj_wins": 4.357,
+			"conf_title": .17,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Charlotte",
+			"slug": "charlotte",
+			"conference": "American",
+			"hx_board": -5.772,
+			"hx_matchup": -5.772,
+			"make_field": 0,
+			"win_title": 0,
+			"proj_wins": 3.34,
+			"conf_title": .02,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Colorado State",
+			"slug": "colorado-state",
+			"conference": "Mountain West",
+			"hx_board": -3.359,
+			"hx_matchup": -3.359,
+			"make_field": 0,
+			"win_title": 0,
+			"proj_wins": 3.87,
+			"conf_title": .4,
+			"schedule_games_listed": 11
+		},
+		{
+			"name": "Kent State",
+			"slug": "kent-state",
+			"conference": "MAC",
+			"hx_board": -5.891,
+			"hx_matchup": -5.891,
+			"make_field": 0,
+			"win_title": 0,
+			"proj_wins": 3.841,
+			"conf_title": .03,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Massachusetts",
+			"slug": "massachusetts",
+			"conference": "MAC",
+			"hx_board": -8.99,
+			"hx_matchup": -8.99,
+			"make_field": 0,
+			"win_title": 0,
+			"proj_wins": 4.839,
+			"conf_title": 0,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Michigan State",
+			"slug": "michigan-state",
+			"conference": "Big Ten",
+			"hx_board": -1.849,
+			"hx_matchup": -1.849,
+			"make_field": 0,
+			"win_title": 0,
+			"proj_wins": 3.7,
+			"conf_title": 0,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Oregon State",
+			"slug": "oregon-state",
+			"conference": "Pac-12",
+			"hx_board": -2.793,
+			"hx_matchup": -1.148,
+			"make_field": 0,
+			"win_title": 0,
+			"proj_wins": 4.781,
+			"conf_title": 32.22,
+			"schedule_games_listed": 11
+		},
+		{
+			"name": "Purdue",
+			"slug": "purdue",
+			"conference": "Big Ten",
+			"hx_board": -1.521,
+			"hx_matchup": -1.521,
+			"make_field": 0,
+			"win_title": 0,
+			"proj_wins": 3.728,
+			"conf_title": 0,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "UL Monroe",
+			"slug": "ul-monroe",
+			"conference": "Sun Belt",
+			"hx_board": -4.951,
+			"hx_matchup": -4.951,
+			"make_field": 0,
+			"win_title": 0,
+			"proj_wins": 3.594,
+			"conf_title": .02,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "UTEP",
+			"slug": "utep",
+			"conference": "CUSA",
+			"hx_board": -5.512,
+			"hx_matchup": -5.512,
+			"make_field": 0,
+			"win_title": 0,
+			"proj_wins": 4.894,
+			"conf_title": 0,
+			"schedule_games_listed": 12
+		},
+		{
+			"name": "Utah State",
+			"slug": "utah-state",
+			"conference": "Mountain West",
+			"hx_board": -.683,
+			"hx_matchup": -.683,
+			"make_field": 0,
+			"win_title": 0,
+			"proj_wins": 4.013,
+			"conf_title": 2.48,
+			"schedule_games_listed": 11
+		}
+	]
+};
+var week1_ap_top25_2026_default = {
+	label: "Week 1 AP",
+	poll: "AP Top 25",
+	season: 2026,
+	as_of: "2026-09-08",
+	source: "ESPN rankings API AP Top 25 (https://site.api.espn.com/apis/site/v2/sports/football/college-football/rankings)",
+	source_note: "First regular-season AP poll after Week 1. AP.org hub is JS-rendered; ESPN carries the official AP ballot. Corroborated by AP wire “AP Top 25 Fared” (Sept 8).",
+	chrome: "Week 1 AP (not Aug 17 preseason)",
+	n: 25,
+	dropped_from_preseason: ["Michigan"],
+	new_to_top25: ["Virginia"],
+	teams: [
+		{
+			"rank": 1,
+			"prev": 1,
+			"team": "Ohio State",
+			"slug": "ohio-state",
+			"record": "1-0",
+			"points": 1684,
+			"first_place_votes": 46,
+			"trend": "-"
+		},
+		{
+			"rank": 2,
+			"prev": 3,
+			"team": "Georgia",
+			"slug": "georgia",
+			"record": "1-0",
+			"points": 1532,
+			"first_place_votes": 0,
+			"trend": "+1"
+		},
+		{
+			"rank": 3,
+			"prev": 4,
+			"team": "Notre Dame",
+			"slug": "notre-dame",
+			"record": "1-0",
+			"points": 1512,
+			"first_place_votes": 4,
+			"trend": "+1"
+		},
+		{
+			"rank": 4,
+			"prev": 5,
+			"team": "Texas",
+			"slug": "texas",
+			"record": "1-0",
+			"points": 1462,
+			"first_place_votes": 2,
+			"trend": "+1"
+		},
+		{
+			"rank": 5,
+			"prev": 6,
+			"team": "Indiana",
+			"slug": "indiana",
+			"record": "1-0",
+			"points": 1428,
+			"first_place_votes": 8,
+			"trend": "+1"
+		},
+		{
+			"rank": 6,
+			"prev": 2,
+			"team": "Oregon",
+			"slug": "oregon",
+			"record": "1-0",
+			"points": 1422,
+			"first_place_votes": 3,
+			"trend": "-4"
+		},
+		{
+			"rank": 7,
+			"prev": 7,
+			"team": "Miami",
+			"slug": "miami",
+			"record": "1-0",
+			"points": 1405,
+			"first_place_votes": 1,
+			"trend": "-"
+		},
+		{
+			"rank": 8,
+			"prev": 11,
+			"team": "LSU",
+			"slug": "lsu",
+			"record": "1-0",
+			"points": 1315,
+			"first_place_votes": 5,
+			"trend": "+3"
+		},
+		{
+			"rank": 9,
+			"prev": 9,
+			"team": "Ole Miss",
+			"slug": "ole-miss",
+			"record": "1-0",
+			"points": 1154,
+			"first_place_votes": 0,
+			"trend": "-"
+		},
+		{
+			"rank": 10,
+			"prev": 8,
+			"team": "Texas A&M",
+			"slug": "texas-am",
+			"record": "1-0",
+			"points": 1079,
+			"first_place_votes": 0,
+			"trend": "-2"
+		},
+		{
+			"rank": 11,
+			"prev": 10,
+			"team": "Oklahoma",
+			"slug": "oklahoma",
+			"record": "1-0",
+			"points": 1039,
+			"first_place_votes": 0,
+			"trend": "-1"
+		},
+		{
+			"rank": 12,
+			"prev": 13,
+			"team": "Alabama",
+			"slug": "alabama",
+			"record": "1-0",
+			"points": 910,
+			"first_place_votes": 0,
+			"trend": "+1"
+		},
+		{
+			"rank": 13,
+			"prev": 12,
+			"team": "Texas Tech",
+			"slug": "texas-tech",
+			"record": "1-0",
+			"points": 900,
+			"first_place_votes": 0,
+			"trend": "-1"
+		},
+		{
+			"rank": 14,
+			"prev": 14,
+			"team": "USC",
+			"slug": "usc",
+			"record": "2-0",
+			"points": 861,
+			"first_place_votes": 0,
+			"trend": "-"
+		},
+		{
+			"rank": 15,
+			"prev": 14,
+			"team": "BYU",
+			"slug": "byu",
+			"record": "1-0",
+			"points": 840,
+			"first_place_votes": 0,
+			"trend": "-1"
+		},
+		{
+			"rank": 16,
+			"prev": 18,
+			"team": "Penn State",
+			"slug": "penn-state",
+			"record": "1-0",
+			"points": 621,
+			"first_place_votes": 0,
+			"trend": "+2"
+		},
+		{
+			"rank": 17,
+			"prev": 19,
+			"team": "SMU",
+			"slug": "smu",
+			"record": "1-0",
+			"points": 501,
+			"first_place_votes": 0,
+			"trend": "+2"
+		},
+		{
+			"rank": 18,
+			"prev": 20,
+			"team": "Tennessee",
+			"slug": "tennessee",
+			"record": "1-0",
+			"points": 491,
+			"first_place_votes": 0,
+			"trend": "+2"
+		},
+		{
+			"rank": 19,
+			"prev": 17,
+			"team": "Washington",
+			"slug": "washington",
+			"record": "1-0",
+			"points": 489,
+			"first_place_votes": 0,
+			"trend": "-2"
+		},
+		{
+			"rank": 20,
+			"prev": 21,
+			"team": "Utah",
+			"slug": "utah",
+			"record": "1-0",
+			"points": 381,
+			"first_place_votes": 0,
+			"trend": "+1"
+		},
+		{
+			"rank": 21,
+			"prev": 22,
+			"team": "Iowa",
+			"slug": "iowa",
+			"record": "1-0",
+			"points": 369,
+			"first_place_votes": 0,
+			"trend": "+1"
+		},
+		{
+			"rank": 22,
+			"prev": 23,
+			"team": "Houston",
+			"slug": "houston",
+			"record": "1-0",
+			"points": 214,
+			"first_place_votes": 0,
+			"trend": "+1"
+		},
+		{
+			"rank": 23,
+			"prev": 25,
+			"team": "Missouri",
+			"slug": "missouri",
+			"record": "1-0",
+			"points": 182,
+			"first_place_votes": 0,
+			"trend": "+2"
+		},
+		{
+			"rank": 24,
+			"prev": 24,
+			"team": "Louisville",
+			"slug": "louisville",
+			"record": "0-1",
+			"points": 163,
+			"first_place_votes": 0,
+			"trend": "-"
+		},
+		{
+			"rank": 25,
+			"prev": null,
+			"team": "Virginia",
+			"slug": "virginia",
+			"record": "1-0",
+			"points": 89,
+			"first_place_votes": 0,
+			"trend": "+1"
+		}
+	]
+};
+/**
+* Week 1 truth-pack loaders. Numbers come from the AMD JSON payloads —
+* do not invent deltas, tape rates, or make/title splits.
+*
+*   data/week1_hx_vs_ap_gaps_2026.json
+*   data/week1_accountability_pack_2026.json
+*   data/sim_10k_2026.json
+*/
+var DISAGREE_HIGHLIGHT_NAMES = [
+	"Virginia",
+	"Houston",
+	"LSU",
+	"Missouri",
+	"Texas Tech"
+];
+var hxApGaps = week1_hx_vs_ap_gaps_2026_default;
+var accountabilityPack = week1_accountability_pack_2026_default;
+var sim10k = sim_10k_2026_default;
+var AP_SLUG_BY_NAME = new Map(week1_ap_top25_2026_default.teams.map((t) => [t.team, t.slug]));
+var SIM_10K_NOTE = `pre-Δ 10k draws · as_of ${sim10k.meta.as_of}`;
+var SIM_10K_NOT_RESIM = "not a post-2026.3 re-sim";
+var HIGHLIGHT = new Set(DISAGREE_HIGHLIGHT_NAMES);
+function isOdTerm(term) {
+	return /^O\/D\b/.test(term);
+}
+/** Display term for movers — pack stores "O/D EPA"; chrome is O/D. */
+function odTermLabel(term) {
+	return isOdTerm(term) ? "O/D" : term;
+}
+function refForName(name, teams) {
+	return teams.find((t) => t.name === name || t.shortName === name);
+}
+/** Board card rows: highlighted five first (JSON order), then remaining by |delta|. */
+function boardDisagreementRows(teams) {
+	const rows = hxApGaps.gaps.map((g) => {
+		const ref = refForName(g.name, teams);
+		return {
+			...g,
+			slug: ref?.slug ?? AP_SLUG_BY_NAME.get(g.name) ?? slugGuess(g.name),
+			shortName: ref?.shortName ?? g.name,
+			colorPrimary: ref?.colorPrimary ?? "#8c8c86",
+			highlight: HIGHLIGHT.has(g.name)
+		};
+	});
+	const flagged = DISAGREE_HIGHLIGHT_NAMES.map((name) => rows.find((r) => r.name === name)).filter((r) => r != null);
+	const rest = rows.filter((r) => !r.highlight).sort((a, b) => Math.abs(b.delta) - Math.abs(a.delta));
+	return [...flagged, ...rest];
+}
+function slugGuess(name) {
+	return name.normalize("NFKD").replace(/[’']/g, "").replace(/&/g, "and").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+}
+function week1Tape() {
+	return accountabilityPack.tape;
+}
+/** Top |ΔHX| movers whose term is O/D (not a second rating). */
+function odMovers(limit = 8) {
+	return accountabilityPack.movers_by_abs_dhx.filter((m) => isOdTerm(m.term)).slice(0, limit);
+}
+function simTeamBySlug(slug) {
+	return sim10k.teams.find((t) => t.slug === slug);
+}
+function toScheduleRow(teamSlug, g) {
+	const homeIs = g.homeSlug === teamSlug;
+	const oppSlug = homeIs ? g.awaySlug : g.homeSlug;
+	const oppName = homeIs ? g.awayName : g.homeName;
+	const oppColor = homeIs ? g.awayColor : g.homeColor;
+	return {
+		key: `fbs-${g.id}`,
+		week: g.week,
+		kickoffDate: g.kickoffDate,
+		opponentLabel: oppName,
+		opponentSlug: oppSlug,
+		opponentColor: oppColor,
+		home: homeIs,
+		neutral: g.neutral,
+		location: g.location,
+		status: g.status,
+		homeScore: g.homeScore,
+		awayScore: g.awayScore,
+		isFcs: false,
+		game: g
+	};
+}
+/** Map preseason playoff_odds (logistic make-field curve) until AMD draws land. */
+function make12FromTeam(team) {
+	const hasLegacy = Number.isFinite(team.playoffOdds);
+	return {
+		makeField: hasLegacy ? team.playoffOdds : null,
+		winTitle: null,
+		makeFieldSource: hasLegacy ? "legacy-playoff-odds" : "pending",
+		winTitleSource: "pending"
+	};
+}
+/**
+* Make-field and win-title from pre-Δ 10k draws (sim_10k_2026.json).
+* Falls back to the legacy logistic make-field if the slug is missing.
+* Never treat make_field as a national title.
+*/
+function make12FromSim(slug, team) {
+	const row = simTeamBySlug(slug);
+	if (row) return {
+		makeField: row.make_field,
+		winTitle: row.win_title,
+		makeFieldSource: "amd-draws",
+		winTitleSource: "amd-draws"
+	};
+	return team ? make12FromTeam(team) : {
+		makeField: null,
+		winTitle: null,
+		makeFieldSource: "pending",
+		winTitleSource: "pending"
+	};
+}
+function toFcsStubRow(stub, i) {
+	return {
+		key: `fcs-${stub.teamSlug}-${stub.kickoffDate}-${i}`,
+		week: stub.week,
+		kickoffDate: stub.kickoffDate,
+		opponentLabel: stub.opponentLabel,
+		opponentSlug: null,
+		opponentColor: null,
+		home: stub.home,
+		neutral: false,
+		location: null,
+		status: stub.status,
+		homeScore: stub.homeScore,
+		awayScore: stub.awayScore,
+		isFcs: true,
+		game: null
+	};
+}
+function buildRemainingSchedule(teamSlug, games) {
+	const fbsRows = games.filter((g) => g.status !== "final").map((g) => toScheduleRow(teamSlug, g));
+	const fcsRows = fcsStubsForTeam(teamSlug).filter((stub) => !fcsStubIsFinal(stub)).map((stub, i) => toFcsStubRow(stub, i));
+	return [...fbsRows, ...fcsRows].sort((a, b) => {
+		if (a.kickoffDate !== b.kickoffDate) return a.kickoffDate < b.kickoffDate ? -1 : 1;
+		if (a.week !== b.week) return a.week - b.week;
+		return a.opponentLabel.localeCompare(b.opponentLabel);
+	});
+}
+/** Full FBS season slate for a team hub — played and unplayed. */
+function buildSeasonSchedule(teamSlug, games) {
+	return games.map((g) => toScheduleRow(teamSlug, g));
+}
+function make12FieldLabel(source) {
+	if (source === "legacy-playoff-odds") return "Pre-AMD logistic estimate";
+	if (source === "pending") return "Awaiting AMD draws";
+	return `${SIM_10K_NOTE} · make-field, not title`;
+}
+function make12TitleLabel(source) {
+	if (source === "pending") return "Awaiting AMD draws";
+	return `${SIM_10K_NOTE} · ${SIM_10K_NOT_RESIM}`;
+}
+function make12PanelLede(source) {
+	if (source === "amd-draws") return `Make-field is not a national title. ${SIM_10K_NOTE} (${SIM_10K_NOT_RESIM}).`;
+	if (source === "legacy-playoff-odds") return "12-team CFP field odds — make-field and national-title paths are separate draws.";
+	return "12-team CFP field odds — make-field and national-title paths are separate draws.";
+}
+//#endregion
+export { make12FromSim as a, odMovers as c, make12FieldLabel as i, odTermLabel as l, buildRemainingSchedule as n, make12PanelLede as o, buildSeasonSchedule as r, make12TitleLabel as s, boardDisagreementRows as t, week1Tape as u };
