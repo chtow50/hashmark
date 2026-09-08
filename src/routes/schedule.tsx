@@ -81,7 +81,7 @@ function SchedulePage() {
     if (view === "top25") {
       return {
         title: "No Top 25 games this week",
-        body: "Nothing on the slate matches a team in the HX or AP preseason Top 25. Try All FBS or pick another week.",
+        body: "Nothing on the slate matches a team in the HX or Week 1 AP Top 25. Try All FBS or pick another week.",
       };
     }
     if (view === "conf" && conf !== "All") {

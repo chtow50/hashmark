@@ -62,7 +62,7 @@ function Home() {
       <PageHead
         kicker={`Week ${BOARD_WEEK} · HX ${MODEL.version}`}
         title={`Week ${BOARD_WEEK} board`}
-        lede="HASHMARK runs a single rating — HX — from recruiting talent, last year’s SP+/Elo/SRS, four-year win trend, returning production, and portal net. Full 136 FBS. The AP column is the Aug 17 preseason ballot."
+        lede="HASHMARK runs a single rating — HX — from recruiting talent, last year’s SP+/Elo/SRS, four-year win trend, returning production, and portal net. Full 136 FBS. The AP column is Week 1 AP (Sept. 8)."
       />
 
       {one ? (
@@ -125,7 +125,7 @@ function Home() {
 
           <Panel>
             <h2 className="font-display text-2xl tracking-wide">Where HX disagrees</h2>
-            <p className="mt-1 mb-4 text-sm text-muted">Largest gaps versus the preseason AP ballot.</p>
+            <p className="mt-1 mb-4 text-sm text-muted">Largest gaps versus the Week 1 AP ballot.</p>
             <ul>
               {disagreements.map(({ team, delta }) => (
                 <li key={team.slug} className="flex items-center justify-between gap-3 py-2">

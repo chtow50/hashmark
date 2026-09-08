@@ -108,15 +108,15 @@ spread  = 0.050835 × d
             stay on the prior listed/projected mix until a talent recompute is cleared.
           </p>
           <p>
-            Indiana is sixth on the preseason AP ballot after a national title. HX has the Hoosiers
+            Indiana is fifth on the Week 1 AP ballot after a national title. HX has the Hoosiers
             eleventh. Talent composite is league-average; the model withholds credit when the
             roster does not match the résumé.
           </p>
           <p>
-            Georgia and Ohio State are 1–2 here. The AP has Ohio State first and Oregon second;
-            HX flips Oregon and Georgia because Georgia’s talent z-score is the strongest in the
+            Georgia and Ohio State are 1–2 here. Week 1 AP has Ohio State first and Georgia second.
+            HX keeps Georgia first because Georgia’s talent z-score is the strongest in the
             pool. Texas Tech’s résumé (prior +1.99) outruns its talent (+0.66), so the Red
-            Raiders sit eighth in HX — above their AP tie at 12th, short of a playoff lock on
+            Raiders sit eighth in HX — above their Week 1 AP rank at 13th, short of a playoff lock on
             last year alone.
           </p>
           <p>
