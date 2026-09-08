@@ -1,0 +1,146 @@
+{
+  "as_of": "2026-09-08",
+  "source_ap": "week1_ap_top25_2026 / Research clear",
+  "source_hx": "week1_od_hx_ship_2026.json",
+  "gaps": [
+    {
+      "name": "Virginia",
+      "ap": 25,
+      "hx": 45,
+      "hx_rating": 1.4645,
+      "delta": -20
+    },
+    {
+      "name": "Houston",
+      "ap": 22,
+      "hx": 40,
+      "hx_rating": 1.6041,
+      "delta": -18
+    },
+    {
+      "name": "LSU",
+      "ap": 8,
+      "hx": 19,
+      "hx_rating": 4.0619,
+      "delta": -11
+    },
+    {
+      "name": "Missouri",
+      "ap": 23,
+      "hx": 14,
+      "hx_rating": 4.3308,
+      "delta": 9
+    },
+    {
+      "name": "USC",
+      "ap": 14,
+      "hx": 21,
+      "hx_rating": 3.8873,
+      "delta": -7
+    },
+    {
+      "name": "Indiana",
+      "ap": 5,
+      "hx": 11,
+      "hx_rating": 4.981,
+      "delta": -6
+    },
+    {
+      "name": "Texas Tech",
+      "ap": 13,
+      "hx": 7,
+      "hx_rating": 5.9024,
+      "delta": 6
+    },
+    {
+      "name": "Washington",
+      "ap": 19,
+      "hx": 25,
+      "hx_rating": 3.3275,
+      "delta": -6
+    },
+    {
+      "name": "Oklahoma",
+      "ap": 11,
+      "hx": 16,
+      "hx_rating": 4.1987,
+      "delta": -5
+    },
+    {
+      "name": "Utah",
+      "ap": 20,
+      "hx": 15,
+      "hx_rating": 4.2403,
+      "delta": 5
+    },
+    {
+      "name": "Texas A&M",
+      "ap": 10,
+      "hx": 6,
+      "hx_rating": 6.1871,
+      "delta": 4
+    },
+    {
+      "name": "Miami",
+      "ap": 7,
+      "hx": 10,
+      "hx_rating": 5.2345,
+      "delta": -3
+    },
+    {
+      "name": "Alabama",
+      "ap": 12,
+      "hx": 9,
+      "hx_rating": 5.343,
+      "delta": 3
+    },
+    {
+      "name": "BYU",
+      "ap": 15,
+      "hx": 18,
+      "hx_rating": 4.0673,
+      "delta": -3
+    },
+    {
+      "name": "Penn State",
+      "ap": 16,
+      "hx": 13,
+      "hx_rating": 4.4001,
+      "delta": 3
+    }
+  ],
+  "hx_not_in_ap": [
+    {
+      "hx_rank": 12,
+      "name": "Michigan",
+      "hx": 4.8893
+    },
+    {
+      "hx_rank": 22,
+      "name": "Clemson",
+      "hx": 3.8551
+    },
+    {
+      "hx_rank": 24,
+      "name": "Florida",
+      "hx": 3.4941
+    }
+  ],
+  "ap_not_in_hx25": [
+    {
+      "ap": 25,
+      "name": "Virginia",
+      "hx_rank": 45
+    },
+    {
+      "ap": 22,
+      "name": "Houston",
+      "hx_rank": 40
+    },
+    {
+      "ap": 24,
+      "name": "Louisville",
+      "hx_rank": 26
+    }
+  ]
+}

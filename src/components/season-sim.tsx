@@ -6,6 +6,7 @@ import { predictMatchup } from "@/lib/cfb/model";
 import { isWinnerFlip, matchupChips } from "@/lib/cfb/schedule-flags";
 import {
   make12FieldLabel,
+  make12PanelLede,
   make12TitleLabel,
   type Make12Odds,
   type TeamScheduleRow,
@@ -175,9 +176,7 @@ export function Make12Panel({ odds, className }: { odds: Make12Odds; className?:
     <div className={className}>
       <div className="mb-3">
         <h2 className="font-display text-2xl tracking-wide">Make 12</h2>
-        <p className="mt-1 text-sm text-muted">
-          12-team CFP field odds — make-field and national-title paths are separate draws.
-        </p>
+        <p className="mt-1 text-sm text-muted">{make12PanelLede(odds.makeFieldSource)}</p>
       </div>
       <div className="grid gap-3 sm:grid-cols-2">
         <OddsCell

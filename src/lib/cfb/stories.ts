@@ -13,8 +13,32 @@ export type Story = {
 
 export const STORY_DATE = "Friday, Aug 28, 2026";
 export const STORY_DATE_WEEK1 = "Friday, Sep 4, 2026";
+export const STORY_DATE_TAPE = "Tuesday, Sep 8, 2026";
 
 export const STORIES: Story[] = [
+  {
+    slug: "week-1-tape",
+    kicker: "Week 1 tape",
+    headline: "Week 1 tape: 36/43 SU, 20/43 closer. HX not retuned.",
+    dek: "Straight-up holds. Closer is a coin. Movers are O/D EPA — not a second rating.",
+    date: STORY_DATE_TAPE,
+    body: [
+      "Week 1 SU 36/43 (83.7%). HX closer to the final than Vegas 20/43 (46.5%). Same tape, two scores. The SU number is this week’s ledger, not the 70.8% 2019–2025 claim.",
+      "Top |ΔHX| movers are O/D EPA — Rutgers, UMass, James Madison, Liberty, Notre Dame, Wisconsin. Term = O/D. No HX retune. No second rating.",
+      "The board’s disagreement card is Week 1 AP, not the Aug 17 preseason ballot. Virginia (−20), Houston (−18), LSU (−11), Missouri (+9), Texas Tech (+6) are the flags.",
+    ],
+    whyItMatters: "First full-slate public ledger of 2026. SU is the hit; closer is not. HX stays 2026.3.",
+    sources: [
+      {
+        label: "HASHMARK Board",
+        href: "https://hashmarkcfb.com/",
+      },
+      {
+        label: "HASHMARK Schedule",
+        href: "https://hashmarkcfb.com/schedule?w=1",
+      },
+    ],
+  },
   {
     slug: "week-1-lsu-clemson-gap",
     kicker: "Week 1 · HX Flag",

@@ -1,7 +1,15 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
 import { fcsStubsForTeam } from "./fcs-stubs.ts";
-import { buildRemainingSchedule, buildSeasonSchedule, make12FromTeam } from "./season-sim.ts";
+import {
+  buildRemainingSchedule,
+  buildSeasonSchedule,
+  make12FieldLabel,
+  make12FromSim,
+  make12FromTeam,
+  make12PanelLede,
+  make12TitleLabel,
+} from "./season-sim.ts";
 import type { ScheduleGame } from "./types.ts";
 
 function scheduleFixture(
@@ -36,6 +44,22 @@ function scheduleFixture(
     ...partial,
   };
 }
+
+test("make12FromSim loads Georgia pre-Δ draws — make-field is not title", () => {
+  const odds = make12FromSim("georgia");
+  assert.equal(odds.makeFieldSource, "amd-draws");
+  assert.equal(odds.winTitleSource, "amd-draws");
+  assert.ok(odds.makeField != null);
+  assert.ok(odds.winTitle != null);
+  assert.equal(Number(odds.makeField.toFixed(1)), 73.8);
+  assert.equal(Number(odds.winTitle.toFixed(1)), 20.4);
+  assert.notEqual(odds.makeField, odds.winTitle);
+  assert.match(make12FieldLabel(odds.makeFieldSource) ?? "", /pre-Δ 10k draws/);
+  assert.match(make12FieldLabel(odds.makeFieldSource) ?? "", /2026-09-06/);
+  assert.match(make12FieldLabel(odds.makeFieldSource) ?? "", /not title/);
+  assert.match(make12TitleLabel(odds.winTitleSource) ?? "", /not a post-2026\.3 re-sim/);
+  assert.match(make12PanelLede(odds.makeFieldSource), /not a national title/);
+});
 
 test("make12FromTeam maps legacy playoff_odds to make-field only", () => {
   const odds = make12FromTeam({ playoffOdds: 42.5 });

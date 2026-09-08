@@ -1,0 +1,116 @@
+{
+  "as_of": "2026-09-08",
+  "tape": {
+    "n": 43,
+    "su_pct": 83.7,
+    "su": "36/43",
+    "hx_closer_pct": 46.5,
+    "hx_closer": "20/43",
+    "source": "metrics/weekly_hx_vs_vegas.jsonl week 1"
+  },
+  "movers_by_abs_dhx": [
+    {
+      "name": "Rutgers",
+      "slug": "rutgers",
+      "hx_rank_pre": 70,
+      "hx_rank_post": 70,
+      "delta_hx": -0.068,
+      "delta_off": -1.622,
+      "delta_def": -2.118,
+      "term": "O/D EPA"
+    },
+    {
+      "name": "Massachusetts",
+      "slug": "massachusetts",
+      "hx_rank_pre": 136,
+      "hx_rank_post": 136,
+      "delta_hx": 0.068,
+      "delta_off": 2.118,
+      "delta_def": 1.622,
+      "term": "O/D EPA"
+    },
+    {
+      "name": "James Madison",
+      "slug": "james-madison",
+      "hx_rank_pre": 41,
+      "hx_rank_post": 43,
+      "delta_hx": -0.0655,
+      "delta_off": -2.029,
+      "delta_def": -1.574,
+      "term": "O/D EPA"
+    },
+    {
+      "name": "Liberty",
+      "slug": "liberty",
+      "hx_rank_pre": 75,
+      "hx_rank_post": 75,
+      "delta_hx": 0.0655,
+      "delta_off": 1.574,
+      "delta_def": 2.029,
+      "term": "O/D EPA"
+    },
+    {
+      "name": "Notre Dame",
+      "slug": "notre-dame",
+      "hx_rank_pre": 3,
+      "hx_rank_post": 3,
+      "delta_hx": -0.0567,
+      "delta_off": -1.001,
+      "delta_def": -2.118,
+      "term": "O/D EPA"
+    },
+    {
+      "name": "Wisconsin",
+      "slug": "wisconsin",
+      "hx_rank_pre": 51,
+      "hx_rank_post": 50,
+      "delta_hx": 0.0567,
+      "delta_off": 2.118,
+      "delta_def": 1.001,
+      "term": "O/D EPA"
+    },
+    {
+      "name": "TCU",
+      "slug": "tcu",
+      "hx_rank_pre": 31,
+      "hx_rank_post": 32,
+      "delta_hx": -0.0473,
+      "delta_off": -0.892,
+      "delta_def": -1.707,
+      "term": "O/D EPA"
+    },
+    {
+      "name": "North Carolina",
+      "slug": "north-carolina",
+      "hx_rank_pre": 85,
+      "hx_rank_post": 84,
+      "delta_hx": 0.0473,
+      "delta_off": 1.707,
+      "delta_def": 0.892,
+      "term": "O/D EPA"
+    },
+    {
+      "name": "Western Kentucky",
+      "slug": "western-kentucky",
+      "hx_rank_pre": 62,
+      "hx_rank_post": 63,
+      "delta_hx": -0.0464,
+      "delta_off": -0.435,
+      "delta_def": -2.118,
+      "term": "O/D EPA"
+    },
+    {
+      "name": "Nevada",
+      "slug": "nevada",
+      "hx_rank_pre": 130,
+      "hx_rank_post": 130,
+      "delta_hx": 0.0464,
+      "delta_off": 2.118,
+      "delta_def": 0.435,
+      "term": "O/D EPA"
+    }
+  ],
+  "gaps_file": "/workspace/cfb/week1_hx_vs_ap_gaps_2026.json",
+  "sim_file": "/workspace/cfb/sim_10k_2026.json",
+  "ship_hx": "/workspace/cfb/week1_od_hx_ship_2026.json"
+}

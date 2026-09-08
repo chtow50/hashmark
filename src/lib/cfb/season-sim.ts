@@ -1,4 +1,5 @@
 import { fcsStubIsFinal, fcsStubsForTeam, type FcsStubGame } from "./fcs-stubs.ts";
+import { SIM_10K_AS_OF, SIM_10K_NOTE, SIM_10K_NOT_RESIM, simTeamBySlug } from "./truth-pack.ts";
 import type { GameStatus, ScheduleGame, TeamSummary } from "./types.ts";
 
 /** One row on a team hub schedule panel. */
@@ -67,6 +68,32 @@ export function make12FromTeam(team: Pick<TeamSummary, "playoffOdds">): Make12Od
   };
 }
 
+/**
+ * Make-field and win-title from pre-Δ 10k draws (sim_10k_2026.json).
+ * Falls back to the legacy logistic make-field if the slug is missing.
+ * Never treat make_field as a national title.
+ */
+export function make12FromSim(
+  slug: string,
+  team?: Pick<TeamSummary, "playoffOdds">,
+): Make12Odds {
+  const row = simTeamBySlug(slug);
+  if (row) {
+    return {
+      makeField: row.make_field,
+      winTitle: row.win_title,
+      makeFieldSource: "amd-draws",
+      winTitleSource: "amd-draws",
+    };
+  }
+  return team ? make12FromTeam(team) : {
+    makeField: null,
+    winTitle: null,
+    makeFieldSource: "pending",
+    winTitleSource: "pending",
+  };
+}
+
 function toFcsStubRow(stub: FcsStubGame, i: number): TeamScheduleRow {
   return {
     key: `fcs-${stub.teamSlug}-${stub.kickoffDate}-${i}`,
@@ -111,10 +138,22 @@ export function buildSeasonSchedule(teamSlug: string, games: ScheduleGame[]): Te
 export function make12FieldLabel(source: Make12Source): string | undefined {
   if (source === "legacy-playoff-odds") return "Pre-AMD logistic estimate";
   if (source === "pending") return "Awaiting AMD draws";
-  return "10k sim draws";
+  return `${SIM_10K_NOTE} · make-field, not title`;
 }
 
 export function make12TitleLabel(source: Make12Source): string | undefined {
   if (source === "pending") return "Awaiting AMD draws";
-  return "10k sim draws";
+  return `${SIM_10K_NOTE} · ${SIM_10K_NOT_RESIM}`;
 }
+
+export function make12PanelLede(source: Make12Source): string {
+  if (source === "amd-draws") {
+    return `Make-field is not a national title. ${SIM_10K_NOTE} (${SIM_10K_NOT_RESIM}).`;
+  }
+  if (source === "legacy-playoff-odds") {
+    return "12-team CFP field odds — make-field and national-title paths are separate draws.";
+  }
+  return "12-team CFP field odds — make-field and national-title paths are separate draws.";
+}
+
+export { SIM_10K_AS_OF, SIM_10K_NOTE, SIM_10K_NOT_RESIM };
