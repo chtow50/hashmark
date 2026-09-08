@@ -1,11 +1,17 @@
-import { chicagoWeekday } from "./chicago.ts";
 import type { ScheduleGame } from "./types";
 
-/** Rankings stay on HASHMARK Week 0 until the Sunday after Week 1. */
-export const BOARD_WEEK = 0;
+/**
+ * Board chrome week (Rankings / home PageHead). Ranking *rows* stay
+ * `season = 2026 AND week = 0` — that is what queries read.
+ */
+export const BOARD_WEEK = 2;
 
-/** Featured kick reads the HASHMARK Week 1 slate (`/schedule?w=1`). */
-export const FEATURED_SLATE_WEEK = 1;
+/**
+ * Featured kick reads the HASHMARK Week 2 slate (`/schedule?w=2`).
+ * Week 2 games exist in the seed; kick/TV/Vegas are not stamped yet —
+ * select the next upcoming non-final and do not invent a book.
+ */
+export const FEATURED_SLATE_WEEK = 2;
 
 /** Thursday night flag: Colorado at Georgia Tech, Bobby Dodd. */
 export const WEEK1_FLAG = {
@@ -13,15 +19,10 @@ export const WEEK1_FLAG = {
   awaySlug: "colorado",
 } as const;
 
-/** Friday desk flag after Thursday FINALs: Miami at Stanford. */
-export const WEEK1_FRIDAY_FLAG = {
-  homeSlug: "stanford",
-  awaySlug: "miami",
-} as const;
-
 /**
  * Pre-kick Thursday books for Colorado at GT. Used only when the row has no
  * stamped close. After kick the close is Georgia Tech −6.5 / 50.5 on games.vegas_*.
+ * Not a Week 2 featured path — do not invent a Week 2 book.
  */
 export const GT_THURSDAY_BOOK = {
   homeSlug: WEEK1_FLAG.homeSlug,
@@ -39,32 +40,30 @@ export function isColoradoAtGt(g: Pick<ScheduleGame, "homeSlug" | "awaySlug">): 
   return g.homeSlug === WEEK1_FLAG.homeSlug && g.awaySlug === WEEK1_FLAG.awaySlug;
 }
 
-export function isMiamiAtStanford(g: Pick<ScheduleGame, "homeSlug" | "awaySlug">): boolean {
-  return g.homeSlug === WEEK1_FRIDAY_FLAG.homeSlug && g.awaySlug === WEEK1_FRIDAY_FLAG.awaySlug;
-}
-
 export function isUpcomingKick(g: Pick<ScheduleGame, "status" | "kickoffAt">, nowMs: number): boolean {
-  return g.status !== "final" && g.kickoffAt != null && Date.parse(g.kickoffAt) > nowMs;
+  if (g.status === "final") return false;
+  if (g.kickoffAt != null) return Date.parse(g.kickoffAt) > nowMs;
+  return true;
 }
 
 /**
- * Next featured kick from a kick-sorted HASHMARK week slate.
- * Prefers Colorado at GT while that kick is still in the future.
- * After GT/Illinois Thursday FINALs, prefers Miami at Stanford (Friday
- * desk flag), else the first remaining Friday kick, else the next future
- * non-final. Never an in-progress or FINAL game, never a fallback to tape.
+ * Next upcoming non-final on a kick-sorted HASHMARK week slate.
+ * Prefers the earliest future `kickoffAt`; if the slate has dates but no
+ * times (Week 2 seed), takes the first non-final in slate order.
+ * Never a FINAL. Does not invent Vegas or scores.
  */
-export function selectFeaturedKick<T extends Pick<ScheduleGame, "status" | "kickoffAt" | "homeSlug" | "awaySlug">>(
+export function selectFeaturedKick<T extends Pick<ScheduleGame, "status" | "kickoffAt">>(
   slate: T[],
   nowMs: number,
 ): T | null {
   const upcoming = slate.filter((g) => isUpcomingKick(g, nowMs));
-  const thursday = upcoming.find((g) => isColoradoAtGt(g));
-  if (thursday) return thursday;
-  const fridayFlag = upcoming.find((g) => isMiamiAtStanford(g));
-  if (fridayFlag) return fridayFlag;
-  const friday = upcoming.find((g) => g.kickoffAt != null && chicagoWeekday(g.kickoffAt) === "Friday");
-  return friday ?? upcoming[0] ?? null;
+  const timed = upcoming.filter((g) => g.kickoffAt != null);
+  if (timed.length) {
+    return timed.reduce((a, b) =>
+      Date.parse(a.kickoffAt as string) <= Date.parse(b.kickoffAt as string) ? a : b,
+    );
+  }
+  return upcoming[0] ?? null;
 }
 
 /** Same rule as hashmarkWeekFromRow: Aug 29–30 2026 is Week 0. */

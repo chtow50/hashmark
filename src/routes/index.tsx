@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { PageHead, Panel } from "@/components/shell";
 import { Button } from "@/components/ui/button";
 import { DeltaChip, RankNum, Stat, TeamLink, TeamMark, TeamSwatch, WinBar } from "@/components/marks";
-import { formatKickCt } from "@/lib/cfb/chicago";
+import { formatKickCt, formatKickDayTitle } from "@/lib/cfb/chicago";
 import {
   BOARD_WEEK,
   FEATURED_SLATE_WEEK,
@@ -14,7 +14,7 @@ import {
   spreadGap,
 } from "@/lib/cfb/featured";
 import { listGames, listScheduleWeek, listTeams } from "@/lib/cfb/queries";
-import { predictMatchup } from "@/lib/cfb/model";
+import { MODEL, predictMatchup } from "@/lib/cfb/model";
 import type { Prediction, ScheduleGame } from "@/lib/cfb/types";
 import { apLabel, fmtNum, fmtPct } from "@/lib/utils";
 
@@ -60,7 +60,7 @@ function Home() {
   return (
     <div className="space-y-10">
       <PageHead
-        kicker={`Week ${BOARD_WEEK} locked · HX 2026.2`}
+        kicker={`Week ${BOARD_WEEK} · HX ${MODEL.version}`}
         title={`Week ${BOARD_WEEK} board`}
         lede="HASHMARK runs a single rating — HX — from recruiting talent, last year’s SP+/Elo/SRS, four-year win trend, returning production, and portal net. Full 136 FBS. The AP column is the Aug 17 preseason ballot."
       />
@@ -218,7 +218,9 @@ function FeaturedKick({ featured, pred }: { featured: ScheduleGame; pred: Predic
   const book = featuredBook(featured);
   const bookLine = book ? favoriteLine(featured.homeShort, featured.awayShort, book.spread) : null;
   const gap = book ? spreadGap(pred.spread, book.spread) : null;
-  const kick = formatKickCt(featured.kickoffAt);
+  const kick = featured.kickoffAt
+    ? formatKickCt(featured.kickoffAt)
+    : formatKickDayTitle(null, featured.kickoffDate);
 
   return (
     <Panel>

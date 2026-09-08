@@ -2,6 +2,8 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { predictMatchup } from "./model.ts";
 import {
+  BOARD_WEEK,
+  FEATURED_SLATE_WEEK,
   featuredBook,
   featuredSlateWeek,
   favoriteLine,
@@ -141,6 +143,11 @@ const beforeThursday = Date.parse("2026-09-01T22:00:00.000Z");
 const afterGtKick = Date.parse("2026-09-04T00:01:00.000Z");
 const fridayAfternoon = Date.parse("2026-09-04T18:00:00.000Z");
 
+test("board chrome is Week 2; featured reads /schedule?w=2", () => {
+  assert.equal(BOARD_WEEK, 2);
+  assert.equal(FEATURED_SLATE_WEEK, 2);
+});
+
 test("Colorado at GT is HASHMARK GT −10.3 / 73.3% at home, Neutral off", () => {
   const pred = predictMatchup(
     { hxRating: 1.672, offenseRating: 32.5, defenseRating: 15.1 },
@@ -151,30 +158,22 @@ test("Colorado at GT is HASHMARK GT −10.3 / 73.3% at home, Neutral off", () =>
   assert.equal(Math.round(pred.homeWinPct * 1000) / 10, 73.3);
 });
 
-test("featured kick is Colorado at GT while that kick is still ahead, even if Rutgers is earlier", () => {
+test("featured kick is the next upcoming non-final by kick time", () => {
   const featured = selectFeaturedKick([rutgers, gt, utah], beforeThursday);
-  assert.equal(featured?.homeSlug, "georgia-tech");
-  assert.equal(featured?.awaySlug, "colorado");
-  assert.equal(featured?.location, "Bobby Dodd Stadium");
+  assert.equal(featured?.homeSlug, "rutgers");
+  assert.equal(featured?.awaySlug, "massachusetts");
 });
 
-test("after GT kicks, featured walks to the next future Week 1 kick", () => {
+test("after an earlier kick, featured walks to the next future kick", () => {
   const featured = selectFeaturedKick([rutgers, gt, utah], afterGtKick);
   assert.equal(featured?.homeSlug, "utah");
 });
 
-test("after GT and Illinois FINALs, featured prefers Miami over an earlier Friday kick", () => {
+test("after Thursday FINALs, first remaining Friday kick features", () => {
   const featured = selectFeaturedKick(
     [gtFinal, illinoisFinal, emuFriday, miamiFriday],
     fridayAfternoon,
   );
-  assert.equal(featured?.homeSlug, "stanford");
-  assert.equal(featured?.awaySlug, "miami");
-  assert.equal(featured?.tv, "ESPN");
-});
-
-test("after Thursday FINALs, first Friday kick features when Miami is absent", () => {
-  const featured = selectFeaturedKick([gtFinal, illinoisFinal, emuFriday], fridayAfternoon);
   assert.equal(featured?.homeSlug, "eastern-michigan");
 });
 
@@ -184,11 +183,41 @@ test("never features a FINAL or an in-progress kick", () => {
   assert.equal(selectFeaturedKick([dublinFinal, gt], afterGtKick), null);
 });
 
-test("Ohio St–Texas is not the Week 1 featured kick", () => {
+test("Ohio St–Texas is not featured while an earlier kick is still upcoming", () => {
   const featured = selectFeaturedKick([rutgers, gt, osuTexas], beforeThursday);
   assert.ok(featured);
   assert.notEqual(featured.awaySlug, "ohio-state");
   assert.notEqual(featured.homeSlug, "ohio-state");
+});
+
+test("Week 2 slate without kick times features the first non-final, no invented book", () => {
+  const bc = game({
+    id: 200,
+    week: 2,
+    homeSlug: "boston-college",
+    awaySlug: "rutgers",
+    kickoffDate: "2026-09-11",
+    kickoffAt: null,
+    location: "Alumni Stadium (Chestnut Hill, MA)",
+    vegasSpread: null,
+    vegasTotal: null,
+  });
+  const uga = game({
+    id: 201,
+    week: 2,
+    homeSlug: "georgia",
+    awaySlug: "austin-peay",
+    kickoffDate: "2026-09-12",
+    kickoffAt: null,
+    location: "Sanford Stadium",
+    vegasSpread: null,
+    vegasTotal: null,
+  });
+  const featured = selectFeaturedKick([bc, uga], Date.parse("2026-09-08T16:00:00.000Z"));
+  assert.equal(featured?.homeSlug, "boston-college");
+  assert.equal(featured?.awaySlug, "rutgers");
+  assert.equal(featuredSlateWeek(bc), 2);
+  assert.equal(featuredBook(bc), null);
 });
 
 test("GT featured week is HASHMARK Week 1, not Week 0", () => {
