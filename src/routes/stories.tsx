@@ -41,8 +41,8 @@ function StoriesPage() {
     <div>
       <PageHead
         kicker="Week 1 · 2026"
-        title="The Friday desk."
-        lede="HX is still Week 0–locked until Sunday. The LSU–Clemson gap leads. Vegas in this package is the four sourced closes on the Week 1 schedule."
+        title="The Week 1 desk."
+        lede="Tape is in. SU 36/43. Closer 20/43. HX not retuned. Gaps vs Week 1 AP."
       />
 
       <p className="mb-8 font-mono text-[11px] uppercase tracking-[0.16em] text-faint">
@@ -56,7 +56,7 @@ function StoriesPage() {
         <span className="mx-2" aria-hidden>
           ·
         </span>
-        HX Week 0–locked until Sunday
+        HX 2026.3 · no retune
       </p>
 
       {lead ? (

@@ -18,12 +18,17 @@ const SOURCED_CLOSES = [
   "Notre Dame −20.5",
 ] as const;
 
-test("Week 1 Friday package leads STORIES with LSU as the index lead", () => {
+test("Week 1 tape leads STORIES; Friday package follows", () => {
+  assert.equal(STORIES[0]?.slug, "week-1-tape");
+  assert.match(STORIES[0]?.headline ?? "", /36\/43/);
+  assert.match(STORIES[0]?.headline ?? "", /20\/43/);
+  assert.match(STORIES[0]?.body.join("\n") ?? "", /83\.7%/);
+  assert.match(STORIES[0]?.body.join("\n") ?? "", /46\.5%/);
+  assert.match(STORIES[0]?.body.join("\n") ?? "", /term = O\/D/i);
   assert.deepEqual(
-    STORIES.slice(0, WEEK1_FRIDAY.length).map((s) => s.slug),
+    STORIES.slice(1, 1 + WEEK1_FRIDAY.length).map((s) => s.slug),
     [...WEEK1_FRIDAY],
   );
-  assert.equal(STORIES[0]?.headline.includes("Clemson–LSU"), true);
 });
 
 test("Week 1 package uses only the four sourced HASHMARK Vegas closes", () => {

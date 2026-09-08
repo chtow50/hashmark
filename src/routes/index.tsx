@@ -2,7 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { PageHead, Panel } from "@/components/shell";
 import { Button } from "@/components/ui/button";
-import { DeltaChip, RankNum, Stat, TeamLink, TeamMark, TeamSwatch, WinBar } from "@/components/marks";
+import { AccountabilityCard, DisagreementCard } from "@/components/truth-pack";
+import { DeltaChip, RankNum, Stat, TeamLink, TeamMark, WinBar } from "@/components/marks";
 import { formatKickCt, formatKickDayTitle } from "@/lib/cfb/chicago";
 import {
   BOARD_WEEK,
@@ -16,6 +17,12 @@ import {
 import { listGames, listScheduleWeek, listTeams } from "@/lib/cfb/queries";
 import { formatSeasonRecord } from "@/lib/cfb/season-record";
 import { MODEL, predictMatchup } from "@/lib/cfb/model";
+import { make12FromSim } from "@/lib/cfb/season-sim";
+import {
+  boardDisagreementRows,
+  odMovers,
+  week1Tape,
+} from "@/lib/cfb/truth-pack";
 import type { Prediction, ScheduleGame } from "@/lib/cfb/types";
 import { apLabel, fmtNum, fmtPct } from "@/lib/utils";
 
@@ -49,11 +56,10 @@ function Home() {
       )
     : null;
 
-  const disagreements = [...teams]
-    .filter((t) => t.apRank != null)
-    .map((t) => ({ team: t, delta: (t.apRank ?? t.hxRank) - t.hxRank }))
-    .sort((a, b) => Math.abs(b.delta) - Math.abs(a.delta))
-    .slice(0, 6);
+  const disagreements = boardDisagreementRows(teams).slice(0, 8);
+  const tape = week1Tape();
+  const movers = odMovers(6);
+  const oneMake = one ? make12FromSim(one.slug, one) : null;
 
   const recLeaders = [...teams].sort((a, b) => a.recRank - b.recRank).slice(0, 5);
   const talentLeaders = [...teams].sort((a, b) => a.talentRank - b.talentRank).slice(0, 5);
@@ -90,7 +96,11 @@ function Home() {
             <div className="grid grid-cols-3 gap-3 sm:gap-6">
               <Stat label="HX" value={fmtNum(one.hxRating, 2)} />
               <Stat label="AP" value={apLabel(one.apRank)} />
-              <Stat label="Make 12" value={fmtPct(one.playoffOdds, 0)} />
+              <Stat
+                label="Make 12"
+                value={oneMake?.makeField != null ? fmtPct(oneMake.makeField, 1) : fmtPct(one.playoffOdds, 0)}
+                hint={oneMake?.makeFieldSource === "amd-draws" ? "make-field · pre-Δ 10k" : undefined}
+              />
             </div>
           </div>
         </Panel>
@@ -125,22 +135,11 @@ function Home() {
             <FeaturedKick featured={featured} pred={featurePred} />
           ) : null}
 
-          <Panel>
-            <h2 className="font-display text-2xl tracking-wide">Where HX disagrees</h2>
-            <p className="mt-1 mb-4 text-sm text-muted">Largest gaps versus the Week 1 AP ballot.</p>
-            <ul>
-              {disagreements.map(({ team, delta }) => (
-                <li key={team.slug} className="flex items-center justify-between gap-3 py-2">
-                  <TeamLink slug={team.slug} name={team.shortName} color={team.colorPrimary} />
-                  <span className={delta > 0 ? "text-sm tabular text-up" : "text-sm tabular text-down"}>
-                    {delta > 0 ? `HX +${delta}` : `HX ${delta}`}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </Panel>
+          <DisagreementCard rows={disagreements} />
         </div>
       </div>
+
+      <AccountabilityCard tape={tape} movers={movers} />
 
       <Panel>
         <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-baseline sm:justify-between">

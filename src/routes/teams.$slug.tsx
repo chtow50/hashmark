@@ -8,7 +8,7 @@ import { getTeam } from "@/lib/cfb/queries";
 import { formatSeasonRecord } from "@/lib/cfb/season-record";
 import { COMPOSITE_SOURCE, ratedStarCount, visibleClassAvg } from "@/lib/cfb/recruiting";
 import { modelShare, MODEL } from "@/lib/cfb/model";
-import { buildRemainingSchedule, buildSeasonSchedule, make12FromTeam } from "@/lib/cfb/season-sim";
+import { buildRemainingSchedule, buildSeasonSchedule, make12FromSim } from "@/lib/cfb/season-sim";
 import { apLabel, fmtHeight, fmtNum, fmtPct } from "@/lib/utils";
 
 export const Route = createFileRoute("/teams/$slug")({
@@ -26,7 +26,7 @@ export const Route = createFileRoute("/teams/$slug")({
 function TeamPage() {
   const { team, players, games, classes } = Route.useLoaderData();
   const share = modelShare(team);
-  const make12 = make12FromTeam(team);
+  const make12 = make12FromSim(team.slug, team);
   const remaining = buildRemainingSchedule(team.slug, games);
   const season = buildSeasonSchedule(team.slug, games);
 
