@@ -1,0 +1,268 @@
+{
+  "label": "Week 1 AP",
+  "poll": "AP Top 25",
+  "season": 2026,
+  "as_of": "2026-09-08",
+  "source": "ESPN rankings API AP Top 25 (https://site.api.espn.com/apis/site/v2/sports/football/college-football/rankings)",
+  "source_note": "First regular-season AP poll after Week 1. AP.org hub is JS-rendered; ESPN carries the official AP ballot. Corroborated by AP wire \u201cAP Top 25 Fared\u201d (Sept 8).",
+  "chrome": "Week 1 AP (not Aug 17 preseason)",
+  "n": 25,
+  "dropped_from_preseason": [
+    "Michigan"
+  ],
+  "new_to_top25": [
+    "Virginia"
+  ],
+  "teams": [
+    {
+      "rank": 1,
+      "prev": 1,
+      "team": "Ohio State",
+      "slug": "ohio-state",
+      "record": "1-0",
+      "points": 1684.0,
+      "first_place_votes": 46,
+      "trend": "-"
+    },
+    {
+      "rank": 2,
+      "prev": 3,
+      "team": "Georgia",
+      "slug": "georgia",
+      "record": "1-0",
+      "points": 1532.0,
+      "first_place_votes": 0,
+      "trend": "+1"
+    },
+    {
+      "rank": 3,
+      "prev": 4,
+      "team": "Notre Dame",
+      "slug": "notre-dame",
+      "record": "1-0",
+      "points": 1512.0,
+      "first_place_votes": 4,
+      "trend": "+1"
+    },
+    {
+      "rank": 4,
+      "prev": 5,
+      "team": "Texas",
+      "slug": "texas",
+      "record": "1-0",
+      "points": 1462.0,
+      "first_place_votes": 2,
+      "trend": "+1"
+    },
+    {
+      "rank": 5,
+      "prev": 6,
+      "team": "Indiana",
+      "slug": "indiana",
+      "record": "1-0",
+      "points": 1428.0,
+      "first_place_votes": 8,
+      "trend": "+1"
+    },
+    {
+      "rank": 6,
+      "prev": 2,
+      "team": "Oregon",
+      "slug": "oregon",
+      "record": "1-0",
+      "points": 1422.0,
+      "first_place_votes": 3,
+      "trend": "-4"
+    },
+    {
+      "rank": 7,
+      "prev": 7,
+      "team": "Miami",
+      "slug": "miami",
+      "record": "1-0",
+      "points": 1405.0,
+      "first_place_votes": 1,
+      "trend": "-"
+    },
+    {
+      "rank": 8,
+      "prev": 11,
+      "team": "LSU",
+      "slug": "lsu",
+      "record": "1-0",
+      "points": 1315.0,
+      "first_place_votes": 5,
+      "trend": "+3"
+    },
+    {
+      "rank": 9,
+      "prev": 9,
+      "team": "Ole Miss",
+      "slug": "ole-miss",
+      "record": "1-0",
+      "points": 1154.0,
+      "first_place_votes": 0,
+      "trend": "-"
+    },
+    {
+      "rank": 10,
+      "prev": 8,
+      "team": "Texas A&M",
+      "slug": "texas-am",
+      "record": "1-0",
+      "points": 1079.0,
+      "first_place_votes": 0,
+      "trend": "-2"
+    },
+    {
+      "rank": 11,
+      "prev": 10,
+      "team": "Oklahoma",
+      "slug": "oklahoma",
+      "record": "1-0",
+      "points": 1039.0,
+      "first_place_votes": 0,
+      "trend": "-1"
+    },
+    {
+      "rank": 12,
+      "prev": 13,
+      "team": "Alabama",
+      "slug": "alabama",
+      "record": "1-0",
+      "points": 910.0,
+      "first_place_votes": 0,
+      "trend": "+1"
+    },
+    {
+      "rank": 13,
+      "prev": 12,
+      "team": "Texas Tech",
+      "slug": "texas-tech",
+      "record": "1-0",
+      "points": 900.0,
+      "first_place_votes": 0,
+      "trend": "-1"
+    },
+    {
+      "rank": 14,
+      "prev": 14,
+      "team": "USC",
+      "slug": "usc",
+      "record": "2-0",
+      "points": 861.0,
+      "first_place_votes": 0,
+      "trend": "-"
+    },
+    {
+      "rank": 15,
+      "prev": 14,
+      "team": "BYU",
+      "slug": "byu",
+      "record": "1-0",
+      "points": 840.0,
+      "first_place_votes": 0,
+      "trend": "-1"
+    },
+    {
+      "rank": 16,
+      "prev": 18,
+      "team": "Penn State",
+      "slug": "penn-state",
+      "record": "1-0",
+      "points": 621.0,
+      "first_place_votes": 0,
+      "trend": "+2"
+    },
+    {
+      "rank": 17,
+      "prev": 19,
+      "team": "SMU",
+      "slug": "smu",
+      "record": "1-0",
+      "points": 501.0,
+      "first_place_votes": 0,
+      "trend": "+2"
+    },
+    {
+      "rank": 18,
+      "prev": 20,
+      "team": "Tennessee",
+      "slug": "tennessee",
+      "record": "1-0",
+      "points": 491.0,
+      "first_place_votes": 0,
+      "trend": "+2"
+    },
+    {
+      "rank": 19,
+      "prev": 17,
+      "team": "Washington",
+      "slug": "washington",
+      "record": "1-0",
+      "points": 489.0,
+      "first_place_votes": 0,
+      "trend": "-2"
+    },
+    {
+      "rank": 20,
+      "prev": 21,
+      "team": "Utah",
+      "slug": "utah",
+      "record": "1-0",
+      "points": 381.0,
+      "first_place_votes": 0,
+      "trend": "+1"
+    },
+    {
+      "rank": 21,
+      "prev": 22,
+      "team": "Iowa",
+      "slug": "iowa",
+      "record": "1-0",
+      "points": 369.0,
+      "first_place_votes": 0,
+      "trend": "+1"
+    },
+    {
+      "rank": 22,
+      "prev": 23,
+      "team": "Houston",
+      "slug": "houston",
+      "record": "1-0",
+      "points": 214.0,
+      "first_place_votes": 0,
+      "trend": "+1"
+    },
+    {
+      "rank": 23,
+      "prev": 25,
+      "team": "Missouri",
+      "slug": "missouri",
+      "record": "1-0",
+      "points": 182.0,
+      "first_place_votes": 0,
+      "trend": "+2"
+    },
+    {
+      "rank": 24,
+      "prev": 24,
+      "team": "Louisville",
+      "slug": "louisville",
+      "record": "0-1",
+      "points": 163.0,
+      "first_place_votes": 0,
+      "trend": "-"
+    },
+    {
+      "rank": 25,
+      "prev": null,
+      "team": "Virginia",
+      "slug": "virginia",
+      "record": "1-0",
+      "points": 89.0,
+      "first_place_votes": 0,
+      "trend": "+1"
+    }
+  ]
+}
