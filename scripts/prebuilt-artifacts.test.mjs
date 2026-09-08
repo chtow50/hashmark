@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readdirSync, readFileSync, statSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
 import { join } from "node:path";
 import { describe, it } from "node:test";
 
@@ -52,5 +52,12 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /make_field/);
     assert.match(text, /73\.81/);
     assert.match(text, /make12FromSim|amd-draws|make-field, not title/);
+  });
+
+  it("keeps PGLite wasm sidecars next to the server bundle", () => {
+    const libs = join(OUT, "functions/__server.func/_libs");
+    for (const name of ["pglite.wasm", "initdb.wasm", "pglite.data"]) {
+      assert.ok(existsSync(join(libs, name)), `missing ${name}`);
+    }
   });
 });
