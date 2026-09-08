@@ -11,6 +11,9 @@ export type TeamSummary = {
   colorSecondary: string;
   lastWins: number;
   lastLosses: number;
+  /** This-year W–L from FINAL games (0–0 if none). */
+  seasonWins: number;
+  seasonLosses: number;
   lastFinish: string;
   hxRank: number;
   hxRating: number;

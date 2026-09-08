@@ -6,6 +6,7 @@ import { POS_SQL_ARRAY, TALENT_UNITS_JOIN } from "./positions";
 import { SIZE_UNITS_JOIN } from "./size-groups";
 import { kickoffCivilYmd } from "./chicago";
 import { compositeClassAvg } from "./recruiting";
+import { SEASON_RECORD_JOIN } from "./season-record";
 import type {
   GameRow,
   GameStatus,
@@ -29,6 +30,8 @@ type TeamDb = {
   color_secondary: string;
   last_wins: number;
   last_losses: number;
+  season_wins: number;
+  season_losses: number;
   last_finish: string;
   hx_rank: number;
   hx_rating: number;
@@ -93,6 +96,8 @@ type TeamDb = {
 const TEAM_SELECT = `
   t.id, t.slug, t.name, t.short_name, t.mascot, t.conference, t.city, t.state,
   t.color_primary, t.color_secondary, t.last_wins, t.last_losses, t.last_finish,
+  coalesce(wl.season_wins, 0) as season_wins,
+  coalesce(wl.season_losses, 0) as season_losses,
   r.hx_rank, r.hx_rating, r.ap_rank, r.offense_rating, r.defense_rating,
   r.special_rating, r.sos_rating, r.projected_wins, r.returning_production,
   r.playoff_odds, r.prior_score, r.talent_score,
@@ -134,6 +139,7 @@ const TEAM_FROM = `
   join roster_profile p on p.team_id = t.id
   ${TALENT_UNITS_JOIN}
   ${SIZE_UNITS_JOIN}
+  ${SEASON_RECORD_JOIN}
 `;
 
 function mapTeam(row: TeamDb): TeamSummary {
@@ -150,6 +156,8 @@ function mapTeam(row: TeamDb): TeamSummary {
     colorSecondary: row.color_secondary,
     lastWins: row.last_wins,
     lastLosses: row.last_losses,
+    seasonWins: Number(row.season_wins),
+    seasonLosses: Number(row.season_losses),
     lastFinish: row.last_finish,
     hxRank: row.hx_rank,
     hxRating: Number(row.hx_rating),

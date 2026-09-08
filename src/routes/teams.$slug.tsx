@@ -5,6 +5,7 @@ import { RosterList } from "@/components/roster-duel";
 import { Make12Panel, RemainingScheduleSection, SeasonScheduleSection } from "@/components/season-sim";
 import { TALENT_UNITS } from "@/lib/cfb/positions";
 import { getTeam } from "@/lib/cfb/queries";
+import { formatSeasonRecord } from "@/lib/cfb/season-record";
 import { COMPOSITE_SOURCE, ratedStarCount, visibleClassAvg } from "@/lib/cfb/recruiting";
 import { modelShare, MODEL } from "@/lib/cfb/model";
 import { buildRemainingSchedule, buildSeasonSchedule, make12FromTeam } from "@/lib/cfb/season-sim";
@@ -34,7 +35,7 @@ function TeamPage() {
       <PageHead
         kicker={`${team.conference} · ${team.city}, ${team.state}`}
         title={team.name}
-        lede={`${team.mascot} · ${team.lastWins}–${team.lastLosses} last season · ${team.lastFinish}`}
+        lede={`${team.mascot} · ${formatSeasonRecord(team.seasonWins, team.seasonLosses)} · ${team.lastFinish}`}
       />
 
       <Panel className="mb-6">

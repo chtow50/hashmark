@@ -1,0 +1,47 @@
+import assert from "node:assert/strict";
+import { describe, it } from "node:test";
+import { formatSeasonRecord, tallySeasonRecord, type SeasonRecordGame } from "./season-record.ts";
+
+function game(partial: Partial<SeasonRecordGame> & Pick<SeasonRecordGame, "homeTeamId" | "awayTeamId">): SeasonRecordGame {
+  return {
+    status: "final",
+    homeScore: 31,
+    awayScore: 24,
+    ...partial,
+  };
+}
+
+describe("tallySeasonRecord", () => {
+  it("starts 0–0 with no FINAL", () => {
+    assert.deepEqual(tallySeasonRecord([], 1), { seasonWins: 0, seasonLosses: 0 });
+    assert.deepEqual(
+      tallySeasonRecord([game({ homeTeamId: 1, awayTeamId: 2, status: "scheduled" })], 1),
+      { seasonWins: 0, seasonLosses: 0 },
+    );
+  });
+
+  it("counts home and away FINALs, including FCS-style rows", () => {
+    const games = [
+      game({ homeTeamId: 1, awayTeamId: 99, homeScore: 45, awayScore: 7 }),
+      game({ homeTeamId: 4, awayTeamId: 1, homeScore: 28, awayScore: 21 }),
+    ];
+    assert.deepEqual(tallySeasonRecord(games, 1), { seasonWins: 1, seasonLosses: 1 });
+    assert.deepEqual(tallySeasonRecord(games, 99), { seasonWins: 0, seasonLosses: 1 });
+  });
+
+  it("ignores ties, missing scores, and other teams", () => {
+    const games = [
+      game({ homeTeamId: 1, awayTeamId: 2, homeScore: 17, awayScore: 17 }),
+      game({ homeTeamId: 1, awayTeamId: 3, homeScore: null, awayScore: 10 }),
+      game({ homeTeamId: 8, awayTeamId: 9, homeScore: 40, awayScore: 3 }),
+    ];
+    assert.deepEqual(tallySeasonRecord(games, 1), { seasonWins: 0, seasonLosses: 0 });
+  });
+});
+
+describe("formatSeasonRecord", () => {
+  it("uses an en-dash", () => {
+    assert.equal(formatSeasonRecord(1, 0), "1–0");
+    assert.equal(formatSeasonRecord(0, 0), "0–0");
+  });
+});

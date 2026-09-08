@@ -14,6 +14,7 @@ import {
   spreadGap,
 } from "@/lib/cfb/featured";
 import { listGames, listScheduleWeek, listTeams } from "@/lib/cfb/queries";
+import { formatSeasonRecord } from "@/lib/cfb/season-record";
 import { MODEL, predictMatchup } from "@/lib/cfb/model";
 import type { Prediction, ScheduleGame } from "@/lib/cfb/types";
 import { apLabel, fmtNum, fmtPct } from "@/lib/utils";
@@ -81,7 +82,7 @@ function Home() {
                     {one.name}
                   </Link>
                   <p className="mt-1 text-sm text-muted">
-                    {one.mascot} · {one.conference} · {one.lastWins}–{one.lastLosses} last fall
+                    {one.mascot} · {one.conference} · {formatSeasonRecord(one.seasonWins, one.seasonLosses)}
                   </p>
                 </div>
               </div>
@@ -111,6 +112,7 @@ function Home() {
               >
                 <RankNum rank={t.hxRank} className="w-8 text-lg" />
                 <TeamLink slug={t.slug} name={t.name} color={t.colorPrimary} className="min-h-10 flex-1" />
+                <span className="tabular text-sm text-muted">{formatSeasonRecord(t.seasonWins, t.seasonLosses)}</span>
                 <span className="hidden tabular text-sm text-muted sm:inline">{fmtNum(t.hxRating, 2)}</span>
                 <DeltaChip hxRank={t.hxRank} apRank={t.apRank} />
               </li>

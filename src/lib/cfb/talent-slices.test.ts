@@ -17,6 +17,8 @@ function team(partial: Partial<TeamSummary>): TeamSummary {
     colorSecondary: "#fff",
     lastWins: 0,
     lastLosses: 0,
+    seasonWins: 0,
+    seasonLosses: 0,
     lastFinish: "",
     hxRank: 1,
     hxRating: 90,
