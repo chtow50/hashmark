@@ -85,8 +85,20 @@ test("buildRemainingSchedule merges FCS stubs and drops finals", () => {
   assert.equal(fbs[0]?.opponentSlug, "western-kentucky");
   assert.equal(fbs[0]?.opponentColor, "#c8102e");
   assert.ok(fbs[0]?.game?.vegasSpread === null);
-  assert.ok(fcs.length >= 1);
-  assert.ok(fcs.some((r) => r.kickoffDate === "2026-09-05"));
+  assert.equal(fcs.length, 0);
+});
+
+test("buildRemainingSchedule keeps scheduled FCS stubs and drops FINAL stubs", () => {
+  const scheduled = buildRemainingSchedule("buffalo", []);
+  assert.ok(scheduled.some((r) => r.isFcs && r.kickoffDate === "2026-09-03"));
+  assert.ok(scheduled.every((r) => r.status !== "final"));
+
+  const georgia = buildRemainingSchedule("georgia", []);
+  assert.equal(
+    georgia.filter((r) => r.isFcs).length,
+    0,
+    "Georgia TSU FINAL must not appear as remaining",
+  );
 });
 
 test("buildSeasonSchedule keeps finals with scores", () => {
@@ -109,7 +121,12 @@ test("buildSeasonSchedule keeps finals with scores", () => {
   assert.equal(rows[0]?.game?.vegasSpread, 3.5);
 });
 
-test("fcsStubsForTeam returns georgia week-1 FCS row", () => {
+test("fcsStubsForTeam returns georgia week-1 FCS FINAL", () => {
   const stubs = fcsStubsForTeam("georgia");
-  assert.ok(stubs.some((s) => s.kickoffDate === "2026-09-05"));
+  const uga = stubs.find((s) => s.kickoffDate === "2026-09-05");
+  assert.ok(uga);
+  assert.equal(uga?.status, "final");
+  assert.equal(uga?.opponentLabel, "Tennessee State");
+  assert.equal(uga?.homeScore, 63);
+  assert.equal(uga?.awayScore, 3);
 });

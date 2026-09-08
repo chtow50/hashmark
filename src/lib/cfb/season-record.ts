@@ -1,3 +1,5 @@
+import { FCS_STUB_GAMES, fcsStubIsFinal, fcsStubsForTeam, type FcsStubGame } from "./fcs-stubs";
+
 /** One FINAL game used to tally this-year W–L. Ties increment neither side. */
 export type SeasonRecordGame = {
   status: string;
@@ -17,9 +19,21 @@ export function formatSeasonRecord(wins: number, losses: number): string {
   return `${wins}–${losses}`;
 }
 
+export function combineSeasonRecord(fbs: SeasonRecord, fcs: SeasonRecord): SeasonRecord {
+  return {
+    seasonWins: fbs.seasonWins + fcs.seasonWins,
+    seasonLosses: fbs.seasonLosses + fcs.seasonLosses,
+  };
+}
+
+function outcome(teamScore: number, oppScore: number): SeasonRecord {
+  if (teamScore > oppScore) return { seasonWins: 1, seasonLosses: 0 };
+  if (teamScore < oppScore) return { seasonWins: 0, seasonLosses: 1 };
+  return { seasonWins: 0, seasonLosses: 0 };
+}
+
 /**
- * This-year W–L from FINAL rows only. Missing scores and ties do not count.
- * FCS opponents count when the row is FINAL in `games` (same as FBS).
+ * This-year W–L from FINAL `games` rows only. Missing scores and ties do not count.
  */
 export function tallySeasonRecord(games: SeasonRecordGame[], teamId: number): SeasonRecord {
   let seasonWins = 0;
@@ -32,15 +46,58 @@ export function tallySeasonRecord(games: SeasonRecordGame[], teamId: number): Se
     if (!isHome && !isAway) continue;
     const teamScore = isHome ? g.homeScore : g.awayScore;
     const oppScore = isHome ? g.awayScore : g.homeScore;
-    if (teamScore > oppScore) seasonWins += 1;
-    else if (teamScore < oppScore) seasonLosses += 1;
+    const row = outcome(teamScore, oppScore);
+    seasonWins += row.seasonWins;
+    seasonLosses += row.seasonLosses;
   }
   return { seasonWins, seasonLosses };
 }
 
+/** FINAL FCS stubs for one FBS slug. Scheduled stubs and missing scores do not count. */
+export function tallyFcsStubs(stubs: FcsStubGame[]): SeasonRecord {
+  let seasonWins = 0;
+  let seasonLosses = 0;
+  for (const s of stubs) {
+    if (!fcsStubIsFinal(s)) continue;
+    const teamScore = s.home ? s.homeScore! : s.awayScore!;
+    const oppScore = s.home ? s.awayScore! : s.homeScore!;
+    const row = outcome(teamScore, oppScore);
+    seasonWins += row.seasonWins;
+    seasonLosses += row.seasonLosses;
+  }
+  return { seasonWins, seasonLosses };
+}
+
+export function tallyFcsStubRecord(slug: string): SeasonRecord {
+  return tallyFcsStubs(fcsStubsForTeam(slug));
+}
+
+/** One win/loss row per FINAL FCS stub (joined to teams.slug in SQL). */
+export function fcsStubWinLossRows(): { slug: string; win: number; loss: number }[] {
+  return FCS_STUB_GAMES.filter(fcsStubIsFinal).map((s) => {
+    const rec = tallyFcsStubs([s]);
+    return { slug: s.teamSlug, win: rec.seasonWins, loss: rec.seasonLosses };
+  });
+}
+
+function fcsStubUnionSql(): string {
+  const rows = fcsStubWinLossRows();
+  if (rows.length === 0) return "";
+  const values = rows
+    .map((r) => `('${r.slug.replace(/'/g, "''")}', ${r.win}::int, ${r.loss}::int)`)
+    .join(",\n        ");
+  return `
+      union all
+      select t.id, v.win, v.loss
+      from (values
+        ${values}
+      ) as v(slug, win, loss)
+      join teams t on t.slug = v.slug`;
+}
+
 /**
  * Left-join onto `teams t`. Every `games` row is the 2026 slate (no season col).
- * Mirrors `tallySeasonRecord`.
+ * Mirrors `tallySeasonRecord` plus FINAL FCS stubs (`tallyFcsStubRecord`).
  */
 export const SEASON_RECORD_JOIN = `
   left join (
@@ -63,6 +120,7 @@ export const SEASON_RECORD_JOIN = `
       where status = 'final'
         and home_score is not null
         and away_score is not null
+      ${fcsStubUnionSql()}
     ) outcomes
     group by team_id
   ) wl on wl.team_id = t.id

@@ -1,6 +1,13 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { formatSeasonRecord, tallySeasonRecord, type SeasonRecordGame } from "./season-record.ts";
+import {
+  SEASON_RECORD_JOIN,
+  combineSeasonRecord,
+  formatSeasonRecord,
+  tallyFcsStubRecord,
+  tallySeasonRecord,
+  type SeasonRecordGame,
+} from "./season-record.ts";
 
 function game(partial: Partial<SeasonRecordGame> & Pick<SeasonRecordGame, "homeTeamId" | "awayTeamId">): SeasonRecordGame {
   return {
@@ -36,6 +43,40 @@ describe("tallySeasonRecord", () => {
       game({ homeTeamId: 8, awayTeamId: 9, homeScore: 40, awayScore: 3 }),
     ];
     assert.deepEqual(tallySeasonRecord(games, 1), { seasonWins: 0, seasonLosses: 0 });
+  });
+});
+
+describe("tallyFcsStubRecord", () => {
+  it("counts Research FINAL FCS stubs (Georgia 1–0)", () => {
+    assert.deepEqual(tallyFcsStubRecord("georgia"), { seasonWins: 1, seasonLosses: 0 });
+    assert.deepEqual(tallyFcsStubRecord("missouri"), { seasonWins: 1, seasonLosses: 0 });
+    assert.deepEqual(tallyFcsStubRecord("byu"), { seasonWins: 1, seasonLosses: 0 });
+  });
+
+  it("leaves unstamped FCS stubs at 0–0", () => {
+    assert.deepEqual(tallyFcsStubRecord("buffalo"), { seasonWins: 0, seasonLosses: 0 });
+    assert.deepEqual(tallyFcsStubRecord("ohio-state"), { seasonWins: 0, seasonLosses: 0 });
+  });
+});
+
+describe("SEASON_RECORD_JOIN", () => {
+  it("unions Research FINAL FCS stubs into the SQL tally", () => {
+    assert.match(SEASON_RECORD_JOIN, /'georgia'/);
+    assert.match(SEASON_RECORD_JOIN, /'missouri'/);
+    assert.doesNotMatch(SEASON_RECORD_JOIN, /'buffalo'/);
+  });
+});
+
+describe("combineSeasonRecord", () => {
+  it("adds FBS FINALs and FCS stub FINALs", () => {
+    assert.deepEqual(
+      combineSeasonRecord({ seasonWins: 1, seasonLosses: 1 }, tallyFcsStubRecord("georgia")),
+      { seasonWins: 2, seasonLosses: 1 },
+    );
+    assert.deepEqual(
+      combineSeasonRecord({ seasonWins: 0, seasonLosses: 0 }, tallyFcsStubRecord("georgia")),
+      { seasonWins: 1, seasonLosses: 0 },
+    );
   });
 });
 
