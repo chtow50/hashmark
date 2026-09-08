@@ -6,6 +6,7 @@ import { inConf, parseConf, type ConfFilter } from "@/lib/cfb/conferences";
 import { BOARD_WEEK } from "@/lib/cfb/featured";
 import { MODEL } from "@/lib/cfb/model";
 import { listTeams } from "@/lib/cfb/queries";
+import { formatSeasonRecord } from "@/lib/cfb/season-record";
 import { cn, fmtNum, fmtPct } from "@/lib/utils";
 import type { TeamSummary } from "@/lib/cfb/types";
 
@@ -129,7 +130,7 @@ function RankingsPage() {
                       <span>
                         <span className="block whitespace-nowrap font-medium">{t.name}</span>
                         <span className="block whitespace-nowrap text-xs text-muted">
-                          {t.conference} · {t.lastWins}–{t.lastLosses}
+                          {t.conference} · {formatSeasonRecord(t.seasonWins, t.seasonLosses)}
                         </span>
                       </span>
                     </Link>

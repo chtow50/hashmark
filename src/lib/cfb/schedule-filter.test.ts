@@ -17,6 +17,8 @@ function team(slug: string, hxRank: number, apRank: number | null, conference = 
     colorSecondary: "#fff",
     lastWins: 0,
     lastLosses: 0,
+    seasonWins: 0,
+    seasonLosses: 0,
     lastFinish: "",
     hxRank,
     hxRating: 90,

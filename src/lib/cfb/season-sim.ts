@@ -1,4 +1,4 @@
-import { fcsStubsForTeam } from "./fcs-stubs.ts";
+import { fcsStubIsFinal, fcsStubsForTeam, type FcsStubGame } from "./fcs-stubs.ts";
 import type { GameStatus, ScheduleGame, TeamSummary } from "./types.ts";
 
 /** One row on a team hub schedule panel. */
@@ -67,14 +67,9 @@ export function make12FromTeam(team: Pick<TeamSummary, "playoffOdds">): Make12Od
   };
 }
 
-export function buildRemainingSchedule(
-  teamSlug: string,
-  games: ScheduleGame[],
-): TeamScheduleRow[] {
-  const fbsRows = games.filter((g) => g.status !== "final").map((g) => toScheduleRow(teamSlug, g));
-
-  const fcsRows: TeamScheduleRow[] = fcsStubsForTeam(teamSlug).map((stub, i) => ({
-    key: `fcs-${teamSlug}-${stub.kickoffDate}-${i}`,
+function toFcsStubRow(stub: FcsStubGame, i: number): TeamScheduleRow {
+  return {
+    key: `fcs-${stub.teamSlug}-${stub.kickoffDate}-${i}`,
     week: stub.week,
     kickoffDate: stub.kickoffDate,
     opponentLabel: stub.opponentLabel,
@@ -83,12 +78,23 @@ export function buildRemainingSchedule(
     home: stub.home,
     neutral: false,
     location: null,
-    status: "scheduled" as const,
-    homeScore: null,
-    awayScore: null,
+    status: stub.status,
+    homeScore: stub.homeScore,
+    awayScore: stub.awayScore,
     isFcs: true,
     game: null,
-  }));
+  };
+}
+
+export function buildRemainingSchedule(
+  teamSlug: string,
+  games: ScheduleGame[],
+): TeamScheduleRow[] {
+  const fbsRows = games.filter((g) => g.status !== "final").map((g) => toScheduleRow(teamSlug, g));
+
+  const fcsRows = fcsStubsForTeam(teamSlug)
+    .filter((stub) => !fcsStubIsFinal(stub))
+    .map((stub, i) => toFcsStubRow(stub, i));
 
   return [...fbsRows, ...fcsRows].sort((a, b) => {
     if (a.kickoffDate !== b.kickoffDate) return a.kickoffDate < b.kickoffDate ? -1 : 1;

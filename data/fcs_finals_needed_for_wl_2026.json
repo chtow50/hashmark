@@ -1,0 +1,45 @@
+{
+  "source": "Research CFB vs ESPN overall (HOLD on PR 27)",
+  "as_of": "2026-09-08",
+  "note": "Only this list is stamped. Other FCS stubs stay scheduled. No guessed scores.",
+  "blocker": {
+    "teamSlug": "georgia",
+    "home": true,
+    "homeScore": 63,
+    "awayScore": 3,
+    "opponentLabel": "Tennessee State",
+    "kickoffDate": "2026-09-05"
+  },
+  "week0_fbs": [
+    { "homeSlug": "florida-state", "awaySlug": "new-mexico-state", "homeScore": 34, "awayScore": 17, "kickoffDate": "2026-08-29" },
+    { "homeSlug": "stanford", "awaySlug": "hawaii", "homeScore": 37, "awayScore": 27, "kickoffDate": "2026-08-29" },
+    { "homeSlug": "tcu", "awaySlug": "north-carolina", "homeScore": 10, "awayScore": 15, "kickoffDate": "2026-08-29", "note": "away UNC win" },
+    { "homeSlug": "unlv", "awaySlug": "memphis", "homeScore": 21, "awayScore": 27, "note": "away Memphis win" },
+    { "homeSlug": "usc", "awaySlug": "san-jose-state", "homeScore": 42, "awayScore": 26, "kickoffDate": "2026-08-29" },
+    { "homeSlug": "virginia", "awaySlug": "nc-state", "homeScore": 34, "awayScore": 8, "kickoffDate": "2026-08-29" }
+  ],
+  "week1_fcs": [
+    { "teamSlug": "minnesota", "opponentLabel": "Eastern Illinois", "homeScore": 59, "awayScore": 7, "kickoffDate": "2026-09-03" },
+    { "teamSlug": "missouri", "opponentLabel": "UAPB", "homeScore": 54, "awayScore": 14, "kickoffDate": "2026-09-03" },
+    { "teamSlug": "utah", "opponentLabel": "Idaho", "homeScore": 66, "awayScore": 14, "kickoffDate": "2026-09-03" },
+    { "teamSlug": "purdue", "opponentLabel": "Indiana State", "homeScore": 44, "awayScore": 19, "kickoffDate": "2026-09-04" },
+    { "teamSlug": "app-state", "opponentLabel": "Maine", "homeScore": 55, "awayScore": 3, "kickoffDate": "2026-09-05", "note": "no prior stub; added Week 1 Saturday slot" },
+    { "teamSlug": "army", "opponentLabel": "Bryant", "homeScore": 59, "awayScore": 3, "kickoffDate": "2026-09-05" },
+    { "teamSlug": "byu", "opponentLabel": "Utah Tech", "homeScore": 63, "awayScore": 7, "kickoffDate": "2026-09-05" },
+    { "teamSlug": "texas-tech", "opponentLabel": "Nicholls", "homeScore": 33, "awayScore": 3, "kickoffDate": "2026-09-05" },
+    { "teamSlug": "maryland", "opponentLabel": "Hampton", "homeScore": 62, "awayScore": 0, "kickoffDate": "2026-09-05" },
+    { "teamSlug": "navy", "opponentLabel": "Towson", "homeScore": 42, "awayScore": 15, "kickoffDate": "2026-09-05" },
+    { "teamSlug": "tennessee", "opponentLabel": "Furman", "homeScore": 56, "awayScore": 9, "kickoffDate": "2026-09-05" },
+    { "teamSlug": "uconn", "opponentLabel": "Lafayette", "homeScore": 56, "awayScore": 7, "kickoffDate": "2026-09-05", "note": "no prior stub; added Week 1 Saturday slot" },
+    { "teamSlug": "virginia-tech", "opponentLabel": "VMI", "homeScore": 73, "awayScore": 3, "kickoffDate": "2026-09-05" },
+    { "teamSlug": "georgia", "opponentLabel": "Tennessee State", "homeScore": 63, "awayScore": 3, "kickoffDate": "2026-09-05" }
+  ],
+  "peer_targets": {
+    "georgia": "1-0",
+    "usc": "2-0",
+    "florida-state": "1-1",
+    "stanford": "1-1",
+    "memphis": "2-0",
+    "virginia": "1-0"
+  }
+}
