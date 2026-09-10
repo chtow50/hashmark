@@ -46,12 +46,17 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /lbAvgWeightLbs/);
   });
 
-  it("includes PR #28 Week 1 tape, gaps, and Make≠title in committed output", () => {
+  it("includes Week 1 tape, gaps, and HX 2026.3 Make 12 in committed output", () => {
     const text = corpus();
     assert.match(text, /36\/43/);
     assert.match(text, /make_field/);
-    assert.match(text, /73\.81/);
+    assert.match(text, /74\.31/);
+    assert.match(text, /20\.84/);
+    assert.match(text, /2026-09-09/);
+    assert.match(text, /HX 2026\.3 · 10k draws|make-field · HX 2026\.3 10k/);
     assert.match(text, /make12FromSim|amd-draws|make-field, not title/);
+    assert.doesNotMatch(text, /pre-Δ 10k draws/);
+    assert.doesNotMatch(text, /not a post-2026\.3 re-sim/);
   });
 
   it("keeps PGLite wasm sidecars next to the server bundle", () => {
