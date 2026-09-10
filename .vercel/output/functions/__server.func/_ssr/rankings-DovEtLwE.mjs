@@ -2,10 +2,11 @@ import { o as __toESM } from "../_runtime.mjs";
 import { t as MODEL } from "./chicago-DXJoTaoU.mjs";
 import { n as require_react } from "../_libs/@radix-ui/react-compose-refs+[...].mjs";
 import { S as require_jsx_runtime, y as Link } from "../_libs/@tanstack/react-router+[...].mjs";
-import { C as ConfPills, M as fmtPct, N as inConf, O as cn, T as Panel, d as Route$7, j as fmtNum, w as PageHead } from "./router-DgNS_QMM.mjs";
+import { C as ConfPills, M as fmtPct, N as inConf, O as cn, T as Panel, d as Route$7, j as fmtNum, w as PageHead } from "./router-b4QcdpTO.mjs";
 import { n as DeltaChip, o as RankNum, u as TeamMark } from "./marks-BAdZVDnV.mjs";
 import { i as formatSeasonRecord } from "./season-record-Bop-q4Ke.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/rankings-CyVyPjLy.js
+import { a as make12FromSim } from "./season-sim-BFFIB8Za.mjs";
+//#region node_modules/.nitro/vite/services/ssr/assets/rankings-DovEtLwE.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 /** Rank col is w-16; Team sticks at that offset so names never slide under Off/Def. */
@@ -35,7 +36,7 @@ function RankingsPage() {
 		if (sort === key) setDir((d) => d === "asc" ? "desc" : "asc");
 		else {
 			setSort(key);
-			setDir(key === "hxRating" || key === "projectedWins" || key === "playoffOdds" || key === "talentScore" ? "desc" : "asc");
+			setDir(key === "hxRating" || key === "projectedWins" || key === "makeField" || key === "talentScore" ? "desc" : "asc");
 		}
 	}
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
@@ -100,8 +101,8 @@ function RankingsPage() {
 								children: "Proj W"
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Th, {
-								onClick: () => toggle("playoffOdds"),
-								active: sort === "playoffOdds",
+								onClick: () => toggle("makeField"),
+								active: sort === "makeField",
 								className: "border-b border-line",
 								children: "Make 12"
 							}),
@@ -178,7 +179,7 @@ function RankingsPage() {
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
 								className: "border-b border-line px-3 py-3 tabular",
-								children: fmtPct(t.playoffOdds, 1)
+								children: fmtPct(make12FromSim(t.slug, t).makeField ?? t.playoffOdds, 1)
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", {
 								className: "border-b border-line px-3 py-3 tabular",
@@ -193,6 +194,7 @@ function RankingsPage() {
 }
 function value(t, key) {
 	if (key === "apRank") return t.apRank ?? 99;
+	if (key === "makeField") return make12FromSim(t.slug, t).makeField ?? t.playoffOdds;
 	return t[key];
 }
 function Th({ children, onClick, active, className }) {

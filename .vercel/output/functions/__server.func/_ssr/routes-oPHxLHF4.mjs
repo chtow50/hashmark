@@ -1,11 +1,11 @@
 import { n as formatKickCt, o as predictMatchup, r as formatKickDayTitle, t as MODEL } from "./chicago-DXJoTaoU.mjs";
 import { S as require_jsx_runtime, y as Link } from "../_libs/@tanstack/react-router+[...].mjs";
 import { s as ArrowRight } from "../_libs/lucide-react.mjs";
-import { D as apLabel, M as fmtPct, O as cn, S as Button, T as Panel, _ as favoriteLine, j as fmtNum, m as Route$11, v as featuredBook, w as PageHead, x as spreadGap, y as featuredSlateWeek } from "./router-DgNS_QMM.mjs";
+import { D as apLabel, M as fmtPct, O as cn, S as Button, T as Panel, _ as favoriteLine, j as fmtNum, m as Route$11, v as featuredBook, w as PageHead, x as spreadGap, y as featuredSlateWeek } from "./router-b4QcdpTO.mjs";
 import { c as Stat, f as WinBar, l as TeamLink, n as DeltaChip, o as RankNum, u as TeamMark } from "./marks-BAdZVDnV.mjs";
 import { i as formatSeasonRecord } from "./season-record-Bop-q4Ke.mjs";
-import { a as make12FromSim, c as odMovers, l as odTermLabel, t as boardDisagreementRows, u as week1Tape } from "./season-sim-CYc-TMmG.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/routes-D1iXpoAo.js
+import { a as make12FromSim, c as odMovers, l as odTermLabel, t as boardDisagreementRows, u as week1Tape } from "./season-sim-BFFIB8Za.mjs";
+//#region node_modules/.nitro/vite/services/ssr/assets/routes-oPHxLHF4.js
 var import_jsx_runtime = require_jsx_runtime();
 function DisagreementCard({ rows }) {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Panel, { children: [
@@ -193,7 +193,7 @@ function Home() {
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Stat, {
 								label: "Make 12",
 								value: oneMake?.makeField != null ? fmtPct(oneMake.makeField, 1) : fmtPct(one.playoffOdds, 0),
-								hint: oneMake?.makeFieldSource === "amd-draws" ? "make-field · pre-Δ 10k" : void 0
+								hint: oneMake?.makeFieldSource === "amd-draws" ? "make-field · HX 2026.3 10k" : void 0
 							})
 						]
 					})]
