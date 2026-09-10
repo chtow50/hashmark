@@ -94,10 +94,9 @@ const AP_SLUG_BY_NAME = new Map(
   (week1ApRaw.teams as { team: string; slug: string }[]).map((t) => [t.team, t.slug]),
 );
 
-/** pre-Δ 10k draws — frozen before Week 1 O/D ΔHX (HX 2026.3). */
+/** HX 2026.3 10k draws — AMD re-sim on live board (seed 20260909). */
 export const SIM_10K_AS_OF = sim10k.meta.as_of;
-export const SIM_10K_NOTE = `pre-Δ 10k draws · as_of ${SIM_10K_AS_OF}`;
-export const SIM_10K_NOT_RESIM = "not a post-2026.3 re-sim";
+export const SIM_10K_NOTE = `HX 2026.3 · 10k draws · as_of ${SIM_10K_AS_OF}`;
 
 export type TeamRef = {
   slug: string;

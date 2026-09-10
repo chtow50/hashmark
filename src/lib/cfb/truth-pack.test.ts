@@ -7,7 +7,6 @@ import {
   DISAGREE_HIGHLIGHT_NAMES,
   SIM_10K_AS_OF,
   SIM_10K_NOTE,
-  SIM_10K_NOT_RESIM,
   accountabilityPack,
   boardDisagreementRows,
   gapByName,
@@ -93,13 +92,17 @@ test("movers_by_abs_dhx are O/D terms", () => {
   assert.equal(movers[0]?.name, "Rutgers");
 });
 
-test("sim_10k Georgia is 73.8 / 20.4 pre-Δ as_of 2026-09-06", () => {
+test("sim_10k Georgia is 74.3 / 20.8 on HX 2026.3 as_of 2026-09-09", () => {
   const g = simTeamBySlug("georgia");
   assert.ok(g);
-  assert.equal(Number(g.make_field.toFixed(1)), 73.8);
-  assert.equal(Number(g.win_title.toFixed(1)), 20.4);
+  assert.equal(g.make_field, 74.31);
+  assert.equal(g.win_title, 20.84);
+  assert.equal(Number(g.make_field.toFixed(1)), 74.3);
+  assert.equal(Number(g.win_title.toFixed(1)), 20.8);
   assert.notEqual(g.make_field, g.win_title);
-  assert.equal(SIM_10K_AS_OF, "2026-09-06");
-  assert.match(SIM_10K_NOTE, /pre-Δ 10k draws/);
-  assert.match(SIM_10K_NOT_RESIM, /not a post-2026\.3 re-sim/);
+  assert.equal(SIM_10K_AS_OF, "2026-09-09");
+  assert.match(SIM_10K_NOTE, /HX 2026\.3 · 10k draws/);
+  assert.match(SIM_10K_NOTE, /2026-09-09/);
+  assert.doesNotMatch(SIM_10K_NOTE, /pre-Δ/);
+  assert.doesNotMatch(SIM_10K_NOTE, /not a post-2026\.3 re-sim/);
 });

@@ -7,6 +7,7 @@ import { BOARD_WEEK } from "@/lib/cfb/featured";
 import { MODEL } from "@/lib/cfb/model";
 import { listTeams } from "@/lib/cfb/queries";
 import { formatSeasonRecord } from "@/lib/cfb/season-record";
+import { make12FromSim } from "@/lib/cfb/season-sim";
 import { cn, fmtNum, fmtPct } from "@/lib/utils";
 import type { TeamSummary } from "@/lib/cfb/types";
 
@@ -27,7 +28,7 @@ type SortKey =
   | "hxRating"
   | "apRank"
   | "projectedWins"
-  | "playoffOdds"
+  | "makeField"
   | "talentScore"
   | "recRank";
 
@@ -56,7 +57,7 @@ function RankingsPage() {
     if (sort === key) setDir((d) => (d === "asc" ? "desc" : "asc"));
     else {
       setSort(key);
-      setDir(key === "hxRating" || key === "projectedWins" || key === "playoffOdds" || key === "talentScore" ? "desc" : "asc");
+      setDir(key === "hxRating" || key === "projectedWins" || key === "makeField" || key === "talentScore" ? "desc" : "asc");
     }
   }
 
@@ -103,7 +104,7 @@ function RankingsPage() {
                 <Th onClick={() => toggle("projectedWins")} active={sort === "projectedWins"} className="border-b border-line">
                   Proj W
                 </Th>
-                <Th onClick={() => toggle("playoffOdds")} active={sort === "playoffOdds"} className="border-b border-line">
+                <Th onClick={() => toggle("makeField")} active={sort === "makeField"} className="border-b border-line">
                   Make 12
                 </Th>
                 <Th onClick={() => toggle("talentScore")} active={sort === "talentScore"} className="border-b border-line">
@@ -144,7 +145,9 @@ function RankingsPage() {
                     {fmtNum(t.offenseRating, 1)} / {fmtNum(t.defenseRating, 1)}
                   </td>
                   <td className="border-b border-line px-3 py-3 tabular">{fmtNum(t.projectedWins, 1)}</td>
-                  <td className="border-b border-line px-3 py-3 tabular">{fmtPct(t.playoffOdds, 1)}</td>
+                  <td className="border-b border-line px-3 py-3 tabular">
+                    {fmtPct(make12FromSim(t.slug, t).makeField ?? t.playoffOdds, 1)}
+                  </td>
                   <td className="border-b border-line px-3 py-3 tabular">{fmtNum(t.talentScore, 1)}</td>
                 </tr>
               ))}
@@ -158,6 +161,7 @@ function RankingsPage() {
 
 function value(t: TeamSummary, key: SortKey) {
   if (key === "apRank") return t.apRank ?? 99;
+  if (key === "makeField") return make12FromSim(t.slug, t).makeField ?? t.playoffOdds;
   return t[key];
 }
 

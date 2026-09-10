@@ -1035,7 +1035,7 @@ function getStory(slug) {
 	return STORIES.find((s) => s.slug === slug) ?? null;
 }
 //#endregion
-//#region node_modules/.nitro/vite/services/ssr/assets/router-DgNS_QMM.js
+//#region node_modules/.nitro/vite/services/ssr/assets/router-b4QcdpTO.js
 var __defProp = Object.defineProperty;
 var __exportAll = (all, no_symbols) => {
 	let target = {};
@@ -1432,7 +1432,7 @@ function Root() {
 		] })]
 	});
 }
-var $$splitComponentImporter$11 = () => import("./routes-D1iXpoAo.mjs");
+var $$splitComponentImporter$11 = () => import("./routes-oPHxLHF4.mjs");
 var Route$11 = createFileRoute("/")({
 	loader: async () => {
 		const [teams, games, slate] = await Promise.all([
@@ -1452,13 +1452,13 @@ var Route$11 = createFileRoute("/")({
 	component: lazyRouteComponent($$splitComponentImporter$11, "component"),
 	head: () => ({ meta: [{ title: `HASHMARK · Week 2 board` }] })
 });
-var $$splitComponentImporter$10 = () => import("./logos-DmyP07sO.mjs");
+var $$splitComponentImporter$10 = () => import("./logos-C6gtuQvs.mjs");
 var Route$10 = createFileRoute("/logos")({
 	loader: async () => listTeams(),
 	component: lazyRouteComponent($$splitComponentImporter$10, "component"),
 	head: () => ({ meta: [{ title: "Team logos · HASHMARK" }] })
 });
-var $$splitComponentImporter$9 = () => import("./matchup-fGxmn9LP.mjs");
+var $$splitComponentImporter$9 = () => import("./matchup-BsBgzDVd.mjs");
 function parseNeutral(v) {
 	if (v === true || v === "1" || v === "true") return true;
 	if (v === false || v === "0" || v === "false") return false;
@@ -1493,7 +1493,7 @@ var Route$8 = createFileRoute("/model")({
 	component: lazyRouteComponent($$splitComponentImporter$8, "component"),
 	head: () => ({ meta: [{ title: "The Model · HASHMARK" }] })
 });
-var $$splitComponentImporter$7 = () => import("./rankings-CyVyPjLy.mjs");
+var $$splitComponentImporter$7 = () => import("./rankings-DovEtLwE.mjs");
 var Route$7 = createFileRoute("/rankings")({
 	validateSearch: (s) => {
 		const conf = parseConf(s.conf);
@@ -1510,7 +1510,7 @@ var YEARS = [
 	2025,
 	2026
 ];
-var $$splitComponentImporter$6 = () => import("./recruiting-CE233wR1.mjs");
+var $$splitComponentImporter$6 = () => import("./recruiting-CQjfaKrh.mjs");
 var Route$6 = createFileRoute("/recruiting")({
 	validateSearch: (s) => {
 		const y = Number(s.year);
@@ -1549,7 +1549,7 @@ function filterScheduleGames(games, teams, view, conf) {
 	const inConference = new Set(teams.filter((t) => inConf(t.conference, conf)).map((t) => t.slug));
 	return games.filter((g) => inConference.has(g.homeSlug) || inConference.has(g.awaySlug));
 }
-var $$splitComponentImporter$5 = () => import("./schedule-D3Ugq_Mm.mjs");
+var $$splitComponentImporter$5 = () => import("./schedule-CHql-lmG.mjs");
 function parseWeek(v) {
 	const n = typeof v === "number" ? v : typeof v === "string" ? Number(v) : NaN;
 	if (!Number.isInteger(n) || n < 0 || n > 13) return void 0;
@@ -1588,20 +1588,20 @@ var Route$5 = createFileRoute("/schedule")({
 	component: lazyRouteComponent($$splitComponentImporter$5, "component"),
 	head: () => ({ meta: [{ title: "Schedule · HASHMARK" }] })
 });
-var $$splitComponentImporter$4 = () => import("./states-CoFYquEh.mjs");
+var $$splitComponentImporter$4 = () => import("./states-C1wyYJn4.mjs");
 var Route$4 = createFileRoute("/states")({
 	validateSearch: (s) => ({ code: typeof s.code === "string" ? s.code.toUpperCase() : "TX" }),
 	loader: () => listStates(),
 	component: lazyRouteComponent($$splitComponentImporter$4, "component"),
 	head: () => ({ meta: [{ title: "States · HASHMARK" }] })
 });
-var $$splitComponentImporter$3 = () => import("./stories-mxa4YdXL.mjs");
+var $$splitComponentImporter$3 = () => import("./stories-D2ExJivw.mjs");
 var Route$3 = createFileRoute("/stories")({
 	loader: () => listStories(),
 	component: lazyRouteComponent($$splitComponentImporter$3, "component"),
 	head: () => ({ meta: [{ title: "Stories · HASHMARK" }] })
 });
-var $$splitComponentImporter$2 = () => import("./talent-BeY4Glmk.mjs");
+var $$splitComponentImporter$2 = () => import("./talent-BsBCqbyn.mjs");
 var Route$2 = createFileRoute("/talent")({
 	validateSearch: (s) => ({
 		board: s.board === "size" ? "size" : "composite",
@@ -1611,7 +1611,7 @@ var Route$2 = createFileRoute("/talent")({
 	component: lazyRouteComponent($$splitComponentImporter$2, "component"),
 	head: () => ({ meta: [{ title: "Roster Talent · HASHMARK" }] })
 });
-var $$splitComponentImporter$1 = () => import("./stories._slug-fVHa9sUW.mjs");
+var $$splitComponentImporter$1 = () => import("./stories._slug-YPdWwFjc.mjs");
 var Route$1 = createFileRoute("/stories/$slug")({
 	loader: ({ params }) => {
 		const story = getStory(params.slug);
@@ -1621,7 +1621,7 @@ var Route$1 = createFileRoute("/stories/$slug")({
 	component: lazyRouteComponent($$splitComponentImporter$1, "component"),
 	head: ({ loaderData }) => ({ meta: [{ title: loaderData ? `${loaderData.headline} · HASHMARK` : "Story · HASHMARK" }] })
 });
-var $$splitComponentImporter = () => import("./teams._slug-Dq_9K0wd.mjs");
+var $$splitComponentImporter = () => import("./teams._slug-XjaiP1q2.mjs");
 var Route = createFileRoute("/teams/$slug")({
 	loader: async ({ params }) => {
 		const data = await getTeam({ data: { slug: params.slug } });

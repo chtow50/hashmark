@@ -1,4 +1,7 @@
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
+import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
 import { test } from "node:test";
 import { fcsStubsForTeam } from "./fcs-stubs.ts";
 import {
@@ -45,20 +48,37 @@ function scheduleFixture(
   };
 }
 
-test("make12FromSim loads Georgia pre-Δ draws — make-field is not title", () => {
-  const odds = make12FromSim("georgia");
+test("make12FromSim loads Georgia HX 2026.3 draws — make-field is not title", () => {
+  const odds = make12FromSim("georgia", { playoffOdds: 98.4 });
   assert.equal(odds.makeFieldSource, "amd-draws");
   assert.equal(odds.winTitleSource, "amd-draws");
   assert.ok(odds.makeField != null);
   assert.ok(odds.winTitle != null);
-  assert.equal(Number(odds.makeField.toFixed(1)), 73.8);
-  assert.equal(Number(odds.winTitle.toFixed(1)), 20.4);
+  assert.equal(odds.makeField, 74.31);
+  assert.equal(odds.winTitle, 20.84);
+  assert.equal(Number(odds.makeField.toFixed(1)), 74.3);
+  assert.equal(Number(odds.winTitle.toFixed(1)), 20.8);
   assert.notEqual(odds.makeField, odds.winTitle);
-  assert.match(make12FieldLabel(odds.makeFieldSource) ?? "", /pre-Δ 10k draws/);
-  assert.match(make12FieldLabel(odds.makeFieldSource) ?? "", /2026-09-06/);
+  assert.notEqual(Number(odds.makeField.toFixed(0)), 98);
+  assert.match(make12FieldLabel(odds.makeFieldSource) ?? "", /HX 2026\.3 · 10k draws/);
+  assert.match(make12FieldLabel(odds.makeFieldSource) ?? "", /2026-09-09/);
   assert.match(make12FieldLabel(odds.makeFieldSource) ?? "", /not title/);
-  assert.match(make12TitleLabel(odds.winTitleSource) ?? "", /not a post-2026\.3 re-sim/);
+  assert.doesNotMatch(make12FieldLabel(odds.makeFieldSource) ?? "", /pre-Δ/);
+  assert.doesNotMatch(make12TitleLabel(odds.winTitleSource) ?? "", /not a post-2026\.3 re-sim/);
+  assert.doesNotMatch(make12TitleLabel(odds.winTitleSource) ?? "", /pre-Δ/);
   assert.match(make12PanelLede(odds.makeFieldSource), /not a national title/);
+  assert.match(make12PanelLede(odds.makeFieldSource), /HX 2026\.3 · 10k draws/);
+  assert.doesNotMatch(make12PanelLede(odds.makeFieldSource), /pre-Δ/);
+  assert.doesNotMatch(make12PanelLede(odds.makeFieldSource), /not a post-2026\.3 re-sim/);
+});
+
+test("rankings Make 12 column reads make12FromSim makeField, not playoffOdds", () => {
+  const src = readFileSync(
+    join(dirname(fileURLToPath(import.meta.url)), "../../routes/rankings.tsx"),
+    "utf8",
+  );
+  assert.match(src, /make12FromSim\(t\.slug, t\)\.makeField/);
+  assert.doesNotMatch(src, /fmtPct\(t\.playoffOdds/);
 });
 
 test("make12FromTeam maps legacy playoff_odds to make-field only", () => {

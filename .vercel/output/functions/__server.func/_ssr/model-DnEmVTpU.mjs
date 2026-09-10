@@ -1,6 +1,6 @@
 import { t as MODEL } from "./chicago-DXJoTaoU.mjs";
 import { S as require_jsx_runtime, y as Link } from "../_libs/@tanstack/react-router+[...].mjs";
-import { T as Panel, w as PageHead } from "./router-DgNS_QMM.mjs";
+import { T as Panel, w as PageHead } from "./router-b4QcdpTO.mjs";
 //#region node_modules/.nitro/vite/services/ssr/assets/model-DnEmVTpU.js
 var import_jsx_runtime = require_jsx_runtime();
 var WEIGHTS = [
