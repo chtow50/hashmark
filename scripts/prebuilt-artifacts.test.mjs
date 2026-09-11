@@ -68,6 +68,7 @@ describe("prebuilt deploy artifacts", () => {
   });
 
   it("includes Week 2 FBS–FBS Research kick/TV/Vegas stamps in committed output", () => {
+    // Companion unit gate: src/lib/cfb/fcs-fbs-stamp-gate.test.ts (wrong stamp is worse than late).
     const text = corpus();
     assert.match(text, /401856682/);
     assert.match(text, /0024_week2_kick_tv_vegas/);
