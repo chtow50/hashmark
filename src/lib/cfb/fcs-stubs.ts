@@ -5,6 +5,9 @@
  * Week 2: JSON ingest of AMD `data/week2_fbs_fcs_spreads_2026.json` —
  * kick / TV / Vegas close, hx_spread always null (vegas_only_fcs_unrated).
  * Do not invent FCS HX, scores, or a second rating.
+ *
+ * Ship gate (`fcs-fbs-stamp-gate.ts`): wrong stamp is worse than late — do not
+ * ship Vegas-only FCS for week N until that week's FBS–FBS kick/Vegas are stamped.
  */
 import week2FcsRaw from "../../../data/week2_fbs_fcs_spreads_2026.json" with { type: "json" };
 import { chicagoCivilToIso } from "./chicago.ts";
