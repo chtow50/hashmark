@@ -4,6 +4,7 @@ import {
   formatKickCt,
   formatKickDayTitle,
   kickoffCivilYmd,
+  chicagoCivilToIso,
 } from "./chicago.ts";
 
 /** Thu Sep 3 7:00 CT ESPN — Colorado at GT. Instant is Fri 00:00 UTC. */
@@ -29,4 +30,12 @@ test("late Saturday Pacific kicks stay Saturday in Chicago, not Sunday UTC", () 
   assert.equal(kickoffCivilYmd(calKick, "2026-09-06"), "2026-09-05");
   assert.equal(formatKickDayTitle(calKick, "2026-09-06"), "Saturday, Sep 5");
   assert.equal(formatKickCt(calKick), "9:30 CT");
+});
+
+test("Chicago civil 2026-09-10 19:00 is 7:00 CT Thursday, not UTC Friday", () => {
+  const iso = chicagoCivilToIso("2026-09-10 19:00");
+  assert.ok(iso);
+  assert.equal(kickoffCivilYmd(iso, "2026-09-10"), "2026-09-10");
+  assert.equal(formatKickDayTitle(iso, "2026-09-10"), "Thursday, Sep 10");
+  assert.equal(formatKickCt(iso), "7:00 CT");
 });

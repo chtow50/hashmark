@@ -17,8 +17,16 @@ export type TeamScheduleRow = {
   homeScore: number | null;
   awayScore: number | null;
   isFcs: boolean;
-  /** Full FBS game row for odds / matchup link — null for FCS stubs. */
+  /** Full FBS game row for odds / matchup link — null for FCS stubs (never invent HX). */
   game: ScheduleGame | null;
+  kickoffAt?: string | null;
+  tv?: string | null;
+  /** Home-perspective Vegas close when stamped. */
+  vegasSpread?: number | null;
+  homeShort?: string | null;
+  awayShort?: string | null;
+  hxSpreadPolicy?: ScheduleGame["hxSpreadPolicy"];
+  live?: boolean;
 };
 
 /** @deprecated Use ScheduleGame — kept for test fixtures. */
@@ -110,6 +118,13 @@ function toFcsStubRow(stub: FcsStubGame, i: number): TeamScheduleRow {
     awayScore: stub.awayScore,
     isFcs: true,
     game: null,
+    kickoffAt: stub.kickoffAt ?? null,
+    tv: stub.tv ?? null,
+    vegasSpread: stub.vegasSpread ?? null,
+    homeShort: stub.homeShort ?? null,
+    awayShort: stub.awayShort ?? null,
+    hxSpreadPolicy: stub.hxSpreadPolicy,
+    live: stub.live,
   };
 }
 

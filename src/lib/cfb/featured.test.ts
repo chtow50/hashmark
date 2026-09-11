@@ -263,3 +263,21 @@ test("same-favorite spread gap vs −6.5 is the flag", () => {
   assert.equal(favoriteLine("Georgia Tech", "Colorado", 6.5), "Georgia Tech −6.5");
   assert.equal(spreadGap(10.3, -6.5), null);
 });
+
+test("FCS Vegas-only rows are never featured (no invented HX)", () => {
+  const famu = game({
+    id: -401858213,
+    week: 2,
+    homeSlug: "miami",
+    awaySlug: "fcs-famu",
+    kickoffDate: "2026-09-10",
+    kickoffAt: "2026-09-11T00:00:00.000Z",
+    isFcs: true,
+    hxSpreadPolicy: "vegas_only_fcs_unrated",
+    vegasSpread: 59.5,
+    tv: "ACCN",
+  });
+  const featured = selectFeaturedKick([famu, osuTexas], Date.parse("2026-09-09T16:00:00.000Z"));
+  assert.equal(featured?.homeSlug, "texas");
+  assert.equal(isUpcomingKick(famu, Date.parse("2026-09-09T16:00:00.000Z")), false);
+});

@@ -59,6 +59,14 @@ describe("prebuilt deploy artifacts", () => {
     assert.doesNotMatch(text, /not a post-2026\.3 re-sim/);
   });
 
+  it("includes Week 2 FBS–FCS Vegas-only stamps in committed output", () => {
+    const text = corpus();
+    assert.match(text, /Vegas-only/);
+    assert.match(text, /vegas_only_fcs_unrated/);
+    assert.match(text, /401858213/);
+    assert.match(text, /Florida A&M/);
+  });
+
   it("keeps PGLite wasm sidecars next to the server bundle", () => {
     const libs = join(OUT, "functions/__server.func/_libs");
     for (const name of ["pglite.wasm", "initdb.wasm", "pglite.data"]) {

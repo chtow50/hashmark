@@ -174,3 +174,15 @@ test("fcsStubsForTeam returns georgia week-1 FCS FINAL", () => {
   assert.equal(uga?.homeScore, 63);
   assert.equal(uga?.awayScore, 3);
 });
+
+test("Miami remaining schedule includes Week 2 FAMU Vegas-only stub", () => {
+  const rows = buildRemainingSchedule("miami", []);
+  const famu = rows.find((r) => r.isFcs && r.week === 2);
+  assert.ok(famu);
+  assert.match(famu.opponentLabel, /Florida A&M/);
+  assert.equal(famu.vegasSpread, 59.5);
+  assert.equal(famu.tv, "ACCN");
+  assert.equal(famu.hxSpreadPolicy, "vegas_only_fcs_unrated");
+  assert.equal(famu.game, null);
+  assert.equal(famu.homeScore, null);
+});

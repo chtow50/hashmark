@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Panel } from "@/components/shell";
 import { DeskChip, TeamMark } from "@/components/marks";
+import { formatKickCt } from "@/lib/cfb/chicago";
 import { favoriteLine, formatVegas } from "@/lib/cfb/featured";
 import { predictMatchup } from "@/lib/cfb/model";
 import { isWinnerFlip, matchupChips } from "@/lib/cfb/schedule-flags";
@@ -64,18 +65,25 @@ function StatBlock({
 
 function TeamHubScheduleRow({ row }: { row: TeamScheduleRow }) {
   const g = row.game;
-  const pred = g
-    ? predictMatchup(
-        { hxRating: g.homeHx, offenseRating: g.homeOff, defenseRating: g.homeDef },
-        { hxRating: g.awayHx, offenseRating: g.awayOff, defenseRating: g.awayDef },
-        { neutral: g.neutral },
-      )
-    : null;
+  const vegasOnly = row.isFcs;
+  const pred =
+    g && !vegasOnly
+      ? predictMatchup(
+          { hxRating: g.homeHx, offenseRating: g.homeOff, defenseRating: g.homeDef },
+          { hxRating: g.awayHx, offenseRating: g.awayOff, defenseRating: g.awayDef },
+          { neutral: g.neutral },
+        )
+      : null;
   const hxLine =
     g && pred ? favoriteLine(g.homeShort, g.awayShort, pred.spread) : null;
   const hxWin = pred ? (pred.spread >= 0 ? pred.homeWinPct : pred.awayWinPct) : null;
+  const vegasHomeShort = g?.homeShort ?? row.homeShort ?? null;
+  const vegasAwayShort = g?.awayShort ?? row.awayShort ?? null;
+  const vegasSpread = g?.vegasSpread ?? row.vegasSpread ?? null;
   const vegasLine =
-    g?.vegasSpread == null ? null : favoriteLine(g.homeShort, g.awayShort, g.vegasSpread);
+    vegasSpread == null || vegasHomeShort == null || vegasAwayShort == null
+      ? null
+      : favoriteLine(vegasHomeShort, vegasAwayShort, vegasSpread);
   const flip = g && pred ? isWinnerFlip(pred, g.vegasSpread) : false;
   const chips =
     g && pred
@@ -102,8 +110,11 @@ function TeamHubScheduleRow({ row }: { row: TeamScheduleRow }) {
             ))}
             {row.isFcs ? (
               <span className="rounded bg-raised px-1.5 py-0.5 text-[10px] uppercase tracking-[0.1em] text-faint">
-                FCS stub
+                {row.hxSpreadPolicy === "vegas_only_fcs_unrated" ? "Vegas-only" : "FCS stub"}
               </span>
+            ) : null}
+            {row.live ? (
+              <DeskChip tone="accent">In progress</DeskChip>
             ) : null}
           </div>
           <div className="mt-2 flex flex-wrap items-center gap-2">
@@ -114,6 +125,13 @@ function TeamHubScheduleRow({ row }: { row: TeamScheduleRow }) {
               {row.home ? "vs" : "@"} {row.opponentLabel}
             </span>
           </div>
+          {row.kickoffAt || row.tv ? (
+            <p className="mt-1 text-sm text-muted">
+              {row.kickoffAt ? formatKickCt(row.kickoffAt) : null}
+              {row.kickoffAt && row.tv ? " · " : null}
+              {row.tv}
+            </p>
+          ) : null}
           {isFinal && finalScore ? (
             <p className="mt-1 text-sm text-muted">{finalScore}</p>
           ) : null}
@@ -132,6 +150,11 @@ function TeamHubScheduleRow({ row }: { row: TeamScheduleRow }) {
           {isFinal && finalScore ? (
             <StatBlock label="FINAL" value={finalScore} />
           ) : null}
+        </div>
+      ) : vegasOnly ? (
+        <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
+          <StatBlock label="HASHMARK" value="—" />
+          <StatBlock label="Vegas" value={formatVegas(vegasLine, null)} />
         </div>
       ) : null}
     </>
@@ -208,7 +231,7 @@ export function RemainingScheduleSection({
         <div>
           <h2 className="font-display text-2xl tracking-wide">Remaining schedule</h2>
           <p className="mt-1 text-sm text-muted">
-            Unplayed FBS slate plus FCS stubs. HASHMARK spread and win% from HX; Vegas when stamped on the tape.
+            Unplayed FBS slate plus FCS stubs. HASHMARK spread and win% from HX; FCS is Vegas-only (no invented HASHMARK spread).
           </p>
         </div>
         <span className="text-xs tabular text-faint">
