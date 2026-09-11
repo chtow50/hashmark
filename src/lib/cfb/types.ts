@@ -136,6 +136,9 @@ export type GameRow = {
 
 export type GameStatus = "scheduled" | "final";
 
+/** FCS opponents are unrated — stamp Vegas close, never invent an HX spread. */
+export type HxSpreadPolicy = "vegas_only_fcs_unrated";
+
 /** Game row plus the schedule-board columns from 0006. */
 export type ScheduleGame = GameRow & {
   kickoffAt: string | null;
@@ -145,6 +148,10 @@ export type ScheduleGame = GameRow & {
   awayScore: number | null;
   status: GameStatus;
   tv: string | null;
+  /** True when the opponent is FCS (not on the HASHMARK 136). */
+  isFcs?: boolean;
+  /** When set, HASHMARK spread is blank — Vegas only. */
+  hxSpreadPolicy?: HxSpreadPolicy | null;
 };
 
 export type StateRow = {

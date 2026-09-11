@@ -84,6 +84,34 @@ export function formatKickDayTitle(kickoffAt: string | null, fallbackYmd?: strin
   return "—";
 }
 
+/**
+ * Interpret a Chicago civil `YYYY-MM-DD HH:MM` as a UTC ISO instant.
+ * Picks CDT vs CST by round-tripping the civil clock (Week 2 2026 is CDT −05).
+ */
+export function chicagoCivilToIso(kickCt: string): string | null {
+  const m = kickCt.trim().match(/^(\d{4}-\d{2}-\d{2})[ T](\d{1,2}):(\d{2})$/);
+  if (!m) return null;
+  const ymd = m[1];
+  const hh = m[2].padStart(2, "0");
+  const mm = m[3];
+  for (const offset of ["-05:00", "-06:00"] as const) {
+    const local = `${ymd}T${hh}:${mm}:00${offset}`;
+    const dt = new Date(local);
+    if (Number.isNaN(dt.getTime())) continue;
+    if (ymdInTimeZone(dt) !== ymd) continue;
+    const parts = new Intl.DateTimeFormat("en-US", {
+      timeZone: CHICAGO_TZ,
+      hour: "2-digit",
+      minute: "2-digit",
+      hourCycle: "h23",
+    }).formatToParts(dt);
+    const hour = parts.find((p) => p.type === "hour")?.value?.padStart(2, "0");
+    const minute = parts.find((p) => p.type === "minute")?.value;
+    if (hour === hh && minute === mm) return dt.toISOString();
+  }
+  return null;
+}
+
 export function formatKickCt(iso: string | null): string {
   if (!iso) return "—";
   const when = new Date(iso);

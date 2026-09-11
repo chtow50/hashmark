@@ -35,7 +35,10 @@ export const Route = createFileRoute("/")({
     ]);
     const top = new Set(teams.slice(0, 20).map((t) => t.slug));
     const notable = games.filter((g) => top.has(g.homeSlug) && top.has(g.awaySlug));
-    const featured = selectFeaturedKick(slate, Date.now());
+    const featured = selectFeaturedKick(
+      slate.filter((g) => !g.isFcs),
+      Date.now(),
+    );
     return { teams, games: notable.length ? notable : games.slice(0, 12), featured };
   },
   component: Home,

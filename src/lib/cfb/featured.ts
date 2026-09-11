@@ -8,8 +8,8 @@ export const BOARD_WEEK = 2;
 
 /**
  * Featured kick reads the HASHMARK Week 2 slate (`/schedule?w=2`).
- * Week 2 games exist in the seed; kick/TV/Vegas are not stamped yet —
- * select the next upcoming non-final and do not invent a book.
+ * FCS rows are Vegas-only (unrated) — never feature them (would invent HX).
+ * Do not invent a Week 2 FBS–FBS book.
  */
 export const FEATURED_SLATE_WEEK = 2;
 
@@ -40,8 +40,12 @@ export function isColoradoAtGt(g: Pick<ScheduleGame, "homeSlug" | "awaySlug">): 
   return g.homeSlug === WEEK1_FLAG.homeSlug && g.awaySlug === WEEK1_FLAG.awaySlug;
 }
 
-export function isUpcomingKick(g: Pick<ScheduleGame, "status" | "kickoffAt">, nowMs: number): boolean {
+export function isUpcomingKick(
+  g: Pick<ScheduleGame, "status" | "kickoffAt"> & { isFcs?: boolean },
+  nowMs: number,
+): boolean {
   if (g.status === "final") return false;
+  if (g.isFcs) return false;
   if (g.kickoffAt != null) return Date.parse(g.kickoffAt) > nowMs;
   return true;
 }
@@ -50,12 +54,11 @@ export function isUpcomingKick(g: Pick<ScheduleGame, "status" | "kickoffAt">, no
  * Next upcoming non-final on a kick-sorted HASHMARK week slate.
  * Prefers the earliest future `kickoffAt`; if the slate has dates but no
  * times (Week 2 seed), takes the first non-final in slate order.
- * Never a FINAL. Does not invent Vegas or scores.
+ * Never a FINAL. Never an FCS stub (no invented HX). Does not invent Vegas or scores.
  */
-export function selectFeaturedKick<T extends Pick<ScheduleGame, "status" | "kickoffAt">>(
-  slate: T[],
-  nowMs: number,
-): T | null {
+export function selectFeaturedKick<
+  T extends Pick<ScheduleGame, "status" | "kickoffAt"> & { isFcs?: boolean },
+>(slate: T[], nowMs: number): T | null {
   const upcoming = slate.filter((g) => isUpcomingKick(g, nowMs));
   const timed = upcoming.filter((g) => g.kickoffAt != null);
   if (timed.length) {

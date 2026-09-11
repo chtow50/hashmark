@@ -14,6 +14,7 @@ import {
   parseScheduleView,
   type ScheduleView,
 } from "@/lib/cfb/schedule-filter";
+import { isVegasOnlyFcs } from "@/lib/cfb/fcs-stubs";
 import { isWinnerFlip, matchupChips } from "@/lib/cfb/schedule-flags";
 import type { ScheduleGame } from "@/lib/cfb/types";
 import { cn, fmtPct } from "@/lib/utils";
@@ -40,7 +41,7 @@ function defaultWeek(ymd: string): number {
 
 function searchForView(view: ScheduleView, conf: ConfFilter, week: number) {
   const base: Search = { w: week === defaultWeek(todayChicago()) ? undefined : week };
-  if (view !== "top25") base.view = view;
+  if (view !== "all") base.view = view;
   if (view === "conf" && conf !== "All") base.conf = conf;
   return base;
 }
@@ -52,7 +53,7 @@ export const Route = createFileRoute("/schedule")({
     const conf = parseConf(s.conf);
     return {
       ...(w !== undefined ? { w } : {}),
-      ...(view !== "top25" ? { view } : {}),
+      ...(view !== "all" ? { view } : {}),
       ...(view === "conf" && conf !== "All" ? { conf } : {}),
     };
   },
@@ -107,7 +108,7 @@ function SchedulePage() {
       <PageHead
         kicker={`Week ${week} · The slate`}
         title={`Week ${week} slate`}
-        lede="HASHMARK spread and win% from HX. Vegas is the Research CFB consensus. FINAL is locked on the tape. Sorted by kick, America/Chicago."
+        lede="HASHMARK spread and win% from HX. FCS opponents are unrated — Vegas close only, no invented HASHMARK spread. FINAL is locked on the tape. Sorted by kick, America/Chicago."
       />
 
       <div className="mb-5 flex gap-2 overflow-x-auto pb-1" role="tablist" aria-label="Schedule filter">
@@ -195,34 +196,37 @@ function SchedulePage() {
 }
 
 function ScheduleRow({ game: g }: { game: ScheduleGame }) {
-  const pred = predictMatchup(
-    { hxRating: g.homeHx, offenseRating: g.homeOff, defenseRating: g.homeDef },
-    { hxRating: g.awayHx, offenseRating: g.awayOff, defenseRating: g.awayDef },
-    { neutral: g.neutral },
-  );
-  const hxLine = favoriteLine(g.homeShort, g.awayShort, pred.spread);
-  const hxWin = pred.spread >= 0 ? pred.homeWinPct : pred.awayWinPct;
+  const vegasOnly = isVegasOnlyFcs(g);
+  const pred = vegasOnly
+    ? null
+    : predictMatchup(
+        { hxRating: g.homeHx, offenseRating: g.homeOff, defenseRating: g.homeDef },
+        { hxRating: g.awayHx, offenseRating: g.awayOff, defenseRating: g.awayDef },
+        { neutral: g.neutral },
+      );
+  const hxLine = pred ? favoriteLine(g.homeShort, g.awayShort, pred.spread) : null;
+  const hxWin = pred ? (pred.spread >= 0 ? pred.homeWinPct : pred.awayWinPct) : null;
   const vegasLine = g.vegasSpread == null ? null : favoriteLine(g.homeShort, g.awayShort, g.vegasSpread);
-  const flip = isWinnerFlip(pred, g.vegasSpread);
-  const chips = matchupChips(pred, { neutral: g.neutral, vegasSpread: g.vegasSpread, status: g.status });
+  const flip = pred ? isWinnerFlip(pred, g.vegasSpread) : false;
+  const chips = pred
+    ? matchupChips(pred, { neutral: g.neutral, vegasSpread: g.vegasSpread, status: g.status })
+    : [];
+  const fbsSlug = g.homeSlug.startsWith("fcs-") ? g.awaySlug : g.homeSlug;
 
-  return (
-    <li>
-      <Link
-        to="/matchup"
-        search={{
-          home: g.homeSlug,
-          away: g.awaySlug,
-          ...(g.neutral ? { neutral: true } : {}),
-        }}
-        className="block px-4 py-4 transition-colors duration-150 hover:bg-raised sm:px-5"
-      >
+  const inner = (
+    <>
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div className="min-w-0">
             <div className="flex flex-wrap items-center gap-2">
               {chips.map((chip) => (
                 <DeskChip key={chip.kind} tone={chip.tone}>{chip.label}</DeskChip>
               ))}
+              {vegasOnly ? (
+                <DeskChip tone="muted">Vegas-only</DeskChip>
+              ) : null}
+              {g.headline === "IN_PROGRESS" ? (
+                <DeskChip tone="accent">In progress</DeskChip>
+              ) : null}
             </div>
             <div className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1">
               <span className="inline-flex items-center gap-2">
@@ -243,7 +247,7 @@ function ScheduleRow({ game: g }: { game: ScheduleGame }) {
                 ? ` · ${g.awayShort} ${g.awayScore}–${g.homeScore} ${g.homeShort}`
                 : null}
             </p>
-            {flip ? (
+            {flip && hxLine ? (
               <p className="mt-1 text-sm text-warn">
                 HASHMARK takes {hxLine} · Vegas has {vegasLine ?? "the other side"}
               </p>
@@ -260,7 +264,13 @@ function ScheduleRow({ game: g }: { game: ScheduleGame }) {
         <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
           <StatBlock
             label="HASHMARK"
-            value={`${hxLine} · ${fmtPct(hxWin * 100, 1)}`}
+            value={
+              vegasOnly
+                ? "—"
+                : hxLine && hxWin != null
+                  ? `${hxLine} · ${fmtPct(hxWin * 100, 1)}`
+                  : "—"
+            }
           />
           <StatBlock
             label="Vegas"
@@ -279,6 +289,35 @@ function ScheduleRow({ game: g }: { game: ScheduleGame }) {
             />
           )}
         </div>
+    </>
+  );
+
+  if (vegasOnly) {
+    return (
+      <li>
+        <Link
+          to="/teams/$slug"
+          params={{ slug: fbsSlug }}
+          className="block px-4 py-4 transition-colors duration-150 hover:bg-raised sm:px-5"
+        >
+          {inner}
+        </Link>
+      </li>
+    );
+  }
+
+  return (
+    <li>
+      <Link
+        to="/matchup"
+        search={{
+          home: g.homeSlug,
+          away: g.awaySlug,
+          ...(g.neutral ? { neutral: true } : {}),
+        }}
+        className="block px-4 py-4 transition-colors duration-150 hover:bg-raised sm:px-5"
+      >
+        {inner}
       </Link>
     </li>
   );

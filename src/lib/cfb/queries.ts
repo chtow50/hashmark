@@ -5,6 +5,7 @@ import { predictMatchup } from "./model";
 import { POS_SQL_ARRAY, TALENT_UNITS_JOIN } from "./positions";
 import { SIZE_UNITS_JOIN } from "./size-groups";
 import { kickoffCivilYmd } from "./chicago";
+import { fcsScheduleGamesForDate, mergeFcsScheduleGames, sortScheduleGames } from "./fcs-stubs";
 import { compositeClassAvg } from "./recruiting";
 import { SEASON_RECORD_JOIN } from "./season-record";
 import type {
@@ -470,15 +471,10 @@ export const listSchedule = createServerFn({ method: "GET" })
        order by g.kickoff_at nulls last, g.id`,
       [data.date],
     );
-    return rows
+    const mapped = rows
       .map(mapSchedule)
-      .filter((g) => g.kickoffDate === data.date)
-      .sort((a, b) => {
-        const ta = a.kickoffAt ? Date.parse(a.kickoffAt) : Number.POSITIVE_INFINITY;
-        const tb = b.kickoffAt ? Date.parse(b.kickoffAt) : Number.POSITIVE_INFINITY;
-        if (ta !== tb) return ta - tb;
-        return a.id - b.id;
-      });
+      .filter((g) => g.kickoffDate === data.date);
+    return sortScheduleGames([...mapped, ...fcsScheduleGamesForDate(data.date)]);
   });
 
 
@@ -521,13 +517,7 @@ export const listScheduleWeek = createServerFn({ method: "GET" })
        order by g.kickoff_at nulls last, g.kickoff_date, g.id`,
       [data.week],
     );
-    return rows.map(mapSchedule).sort((a, b) => {
-      const ta = a.kickoffAt ? Date.parse(a.kickoffAt) : Number.POSITIVE_INFINITY;
-      const tb = b.kickoffAt ? Date.parse(b.kickoffAt) : Number.POSITIVE_INFINITY;
-      if (ta !== tb) return ta - tb;
-      if (a.kickoffDate !== b.kickoffDate) return a.kickoffDate < b.kickoffDate ? -1 : 1;
-      return a.id - b.id;
-    });
+    return mergeFcsScheduleGames(rows.map(mapSchedule), data.week);
   });
 
 function orientScheduleToMatchup(game: ScheduleGame, homeSlug: string, awaySlug: string): ScheduleGame {

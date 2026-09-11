@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { filterScheduleGames, top25SlugSet } from "./schedule-filter.ts";
+import { filterScheduleGames, parseScheduleView, top25SlugSet } from "./schedule-filter.ts";
 import type { ScheduleGame, TeamSummary } from "./types.ts";
 
 function team(slug: string, hxRank: number, apRank: number | null, conference = "SEC"): TeamSummary {
@@ -147,5 +147,36 @@ describe("schedule-filter", () => {
     assert.equal(bigTenOnly.length, 1);
     const accOnly = filterScheduleGames(games, teams, "conf", "ACC");
     assert.equal(accOnly.length, 0);
+  });
+
+  it("defaults the slate to All FBS, not Top 25", () => {
+    assert.equal(parseScheduleView(undefined), "all");
+    assert.equal(parseScheduleView("top25"), "top25");
+    assert.equal(parseScheduleView("conf"), "conf");
+  });
+
+  it("keeps FCS rows on All FBS and on Top 25 when the FBS side ranks", () => {
+    const teams = [team("miami", 2, 2, "ACC"), team("troy", 90, null, "Sun Belt")];
+    const miamiFcs: ScheduleGame = {
+      ...game("miami", "fcs-famu"),
+      awayName: "Florida A&M Rattlers",
+      awayShort: "FAMU",
+      isFcs: true,
+      hxSpreadPolicy: "vegas_only_fcs_unrated",
+      vegasSpread: 59.5,
+    };
+    const troyFcs: ScheduleGame = {
+      ...game("troy", "fcs-alst"),
+      id: 2,
+      homeName: "Troy",
+      awayName: "Alabama State Hornets",
+      isFcs: true,
+      hxSpreadPolicy: "vegas_only_fcs_unrated",
+    };
+    const all = filterScheduleGames([miamiFcs, troyFcs], teams, "all", "All");
+    assert.equal(all.length, 2);
+    const top = filterScheduleGames([miamiFcs, troyFcs], teams, "top25", "All");
+    assert.equal(top.length, 1);
+    assert.equal(top[0].homeSlug, "miami");
   });
 });
