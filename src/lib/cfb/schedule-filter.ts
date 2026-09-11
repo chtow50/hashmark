@@ -5,8 +5,8 @@ export type ScheduleView = "top25" | "conf" | "all";
 
 export function parseScheduleView(value: unknown): ScheduleView {
   if (value === "conf" || value === "conference") return "conf";
-  if (value === "top25") return "top25";
-  return "all";
+  if (value === "all") return "all";
+  return "top25";
 }
 
 /** HX top 25 plus AP ballot teams (ap_rank ≤ 25). */

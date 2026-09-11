@@ -9,7 +9,7 @@ export const BOARD_WEEK = 2;
 /**
  * Featured kick reads the HASHMARK Week 2 slate (`/schedule?w=2`).
  * FCS rows are Vegas-only (unrated) — never feature them (would invent HX).
- * Do not invent a Week 2 FBS–FBS book.
+ * Board pin is Ohio State @ Texas (Research pack), not the earliest Friday kick.
  */
 export const FEATURED_SLATE_WEEK = 2;
 
@@ -17,6 +17,18 @@ export const FEATURED_SLATE_WEEK = 2;
 export const WEEK1_FLAG = {
   homeSlug: "georgia-tech",
   awaySlug: "colorado",
+} as const;
+
+/** Saturday night ABC: Ohio State at Texas. Research featured pick. */
+export const WEEK2_FEATURED = {
+  homeSlug: "texas",
+  awaySlug: "ohio-state",
+} as const;
+
+/** Alt card: Oklahoma at Michigan, noon FOX. */
+export const WEEK2_FEATURED_ALT = {
+  homeSlug: "michigan",
+  awaySlug: "oklahoma",
 } as const;
 
 /**
@@ -40,6 +52,14 @@ export function isColoradoAtGt(g: Pick<ScheduleGame, "homeSlug" | "awaySlug">): 
   return g.homeSlug === WEEK1_FLAG.homeSlug && g.awaySlug === WEEK1_FLAG.awaySlug;
 }
 
+export function isOhioStateAtTexas(g: Pick<ScheduleGame, "homeSlug" | "awaySlug">): boolean {
+  return g.homeSlug === WEEK2_FEATURED.homeSlug && g.awaySlug === WEEK2_FEATURED.awaySlug;
+}
+
+export function isOklahomaAtMichigan(g: Pick<ScheduleGame, "homeSlug" | "awaySlug">): boolean {
+  return g.homeSlug === WEEK2_FEATURED_ALT.homeSlug && g.awaySlug === WEEK2_FEATURED_ALT.awaySlug;
+}
+
 export function isUpcomingKick(
   g: Pick<ScheduleGame, "status" | "kickoffAt"> & { isFcs?: boolean },
   nowMs: number,
@@ -53,7 +73,7 @@ export function isUpcomingKick(
 /**
  * Next upcoming non-final on a kick-sorted HASHMARK week slate.
  * Prefers the earliest future `kickoffAt`; if the slate has dates but no
- * times (Week 2 seed), takes the first non-final in slate order.
+ * times, takes the first non-final in slate order.
  * Never a FINAL. Never an FCS stub (no invented HX). Does not invent Vegas or scores.
  */
 export function selectFeaturedKick<
@@ -67,6 +87,21 @@ export function selectFeaturedKick<
     );
   }
   return upcoming[0] ?? null;
+}
+
+/**
+ * Board featured: pin Ohio State @ Texas while that row is still upcoming.
+ * Alt only if the pin is missing or already kicked — Oklahoma @ Michigan.
+ * Otherwise the next upcoming non-final. Never FCS. Never invent a book.
+ */
+export function selectBoardFeaturedKick<
+  T extends Pick<ScheduleGame, "status" | "kickoffAt" | "homeSlug" | "awaySlug"> & { isFcs?: boolean },
+>(slate: T[], nowMs: number): T | null {
+  const pin = slate.find((g) => isOhioStateAtTexas(g));
+  if (pin && isUpcomingKick(pin, nowMs)) return pin;
+  const alt = slate.find((g) => isOklahomaAtMichigan(g));
+  if (alt && isUpcomingKick(alt, nowMs)) return alt;
+  return selectFeaturedKick(slate, nowMs);
 }
 
 /** Same rule as hashmarkWeekFromRow: Aug 29–30 2026 is Week 0. */
