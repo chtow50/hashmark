@@ -1,7 +1,7 @@
 {
   "source": "Research CFB vs ESPN overall (HOLD on PR 27)",
   "as_of": "2026-09-11",
-  "note": "Only this list is stamped. Other FCS stubs stay scheduled. No guessed scores. Week 2: Miami–FAMU only.",
+  "note": "Only this list is stamped. Other FCS stubs stay scheduled. No guessed scores. Week 2: Miami–FAMU only. Research SOURCE CLEAR memo locked.",
   "blocker": {
     "teamSlug": "georgia",
     "home": true,
@@ -37,13 +37,18 @@
   "week2_fcs": [
     {
       "espn_event_id": "401858213",
+      "ncaa_contest_id": "6604311",
       "teamSlug": "miami",
       "opponentLabel": "Florida A&M",
       "home": true,
       "homeScore": 77,
       "awayScore": 7,
       "kickoffDate": "2026-09-10",
-      "source": "Research CFB Friday package · NCAA / Miami athletics"
+      "kick_ct": "2026-09-10 19:00",
+      "kick_et": "2026-09-10 20:00",
+      "tv": "ACCN",
+      "venue": "Hard Rock Stadium",
+      "source": "Research SOURCE CLEAR memo locked"
     }
   ],
   "peer_targets": {

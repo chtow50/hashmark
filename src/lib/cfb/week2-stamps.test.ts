@@ -114,6 +114,8 @@ describe("Week 2 FBS–FBS Research stamps", () => {
         status: string;
         home_score?: number | null;
         away_score?: number | null;
+        ncaa_contest_id?: string | null;
+        venue?: string | null;
       }>;
     };
     assert.equal(fcs.games.length, 39);
@@ -124,5 +126,7 @@ describe("Week 2 FBS–FBS Research stamps", () => {
     assert.equal(miami.status, "STATUS_FINAL");
     assert.equal(miami.home_score, 77);
     assert.equal(miami.away_score, 7);
+    assert.equal(miami.ncaa_contest_id, "6604311");
+    assert.equal(miami.venue, "Hard Rock Stadium");
   });
 });

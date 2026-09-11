@@ -67,6 +67,8 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /Florida A&M/);
     assert.match(text, /STATUS_FINAL/);
     assert.match(text, /home_score":77|"home_score": 77|homeScore:77/);
+    assert.match(text, /6604311/);
+    assert.match(text, /Hard Rock Stadium/);
   });
 
   it("includes Week 2 FBS–FBS Research kick/TV/Vegas stamps in committed output", () => {

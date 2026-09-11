@@ -35,6 +35,9 @@ const payload = JSON.parse(
     status: string;
     home_score?: number | null;
     away_score?: number | null;
+    ncaa_contest_id?: string | null;
+    kick_et?: string | null;
+    venue?: string | null;
   }>;
 };
 
@@ -95,16 +98,23 @@ describe("Week 2 FBS–FCS JSON ingest", () => {
     assert.equal(json.home_score, 77);
     assert.equal(json.away_score, 7);
     assert.equal(json.hx_spread, null);
+    assert.equal(json.ncaa_contest_id, "6604311");
+    assert.equal(json.kick_et, "2026-09-10 20:00");
+    assert.equal(json.venue, "Hard Rock Stadium");
+    assert.equal(json.kick_ct, "2026-09-10 19:00");
 
     const finals = fcsStubsForWeek(2).filter(fcsStubIsFinal);
     assert.equal(finals.length, 1);
     assert.equal(finals[0]?.teamSlug, "miami");
     assert.equal(finals[0]?.espnEventId, "401858213");
+    assert.equal(finals[0]?.ncaaContestId, "6604311");
     assert.equal(finals[0]?.home, true);
     assert.equal(finals[0]?.homeScore, 77);
     assert.equal(finals[0]?.awayScore, 7);
     assert.equal(finals[0]?.live, false);
     assert.equal(finals[0]?.hxSpreadPolicy, "vegas_only_fcs_unrated");
+    assert.equal(finals[0]?.location, "Hard Rock Stadium");
+    assert.equal(formatKickCt(finals[0]?.kickoffAt ?? null), "7:00 CT");
 
     const row = fcsScheduleGamesForWeek(2).find((g) => g.id === -401858213);
     assert.ok(row);
@@ -113,6 +123,8 @@ describe("Week 2 FBS–FCS JSON ingest", () => {
     assert.equal(row.awayScore, 7);
     assert.equal(row.headline, null);
     assert.equal(row.hxSpreadPolicy, "vegas_only_fcs_unrated");
+    assert.equal(row.location, "Hard Rock Stadium");
+    assert.equal(row.tv, "ACCN");
 
     for (const g of payload.games) {
       if (g.espn_event_id === "401858213") continue;

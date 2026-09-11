@@ -38,6 +38,8 @@ export type FcsStubGame = {
   fcsShort?: string;
   hxSpreadPolicy?: HxSpreadPolicy;
   live?: boolean;
+  location?: string | null;
+  ncaaContestId?: string | null;
 };
 
 type Week2FcsFile = {
@@ -65,6 +67,9 @@ type Week2FcsJsonGame = {
   /** Home-perspective scores when Research locked STATUS_FINAL. */
   home_score?: number | null;
   away_score?: number | null;
+  ncaa_contest_id?: string | null;
+  kick_et?: string | null;
+  venue?: string | null;
   hx_spread: number | null;
   hx_spread_policy: string;
 };
@@ -163,6 +168,8 @@ function week2StubFromJson(g: Week2FcsJsonGame): FcsStubGame {
     fcsShort,
     hxSpreadPolicy: "vegas_only_fcs_unrated",
     live: !final && g.status === "STATUS_IN_PROGRESS",
+    location: g.venue ?? null,
+    ncaaContestId: g.ncaa_contest_id ?? null,
   };
 }
 
@@ -290,7 +297,7 @@ export function fcsStubToScheduleGame(stub: FcsStubGame, index = 0): ScheduleGam
     homeDef: 0,
     awayDef: 0,
     neutral: false,
-    location: null,
+    location: stub.location ?? null,
     headline: stub.live ? "IN_PROGRESS" : null,
     kickoffAt: stub.kickoffAt ?? null,
     vegasSpread: stub.vegasSpread ?? null,
