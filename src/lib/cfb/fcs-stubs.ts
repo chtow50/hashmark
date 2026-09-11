@@ -4,7 +4,8 @@
  * Week 1: W–L stubs (FINAL only when Research stamped a score).
  * Week 2: JSON ingest of AMD `data/week2_fbs_fcs_spreads_2026.json` —
  * kick / TV / Vegas close, hx_spread always null (vegas_only_fcs_unrated).
- * Do not invent FCS HX, scores, or a second rating.
+ * FINAL is score + status only when Research locked STATUS_FINAL and both
+ * scores; do not invent FCS HX, other scores, or a second rating.
  *
  * Ship gate (`fcs-fbs-stamp-gate.ts`): wrong stamp is worse than late — do not
  * ship Vegas-only FCS for week N until that week's FBS–FBS kick/Vegas are stamped.
@@ -37,6 +38,8 @@ export type FcsStubGame = {
   fcsShort?: string;
   hxSpreadPolicy?: HxSpreadPolicy;
   live?: boolean;
+  location?: string | null;
+  ncaaContestId?: string | null;
 };
 
 type Week2FcsFile = {
@@ -61,6 +64,12 @@ type Week2FcsJsonGame = {
   vegas_spread: number | null;
   broadcast: string | null;
   status: string;
+  /** Home-perspective scores when Research locked STATUS_FINAL. */
+  home_score?: number | null;
+  away_score?: number | null;
+  ncaa_contest_id?: string | null;
+  kick_et?: string | null;
+  venue?: string | null;
   hx_spread: number | null;
   hx_spread_policy: string;
 };
@@ -125,19 +134,29 @@ export function homePerspectiveFcsVegas(g: Pick<Week2FcsJsonGame, "vegas_spread"
   return g.fbs_is_home ? -g.vegas_spread : g.vegas_spread;
 }
 
+/** Research FINAL only: STATUS_FINAL plus both scores. Empty FINAL is worse than late. */
+function week2ResearchFinal(
+  g: Pick<Week2FcsJsonGame, "status" | "home_score" | "away_score">,
+): { homeScore: number; awayScore: number } | null {
+  if (g.status !== "STATUS_FINAL") return null;
+  if (typeof g.home_score !== "number" || typeof g.away_score !== "number") return null;
+  return { homeScore: g.home_score, awayScore: g.away_score };
+}
+
 function week2StubFromJson(g: Week2FcsJsonGame): FcsStubGame {
   const fbsIsHome = g.fbs_is_home;
   const fcsLabel = fbsIsHome ? g.away_espn : g.home_espn;
   const fcsShort = fbsIsHome ? g.away_abbr : g.home_abbr;
+  const final = week2ResearchFinal(g);
   return {
     teamSlug: g.fbs_slug,
     week: 2,
     kickoffDate: g.kick_date,
     opponentLabel: fcsLabel,
     home: fbsIsHome,
-    status: g.status === "STATUS_FINAL" ? "final" : "scheduled",
-    homeScore: null,
-    awayScore: null,
+    status: final ? "final" : "scheduled",
+    homeScore: final?.homeScore ?? null,
+    awayScore: final?.awayScore ?? null,
     kickoffAt: chicagoCivilToIso(g.kick_ct),
     tv: shortTv(g.broadcast),
     vegasSpread: homePerspectiveFcsVegas(g),
@@ -148,7 +167,9 @@ function week2StubFromJson(g: Week2FcsJsonGame): FcsStubGame {
     awayShort: g.away_abbr,
     fcsShort,
     hxSpreadPolicy: "vegas_only_fcs_unrated",
-    live: g.status === "STATUS_IN_PROGRESS",
+    live: !final && g.status === "STATUS_IN_PROGRESS",
+    location: g.venue ?? null,
+    ncaaContestId: g.ncaa_contest_id ?? null,
   };
 }
 
@@ -276,7 +297,7 @@ export function fcsStubToScheduleGame(stub: FcsStubGame, index = 0): ScheduleGam
     homeDef: 0,
     awayDef: 0,
     neutral: false,
-    location: null,
+    location: stub.location ?? null,
     headline: stub.live ? "IN_PROGRESS" : null,
     kickoffAt: stub.kickoffAt ?? null,
     vegasSpread: stub.vegasSpread ?? null,

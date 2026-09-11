@@ -8,6 +8,7 @@ import { favoriteLine } from "./featured.ts";
 import {
   FCS_STUB_GAMES,
   fcsScheduleGamesForWeek,
+  fcsStubIsFinal,
   fcsStubsForTeam,
   fcsStubsForWeek,
   homePerspectiveFcsVegas,
@@ -31,6 +32,12 @@ const payload = JSON.parse(
     broadcast: string | null;
     kick_ct: string;
     fbs_is_home: boolean;
+    status: string;
+    home_score?: number | null;
+    away_score?: number | null;
+    ncaa_contest_id?: string | null;
+    kick_et?: string | null;
+    venue?: string | null;
   }>;
 };
 
@@ -51,6 +58,8 @@ describe("Week 2 FBS–FCS JSON ingest", () => {
       assert.equal(isVegasOnlyFcs(row), true);
       assert.equal(row.homeHx, 0);
       assert.equal(row.awayHx, 0);
+      if (row.homeSlug === "miami") continue;
+      assert.equal(row.status, "scheduled");
       assert.equal(row.homeScore, null);
       assert.equal(row.awayScore, null);
     }
@@ -80,6 +89,49 @@ describe("Week 2 FBS–FCS JSON ingest", () => {
     assert.equal(row.vegasSpread, 59.5);
     assert.equal(row.tv, "ACCN");
     assert.equal(favoriteLine(row.homeShort, row.awayShort, row.vegasSpread ?? 0), "MIA −59.5");
+  });
+
+  it("stamps only Miami–FAMU Research FINAL 77–7 (home Miami), no other Week 2 FCS scores", () => {
+    const json = payload.games.find((g) => g.espn_event_id === "401858213");
+    assert.ok(json);
+    assert.equal(json.status, "STATUS_FINAL");
+    assert.equal(json.home_score, 77);
+    assert.equal(json.away_score, 7);
+    assert.equal(json.hx_spread, null);
+    assert.equal(json.ncaa_contest_id, "6604311");
+    assert.equal(json.kick_et, "2026-09-10 20:00");
+    assert.equal(json.venue, "Hard Rock Stadium");
+    assert.equal(json.kick_ct, "2026-09-10 19:00");
+
+    const finals = fcsStubsForWeek(2).filter(fcsStubIsFinal);
+    assert.equal(finals.length, 1);
+    assert.equal(finals[0]?.teamSlug, "miami");
+    assert.equal(finals[0]?.espnEventId, "401858213");
+    assert.equal(finals[0]?.ncaaContestId, "6604311");
+    assert.equal(finals[0]?.home, true);
+    assert.equal(finals[0]?.homeScore, 77);
+    assert.equal(finals[0]?.awayScore, 7);
+    assert.equal(finals[0]?.live, false);
+    assert.equal(finals[0]?.hxSpreadPolicy, "vegas_only_fcs_unrated");
+    assert.equal(finals[0]?.location, "Hard Rock Stadium");
+    assert.equal(formatKickCt(finals[0]?.kickoffAt ?? null), "7:00 CT");
+
+    const row = fcsScheduleGamesForWeek(2).find((g) => g.id === -401858213);
+    assert.ok(row);
+    assert.equal(row.status, "final");
+    assert.equal(row.homeScore, 77);
+    assert.equal(row.awayScore, 7);
+    assert.equal(row.headline, null);
+    assert.equal(row.hxSpreadPolicy, "vegas_only_fcs_unrated");
+    assert.equal(row.location, "Hard Rock Stadium");
+    assert.equal(row.tv, "ACCN");
+
+    for (const g of payload.games) {
+      if (g.espn_event_id === "401858213") continue;
+      assert.notEqual(g.status, "STATUS_FINAL");
+      assert.equal(g.home_score ?? null, null);
+      assert.equal(g.away_score ?? null, null);
+    }
   });
 
   it("leaves Troy–Alabama State and Arkansas State–West Georgia Vegas blank", () => {
