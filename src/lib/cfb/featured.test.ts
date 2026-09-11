@@ -4,10 +4,12 @@ import { predictMatchup } from "./model.ts";
 import {
   BOARD_WEEK,
   FEATURED_SLATE_WEEK,
+  WEEK2_FEATURED,
   featuredBook,
   featuredSlateWeek,
   favoriteLine,
   isUpcomingKick,
+  selectBoardFeaturedKick,
   selectFeaturedKick,
   spreadGap,
 } from "./featured.ts";
@@ -134,9 +136,44 @@ const osuTexas = game({
   week: 2,
   homeSlug: "texas",
   awaySlug: "ohio-state",
+  homeShort: "Texas",
+  awayShort: "Ohio St",
   kickoffDate: "2026-09-12",
-  kickoffAt: "2026-09-12T19:30:00.000Z",
+  kickoffAt: "2026-09-12T23:30:00.000Z",
   location: "DKR-Texas Memorial Stadium",
+  tv: "ABC",
+  vegasSpread: 1.5,
+  vegasTotal: 49.5,
+});
+
+const rutgersBc = game({
+  id: 200,
+  week: 2,
+  homeSlug: "boston-college",
+  awaySlug: "rutgers",
+  homeShort: "BC",
+  awayShort: "Rutgers",
+  kickoffDate: "2026-09-11",
+  kickoffAt: "2026-09-11T23:30:00.000Z",
+  location: "Alumni Stadium (Chestnut Hill, MA)",
+  tv: "ESPN2",
+  vegasSpread: 3.5,
+  vegasTotal: 54.5,
+});
+
+const ouMichigan = game({
+  id: 201,
+  week: 2,
+  homeSlug: "michigan",
+  awaySlug: "oklahoma",
+  homeShort: "Michigan",
+  awayShort: "Oklahoma",
+  kickoffDate: "2026-09-12",
+  kickoffAt: "2026-09-12T16:00:00.000Z",
+  location: "Michigan Stadium",
+  tv: "FOX",
+  vegasSpread: -5.5,
+  vegasTotal: 43.5,
 });
 
 const beforeThursday = Date.parse("2026-09-01T22:00:00.000Z");
@@ -183,11 +220,39 @@ test("never features a FINAL or an in-progress kick", () => {
   assert.equal(selectFeaturedKick([dublinFinal, gt], afterGtKick), null);
 });
 
-test("Ohio St–Texas is not featured while an earlier kick is still upcoming", () => {
-  const featured = selectFeaturedKick([rutgers, gt, osuTexas], beforeThursday);
-  assert.ok(featured);
-  assert.notEqual(featured.awaySlug, "ohio-state");
-  assert.notEqual(featured.homeSlug, "ohio-state");
+test("next-kick helper is not Ohio St–Texas while an earlier kick is still upcoming", () => {
+  const featured = selectFeaturedKick([rutgersBc, osuTexas], Date.parse("2026-09-11T16:00:00.000Z"));
+  assert.equal(featured?.homeSlug, "boston-college");
+});
+
+test("board featured pins Ohio State @ Texas, not Rutgers–BC", () => {
+  assert.equal(WEEK2_FEATURED.homeSlug, "texas");
+  assert.equal(WEEK2_FEATURED.awaySlug, "ohio-state");
+  const fridayNight = Date.parse("2026-09-11T16:00:00.000Z");
+  const featured = selectBoardFeaturedKick([rutgersBc, ouMichigan, osuTexas], fridayNight);
+  assert.equal(featured?.homeSlug, "texas");
+  assert.equal(featured?.awaySlug, "ohio-state");
+  const book = featuredBook(featured!);
+  assert.equal(book?.kind, "close");
+  assert.equal(book?.spread, 1.5);
+  assert.equal(book?.total, "49.5");
+  assert.equal(favoriteLine("Texas", "Ohio St", 1.5), "Texas −1.5");
+});
+
+test("board featured falls to Oklahoma @ Michigan only if Texas is absent", () => {
+  const fridayNight = Date.parse("2026-09-11T16:00:00.000Z");
+  const featured = selectBoardFeaturedKick([rutgersBc, ouMichigan], fridayNight);
+  assert.equal(featured?.homeSlug, "michigan");
+  assert.equal(featured?.awaySlug, "oklahoma");
+});
+
+test("stamped Rutgers–BC book is BC −3.5 / 54.5", () => {
+  const book = featuredBook(rutgersBc);
+  assert.ok(book);
+  assert.equal(book.kind, "close");
+  assert.equal(book.spread, 3.5);
+  assert.equal(book.total, "54.5");
+  assert.equal(favoriteLine("BC", "Rutgers", 3.5), "BC −3.5");
 });
 
 test("Week 2 slate without kick times features the first non-final, no invented book", () => {

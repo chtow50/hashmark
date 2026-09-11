@@ -41,7 +41,7 @@ function defaultWeek(ymd: string): number {
 
 function searchForView(view: ScheduleView, conf: ConfFilter, week: number) {
   const base: Search = { w: week === defaultWeek(todayChicago()) ? undefined : week };
-  if (view !== "all") base.view = view;
+  if (view !== "top25") base.view = view;
   if (view === "conf" && conf !== "All") base.conf = conf;
   return base;
 }
@@ -53,7 +53,7 @@ export const Route = createFileRoute("/schedule")({
     const conf = parseConf(s.conf);
     return {
       ...(w !== undefined ? { w } : {}),
-      ...(view !== "all" ? { view } : {}),
+      ...(view !== "top25" ? { view } : {}),
       ...(view === "conf" && conf !== "All" ? { conf } : {}),
     };
   },

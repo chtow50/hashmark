@@ -295,10 +295,12 @@ export function mergeFcsScheduleGames(games: ScheduleGame[], week: number): Sche
 
 export function sortScheduleGames(games: ScheduleGame[]): ScheduleGame[] {
   return [...games].sort((a, b) => {
-    const ta = a.kickoffAt ? Date.parse(a.kickoffAt) : Number.POSITIVE_INFINITY;
-    const tb = b.kickoffAt ? Date.parse(b.kickoffAt) : Number.POSITIVE_INFINITY;
-    if (ta !== tb) return ta - tb;
     if (a.kickoffDate !== b.kickoffDate) return a.kickoffDate < b.kickoffDate ? -1 : 1;
+    const ta = a.kickoffAt ? Date.parse(a.kickoffAt) : null;
+    const tb = b.kickoffAt ? Date.parse(b.kickoffAt) : null;
+    if (ta != null && tb != null && ta !== tb) return ta - tb;
+    if (ta != null && tb == null) return -1;
+    if (ta == null && tb != null) return 1;
     return a.id - b.id;
   });
 }

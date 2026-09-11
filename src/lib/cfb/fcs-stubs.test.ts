@@ -12,6 +12,7 @@ import {
   fcsStubsForWeek,
   homePerspectiveFcsVegas,
   isVegasOnlyFcs,
+  sortScheduleGames,
   WEEK2_FCS_META,
 } from "./fcs-stubs.ts";
 
@@ -106,6 +107,54 @@ describe("Week 2 FBS–FCS JSON ingest", () => {
     assert.match(src, /Vegas-only/);
     assert.match(src, /isVegasOnlyFcs/);
     assert.match(src, /parseScheduleView/);
-    assert.doesNotMatch(src, /view !== "top25"/);
+    assert.match(src, /view !== "top25"/);
+  });
+
+  it("sorts by civil day, then kick; untimed after timed on that day", () => {
+    const thuFcs = {
+      id: -1,
+      week: 2,
+      kickoffDate: "2026-09-10",
+      kickoffAt: "2026-09-11T00:00:00.000Z",
+      homeSlug: "miami",
+      awaySlug: "fcs-famu",
+    };
+    const friBc = {
+      id: 10,
+      week: 2,
+      kickoffDate: "2026-09-11",
+      kickoffAt: "2026-09-11T23:30:00.000Z",
+      homeSlug: "boston-college",
+      awaySlug: "rutgers",
+    };
+    const satUntimed = {
+      id: 20,
+      week: 2,
+      kickoffDate: "2026-09-12",
+      kickoffAt: null,
+      homeSlug: "hawaii",
+      awaySlug: "new-mexico-state",
+    };
+    const satTexas = {
+      id: 30,
+      week: 2,
+      kickoffDate: "2026-09-12",
+      kickoffAt: "2026-09-12T23:30:00.000Z",
+      homeSlug: "texas",
+      awaySlug: "ohio-state",
+    };
+    const satNoon = {
+      id: 40,
+      week: 2,
+      kickoffDate: "2026-09-12",
+      kickoffAt: "2026-09-12T16:00:00.000Z",
+      homeSlug: "michigan",
+      awaySlug: "oklahoma",
+    };
+    const sorted = sortScheduleGames([satUntimed, satTexas, thuFcs, friBc, satNoon] as never);
+    assert.deepEqual(
+      sorted.map((g) => g.homeSlug),
+      ["miami", "boston-college", "michigan", "texas", "hawaii"],
+    );
   });
 });

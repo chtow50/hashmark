@@ -11,7 +11,7 @@ import {
   favoriteLine,
   featuredBook,
   featuredSlateWeek,
-  selectFeaturedKick,
+  selectBoardFeaturedKick,
   spreadGap,
 } from "@/lib/cfb/featured";
 import { listGames, listScheduleWeek, listTeams } from "@/lib/cfb/queries";
@@ -35,7 +35,7 @@ export const Route = createFileRoute("/")({
     ]);
     const top = new Set(teams.slice(0, 20).map((t) => t.slug));
     const notable = games.filter((g) => top.has(g.homeSlug) && top.has(g.awaySlug));
-    const featured = selectFeaturedKick(
+    const featured = selectBoardFeaturedKick(
       slate.filter((g) => !g.isFcs),
       Date.now(),
     );

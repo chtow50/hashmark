@@ -67,6 +67,17 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /Florida A&M/);
   });
 
+  it("includes Week 2 FBS–FBS Research kick/TV/Vegas stamps in committed output", () => {
+    const text = corpus();
+    assert.match(text, /401856682/);
+    assert.match(text, /0024_week2_kick_tv_vegas/);
+    assert.match(text, /selectBoardFeaturedKick/);
+    assert.match(text, /timestamptz '2026-09-12 18:30:00-05'/);
+    assert.match(text, /h\.slug = 'texas' then 1\.5 else -1\.5/);
+    assert.match(text, /h\.slug = 'boston-college' then 3\.5 else -3\.5/);
+    assert.match(text, /h\.slug = 'michigan' then -5\.5 else 5\.5/);
+  });
+
   it("keeps PGLite wasm sidecars next to the server bundle", () => {
     const libs = join(OUT, "functions/__server.func/_libs");
     for (const name of ["pglite.wasm", "initdb.wasm", "pglite.data"]) {

@@ -16,7 +16,7 @@
     "preview:stop": "node scripts/preview.mjs stop",
     "typecheck": "tsc --noEmit",
     "check:auth": "node scripts/check-auth-invariant.mjs",
-    "test": "node --test 'scripts/**/*.test.mjs' && node --experimental-strip-types --test src/lib/app-data/app-data.test.ts src/lib/auth/gate-identity.test.ts src/lib/cfb/recruiting.test.ts src/lib/cfb/featured.test.ts src/lib/cfb/schedule-flags.test.ts src/lib/cfb/schedule-filter.test.ts src/lib/cfb/size-groups.test.ts src/lib/cfb/stories.test.ts src/lib/cfb/chicago.test.ts src/lib/cfb/talent-slices.test.ts src/lib/cfb/season-sim.test.ts src/lib/cfb/season-record.test.ts src/lib/cfb/truth-pack.test.ts src/lib/cfb/fcs-stubs.test.ts",
+    "test": "node --test 'scripts/**/*.test.mjs' && node --experimental-strip-types --test src/lib/app-data/app-data.test.ts src/lib/auth/gate-identity.test.ts src/lib/cfb/recruiting.test.ts src/lib/cfb/featured.test.ts src/lib/cfb/schedule-flags.test.ts src/lib/cfb/schedule-filter.test.ts src/lib/cfb/size-groups.test.ts src/lib/cfb/stories.test.ts src/lib/cfb/chicago.test.ts src/lib/cfb/talent-slices.test.ts src/lib/cfb/season-sim.test.ts src/lib/cfb/season-record.test.ts src/lib/cfb/truth-pack.test.ts src/lib/cfb/fcs-stubs.test.ts src/lib/cfb/week2-stamps.test.ts",
     "lint": "eslint .",
     "format": "prettier --write ."
   },
