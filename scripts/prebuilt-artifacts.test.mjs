@@ -65,6 +65,8 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /vegas_only_fcs_unrated/);
     assert.match(text, /401858213/);
     assert.match(text, /Florida A&M/);
+    assert.match(text, /STATUS_FINAL/);
+    assert.match(text, /home_score":77|"home_score": 77|homeScore:77/);
   });
 
   it("includes Week 2 FBS–FBS Research kick/TV/Vegas stamps in committed output", () => {

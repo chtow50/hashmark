@@ -9,7 +9,8 @@
     "n_fbs_fcs": 39,
     "n_fbs_fbs_seen": 47,
     "n_unresolved": 0,
-    "miami_tonight": "Miami vs Florida A&M \u00b7 2026-09-10 19:00 CT \u00b7 Vegas MIA -59.5 (close) \u00b7 HX spread null"
+    "miami_tonight": "Miami vs Florida A&M \u00b7 2026-09-10 19:00 CT \u00b7 FINAL Miami 77, FAMU 7 \u00b7 Vegas MIA -59.5 (close) \u00b7 HX spread null",
+    "miami_final": "Research CFB Friday package \u00b7 NCAA / Miami athletics \u00b7 ESPN 401858213 \u00b7 STATUS_FINAL 77-7 home-perspective (Miami home)"
   },
   "games": [
     {
@@ -31,10 +32,12 @@
       "vegas_spread": -59.5,
       "vegas_source": "ESPN/DraftKings via ESPN odds",
       "broadcast": "ACC Network",
-      "status": "STATUS_IN_PROGRESS",
+      "status": "STATUS_FINAL",
+      "home_score": 77,
+      "away_score": 7,
       "hx_spread": null,
       "hx_spread_policy": "vegas_only_fcs_unrated",
-      "note": "FCS opponent not on HASHMARK 136 \u2014 no invented FCS HX. Stamp Vegas close when sourced; label Vegas-only on /schedule."
+      "note": "Research CFB Friday FINAL (NCAA / Miami athletics): Miami 77, FAMU 7. Score + status only. FCS opponent not on HASHMARK 136 \u2014 no invented FCS HX. Vegas close stays; label Vegas-only on /schedule."
     },
     {
       "espn_event_id": "401858215",

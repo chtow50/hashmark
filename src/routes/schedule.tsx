@@ -224,7 +224,10 @@ function ScheduleRow({ game: g }: { game: ScheduleGame }) {
               {vegasOnly ? (
                 <DeskChip tone="muted">Vegas-only</DeskChip>
               ) : null}
-              {g.headline === "IN_PROGRESS" ? (
+              {g.status === "final" ? (
+                <DeskChip tone="accent">Final</DeskChip>
+              ) : null}
+              {g.headline === "IN_PROGRESS" && g.status !== "final" ? (
                 <DeskChip tone="accent">In progress</DeskChip>
               ) : null}
             </div>

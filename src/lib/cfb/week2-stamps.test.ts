@@ -106,11 +106,23 @@ describe("Week 2 FBS–FBS Research stamps", () => {
     assert.doesNotMatch(sql, /401858213/);
     const fcs = JSON.parse(
       readFileSync(join(root, "data/week2_fbs_fcs_spreads_2026.json"), "utf8"),
-    ) as { games: Array<{ espn_event_id: string; hx_spread: number | null; vegas_spread: number | null }> };
+    ) as {
+      games: Array<{
+        espn_event_id: string;
+        hx_spread: number | null;
+        vegas_spread: number | null;
+        status: string;
+        home_score?: number | null;
+        away_score?: number | null;
+      }>;
+    };
     assert.equal(fcs.games.length, 39);
     const miami = fcs.games.find((g) => g.espn_event_id === "401858213");
     assert.ok(miami);
     assert.equal(miami.hx_spread, null);
     assert.equal(miami.vegas_spread, -59.5);
+    assert.equal(miami.status, "STATUS_FINAL");
+    assert.equal(miami.home_score, 77);
+    assert.equal(miami.away_score, 7);
   });
 });

@@ -57,6 +57,10 @@ describe("tallyFcsStubRecord", () => {
     assert.deepEqual(tallyFcsStubRecord("buffalo"), { seasonWins: 0, seasonLosses: 0 });
     assert.deepEqual(tallyFcsStubRecord("ohio-state"), { seasonWins: 0, seasonLosses: 0 });
   });
+
+  it("counts Miami Week 2 FAMU FINAL as one FCS win (home 77–7)", () => {
+    assert.deepEqual(tallyFcsStubRecord("miami"), { seasonWins: 1, seasonLosses: 0 });
+  });
 });
 
 describe("SEASON_RECORD_JOIN", () => {
@@ -64,6 +68,7 @@ describe("SEASON_RECORD_JOIN", () => {
     assert.match(SEASON_RECORD_JOIN, /'georgia'/);
     assert.match(SEASON_RECORD_JOIN, /'missouri'/);
     assert.doesNotMatch(SEASON_RECORD_JOIN, /'buffalo'/);
+    assert.match(SEASON_RECORD_JOIN, /'miami'/);
   });
 });
 
@@ -76,6 +81,11 @@ describe("combineSeasonRecord", () => {
     assert.deepEqual(
       combineSeasonRecord({ seasonWins: 0, seasonLosses: 0 }, tallyFcsStubRecord("georgia")),
       { seasonWins: 1, seasonLosses: 0 },
+    );
+    // Miami: Week 1 @ Stanford 45–6 (games row) + Week 2 FAMU 77–7 (FCS stub).
+    assert.deepEqual(
+      combineSeasonRecord({ seasonWins: 1, seasonLosses: 0 }, tallyFcsStubRecord("miami")),
+      { seasonWins: 2, seasonLosses: 0 },
     );
   });
 });

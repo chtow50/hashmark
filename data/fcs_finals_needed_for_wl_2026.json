@@ -1,7 +1,7 @@
 {
   "source": "Research CFB vs ESPN overall (HOLD on PR 27)",
-  "as_of": "2026-09-08",
-  "note": "Only this list is stamped. Other FCS stubs stay scheduled. No guessed scores.",
+  "as_of": "2026-09-11",
+  "note": "Only this list is stamped. Other FCS stubs stay scheduled. No guessed scores. Week 2: Miami–FAMU only.",
   "blocker": {
     "teamSlug": "georgia",
     "home": true,
@@ -34,12 +34,25 @@
     { "teamSlug": "virginia-tech", "opponentLabel": "VMI", "homeScore": 73, "awayScore": 3, "kickoffDate": "2026-09-05" },
     { "teamSlug": "georgia", "opponentLabel": "Tennessee State", "homeScore": 63, "awayScore": 3, "kickoffDate": "2026-09-05" }
   ],
+  "week2_fcs": [
+    {
+      "espn_event_id": "401858213",
+      "teamSlug": "miami",
+      "opponentLabel": "Florida A&M",
+      "home": true,
+      "homeScore": 77,
+      "awayScore": 7,
+      "kickoffDate": "2026-09-10",
+      "source": "Research CFB Friday package · NCAA / Miami athletics"
+    }
+  ],
   "peer_targets": {
     "georgia": "1-0",
     "usc": "2-0",
     "florida-state": "1-1",
     "stanford": "1-1",
     "memphis": "2-0",
-    "virginia": "1-0"
+    "virginia": "1-0",
+    "miami": "2-0"
   }
 }
