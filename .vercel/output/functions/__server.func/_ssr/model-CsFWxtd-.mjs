@@ -1,6 +1,6 @@
 import { t as MODEL } from "./chicago-ClRwnsKl.mjs";
 import { S as require_jsx_runtime, y as Link } from "../_libs/@tanstack/react-router+[...].mjs";
-import { T as Panel, w as PageHead } from "./router-BzWMFTNm.mjs";
+import { T as Panel, w as PageHead } from "./router-DoDUm557.mjs";
 //#region node_modules/.nitro/vite/services/ssr/assets/model-CsFWxtd-.js
 var import_jsx_runtime = require_jsx_runtime();
 var WEIGHTS = [
