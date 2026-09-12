@@ -156,7 +156,7 @@ describe("Week 2 FBS–FCS JSON ingest", () => {
     assert.equal(finals.length, 9);
     for (const stub of finals) {
       const expect = stub.espnEventId ? clearScores[stub.espnEventId] : undefined;
-      assert.ok(expect, stub.espnEventId);
+      assert.ok(expect, stub.espnEventId ?? "missing espn id");
       assert.equal(stub.teamSlug, expect.slug);
       assert.equal(stub.homeScore, expect.home);
       assert.equal(stub.awayScore, expect.away);
