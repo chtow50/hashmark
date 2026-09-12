@@ -1,4 +1,4 @@
-import { x as spreadGap } from "./router-S_s9RPrE.mjs";
+import { b as spreadGap } from "./router-CrZqY1zT.mjs";
 //#region node_modules/.nitro/vite/services/ssr/assets/schedule-flags-D3GOZ0hO.js
 /** HX and Vegas pick opposite favorites (both off PK). */
 function isWinnerFlip(pred, vegasSpread) {
