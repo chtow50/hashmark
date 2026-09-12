@@ -36,6 +36,20 @@ describe("tallySeasonRecord", () => {
     assert.deepEqual(tallySeasonRecord(games, 99), { seasonWins: 0, seasonLosses: 1 });
   });
 
+  it("Michigan 2–0 / Oklahoma 1–1 after Week 2 FINAL 17–10 (home Michigan)", () => {
+    const michigan = 12;
+    const oklahoma = 16;
+    const westernMichigan = 63;
+    const utep = 132;
+    const tape = [
+      game({ homeTeamId: michigan, awayTeamId: westernMichigan, homeScore: 13, awayScore: 12 }),
+      game({ homeTeamId: oklahoma, awayTeamId: utep, homeScore: 51, awayScore: 0 }),
+      game({ homeTeamId: michigan, awayTeamId: oklahoma, homeScore: 17, awayScore: 10 }),
+    ];
+    assert.deepEqual(tallySeasonRecord(tape, michigan), { seasonWins: 2, seasonLosses: 0 });
+    assert.deepEqual(tallySeasonRecord(tape, oklahoma), { seasonWins: 1, seasonLosses: 1 });
+  });
+
   it("ignores ties, missing scores, and other teams", () => {
     const games = [
       game({ homeTeamId: 1, awayTeamId: 2, homeScore: 17, awayScore: 17 }),
