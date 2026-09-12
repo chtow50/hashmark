@@ -1,6 +1,7 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { Menu, Search, X } from "lucide-react";
 import { useMemo, useState, type ReactNode } from "react";
+import { TeamFinder } from "@/components/team-finder";
 import { Button } from "@/components/ui/button";
 import { CONFS, type ConfFilter } from "@/lib/cfb/conferences";
 import { MODEL } from "@/lib/cfb/model";
@@ -40,6 +41,12 @@ export function AppShell({ children }: { children: ReactNode }) {
 
   return (
     <div className="min-h-dvh bg-bg text-fg">
+      <a
+        href="#main"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-3 focus:z-50 focus:rounded-md focus:bg-accent focus:px-3 focus:py-2 focus:text-sm focus:text-accent-fg"
+      >
+        Skip to board
+      </a>
       <header className="sticky top-0 z-40 border-b border-line bg-bg/92 backdrop-blur-md">
         <div className="mx-auto flex h-14 max-w-6xl items-center justify-between gap-4 px-4 sm:h-16 sm:px-6">
           <HashLogo />
@@ -66,14 +73,17 @@ export function AppShell({ children }: { children: ReactNode }) {
               );
             })}
           </nav>
-          <div className="flex items-center gap-2">
-            <span className="hidden font-mono text-[11px] uppercase tracking-[0.16em] text-faint sm:inline">
+          <div className="flex items-center gap-1 sm:gap-2">
+            <span className="hidden font-mono text-[11px] uppercase tracking-[0.16em] text-faint xl:inline">
               {MODEL.weekLabel}
             </span>
+            <TeamFinder />
             <Button
               variant="ghost"
               size="icon"
               className="lg:hidden"
+              aria-expanded={open}
+              aria-controls="mobile-nav"
               aria-label={open ? "Close menu" : "Open menu"}
               onClick={() => setOpen((v) => !v)}
             >
@@ -82,7 +92,7 @@ export function AppShell({ children }: { children: ReactNode }) {
           </div>
         </div>
         {open ? (
-          <nav className="border-t border-line px-4 py-3 lg:hidden">
+          <nav id="mobile-nav" className="border-t border-line px-4 py-3 lg:hidden">
             <div className="flex flex-col">
               {NAV.map((item) => (
                 <Link
@@ -94,11 +104,20 @@ export function AppShell({ children }: { children: ReactNode }) {
                   {item.label}
                 </Link>
               ))}
+              <Link
+                to="/desk"
+                onClick={() => setOpen(false)}
+                className="flex h-12 items-center text-base text-muted"
+              >
+                The Desk
+              </Link>
             </div>
           </nav>
         ) : null}
       </header>
-      <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10">{children}</div>
+      <main id="main" className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10">
+        {children}
+      </main>
       <footer className="border-t border-line">
         <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-8 text-sm text-muted sm:px-6">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
@@ -115,9 +134,15 @@ export function AppShell({ children }: { children: ReactNode }) {
             <Link to="/stories" className="hover:text-fg">Stories</Link>
             <Link to="/rankings" className="hover:text-fg">Rankings</Link>
             <Link to="/matchup" className="hover:text-fg">Matchup</Link>
+            <Link to="/recruiting" className="hover:text-fg">Recruiting</Link>
             <Link to="/talent" className="hover:text-fg">Talent</Link>
+            <Link to="/states" className="hover:text-fg">States</Link>
             <Link to="/model" className="hover:text-fg">The Model</Link>
+            <Link to="/desk" className="hover:text-fg">The Desk</Link>
           </nav>
+          <p className="text-xs leading-relaxed text-faint">
+            Research desk. Not a sportsbook. HASHMARK does not take wagers or list a street line.
+          </p>
         </div>
       </footer>
     </div>
