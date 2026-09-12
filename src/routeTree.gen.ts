@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as DeskRouteImport } from './routes/desk'
 import { Route as LogosRouteImport } from './routes/logos'
 import { Route as MatchupRouteImport } from './routes/matchup'
 import { Route as ModelRouteImport } from './routes/model'
@@ -25,6 +26,11 @@ import { Route as TeamsSlugRouteImport } from './routes/teams.$slug'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DeskRoute = DeskRouteImport.update({
+  id: '/desk',
+  path: '/desk',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LogosRoute = LogosRouteImport.update({
@@ -85,6 +91,7 @@ const TeamsSlugRoute = TeamsSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/desk': typeof DeskRoute
   '/logos': typeof LogosRoute
   '/matchup': typeof MatchupRoute
   '/model': typeof ModelRoute
@@ -99,6 +106,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/desk': typeof DeskRoute
   '/logos': typeof LogosRoute
   '/matchup': typeof MatchupRoute
   '/model': typeof ModelRoute
@@ -114,6 +122,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/desk': typeof DeskRoute
   '/logos': typeof LogosRoute
   '/matchup': typeof MatchupRoute
   '/model': typeof ModelRoute
@@ -130,6 +139,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/desk'
     | '/logos'
     | '/matchup'
     | '/model'
@@ -144,6 +154,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/desk'
     | '/logos'
     | '/matchup'
     | '/model'
@@ -158,6 +169,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/desk'
     | '/logos'
     | '/matchup'
     | '/model'
@@ -173,6 +185,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  DeskRoute: typeof DeskRoute
   LogosRoute: typeof LogosRoute
   MatchupRoute: typeof MatchupRoute
   ModelRoute: typeof ModelRoute
@@ -192,6 +205,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/desk': {
+      id: '/desk'
+      path: '/desk'
+      fullPath: '/desk'
+      preLoaderRoute: typeof DeskRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/logos': {
@@ -287,6 +307,7 @@ const StoriesRouteWithChildren =
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  DeskRoute: DeskRoute,
   LogosRoute: LogosRoute,
   MatchupRoute: MatchupRoute,
   ModelRoute: ModelRoute,

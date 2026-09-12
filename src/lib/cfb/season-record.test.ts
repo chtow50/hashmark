@@ -75,6 +75,15 @@ describe("tallyFcsStubRecord", () => {
   it("counts Miami Week 2 FAMU FINAL as one FCS win (home 77–7)", () => {
     assert.deepEqual(tallyFcsStubRecord("miami"), { seasonWins: 1, seasonLosses: 0 });
   });
+
+  it("counts Week 2 early-window CLEAR FCS FINALs and leaves HOLD at 0–0", () => {
+    assert.deepEqual(tallyFcsStubRecord("louisville"), { seasonWins: 1, seasonLosses: 0 });
+    assert.deepEqual(tallyFcsStubRecord("indiana"), { seasonWins: 1, seasonLosses: 0 });
+    assert.deepEqual(tallyFcsStubRecord("liberty"), { seasonWins: 1, seasonLosses: 0 });
+    assert.deepEqual(tallyFcsStubRecord("north-carolina"), { seasonWins: 0, seasonLosses: 0 });
+    assert.deepEqual(tallyFcsStubRecord("west-virginia"), { seasonWins: 0, seasonLosses: 0 });
+    assert.deepEqual(tallyFcsStubRecord("ball-state"), { seasonWins: 0, seasonLosses: 0 });
+  });
 });
 
 describe("SEASON_RECORD_JOIN", () => {
@@ -83,6 +92,9 @@ describe("SEASON_RECORD_JOIN", () => {
     assert.match(SEASON_RECORD_JOIN, /'missouri'/);
     assert.doesNotMatch(SEASON_RECORD_JOIN, /'buffalo'/);
     assert.match(SEASON_RECORD_JOIN, /'miami'/);
+    assert.match(SEASON_RECORD_JOIN, /'louisville'/);
+    assert.match(SEASON_RECORD_JOIN, /'indiana'/);
+    assert.doesNotMatch(SEASON_RECORD_JOIN, /'north-carolina'/);
   });
 });
 

@@ -10,7 +10,8 @@
     "n_fbs_fbs_seen": 47,
     "n_unresolved": 0,
     "miami_tonight": "Miami vs Florida A&M \u00b7 2026-09-10 19:00 CT \u00b7 FINAL Miami 77, FAMU 7 \u00b7 Vegas MIA -59.5 (close) \u00b7 HX spread null",
-    "miami_final": "Research SOURCE CLEAR memo locked \u00b7 ESPN 401858213 STATUS_FINAL \u00b7 NCAA contest 6604311 \u00b7 Miami (home) 77, Florida A&M (away) 7 \u00b7 Thu Sep 10 2026 7:00 CT / 8:00 ET \u00b7 ACCN \u00b7 Hard Rock Stadium"
+    "miami_final": "Research SOURCE CLEAR memo locked \u00b7 ESPN 401858213 STATUS_FINAL \u00b7 NCAA contest 6604311 \u00b7 Miami (home) 77, Florida A&M (away) 7 \u00b7 Thu Sep 10 2026 7:00 CT / 8:00 ET \u00b7 ACCN \u00b7 Hard Rock Stadium",
+    "early_window_clear": "data/week2_early_window_finals_clear_2026.json as_of 2026-09-12 3:00 PM CT \u00b7 8 FCS STATUS_FINAL + home/away scores \u00b7 4 HOLD in-progress untouched \u00b7 Miami\u2013FAMU already_live (do not restamp)"
   },
   "games": [
     {
@@ -61,10 +62,12 @@
       "vegas_spread": -36.5,
       "vegas_source": "ESPN/DraftKings via ESPN odds",
       "broadcast": "ACC Network",
-      "status": "STATUS_SCHEDULED",
+      "status": "STATUS_FINAL",
+      "home_score": 59,
+      "away_score": 13,
       "hx_spread": null,
       "hx_spread_policy": "vegas_only_fcs_unrated",
-      "note": "FCS opponent not on HASHMARK 136 \u2014 no invented FCS HX. Stamp Vegas close when sourced; label Vegas-only on /schedule."
+      "note": "Research CLEAR early-window FINAL. Louisville (home) 59, Villanova (away) 13. Score + status only. No invented FCS HX. Kick/TV/Vegas unchanged."
     },
     {
       "espn_event_id": "401858222",
@@ -85,10 +88,12 @@
       "vegas_spread": -32.5,
       "vegas_source": "ESPN/DraftKings via ESPN odds",
       "broadcast": "ESPNU",
-      "status": "STATUS_SCHEDULED",
+      "status": "STATUS_FINAL",
+      "home_score": 73,
+      "away_score": 0,
       "hx_spread": null,
       "hx_spread_policy": "vegas_only_fcs_unrated",
-      "note": "FCS opponent not on HASHMARK 136 \u2014 no invented FCS HX. Stamp Vegas close when sourced; label Vegas-only on /schedule."
+      "note": "Research CLEAR early-window FINAL. NC State (home) 73, Richmond (away) 0. Score + status only. No invented FCS HX. Kick/TV/Vegas unchanged."
     },
     {
       "espn_event_id": "401858220",
@@ -109,10 +114,12 @@
       "vegas_spread": -45.5,
       "vegas_source": "ESPN/DraftKings via ESPN odds",
       "broadcast": "ACCNX",
-      "status": "STATUS_SCHEDULED",
+      "status": "STATUS_FINAL",
+      "home_score": 59,
+      "away_score": 3,
       "hx_spread": null,
       "hx_spread_policy": "vegas_only_fcs_unrated",
-      "note": "FCS opponent not on HASHMARK 136 \u2014 no invented FCS HX. Stamp Vegas close when sourced; label Vegas-only on /schedule."
+      "note": "Research CLEAR early-window FINAL. Virginia (home) 59, Norfolk State (away) 3. Score + status only. No invented FCS HX. Kick/TV/Vegas unchanged."
     },
     {
       "espn_event_id": "401858439",
@@ -133,10 +140,12 @@
       "vegas_spread": -56.5,
       "vegas_source": "ESPN/DraftKings via ESPN odds",
       "broadcast": "BTN",
-      "status": "STATUS_SCHEDULED",
+      "status": "STATUS_FINAL",
+      "home_score": 55,
+      "away_score": 0,
       "hx_spread": null,
       "hx_spread_policy": "vegas_only_fcs_unrated",
-      "note": "FCS opponent not on HASHMARK 136 \u2014 no invented FCS HX. Stamp Vegas close when sourced; label Vegas-only on /schedule."
+      "note": "Research CLEAR early-window FINAL. Indiana (home) 55, Howard (away) 0. Score + status only. No invented FCS HX. Kick/TV/Vegas unchanged."
     },
     {
       "espn_event_id": "401866416",
@@ -157,10 +166,12 @@
       "vegas_spread": -11.5,
       "vegas_source": "ESPN/DraftKings via ESPN odds",
       "broadcast": "ESPN+",
-      "status": "STATUS_SCHEDULED",
+      "status": "STATUS_FINAL",
+      "home_score": 36,
+      "away_score": 15,
       "hx_spread": null,
       "hx_spread_policy": "vegas_only_fcs_unrated",
-      "note": "FCS opponent not on HASHMARK 136 \u2014 no invented FCS HX. Stamp Vegas close when sourced; label Vegas-only on /schedule."
+      "note": "Research CLEAR early-window FINAL. Kent State (home) 36, Wofford (away) 15. Score + status only. No invented FCS HX. Kick/TV/Vegas unchanged."
     },
     {
       "espn_event_id": "401858218",
@@ -229,10 +240,12 @@
       "vegas_spread": -30.5,
       "vegas_source": "ESPN/DraftKings via ESPN odds",
       "broadcast": "ESPN+",
-      "status": "STATUS_SCHEDULED",
+      "status": "STATUS_FINAL",
+      "home_score": 45,
+      "away_score": 7,
       "hx_spread": null,
       "hx_spread_policy": "vegas_only_fcs_unrated",
-      "note": "FCS opponent not on HASHMARK 136 \u2014 no invented FCS HX. Stamp Vegas close when sourced; label Vegas-only on /schedule."
+      "note": "Research CLEAR early-window FINAL. Miami (OH) (home) 45, Holy Cross (away) 7. Score + status only. No invented FCS HX. Kick/TV/Vegas unchanged."
     },
     {
       "espn_event_id": "401856791",
@@ -349,10 +362,12 @@
       "vegas_spread": -45.5,
       "vegas_source": "ESPN/DraftKings via ESPN odds",
       "broadcast": "ESPN+",
-      "status": "STATUS_SCHEDULED",
+      "status": "STATUS_FINAL",
+      "home_score": 87,
+      "away_score": 3,
       "hx_spread": null,
       "hx_spread_policy": "vegas_only_fcs_unrated",
-      "note": "FCS opponent not on HASHMARK 136 \u2014 no invented FCS HX. Stamp Vegas close when sourced; label Vegas-only on /schedule."
+      "note": "Research CLEAR early-window FINAL. James Madison (home) 87, Wagner (away) 3. Score + status only. No invented FCS HX. Kick/TV/Vegas unchanged."
     },
     {
       "espn_event_id": "401866420",
@@ -541,10 +556,12 @@
       "vegas_spread": -27.5,
       "vegas_source": "ESPN/DraftKings via ESPN odds",
       "broadcast": "ESPN+",
-      "status": "STATUS_SCHEDULED",
+      "status": "STATUS_FINAL",
+      "home_score": 24,
+      "away_score": 23,
       "hx_spread": null,
       "hx_spread_policy": "vegas_only_fcs_unrated",
-      "note": "FCS opponent not on HASHMARK 136 \u2014 no invented FCS HX. Stamp Vegas close when sourced; label Vegas-only on /schedule."
+      "note": "Research CLEAR early-window FINAL. Liberty (home) 24, Gardner-Webb (away) 23. Score + status only. No invented FCS HX. Kick/TV/Vegas unchanged."
     },
     {
       "espn_event_id": "401866421",

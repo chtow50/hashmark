@@ -1,7 +1,7 @@
 {
-  "source": "Research CFB vs ESPN overall (HOLD on PR 27)",
-  "as_of": "2026-09-11",
-  "note": "Only this list is stamped. Other FCS stubs stay scheduled. No guessed scores. Week 2: Miami–FAMU only. Research SOURCE CLEAR memo locked.",
+  "source": "Research CFB vs ESPN overall + Week 2 early-window CLEAR pack",
+  "as_of": "2026-09-12",
+  "note": "Only this list is stamped. Other FCS stubs stay scheduled. No guessed scores. Week 2: Miami–FAMU already_live plus 8 early-window CLEAR FINALs. HOLD in-progress (ETSU@UNC, UT Martin@WVU, Colgate@CMU, Stony Brook@Ball State) not stamped.",
   "blocker": {
     "teamSlug": "georgia",
     "home": true,
@@ -49,6 +49,86 @@
       "tv": "ACCN",
       "venue": "Hard Rock Stadium",
       "source": "Research SOURCE CLEAR memo locked"
+    },
+    {
+      "espn_event_id": "401858215",
+      "teamSlug": "louisville",
+      "opponentLabel": "Villanova",
+      "home": true,
+      "homeScore": 59,
+      "awayScore": 13,
+      "kickoffDate": "2026-09-11",
+      "source": "Research CLEAR early-window pack"
+    },
+    {
+      "espn_event_id": "401858220",
+      "teamSlug": "virginia",
+      "opponentLabel": "Norfolk State",
+      "home": true,
+      "homeScore": 59,
+      "awayScore": 3,
+      "kickoffDate": "2026-09-11",
+      "source": "Research CLEAR early-window pack"
+    },
+    {
+      "espn_event_id": "401858222",
+      "teamSlug": "nc-state",
+      "opponentLabel": "Richmond",
+      "home": true,
+      "homeScore": 73,
+      "awayScore": 0,
+      "kickoffDate": "2026-09-11",
+      "source": "Research CLEAR early-window pack"
+    },
+    {
+      "espn_event_id": "401858439",
+      "teamSlug": "indiana",
+      "opponentLabel": "Howard",
+      "home": true,
+      "homeScore": 55,
+      "awayScore": 0,
+      "kickoffDate": "2026-09-12",
+      "source": "Research CLEAR early-window pack"
+    },
+    {
+      "espn_event_id": "401866416",
+      "teamSlug": "kent-state",
+      "opponentLabel": "Wofford",
+      "home": true,
+      "homeScore": 36,
+      "awayScore": 15,
+      "kickoffDate": "2026-09-12",
+      "source": "Research CLEAR early-window pack"
+    },
+    {
+      "espn_event_id": "401867929",
+      "teamSlug": "james-madison",
+      "opponentLabel": "Wagner",
+      "home": true,
+      "homeScore": 87,
+      "awayScore": 3,
+      "kickoffDate": "2026-09-12",
+      "source": "Research CLEAR early-window pack"
+    },
+    {
+      "espn_event_id": "401868187",
+      "teamSlug": "liberty",
+      "opponentLabel": "Gardner-Webb",
+      "home": true,
+      "homeScore": 24,
+      "awayScore": 23,
+      "kickoffDate": "2026-09-12",
+      "source": "Research CLEAR early-window pack"
+    },
+    {
+      "espn_event_id": "401866417",
+      "teamSlug": "miami-oh",
+      "opponentLabel": "Holy Cross",
+      "home": true,
+      "homeScore": 45,
+      "awayScore": 7,
+      "kickoffDate": "2026-09-12",
+      "source": "Research CLEAR early-window pack"
     }
   ],
   "peer_targets": {
