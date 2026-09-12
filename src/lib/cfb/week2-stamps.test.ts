@@ -5,6 +5,7 @@ import { fileURLToPath } from "node:url";
 import { describe, it } from "node:test";
 import { chicagoCivilToIso, formatKickCt } from "./chicago.ts";
 import { favoriteLine } from "./featured.ts";
+import { parseSqlStampsForWeek, readMigrationsSql } from "./fcs-fbs-stamp-gate.ts";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "../../..");
 const payload = JSON.parse(
@@ -128,5 +129,39 @@ describe("Week 2 FBS–FBS Research stamps", () => {
     assert.equal(miami.away_score, 7);
     assert.equal(miami.ncaa_contest_id, "6604311");
     assert.equal(miami.venue, "Hard Rock Stadium");
+  });
+});
+
+describe("Week 2 Oklahoma @ Michigan FINAL (Research CLEAR)", () => {
+  const finalSql = readFileSync(join(root, "migrations/0025_week2_oklahoma_michigan_final.sql"), "utf8");
+
+  it("stamps only this FINAL: Michigan 17, Oklahoma 10 (home Michigan)", () => {
+    assert.match(finalSql, /status = 'final'/);
+    assert.match(finalSql, /home_score = 17/);
+    assert.match(finalSql, /away_score = 10/);
+    assert.match(finalSql, /g\.week = 2/);
+    assert.match(finalSql, /h\.slug = 'michigan' and a\.slug = 'oklahoma'/);
+    assert.match(finalSql, /h\.slug = 'oklahoma' and a\.slug = 'michigan'/);
+    assert.doesNotMatch(finalSql, /home_score = (?!17\b)\d/);
+    assert.doesNotMatch(finalSql, /away_score = (?!10\b)\d/);
+  });
+
+  it("does not restamp kick, TV, or Vegas (0024 stays)", () => {
+    assert.doesNotMatch(finalSql, /kickoff_at/);
+    assert.doesNotMatch(finalSql, /\btv\s*=/);
+    assert.doesNotMatch(finalSql, /vegas_spread/);
+    assert.doesNotMatch(finalSql, /vegas_total/);
+    assert.match(sql, /Oklahoma @ Michigan/);
+    assert.match(sql, /h\.slug = 'michigan' then -5\.5 else 5\.5/);
+    assert.match(sql, /vegas_total = 43\.5/);
+    assert.match(sql, /tv = 'FOX'/);
+  });
+
+  it("omits ESPN event digits so stamp-gate keeps 0024 kick/Vegas for this row", () => {
+    assert.doesNotMatch(finalSql, /401\d{6,}/);
+    const week2 = parseSqlStampsForWeek(readMigrationsSql(root), 2);
+    assert.equal(week2.size, 47);
+    assert.equal(week2.get("401856679")?.hasKick, true);
+    assert.equal(week2.get("401856679")?.hasVegas, true);
   });
 });
