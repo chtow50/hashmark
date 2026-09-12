@@ -18,8 +18,9 @@ export const Route = createRootRoute({
           "HASHMARK is a college football intelligence desk: HX power rankings, composite recruiting, roster talent, and head-to-head matchup modeling.",
       },
       { name: "theme-color", content: "#09090b" },
+      { name: "robots", content: "index,follow" },
       { property: "og:site_name", content: APP_NAME },
-      { property: "og:title", content: APP_NAME },
+      { property: "og:title", content: "HASHMARK · College football ratings desk" },
       {
         property: "og:description",
         content:
@@ -29,9 +30,15 @@ export const Route = createRootRoute({
       { property: "og:url", content: "https://hashmarkcfb.com" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "HASHMARK · College football ratings desk" },
+      {
+        name: "twitter:description",
+        content: "One rating. Full 136 FBS. Board, slate, matchups, recruiting, talent.",
+      },
       { name: "twitter:image", content: "https://hashmarkcfb.com/og.jpg" },
     ],
     links: [
+      { rel: "canonical", href: "https://hashmarkcfb.com/" },
       { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
       { rel: "apple-touch-icon", href: "/favicon.svg" },
       { rel: "stylesheet", href: appCss },
@@ -70,6 +77,24 @@ function Root() {
         <HeadContent />
       </head>
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "HASHMARK",
+              url: "https://hashmarkcfb.com",
+              description:
+                "College football ratings desk. One number: HX. Full 136 FBS.",
+              potentialAction: {
+                "@type": "SearchAction",
+                target: "https://hashmarkcfb.com/teams/{search_term_string}",
+                "query-input": "required name=search_term_string",
+              },
+            }),
+          }}
+        />
         <PreviewHostBridge />
         <AuthProvider>
           <AppShell>

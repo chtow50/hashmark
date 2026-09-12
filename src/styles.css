@@ -66,6 +66,14 @@
     background: var(--color-accent);
     color: var(--color-accent-fg);
   }
+
+  a:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  button:focus-visible {
+    outline: 2px solid color-mix(in srgb, var(--color-accent) 70%, transparent);
+    outline-offset: 2px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
