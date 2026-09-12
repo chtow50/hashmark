@@ -52,13 +52,16 @@ describe("Week 2 FBS–FCS JSON ingest", () => {
       assert.equal(g.hx_spread, null);
       assert.equal(g.hx_spread_policy, "vegas_only_fcs_unrated");
     }
+    const week2FinalSlugs = new Set(
+      fcsStubsForWeek(2).filter(fcsStubIsFinal).map((s) => s.teamSlug),
+    );
     for (const row of fcsScheduleGamesForWeek(2)) {
       assert.equal(row.isFcs, true);
       assert.equal(row.hxSpreadPolicy, "vegas_only_fcs_unrated");
       assert.equal(isVegasOnlyFcs(row), true);
       assert.equal(row.homeHx, 0);
       assert.equal(row.awayHx, 0);
-      if (row.homeSlug === "miami") continue;
+      if (week2FinalSlugs.has(row.homeSlug) || week2FinalSlugs.has(row.awaySlug)) continue;
       assert.equal(row.status, "scheduled");
       assert.equal(row.homeScore, null);
       assert.equal(row.awayScore, null);
@@ -91,7 +94,7 @@ describe("Week 2 FBS–FCS JSON ingest", () => {
     assert.equal(favoriteLine(row.homeShort, row.awayShort, row.vegasSpread ?? 0), "MIA −59.5");
   });
 
-  it("stamps only Miami–FAMU Research FINAL 77–7 (home Miami), no other Week 2 FCS scores", () => {
+  it("keeps Miami–FAMU already_live FINAL 77–7 (home Miami) and does not restamp it", () => {
     const json = payload.games.find((g) => g.espn_event_id === "401858213");
     assert.ok(json);
     assert.equal(json.status, "STATUS_FINAL");
@@ -103,18 +106,17 @@ describe("Week 2 FBS–FCS JSON ingest", () => {
     assert.equal(json.venue, "Hard Rock Stadium");
     assert.equal(json.kick_ct, "2026-09-10 19:00");
 
-    const finals = fcsStubsForWeek(2).filter(fcsStubIsFinal);
-    assert.equal(finals.length, 1);
-    assert.equal(finals[0]?.teamSlug, "miami");
-    assert.equal(finals[0]?.espnEventId, "401858213");
-    assert.equal(finals[0]?.ncaaContestId, "6604311");
-    assert.equal(finals[0]?.home, true);
-    assert.equal(finals[0]?.homeScore, 77);
-    assert.equal(finals[0]?.awayScore, 7);
-    assert.equal(finals[0]?.live, false);
-    assert.equal(finals[0]?.hxSpreadPolicy, "vegas_only_fcs_unrated");
-    assert.equal(finals[0]?.location, "Hard Rock Stadium");
-    assert.equal(formatKickCt(finals[0]?.kickoffAt ?? null), "7:00 CT");
+    const miami = fcsStubsForWeek(2).find((s) => s.espnEventId === "401858213");
+    assert.ok(miami);
+    assert.equal(miami.teamSlug, "miami");
+    assert.equal(miami.ncaaContestId, "6604311");
+    assert.equal(miami.home, true);
+    assert.equal(miami.homeScore, 77);
+    assert.equal(miami.awayScore, 7);
+    assert.equal(miami.live, false);
+    assert.equal(miami.hxSpreadPolicy, "vegas_only_fcs_unrated");
+    assert.equal(miami.location, "Hard Rock Stadium");
+    assert.equal(formatKickCt(miami.kickoffAt ?? null), "7:00 CT");
 
     const row = fcsScheduleGamesForWeek(2).find((g) => g.id === -401858213);
     assert.ok(row);
@@ -125,12 +127,55 @@ describe("Week 2 FBS–FCS JSON ingest", () => {
     assert.equal(row.hxSpreadPolicy, "vegas_only_fcs_unrated");
     assert.equal(row.location, "Hard Rock Stadium");
     assert.equal(row.tv, "ACCN");
+  });
+
+  it("stamps Week 2 early-window CLEAR FCS FINALs and leaves HOLD in progress", () => {
+    const clearScores: Record<string, { home: number; away: number; slug: string }> = {
+      "401858213": { home: 77, away: 7, slug: "miami" },
+      "401858215": { home: 59, away: 13, slug: "louisville" },
+      "401858220": { home: 59, away: 3, slug: "virginia" },
+      "401858222": { home: 73, away: 0, slug: "nc-state" },
+      "401858439": { home: 55, away: 0, slug: "indiana" },
+      "401866416": { home: 36, away: 15, slug: "kent-state" },
+      "401867929": { home: 87, away: 3, slug: "james-madison" },
+      "401868187": { home: 24, away: 23, slug: "liberty" },
+      "401866417": { home: 45, away: 7, slug: "miami-oh" },
+    };
+    const holdIds = ["401858218", "401856791", "401866415", "401866413"];
+
+    for (const [id, expect] of Object.entries(clearScores)) {
+      const json = payload.games.find((g) => g.espn_event_id === id);
+      assert.ok(json, id);
+      assert.equal(json.status, "STATUS_FINAL", id);
+      assert.equal(json.home_score, expect.home, id);
+      assert.equal(json.away_score, expect.away, id);
+      assert.equal(json.hx_spread, null, id);
+    }
+
+    const finals = fcsStubsForWeek(2).filter(fcsStubIsFinal);
+    assert.equal(finals.length, 9);
+    for (const stub of finals) {
+      const expect = stub.espnEventId ? clearScores[stub.espnEventId] : undefined;
+      assert.ok(expect, stub.espnEventId);
+      assert.equal(stub.teamSlug, expect.slug);
+      assert.equal(stub.homeScore, expect.home);
+      assert.equal(stub.awayScore, expect.away);
+      assert.equal(stub.live, false);
+    }
+
+    for (const id of holdIds) {
+      const json = payload.games.find((g) => g.espn_event_id === id);
+      assert.ok(json, id);
+      assert.notEqual(json.status, "STATUS_FINAL", id);
+      assert.equal(json.home_score ?? null, null, id);
+      assert.equal(json.away_score ?? null, null, id);
+    }
 
     for (const g of payload.games) {
-      if (g.espn_event_id === "401858213") continue;
-      assert.notEqual(g.status, "STATUS_FINAL");
-      assert.equal(g.home_score ?? null, null);
-      assert.equal(g.away_score ?? null, null);
+      if (g.espn_event_id in clearScores) continue;
+      assert.notEqual(g.status, "STATUS_FINAL", g.espn_event_id);
+      assert.equal(g.home_score ?? null, null, g.espn_event_id);
+      assert.equal(g.away_score ?? null, null, g.espn_event_id);
     }
   });
 

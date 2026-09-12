@@ -165,3 +165,57 @@ describe("Week 2 Oklahoma @ Michigan FINAL (Research CLEAR)", () => {
     assert.equal(week2.get("401856679")?.hasVegas, true);
   });
 });
+
+describe("Week 2 early-window FINALs (Research CLEAR pack)", () => {
+  const earlySql = readFileSync(join(root, "migrations/0026_week2_early_window_finals.sql"), "utf8");
+  const clear = JSON.parse(
+    readFileSync(join(root, "data/week2_early_window_finals_clear_2026.json"), "utf8"),
+  ) as {
+    meta: { n_clear: number; n_hold: number };
+    clear: Array<{ espn_event_id: string; home_score: number; away_score: number }>;
+    hold: Array<{ espn_event_id: string }>;
+    already_live: Array<{ espn_event_id: string }>;
+  };
+
+  it("covers 18 CLEAR games and 6 HOLD games from the Research pack", () => {
+    assert.equal(clear.meta.n_clear, 18);
+    assert.equal(clear.clear.length, 18);
+    assert.equal(clear.meta.n_hold, 6);
+    assert.equal(clear.hold.length, 6);
+    assert.equal(clear.already_live[0]?.espn_event_id, "401858213");
+  });
+
+  it("reasserts OU–Michigan 17–10 and stamps ASU@TAMU 48–20 and Mizzou@Kansas 38–21", () => {
+    assert.match(earlySql, /home_score = 17/);
+    assert.match(earlySql, /away_score = 10/);
+    assert.match(earlySql, /h\.slug = 'michigan' and a\.slug = 'oklahoma'/);
+    assert.match(earlySql, /home_score = 48/);
+    assert.match(earlySql, /away_score = 20/);
+    assert.match(earlySql, /h\.slug = 'texas-am' and a\.slug = 'arizona-state'/);
+    assert.match(earlySql, /home_score = 21/);
+    assert.match(earlySql, /away_score = 38/);
+    assert.match(earlySql, /h\.slug = 'kansas' and a\.slug = 'missouri'/);
+  });
+
+  it("does not stamp HOLD FBS–FBS (Oregon @ Oklahoma State, WKU @ Georgia)", () => {
+    assert.doesNotMatch(earlySql, /slug = 'oklahoma-state'/);
+    assert.doesNotMatch(earlySql, /slug = 'oregon'/);
+    assert.doesNotMatch(earlySql, /slug = 'western-kentucky'/);
+    assert.doesNotMatch(earlySql, /slug = 'georgia'/);
+  });
+
+  it("does not restamp kick, TV, or Vegas, and omits ESPN digits", () => {
+    assert.doesNotMatch(earlySql, /kickoff_at/);
+    assert.doesNotMatch(earlySql, /\btv\s*=/);
+    assert.doesNotMatch(earlySql, /vegas_spread/);
+    assert.doesNotMatch(earlySql, /vegas_total/);
+    assert.doesNotMatch(earlySql, /401\d{6,}/);
+    const week2 = parseSqlStampsForWeek(readMigrationsSql(root), 2);
+    assert.equal(week2.size, 47);
+    assert.equal(week2.get("401856683")?.hasKick, true);
+    assert.equal(week2.get("401856683")?.hasVegas, true);
+    assert.equal(week2.get("401856678")?.hasKick, true);
+    assert.equal(week2.get("401856782")?.hasKick, true);
+    assert.equal(week2.get("401856673")?.hasKick, true);
+  });
+});
