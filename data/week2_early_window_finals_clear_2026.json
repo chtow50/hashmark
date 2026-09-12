@@ -1,0 +1,248 @@
+{
+  "meta": {
+    "as_of": "2026-09-12 3:00 PM CT",
+    "sources": [
+      "https://site.web.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?dates=20260910&groups=80&limit=300",
+      "https://site.web.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?dates=20260911&groups=80&limit=300",
+      "https://site.web.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?dates=20260912&groups=80&limit=300",
+      "https://site.web.api.espn.com/apis/site/v2/sports/football/college-football/summary?event=401856679",
+      "https://site.web.api.espn.com/apis/site/v2/sports/football/college-football/summary?event=401856683"
+    ],
+    "n_clear": 18,
+    "n_hold": 6,
+    "verdict": "CLEAR for stamp for the clear[] list only",
+    "window_note": "CLEAR: Fri night FINALs (excl. Miami already live) + Sat kicks before ~3pm CT that are STATUS_FINAL. HOLD: Sat early-window kicks before 2pm CT that are not yet FINAL. ASU@TAMU is FINAL \u2192 CLEAR."
+  },
+  "clear": [
+    {
+      "espn_event_id": "401858215",
+      "away": "Villanova Wildcats",
+      "home": "Louisville Cardinals",
+      "away_score": 13,
+      "home_score": 59,
+      "kick_ct": "2026-09-11 6:00 PM CT",
+      "tv": "ACC Network",
+      "note": "ESPN scoreboard dates=20260911 groups=80; STATUS_FINAL confirmed"
+    },
+    {
+      "espn_event_id": "401858220",
+      "away": "Norfolk State Spartans",
+      "home": "Virginia Cavaliers",
+      "away_score": 3,
+      "home_score": 59,
+      "kick_ct": "2026-09-11 6:00 PM CT",
+      "tv": "ACCNX",
+      "note": "ESPN scoreboard dates=20260911 groups=80; STATUS_FINAL confirmed"
+    },
+    {
+      "espn_event_id": "401858222",
+      "away": "Richmond Spiders",
+      "home": "NC State Wolfpack",
+      "away_score": 0,
+      "home_score": 73,
+      "kick_ct": "2026-09-11 6:00 PM CT",
+      "tv": "ESPNU",
+      "note": "ESPN scoreboard dates=20260911 groups=80; STATUS_FINAL confirmed"
+    },
+    {
+      "espn_event_id": "401858214",
+      "away": "Rutgers Scarlet Knights",
+      "home": "Boston College Eagles",
+      "away_score": 21,
+      "home_score": 28,
+      "kick_ct": "2026-09-11 6:30 PM CT",
+      "tv": "ESPN2",
+      "note": "ESPN scoreboard dates=20260911 groups=80; STATUS_FINAL confirmed"
+    },
+    {
+      "espn_event_id": "401856678",
+      "away": "Missouri Tigers",
+      "home": "Kansas Jayhawks",
+      "away_score": 38,
+      "home_score": 21,
+      "kick_ct": "2026-09-11 7:00 PM CT",
+      "tv": "FOX",
+      "note": "ESPN scoreboard dates=20260911 groups=80; STATUS_FINAL confirmed"
+    },
+    {
+      "espn_event_id": "401856781",
+      "away": "Washington State Cougars",
+      "home": "Kansas State Wildcats",
+      "away_score": 7,
+      "home_score": 34,
+      "kick_ct": "2026-09-12 11:00 AM CT",
+      "tv": "TNT",
+      "note": "ESPN scoreboard dates=20260912 groups=80; STATUS_FINAL confirmed"
+    },
+    {
+      "espn_event_id": "401858439",
+      "away": "Howard Bison",
+      "home": "Indiana Hoosiers",
+      "away_score": 0,
+      "home_score": 55,
+      "kick_ct": "2026-09-12 11:00 AM CT",
+      "tv": "BTN",
+      "note": "ESPN scoreboard dates=20260912 groups=80; STATUS_FINAL confirmed"
+    },
+    {
+      "espn_event_id": "401856683",
+      "away": "Arizona State Sun Devils",
+      "home": "Texas A&M Aggies",
+      "away_score": 20,
+      "home_score": 48,
+      "kick_ct": "2026-09-12 11:00 AM CT",
+      "tv": "ABC, ERADM",
+      "note": "Arizona State @ Texas A&M STATUS_FINAL; include for stamp"
+    },
+    {
+      "espn_event_id": "401856679",
+      "away": "Oklahoma Sooners",
+      "home": "Michigan Wolverines",
+      "away_score": 10,
+      "home_score": 17,
+      "kick_ct": "2026-09-12 11:00 AM CT",
+      "tv": "FOX, ERADM",
+      "note": "CLEARED confirm: Michigan 17, Oklahoma 10; ESPN 401856679 still STATUS_FINAL"
+    },
+    {
+      "espn_event_id": "401858442",
+      "away": "Penn State Nittany Lions",
+      "home": "Temple Owls",
+      "away_score": 27,
+      "home_score": 9,
+      "kick_ct": "2026-09-12 11:00 AM CT",
+      "tv": "ESPN2",
+      "note": "ESPN scoreboard dates=20260912 groups=80; STATUS_FINAL confirmed"
+    },
+    {
+      "espn_event_id": "401858221",
+      "away": "Old Dominion Monarchs",
+      "home": "Virginia Tech Hokies",
+      "away_score": 21,
+      "home_score": 44,
+      "kick_ct": "2026-09-12 11:00 AM CT",
+      "tv": "CW",
+      "note": "ESPN scoreboard dates=20260912 groups=80; STATUS_FINAL confirmed"
+    },
+    {
+      "espn_event_id": "401858224",
+      "away": "Wake Forest Demon Deacons",
+      "home": "Purdue Boilermakers",
+      "away_score": 38,
+      "home_score": 36,
+      "kick_ct": "2026-09-12 11:00 AM CT",
+      "tv": "FS1",
+      "note": "ESPN scoreboard dates=20260912 groups=80; STATUS_FINAL confirmed"
+    },
+    {
+      "espn_event_id": "401862702",
+      "away": "South Florida Bulls",
+      "home": "Army Black Knights",
+      "away_score": 28,
+      "home_score": 24,
+      "kick_ct": "2026-09-12 11:00 AM CT",
+      "tv": "CBSSN",
+      "note": "ESPN scoreboard dates=20260912 groups=80; STATUS_FINAL confirmed"
+    },
+    {
+      "espn_event_id": "401864571",
+      "away": "App State Mountaineers",
+      "home": "East Carolina Pirates",
+      "away_score": 27,
+      "home_score": 24,
+      "kick_ct": "2026-09-12 11:00 AM CT",
+      "tv": "ESPNU",
+      "note": "ESPN scoreboard dates=20260912 groups=80; STATUS_FINAL confirmed"
+    },
+    {
+      "espn_event_id": "401866416",
+      "away": "Wofford Terriers",
+      "home": "Kent State Golden Flashes",
+      "away_score": 15,
+      "home_score": 36,
+      "kick_ct": "2026-09-12 11:00 AM CT",
+      "tv": "ESPN+",
+      "note": "ESPN scoreboard dates=20260912 groups=80; STATUS_FINAL confirmed"
+    },
+    {
+      "espn_event_id": "401867929",
+      "away": "Wagner Seahawks",
+      "home": "James Madison Dukes",
+      "away_score": 3,
+      "home_score": 87,
+      "kick_ct": "2026-09-12 11:00 AM CT",
+      "tv": "ESPN+",
+      "note": "ESPN scoreboard dates=20260912 groups=80; STATUS_FINAL confirmed"
+    },
+    {
+      "espn_event_id": "401868187",
+      "away": "Gardner-Webb Runnin' Bulldogs",
+      "home": "Liberty Flames",
+      "away_score": 23,
+      "home_score": 24,
+      "kick_ct": "2026-09-12 11:00 AM CT",
+      "tv": "ESPN+",
+      "note": "ESPN scoreboard dates=20260912 groups=80; STATUS_FINAL confirmed"
+    },
+    {
+      "espn_event_id": "401866417",
+      "away": "Holy Cross Crusaders",
+      "home": "Miami (OH) RedHawks",
+      "away_score": 7,
+      "home_score": 45,
+      "kick_ct": "2026-09-12 12:00 PM CT",
+      "tv": "ESPN+",
+      "note": "ESPN scoreboard dates=20260912 groups=80; STATUS_FINAL confirmed"
+    }
+  ],
+  "hold": [
+    {
+      "espn_event_id": "401858218",
+      "matchup": "East Tennessee State Buccaneers @ North Carolina Tar Heels",
+      "status": "STATUS_IN_PROGRESS",
+      "detail": "7:45 - 4th Quarter"
+    },
+    {
+      "espn_event_id": "401856673",
+      "matchup": "Western Kentucky Hilltoppers @ Georgia Bulldogs",
+      "status": "STATUS_IN_PROGRESS",
+      "detail": "3:28 - 4th Quarter"
+    },
+    {
+      "espn_event_id": "401856791",
+      "matchup": "UT Martin Skyhawks @ West Virginia Mountaineers",
+      "status": "STATUS_IN_PROGRESS",
+      "detail": "4:17 - 4th Quarter"
+    },
+    {
+      "espn_event_id": "401866415",
+      "matchup": "Colgate Raiders @ Central Michigan Chippewas",
+      "status": "STATUS_IN_PROGRESS",
+      "detail": "0:19 - 4th Quarter"
+    },
+    {
+      "espn_event_id": "401856782",
+      "matchup": "Oregon Ducks @ Oklahoma State Cowboys",
+      "status": "STATUS_IN_PROGRESS",
+      "detail": "5:07 - 3rd Quarter"
+    },
+    {
+      "espn_event_id": "401866413",
+      "matchup": "Stony Brook Seawolves @ Ball State Cardinals",
+      "status": "STATUS_IN_PROGRESS",
+      "detail": "10:32 - 3rd Quarter"
+    }
+  ],
+  "already_live": [
+    {
+      "espn_event_id": "401858213",
+      "away": "Florida A&M Rattlers",
+      "home": "Miami Hurricanes",
+      "away_score": 7,
+      "home_score": 77,
+      "kick_ct": "2026-09-10 7:00 PM CT",
+      "tv": "ACC Network",
+      "note": "Already stamped live (Miami\u2013FAMU 77\u20137). Not in new CLEAR stamp list."
+    }
+  ]
+}
