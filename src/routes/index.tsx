@@ -106,7 +106,7 @@ function Home() {
               <Stat
                 label="Make 12"
                 value={oneMake?.makeField != null ? fmtPct(oneMake.makeField, 1) : fmtPct(one.playoffOdds, 0)}
-                hint={oneMake?.makeFieldSource === "amd-draws" ? "make-field · HX 2026.3 10k" : undefined}
+                hint={oneMake?.makeFieldSource === "amd-draws" ? "make-field · HX 2026.4 10k" : undefined}
               />
             </div>
           </div>

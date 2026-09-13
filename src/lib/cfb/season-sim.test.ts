@@ -48,26 +48,26 @@ function scheduleFixture(
   };
 }
 
-test("make12FromSim loads Georgia HX 2026.3 draws — make-field is not title", () => {
+test("make12FromSim loads Georgia HX 2026.4 draws — make-field is not title", () => {
   const odds = make12FromSim("georgia", { playoffOdds: 98.4 });
   assert.equal(odds.makeFieldSource, "amd-draws");
   assert.equal(odds.winTitleSource, "amd-draws");
   assert.ok(odds.makeField != null);
   assert.ok(odds.winTitle != null);
-  assert.equal(odds.makeField, 74.31);
-  assert.equal(odds.winTitle, 20.84);
-  assert.equal(Number(odds.makeField.toFixed(1)), 74.3);
-  assert.equal(Number(odds.winTitle.toFixed(1)), 20.8);
+  assert.equal(odds.makeField, 75.26);
+  assert.equal(odds.winTitle, 21.59);
+  assert.equal(Number(odds.makeField.toFixed(1)), 75.3);
+  assert.equal(Number(odds.winTitle.toFixed(1)), 21.6);
   assert.notEqual(odds.makeField, odds.winTitle);
   assert.notEqual(Number(odds.makeField.toFixed(0)), 98);
-  assert.match(make12FieldLabel(odds.makeFieldSource) ?? "", /HX 2026\.3 · 10k draws/);
-  assert.match(make12FieldLabel(odds.makeFieldSource) ?? "", /2026-09-09/);
+  assert.match(make12FieldLabel(odds.makeFieldSource) ?? "", /HX 2026\.4 · 10k draws/);
+  assert.match(make12FieldLabel(odds.makeFieldSource) ?? "", /2026-09-13/);
   assert.match(make12FieldLabel(odds.makeFieldSource) ?? "", /not title/);
   assert.doesNotMatch(make12FieldLabel(odds.makeFieldSource) ?? "", /pre-Δ/);
   assert.doesNotMatch(make12TitleLabel(odds.winTitleSource) ?? "", /not a post-2026\.3 re-sim/);
   assert.doesNotMatch(make12TitleLabel(odds.winTitleSource) ?? "", /pre-Δ/);
   assert.match(make12PanelLede(odds.makeFieldSource), /not a national title/);
-  assert.match(make12PanelLede(odds.makeFieldSource), /HX 2026\.3 · 10k draws/);
+  assert.match(make12PanelLede(odds.makeFieldSource), /HX 2026\.4 · 10k draws/);
   assert.doesNotMatch(make12PanelLede(odds.makeFieldSource), /pre-Δ/);
   assert.doesNotMatch(make12PanelLede(odds.makeFieldSource), /not a post-2026\.3 re-sim/);
 });
