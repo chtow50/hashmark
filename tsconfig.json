@@ -39,6 +39,7 @@
     "data/sim_10k_2026.json",
     "data/week1_ap_top25_2026.json",
     "data/week2_fbs_fcs_spreads_2026.json",
-    "data/week2_tape_2026.json"
+    "data/week2_tape_2026.json",
+    "data/week2_tape_top25_closer_2026.json"
   ]
 }

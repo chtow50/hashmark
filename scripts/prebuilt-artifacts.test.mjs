@@ -115,6 +115,15 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /home_score":24|"home_score": 24|homeScore:24/);
   });
 
+  it("includes Week 2 Top 25 closer cut in committed output", () => {
+    const text = corpus();
+    assert.match(text, /12\/19/);
+    assert.match(text, /63\.2/);
+    assert.match(text, /10\.81/);
+    assert.match(text, /week2_tape_top25_closer_2026/);
+    assert.match(text, /Top 25 closer 12\/19/);
+  });
+
   it("keeps PGLite wasm sidecars next to the server bundle", () => {
     const libs = join(OUT, "functions/__server.func/_libs");
     for (const name of ["pglite.wasm", "initdb.wasm", "pglite.data"]) {

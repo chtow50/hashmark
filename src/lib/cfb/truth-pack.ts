@@ -5,11 +5,13 @@
  *   data/week1_hx_vs_ap_gaps_2026.json
  *   data/week1_accountability_pack_2026.json
  *   data/week2_tape_2026.json
+ *   data/week2_tape_top25_closer_2026.json
  *   data/sim_10k_2026.json
  */
 import gapsRaw from "../../../data/week1_hx_vs_ap_gaps_2026.json" with { type: "json" };
 import packRaw from "../../../data/week1_accountability_pack_2026.json" with { type: "json" };
 import week2TapeRaw from "../../../data/week2_tape_2026.json" with { type: "json" };
+import week2Top25Raw from "../../../data/week2_tape_top25_closer_2026.json" with { type: "json" };
 import simRaw from "../../../data/sim_10k_2026.json" with { type: "json" };
 import week1ApRaw from "../../../data/week1_ap_top25_2026.json" with { type: "json" };
 
@@ -128,6 +130,44 @@ export type Week2TapeFile = {
   };
 };
 
+export type Week2Top25Tape = {
+  n: number;
+  su: string;
+  su_pct: number;
+  hx_closer: string;
+  hx_closer_pct: number;
+  vegas_closer: string;
+  mae_hx: number;
+  mae_vegas: number;
+  source: string;
+};
+
+export type Week2Top25CutFile = {
+  meta: {
+    week: number;
+    season: number;
+    as_of: string;
+    scope: string;
+    n: number;
+    hx_version: string;
+    hx_policy: string;
+    primary_cut: string;
+  };
+  tape: Week2Top25Tape;
+  full_slate: { n: number; hx_closer: string; closer_flag: boolean };
+  ap_alt: { n: number; hx_closer: string; hx_closer_pct: number };
+  su_misses: { matchup: string; closer: string }[];
+  hx_closer_hits: { matchup: string }[];
+  vegas_closer: { matchup: string }[];
+  games_summary: {
+    n: number;
+    su_hits: number;
+    su_misses: number;
+    hx_closer_hits: number;
+    vegas_closer_hits: number;
+  };
+};
+
 export type Sim10kTeam = {
   name: string;
   slug: string;
@@ -155,6 +195,7 @@ export type Sim10kFile = {
 export const hxApGaps = gapsRaw as HxApGapsFile;
 export const accountabilityPack = packRaw as AccountabilityPack;
 export const week2TapePack = week2TapeRaw as Week2TapeFile;
+export const week2Top25Pack = week2Top25Raw as Week2Top25CutFile;
 export const sim10k = simRaw as Sim10kFile;
 
 const AP_SLUG_BY_NAME = new Map(
@@ -272,6 +313,10 @@ export function week2SeasonTape(): Week2SeasonTape {
 
 export function week2BoardFlags(): Week2BoardFlag[] {
   return week2TapePack.board_flags;
+}
+
+export function week2Top25Tape(): Week2Top25Tape {
+  return week2Top25Pack.tape;
 }
 
 /** Top |ΔHX| movers whose term is O/D (not a second rating). */

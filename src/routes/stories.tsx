@@ -42,7 +42,7 @@ function StoriesPage() {
       <PageHead
         kicker="Week 2 · 2026"
         title="The Week 2 desk."
-        lede="Tape is in. SU 37/47. Closer 20/47 FLAG. HX not retuned."
+        lede="Tape is in. Full slate 20/47 FLAG. Top 25 closer 12/19. HX not retuned."
       />
 
       <p className="mb-8 font-mono text-[11px] uppercase tracking-[0.16em] text-faint">
