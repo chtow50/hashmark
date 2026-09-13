@@ -76,13 +76,18 @@ describe("tallyFcsStubRecord", () => {
     assert.deepEqual(tallyFcsStubRecord("miami"), { seasonWins: 1, seasonLosses: 0 });
   });
 
-  it("counts Week 2 early-window CLEAR FCS FINALs and leaves HOLD at 0–0", () => {
+  it("counts Week 2 early-window CLEAR FCS FINALs", () => {
     assert.deepEqual(tallyFcsStubRecord("louisville"), { seasonWins: 1, seasonLosses: 0 });
     assert.deepEqual(tallyFcsStubRecord("indiana"), { seasonWins: 1, seasonLosses: 0 });
     assert.deepEqual(tallyFcsStubRecord("liberty"), { seasonWins: 1, seasonLosses: 0 });
-    assert.deepEqual(tallyFcsStubRecord("north-carolina"), { seasonWins: 0, seasonLosses: 0 });
-    assert.deepEqual(tallyFcsStubRecord("west-virginia"), { seasonWins: 0, seasonLosses: 0 });
-    assert.deepEqual(tallyFcsStubRecord("ball-state"), { seasonWins: 0, seasonLosses: 0 });
+  });
+
+  it("counts Week 2 remaining CLEAR FCS FINALs (UNC / WVU / Ball State wins; NIU / Air Force losses)", () => {
+    assert.deepEqual(tallyFcsStubRecord("north-carolina"), { seasonWins: 1, seasonLosses: 0 });
+    assert.deepEqual(tallyFcsStubRecord("west-virginia"), { seasonWins: 1, seasonLosses: 0 });
+    assert.deepEqual(tallyFcsStubRecord("ball-state"), { seasonWins: 1, seasonLosses: 0 });
+    assert.deepEqual(tallyFcsStubRecord("northern-illinois"), { seasonWins: 0, seasonLosses: 1 });
+    assert.deepEqual(tallyFcsStubRecord("air-force"), { seasonWins: 0, seasonLosses: 1 });
   });
 });
 
@@ -94,7 +99,11 @@ describe("SEASON_RECORD_JOIN", () => {
     assert.match(SEASON_RECORD_JOIN, /'miami'/);
     assert.match(SEASON_RECORD_JOIN, /'louisville'/);
     assert.match(SEASON_RECORD_JOIN, /'indiana'/);
-    assert.doesNotMatch(SEASON_RECORD_JOIN, /'north-carolina'/);
+    assert.match(SEASON_RECORD_JOIN, /'north-carolina'/);
+    assert.match(SEASON_RECORD_JOIN, /'west-virginia'/);
+    assert.match(SEASON_RECORD_JOIN, /'ball-state'/);
+    assert.match(SEASON_RECORD_JOIN, /'northern-illinois'/);
+    assert.match(SEASON_RECORD_JOIN, /'air-force'/);
   });
 });
 

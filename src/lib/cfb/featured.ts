@@ -4,16 +4,17 @@ import type { ScheduleGame } from "./types";
  * Board chrome week (Rankings / home PageHead). Ranking *rows* stay
  * `season = 2026 AND week = 0` — that is what queries read.
  */
-export const BOARD_WEEK = 2;
+export const BOARD_WEEK = 3;
 
 /**
- * Featured kick reads the HASHMARK Week 2 slate (`/schedule?w=2`).
+ * Featured kick reads the HASHMARK Week 3 slate (`/schedule?w=3`).
+ * Seed has 56 Week 3 FBS–FBS rows (Sept 17–20). Next upcoming non-final
+ * by kick time; if the slate has dates but no times, first non-final in
+ * slate order. Never invent a kick, TV, Vegas, or a Research pin.
  * FCS rows are Vegas-only (unrated) — never feature them (would invent HX).
- * Board pin was Ohio State @ Texas while that row was still upcoming.
- * After remaining Week 2 FINALs that pin is dead — never feature a FINAL.
- * Week 3 is not in seed; do not invent a next-week card.
+ * Week 2 Ohio State @ Texas / Oklahoma @ Michigan pins are FINAL — dead.
  */
-export const FEATURED_SLATE_WEEK = 2;
+export const FEATURED_SLATE_WEEK = 3;
 
 /** Thursday night flag: Colorado at Georgia Tech, Bobby Dodd. */
 export const WEEK1_FLAG = {
@@ -92,18 +93,15 @@ export function selectFeaturedKick<
 }
 
 /**
- * Board featured: pin Ohio State @ Texas while that row is still upcoming.
- * Alt only if the pin is missing or already kicked — Oklahoma @ Michigan.
- * Otherwise the next upcoming non-final. Never a FINAL. Never FCS.
- * Never invent a Week 3 book or matchup.
+ * Board featured for the live chrome week.
+ * Week 2 Research pins (Ohio State @ Texas, Oklahoma @ Michigan) stay as
+ * historical helpers only — those rows are FINAL and must not feature.
+ * Week 3: next upcoming FBS kick on the week-3 slate. No invented pin.
+ * Never a FINAL. Never FCS. Never invent a book or matchup.
  */
 export function selectBoardFeaturedKick<
   T extends Pick<ScheduleGame, "status" | "kickoffAt" | "homeSlug" | "awaySlug"> & { isFcs?: boolean },
 >(slate: T[], nowMs: number): T | null {
-  const pin = slate.find((g) => isOhioStateAtTexas(g));
-  if (pin && isUpcomingKick(pin, nowMs)) return pin;
-  const alt = slate.find((g) => isOklahomaAtMichigan(g));
-  if (alt && isUpcomingKick(alt, nowMs)) return alt;
   return selectFeaturedKick(slate, nowMs);
 }
 
