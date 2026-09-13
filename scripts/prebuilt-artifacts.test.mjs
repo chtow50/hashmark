@@ -124,6 +124,19 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /Top 25 closer 12\/19/);
   });
 
+  it("includes Week 2 O/D + HX 2026.4 stamp and Week 3 chrome in committed output", () => {
+    const text = corpus();
+    assert.match(text, /0028_week2_od_hx_ship/);
+    assert.match(text, /HX 2026\.4/);
+    assert.match(text, /Week 3 board/);
+    assert.match(text, /7\.9055/);
+    assert.match(text, /7\.8131/);
+    assert.match(text, /6\.4443/);
+    assert.match(text, /0\.0717/);
+    assert.match(text, /week2_od_hx_ship_2026/);
+    assert.doesNotMatch(text, /The board is posted/);
+  });
+
   it("keeps PGLite wasm sidecars next to the server bundle", () => {
     const libs = join(OUT, "functions/__server.func/_libs");
     for (const name of ["pglite.wasm", "initdb.wasm", "pglite.data"]) {
