@@ -246,6 +246,28 @@ test("board featured falls to Oklahoma @ Michigan only if Texas is absent", () =
   assert.equal(featured?.awaySlug, "oklahoma");
 });
 
+test("board featured never pins a FINAL Ohio State @ Texas", () => {
+  const osuTexasFinal = game({
+    ...osuTexas,
+    status: "final",
+    homeScore: 24,
+    awayScore: 23,
+  });
+  const ouMichiganFinal = game({
+    ...ouMichigan,
+    status: "final",
+    homeScore: 17,
+    awayScore: 10,
+  });
+  const afterKick = Date.parse("2026-09-13T14:00:00.000Z");
+  const featured = selectBoardFeaturedKick(
+    [osuTexasFinal, ouMichiganFinal],
+    afterKick,
+  );
+  assert.equal(featured, null);
+  assert.equal(isUpcomingKick(osuTexasFinal, afterKick), false);
+});
+
 test("stamped Rutgers–BC book is BC −3.5 / 54.5", () => {
   const book = featuredBook(rutgersBc);
   assert.ok(book);

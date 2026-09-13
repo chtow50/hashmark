@@ -1,7 +1,7 @@
 {
-  "source": "Research CFB vs ESPN overall + Week 2 early-window CLEAR pack",
-  "as_of": "2026-09-12",
-  "note": "Only this list is stamped. Other FCS stubs stay scheduled. No guessed scores. Week 2: Miami–FAMU already_live plus 8 early-window CLEAR FINALs. HOLD in-progress (ETSU@UNC, UT Martin@WVU, Colgate@CMU, Stony Brook@Ball State) not stamped.",
+  "source": "Research CFB vs ESPN overall + Week 2 remaining FINAL CLEAR pack",
+  "as_of": "2026-09-13",
+  "note": "Only this list is stamped. No guessed scores. Week 2: Miami–FAMU already_live plus 8 early-window CLEAR FINALs plus 30 remaining CLEAR FINALs. HOLD = 0.",
   "blocker": {
     "teamSlug": "georgia",
     "home": true,
@@ -11,28 +11,151 @@
     "kickoffDate": "2026-09-05"
   },
   "week0_fbs": [
-    { "homeSlug": "florida-state", "awaySlug": "new-mexico-state", "homeScore": 34, "awayScore": 17, "kickoffDate": "2026-08-29" },
-    { "homeSlug": "stanford", "awaySlug": "hawaii", "homeScore": 37, "awayScore": 27, "kickoffDate": "2026-08-29" },
-    { "homeSlug": "tcu", "awaySlug": "north-carolina", "homeScore": 10, "awayScore": 15, "kickoffDate": "2026-08-29", "note": "away UNC win" },
-    { "homeSlug": "unlv", "awaySlug": "memphis", "homeScore": 21, "awayScore": 27, "note": "away Memphis win" },
-    { "homeSlug": "usc", "awaySlug": "san-jose-state", "homeScore": 42, "awayScore": 26, "kickoffDate": "2026-08-29" },
-    { "homeSlug": "virginia", "awaySlug": "nc-state", "homeScore": 34, "awayScore": 8, "kickoffDate": "2026-08-29" }
+    {
+      "homeSlug": "florida-state",
+      "awaySlug": "new-mexico-state",
+      "homeScore": 34,
+      "awayScore": 17,
+      "kickoffDate": "2026-08-29"
+    },
+    {
+      "homeSlug": "stanford",
+      "awaySlug": "hawaii",
+      "homeScore": 37,
+      "awayScore": 27,
+      "kickoffDate": "2026-08-29"
+    },
+    {
+      "homeSlug": "tcu",
+      "awaySlug": "north-carolina",
+      "homeScore": 10,
+      "awayScore": 15,
+      "kickoffDate": "2026-08-29",
+      "note": "away UNC win"
+    },
+    {
+      "homeSlug": "unlv",
+      "awaySlug": "memphis",
+      "homeScore": 21,
+      "awayScore": 27,
+      "note": "away Memphis win"
+    },
+    {
+      "homeSlug": "usc",
+      "awaySlug": "san-jose-state",
+      "homeScore": 42,
+      "awayScore": 26,
+      "kickoffDate": "2026-08-29"
+    },
+    {
+      "homeSlug": "virginia",
+      "awaySlug": "nc-state",
+      "homeScore": 34,
+      "awayScore": 8,
+      "kickoffDate": "2026-08-29"
+    }
   ],
   "week1_fcs": [
-    { "teamSlug": "minnesota", "opponentLabel": "Eastern Illinois", "homeScore": 59, "awayScore": 7, "kickoffDate": "2026-09-03" },
-    { "teamSlug": "missouri", "opponentLabel": "UAPB", "homeScore": 54, "awayScore": 14, "kickoffDate": "2026-09-03" },
-    { "teamSlug": "utah", "opponentLabel": "Idaho", "homeScore": 66, "awayScore": 14, "kickoffDate": "2026-09-03" },
-    { "teamSlug": "purdue", "opponentLabel": "Indiana State", "homeScore": 44, "awayScore": 19, "kickoffDate": "2026-09-04" },
-    { "teamSlug": "app-state", "opponentLabel": "Maine", "homeScore": 55, "awayScore": 3, "kickoffDate": "2026-09-05", "note": "no prior stub; added Week 1 Saturday slot" },
-    { "teamSlug": "army", "opponentLabel": "Bryant", "homeScore": 59, "awayScore": 3, "kickoffDate": "2026-09-05" },
-    { "teamSlug": "byu", "opponentLabel": "Utah Tech", "homeScore": 63, "awayScore": 7, "kickoffDate": "2026-09-05" },
-    { "teamSlug": "texas-tech", "opponentLabel": "Nicholls", "homeScore": 33, "awayScore": 3, "kickoffDate": "2026-09-05" },
-    { "teamSlug": "maryland", "opponentLabel": "Hampton", "homeScore": 62, "awayScore": 0, "kickoffDate": "2026-09-05" },
-    { "teamSlug": "navy", "opponentLabel": "Towson", "homeScore": 42, "awayScore": 15, "kickoffDate": "2026-09-05" },
-    { "teamSlug": "tennessee", "opponentLabel": "Furman", "homeScore": 56, "awayScore": 9, "kickoffDate": "2026-09-05" },
-    { "teamSlug": "uconn", "opponentLabel": "Lafayette", "homeScore": 56, "awayScore": 7, "kickoffDate": "2026-09-05", "note": "no prior stub; added Week 1 Saturday slot" },
-    { "teamSlug": "virginia-tech", "opponentLabel": "VMI", "homeScore": 73, "awayScore": 3, "kickoffDate": "2026-09-05" },
-    { "teamSlug": "georgia", "opponentLabel": "Tennessee State", "homeScore": 63, "awayScore": 3, "kickoffDate": "2026-09-05" }
+    {
+      "teamSlug": "minnesota",
+      "opponentLabel": "Eastern Illinois",
+      "homeScore": 59,
+      "awayScore": 7,
+      "kickoffDate": "2026-09-03"
+    },
+    {
+      "teamSlug": "missouri",
+      "opponentLabel": "UAPB",
+      "homeScore": 54,
+      "awayScore": 14,
+      "kickoffDate": "2026-09-03"
+    },
+    {
+      "teamSlug": "utah",
+      "opponentLabel": "Idaho",
+      "homeScore": 66,
+      "awayScore": 14,
+      "kickoffDate": "2026-09-03"
+    },
+    {
+      "teamSlug": "purdue",
+      "opponentLabel": "Indiana State",
+      "homeScore": 44,
+      "awayScore": 19,
+      "kickoffDate": "2026-09-04"
+    },
+    {
+      "teamSlug": "app-state",
+      "opponentLabel": "Maine",
+      "homeScore": 55,
+      "awayScore": 3,
+      "kickoffDate": "2026-09-05",
+      "note": "no prior stub; added Week 1 Saturday slot"
+    },
+    {
+      "teamSlug": "army",
+      "opponentLabel": "Bryant",
+      "homeScore": 59,
+      "awayScore": 3,
+      "kickoffDate": "2026-09-05"
+    },
+    {
+      "teamSlug": "byu",
+      "opponentLabel": "Utah Tech",
+      "homeScore": 63,
+      "awayScore": 7,
+      "kickoffDate": "2026-09-05"
+    },
+    {
+      "teamSlug": "texas-tech",
+      "opponentLabel": "Nicholls",
+      "homeScore": 33,
+      "awayScore": 3,
+      "kickoffDate": "2026-09-05"
+    },
+    {
+      "teamSlug": "maryland",
+      "opponentLabel": "Hampton",
+      "homeScore": 62,
+      "awayScore": 0,
+      "kickoffDate": "2026-09-05"
+    },
+    {
+      "teamSlug": "navy",
+      "opponentLabel": "Towson",
+      "homeScore": 42,
+      "awayScore": 15,
+      "kickoffDate": "2026-09-05"
+    },
+    {
+      "teamSlug": "tennessee",
+      "opponentLabel": "Furman",
+      "homeScore": 56,
+      "awayScore": 9,
+      "kickoffDate": "2026-09-05"
+    },
+    {
+      "teamSlug": "uconn",
+      "opponentLabel": "Lafayette",
+      "homeScore": 56,
+      "awayScore": 7,
+      "kickoffDate": "2026-09-05",
+      "note": "no prior stub; added Week 1 Saturday slot"
+    },
+    {
+      "teamSlug": "virginia-tech",
+      "opponentLabel": "VMI",
+      "homeScore": 73,
+      "awayScore": 3,
+      "kickoffDate": "2026-09-05"
+    },
+    {
+      "teamSlug": "georgia",
+      "opponentLabel": "Tennessee State",
+      "homeScore": 63,
+      "awayScore": 3,
+      "kickoffDate": "2026-09-05"
+    }
   ],
   "week2_fcs": [
     {
@@ -129,6 +252,306 @@
       "awayScore": 7,
       "kickoffDate": "2026-09-12",
       "source": "Research CLEAR early-window pack"
+    },
+    {
+      "espn_event_id": "401858218",
+      "teamSlug": "north-carolina",
+      "opponentLabel": "East Tennessee State",
+      "home": true,
+      "homeScore": 35,
+      "awayScore": 3,
+      "kickoffDate": "2026-09-12",
+      "source": "Research CLEAR remaining-finals pack"
+    },
+    {
+      "espn_event_id": "401866415",
+      "teamSlug": "central-michigan",
+      "opponentLabel": "Colgate",
+      "home": true,
+      "homeScore": 13,
+      "awayScore": 10,
+      "kickoffDate": "2026-09-12",
+      "source": "Research CLEAR remaining-finals pack"
+    },
+    {
+      "espn_event_id": "401856791",
+      "teamSlug": "west-virginia",
+      "opponentLabel": "UT Martin",
+      "home": true,
+      "homeScore": 52,
+      "awayScore": 7,
+      "kickoffDate": "2026-09-12",
+      "source": "Research CLEAR remaining-finals pack"
+    },
+    {
+      "espn_event_id": "401866413",
+      "teamSlug": "ball-state",
+      "opponentLabel": "Stony Brook",
+      "home": true,
+      "homeScore": 41,
+      "awayScore": 17,
+      "kickoffDate": "2026-09-12",
+      "source": "Research CLEAR remaining-finals pack"
+    },
+    {
+      "espn_event_id": "401866412",
+      "teamSlug": "akron",
+      "opponentLabel": "Robert Morris",
+      "home": true,
+      "homeScore": 45,
+      "awayScore": 10,
+      "kickoffDate": "2026-09-12",
+      "source": "Research CLEAR remaining-finals pack"
+    },
+    {
+      "espn_event_id": "401856785",
+      "teamSlug": "colorado",
+      "opponentLabel": "Weber State",
+      "home": true,
+      "homeScore": 52,
+      "awayScore": 21,
+      "kickoffDate": "2026-09-12",
+      "source": "Research CLEAR remaining-finals pack"
+    },
+    {
+      "espn_event_id": "401866420",
+      "teamSlug": "massachusetts",
+      "opponentLabel": "Sacred Heart",
+      "home": true,
+      "homeScore": 37,
+      "awayScore": 10,
+      "kickoffDate": "2026-09-12",
+      "source": "Research CLEAR remaining-finals pack"
+    },
+    {
+      "espn_event_id": "401866419",
+      "teamSlug": "toledo",
+      "opponentLabel": "Central Connecticut",
+      "home": true,
+      "homeScore": 63,
+      "awayScore": 10,
+      "kickoffDate": "2026-09-12",
+      "source": "Research CLEAR remaining-finals pack"
+    },
+    {
+      "espn_event_id": "401865252",
+      "teamSlug": "new-mexico",
+      "opponentLabel": "Mercyhurst",
+      "home": true,
+      "homeScore": 70,
+      "awayScore": 7,
+      "kickoffDate": "2026-09-12",
+      "source": "Research CLEAR remaining-finals pack"
+    },
+    {
+      "espn_event_id": "401858223",
+      "teamSlug": "smu",
+      "opponentLabel": "UC Davis",
+      "home": true,
+      "homeScore": 56,
+      "awayScore": 10,
+      "kickoffDate": "2026-09-12",
+      "source": "Research CLEAR remaining-finals pack"
+    },
+    {
+      "espn_event_id": "401868326",
+      "teamSlug": "troy",
+      "opponentLabel": "Alabama State",
+      "home": true,
+      "homeScore": 34,
+      "awayScore": 17,
+      "kickoffDate": "2026-09-12",
+      "source": "Research CLEAR remaining-finals pack"
+    },
+    {
+      "espn_event_id": "401864506",
+      "teamSlug": "wyoming",
+      "opponentLabel": "Northern Colorado",
+      "home": true,
+      "homeScore": 21,
+      "awayScore": 13,
+      "kickoffDate": "2026-09-12",
+      "source": "Research CLEAR remaining-finals pack"
+    },
+    {
+      "espn_event_id": "401856672",
+      "teamSlug": "florida",
+      "opponentLabel": "Campbell",
+      "home": true,
+      "homeScore": 52,
+      "awayScore": 3,
+      "kickoffDate": "2026-09-12",
+      "source": "Research CLEAR remaining-finals pack"
+    },
+    {
+      "espn_event_id": "401866421",
+      "teamSlug": "western-michigan",
+      "opponentLabel": "Monmouth",
+      "home": true,
+      "homeScore": 49,
+      "awayScore": 14,
+      "kickoffDate": "2026-09-12",
+      "source": "Research CLEAR remaining-finals pack"
+    },
+    {
+      "espn_event_id": "401868241",
+      "teamSlug": "arkansas-state",
+      "opponentLabel": "West Georgia",
+      "home": true,
+      "homeScore": 52,
+      "awayScore": 7,
+      "kickoffDate": "2026-09-12",
+      "source": "Research CLEAR remaining-finals pack"
+    },
+    {
+      "espn_event_id": "401856786",
+      "teamSlug": "cincinnati",
+      "opponentLabel": "Western Carolina",
+      "home": true,
+      "homeScore": 62,
+      "awayScore": 10,
+      "kickoffDate": "2026-09-12",
+      "source": "Research CLEAR remaining-finals pack"
+    },
+    {
+      "espn_event_id": "401860882",
+      "teamSlug": "colorado-state",
+      "opponentLabel": "Southern Utah",
+      "home": true,
+      "homeScore": 58,
+      "awayScore": 24,
+      "kickoffDate": "2026-09-12",
+      "source": "Research CLEAR remaining-finals pack"
+    },
+    {
+      "espn_event_id": "401856787",
+      "teamSlug": "houston",
+      "opponentLabel": "Southern",
+      "home": true,
+      "homeScore": 77,
+      "awayScore": 6,
+      "kickoffDate": "2026-09-12",
+      "source": "Research CLEAR remaining-finals pack"
+    },
+    {
+      "espn_event_id": "401871046",
+      "teamSlug": "missouri-state",
+      "opponentLabel": "Lindenwood",
+      "home": true,
+      "homeScore": 48,
+      "awayScore": 14,
+      "kickoffDate": "2026-09-12",
+      "source": "Research CLEAR remaining-finals pack"
+    },
+    {
+      "espn_event_id": "401864503",
+      "teamSlug": "northern-illinois",
+      "opponentLabel": "Illinois State",
+      "home": true,
+      "homeScore": 24,
+      "awayScore": 28,
+      "kickoffDate": "2026-09-12",
+      "source": "Research CLEAR remaining-finals pack"
+    },
+    {
+      "espn_event_id": "401856680",
+      "teamSlug": "south-carolina",
+      "opponentLabel": "Towson",
+      "home": true,
+      "homeScore": 45,
+      "awayScore": 9,
+      "kickoffDate": "2026-09-12",
+      "source": "Research CLEAR remaining-finals pack"
+    },
+    {
+      "espn_event_id": "401858447",
+      "teamSlug": "wisconsin",
+      "opponentLabel": "Western Illinois",
+      "home": true,
+      "homeScore": 36,
+      "awayScore": 9,
+      "kickoffDate": "2026-09-12",
+      "source": "Research CLEAR remaining-finals pack"
+    },
+    {
+      "espn_event_id": "401868008",
+      "teamSlug": "coastal-carolina",
+      "opponentLabel": "Fordham",
+      "home": true,
+      "homeScore": 45,
+      "awayScore": 7,
+      "kickoffDate": "2026-09-12",
+      "source": "Research CLEAR remaining-finals pack"
+    },
+    {
+      "espn_event_id": "401856789",
+      "teamSlug": "tcu",
+      "opponentLabel": "Grambling",
+      "home": true,
+      "homeScore": 63,
+      "awayScore": 7,
+      "kickoffDate": "2026-09-12",
+      "source": "Research CLEAR remaining-finals pack"
+    },
+    {
+      "espn_event_id": "401856784",
+      "teamSlug": "baylor",
+      "opponentLabel": "Prairie View A&M",
+      "home": true,
+      "homeScore": 44,
+      "awayScore": 3,
+      "kickoffDate": "2026-09-12",
+      "source": "Research CLEAR remaining-finals pack"
+    },
+    {
+      "espn_event_id": "401864504",
+      "teamSlug": "san-jose-state",
+      "opponentLabel": "Cal Poly",
+      "home": true,
+      "homeScore": 30,
+      "awayScore": 20,
+      "kickoffDate": "2026-09-12",
+      "source": "Research CLEAR remaining-finals pack"
+    },
+    {
+      "espn_event_id": "401864505",
+      "teamSlug": "utep",
+      "opponentLabel": "Texas Southern",
+      "home": true,
+      "homeScore": 51,
+      "awayScore": 10,
+      "kickoffDate": "2026-09-12",
+      "source": "Research CLEAR remaining-finals pack"
+    },
+    {
+      "espn_event_id": "401864502",
+      "teamSlug": "air-force",
+      "opponentLabel": "North Dakota State",
+      "home": true,
+      "homeScore": 32,
+      "awayScore": 38,
+      "kickoffDate": "2026-09-12",
+      "source": "Research CLEAR remaining-finals pack"
+    },
+    {
+      "espn_event_id": "401860883",
+      "teamSlug": "fresno-state",
+      "opponentLabel": "Sacramento State",
+      "home": true,
+      "homeScore": 49,
+      "awayScore": 3,
+      "kickoffDate": "2026-09-12",
+      "source": "Research CLEAR remaining-finals pack"
+    },
+    {
+      "espn_event_id": "401864500",
+      "teamSlug": "nevada",
+      "opponentLabel": "Montana State",
+      "home": true,
+      "homeScore": 7,
+      "awayScore": 20,
+      "kickoffDate": "2026-09-12",
+      "source": "Research CLEAR remaining-finals pack"
     }
   ],
   "peer_targets": {

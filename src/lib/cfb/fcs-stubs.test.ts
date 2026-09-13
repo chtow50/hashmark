@@ -129,7 +129,7 @@ describe("Week 2 FBS–FCS JSON ingest", () => {
     assert.equal(row.tv, "ACCN");
   });
 
-  it("stamps Week 2 early-window CLEAR FCS FINALs and leaves HOLD in progress", () => {
+  it("stamps all 39 Week 2 FCS rows STATUS_FINAL with Research home-perspective scores", () => {
     const clearScores: Record<string, { home: number; away: number; slug: string }> = {
       "401858213": { home: 77, away: 7, slug: "miami" },
       "401858215": { home: 59, away: 13, slug: "louisville" },
@@ -140,8 +140,37 @@ describe("Week 2 FBS–FCS JSON ingest", () => {
       "401867929": { home: 87, away: 3, slug: "james-madison" },
       "401868187": { home: 24, away: 23, slug: "liberty" },
       "401866417": { home: 45, away: 7, slug: "miami-oh" },
+      "401858218": { home: 35, away: 3, slug: "north-carolina" },
+      "401866415": { home: 13, away: 10, slug: "central-michigan" },
+      "401856791": { home: 52, away: 7, slug: "west-virginia" },
+      "401866413": { home: 41, away: 17, slug: "ball-state" },
+      "401866412": { home: 45, away: 10, slug: "akron" },
+      "401856785": { home: 52, away: 21, slug: "colorado" },
+      "401866420": { home: 37, away: 10, slug: "massachusetts" },
+      "401866419": { home: 63, away: 10, slug: "toledo" },
+      "401865252": { home: 70, away: 7, slug: "new-mexico" },
+      "401858223": { home: 56, away: 10, slug: "smu" },
+      "401868326": { home: 34, away: 17, slug: "troy" },
+      "401864506": { home: 21, away: 13, slug: "wyoming" },
+      "401856672": { home: 52, away: 3, slug: "florida" },
+      "401866421": { home: 49, away: 14, slug: "western-michigan" },
+      "401868241": { home: 52, away: 7, slug: "arkansas-state" },
+      "401856786": { home: 62, away: 10, slug: "cincinnati" },
+      "401860882": { home: 58, away: 24, slug: "colorado-state" },
+      "401856787": { home: 77, away: 6, slug: "houston" },
+      "401871046": { home: 48, away: 14, slug: "missouri-state" },
+      "401864503": { home: 24, away: 28, slug: "northern-illinois" },
+      "401856680": { home: 45, away: 9, slug: "south-carolina" },
+      "401858447": { home: 36, away: 9, slug: "wisconsin" },
+      "401868008": { home: 45, away: 7, slug: "coastal-carolina" },
+      "401856789": { home: 63, away: 7, slug: "tcu" },
+      "401856784": { home: 44, away: 3, slug: "baylor" },
+      "401864504": { home: 30, away: 20, slug: "san-jose-state" },
+      "401864505": { home: 51, away: 10, slug: "utep" },
+      "401864502": { home: 32, away: 38, slug: "air-force" },
+      "401860883": { home: 49, away: 3, slug: "fresno-state" },
+      "401864500": { home: 7, away: 20, slug: "nevada" },
     };
-    const holdIds = ["401858218", "401856791", "401866415", "401866413"];
 
     for (const [id, expect] of Object.entries(clearScores)) {
       const json = payload.games.find((g) => g.espn_event_id === id);
@@ -152,8 +181,9 @@ describe("Week 2 FBS–FCS JSON ingest", () => {
       assert.equal(json.hx_spread, null, id);
     }
 
+    assert.equal(Object.keys(clearScores).length, 39);
     const finals = fcsStubsForWeek(2).filter(fcsStubIsFinal);
-    assert.equal(finals.length, 9);
+    assert.equal(finals.length, 39);
     for (const stub of finals) {
       const expect = stub.espnEventId ? clearScores[stub.espnEventId] : undefined;
       assert.ok(expect, stub.espnEventId ?? "missing espn id");
@@ -163,19 +193,9 @@ describe("Week 2 FBS–FCS JSON ingest", () => {
       assert.equal(stub.live, false);
     }
 
-    for (const id of holdIds) {
-      const json = payload.games.find((g) => g.espn_event_id === id);
-      assert.ok(json, id);
-      assert.notEqual(json.status, "STATUS_FINAL", id);
-      assert.equal(json.home_score ?? null, null, id);
-      assert.equal(json.away_score ?? null, null, id);
-    }
-
     for (const g of payload.games) {
-      if (g.espn_event_id in clearScores) continue;
-      assert.notEqual(g.status, "STATUS_FINAL", g.espn_event_id);
-      assert.equal(g.home_score ?? null, null, g.espn_event_id);
-      assert.equal(g.away_score ?? null, null, g.espn_event_id);
+      assert.equal(g.status, "STATUS_FINAL", g.espn_event_id);
+      assert.ok(g.espn_event_id in clearScores, g.espn_event_id);
     }
   });
 

@@ -5,13 +5,14 @@
     "week": 2,
     "source_schedule": "ESPN scoreboard groups=80 dates 2026-09-10..14",
     "hx_stamp": "HX 2026.3 week1_od_hx_ship hx_post",
-    "policy": "No invented FCS HX. HX spread only if opponent has HASHMARK crossover rating. Week 2: 0 crossover FCS \u2192 all Vegas-only labeled. Website must show FBS\u2013FCS rows on /schedule for all 136 (drop FBS\u2013FBS-only filter / add Week 2 stubs).",
+    "policy": "No invented FCS HX. HX spread only if opponent has HASHMARK crossover rating. Week 2: 0 crossover FCS → all Vegas-only labeled. Website must show FBS–FCS rows on /schedule for all 136 (drop FBS–FBS-only filter / add Week 2 stubs).",
     "n_fbs_fcs": 39,
     "n_fbs_fbs_seen": 47,
     "n_unresolved": 0,
-    "miami_tonight": "Miami vs Florida A&M \u00b7 2026-09-10 19:00 CT \u00b7 FINAL Miami 77, FAMU 7 \u00b7 Vegas MIA -59.5 (close) \u00b7 HX spread null",
-    "miami_final": "Research SOURCE CLEAR memo locked \u00b7 ESPN 401858213 STATUS_FINAL \u00b7 NCAA contest 6604311 \u00b7 Miami (home) 77, Florida A&M (away) 7 \u00b7 Thu Sep 10 2026 7:00 CT / 8:00 ET \u00b7 ACCN \u00b7 Hard Rock Stadium",
-    "early_window_clear": "data/week2_early_window_finals_clear_2026.json as_of 2026-09-12 3:00 PM CT \u00b7 8 FCS STATUS_FINAL + home/away scores \u00b7 4 HOLD in-progress untouched \u00b7 Miami\u2013FAMU already_live (do not restamp)"
+    "miami_tonight": "Miami vs Florida A&M · 2026-09-10 19:00 CT · FINAL Miami 77, FAMU 7 · Vegas MIA -59.5 (close) · HX spread null",
+    "miami_final": "Research SOURCE CLEAR memo locked · ESPN 401858213 STATUS_FINAL · NCAA contest 6604311 · Miami (home) 77, Florida A&M (away) 7 · Thu Sep 10 2026 7:00 CT / 8:00 ET · ACCN · Hard Rock Stadium",
+    "early_window_clear": "data/week2_early_window_finals_clear_2026.json as_of 2026-09-12 3:00 PM CT · 8 FCS STATUS_FINAL + home/away scores · 4 HOLD in-progress untouched · Miami–FAMU already_live (do not restamp)",
+    "remaining_finals_clear": "data/week2_remaining_finals_clear_2026.json as_of 2026-09-13 9:00 AM CT · 30 remaining FCS STATUS_FINAL + home/away scores · already_live Miami–FAMU + 8 early-window FCS untouched · HOLD = 0"
   },
   "games": [
     {
@@ -41,7 +42,7 @@
       "venue": "Hard Rock Stadium",
       "hx_spread": null,
       "hx_spread_policy": "vegas_only_fcs_unrated",
-      "note": "Research SOURCE CLEAR memo locked. ESPN 401858213 STATUS_FINAL. NCAA contest 6604311. Miami (home) 77, Florida A&M (away) 7. Kick Thu Sep 10 2026 7:00 CT / 8:00 ET \u00b7 ACCN \u00b7 Hard Rock Stadium. Score + status + CLEAR venue only. No invented FCS HX. No other FCS FINALs."
+      "note": "Research SOURCE CLEAR memo locked. ESPN 401858213 STATUS_FINAL. NCAA contest 6604311. Miami (home) 77, Florida A&M (away) 7. Kick Thu Sep 10 2026 7:00 CT / 8:00 ET · ACCN · Hard Rock Stadium. Score + status + CLEAR venue only. No invented FCS HX. No other FCS FINALs."
     },
     {
       "espn_event_id": "401858215",
@@ -192,10 +193,12 @@
       "vegas_spread": -35.5,
       "vegas_source": "ESPN/DraftKings via ESPN odds",
       "broadcast": "ACC Network",
-      "status": "STATUS_SCHEDULED",
+      "status": "STATUS_FINAL",
       "hx_spread": null,
       "hx_spread_policy": "vegas_only_fcs_unrated",
-      "note": "FCS opponent not on HASHMARK 136 \u2014 no invented FCS HX. Stamp Vegas close when sourced; label Vegas-only on /schedule."
+      "note": "Research CLEAR remaining-finals pack. North Carolina Tar Heels (home) 35, East Tennessee State Buccaneers (away) 3. Score + status only. No invented FCS HX. Kick/TV/Vegas unchanged.",
+      "home_score": 35,
+      "away_score": 3
     },
     {
       "espn_event_id": "401866415",
@@ -216,10 +219,12 @@
       "vegas_spread": -23.5,
       "vegas_source": "ESPN/DraftKings via ESPN odds",
       "broadcast": "ESPN+",
-      "status": "STATUS_SCHEDULED",
+      "status": "STATUS_FINAL",
       "hx_spread": null,
       "hx_spread_policy": "vegas_only_fcs_unrated",
-      "note": "FCS opponent not on HASHMARK 136 \u2014 no invented FCS HX. Stamp Vegas close when sourced; label Vegas-only on /schedule."
+      "note": "Research CLEAR remaining-finals pack. Central Michigan Chippewas (home) 13, Colgate Raiders (away) 10. Score + status only. No invented FCS HX. Kick/TV/Vegas unchanged.",
+      "home_score": 13,
+      "away_score": 10
     },
     {
       "espn_event_id": "401866417",
@@ -266,10 +271,12 @@
       "vegas_spread": -41.5,
       "vegas_source": "ESPN/DraftKings via ESPN odds",
       "broadcast": "ESPN+",
-      "status": "STATUS_SCHEDULED",
+      "status": "STATUS_FINAL",
       "hx_spread": null,
       "hx_spread_policy": "vegas_only_fcs_unrated",
-      "note": "FCS opponent not on HASHMARK 136 \u2014 no invented FCS HX. Stamp Vegas close when sourced; label Vegas-only on /schedule."
+      "note": "Research CLEAR remaining-finals pack. West Virginia Mountaineers (home) 52, UT Martin Skyhawks (away) 7. Score + status only. No invented FCS HX. Kick/TV/Vegas unchanged.",
+      "home_score": 52,
+      "away_score": 7
     },
     {
       "espn_event_id": "401866413",
@@ -290,10 +297,12 @@
       "vegas_spread": -15.5,
       "vegas_source": "ESPN/DraftKings via ESPN odds",
       "broadcast": "ESPN+",
-      "status": "STATUS_SCHEDULED",
+      "status": "STATUS_FINAL",
       "hx_spread": null,
       "hx_spread_policy": "vegas_only_fcs_unrated",
-      "note": "FCS opponent not on HASHMARK 136 \u2014 no invented FCS HX. Stamp Vegas close when sourced; label Vegas-only on /schedule."
+      "note": "Research CLEAR remaining-finals pack. Ball State Cardinals (home) 41, Stony Brook Seawolves (away) 17. Score + status only. No invented FCS HX. Kick/TV/Vegas unchanged.",
+      "home_score": 41,
+      "away_score": 17
     },
     {
       "espn_event_id": "401866412",
@@ -314,10 +323,12 @@
       "vegas_spread": -27.5,
       "vegas_source": "ESPN/DraftKings via ESPN odds",
       "broadcast": "ESPN+",
-      "status": "STATUS_SCHEDULED",
+      "status": "STATUS_FINAL",
       "hx_spread": null,
       "hx_spread_policy": "vegas_only_fcs_unrated",
-      "note": "FCS opponent not on HASHMARK 136 \u2014 no invented FCS HX. Stamp Vegas close when sourced; label Vegas-only on /schedule."
+      "note": "Research CLEAR remaining-finals pack. Akron Zips (home) 45, Robert Morris Colonials (away) 10. Score + status only. No invented FCS HX. Kick/TV/Vegas unchanged.",
+      "home_score": 45,
+      "away_score": 10
     },
     {
       "espn_event_id": "401856785",
@@ -338,10 +349,12 @@
       "vegas_spread": -33.5,
       "vegas_source": "ESPN/DraftKings via ESPN odds",
       "broadcast": "ESPN+",
-      "status": "STATUS_SCHEDULED",
+      "status": "STATUS_FINAL",
       "hx_spread": null,
       "hx_spread_policy": "vegas_only_fcs_unrated",
-      "note": "FCS opponent not on HASHMARK 136 \u2014 no invented FCS HX. Stamp Vegas close when sourced; label Vegas-only on /schedule."
+      "note": "Research CLEAR remaining-finals pack. Colorado Buffaloes (home) 52, Weber State Wildcats (away) 21. Score + status only. No invented FCS HX. Kick/TV/Vegas unchanged.",
+      "home_score": 52,
+      "away_score": 21
     },
     {
       "espn_event_id": "401867929",
@@ -388,10 +401,12 @@
       "vegas_spread": -23.5,
       "vegas_source": "ESPN/DraftKings via ESPN odds",
       "broadcast": "ESPN+",
-      "status": "STATUS_SCHEDULED",
+      "status": "STATUS_FINAL",
       "hx_spread": null,
       "hx_spread_policy": "vegas_only_fcs_unrated",
-      "note": "FCS opponent not on HASHMARK 136 \u2014 no invented FCS HX. Stamp Vegas close when sourced; label Vegas-only on /schedule."
+      "note": "Research CLEAR remaining-finals pack. Massachusetts Minutemen (home) 37, Sacred Heart Pioneers (away) 10. Score + status only. No invented FCS HX. Kick/TV/Vegas unchanged.",
+      "home_score": 37,
+      "away_score": 10
     },
     {
       "espn_event_id": "401866419",
@@ -412,10 +427,12 @@
       "vegas_spread": -33.5,
       "vegas_source": "ESPN/DraftKings via ESPN odds",
       "broadcast": "ESPN+",
-      "status": "STATUS_SCHEDULED",
+      "status": "STATUS_FINAL",
       "hx_spread": null,
       "hx_spread_policy": "vegas_only_fcs_unrated",
-      "note": "FCS opponent not on HASHMARK 136 \u2014 no invented FCS HX. Stamp Vegas close when sourced; label Vegas-only on /schedule."
+      "note": "Research CLEAR remaining-finals pack. Toledo Rockets (home) 63, Central Connecticut Blue Devils (away) 10. Score + status only. No invented FCS HX. Kick/TV/Vegas unchanged.",
+      "home_score": 63,
+      "away_score": 10
     },
     {
       "espn_event_id": "401865252",
@@ -436,10 +453,12 @@
       "vegas_spread": -41.5,
       "vegas_source": "ESPN/DraftKings via ESPN odds",
       "broadcast": "MW+",
-      "status": "STATUS_SCHEDULED",
+      "status": "STATUS_FINAL",
       "hx_spread": null,
       "hx_spread_policy": "vegas_only_fcs_unrated",
-      "note": "FCS opponent not on HASHMARK 136 \u2014 no invented FCS HX. Stamp Vegas close when sourced; label Vegas-only on /schedule."
+      "note": "Research CLEAR remaining-finals pack. New Mexico Lobos (home) 70, Mercyhurst Lakers (away) 7. Score + status only. No invented FCS HX. Kick/TV/Vegas unchanged.",
+      "home_score": 70,
+      "away_score": 7
     },
     {
       "espn_event_id": "401858223",
@@ -460,10 +479,12 @@
       "vegas_spread": -25.5,
       "vegas_source": "ESPN/DraftKings via ESPN odds",
       "broadcast": "ACCNX",
-      "status": "STATUS_SCHEDULED",
+      "status": "STATUS_FINAL",
       "hx_spread": null,
       "hx_spread_policy": "vegas_only_fcs_unrated",
-      "note": "FCS opponent not on HASHMARK 136 \u2014 no invented FCS HX. Stamp Vegas close when sourced; label Vegas-only on /schedule."
+      "note": "Research CLEAR remaining-finals pack. SMU Mustangs (home) 56, UC Davis Aggies (away) 10. Score + status only. No invented FCS HX. Kick/TV/Vegas unchanged.",
+      "home_score": 56,
+      "away_score": 10
     },
     {
       "espn_event_id": "401868326",
@@ -484,10 +505,12 @@
       "vegas_spread": null,
       "vegas_source": null,
       "broadcast": "ESPN+",
-      "status": "STATUS_SCHEDULED",
+      "status": "STATUS_FINAL",
       "hx_spread": null,
       "hx_spread_policy": "vegas_only_fcs_unrated",
-      "note": "FCS opponent not on HASHMARK 136 \u2014 no invented FCS HX. Stamp Vegas close when sourced; label Vegas-only on /schedule."
+      "note": "Research CLEAR remaining-finals pack. Troy Trojans (home) 34, Alabama State Hornets (away) 17. Score + status only. No invented FCS HX. Kick/TV/Vegas unchanged.",
+      "home_score": 34,
+      "away_score": 17
     },
     {
       "espn_event_id": "401864506",
@@ -508,10 +531,12 @@
       "vegas_spread": -22.5,
       "vegas_source": "ESPN/DraftKings via ESPN odds",
       "broadcast": "MW+",
-      "status": "STATUS_SCHEDULED",
+      "status": "STATUS_FINAL",
       "hx_spread": null,
       "hx_spread_policy": "vegas_only_fcs_unrated",
-      "note": "FCS opponent not on HASHMARK 136 \u2014 no invented FCS HX. Stamp Vegas close when sourced; label Vegas-only on /schedule."
+      "note": "Research CLEAR remaining-finals pack. Wyoming Cowboys (home) 21, Northern Colorado Bears (away) 13. Score + status only. No invented FCS HX. Kick/TV/Vegas unchanged.",
+      "home_score": 21,
+      "away_score": 13
     },
     {
       "espn_event_id": "401856672",
@@ -532,10 +557,12 @@
       "vegas_spread": -49.5,
       "vegas_source": "ESPN/DraftKings via ESPN odds",
       "broadcast": "SECN+",
-      "status": "STATUS_SCHEDULED",
+      "status": "STATUS_FINAL",
       "hx_spread": null,
       "hx_spread_policy": "vegas_only_fcs_unrated",
-      "note": "FCS opponent not on HASHMARK 136 \u2014 no invented FCS HX. Stamp Vegas close when sourced; label Vegas-only on /schedule."
+      "note": "Research CLEAR remaining-finals pack. Florida Gators (home) 52, Campbell Fighting Camels (away) 3. Score + status only. No invented FCS HX. Kick/TV/Vegas unchanged.",
+      "home_score": 52,
+      "away_score": 3
     },
     {
       "espn_event_id": "401868187",
@@ -582,10 +609,12 @@
       "vegas_spread": -25.5,
       "vegas_source": "ESPN/DraftKings via ESPN odds",
       "broadcast": "ESPN+",
-      "status": "STATUS_SCHEDULED",
+      "status": "STATUS_FINAL",
       "hx_spread": null,
       "hx_spread_policy": "vegas_only_fcs_unrated",
-      "note": "FCS opponent not on HASHMARK 136 \u2014 no invented FCS HX. Stamp Vegas close when sourced; label Vegas-only on /schedule."
+      "note": "Research CLEAR remaining-finals pack. Western Michigan Broncos (home) 49, Monmouth Hawks (away) 14. Score + status only. No invented FCS HX. Kick/TV/Vegas unchanged.",
+      "home_score": 49,
+      "away_score": 14
     },
     {
       "espn_event_id": "401868241",
@@ -606,10 +635,12 @@
       "vegas_spread": null,
       "vegas_source": null,
       "broadcast": "ESPN+",
-      "status": "STATUS_SCHEDULED",
+      "status": "STATUS_FINAL",
       "hx_spread": null,
       "hx_spread_policy": "vegas_only_fcs_unrated",
-      "note": "FCS opponent not on HASHMARK 136 \u2014 no invented FCS HX. Stamp Vegas close when sourced; label Vegas-only on /schedule."
+      "note": "Research CLEAR remaining-finals pack. Arkansas State Red Wolves (home) 52, West Georgia Wolves (away) 7. Score + status only. No invented FCS HX. Kick/TV/Vegas unchanged.",
+      "home_score": 52,
+      "away_score": 7
     },
     {
       "espn_event_id": "401856786",
@@ -630,10 +661,12 @@
       "vegas_spread": -36.5,
       "vegas_source": "ESPN/DraftKings via ESPN odds",
       "broadcast": "ESPN+",
-      "status": "STATUS_SCHEDULED",
+      "status": "STATUS_FINAL",
       "hx_spread": null,
       "hx_spread_policy": "vegas_only_fcs_unrated",
-      "note": "FCS opponent not on HASHMARK 136 \u2014 no invented FCS HX. Stamp Vegas close when sourced; label Vegas-only on /schedule."
+      "note": "Research CLEAR remaining-finals pack. Cincinnati Bearcats (home) 62, Western Carolina Catamounts (away) 10. Score + status only. No invented FCS HX. Kick/TV/Vegas unchanged.",
+      "home_score": 62,
+      "away_score": 10
     },
     {
       "espn_event_id": "401860882",
@@ -654,10 +687,12 @@
       "vegas_spread": -20.5,
       "vegas_source": "ESPN/DraftKings via ESPN odds",
       "broadcast": "CBSSN",
-      "status": "STATUS_SCHEDULED",
+      "status": "STATUS_FINAL",
       "hx_spread": null,
       "hx_spread_policy": "vegas_only_fcs_unrated",
-      "note": "FCS opponent not on HASHMARK 136 \u2014 no invented FCS HX. Stamp Vegas close when sourced; label Vegas-only on /schedule."
+      "note": "Research CLEAR remaining-finals pack. Colorado State Rams (home) 58, Southern Utah Thunderbirds (away) 24. Score + status only. No invented FCS HX. Kick/TV/Vegas unchanged.",
+      "home_score": 58,
+      "away_score": 24
     },
     {
       "espn_event_id": "401856787",
@@ -678,10 +713,12 @@
       "vegas_spread": -51.5,
       "vegas_source": "ESPN/DraftKings via ESPN odds",
       "broadcast": "ESPN+",
-      "status": "STATUS_SCHEDULED",
+      "status": "STATUS_FINAL",
       "hx_spread": null,
       "hx_spread_policy": "vegas_only_fcs_unrated",
-      "note": "FCS opponent not on HASHMARK 136 \u2014 no invented FCS HX. Stamp Vegas close when sourced; label Vegas-only on /schedule."
+      "note": "Research CLEAR remaining-finals pack. Houston Cougars (home) 77, Southern Jaguars (away) 6. Score + status only. No invented FCS HX. Kick/TV/Vegas unchanged.",
+      "home_score": 77,
+      "away_score": 6
     },
     {
       "espn_event_id": "401871046",
@@ -702,10 +739,12 @@
       "vegas_spread": -19.5,
       "vegas_source": "ESPN/DraftKings via ESPN odds",
       "broadcast": "ESPN+",
-      "status": "STATUS_SCHEDULED",
+      "status": "STATUS_FINAL",
       "hx_spread": null,
       "hx_spread_policy": "vegas_only_fcs_unrated",
-      "note": "FCS opponent not on HASHMARK 136 \u2014 no invented FCS HX. Stamp Vegas close when sourced; label Vegas-only on /schedule."
+      "note": "Research CLEAR remaining-finals pack. Missouri State Bears (home) 48, Lindenwood Lions (away) 14. Score + status only. No invented FCS HX. Kick/TV/Vegas unchanged.",
+      "home_score": 48,
+      "away_score": 14
     },
     {
       "espn_event_id": "401864503",
@@ -726,10 +765,12 @@
       "vegas_spread": 4.5,
       "vegas_source": "ESPN/DraftKings via ESPN odds",
       "broadcast": "MW+",
-      "status": "STATUS_SCHEDULED",
+      "status": "STATUS_FINAL",
       "hx_spread": null,
       "hx_spread_policy": "vegas_only_fcs_unrated",
-      "note": "FCS opponent not on HASHMARK 136 \u2014 no invented FCS HX. Stamp Vegas close when sourced; label Vegas-only on /schedule."
+      "note": "Research CLEAR remaining-finals pack. Northern Illinois Huskies (home) 24, Illinois State Redbirds (away) 28. Score + status only. No invented FCS HX. Kick/TV/Vegas unchanged.",
+      "home_score": 24,
+      "away_score": 28
     },
     {
       "espn_event_id": "401856680",
@@ -750,10 +791,12 @@
       "vegas_spread": -43.5,
       "vegas_source": "ESPN/DraftKings via ESPN odds",
       "broadcast": "SECN+",
-      "status": "STATUS_SCHEDULED",
+      "status": "STATUS_FINAL",
       "hx_spread": null,
       "hx_spread_policy": "vegas_only_fcs_unrated",
-      "note": "FCS opponent not on HASHMARK 136 \u2014 no invented FCS HX. Stamp Vegas close when sourced; label Vegas-only on /schedule."
+      "note": "Research CLEAR remaining-finals pack. South Carolina Gamecocks (home) 45, Towson Tigers (away) 9. Score + status only. No invented FCS HX. Kick/TV/Vegas unchanged.",
+      "home_score": 45,
+      "away_score": 9
     },
     {
       "espn_event_id": "401858447",
@@ -774,10 +817,12 @@
       "vegas_spread": -38.5,
       "vegas_source": "ESPN/DraftKings via ESPN odds",
       "broadcast": "BTN",
-      "status": "STATUS_SCHEDULED",
+      "status": "STATUS_FINAL",
       "hx_spread": null,
       "hx_spread_policy": "vegas_only_fcs_unrated",
-      "note": "FCS opponent not on HASHMARK 136 \u2014 no invented FCS HX. Stamp Vegas close when sourced; label Vegas-only on /schedule."
+      "note": "Research CLEAR remaining-finals pack. Wisconsin Badgers (home) 36, Western Illinois Leathernecks (away) 9. Score + status only. No invented FCS HX. Kick/TV/Vegas unchanged.",
+      "home_score": 36,
+      "away_score": 9
     },
     {
       "espn_event_id": "401868008",
@@ -798,10 +843,12 @@
       "vegas_spread": -34.5,
       "vegas_source": "ESPN/DraftKings via ESPN odds",
       "broadcast": "ESPN+",
-      "status": "STATUS_SCHEDULED",
+      "status": "STATUS_FINAL",
       "hx_spread": null,
       "hx_spread_policy": "vegas_only_fcs_unrated",
-      "note": "FCS opponent not on HASHMARK 136 \u2014 no invented FCS HX. Stamp Vegas close when sourced; label Vegas-only on /schedule."
+      "note": "Research CLEAR remaining-finals pack. Coastal Carolina Chanticleers (home) 45, Fordham Rams (away) 7. Score + status only. No invented FCS HX. Kick/TV/Vegas unchanged.",
+      "home_score": 45,
+      "away_score": 7
     },
     {
       "espn_event_id": "401856789",
@@ -822,10 +869,12 @@
       "vegas_spread": -43.5,
       "vegas_source": "ESPN/DraftKings via ESPN odds",
       "broadcast": "ESPN+",
-      "status": "STATUS_SCHEDULED",
+      "status": "STATUS_FINAL",
       "hx_spread": null,
       "hx_spread_policy": "vegas_only_fcs_unrated",
-      "note": "FCS opponent not on HASHMARK 136 \u2014 no invented FCS HX. Stamp Vegas close when sourced; label Vegas-only on /schedule."
+      "note": "Research CLEAR remaining-finals pack. TCU Horned Frogs (home) 63, Grambling Tigers (away) 7. Score + status only. No invented FCS HX. Kick/TV/Vegas unchanged.",
+      "home_score": 63,
+      "away_score": 7
     },
     {
       "espn_event_id": "401856784",
@@ -846,21 +895,23 @@
       "vegas_spread": -39.5,
       "vegas_source": "ESPN/DraftKings via ESPN odds",
       "broadcast": "ESPN+",
-      "status": "STATUS_SCHEDULED",
+      "status": "STATUS_FINAL",
       "hx_spread": null,
       "hx_spread_policy": "vegas_only_fcs_unrated",
-      "note": "FCS opponent not on HASHMARK 136 \u2014 no invented FCS HX. Stamp Vegas close when sourced; label Vegas-only on /schedule."
+      "note": "Research CLEAR remaining-finals pack. Baylor Bears (home) 44, Prairie View A&M Panthers (away) 3. Score + status only. No invented FCS HX. Kick/TV/Vegas unchanged.",
+      "home_score": 44,
+      "away_score": 3
     },
     {
       "espn_event_id": "401864504",
       "kick_ct": "2026-09-12 20:00",
       "kick_date": "2026-09-12",
       "weekday": "Sat",
-      "home_espn": "San Jos\u00e9 State Spartans",
+      "home_espn": "San José State Spartans",
       "away_espn": "Cal Poly Mustangs",
       "home_abbr": "SJSU",
       "away_abbr": "CP",
-      "fbs_team": "San Jos\u00e9 State",
+      "fbs_team": "San José State",
       "fbs_slug": "san-jose-state",
       "fbs_hx": -4.2689,
       "fcs_opponent": "Cal Poly Mustangs",
@@ -870,10 +921,12 @@
       "vegas_spread": -20.5,
       "vegas_source": "ESPN/DraftKings via ESPN odds",
       "broadcast": "MW+",
-      "status": "STATUS_SCHEDULED",
+      "status": "STATUS_FINAL",
       "hx_spread": null,
       "hx_spread_policy": "vegas_only_fcs_unrated",
-      "note": "FCS opponent not on HASHMARK 136 \u2014 no invented FCS HX. Stamp Vegas close when sourced; label Vegas-only on /schedule."
+      "note": "Research CLEAR remaining-finals pack. San José State Spartans (home) 30, Cal Poly Mustangs (away) 20. Score + status only. No invented FCS HX. Kick/TV/Vegas unchanged.",
+      "home_score": 30,
+      "away_score": 20
     },
     {
       "espn_event_id": "401864505",
@@ -894,10 +947,12 @@
       "vegas_spread": -25.5,
       "vegas_source": "ESPN/DraftKings via ESPN odds",
       "broadcast": "MW+",
-      "status": "STATUS_SCHEDULED",
+      "status": "STATUS_FINAL",
       "hx_spread": null,
       "hx_spread_policy": "vegas_only_fcs_unrated",
-      "note": "FCS opponent not on HASHMARK 136 \u2014 no invented FCS HX. Stamp Vegas close when sourced; label Vegas-only on /schedule."
+      "note": "Research CLEAR remaining-finals pack. UTEP Miners (home) 51, Texas Southern Tigers (away) 10. Score + status only. No invented FCS HX. Kick/TV/Vegas unchanged.",
+      "home_score": 51,
+      "away_score": 10
     },
     {
       "espn_event_id": "401864502",
@@ -918,10 +973,12 @@
       "vegas_spread": 1.5,
       "vegas_source": "ESPN/DraftKings via ESPN odds",
       "broadcast": "FS1",
-      "status": "STATUS_SCHEDULED",
+      "status": "STATUS_FINAL",
       "hx_spread": null,
       "hx_spread_policy": "vegas_only_fcs_unrated",
-      "note": "FCS opponent not on HASHMARK 136 \u2014 no invented FCS HX. Stamp Vegas close when sourced; label Vegas-only on /schedule."
+      "note": "Research CLEAR remaining-finals pack. Air Force Falcons (home) 32, North Dakota State Bison (away) 38. Score + status only. No invented FCS HX. Kick/TV/Vegas unchanged.",
+      "home_score": 32,
+      "away_score": 38
     },
     {
       "espn_event_id": "401860883",
@@ -942,10 +999,12 @@
       "vegas_spread": -18.5,
       "vegas_source": "ESPN/DraftKings via ESPN odds",
       "broadcast": "CBSSN",
-      "status": "STATUS_SCHEDULED",
+      "status": "STATUS_FINAL",
       "hx_spread": null,
       "hx_spread_policy": "vegas_only_fcs_unrated",
-      "note": "FCS opponent not on HASHMARK 136 \u2014 no invented FCS HX. Stamp Vegas close when sourced; label Vegas-only on /schedule."
+      "note": "Research CLEAR remaining-finals pack. Fresno State Bulldogs (home) 49, Sacramento State Hornets (away) 3. Score + status only. No invented FCS HX. Kick/TV/Vegas unchanged.",
+      "home_score": 49,
+      "away_score": 3
     },
     {
       "espn_event_id": "401864500",
@@ -966,10 +1025,12 @@
       "vegas_spread": 3.5,
       "vegas_source": "ESPN/DraftKings via ESPN odds",
       "broadcast": "CW",
-      "status": "STATUS_SCHEDULED",
+      "status": "STATUS_FINAL",
       "hx_spread": null,
       "hx_spread_policy": "vegas_only_fcs_unrated",
-      "note": "FCS opponent not on HASHMARK 136 \u2014 no invented FCS HX. Stamp Vegas close when sourced; label Vegas-only on /schedule."
+      "note": "Research CLEAR remaining-finals pack. Nevada Wolf Pack (home) 7, Montana State Bobcats (away) 20. Score + status only. No invented FCS HX. Kick/TV/Vegas unchanged.",
+      "home_score": 7,
+      "away_score": 20
     }
   ]
 }

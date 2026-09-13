@@ -9,7 +9,9 @@ export const BOARD_WEEK = 2;
 /**
  * Featured kick reads the HASHMARK Week 2 slate (`/schedule?w=2`).
  * FCS rows are Vegas-only (unrated) — never feature them (would invent HX).
- * Board pin is Ohio State @ Texas (Research pack), not the earliest Friday kick.
+ * Board pin was Ohio State @ Texas while that row was still upcoming.
+ * After remaining Week 2 FINALs that pin is dead — never feature a FINAL.
+ * Week 3 is not in seed; do not invent a next-week card.
  */
 export const FEATURED_SLATE_WEEK = 2;
 
@@ -19,7 +21,7 @@ export const WEEK1_FLAG = {
   awaySlug: "colorado",
 } as const;
 
-/** Saturday night ABC: Ohio State at Texas. Research featured pick. */
+/** Saturday night ABC: Ohio State at Texas. Historical Research featured pick. FINAL 23–24. */
 export const WEEK2_FEATURED = {
   homeSlug: "texas",
   awaySlug: "ohio-state",
@@ -92,7 +94,8 @@ export function selectFeaturedKick<
 /**
  * Board featured: pin Ohio State @ Texas while that row is still upcoming.
  * Alt only if the pin is missing or already kicked — Oklahoma @ Michigan.
- * Otherwise the next upcoming non-final. Never FCS. Never invent a book.
+ * Otherwise the next upcoming non-final. Never a FINAL. Never FCS.
+ * Never invent a Week 3 book or matchup.
  */
 export function selectBoardFeaturedKick<
   T extends Pick<ScheduleGame, "status" | "kickoffAt" | "homeSlug" | "awaySlug"> & { isFcs?: boolean },
