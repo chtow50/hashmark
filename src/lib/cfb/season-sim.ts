@@ -77,7 +77,7 @@ export function make12FromTeam(team: Pick<TeamSummary, "playoffOdds">): Make12Od
 }
 
 /**
- * Make-field and win-title from HX 2026.3 10k draws (sim_10k_2026.json).
+ * Make-field and win-title from HX 2026.4 10k draws (sim_10k_2026_hx2026_4.json).
  * Falls back to the legacy logistic make-field if the slug is missing.
  * Never treat make_field as a national title.
  */

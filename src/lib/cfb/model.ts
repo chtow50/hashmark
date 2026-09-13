@@ -7,7 +7,7 @@ import type { Prediction, TeamSummary } from "./types";
  * Matchup math is the Elo mapping from matchup.py (70.8% SU, 2019–2025).
  * Spread is a quadratic on Elo gap, fit on 2019–2023 FBS MOV (holdout 2024–2025).
  * Quadratic / talent / z* weights / team-HFA / weather / QB tenure SOS — unchanged.
- * Make 12 / win-title stay on HX 2026.3 10k draws until the AMD re-sim.
+ * Make 12 / win-title from HX 2026.4 10k draws (make-field ≠ title).
  */
 export const MODEL = {
   name: "HX Rating",
