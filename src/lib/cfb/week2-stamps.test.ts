@@ -219,3 +219,87 @@ describe("Week 2 early-window FINALs (Research CLEAR pack)", () => {
     assert.equal(week2.get("401856673")?.hasKick, true);
   });
 });
+
+describe("Week 2 remaining FINALs (Research CLEAR pack)", () => {
+  const remainingSql = readFileSync(join(root, "migrations/0027_week2_remaining_finals.sql"), "utf8");
+  const remaining = JSON.parse(
+    readFileSync(join(root, "data/week2_remaining_finals_clear_2026.json"), "utf8"),
+  ) as {
+    meta: { week: number; season: number; n_clear: number; n_hold: number; n_already_live: number; n_fbs_fbs: number; n_fbs_fcs: number };
+    clear: Array<{ espn_event_id: string; home: string; away: string; home_score: number; away_score: number; kind: string }>;
+    hold: unknown[];
+    already_live: Array<{ espn_event_id: string }>;
+  };
+
+  it("covers 67 CLEAR games, 0 HOLD, and skips the 19 already live", () => {
+    assert.equal(remaining.meta.week, 2);
+    assert.equal(remaining.meta.season, 2026);
+    assert.equal(remaining.meta.n_clear, 67);
+    assert.equal(remaining.clear.length, 67);
+    assert.equal(remaining.meta.n_hold, 0);
+    assert.equal(remaining.hold.length, 0);
+    assert.equal(remaining.meta.n_already_live, 19);
+    assert.equal(remaining.already_live.length, 19);
+    assert.equal(remaining.meta.n_fbs_fbs, 37);
+    assert.equal(remaining.meta.n_fbs_fcs, 30);
+    assert.equal(remaining.clear.filter((g) => g.kind === "FBS–FBS").length, 37);
+    assert.equal(remaining.clear.filter((g) => g.kind === "FBS–FCS").length, 30);
+    const live = new Set(remaining.already_live.map((g) => g.espn_event_id));
+    assert.equal(live.size, 19);
+    assert.ok(live.has("401858213"));
+    assert.ok(live.has("401856679"));
+    assert.ok(live.has("401856683"));
+    for (const g of remaining.clear) {
+      assert.equal(live.has(g.espn_event_id), false, g.espn_event_id);
+    }
+  });
+
+  it("stamps key CLEAR scores home-perspective: Texas 24–23, OSU 39–31, UGA 70–20", () => {
+    const texas = remaining.clear.find((g) => g.espn_event_id === "401856682");
+    assert.ok(texas);
+    assert.equal(texas.away_score, 23);
+    assert.equal(texas.home_score, 24);
+    const oregon = remaining.clear.find((g) => g.espn_event_id === "401856782");
+    assert.ok(oregon);
+    assert.equal(oregon.away_score, 31);
+    assert.equal(oregon.home_score, 39);
+    const uga = remaining.clear.find((g) => g.espn_event_id === "401856673");
+    assert.ok(uga);
+    assert.equal(uga.away_score, 20);
+    assert.equal(uga.home_score, 70);
+    assert.match(remainingSql, /home_score = 24/);
+    assert.match(remainingSql, /away_score = 23/);
+    assert.match(remainingSql, /h\.slug = 'texas' and a\.slug = 'ohio-state'/);
+    assert.match(remainingSql, /home_score = 39/);
+    assert.match(remainingSql, /away_score = 31/);
+    assert.match(remainingSql, /h\.slug = 'oklahoma-state' and a\.slug = 'oregon'/);
+    assert.match(remainingSql, /home_score = 70/);
+    assert.match(remainingSql, /away_score = 20/);
+    assert.match(remainingSql, /h\.slug = 'georgia' and a\.slug = 'western-kentucky'/);
+  });
+
+  it("stamps Hawaiʻi 29–19 with slug hawaii and does not change HX", () => {
+    const hawaii = remaining.clear.find((g) => g.espn_event_id === "401864578");
+    assert.ok(hawaii);
+    assert.equal(hawaii.away_score, 19);
+    assert.equal(hawaii.home_score, 29);
+    assert.match(remainingSql, /h\.slug = 'hawaii' and a\.slug = 'new-mexico-state'/);
+    assert.match(remainingSql, /home_score = 29/);
+    assert.match(remainingSql, /away_score = 19/);
+    assert.doesNotMatch(remainingSql, /lock_home_hx|lock_away_hx|hx_rating/);
+  });
+
+  it("does not restamp kick, TV, or Vegas, and omits ESPN digits", () => {
+    assert.doesNotMatch(remainingSql, /kickoff_at/);
+    assert.doesNotMatch(remainingSql, /\btv\s*=/);
+    assert.doesNotMatch(remainingSql, /vegas_spread/);
+    assert.doesNotMatch(remainingSql, /vegas_total/);
+    assert.doesNotMatch(remainingSql, /401\d{6,}/);
+    const week2 = parseSqlStampsForWeek(readMigrationsSql(root), 2);
+    assert.equal(week2.size, 47);
+    assert.equal(week2.get("401856682")?.hasKick, true);
+    assert.equal(week2.get("401856682")?.hasVegas, true);
+    assert.equal(week2.get("401856782")?.hasKick, true);
+    assert.equal(week2.get("401864578")?.hasKick, true);
+  });
+});
