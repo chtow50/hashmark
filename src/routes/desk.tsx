@@ -27,7 +27,7 @@ const GLOSSARY = [
   },
   {
     term: "Closer / SU",
-    def: "Straight-up (SU) is who HX picked to win. Closer is whether the HASHMARK spread was nearer the final margin than the market close. Week 1 tape: 36/43 SU, 20/43 closer.",
+    def: "Straight-up (SU) is who HX picked to win. Closer is whether the HASHMARK spread was nearer the final margin than the market close. Week 2 tape: 37/47 SU, 20/47 closer FLAG. Season W1–W2: 81.1% SU · 44.4% closer.",
   },
   {
     term: "Vegas-only",
@@ -57,8 +57,9 @@ function DeskPage() {
             can see why a number moved — or why it did not.
           </p>
           <p className="mt-3 text-sm leading-relaxed text-muted">
-            Week 1 held 36 of 43 straight-up. The closer column was a coin. That split stays on
-            the homepage because the model should be scored in public.
+            Week 2 held 37 of 47 straight-up. Closer 20/47 is a FLAG. Season W1–W2 is 81.1% SU,
+            44.4% closer. That split stays on the homepage because the model should be scored
+            in public.
           </p>
           <p className="mt-4 text-sm">
             <Link to="/model" className="text-fg underline-offset-4 hover:underline">

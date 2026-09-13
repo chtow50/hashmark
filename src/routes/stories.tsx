@@ -40,23 +40,23 @@ function StoriesPage() {
   return (
     <div>
       <PageHead
-        kicker="Week 1 · 2026"
-        title="The Week 1 desk."
-        lede="Tape is in. SU 36/43. Closer 20/43. HX not retuned. Gaps vs Week 1 AP."
+        kicker="Week 2 · 2026"
+        title="The Week 2 desk."
+        lede="Tape is in. SU 37/47. Closer 20/47 FLAG. HX not retuned."
       />
 
       <p className="mb-8 font-mono text-[11px] uppercase tracking-[0.16em] text-faint">
         <Link
           to="/schedule"
-          search={{ w: 1 }}
+          search={{ w: 2 }}
           className="text-fg underline decoration-border underline-offset-4 hover:text-accent"
         >
-          Week 1 schedule
+          Week 2 schedule
         </Link>
         <span className="mx-2" aria-hidden>
           ·
         </span>
-        HX 2026.3 · no retune
+        HX 2026.3 · pre-Δ · no retune
       </p>
 
       {lead ? (

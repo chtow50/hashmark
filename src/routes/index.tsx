@@ -20,8 +20,9 @@ import { MODEL, predictMatchup } from "@/lib/cfb/model";
 import { make12FromSim } from "@/lib/cfb/season-sim";
 import {
   boardDisagreementRows,
-  odMovers,
-  week1Tape,
+  week2BoardFlags,
+  week2SeasonTape,
+  week2Tape,
 } from "@/lib/cfb/truth-pack";
 import type { Prediction, ScheduleGame } from "@/lib/cfb/types";
 import { apLabel, fmtNum, fmtPct } from "@/lib/utils";
@@ -60,8 +61,9 @@ function Home() {
     : null;
 
   const disagreements = boardDisagreementRows(teams).slice(0, 8);
-  const tape = week1Tape();
-  const movers = odMovers(6);
+  const tape = week2Tape();
+  const season = week2SeasonTape();
+  const flags = week2BoardFlags();
   const oneMake = one ? make12FromSim(one.slug, one) : null;
 
   const recLeaders = [...teams].sort((a, b) => a.recRank - b.recRank).slice(0, 5);
@@ -142,7 +144,7 @@ function Home() {
         </div>
       </div>
 
-      <AccountabilityCard tape={tape} movers={movers} />
+      <AccountabilityCard tape={tape} season={season} flags={flags} />
 
       <Panel>
         <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-baseline sm:justify-between">
