@@ -180,9 +180,9 @@ const beforeThursday = Date.parse("2026-09-01T22:00:00.000Z");
 const afterGtKick = Date.parse("2026-09-04T00:01:00.000Z");
 const fridayAfternoon = Date.parse("2026-09-04T18:00:00.000Z");
 
-test("board chrome is Week 2; featured reads /schedule?w=2", () => {
-  assert.equal(BOARD_WEEK, 2);
-  assert.equal(FEATURED_SLATE_WEEK, 2);
+test("board chrome is Week 3; featured reads /schedule?w=3", () => {
+  assert.equal(BOARD_WEEK, 3);
+  assert.equal(FEATURED_SLATE_WEEK, 3);
 });
 
 test("Colorado at GT is HASHMARK GT −10.3 / 73.3% at home, Neutral off", () => {
@@ -225,25 +225,54 @@ test("next-kick helper is not Ohio St–Texas while an earlier kick is still upc
   assert.equal(featured?.homeSlug, "boston-college");
 });
 
-test("board featured pins Ohio State @ Texas, not Rutgers–BC", () => {
+test("Week 2 Research pin helpers stay historical (Ohio State @ Texas)", () => {
   assert.equal(WEEK2_FEATURED.homeSlug, "texas");
   assert.equal(WEEK2_FEATURED.awaySlug, "ohio-state");
-  const fridayNight = Date.parse("2026-09-11T16:00:00.000Z");
-  const featured = selectBoardFeaturedKick([rutgersBc, ouMichigan, osuTexas], fridayNight);
-  assert.equal(featured?.homeSlug, "texas");
-  assert.equal(featured?.awaySlug, "ohio-state");
-  const book = featuredBook(featured!);
+  const book = featuredBook(osuTexas);
   assert.equal(book?.kind, "close");
   assert.equal(book?.spread, 1.5);
   assert.equal(book?.total, "49.5");
   assert.equal(favoriteLine("Texas", "Ohio St", 1.5), "Texas −1.5");
 });
 
-test("board featured falls to Oklahoma @ Michigan only if Texas is absent", () => {
-  const fridayNight = Date.parse("2026-09-11T16:00:00.000Z");
-  const featured = selectBoardFeaturedKick([rutgersBc, ouMichigan], fridayNight);
-  assert.equal(featured?.homeSlug, "michigan");
-  assert.equal(featured?.awaySlug, "oklahoma");
+test("Week 3 board featured is the next FBS kick, not an invented pin", () => {
+  const pitt = game({
+    id: 300,
+    week: 3,
+    homeSlug: "pittsburgh",
+    awaySlug: "syracuse",
+    homeShort: "Pitt",
+    awayShort: "Syracuse",
+    kickoffDate: "2026-09-17",
+    kickoffAt: null,
+    location: "Acrisure Stadium",
+    vegasSpread: null,
+    vegasTotal: null,
+  });
+  const wake = game({
+    id: 301,
+    week: 3,
+    homeSlug: "wake-forest",
+    awaySlug: "miami",
+    homeShort: "Wake",
+    awayShort: "Miami",
+    kickoffDate: "2026-09-18",
+    kickoffAt: null,
+    location: "Allegacy Federal Credit Union Stadium",
+    vegasSpread: null,
+    vegasTotal: null,
+  });
+  const now = Date.parse("2026-09-13T16:00:00.000Z");
+  const featured = selectBoardFeaturedKick([pitt, wake], now);
+  assert.equal(featured?.homeSlug, "pittsburgh");
+  assert.equal(featured?.awaySlug, "syracuse");
+  assert.equal(featuredSlateWeek(pitt), 3);
+  assert.equal(featuredBook(featured!), null);
+});
+
+test("Week 3 board featured does not invent a pin when the slate is empty", () => {
+  const featured = selectBoardFeaturedKick([], Date.parse("2026-09-13T16:00:00.000Z"));
+  assert.equal(featured, null);
 });
 
 test("board featured never pins a FINAL Ohio State @ Texas", () => {

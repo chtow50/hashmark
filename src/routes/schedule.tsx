@@ -36,7 +36,8 @@ function parseWeek(v: unknown): number | undefined {
 function defaultWeek(ymd: string): number {
   if (ymd <= "2026-08-30") return 0;
   if (ymd <= "2026-09-07") return 1;
-  return Math.min(HASHMARK_MAX_WEEK, 2);
+  if (ymd <= "2026-09-12") return 2;
+  return Math.min(HASHMARK_MAX_WEEK, 3);
 }
 
 function searchForView(view: ScheduleView, conf: ConfFilter, week: number) {
