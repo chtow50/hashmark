@@ -23,6 +23,7 @@ import {
   week2BoardFlags,
   week2SeasonTape,
   week2Tape,
+  week2Top25Tape,
 } from "@/lib/cfb/truth-pack";
 import type { Prediction, ScheduleGame } from "@/lib/cfb/types";
 import { apLabel, fmtNum, fmtPct } from "@/lib/utils";
@@ -62,6 +63,7 @@ function Home() {
 
   const disagreements = boardDisagreementRows(teams).slice(0, 8);
   const tape = week2Tape();
+  const top25 = week2Top25Tape();
   const season = week2SeasonTape();
   const flags = week2BoardFlags();
   const oneMake = one ? make12FromSim(one.slug, one) : null;
@@ -144,7 +146,7 @@ function Home() {
         </div>
       </div>
 
-      <AccountabilityCard tape={tape} season={season} flags={flags} />
+          <AccountabilityCard tape={tape} top25={top25} season={season} flags={flags} />
 
       <Panel>
         <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-baseline sm:justify-between">

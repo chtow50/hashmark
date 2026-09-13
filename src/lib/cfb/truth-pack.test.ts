@@ -21,6 +21,8 @@ import {
   week2SeasonTape,
   week2Tape,
   week2TapePack,
+  week2Top25Pack,
+  week2Top25Tape,
 } from "./truth-pack.ts";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "../../..");
@@ -112,6 +114,34 @@ test("Week 2 tape is 37/47 SU and 20/47 closer FLAG", () => {
   assert.match(flags[0]?.label ?? "", /Michigan/);
   assert.equal(flags[1]?.result, "MISS");
   assert.match(flags[1]?.label ?? "", /Texas/);
+});
+
+test("Week 2 Top 25 closer cut is 12/19 HX · 17/19 SU", () => {
+  const cut = week2Top25Tape();
+  assert.equal(cut.n, 19);
+  assert.equal(cut.su, "17/19");
+  assert.equal(cut.hx_closer, "12/19");
+  assert.equal(cut.hx_closer_pct, 63.2);
+  assert.equal(cut.vegas_closer, "7/19");
+  assert.equal(cut.mae_hx, 10.81);
+  assert.equal(cut.mae_vegas, 12.03);
+  assert.equal(week2Top25Pack.meta.scope.includes("HX Top 25"), true);
+  assert.equal(week2Top25Pack.meta.hx_version, "2026.3");
+  assert.match(week2Top25Pack.meta.hx_policy, /pre-Δ/);
+  assert.doesNotMatch(week2Top25Pack.meta.hx_policy, /HX 2026\.4/);
+  assert.equal(week2Top25Pack.full_slate.hx_closer, "20/47");
+  assert.equal(week2Top25Pack.full_slate.closer_flag, true);
+  assert.equal(week2Top25Pack.ap_alt.hx_closer, "12/18");
+  assert.equal(week2Top25Pack.ap_alt.hx_closer_pct, 66.7);
+  assert.equal(week2Top25Pack.hx_closer_hits.length, 12);
+  assert.equal(week2Top25Pack.vegas_closer.length, 7);
+  assert.equal(week2Top25Pack.su_misses.length, 2);
+  assert.match(week2Top25Pack.su_misses[0]?.matchup ?? "", /Oregon/);
+  assert.match(week2Top25Pack.su_misses[1]?.matchup ?? "", /Texas/);
+  assert.equal(week2Top25Pack.su_misses.every((m) => m.closer === "Vegas"), true);
+  const packText = JSON.stringify(week2Top25Pack);
+  assert.doesNotMatch(packText, /The board is posted/);
+  assert.doesNotMatch(packText, /FBS–FCS|FCS–FCS/);
 });
 
 test("movers_by_abs_dhx are O/D terms", () => {

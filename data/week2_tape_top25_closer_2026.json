@@ -1,0 +1,241 @@
+{
+  "meta": {
+    "week": 2,
+    "season": 2026,
+    "as_of": "2026-09-13",
+    "as_of_tz": "America/Chicago",
+    "scope": "FBS–FBS with ≥1 HX Top 25 team (hx_rank ≤25 on HX 2026.3 pre-Δ)",
+    "n": 19,
+    "hx_version": "2026.3",
+    "hx_policy": "pre-Δ · HX not retuned · no 2026.4 in this pack",
+    "primary_cut": "HX Top 25 involvement",
+    "live_clear": "ESPN FINALs already stamped (early-window + remaining CLEAR packs)",
+    "sources": [
+      "Research week2_tape_top25_closer_2026",
+      "Research week2_tape_2026 — full slate 37/47 SU · 20/47 closer FLAG",
+      "data/week2_fbs_fbs_kick_tv_vegas_2026.json — Research Vegas pack",
+      "data/week2_early_window_finals_clear_2026.json — ESPN STATUS_FINAL",
+      "data/week2_remaining_finals_clear_2026.json — ESPN STATUS_FINAL",
+      "data/week1_od_hx_ship_2026.json — hx_rank_pre for HX 2026.3 Top 25 set"
+    ],
+    "policy": "Do not invent scores or lines. FBS–FBS only. No FCS posts. HX stays 2026.3. HX lines only where the Week 2 tape already published them."
+  },
+  "tape": {
+    "n": 19,
+    "su": "17/19",
+    "su_pct": 89.5,
+    "hx_closer": "12/19",
+    "hx_closer_pct": 63.2,
+    "vegas_closer": "7/19",
+    "mae_hx": 10.81,
+    "mae_vegas": 12.03,
+    "source": "Research week2_tape_top25_closer_2026 · HX Top 25 involvement n=19 · ESPN FINALs"
+  },
+  "full_slate": {
+    "n": 47,
+    "su": "37/47",
+    "su_pct": 78.7,
+    "hx_closer": "20/47",
+    "hx_closer_pct": 42.6,
+    "closer_flag": true,
+    "note": "Full slate closer remains FLAG. Top 25 cut is the public scorecard beat."
+  },
+  "ap_alt": {
+    "n": 18,
+    "hx_closer": "12/18",
+    "hx_closer_pct": 66.7,
+    "note": "AP-only involvement. HX Top 25 (n=19) is the primary cut."
+  },
+  "su_misses": [
+    {
+      "matchup": "Oregon @ Oklahoma State",
+      "espn_event_id": "401856782",
+      "hx": "Oregon −27.0",
+      "vegas": "ORE −23.5",
+      "final": "31–39",
+      "away_score": 31,
+      "home_score": 39,
+      "closer": "Vegas"
+    },
+    {
+      "matchup": "Ohio State @ Texas",
+      "espn_event_id": "401856682",
+      "hx": "Ohio St −1.0",
+      "vegas": "TEX −1.5",
+      "final": "23–24",
+      "away_score": 23,
+      "home_score": 24,
+      "closer": "Vegas"
+    }
+  ],
+  "hx_closer_hits": [
+    {
+      "matchup": "Missouri @ Kansas",
+      "espn_event_id": "401856678",
+      "vegas": "MIZ −5.5",
+      "final": "38–21",
+      "away_score": 38,
+      "home_score": 21
+    },
+    {
+      "matchup": "Oklahoma @ Michigan",
+      "espn_event_id": "401856679",
+      "hx": "Mich −5.4",
+      "vegas": "OU −5.5",
+      "final": "10–17",
+      "away_score": 10,
+      "home_score": 17
+    },
+    {
+      "matchup": "Arizona State @ Texas A&M",
+      "espn_event_id": "401856683",
+      "vegas": "TA&M −15.5",
+      "final": "20–48",
+      "away_score": 20,
+      "home_score": 48
+    },
+    {
+      "matchup": "Arizona @ BYU",
+      "espn_event_id": "401856810",
+      "vegas": "BYU −7.5",
+      "final": "17–28",
+      "away_score": 17,
+      "home_score": 28
+    },
+    {
+      "matchup": "Rice @ Notre Dame",
+      "espn_event_id": "401859184",
+      "vegas": "ND −44.5",
+      "final": "0–52",
+      "away_score": 0,
+      "home_score": 52
+    },
+    {
+      "matchup": "Alabama @ Kentucky",
+      "espn_event_id": "401856674",
+      "vegas": "ALA −10",
+      "final": "45–17",
+      "away_score": 45,
+      "home_score": 17
+    },
+    {
+      "matchup": "Utah State @ Washington",
+      "espn_event_id": "401858446",
+      "vegas": "WASH −27.5",
+      "final": "14–16",
+      "away_score": 14,
+      "home_score": 16
+    },
+    {
+      "matchup": "Iowa State @ Iowa",
+      "espn_event_id": "401856788",
+      "vegas": "IOWA −14",
+      "final": "13–16",
+      "away_score": 13,
+      "home_score": 16
+    },
+    {
+      "matchup": "Louisiana Tech @ LSU",
+      "espn_event_id": "401867796",
+      "vegas": "LSU −35.5",
+      "final": "14–45",
+      "away_score": 14,
+      "home_score": 45
+    },
+    {
+      "matchup": "Texas Tech @ Oregon State",
+      "espn_event_id": "401856783",
+      "vegas": "TTU −26.5",
+      "final": "35–24",
+      "away_score": 35,
+      "home_score": 24
+    },
+    {
+      "matchup": "Arkansas @ Utah",
+      "espn_event_id": "401856670",
+      "vegas": "UTAH −12.5",
+      "final": "10–43",
+      "away_score": 10,
+      "home_score": 43
+    },
+    {
+      "matchup": "Louisiana @ USC",
+      "espn_event_id": "401858445",
+      "vegas": "USC −31.5",
+      "final": "30–49",
+      "away_score": 30,
+      "home_score": 49
+    }
+  ],
+  "vegas_closer": [
+    {
+      "matchup": "Oregon @ Oklahoma State",
+      "espn_event_id": "401856782",
+      "hx": "Oregon −27.0",
+      "vegas": "ORE −23.5",
+      "final": "31–39",
+      "away_score": 31,
+      "home_score": 39,
+      "su_miss": true
+    },
+    {
+      "matchup": "Penn State @ Temple",
+      "espn_event_id": "401858442",
+      "vegas": "PSU −23.5",
+      "final": "27–9",
+      "away_score": 27,
+      "home_score": 9
+    },
+    {
+      "matchup": "Western Kentucky @ Georgia",
+      "espn_event_id": "401856673",
+      "vegas": "UGA −40.5",
+      "final": "20–70",
+      "away_score": 20,
+      "home_score": 70
+    },
+    {
+      "matchup": "Tennessee @ Georgia Tech",
+      "espn_event_id": "401856681",
+      "vegas": "TENN −12.5",
+      "final": "45–24",
+      "away_score": 45,
+      "home_score": 24
+    },
+    {
+      "matchup": "Georgia Southern @ Clemson",
+      "espn_event_id": "401858219",
+      "vegas": "CLEM −19.5",
+      "final": "7–22",
+      "away_score": 7,
+      "home_score": 22
+    },
+    {
+      "matchup": "Ohio State @ Texas",
+      "espn_event_id": "401856682",
+      "hx": "Ohio St −1.0",
+      "vegas": "TEX −1.5",
+      "final": "23–24",
+      "away_score": 23,
+      "home_score": 24,
+      "su_miss": true
+    },
+    {
+      "matchup": "Charlotte @ Ole Miss",
+      "espn_event_id": "401856676",
+      "vegas": "MISS −45.5",
+      "final": "9–41",
+      "away_score": 9,
+      "home_score": 41
+    }
+  ],
+  "games_summary": {
+    "n": 19,
+    "scope": "FBS–FBS with ≥1 HX Top 25 team",
+    "su_hits": 17,
+    "su_misses": 2,
+    "hx_closer_hits": 12,
+    "vegas_closer_hits": 7,
+    "su_miss_matchups": ["Oregon @ Oklahoma State", "Ohio State @ Texas"]
+  }
+}
