@@ -14,8 +14,33 @@ export type Story = {
 export const STORY_DATE = "Friday, Aug 28, 2026";
 export const STORY_DATE_WEEK1 = "Friday, Sep 4, 2026";
 export const STORY_DATE_TAPE = "Tuesday, Sep 8, 2026";
+export const STORY_DATE_TAPE_WEEK2 = "Sunday, Sep 13, 2026";
 
 export const STORIES: Story[] = [
+  {
+    slug: "week-2-tape",
+    kicker: "Week 2 tape",
+    headline: "Week 2 tape: 37/47 SU, 20/47 closer FLAG. HX not retuned.",
+    dek: "Straight-up holds. Closer is under 45%. Ten favorites missed. Michigan flipped. Ohio State did not.",
+    date: STORY_DATE_TAPE_WEEK2,
+    body: [
+      "Week 2 SU 37/47 (78.7%). HX closer to the final than Vegas 20/47 (42.6%) — FLAG, under 45%. Vegas closer 27/47. FBS–FBS only, n=47. Season W1–W2: SU 81.1% · closer 44.4%. This week’s ledger, not the 70.8% 2019–2025 claim.",
+      "Michigan winner-flip HIT: HX Mich −5.4 vs Vegas OU −5.5, FINAL Mich 17–10. Ohio State @ Texas MISS: HX Ohio St −1.0 vs Vegas TEX −1.5, FINAL Texas 24–23.",
+      "Ten SU misses, HX favorites: Rutgers @ BC (HX Rutgers −3.3 / Vegas BC −3.5 / FINAL 21–28, winner-flip miss). App @ ECU (HX ECU −9.1 / Vegas ECU −6.5 / FINAL 27–24). Oregon @ OKST (HX Oregon −27.0 / Vegas ORE −23.5 / FINAL 31–39). Duke @ Illinois (HX ILL −3.7 / Vegas ILL −5.5 / FINAL 31–27). MSST @ Minnesota (HX MINN −9.2 / Vegas MSST −1.5 / FINAL 38–13, winner-flip miss). UTSA @ Texas St (HX TXST −1.3 / Vegas TXST −1.5 / FINAL 31–26). UNLV @ UNT (HX UNLV −9.2 / Vegas UNLV −3 / FINAL 6–44). GaSt @ Kennesaw (HX KENN −4.9 / Vegas KENN −7.5 / FINAL 31–17). Tulsa @ Sam Houston (HX SHSU −0.1 / Vegas TLSA −13.5 / FINAL 23–17, winner-flip miss). OSU @ Texas (HX OSU −1.0 / Vegas TEX −1.5 / FINAL 23–24, winner-flip miss).",
+      "Winner-flip hits: USF @ Army, OU @ Michigan, Cal @ Syracuse, Navy @ FAU. HX ATS 20/47 (42.6%). MAE HX 12.2 / Vegas 10.49. Brier 0.147. Research Vegas pack + ESPN FINALs. Tape is pre-Δ. HX stays 2026.3. No retune.",
+    ],
+    whyItMatters: "Second public ledger of 2026. SU holds. Closer is a FLAG. HX stays 2026.3 until a separate 2026.4 ship.",
+    sources: [
+      {
+        label: "HASHMARK Board",
+        href: "https://hashmarkcfb.com/",
+      },
+      {
+        label: "HASHMARK Schedule",
+        href: "https://hashmarkcfb.com/schedule?w=2",
+      },
+    ],
+  },
   {
     slug: "week-1-tape",
     kicker: "Week 1 tape",

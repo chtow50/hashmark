@@ -1,13 +1,15 @@
 /**
- * Week 1 truth-pack loaders. Numbers come from the AMD JSON payloads —
+ * Truth-pack loaders. Numbers come from the AMD / Research JSON payloads —
  * do not invent deltas, tape rates, or make/title splits.
  *
  *   data/week1_hx_vs_ap_gaps_2026.json
  *   data/week1_accountability_pack_2026.json
+ *   data/week2_tape_2026.json
  *   data/sim_10k_2026.json
  */
 import gapsRaw from "../../../data/week1_hx_vs_ap_gaps_2026.json" with { type: "json" };
 import packRaw from "../../../data/week1_accountability_pack_2026.json" with { type: "json" };
+import week2TapeRaw from "../../../data/week2_tape_2026.json" with { type: "json" };
 import simRaw from "../../../data/sim_10k_2026.json" with { type: "json" };
 import week1ApRaw from "../../../data/week1_ap_top25_2026.json" with { type: "json" };
 
@@ -62,6 +64,70 @@ export type AccountabilityPack = {
   movers_by_abs_dhx: HxMover[];
 };
 
+export type Week2Tape = {
+  n: number;
+  su: string;
+  su_pct: number;
+  hx_closer: string;
+  hx_closer_pct: number;
+  closer_flag: boolean;
+  closer_flag_rule: string;
+  vegas_closer: string;
+  hx_ats: string;
+  hx_ats_pct: number;
+  mae_hx: number;
+  mae_vegas: number;
+  brier: number;
+  source: string;
+};
+
+export type Week2SeasonTape = {
+  label: string;
+  weeks: number[];
+  su: string;
+  su_pct: number;
+  hx_closer: string;
+  hx_closer_pct: number;
+  note: string;
+};
+
+export type Week2BoardFlag = {
+  id: string;
+  label: string;
+  result: "HIT" | "MISS";
+  matchup: string;
+  espn_event_id: string;
+  hx: string;
+  vegas: string;
+  final: string;
+  away_score: number;
+  home_score: number;
+};
+
+export type Week2TapeFile = {
+  meta: {
+    week: number;
+    season: number;
+    as_of: string;
+    scope: string;
+    n: number;
+    hx_version: string;
+    hx_policy: string;
+  };
+  tape: Week2Tape;
+  season: Week2SeasonTape;
+  board_flags: Week2BoardFlag[];
+  su_misses: { n: number; matchup: string; hx_favorite: string; winner_flip_miss: boolean }[];
+  winner_flip_hits: { matchup: string }[];
+  games_summary: {
+    n: number;
+    su_hits: number;
+    su_misses: number;
+    hx_closer_hits: number;
+    vegas_closer_hits: number;
+  };
+};
+
 export type Sim10kTeam = {
   name: string;
   slug: string;
@@ -88,6 +154,7 @@ export type Sim10kFile = {
 
 export const hxApGaps = gapsRaw as HxApGapsFile;
 export const accountabilityPack = packRaw as AccountabilityPack;
+export const week2TapePack = week2TapeRaw as Week2TapeFile;
 export const sim10k = simRaw as Sim10kFile;
 
 const AP_SLUG_BY_NAME = new Map(
@@ -193,6 +260,18 @@ function slugGuess(name: string): string {
 
 export function week1Tape(): Week1Tape {
   return accountabilityPack.tape;
+}
+
+export function week2Tape(): Week2Tape {
+  return week2TapePack.tape;
+}
+
+export function week2SeasonTape(): Week2SeasonTape {
+  return week2TapePack.season;
+}
+
+export function week2BoardFlags(): Week2BoardFlag[] {
+  return week2TapePack.board_flags;
 }
 
 /** Top |ΔHX| movers whose term is O/D (not a second rating). */

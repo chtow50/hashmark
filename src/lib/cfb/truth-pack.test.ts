@@ -17,6 +17,10 @@ import {
   recomputeHxVsApGaps,
   simTeamBySlug,
   week1Tape,
+  week2BoardFlags,
+  week2SeasonTape,
+  week2Tape,
+  week2TapePack,
 } from "./truth-pack.ts";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "../../..");
@@ -79,6 +83,35 @@ test("accountability tape is 36/43 SU and 20/43 closer", () => {
   assert.equal(tape.hx_closer, "20/43");
   assert.equal(tape.hx_closer_pct, 46.5);
   assert.equal(accountabilityPack.as_of, "2026-09-08");
+});
+
+test("Week 2 tape is 37/47 SU and 20/47 closer FLAG", () => {
+  const tape = week2Tape();
+  assert.equal(tape.n, 47);
+  assert.equal(tape.su, "37/47");
+  assert.equal(tape.su_pct, 78.7);
+  assert.equal(tape.hx_closer, "20/47");
+  assert.equal(tape.hx_closer_pct, 42.6);
+  assert.equal(tape.closer_flag, true);
+  assert.equal(tape.vegas_closer, "27/47");
+  assert.equal(tape.hx_ats, "20/47");
+  assert.equal(tape.mae_hx, 12.2);
+  assert.equal(tape.mae_vegas, 10.49);
+  assert.equal(tape.brier, 0.147);
+  assert.equal(week2TapePack.meta.scope, "FBS–FBS only");
+  assert.equal(week2TapePack.meta.hx_version, "2026.3");
+  assert.match(week2TapePack.meta.hx_policy, /pre-Δ/);
+  assert.doesNotMatch(week2TapePack.meta.hx_policy, /HX 2026\.4/);
+  assert.equal(week2TapePack.su_misses.length, 10);
+  assert.equal(week2TapePack.winner_flip_hits.length, 4);
+  const season = week2SeasonTape();
+  assert.equal(season.su_pct, 81.1);
+  assert.equal(season.hx_closer_pct, 44.4);
+  const flags = week2BoardFlags();
+  assert.equal(flags[0]?.result, "HIT");
+  assert.match(flags[0]?.label ?? "", /Michigan/);
+  assert.equal(flags[1]?.result, "MISS");
+  assert.match(flags[1]?.label ?? "", /Texas/);
 });
 
 test("movers_by_abs_dhx are O/D terms", () => {
