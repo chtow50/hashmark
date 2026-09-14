@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
+import { EdgePackStrip } from "@/components/edge-pack";
 import { PageHead, Panel } from "@/components/shell";
 import { Button } from "@/components/ui/button";
 import { AccountabilityCard, DisagreementCard } from "@/components/truth-pack";
@@ -78,6 +79,8 @@ function Home() {
         title={`Week ${BOARD_WEEK} board`}
         lede="HASHMARK runs a single rating — HX — from recruiting talent, last year’s SP+/Elo/SRS, four-year win trend, returning production, and portal net. Full 136 FBS. The AP column is Week 1 AP (Sept. 8)."
       />
+
+      <EdgePackStrip />
 
       {one ? (
         <Panel className="enter">

@@ -1,6 +1,7 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { Menu, Search, X } from "lucide-react";
 import { useMemo, useState, type ReactNode } from "react";
+import { EdgePackNavButton } from "@/components/edge-pack";
 import { TeamFinder } from "@/components/team-finder";
 import { Button } from "@/components/ui/button";
 import { CONFS, type ConfFilter } from "@/lib/cfb/conferences";
@@ -17,6 +18,7 @@ const NAV = [
   { to: "/talent", label: "Talent" },
   { to: "/states", label: "States" },
   { to: "/model", label: "The Model" },
+  { to: "/edge", label: "Edge Pack" },
 ] as const;
 
 export function HashLogo({ className }: { className?: string }) {
@@ -51,7 +53,7 @@ export function AppShell({ children }: { children: ReactNode }) {
         <div className="mx-auto flex h-14 max-w-6xl items-center justify-between gap-4 px-4 sm:h-16 sm:px-6">
           <HashLogo />
           <nav className="hidden items-center gap-1 lg:flex">
-            {NAV.map((item) => {
+            {NAV.filter((item) => item.to !== "/edge").map((item) => {
               const active =
                 item.to === "/"
                   ? pathname === "/"
@@ -77,6 +79,7 @@ export function AppShell({ children }: { children: ReactNode }) {
             <span className="hidden font-mono text-[11px] uppercase tracking-[0.16em] text-faint xl:inline">
               {MODEL.weekLabel}
             </span>
+            <EdgePackNavButton />
             <TeamFinder />
             <Button
               variant="ghost"
@@ -138,6 +141,7 @@ export function AppShell({ children }: { children: ReactNode }) {
             <Link to="/talent" className="hover:text-fg">Talent</Link>
             <Link to="/states" className="hover:text-fg">States</Link>
             <Link to="/model" className="hover:text-fg">The Model</Link>
+            <Link to="/edge" className="hover:text-fg">Edge Pack</Link>
             <Link to="/desk" className="hover:text-fg">The Desk</Link>
           </nav>
           <p className="text-xs leading-relaxed text-faint">

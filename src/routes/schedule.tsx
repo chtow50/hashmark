@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useMemo } from "react";
+import { EdgePackStrip } from "@/components/edge-pack";
 import { ConfPills, PageHead, Panel } from "@/components/shell";
 import { DeskChip, TeamMark } from "@/components/marks";
 import { Button } from "@/components/ui/button";
@@ -111,6 +112,8 @@ function SchedulePage() {
         title={`Week ${week} slate`}
         lede="HASHMARK spread and win% from HX. FCS opponents are unrated — Vegas close only, no invented HASHMARK spread. FINAL is locked on the tape. Sorted by kick, America/Chicago."
       />
+
+      <EdgePackStrip compact />
 
       <div className="mb-5 flex gap-2 overflow-x-auto pb-1" role="tablist" aria-label="Schedule filter">
         {VIEW_OPTIONS.map((opt) => (
