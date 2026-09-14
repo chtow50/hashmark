@@ -53,7 +53,7 @@ export function AppShell({ children }: { children: ReactNode }) {
         <div className="mx-auto flex h-14 max-w-6xl items-center justify-between gap-4 px-4 sm:h-16 sm:px-6">
           <HashLogo />
           <nav className="hidden items-center gap-1 lg:flex">
-            {NAV.map((item) => {
+            {NAV.filter((item) => item.to !== "/edge").map((item) => {
               const active =
                 item.to === "/"
                   ? pathname === "/"
