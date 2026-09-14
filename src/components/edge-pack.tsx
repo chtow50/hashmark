@@ -17,7 +17,33 @@ export function EdgePackNavButton({ className }: { className?: string }) {
   );
 }
 
-export function EdgePackStrip({ className }: { className?: string }) {
+export function EdgePackStrip({
+  className,
+  compact = false,
+}: {
+  className?: string;
+  compact?: boolean;
+}) {
+  if (compact) {
+    return (
+      <Link
+        to="/edge"
+        className={cn(
+          "mb-6 flex min-h-11 items-center justify-between gap-3 text-sm text-muted hover:text-fg",
+          className,
+        )}
+      >
+        <span>
+          {EDGE.name} · weekly disagreements and SU/closer tape · {EDGE.weekLabel} · {EDGE.monthLabel}
+        </span>
+        <span className="inline-flex shrink-0 items-center gap-1 text-fg">
+          Open
+          <ArrowRight className="size-4" />
+        </span>
+      </Link>
+    );
+  }
+
   return (
     <Link
       to="/edge"

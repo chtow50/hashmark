@@ -1,6 +1,9 @@
 /**
  * HX Edge Pack — public monetization surface.
- * Checkout URL comes from env. Never invent a payment link.
+ * Checkout URLs are Stripe Payment Links from env when they exist:
+ *   VITE_EDGE_CHECKOUT_URL       monthly ($29/mo)
+ *   VITE_EDGE_CHECKOUT_WEEK_URL  optional week sample ($9); falls back to monthly
+ * Never invent a payment link. Unset → #checkout-pending.
  */
 
 export const EDGE_CHECKOUT_PENDING = "#checkout-pending";
