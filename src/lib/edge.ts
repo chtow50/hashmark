@@ -8,6 +8,8 @@
 
 export const EDGE_CHECKOUT_PENDING = "#checkout-pending";
 
+export const EDGE_SUPPORT_EMAIL = "hello@hashmarkcfb.com";
+
 export const EDGE = {
   name: "HX Edge Pack",
   shortName: "Edge Pack",
@@ -15,6 +17,7 @@ export const EDGE = {
   weekLabel: "$9 Week sample",
   monthPrice: "$29/mo",
   monthLabel: "$29/mo",
+  supportEmail: EDGE_SUPPORT_EMAIL,
 } as const;
 
 export type EdgeCheckoutKind = "week" | "month";
