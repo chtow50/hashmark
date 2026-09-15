@@ -14,16 +14,32 @@
     "soft": "FLAG — calibration soft. Do not lead the pack. Show FLAG on the card."
   },
   "bands": {
+    "edge_size_pts": {
+      "small": [0, 3],
+      "medium": [3, 7],
+      "large": [7, 99]
+    },
     "edge_size": {
-      "large": {
-        "min_abs_gap_pts": 4,
-        "rule": "|HX − Vegas| ≥ 4 pts"
-      },
       "small": {
-        "max_abs_gap_pts": 4,
+        "min_abs_gap_pts": 0,
+        "max_abs_gap_pts": 3,
         "exclusive_max": true,
-        "rule": "|HX − Vegas| < 4 pts"
+        "rule": "|HX − Vegas| < 3 pts"
+      },
+      "medium": {
+        "min_abs_gap_pts": 3,
+        "max_abs_gap_pts": 7,
+        "exclusive_max": true,
+        "rule": "|HX − Vegas| 3 ≤ |Δ| < 7 pts"
+      },
+      "large": {
+        "min_abs_gap_pts": 7,
+        "rule": "|HX − Vegas| ≥ 7 pts"
       }
+    },
+    "notable_gap": {
+      "min_abs_gap_pts": 4,
+      "rule": "|HX − Vegas| ≥ 4 pts — Week 3 pack notable-gap filter, not a size band"
     },
     "lean": {
       "strong": {
@@ -50,9 +66,9 @@
       "lead": true,
       "calibration_slice": "top25",
       "calibration_flag": "ok",
-      "edge_size_band": "large",
+      "edge_size_bands": ["medium", "large"],
       "lean_band": "strong",
-      "rule": "Top 25 slice, calibration ok (closer ≥ 50%), large |HX−Vegas| (≥ 4 pts), strong lean (≥ 15pp from 50). Winner flips allowed. Can lead the pack. Never a lock."
+      "rule": "Top 25 slice, calibration ok (closer ≥ 50%), medium or large |HX−Vegas| (medium 3 ≤ |Δ| < 7, large ≥ 7), strong lean (≥ 15pp from 50). Winner flips allowed. Can lead the pack. Never a lock."
     },
     "B": {
       "tier": "B",
@@ -61,7 +77,7 @@
       "calibration_flag": "ok",
       "edge_size_band": "small",
       "lean_band": "strong",
-      "rule": "Top 25 slice, calibration ok, small |HX−Vegas| (< 4 pts), strong lean. Same favorite as the book. Do not lead."
+      "rule": "Top 25 slice, calibration ok, small |HX−Vegas| (< 3 pts), strong lean. Same favorite as the book. Do not lead."
     },
     "C": {
       "tier": "C",

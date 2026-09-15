@@ -10,8 +10,16 @@ export const EDGE_BOARD_SCHEMA_ID = "hx_edge_confidence_schema_2026";
 
 export type EdgeCalibrationFlag = "ok" | "soft";
 export type EdgeConfidenceTier = "A" | "B" | "C" | "D";
-export type EdgeSizeBand = "large" | "small";
+export type EdgeSizeBand = "small" | "medium" | "large";
 export type EdgeLeanBand = "strong" | "lean" | "coin";
+export type EdgeSizeInterval = [number, number];
+
+export type EdgeSizeBandRule = {
+  min_abs_gap_pts: number;
+  max_abs_gap_pts?: number;
+  exclusive_max?: boolean;
+  rule: string;
+};
 
 export type EdgeTierRule = {
   tier: EdgeConfidenceTier;
@@ -19,6 +27,7 @@ export type EdgeTierRule = {
   calibration_slice: string;
   calibration_flag: EdgeCalibrationFlag;
   edge_size_band?: EdgeSizeBand;
+  edge_size_bands?: EdgeSizeBand[];
   lean_band?: EdgeLeanBand;
   rule: string;
 };
@@ -57,10 +66,9 @@ export type EdgeConfidenceSchema = {
     soft: string;
   };
   bands: {
-    edge_size: {
-      large: { min_abs_gap_pts: number; rule: string };
-      small: { max_abs_gap_pts: number; exclusive_max?: boolean; rule: string };
-    };
+    edge_size_pts: Record<EdgeSizeBand, EdgeSizeInterval>;
+    edge_size: Record<EdgeSizeBand, EdgeSizeBandRule>;
+    notable_gap: { min_abs_gap_pts: number; rule: string };
     lean: {
       strong: { min_pp_from_50: number; rule: string };
       lean: {
@@ -91,6 +99,30 @@ export function loadEdgeConfidenceSchema(): EdgeConfidenceSchema {
 }
 
 export const EDGE_BOARD_TIERS: EdgeConfidenceTier[] = ["A", "B", "C", "D"];
+export const EDGE_SIZE_BANDS: EdgeSizeBand[] = ["small", "medium", "large"];
+
+/**
+ * AMD edge_size_pts: small [0, 3), medium [3, 7), large [7, 99].
+ * Intervals are [inclusive, exclusive) except large's 99 sentinel.
+ */
+export function classifyEdgeSize(
+  absGapPts: number,
+  schema: EdgeConfidenceSchema = loadEdgeConfidenceSchema(),
+): EdgeSizeBand {
+  const abs = Math.abs(absGapPts);
+  const { small, medium } = schema.bands.edge_size_pts;
+  if (abs < small[1]) return "small";
+  if (abs < medium[1]) return "medium";
+  return "large";
+}
+
+/** Week 3 pack notable-gap filter only — not the definition of large. */
+export function isNotableGap(
+  absGapPts: number,
+  schema: EdgeConfidenceSchema = loadEdgeConfidenceSchema(),
+): boolean {
+  return Math.abs(absGapPts) >= schema.bands.notable_gap.min_abs_gap_pts;
+}
 
 export function exampleCards(schema: EdgeConfidenceSchema = loadEdgeConfidenceSchema()): EdgeExampleCard[] {
   return schema.example_cards.slice(0, 2);

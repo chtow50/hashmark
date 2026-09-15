@@ -205,6 +205,11 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /52\.4/);
     assert.match(text, /hx_edge_card_confidence/);
     assert.match(text, /card\.demo_label|EXAMPLE \/ schema demo/);
+    assert.match(text, /"small":\[0,3\]|"small": \[0, 3\]/);
+    assert.match(text, /"medium":\[3,7\]|"medium": \[3, 7\]/);
+    assert.match(text, /"large":\[7,99\]|"large": \[7, 99\]/);
+    assert.match(text, /≥ 7 pts|>= 7 pts/);
+    assert.doesNotMatch(text, /large \|HX−Vegas\| \(≥ 4 pts\)/);
     assert.doesNotMatch(text, /live interactive sim/i);
     assert.doesNotMatch(text, /Open Scenario Sim \(preview\)/);
     assert.doesNotMatch(text, /waitlist/i);
