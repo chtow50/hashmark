@@ -41,6 +41,8 @@
     "data/week1_ap_top25_2026.json",
     "data/week2_fbs_fcs_spreads_2026.json",
     "data/week2_tape_2026.json",
-    "data/week2_tape_top25_closer_2026.json"
+    "data/week2_tape_top25_closer_2026.json",
+    "data/edge-packs/current/manifest.json",
+    "data/edge-packs/current/hx_edge_pack_week3_sample_thickened_2026.json"
   ]
 }

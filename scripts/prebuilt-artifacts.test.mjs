@@ -147,6 +147,21 @@ describe("prebuilt deploy artifacts", () => {
     assert.doesNotMatch(text, /The board is posted/);
   });
 
+  it("includes /edge/unlock and does not leak the pack into public static assets", () => {
+    const text = corpus();
+    assert.match(text, /createFileRoute\("\/edge\/unlock"\)|path:"\/edge\/unlock"|id:"\/edge\/unlock"/);
+    assert.match(text, /STRIPE_SECRET_KEY/);
+    assert.match(text, /hello@hashmarkcfb.com/);
+    const staticDir = join(OUT, "static");
+    const staticJs = walk(staticDir)
+      .filter((p) => /\.js$/.test(p))
+      .map((p) => readFileSync(p, "utf8"))
+      .join("\n");
+    assert.doesNotMatch(staticJs, /hx_edge_pack_week3_sample_thickened_2026/);
+    assert.doesNotMatch(staticJs, /Western Kentucky @ Indiana/);
+    assert.doesNotMatch(staticJs, /pack_body_paste/);
+  });
+
   it("includes HX Edge Pack /edge with baked Stripe Payment Links", () => {
     const text = corpus();
     assert.match(text, /HX Edge Pack/);

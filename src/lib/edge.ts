@@ -4,6 +4,9 @@
  *   VITE_EDGE_CHECKOUT_URL       monthly ($29/mo) only
  *   VITE_EDGE_CHECKOUT_WEEK_URL  week sample ($9) only — never fall back to monthly
  * Never invent a payment link. Unset → #checkout-pending.
+ *
+ * Paid unlock (server-only): STRIPE_SECRET_KEY on Vercel. See docs/vercel-env.md.
+ * Payment Links return to /edge/unlock?session_id={CHECKOUT_SESSION_ID}.
  */
 
 export const EDGE_CHECKOUT_PENDING = "#checkout-pending";
