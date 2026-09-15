@@ -1,11 +1,11 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, Outlet, useChildMatches } from "@tanstack/react-router";
 import { EdgeBuyButton, EdgeCheckoutNote } from "@/components/edge-pack";
 import { PageHead, Panel } from "@/components/shell";
 import { EDGE } from "@/lib/edge";
 import { MODEL } from "@/lib/cfb/model";
 
 export const Route = createFileRoute("/edge")({
-  component: EdgePage,
+  component: EdgeLayout,
   head: () => ({
     meta: [
       { title: `${EDGE.name} · HASHMARK` },
@@ -32,6 +32,12 @@ const NOT_INCLUDED = [
   "No second rating. Edge Pack is the same HX, written out.",
   "No login wall on the public board, slate, or matchup engine.",
 ] as const;
+
+function EdgeLayout() {
+  const childMatches = useChildMatches();
+  if (childMatches.length > 0) return <Outlet />;
+  return <EdgePage />;
+}
 
 function EdgePage() {
   return (

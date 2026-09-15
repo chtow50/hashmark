@@ -166,6 +166,30 @@ describe("prebuilt deploy artifacts", () => {
     );
   });
 
+  it("includes gated /edge/unlock + pack download on the server", () => {
+    const server = walk(join(OUT, "functions"))
+      .filter((p) => /\.mjs$/.test(p))
+      .map((p) => readFileSync(p, "utf8"))
+      .join("\n");
+    assert.match(server, /\/edge\/unlock/);
+    assert.match(server, /\/api\/edge\/pack/);
+    assert.match(server, /STRIPE_SECRET_KEY/);
+    assert.doesNotMatch(server, /VITE_STRIPE_SECRET_KEY/);
+    assert.match(server, /hello@hashmarkcfb\.com/);
+    assert.match(server, /hx_edge_confidence_schema_2026/);
+    assert.match(server, /hx_edge_pack_week3_sample_thickened_2026/);
+  });
+
+  it("does not dump the current Edge Pack onto public client assets", () => {
+    const client = walk(join(OUT, "static"))
+      .filter((p) => /\.js$/.test(p))
+      .map((p) => readFileSync(p, "utf8"))
+      .join("\n");
+    assert.doesNotMatch(client, /hx_edge_confidence_schema_2026/);
+    assert.doesNotMatch(client, /SAMPLE_9/);
+    assert.match(client, /\/edge\/unlock|edge\/unlock/);
+  });
+
   it("keeps PGLite wasm sidecars next to the server bundle", () => {
     const libs = join(OUT, "functions/__server.func/_libs");
     for (const name of ["pglite.wasm", "initdb.wasm", "pglite.data"]) {
