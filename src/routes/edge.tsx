@@ -1,15 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { EdgeBuyButton, EdgeCheckoutNote } from "@/components/edge-pack";
-import { ScenarioSimPreviewLink } from "@/components/scenario-sim";
 import { PageHead, Panel } from "@/components/shell";
 import { EDGE } from "@/lib/edge";
 import { MODEL } from "@/lib/cfb/model";
-import { parseScenarioUnlockSearch } from "@/lib/scenario-sim";
-
-type Search = { edge?: string; unlock?: string };
 
 export const Route = createFileRoute("/edge")({
-  validateSearch: (s: Record<string, unknown>): Search => parseScenarioUnlockSearch(s),
   component: EdgePage,
   head: () => ({
     meta: [
@@ -39,7 +34,6 @@ const NOT_INCLUDED = [
 ] as const;
 
 function EdgePage() {
-  const search = Route.useSearch();
   return (
     <div className="space-y-8">
       <PageHead
@@ -67,8 +61,6 @@ function EdgePage() {
         </Panel>
       </div>
       <EdgeCheckoutNote />
-
-      <ScenarioSimPreviewLink search={search} />
 
       <div className="grid gap-6 lg:grid-cols-2">
         <Panel>

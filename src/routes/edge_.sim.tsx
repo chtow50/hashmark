@@ -28,11 +28,11 @@ export const Route = createFileRoute("/edge_/sim")({
   component: EdgeSimPage,
   head: () => ({
     meta: [
-      { title: `Scenario Sim (preview) · ${EDGE.name}` },
+      { title: `Scenario Sim (preview / offline) · ${EDGE.name}` },
       {
         name: "description",
         content:
-          "HX Edge Pack Scenario Sim preview. CLI-backed 10k re-run coming online. Desk fixture until the AMD engine is wired.",
+          "HX Edge Pack Scenario Sim preview / offline. Desk fixture — not this week’s paid pack.",
       },
     ],
   }),
@@ -47,8 +47,8 @@ function EdgeSimPage() {
     <div className="space-y-8">
       <PageHead
         kicker={`${EDGE.name} · HX ${MODEL.version}`}
-        title="Scenario Sim (preview)"
-        lede="Coming online. Pin a winner or an HX bump, then read baseline vs scenario vs Δ. This page is a desk fixture until the AMD CLI is wired — Monte Carlo noise, not a lock."
+        title="Scenario Sim (preview / offline)"
+        lede="Offline desk fixture. Pin a winner or an HX bump, then read baseline vs scenario vs Δ. Not this week’s paid pack. Monte Carlo noise, not a lock."
       />
 
       {unlocked ? <ScenarioSimPanel teams={teams} /> : <ScenarioSimGate />}

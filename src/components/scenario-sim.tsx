@@ -1,4 +1,3 @@
-import { Link } from "@tanstack/react-router";
 import { Minus, Plus } from "lucide-react";
 import { useMemo, useState } from "react";
 import { EdgeBuyButton } from "@/components/edge-pack";
@@ -88,11 +87,13 @@ export function ScenarioSimGate({ className }: { className?: string }) {
       <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-faint">
         HX Edge Pack
       </p>
-      <h2 className="mt-2 font-display text-2xl tracking-wide">Scenario Sim (preview)</h2>
+      <h2 className="mt-2 font-display text-2xl tracking-wide">
+        Scenario Sim (preview / offline)
+      </h2>
       <p className="mt-3 text-sm leading-relaxed text-muted">
-        Coming online. CLI-backed 10k re-run for Edge Pack — not a site login,
-        and not a guarantee. Buy the pack; checkout later returns an unlock
-        URL, not an account. The public board still shows one Make 12 cell.
+        Offline desk fixture — not this week’s paid pack. Soft unlock is a
+        query flag until Checkout returns a token. No site login,
+        not a guarantee. The public board still shows one Make 12 cell.
       </p>
       <div className="mt-5 grid gap-3 sm:grid-cols-2">
         <EdgeBuyButton kind="week" label="Buy · $9 Week sample" />
@@ -191,14 +192,16 @@ export function ScenarioSimPanel({
     <div className={cn("space-y-6", className)}>
       <Panel>
         <div className="flex flex-wrap items-center gap-2">
-          <DeskChip tone="warn">Coming online</DeskChip>
+          <DeskChip>preview / offline</DeskChip>
           <DeskChip>CLI-backed</DeskChip>
         </div>
-        <h2 className="mt-3 font-display text-2xl tracking-wide">Scenario Sim</h2>
+        <h2 className="mt-3 font-display text-2xl tracking-wide">
+          Scenario Sim (preview / offline)
+        </h2>
         <p className="mt-2 text-sm leading-relaxed text-muted">
           Pin one to three overrides, then read baseline vs scenario vs Δ.
-          This desk run is a {SCENARIO_SIM_DEMO_LABEL}. It is not a lock,
-          not a guarantee, and not ROI.
+          This desk run is a {SCENARIO_SIM_DEMO_LABEL}. Not this week’s paid
+          pack. Not a lock, not a guarantee, and not ROI.
         </p>
 
         <div className="mt-5 space-y-4">
@@ -515,37 +518,7 @@ function ScenarioSimResult({
       </div>
       <p className="mt-4 text-xs leading-relaxed text-faint">
         Make field is not win title. Numbers above are a desk fixture until the
-        AMD CLI is wired. {response.confidence_note}
-      </p>
-    </Panel>
-  );
-}
-
-export function ScenarioSimPreviewLink({
-  search,
-}: {
-  search?: { edge?: string; unlock?: string };
-}) {
-  return (
-    <Panel>
-      <div className="flex flex-wrap items-center gap-2">
-        <DeskChip>Coming online</DeskChip>
-        <DeskChip>CLI-backed</DeskChip>
-      </div>
-      <h2 className="mt-3 font-display text-2xl tracking-wide">Scenario Sim (preview)</h2>
-      <p className="mt-3 text-sm leading-relaxed text-muted">
-        A 10k re-run with pinned winners and an optional HX bump — Edge Pack
-        depth, not a wired engine on this page. The free board still shows one
-        Make 12 cell. Monte Carlo noise; not a lock.
-      </p>
-      <p className="mt-4">
-        <Link
-          to="/edge/sim"
-          search={search}
-          className="inline-flex h-11 items-center text-sm text-fg underline-offset-4 hover:underline"
-        >
-          Open Scenario Sim (preview)
-        </Link>
+        AMD CLI is wired. Not this week’s paid pack. {response.confidence_note}
       </p>
     </Panel>
   );

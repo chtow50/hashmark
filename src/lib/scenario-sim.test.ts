@@ -156,21 +156,23 @@ test("soft unlock is query/demo only — constant defaults false", () => {
   assert.equal(isScenarioSimUnlocked(parsed), true);
 });
 
-test("/edge copy does not claim a live interactive sim", () => {
+test("/edge marketing does not promo Scenario Sim; tool is preview/offline only", () => {
   const edge = readFileSync(join(here, "../routes/edge.tsx"), "utf8");
   const preview = readFileSync(join(here, "../components/scenario-sim.tsx"), "utf8");
   const sim = readFileSync(join(here, "../routes/edge_.sim.tsx"), "utf8");
-  assert.match(edge, /ScenarioSimPreviewLink/);
-  assert.match(preview, /Scenario Sim \(preview\)/);
-  assert.match(preview, /Coming online/);
-  assert.match(preview, /CLI-backed/);
+  const shell = readFileSync(join(here, "../components/shell.tsx"), "utf8");
+  assert.doesNotMatch(edge, /Scenario Sim|scenario-sim|\/edge\/sim/i);
   assert.doesNotMatch(edge, /live interactive sim/i);
+  assert.doesNotMatch(edge, /waitlist/i);
+  assert.doesNotMatch(shell, /\/edge\/sim|Scenario Sim/i);
+  assert.doesNotMatch(preview, /waitlist/i);
+  assert.doesNotMatch(preview, /ScenarioSimPreviewLink|Open Scenario Sim/);
+  assert.match(preview, /preview \/ offline/);
   assert.doesNotMatch(preview, /live interactive sim/i);
-  assert.match(sim, /Scenario Sim/);
-  assert.match(sim, /Coming online/);
+  assert.match(sim, /preview \/ offline/);
+  assert.match(sim, /Not this week’s paid pack|Not this week's paid pack/);
   assert.doesNotMatch(sim, /live interactive sim/i);
-  assert.doesNotMatch(preview, /Customer Portal/);
-  assert.doesNotMatch(sim, /password|Customer Portal/);
+  assert.doesNotMatch(sim, /waitlist|password|Customer Portal/i);
   assert.match(SCENARIO_SIM_DEMO_LABEL, /demo fixture/);
 });
 
