@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as DeskRouteImport } from './routes/desk'
 import { Route as EdgeRouteImport } from './routes/edge'
+import { Route as EdgeSimRouteImport } from './routes/edge_.sim'
 import { Route as LogosRouteImport } from './routes/logos'
 import { Route as MatchupRouteImport } from './routes/matchup'
 import { Route as ModelRouteImport } from './routes/model'
@@ -37,6 +38,11 @@ const DeskRoute = DeskRouteImport.update({
 const EdgeRoute = EdgeRouteImport.update({
   id: '/edge',
   path: '/edge',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EdgeSimRoute = EdgeSimRouteImport.update({
+  id: '/edge/sim',
+  path: '/edge/sim',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LogosRoute = LogosRouteImport.update({
@@ -99,6 +105,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/desk': typeof DeskRoute
   '/edge': typeof EdgeRoute
+  '/edge/sim': typeof EdgeSimRoute
   '/logos': typeof LogosRoute
   '/matchup': typeof MatchupRoute
   '/model': typeof ModelRoute
@@ -115,6 +122,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/desk': typeof DeskRoute
   '/edge': typeof EdgeRoute
+  '/edge/sim': typeof EdgeSimRoute
   '/logos': typeof LogosRoute
   '/matchup': typeof MatchupRoute
   '/model': typeof ModelRoute
@@ -132,6 +140,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/desk': typeof DeskRoute
   '/edge': typeof EdgeRoute
+  '/edge/sim': typeof EdgeSimRoute
   '/logos': typeof LogosRoute
   '/matchup': typeof MatchupRoute
   '/model': typeof ModelRoute
@@ -150,6 +159,7 @@ export interface FileRouteTypes {
     | '/'
     | '/desk'
     | '/edge'
+    | '/edge/sim'
     | '/logos'
     | '/matchup'
     | '/model'
@@ -166,6 +176,7 @@ export interface FileRouteTypes {
     | '/'
     | '/desk'
     | '/edge'
+    | '/edge/sim'
     | '/logos'
     | '/matchup'
     | '/model'
@@ -182,6 +193,7 @@ export interface FileRouteTypes {
     | '/'
     | '/desk'
     | '/edge'
+    | '/edge/sim'
     | '/logos'
     | '/matchup'
     | '/model'
@@ -199,6 +211,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   DeskRoute: typeof DeskRoute
   EdgeRoute: typeof EdgeRoute
+  EdgeSimRoute: typeof EdgeSimRoute
   LogosRoute: typeof LogosRoute
   MatchupRoute: typeof MatchupRoute
   ModelRoute: typeof ModelRoute
@@ -232,6 +245,13 @@ declare module '@tanstack/react-router' {
       path: '/edge'
       fullPath: '/edge'
       preLoaderRoute: typeof EdgeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/edge/sim': {
+      id: '/edge/sim'
+      path: '/edge/sim'
+      fullPath: '/edge/sim'
+      preLoaderRoute: typeof EdgeSimRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/logos': {
@@ -329,6 +349,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   DeskRoute: DeskRoute,
   EdgeRoute: EdgeRoute,
+  EdgeSimRoute: EdgeSimRoute,
   LogosRoute: LogosRoute,
   MatchupRoute: MatchupRoute,
   ModelRoute: ModelRoute,
