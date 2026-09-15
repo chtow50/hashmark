@@ -20,10 +20,14 @@ export function EdgePackNavButton({ className }: { className?: string }) {
 export function EdgePackStrip({
   className,
   compact = false,
+  paid = false,
 }: {
   className?: string;
   compact?: boolean;
+  /** Label the strip as paid depth so it does not read as the free board. */
+  paid?: boolean;
 }) {
+  const paidMark = paid ? "Paid depth · " : "";
   if (compact) {
     return (
       <Link
@@ -34,6 +38,7 @@ export function EdgePackStrip({
         )}
       >
         <span>
+          {paidMark}
           {EDGE.name} · weekly disagreements and SU/closer tape · {EDGE.weekLabel} · {EDGE.monthLabel}
         </span>
         <span className="inline-flex shrink-0 items-center gap-1 text-fg">

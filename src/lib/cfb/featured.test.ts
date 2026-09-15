@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { predictMatchup } from "./model.ts";
 import {
+  AP_STAMP,
   BOARD_WEEK,
   FEATURED_SLATE_WEEK,
   WEEK2_FEATURED,
@@ -184,6 +185,14 @@ const fridayAfternoon = Date.parse("2026-09-04T18:00:00.000Z");
 test("board chrome is Week 3; featured reads /schedule?w=3", () => {
   assert.equal(BOARD_WEEK, 3);
   assert.equal(FEATURED_SLATE_WEEK, 3);
+});
+
+test("AP chrome is the last stamped Week 1 poll, not an invented Week 3 ballot", () => {
+  assert.equal(AP_STAMP.week, 1);
+  assert.equal(AP_STAMP.label, "Week 1 AP");
+  assert.notEqual(AP_STAMP.week, BOARD_WEEK);
+  assert.match(AP_STAMP.lede, /last stamped poll \(Week 1/);
+  assert.match(AP_STAMP.lede, /not a Week 3 ballot/);
 });
 
 test("Colorado at GT is HASHMARK GT −10.3 / 73.3% at home, Neutral off", () => {

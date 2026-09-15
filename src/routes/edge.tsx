@@ -12,18 +12,18 @@ export const Route = createFileRoute("/edge")({
       {
         name: "description",
         content:
-          "HX Edge Pack is the weekly depth product: HX vs AP and market disagreements, flagged games, SU/closer tape, and short model notes. The public board stays free.",
+          "HX Edge Pack is the weekly depth product. The $5 week sample is the full pack — confidence cards, unit O/D pulse, tape write-up — not the free-board teaser. The public board stays free.",
       },
     ],
   }),
 });
 
 const INCLUDED = [
-  "HX vs AP disagreements for the week — where the ballot and the rating split.",
+  "Confidence cards for the week — A–D tiers on the slate. Never a lock.",
+  "Unit O/D pulse — who moved on offense and defense after the tape.",
+  "Tape write-up — SU / closer for the week just played. Full depth, not the free-board teaser.",
+  "HX vs AP disagreements — where the last stamped ballot and the rating split.",
   "HX vs market disagreements — spread gap versus the book, same favorite called out.",
-  "Flagged games on the slate.",
-  "SU / closer tape for the week just played.",
-  "Short model notes: why a number moved, or why it did not.",
 ] as const;
 
 const NOT_INCLUDED = [
@@ -45,16 +45,19 @@ function EdgePage() {
       <PageHead
         kicker={`Weekly pack · HX ${MODEL.version}`}
         title={EDGE.name}
-        lede="Weekly paid pack. Same HX as the public board — the disagreements, the flagged games, the SU/closer tape, and a short model note. The free board stays public. Edge Pack is the depth."
+        lede="Weekly paid pack. The $5 week sample is the full depth pack — confidence cards, unit O/D pulse, tape write-up — not the free-board teaser. Same HX as the public board. The free board stays public."
       />
 
       <div className="grid gap-6 sm:grid-cols-2">
         <Panel>
           <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-faint">
-            Week sample
+            Week sample · paid depth
           </p>
           <p className="mt-2 font-display text-4xl tabular tracking-wide">{EDGE.weekPrice}</p>
-          <p className="mt-2 text-sm text-muted">One week of the pack. Same contents as the month, once.</p>
+          <p className="mt-2 text-sm text-muted">
+            One paid week of the full pack: confidence cards, unit O/D pulse, tape write-up.
+            Not the free-board teaser. Same contents as the month, once.
+          </p>
           <EdgeBuyButton kind="week" label={`Buy · ${EDGE.weekLabel}`} className="mt-5" />
         </Panel>
         <Panel>

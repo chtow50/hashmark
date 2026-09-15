@@ -7,6 +7,20 @@ import type { ScheduleGame } from "./types";
 export const BOARD_WEEK = 3;
 
 /**
+ * Last stamped AP ballot on the live board.
+ * HX chrome is Week 3; AP ranks are still the Week 1 poll (Sept. 8).
+ * Do not invent a later AP ballot.
+ */
+export const AP_STAMP = {
+  week: 1,
+  asOf: "Sept. 8",
+  label: "Week 1 AP",
+  columnHint: "W1 stamp",
+  vsHx: "last stamped AP (Week 1, Sept. 8)",
+  lede: "HX is Week 3. AP is the last stamped poll (Week 1, Sept. 8) — not a Week 3 ballot.",
+} as const;
+
+/**
  * Featured kick reads the HASHMARK Week 3 slate (`/schedule?w=3`).
  * Seed has 56 Week 3 FBS–FBS rows (Sept 17–20). Next upcoming non-final
  * by kick time; if the slate has dates but no times, first non-final in
