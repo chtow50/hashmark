@@ -1,4 +1,5 @@
 import { createFileRoute, Link, Outlet, useChildMatches } from "@tanstack/react-router";
+import { EdgeBoardPanel } from "@/components/edge-board";
 import { EdgeBuyButton, EdgeCheckoutNote } from "@/components/edge-pack";
 import { PageHead, Panel } from "@/components/shell";
 import { EDGE } from "@/lib/edge";
@@ -70,6 +71,8 @@ function EdgePage() {
         </Panel>
       </div>
       <EdgeCheckoutNote />
+
+      <EdgeBoardPanel />
 
       <div className="grid gap-6 lg:grid-cols-2">
         <Panel>

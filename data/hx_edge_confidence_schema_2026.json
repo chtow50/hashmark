@@ -1,0 +1,137 @@
+{
+  "product": "hx_edge_card_confidence",
+  "contract_version": "2026.09.14",
+  "schema_id": "hx_edge_confidence_schema_2026",
+  "hx_stamp": "HX 2026.4",
+  "never_lock_badge": true,
+  "sort": ["tier A→D", "|Δ| desc", "lean desc"],
+  "calibration_thresholds": {
+    "top25_soft_below": 50,
+    "full_slate_soft_below": 45
+  },
+  "calibration_flags": {
+    "ok": "Slice closer at or above the threshold. Cards may lead only when the rest of the tier rule holds.",
+    "soft": "FLAG — calibration soft. Do not lead the pack. Show FLAG on the card."
+  },
+  "bands": {
+    "edge_size": {
+      "large": {
+        "min_abs_gap_pts": 4,
+        "rule": "|HX − Vegas| ≥ 4 pts"
+      },
+      "small": {
+        "max_abs_gap_pts": 4,
+        "exclusive_max": true,
+        "rule": "|HX − Vegas| < 4 pts"
+      }
+    },
+    "lean": {
+      "strong": {
+        "min_pp_from_50": 15,
+        "rule": "HX win probability ≥ 15pp from 50"
+      },
+      "lean": {
+        "min_pp_from_50": 5,
+        "max_pp_from_50": 15,
+        "exclusive_max": true,
+        "rule": "HX win probability 5–15pp from 50"
+      },
+      "coin": {
+        "max_pp_from_50": 5,
+        "exclusive_max": true,
+        "wp_window": [45, 55],
+        "rule": "HX win probability within 5pp of 50 (45–55% toss-up)"
+      }
+    }
+  },
+  "confidence_tier_rules": {
+    "A": {
+      "tier": "A",
+      "lead": true,
+      "calibration_slice": "top25",
+      "calibration_flag": "ok",
+      "edge_size_band": "large",
+      "lean_band": "strong",
+      "rule": "Top 25 slice, calibration ok (closer ≥ 50%), large |HX−Vegas| (≥ 4 pts), strong lean (≥ 15pp from 50). Winner flips allowed. Can lead the pack. Never a lock."
+    },
+    "B": {
+      "tier": "B",
+      "lead": false,
+      "calibration_slice": "top25",
+      "calibration_flag": "ok",
+      "edge_size_band": "small",
+      "lean_band": "strong",
+      "rule": "Top 25 slice, calibration ok, small |HX−Vegas| (< 4 pts), strong lean. Same favorite as the book. Do not lead."
+    },
+    "C": {
+      "tier": "C",
+      "lead": false,
+      "calibration_slice": "top25",
+      "calibration_flag": "ok",
+      "lean_band": "coin",
+      "rule": "Top 25 slice, calibration ok, coin lean (45–55% toss-up). Small-edge character. Do not lead."
+    },
+    "D": {
+      "tier": "D",
+      "lead": false,
+      "calibration_slice": "full_slate",
+      "calibration_flag": "soft",
+      "rule": "Full-slate slice under the 45% closer FLAG, or any card whose slice is calibration-soft. Do not lead. Soft cards show FLAG — calibration soft. Never a lock."
+    }
+  },
+  "copy_ban_list": [
+    "lock",
+    "locks",
+    "guaranteed",
+    "sure thing",
+    "can't miss",
+    "print money",
+    "ROI promise"
+  ],
+  "free_vs_paid": {
+    "free": {
+      "surface": "public board / schedule",
+      "includes": "Public schedule HX vs Vegas only — spread gap, same favorite called out. One Make 12 cell on the board. No ranked confidence cards."
+    },
+    "paid": {
+      "surface": "HX Edge Pack",
+      "includes": "Ranked confidence cards A–D with calibration FLAGS, unit O/D pulse, tape write-up. Same HX as the public board — written out. Not a second rating."
+    }
+  },
+  "example_cards": [
+    {
+      "demo_label": "EXAMPLE / schema demo",
+      "source": "Week 3 peer-CLEARed pack. Schema demo — not a dump of the paid pack.",
+      "game": "Western Kentucky @ Indiana",
+      "kick_ct": "2026-09-19 15:00 CT · Peacock",
+      "hx_line": "Indiana −20.8 / 86.1%",
+      "vegas_line": "IU −44.5 (ESPN/DraftKings)",
+      "abs_gap_pts": 23.7,
+      "winner_flip": false,
+      "lean_strength": 36.1,
+      "edge_size_band": "large",
+      "lean_band": "strong",
+      "confidence_tier": "A",
+      "calibration_slice": "top25",
+      "calibration_flag": "ok",
+      "pack_blurb": "|Δ| 23.7 pts (large) · HX lean strong (36.1pp from 50) · Top25 slice · cal ok (63.2%)"
+    },
+    {
+      "demo_label": "EXAMPLE / schema demo",
+      "source": "Week 3 peer-CLEARed pack. Schema demo — not a dump of the paid pack.",
+      "game": "Ohio @ South Alabama",
+      "kick_ct": "Sat Sep 19 · 18:00 CT · ESPN+",
+      "hx_line": "Ohio −6.0 / 64.9%",
+      "vegas_line": "USA −4.5 (ESPN/DraftKings)",
+      "abs_gap_pts": 10.5,
+      "winner_flip": true,
+      "lean_strength": 14.9,
+      "edge_size_band": "large",
+      "lean_band": "lean",
+      "confidence_tier": "D",
+      "calibration_slice": "full_slate",
+      "calibration_flag": "soft",
+      "pack_blurb": "Winner flip · |Δ| 10.5 pts (large) · HX lean lean (14.9pp from 50) · FLAG — full-slate calibration soft (42.6%)"
+    }
+  ]
+}
