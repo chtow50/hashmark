@@ -118,7 +118,7 @@ var manifest = {
 	},
 	"4fe58dd28fd7340a345c36b313f0f7fe83bb1daaeec7d6b97ee43c0751bef21c": {
 		functionName: "verifyEdgeUnlock_createServerFn_handler",
-		importer: () => import("./edge-unlock-fn-CPqPuh44.mjs")
+		importer: () => import("./edge-unlock-fn-DCU1My9u.mjs")
 	},
 	"7bd9c5bd2dac37273cb6e205f595eb0bc550bfd9c6ffff5b5b31dcf74c2250bb": {
 		functionName: "getTeam_createServerFn_handler",
@@ -1416,7 +1416,7 @@ var getBaseManifest = getProdBaseManifest;
 var createEarlyHintsForRequest = createEarlyHintsCollector;
 async function loadEntries() {
 	const [routerEntry, startEntry, pluginAdapters] = await Promise.all([
-		import("./router-DSAUlc3p.mjs").then((n) => n.t),
+		import("./router-sMIwhV3e.mjs").then((n) => n.t),
 		import("./start-5Z2QO8AU.mjs"),
 		import("./empty-plugin-adapters-D9UWiqvJ.mjs")
 	]);

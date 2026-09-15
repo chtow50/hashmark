@@ -1,6 +1,6 @@
 import { t as MODEL } from "./chicago-BYU7n4bi.mjs";
 import { S as require_jsx_runtime, h as Outlet, m as useChildMatches, y as Link } from "../_libs/@tanstack/react-router+[...].mjs";
-import { A as Panel, D as EdgeCheckoutNote, E as EdgeBuyButton, k as PageHead, w as EDGE } from "./router-DSAUlc3p.mjs";
+import { A as Panel, D as EdgeCheckoutNote, E as EdgeBuyButton, k as PageHead, w as EDGE } from "./router-sMIwhV3e.mjs";
 //#region node_modules/.nitro/vite/services/ssr/assets/edge-yOsrZsza.js
 var import_jsx_runtime = require_jsx_runtime();
 var INCLUDED = [

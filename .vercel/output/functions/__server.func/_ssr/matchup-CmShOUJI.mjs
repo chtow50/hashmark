@@ -2,11 +2,11 @@ import { o as __toESM } from "../_runtime.mjs";
 import { r as formatKickCt } from "./chicago-BYU7n4bi.mjs";
 import { n as require_react } from "../_libs/@radix-ui/react-compose-refs+[...].mjs";
 import { S as require_jsx_runtime, b as useNavigate } from "../_libs/@tanstack/react-router+[...].mjs";
-import { A as Panel, I as fmtNum, L as fmtPct, O as EdgePackStrip, _ as favoriteLine, j as TeamSelect, k as PageHead, p as Route$11, x as spreadGap } from "./router-DSAUlc3p.mjs";
+import { A as Panel, I as fmtNum, L as fmtPct, O as EdgePackStrip, _ as favoriteLine, j as TeamSelect, k as PageHead, p as Route$11, x as spreadGap } from "./router-sMIwhV3e.mjs";
 import { c as Stat, f as WinBar, r as DeskChip, t as CompareRow, u as TeamMark } from "./marks-Co2r8jCu.mjs";
 import { t as RosterDuel } from "./roster-duel-Dqb3Pxmf.mjs";
 import { n as matchupChips, t as isWinnerFlip } from "./schedule-flags-CTG8esl3.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/matchup-C64JNXTu.js
+//#region node_modules/.nitro/vite/services/ssr/assets/matchup-CmShOUJI.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 /** AMD in-game restamp. Same HX mean. Sigma from 2019–2023 FBS linescores (n=3458). */

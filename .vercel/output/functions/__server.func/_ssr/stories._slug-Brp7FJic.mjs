@@ -1,6 +1,6 @@
 import { S as require_jsx_runtime } from "../_libs/@tanstack/react-router+[...].mjs";
-import { A as Panel, k as PageHead, r as Route$2 } from "./router-DSAUlc3p.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/stories._slug-BSJ-hk4I.js
+import { A as Panel, k as PageHead, r as Route$2 } from "./router-sMIwhV3e.mjs";
+//#region node_modules/.nitro/vite/services/ssr/assets/stories._slug-Brp7FJic.js
 var import_jsx_runtime = require_jsx_runtime();
 function StoryPage() {
 	const story = Route$2.useLoaderData();
