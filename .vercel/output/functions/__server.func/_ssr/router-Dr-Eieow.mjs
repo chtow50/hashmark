@@ -8,7 +8,7 @@ import { c as ArrowRight, i as Menu, n as TriangleAlert, r as Search, t as X } f
 import { t as Slot } from "../_libs/radix-ui__react-slot.mjs";
 import { n as clsx, t as cva } from "../_libs/class-variance-authority+clsx.mjs";
 import { t as twMerge } from "../_libs/tailwind-merge.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/shell-BVG_HMle.js
+//#region node_modules/.nitro/vite/services/ssr/assets/shell-CI110cJa.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 function cn(...inputs) {
@@ -88,6 +88,9 @@ function Button({ className, variant, size, asChild, ...props }) {
 *   VITE_EDGE_CHECKOUT_URL       monthly ($29/mo) only
 *   VITE_EDGE_CHECKOUT_WEEK_URL  week sample ($9) only — never fall back to monthly
 * Never invent a payment link. Unset → #checkout-pending.
+*
+* Paid unlock: STRIPE_SECRET_KEY on Vercel (server-only, never VITE_).
+* See docs/vercel-env.md. Payment Links return to /edge/unlock?session_id=…
 */
 var EDGE_CHECKOUT_PENDING = "#checkout-pending";
 var EDGE_SUPPORT_EMAIL = "hello@hashmarkcfb.com";
@@ -1422,7 +1425,7 @@ function getStory(slug) {
 	return STORIES.find((s) => s.slug === slug) ?? null;
 }
 //#endregion
-//#region node_modules/.nitro/vite/services/ssr/assets/router-CCQeqAP8.js
+//#region node_modules/.nitro/vite/services/ssr/assets/router-Dr-Eieow.js
 var __defProp = Object.defineProperty;
 var __exportAll = (all, no_symbols) => {
 	let target = {};
@@ -1850,7 +1853,7 @@ function Root() {
 		] })]
 	});
 }
-var $$splitComponentImporter$14 = () => import("./routes-BYYkeR1h.mjs");
+var $$splitComponentImporter$14 = () => import("./routes-4DjHpBy0.mjs");
 var Route$15 = createFileRoute("/")({
 	loader: async () => {
 		const [teams, games, slate] = await Promise.all([
@@ -1870,7 +1873,7 @@ var Route$15 = createFileRoute("/")({
 	component: lazyRouteComponent($$splitComponentImporter$14, "component"),
 	head: () => ({ meta: [{ title: `HASHMARK · Week 3 board` }] })
 });
-var $$splitComponentImporter$13 = () => import("./desk-BgjeXmiy.mjs");
+var $$splitComponentImporter$13 = () => import("./desk-AjGlrDGi.mjs");
 var Route$14 = createFileRoute("/desk")({
 	component: lazyRouteComponent($$splitComponentImporter$13, "component"),
 	head: () => ({ meta: [{ title: "The desk · HASHMARK" }, {
@@ -1878,7 +1881,7 @@ var Route$14 = createFileRoute("/desk")({
 		content: "What HASHMARK is, how HX is built, and the glossary for the college football ratings desk."
 	}] })
 });
-var $$splitComponentImporter$12 = () => import("./edge-TQdz0TR2.mjs");
+var $$splitComponentImporter$12 = () => import("./edge-MVAmabTR.mjs");
 var Route$13 = createFileRoute("/edge")({
 	component: lazyRouteComponent($$splitComponentImporter$12, "component"),
 	head: () => ({ meta: [{ title: `${EDGE.name} · HASHMARK` }, {
@@ -1886,13 +1889,13 @@ var Route$13 = createFileRoute("/edge")({
 		content: "HX Edge Pack is the weekly depth product: HX vs AP and market disagreements, flagged games, SU/closer tape, and short model notes. The public board stays free."
 	}] })
 });
-var $$splitComponentImporter$11 = () => import("./logos-BZUshNzl.mjs");
+var $$splitComponentImporter$11 = () => import("./logos-C3v9OdFU.mjs");
 var Route$12 = createFileRoute("/logos")({
 	loader: async () => listTeams(),
 	component: lazyRouteComponent($$splitComponentImporter$11, "component"),
 	head: () => ({ meta: [{ title: "Team logos · HASHMARK" }] })
 });
-var $$splitComponentImporter$10 = () => import("./matchup-DUvNnpTk.mjs");
+var $$splitComponentImporter$10 = () => import("./matchup-DAjNmlk6.mjs");
 function parseNeutral(v) {
 	if (v === true || v === "1" || v === "true") return true;
 	if (v === false || v === "0" || v === "false") return false;
@@ -1922,12 +1925,12 @@ var Route$11 = createFileRoute("/matchup")({
 	component: lazyRouteComponent($$splitComponentImporter$10, "component"),
 	head: () => ({ meta: [{ title: "Matchup · HASHMARK" }] })
 });
-var $$splitComponentImporter$9 = () => import("./model-B2oEeB4M.mjs");
+var $$splitComponentImporter$9 = () => import("./model-BC7bwySe.mjs");
 var Route$10 = createFileRoute("/model")({
 	component: lazyRouteComponent($$splitComponentImporter$9, "component"),
 	head: () => ({ meta: [{ title: "The Model · HASHMARK" }] })
 });
-var $$splitComponentImporter$8 = () => import("./rankings-Ca7oKJmO.mjs");
+var $$splitComponentImporter$8 = () => import("./rankings-PP9HSec7.mjs");
 var Route$9 = createFileRoute("/rankings")({
 	validateSearch: (s) => {
 		const conf = parseConf(s.conf);
@@ -1944,7 +1947,7 @@ var YEARS = [
 	2025,
 	2026
 ];
-var $$splitComponentImporter$7 = () => import("./recruiting-BKEgy92a.mjs");
+var $$splitComponentImporter$7 = () => import("./recruiting-BJT8bCmh.mjs");
 var Route$8 = createFileRoute("/recruiting")({
 	validateSearch: (s) => {
 		const y = Number(s.year);
@@ -1984,7 +1987,7 @@ function filterScheduleGames(games, teams, view, conf) {
 	const inConference = new Set(teams.filter((t) => inConf(t.conference, conf)).map((t) => t.slug));
 	return games.filter((g) => inConference.has(g.homeSlug) || inConference.has(g.awaySlug));
 }
-var $$splitComponentImporter$6 = () => import("./schedule-DBtAPNfK.mjs");
+var $$splitComponentImporter$6 = () => import("./schedule-A5udZ9I8.mjs");
 function parseWeek(v) {
 	const n = typeof v === "number" ? v : typeof v === "string" ? Number(v) : NaN;
 	if (!Number.isInteger(n) || n < 0 || n > 13) return void 0;
@@ -2023,20 +2026,20 @@ var Route$7 = createFileRoute("/schedule")({
 	component: lazyRouteComponent($$splitComponentImporter$6, "component"),
 	head: () => ({ meta: [{ title: "Schedule · HASHMARK" }] })
 });
-var $$splitComponentImporter$5 = () => import("./states-DC1sXsju.mjs");
+var $$splitComponentImporter$5 = () => import("./states-BBd35e7k.mjs");
 var Route$6 = createFileRoute("/states")({
 	validateSearch: (s) => ({ code: typeof s.code === "string" ? s.code.toUpperCase() : "TX" }),
 	loader: () => listStates(),
 	component: lazyRouteComponent($$splitComponentImporter$5, "component"),
 	head: () => ({ meta: [{ title: "States · HASHMARK" }] })
 });
-var $$splitComponentImporter$4 = () => import("./stories-BhuE0hfl.mjs");
+var $$splitComponentImporter$4 = () => import("./stories-CgAVN0Vk.mjs");
 var Route$5 = createFileRoute("/stories")({
 	loader: () => listStories(),
 	component: lazyRouteComponent($$splitComponentImporter$4, "component"),
 	head: () => ({ meta: [{ title: "Stories · HASHMARK" }] })
 });
-var $$splitComponentImporter$3 = () => import("./talent-DvRZpPJN.mjs");
+var $$splitComponentImporter$3 = () => import("./talent-COJ-bbHZ.mjs");
 var Route$4 = createFileRoute("/talent")({
 	validateSearch: (s) => ({
 		board: s.board === "size" ? "size" : "composite",
@@ -2047,7 +2050,7 @@ var Route$4 = createFileRoute("/talent")({
 	head: () => ({ meta: [{ title: "Roster Talent · HASHMARK" }] })
 });
 var verifyEdgeUnlock = createServerFn({ method: "GET" }).validator(object({ sessionId: string().optional() })).handler(createSsrRpc("4fe58dd28fd7340a345c36b313f0f7fe83bb1daaeec7d6b97ee43c0751bef21c"));
-var $$splitComponentImporter$2 = () => import("./edge.unlock-lDUKRrMg.mjs");
+var $$splitComponentImporter$2 = () => import("./edge.unlock-CoKTG9JG.mjs");
 var Route$3 = createFileRoute("/edge/unlock")({
 	validateSearch: (s) => ({ ...typeof s.session_id === "string" && s.session_id ? { session_id: s.session_id } : {} }),
 	loaderDeps: ({ search }) => ({ session_id: search.session_id }),
@@ -2065,7 +2068,7 @@ var Route$3 = createFileRoute("/edge/unlock")({
 		}
 	] })
 });
-var $$splitComponentImporter$1 = () => import("./stories._slug-D1dfggIh.mjs");
+var $$splitComponentImporter$1 = () => import("./stories._slug-B3fFqwBp.mjs");
 var Route$2 = createFileRoute("/stories/$slug")({
 	loader: ({ params }) => {
 		const story = getStory(params.slug);
@@ -2075,7 +2078,7 @@ var Route$2 = createFileRoute("/stories/$slug")({
 	component: lazyRouteComponent($$splitComponentImporter$1, "component"),
 	head: ({ loaderData }) => ({ meta: [{ title: loaderData ? `${loaderData.headline} · HASHMARK` : "Story · HASHMARK" }] })
 });
-var $$splitComponentImporter = () => import("./teams._slug-jOsHlM9b.mjs");
+var $$splitComponentImporter = () => import("./teams._slug-Cci5V6yC.mjs");
 var Route$1 = createFileRoute("/teams/$slug")({
 	loader: async ({ params }) => {
 		const data = await getTeam({ data: { slug: params.slug } });
@@ -2086,7 +2089,7 @@ var Route$1 = createFileRoute("/teams/$slug")({
 	head: ({ loaderData }) => ({ meta: [{ title: loaderData ? `${loaderData.team.name} · HASHMARK` : "Team · HASHMARK" }] })
 });
 var Route = createFileRoute("/api/edge/pack")({ server: { handlers: { GET: async ({ request }) => {
-	const { handleEdgePackDownload } = await import("./edge-pack-files.server-DNksYThi.mjs");
+	const { handleEdgePackDownload } = await import("./edge-pack-files.server-fo61e-8g.mjs");
 	return handleEdgePackDownload(request);
 } } } });
 var IndexRoute = Route$15.update({

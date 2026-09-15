@@ -1,4 +1,4 @@
-//#region node_modules/.nitro/vite/services/ssr/assets/edge-unlock-LiQPcn50.js
+//#region node_modules/.nitro/vite/services/ssr/assets/edge-unlock-BHwL6bYd.js
 var EDGE_PACK_DOWNLOAD_PATH = "/api/edge/pack";
 var STRIPE_SECRET_ENV = "STRIPE_SECRET_KEY";
 var STRIPE_API_VERSION = "2026-07-29.dahlia";
@@ -81,10 +81,12 @@ function parsePackManifest(raw) {
 		if (!PACK_FILENAME_RE.test(md) || !PACK_FILENAME_RE.test(json)) return null;
 		if (typeof rec.week !== "number" || typeof rec.season !== "number") return null;
 		if (typeof rec.product !== "string" || typeof rec.support_email !== "string") return null;
+		if (rec.cleared !== true) return null;
 		return {
 			week: rec.week,
 			season: rec.season,
 			product: rec.product,
+			cleared: true,
 			files: {
 				md,
 				json
