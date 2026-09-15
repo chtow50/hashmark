@@ -1,8 +1,8 @@
 /**
  * HX Edge Pack — public monetization surface.
  * Checkout URLs are Stripe Payment Links from env when they exist:
- *   VITE_EDGE_CHECKOUT_URL       monthly ($29/mo) only
- *   VITE_EDGE_CHECKOUT_WEEK_URL  week sample ($9) only — never fall back to monthly
+ *   VITE_EDGE_CHECKOUT_URL       monthly ($15/mo) only
+ *   VITE_EDGE_CHECKOUT_WEEK_URL  week sample ($5) only — never fall back to monthly
  * Never invent a payment link. Unset → #checkout-pending.
  */
 
@@ -13,10 +13,10 @@ export const EDGE_SUPPORT_EMAIL = "hello@hashmarkcfb.com";
 export const EDGE = {
   name: "HX Edge Pack",
   shortName: "Edge Pack",
-  weekPrice: "$9",
-  weekLabel: "$9 Week sample",
-  monthPrice: "$29/mo",
-  monthLabel: "$29/mo",
+  weekPrice: "$5",
+  weekLabel: "$5 Week sample",
+  monthPrice: "$15/mo",
+  monthLabel: "$15/mo",
   supportEmail: EDGE_SUPPORT_EMAIL,
 } as const;
 
