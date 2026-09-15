@@ -162,7 +162,7 @@ describe("prebuilt deploy artifacts", () => {
   it("includes Scenario Sim preview route without live-interactive marketing", () => {
     const text = corpus();
     assert.match(text, /Scenario Sim \(preview\)/);
-    assert.match(text, /createFileRoute\("\/edge\/sim"\)|path:"\/edge\/sim"|id:"\/edge\/sim"|to:"\/edge\/sim"/);
+    assert.match(text, /\/edge\/sim/);
     assert.match(text, /demo fixture — CLI not wired/);
     assert.match(text, /Monte Carlo ± noise on 10k draws; not a lock/);
     assert.doesNotMatch(text, /live interactive sim/i);

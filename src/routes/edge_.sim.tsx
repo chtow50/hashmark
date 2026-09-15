@@ -11,7 +11,7 @@ import {
 
 type Search = { edge?: string; unlock?: string };
 
-export const Route = createFileRoute("/edge/sim")({
+export const Route = createFileRoute("/edge_/sim")({
   validateSearch: (s: Record<string, unknown>): Search => parseScenarioUnlockSearch(s),
   loader: async () => {
     const teams = await listTeams();

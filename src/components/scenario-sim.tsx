@@ -48,8 +48,8 @@ type BumpDraft = {
 };
 
 const METRIC_COLS = [
-  { key: "make_field" as const, label: "Make field", kind: "pct" as const, digits: 1 },
-  { key: "win_title" as const, label: "Win title", kind: "pct" as const, digits: 1 },
+  { key: "make_field" as const, label: "Make field", kind: "pct" as const, digits: 2 },
+  { key: "win_title" as const, label: "Win title", kind: "pct" as const, digits: 2 },
   { key: "proj_wins" as const, label: "Proj. wins", kind: "num" as const, digits: 2 },
   { key: "conf_title" as const, label: "Conf. title", kind: "pct" as const, digits: 1 },
 ];

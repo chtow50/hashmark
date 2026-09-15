@@ -92,8 +92,9 @@ test("buildScenarioRequest fills contract defaults and clamps hx_bump", () => {
 });
 
 test("validators reject empty, too many, unknown slug, bad winner, strict bump range", () => {
-  assert.equal(validateOverrides([]).ok, false);
-  if (!validateOverrides([]).ok) assert.equal(validateOverrides([]).error, "empty_overrides");
+  const empty = validateOverrides([]);
+  assert.equal(empty.ok, false);
+  if (!empty.ok) assert.equal(empty.error, "empty_overrides");
 
   const tooMany = validateOverrides([
     forceWinner(),
