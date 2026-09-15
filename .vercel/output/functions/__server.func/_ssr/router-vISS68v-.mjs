@@ -1418,7 +1418,7 @@ function getStory(slug) {
 	return STORIES.find((s) => s.slug === slug) ?? null;
 }
 //#endregion
-//#region node_modules/.nitro/vite/services/ssr/assets/router-Bx8kEb0W.js
+//#region node_modules/.nitro/vite/services/ssr/assets/router-vISS68v-.js
 var __defProp = Object.defineProperty;
 var __exportAll = (all, no_symbols) => {
 	let target = {};
@@ -1846,7 +1846,7 @@ function Root() {
 		] })]
 	});
 }
-var $$splitComponentImporter$14 = () => import("./routes-CfmwGbCQ.mjs");
+var $$splitComponentImporter$14 = () => import("./routes-B9Sn4q-i.mjs");
 var Route$14 = createFileRoute("/")({
 	loader: async () => {
 		const [teams, games, slate] = await Promise.all([
@@ -1882,13 +1882,13 @@ var Route$12 = createFileRoute("/edge")({
 		content: "HX Edge Pack is the weekly depth product: HX vs AP and market disagreements, flagged games, SU/closer tape, and short model notes. The public board stays free."
 	}] })
 });
-var $$splitComponentImporter$11 = () => import("./logos-DMsjvfn5.mjs");
+var $$splitComponentImporter$11 = () => import("./logos-CRdDgaC1.mjs");
 var Route$11 = createFileRoute("/logos")({
 	loader: async () => listTeams(),
 	component: lazyRouteComponent($$splitComponentImporter$11, "component"),
 	head: () => ({ meta: [{ title: "Team logos · HASHMARK" }] })
 });
-var $$splitComponentImporter$10 = () => import("./matchup-Bu76-GT3.mjs");
+var $$splitComponentImporter$10 = () => import("./matchup-XjYtx81i.mjs");
 function parseNeutral(v) {
 	if (v === true || v === "1" || v === "true") return true;
 	if (v === false || v === "0" || v === "false") return false;
@@ -1923,7 +1923,7 @@ var Route$9 = createFileRoute("/model")({
 	component: lazyRouteComponent($$splitComponentImporter$9, "component"),
 	head: () => ({ meta: [{ title: "The Model · HASHMARK" }] })
 });
-var $$splitComponentImporter$8 = () => import("./rankings-DQcrSCiE.mjs");
+var $$splitComponentImporter$8 = () => import("./rankings-C4Pur4LK.mjs");
 var Route$8 = createFileRoute("/rankings")({
 	validateSearch: (s) => {
 		const conf = parseConf(s.conf);
@@ -1940,7 +1940,7 @@ var YEARS = [
 	2025,
 	2026
 ];
-var $$splitComponentImporter$7 = () => import("./recruiting-CUFQ4dbN.mjs");
+var $$splitComponentImporter$7 = () => import("./recruiting-DPb2acCq.mjs");
 var Route$7 = createFileRoute("/recruiting")({
 	validateSearch: (s) => {
 		const y = Number(s.year);
@@ -1980,7 +1980,7 @@ function filterScheduleGames(games, teams, view, conf) {
 	const inConference = new Set(teams.filter((t) => inConf(t.conference, conf)).map((t) => t.slug));
 	return games.filter((g) => inConference.has(g.homeSlug) || inConference.has(g.awaySlug));
 }
-var $$splitComponentImporter$6 = () => import("./schedule-CpjTzWn3.mjs");
+var $$splitComponentImporter$6 = () => import("./schedule-BUcoZIcQ.mjs");
 function parseWeek(v) {
 	const n = typeof v === "number" ? v : typeof v === "string" ? Number(v) : NaN;
 	if (!Number.isInteger(n) || n < 0 || n > 13) return void 0;
@@ -2019,20 +2019,20 @@ var Route$6 = createFileRoute("/schedule")({
 	component: lazyRouteComponent($$splitComponentImporter$6, "component"),
 	head: () => ({ meta: [{ title: "Schedule · HASHMARK" }] })
 });
-var $$splitComponentImporter$5 = () => import("./states-YoDEH9xW.mjs");
+var $$splitComponentImporter$5 = () => import("./states-Bci9FZDb.mjs");
 var Route$5 = createFileRoute("/states")({
 	validateSearch: (s) => ({ code: typeof s.code === "string" ? s.code.toUpperCase() : "TX" }),
 	loader: () => listStates(),
 	component: lazyRouteComponent($$splitComponentImporter$5, "component"),
 	head: () => ({ meta: [{ title: "States · HASHMARK" }] })
 });
-var $$splitComponentImporter$4 = () => import("./stories-gfW0x_JG.mjs");
+var $$splitComponentImporter$4 = () => import("./stories-BzOtOtfk.mjs");
 var Route$4 = createFileRoute("/stories")({
 	loader: () => listStories(),
 	component: lazyRouteComponent($$splitComponentImporter$4, "component"),
 	head: () => ({ meta: [{ title: "Stories · HASHMARK" }] })
 });
-var $$splitComponentImporter$3 = () => import("./talent-CVkoS-Kt.mjs");
+var $$splitComponentImporter$3 = () => import("./talent-C1Wp1JRP.mjs");
 var Route$3 = createFileRoute("/talent")({
 	validateSearch: (s) => ({
 		board: s.board === "size" ? "size" : "composite",
@@ -2042,102 +2042,76 @@ var Route$3 = createFileRoute("/talent")({
 	component: lazyRouteComponent($$splitComponentImporter$3, "component"),
 	head: () => ({ meta: [{ title: "Roster Talent · HASHMARK" }] })
 });
-var scenario_sim_rerun_contract_example_default = {
+var scenario_sim_golden_request_default = {
 	contract_version: "2026.09.14",
 	product: "hx_edge_scenario_sim",
-	request: {
-		"contract_version": "2026.09.14",
-		"product": "hx_edge_scenario_sim",
-		"n_sims": 1e4,
-		"seed": null,
-		"hx_stamp": "HX 2026.4",
-		"hx_ship_path": "week2_od_hx_ship_2026.json",
-		"overrides": [{
-			"type": "force_winner",
-			"week": 4,
-			"home_slug": "georgia",
-			"away_slug": "alabama",
-			"winner_slug": "alabama",
-			"note": "AMD example — Alabama takes Athens"
-		}, {
-			"type": "hx_bump",
-			"team_slug": "ohio-state",
-			"delta_hx": .15,
-			"note": "AMD example — small HX bump"
-		}],
-		"return": {
-			"teams": ["georgia", "ohio-state"],
-			"include_full_board": false,
-			"include_baseline_delta": true
-		}
-	},
-	response: {
-		"contract_version": "2026.09.14",
-		"ok": true,
-		"error": null,
-		"meta": {
-			"n_sims": 1e4,
-			"seed": 20260914,
-			"hx_stamp": "HX 2026.4",
-			"overrides_applied": 2
-		},
-		"baseline": {
-			"georgia": {
-				"make_field": 75.26,
-				"win_title": 21.59,
-				"proj_wins": 10.45,
-				"conf_title": 49.5
-			},
-			"ohio-state": {
-				"make_field": 59.57,
-				"win_title": 14.89,
-				"proj_wins": 9.54,
-				"conf_title": 46.5
-			}
-		},
-		"scenario": {
-			"georgia": {
-				"make_field": 72.1,
-				"win_title": 18.4,
-				"proj_wins": 10.12,
-				"conf_title": 46.2
-			},
-			"ohio-state": {
-				"make_field": 61.8,
-				"win_title": 16.05,
-				"proj_wins": 9.72,
-				"conf_title": 48.4
-			}
-		},
-		"delta": {
-			"georgia": {
-				"make_field": -3.16,
-				"win_title": -3.19,
-				"proj_wins": -.33,
-				"conf_title": -3.3
-			},
-			"ohio-state": {
-				"make_field": 2.23,
-				"win_title": 1.16,
-				"proj_wins": .18,
-				"conf_title": 1.9
-			}
-		},
-		"overrides_echo": [{
-			"type": "force_winner",
-			"week": 4,
-			"home_slug": "georgia",
-			"away_slug": "alabama",
-			"winner_slug": "alabama",
-			"note": "AMD example — Alabama takes Athens"
-		}, {
-			"type": "hx_bump",
-			"team_slug": "ohio-state",
-			"delta_hx": .15,
-			"note": "AMD example — small HX bump"
-		}],
-		"confidence_note": "Monte Carlo ± noise on 10k draws; not a lock."
+	n_sims: 1e4,
+	seed: null,
+	hx_stamp: "HX 2026.4",
+	hx_ship_path: "week2_od_hx_ship_2026.json",
+	overrides: [{
+		"type": "force_winner",
+		"espn_event_id": "401856700",
+		"week": 4,
+		"home_slug": "georgia",
+		"away_slug": "oklahoma",
+		"winner_slug": "oklahoma"
+	}, {
+		"type": "hx_bump",
+		"team_slug": "oregon",
+		"delta_hx": -.25
+	}],
+	"return": {
+		"teams": [
+			"georgia",
+			"oklahoma",
+			"oregon"
+		],
+		"include_full_board": false,
+		"include_baseline_delta": true
 	}
+};
+var scenario_sim_golden_response_default = {
+	contract_version: "2026.09.14",
+	ok: true,
+	error: null,
+	meta: {
+		"n_sims": 1e4,
+		"seed": 20260914,
+		"hx_stamp": "HX 2026.4",
+		"overrides_applied": 2
+	},
+	baseline: { "georgia": {
+		"make_field": 75.26,
+		"win_title": 21.59,
+		"proj_wins": 10.498,
+		"conf_title": 48.54
+	} },
+	scenario: { "georgia": {
+		"make_field": 52.4,
+		"win_title": 14.78,
+		"proj_wins": 10.498,
+		"conf_title": 48.54
+	} },
+	delta: { "georgia": {
+		"make_field": -22.86,
+		"win_title": -6.81,
+		"proj_wins": 0,
+		"conf_title": 0
+	} },
+	overrides_echo: [{
+		"type": "force_winner",
+		"espn_event_id": "401856700",
+		"week": 4,
+		"home_slug": "georgia",
+		"away_slug": "oklahoma",
+		"winner_slug": "oklahoma"
+	}, {
+		"type": "hx_bump",
+		"team_slug": "oregon",
+		"delta_hx": -.25
+	}],
+	confidence_note: "Monte Carlo ± noise on 10k draws; not a lock."
 };
 var week1_hx_vs_ap_gaps_2026_default = {
 	as_of: "2026-09-08",
@@ -5200,15 +5174,25 @@ function make12PanelLede(source) {
 	if (source === "legacy-playoff-odds") return "12-team CFP field odds — make-field and national-title paths are separate draws.";
 	return "12-team CFP field odds — make-field and national-title paths are separate draws.";
 }
-/**
-* HX Edge Pack — Scenario Sim AMD contract (2026.09.14).
-* Scaffold only: types, validators, request builder, demo fixture.
-* No browser Monte Carlo. Paid CLI engine is not wired.
-*/
 var SCENARIO_SIM_CONTRACT_VERSION = "2026.09.14";
 var SCENARIO_SIM_PRODUCT = "hx_edge_scenario_sim";
 var SCENARIO_SIM_CONFIDENCE_NOTE = "Monte Carlo ± noise on 10k draws; not a lock.";
 var SCENARIO_SIM_DEMO_LABEL = "demo fixture — CLI not wired";
+/** Website-cleared AMD golden: Oklahoma @ Georgia W4 + Oregon HX bump. */
+var SCENARIO_SIM_GOLDEN_EVENT_ID = "401856700";
+var SCENARIO_SIM_GOLDEN_FORCE = {
+	type: "force_winner",
+	espn_event_id: SCENARIO_SIM_GOLDEN_EVENT_ID,
+	week: 4,
+	home_slug: "georgia",
+	away_slug: "oklahoma",
+	winner_slug: "oklahoma"
+};
+var SCENARIO_SIM_GOLDEN_BUMP = {
+	type: "hx_bump",
+	team_slug: "oregon",
+	delta_hx: -.25
+};
 function isRecord(value) {
 	return typeof value === "object" && value != null && !Array.isArray(value);
 }
@@ -5368,17 +5352,21 @@ function defaultReturnTeams(overrides) {
 		seen.add(slug);
 		teams.push(slug);
 	}
-	for (const slug of ["georgia", "ohio-state"]) if (!seen.has(slug)) {
+	for (const slug of [
+		"georgia",
+		"oklahoma",
+		"oregon"
+	]) if (!seen.has(slug)) {
 		seen.add(slug);
 		teams.push(slug);
 	}
 	return teams.slice(0, 6);
 }
-function loadScenarioSimExample() {
-	return scenario_sim_rerun_contract_example_default;
+function loadScenarioSimGoldenRequest() {
+	return scenario_sim_golden_request_default;
 }
 function loadScenarioSimFixture() {
-	return loadScenarioSimExample().response;
+	return scenario_sim_golden_response_default;
 }
 function parseScenarioUnlockSearch(s) {
 	const out = {};
@@ -5430,16 +5418,13 @@ function metricsFromSimRow(slug) {
 		conf_title: 0
 	};
 }
-/** Deterministic fake shift — not a Monte Carlo. Sign from override count only. */
-function demoShift(baseline, sign) {
-	const scenario = {
-		make_field: roundTo(baseline.make_field + sign * .42, 2),
-		win_title: roundTo(baseline.win_title + sign * .18, 2),
-		proj_wins: roundTo(baseline.proj_wins + sign * .05, 2),
-		conf_title: roundTo(baseline.conf_title + sign * .3, 1)
+function zeroDelta() {
+	return {
+		make_field: 0,
+		win_title: 0,
+		proj_wins: 0,
+		conf_title: 0
 	};
-	if (scenario.make_field === scenario.win_title) scenario.win_title = roundTo(scenario.win_title - .11, 2);
-	return scenario;
 }
 function errorResponse(error, request) {
 	return {
@@ -5460,8 +5445,8 @@ function errorResponse(error, request) {
 	};
 }
 /**
-* Demo runner: fixture numbers for Georgia / Ohio State, else HX 2026.4
-* 10k baseline + a tiny labeled fake delta. Does not draw seasons.
+* Demo runner: website-cleared golden cells (Georgia 75.26/21.59 → 52.40/14.78).
+* Uncleared teams stay on the HX 2026.4 10k baseline with Δ 0. Does not draw seasons.
 */
 function runDemoScenarioSim(request) {
 	const validated = validateOverrides(request.overrides);
@@ -5484,10 +5469,9 @@ function runDemoScenarioSim(request) {
 		}
 		const row = metricsFromSimRow(slug);
 		if (!row) return errorResponse("unknown_slug", request);
-		const sign = slug === validated.overrides.find((o) => o.type === "force_winner")?.winner_slug ? 1 : -1;
 		baseline[slug] = row;
-		scenario[slug] = demoShift(row, sign);
-		delta[slug] = subtractMetrics(scenario[slug], baseline[slug]);
+		scenario[slug] = row;
+		delta[slug] = fixture.delta[slug] ?? zeroDelta();
 	}
 	return {
 		contract_version: SCENARIO_SIM_CONTRACT_VERSION,
@@ -5520,7 +5504,7 @@ function formatScenarioError(code) {
 		default: return "Could not build the request.";
 	}
 }
-var $$splitComponentImporter$2 = () => import("./edge_.sim-B4onTfP7.mjs");
+var $$splitComponentImporter$2 = () => import("./edge_.sim-IacUNueu.mjs");
 var Route$2 = createFileRoute("/edge_/sim")({
 	validateSearch: (s) => parseScenarioUnlockSearch(s),
 	loader: async () => {
@@ -5538,7 +5522,7 @@ var Route$2 = createFileRoute("/edge_/sim")({
 		content: "HX Edge Pack Scenario Sim preview / offline. Desk fixture — not this week’s paid pack."
 	}] })
 });
-var $$splitComponentImporter$1 = () => import("./stories._slug-DI53oqGA.mjs");
+var $$splitComponentImporter$1 = () => import("./stories._slug-DHyAkprN.mjs");
 var Route$1 = createFileRoute("/stories/$slug")({
 	loader: ({ params }) => {
 		const story = getStory(params.slug);
@@ -5548,7 +5532,7 @@ var Route$1 = createFileRoute("/stories/$slug")({
 	component: lazyRouteComponent($$splitComponentImporter$1, "component"),
 	head: ({ loaderData }) => ({ meta: [{ title: loaderData ? `${loaderData.headline} · HASHMARK` : "Story · HASHMARK" }] })
 });
-var $$splitComponentImporter = () => import("./teams._slug-Miv-bbSE.mjs");
+var $$splitComponentImporter = () => import("./teams._slug-B0RnevRY.mjs");
 var Route = createFileRoute("/teams/$slug")({
 	loader: async ({ params }) => {
 		const data = await getTeam({ data: { slug: params.slug } });
@@ -5659,4 +5643,4 @@ function getRouter() {
 	});
 }
 //#endregion
-export { fmtPct as $, Route$8 as A, ConfPills as B, Route$3 as C, defaultWeek as D, Route$6 as E, featuredBook as F, PageHead as G, EdgeBuyButton as H, featuredSlateWeek as I, apLabel as J, Panel as K, formatVegas as L, Route$11 as M, Route$14 as N, Route$7 as O, favoriteLine as P, fmtNum as Q, spreadGap as R, week2Top25Tape as S, Route$5 as T, EdgeCheckoutNote as U, EDGE as V, EdgePackStrip as W, deltaVsAp as X, cn as Y, fmtHeight as Z, boardDisagreementRows as _, WEEK0_SLATE as a, week2SeasonTape as b, formatScenarioError as c, buildRemainingSchedule as d, getStateDetail as et, buildSeasonSchedule as f, make12TitleLabel as g, make12PanelLede as h, Route$2 as i, Route$10 as j, YEARS as k, isScenarioSimUnlocked as l, make12FromSim as m, Route as n, SCENARIO_SIM_DEMO_LABEL as o, make12FieldLabel as p, TeamSelect as q, Route$1 as r, buildScenarioRequest as s, router_exports as t, inConf as tt, runDemoScenarioSim as u, odTermLabel as v, Route$4 as w, week2Tape as x, week2BoardFlags as y, Button as z };
+export { cn as $, Route$6 as A, featuredSlateWeek as B, week2BoardFlags as C, Route$3 as D, week2Top25Tape as E, Route$10 as F, EDGE as G, spreadGap as H, Route$11 as I, EdgePackStrip as J, EdgeBuyButton as K, Route$14 as L, Route$7 as M, YEARS as N, Route$4 as O, Route$8 as P, apLabel as Q, favoriteLine as R, odTermLabel as S, week2Tape as T, Button as U, formatVegas as V, ConfPills as W, Panel as X, PageHead as Y, TeamSelect as Z, make12FieldLabel as _, WEEK0_SLATE as a, inConf as at, make12TitleLabel as b, SCENARIO_SIM_GOLDEN_EVENT_ID as c, formatScenarioError as d, deltaVsAp as et, isScenarioSimUnlocked as f, buildSeasonSchedule as g, buildRemainingSchedule as h, Route$2 as i, getStateDetail as it, defaultWeek as j, Route$5 as k, SCENARIO_SIM_GOLDEN_FORCE as l, runDemoScenarioSim as m, Route as n, fmtNum as nt, SCENARIO_SIM_DEMO_LABEL as o, loadScenarioSimGoldenRequest as p, EdgeCheckoutNote as q, Route$1 as r, fmtPct as rt, SCENARIO_SIM_GOLDEN_BUMP as s, router_exports as t, fmtHeight as tt, buildScenarioRequest as u, make12FromSim as v, week2SeasonTape as w, boardDisagreementRows as x, make12PanelLede as y, featuredBook as z };

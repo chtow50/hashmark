@@ -3,9 +3,9 @@ import { n as MODEL } from "./fcs-stubs-DntyZ00F.mjs";
 import { n as require_react } from "../_libs/@radix-ui/react-compose-refs+[...].mjs";
 import { S as require_jsx_runtime, y as Link } from "../_libs/@tanstack/react-router+[...].mjs";
 import { a as Minus, i as Plus } from "../_libs/lucide-react.mjs";
-import { $ as fmtPct, G as PageHead, H as EdgeBuyButton, K as Panel, Q as fmtNum, V as EDGE, Y as cn, c as formatScenarioError, i as Route$2, l as isScenarioSimUnlocked, o as SCENARIO_SIM_DEMO_LABEL, s as buildScenarioRequest, u as runDemoScenarioSim, z as Button } from "./router-Bx8kEb0W.mjs";
+import { $ as cn, G as EDGE, K as EdgeBuyButton, U as Button, X as Panel, Y as PageHead, c as SCENARIO_SIM_GOLDEN_EVENT_ID, d as formatScenarioError, f as isScenarioSimUnlocked, i as Route$2, l as SCENARIO_SIM_GOLDEN_FORCE, m as runDemoScenarioSim, nt as fmtNum, o as SCENARIO_SIM_DEMO_LABEL, p as loadScenarioSimGoldenRequest, rt as fmtPct, s as SCENARIO_SIM_GOLDEN_BUMP, u as buildScenarioRequest } from "./router-vISS68v-.mjs";
 import { r as DeskChip } from "./marks-cAu9_BI-.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/edge_.sim-B4onTfP7.js
+//#region node_modules/.nitro/vite/services/ssr/assets/edge_.sim-IacUNueu.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 var METRIC_COLS = [
@@ -34,14 +34,15 @@ var METRIC_COLS = [
 		digits: 1
 	}
 ];
-function newRow(teams, seed) {
-	const home = teams.find((t) => t.slug === "georgia") ?? teams[0];
-	const away = teams.find((t) => t.slug === "alabama") ?? teams[1] ?? teams[0];
+function newRow(teams, seed, golden = false) {
+	const home = teams.find((t) => t.slug === SCENARIO_SIM_GOLDEN_FORCE.home_slug) ?? teams[0];
+	const away = teams.find((t) => t.slug === SCENARIO_SIM_GOLDEN_FORCE.away_slug) ?? teams[1] ?? teams[0];
 	return {
 		key: `fw-${seed}`,
-		week: "4",
-		homeSlug: home?.slug ?? "georgia",
-		awaySlug: away?.slug ?? "alabama",
+		week: String(SCENARIO_SIM_GOLDEN_FORCE.week ?? 4),
+		espnEventId: golden ? SCENARIO_SIM_GOLDEN_EVENT_ID : "",
+		homeSlug: home?.slug ?? SCENARIO_SIM_GOLDEN_FORCE.home_slug,
+		awaySlug: away?.slug ?? SCENARIO_SIM_GOLDEN_FORCE.away_slug,
 		winner: "away",
 		note: ""
 	};
@@ -88,14 +89,14 @@ function ScenarioSimGate({ className }) {
 	});
 }
 function ScenarioSimPanel({ teams, className }) {
-	const [rows, setRows] = (0, import_react.useState)(() => [newRow(teams, 1)]);
+	const [rows, setRows] = (0, import_react.useState)(() => [newRow(teams, 1, true)]);
 	const [bump, setBump] = (0, import_react.useState)({
-		on: false,
-		teamSlug: teams.find((t) => t.slug === "ohio-state")?.slug ?? teams[0]?.slug ?? "ohio-state",
-		deltaHx: "0.15",
+		on: true,
+		teamSlug: teams.find((t) => t.slug === SCENARIO_SIM_GOLDEN_BUMP.team_slug)?.slug ?? teams[0]?.slug ?? SCENARIO_SIM_GOLDEN_BUMP.team_slug,
+		deltaHx: String(SCENARIO_SIM_GOLDEN_BUMP.delta_hx),
 		note: ""
 	});
-	const [returnSlugs, setReturnSlugs] = (0, import_react.useState)("georgia, ohio-state");
+	const [returnSlugs, setReturnSlugs] = (0, import_react.useState)(() => loadScenarioSimGoldenRequest().return.teams.join(", "));
 	const [error, setError] = (0, import_react.useState)(null);
 	const [request, setRequest] = (0, import_react.useState)(null);
 	const [response, setResponse] = (0, import_react.useState)(null);
@@ -120,6 +121,7 @@ function ScenarioSimPanel({ teams, className }) {
 				winner_slug: row.winner === "home" ? row.homeSlug : row.awaySlug
 			};
 			if (Number.isFinite(weekNum)) ov.week = weekNum;
+			if (row.espnEventId.trim()) ov.espn_event_id = row.espnEventId.trim();
 			if (row.note.trim()) ov.note = row.note.trim();
 			return ov;
 		});
@@ -139,7 +141,7 @@ function ScenarioSimPanel({ teams, className }) {
 		const teamsWanted = returnSlugs.split(/[,\s]+/).map((s) => s.trim().toLowerCase()).filter(Boolean);
 		const built = buildScenarioRequest({
 			overrides: collectOverrides(),
-			teams: teamsWanted.length ? teamsWanted : ["georgia", "ohio-state"]
+			teams: teamsWanted.length ? teamsWanted : loadScenarioSimGoldenRequest().return.teams
 		});
 		if (!built.ok) {
 			setError(formatScenarioError(built.error));
@@ -282,6 +284,20 @@ function ForceWinnerEditor({ index, row, teams, onChange, onRemove }) {
 						value: row.week,
 						onChange: (e) => onChange({ week: e.target.value }),
 						className: "h-12 w-full rounded-lg bg-inset px-3 text-sm text-fg shadow-[var(--shadow-border)] outline-none focus:shadow-[var(--shadow-border-hover)]"
+					})]
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("label", {
+					className: "block min-w-0",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						className: "mb-2 block text-[11px] uppercase tracking-[0.14em] text-faint",
+						children: "ESPN event"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+						value: row.espnEventId,
+						onChange: (e) => onChange({ espnEventId: e.target.value }),
+						spellCheck: false,
+						placeholder: "401856700",
+						className: "h-12 w-full rounded-lg bg-inset px-3 text-sm text-fg shadow-[var(--shadow-border)] outline-none placeholder:text-faint focus:shadow-[var(--shadow-border-hover)]",
+						"aria-label": "ESPN event id"
 					})]
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(TeamNativeSelect, {
