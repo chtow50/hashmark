@@ -2,11 +2,11 @@ import { o as __toESM } from "../_runtime.mjs";
 import { t as MODEL } from "./chicago-BYU7n4bi.mjs";
 import { n as require_react } from "../_libs/@radix-ui/react-compose-refs+[...].mjs";
 import { S as require_jsx_runtime, y as Link } from "../_libs/@tanstack/react-router+[...].mjs";
-import { A as Panel, C as ConfPills, I as fmtNum, L as fmtPct, N as cn, f as Route$9, k as PageHead, z as inConf } from "./router-DSAUlc3p.mjs";
+import { A as Panel, C as ConfPills, I as fmtNum, L as fmtPct, N as cn, f as Route$9, k as PageHead, z as inConf } from "./router-sMIwhV3e.mjs";
 import { n as DeltaChip, o as RankNum, u as TeamMark } from "./marks-Co2r8jCu.mjs";
 import { n as formatSeasonRecord } from "./season-record-BNAp7shU.mjs";
 import { a as make12FromSim } from "./season-sim-BfATRojz.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/rankings-0d5dW-Hy.js
+//#region node_modules/.nitro/vite/services/ssr/assets/rankings-BRZMUjte.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 /** Rank col is w-16; Team sticks at that offset so names never slide under Off/Def. */

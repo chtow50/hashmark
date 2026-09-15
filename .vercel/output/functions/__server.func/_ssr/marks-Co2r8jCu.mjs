@@ -1,5 +1,5 @@
 import { S as require_jsx_runtime, y as Link } from "../_libs/@tanstack/react-router+[...].mjs";
-import { I as fmtNum, N as cn, P as deltaVsAp } from "./router-DSAUlc3p.mjs";
+import { I as fmtNum, N as cn, P as deltaVsAp } from "./router-sMIwhV3e.mjs";
 import { n as TeamLogo, r as hasTeamLogo } from "./team-logo-CVv-6UNy.mjs";
 //#region node_modules/.nitro/vite/services/ssr/assets/marks-Co2r8jCu.js
 var import_jsx_runtime = require_jsx_runtime();
