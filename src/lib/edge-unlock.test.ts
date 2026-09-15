@@ -171,6 +171,10 @@ test("readStripeSecretKey only honors STRIPE_SECRET_KEY, never a VITE_ alias", (
     null,
   );
   assert.equal(readStripeSecretKey({ STRIPE_SECRET_KEY: "sk_live_ok" }), "sk_live_ok");
+  assert.equal(readStripeSecretKey({ STRIPE_SECRET_KEY: "sk_test_ok" }), "sk_test_ok");
+  assert.equal(readStripeSecretKey({ STRIPE_SECRET_KEY: "rk_live_ok" }), "rk_live_ok");
+  assert.equal(readStripeSecretKey({ STRIPE_SECRET_KEY: "rk_test_ok" }), "rk_test_ok");
+  assert.equal(readStripeSecretKey({ STRIPE_SECRET_KEY: "pk_live_nope" }), null);
 });
 
 test("checkout session id shape rejects path traversal and short junk", () => {
