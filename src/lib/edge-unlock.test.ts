@@ -22,6 +22,7 @@ const MANIFEST = {
   week: 3,
   season: 2026,
   product: "HX Edge Pack Week 3 SAMPLE",
+  cleared: true as const,
   files: {
     md: "hx_edge_pack_week3_sample_thickened_2026.md",
     json: "hx_edge_pack_week3_sample_thickened_2026.json",
@@ -198,6 +199,11 @@ test("pack downloads only allow md/json basenames from the manifest", () => {
   assert.equal(selectPackDownload(manifest, ""), null);
 });
 
+test("parsePackManifest refuses a pack that is not CLEARed", () => {
+  assert.equal(parsePackManifest(JSON.stringify({ ...MANIFEST, cleared: false })), null);
+  assert.equal(parsePackManifest(JSON.stringify({ ...MANIFEST, cleared: undefined })), null);
+});
+
 test("parsePackManifest rejects path-shaped filenames", () => {
   assert.equal(
     parsePackManifest(
@@ -235,6 +241,7 @@ test("current on-disk pack manifest is valid and files exist", () => {
   assert.equal(manifest.week, 3);
   assert.equal(manifest.season, 2026);
   assert.equal(manifest.support_email, "hello@hashmarkcfb.com");
+  assert.equal(manifest.cleared, true);
   const md = readFileSync(join(dir, manifest.files.md), "utf8");
   const json = readFileSync(join(dir, manifest.files.json), "utf8");
   assert.match(md, /HX Edge Pack/);
