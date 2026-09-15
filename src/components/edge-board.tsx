@@ -107,9 +107,7 @@ export function EdgeBoardView() {
             >
               <div className="flex items-center justify-between gap-3">
                 <p className="font-display text-2xl tracking-wide">Tier {tier.tier}</p>
-                <DeskChip tone={tier.lead ? "accent" : "muted"}>
-                  {tier.lead ? "can lead" : "do not lead"}
-                </DeskChip>
+                <DeskChip tone={tier.lead ? "accent" : "muted"}>{tier.lead ? "can lead" : "do not lead"}</DeskChip>
               </div>
               <p className="mt-3 text-sm leading-relaxed text-muted">{tier.rule}</p>
             </div>
@@ -166,7 +164,7 @@ function ExampleCard({ card }: { card: EdgeExampleCard }) {
     <Panel>
       <div className="flex flex-wrap items-center gap-2">
         <DeskChip tone="warn">{card.demo_label}</DeskChip>
-        <DeskChip>Tier {card.confidence_tier}</DeskChip>
+        <DeskChip>{`Tier ${card.confidence_tier}`}</DeskChip>
         {flagSoft ? <DeskChip tone="warn">FLAG — calibration soft</DeskChip> : (
           <DeskChip>cal ok</DeskChip>
         )}

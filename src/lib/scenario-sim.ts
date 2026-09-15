@@ -30,7 +30,7 @@ export const SCENARIO_SIM_GOLDEN_TEAMS = [
 export const EDGE_SCENARIO_UNLOCK = false;
 
 export const SCENARIO_SIM_CONFIDENCE_NOTE =
-  "Monte Carlo ± noise on 10k draws; not a lock.";
+  "Monte Carlo ± noise on 10k draws; not a lock. Calibration: cite live Top 25 closer vs full-slate tape when packaging.";
 
 export const SCENARIO_SIM_DEMO_LABEL = "demo fixture — CLI not wired";
 
@@ -109,7 +109,14 @@ export type ScenarioTeamMetrics = {
 export type ScenarioSimMeta = {
   n_sims: number;
   seed: number;
+  seed_policy?: string;
+  as_of?: string;
+  as_of_tz?: string;
   hx_stamp: string;
+  hx_ship_path?: string;
+  locked_finals?: number;
+  remaining_draws?: number;
+  runtime_sec?: number;
   overrides_applied: number;
 };
 
@@ -508,6 +515,7 @@ export function runDemoScenarioSim(request: ScenarioSimRequest): ScenarioSimResp
     ok: true,
     error: null,
     meta: {
+      ...fixture.meta,
       n_sims: request.n_sims,
       seed: request.seed ?? fixture.meta.seed,
       hx_stamp: request.hx_stamp,
