@@ -1,12 +1,20 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import {
+  EDGE,
   EDGE_CHECKOUT_PENDING,
   edgeCheckoutHref,
   edgeCheckoutLive,
   edgeCheckoutUrl,
   resolveCheckoutUrl,
 } from "./edge.ts";
+
+test("Edge Pack display prices stay at the Cash Scout cut", () => {
+  assert.equal(EDGE.weekPrice, "$5");
+  assert.equal(EDGE.weekLabel, "$5 Week sample");
+  assert.equal(EDGE.monthPrice, "$15/mo");
+  assert.equal(EDGE.monthLabel, "$15/mo");
+});
 
 test("unset, blank, and non-http values do not become a checkout URL", () => {
   assert.equal(resolveCheckoutUrl(undefined), null);

@@ -150,11 +150,13 @@ describe("prebuilt deploy artifacts", () => {
   it("includes HX Edge Pack /edge with baked Stripe Payment Links", () => {
     const text = corpus();
     assert.match(text, /HX Edge Pack/);
-    assert.match(text, /\$9 Week sample/);
-    assert.match(text, /\$29\/mo/);
+    assert.match(text, /\$5 Week sample/);
+    assert.match(text, /\$15\/mo/);
     assert.match(text, /createFileRoute\("\/edge"\)|path:"\/edge"|id:"\/edge"|to:"\/edge"/);
-    assert.match(text, /buy\.stripe\.com\/6oUdRa0caaQV1wQ5kqdUY01/);
-    assert.match(text, /buy\.stripe\.com\/eVqaEY9MK0cha3meV0dUY00/);
+    assert.match(text, /buy\.stripe\.com\/00w14obUSbUZ5N67sydUY03/);
+    assert.match(text, /buy\.stripe\.com\/4gM6oIf74cZ3cbubIOdUY02/);
+    assert.doesNotMatch(text, /buy\.stripe\.com\/6oUdRa0caaQV1wQ5kqdUY01/);
+    assert.doesNotMatch(text, /buy\.stripe\.com\/eVqaEY9MK0cha3meV0dUY00/);
     // Isolation: week still reads only WEEK_URL (no monthly fallback).
     assert.match(text, /VITE_EDGE_CHECKOUT_WEEK_URL/);
     assert.match(text, /VITE_EDGE_CHECKOUT_URL/);
@@ -162,7 +164,7 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /#checkout-pending/);
     assert.match(
       text,
-      /VITE_EDGE_CHECKOUT_WEEK_URL[`"']?:[`"']https:\/\/buy\.stripe\.com\/6oUdRa0caaQV1wQ5kqdUY01/,
+      /VITE_EDGE_CHECKOUT_WEEK_URL[`"']?:[`"']https:\/\/buy\.stripe\.com\/00w14obUSbUZ5N67sydUY03/,
     );
   });
 
