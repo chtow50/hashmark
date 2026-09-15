@@ -1,8 +1,8 @@
 /**
  * HX Edge Pack — public monetization surface.
  * Checkout URLs are Stripe Payment Links from env when they exist:
- *   VITE_EDGE_CHECKOUT_URL       monthly ($29/mo)
- *   VITE_EDGE_CHECKOUT_WEEK_URL  optional week sample ($9); falls back to monthly
+ *   VITE_EDGE_CHECKOUT_URL       monthly ($29/mo) only
+ *   VITE_EDGE_CHECKOUT_WEEK_URL  week sample ($9) only — never fall back to monthly
  * Never invent a payment link. Unset → #checkout-pending.
  */
 
@@ -17,9 +17,15 @@ export const EDGE = {
   monthLabel: "$29/mo",
 } as const;
 
-function readEnv(key: string): string | undefined {
-  const env = (import.meta as { env?: Record<string, string | undefined> }).env;
-  return env?.[key];
+export type EdgeCheckoutKind = "week" | "month";
+
+export type EdgeCheckoutEnv = {
+  VITE_EDGE_CHECKOUT_URL?: string | undefined;
+  VITE_EDGE_CHECKOUT_WEEK_URL?: string | undefined;
+};
+
+function readCheckoutEnv(): EdgeCheckoutEnv {
+  return ((import.meta as { env?: EdgeCheckoutEnv }).env ?? {}) as EdgeCheckoutEnv;
 }
 
 /** Accept only absolute http(s) URLs. Empty, hash, or junk → unset. */
@@ -35,18 +41,26 @@ export function resolveCheckoutUrl(raw: string | undefined | null): string | nul
   return null;
 }
 
-export function edgeCheckoutUrl(kind: "week" | "month" = "month"): string | null {
-  const monthly = resolveCheckoutUrl(readEnv("VITE_EDGE_CHECKOUT_URL"));
+export function edgeCheckoutUrl(
+  kind: EdgeCheckoutKind = "month",
+  env: EdgeCheckoutEnv = readCheckoutEnv(),
+): string | null {
   if (kind === "week") {
-    return resolveCheckoutUrl(readEnv("VITE_EDGE_CHECKOUT_WEEK_URL")) ?? monthly;
+    return resolveCheckoutUrl(env.VITE_EDGE_CHECKOUT_WEEK_URL);
   }
-  return monthly;
+  return resolveCheckoutUrl(env.VITE_EDGE_CHECKOUT_URL);
 }
 
-export function edgeCheckoutHref(kind: "week" | "month" = "month"): string {
-  return edgeCheckoutUrl(kind) ?? EDGE_CHECKOUT_PENDING;
+export function edgeCheckoutHref(
+  kind: EdgeCheckoutKind = "month",
+  env: EdgeCheckoutEnv = readCheckoutEnv(),
+): string {
+  return edgeCheckoutUrl(kind, env) ?? EDGE_CHECKOUT_PENDING;
 }
 
-export function edgeCheckoutLive(kind: "week" | "month" = "month"): boolean {
-  return edgeCheckoutUrl(kind) != null;
+export function edgeCheckoutLive(
+  kind: EdgeCheckoutKind = "month",
+  env: EdgeCheckoutEnv = readCheckoutEnv(),
+): boolean {
+  return edgeCheckoutUrl(kind, env) != null;
 }

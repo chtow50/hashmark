@@ -137,6 +137,18 @@ describe("prebuilt deploy artifacts", () => {
     assert.doesNotMatch(text, /The board is posted/);
   });
 
+  it("includes HX Edge Pack /edge with no week→month checkout fallback", () => {
+    const text = corpus();
+    assert.match(text, /HX Edge Pack/);
+    assert.match(text, /\$9 Week sample/);
+    assert.match(text, /\$29\/mo/);
+    assert.match(text, /createFileRoute\("\/edge"\)|path:"\/edge"|id:"\/edge"|to:"\/edge"/);
+    assert.match(text, /#checkout-pending/);
+    assert.match(text, /VITE_EDGE_CHECKOUT_WEEK_URL/);
+    assert.match(text, /VITE_EDGE_CHECKOUT_URL/);
+    assert.doesNotMatch(text, /buy\.stripe\.com|checkout\.stripe\.com/);
+  });
+
   it("keeps PGLite wasm sidecars next to the server bundle", () => {
     const libs = join(OUT, "functions/__server.func/_libs");
     for (const name of ["pglite.wasm", "initdb.wasm", "pglite.data"]) {
