@@ -13,7 +13,7 @@ export const Route = createFileRoute("/edge/board")({
       {
         name: "description",
         content:
-          "HX Edge Board v1 — confidence schema: tiers A–D, calibration FLAGS, copy bans. Free board is HX vs Vegas. Paid pack is ranked cards.",
+          "HX Edge Board v1 — confidence schema: tiers A–D, calibration FLAGS, small/medium/large edge bands (large ≥ 7 pts), copy bans. Free board is HX vs Vegas. Paid pack is ranked cards.",
       },
     ],
   }),
@@ -25,7 +25,7 @@ function EdgeBoardPage() {
       <PageHead
         kicker={`${EDGE.name} · HX ${MODEL.version}`}
         title="Edge Board"
-        lede="Confidence schema surface. Tiers A–D, calibration FLAGS, edge and lean bands. Free is public schedule HX vs Vegas. Paid is ranked cards. Example cards are a schema demo — not a dump of the paid pack."
+        lede="Confidence schema surface. Tiers A–D, calibration FLAGS, small / medium / large edge bands (large ≥ 7 pts) and lean bands. Free is public schedule HX vs Vegas. Paid is ranked cards. Example cards are a schema demo — not a dump of the paid pack."
       />
 
       <EdgeBoardView />

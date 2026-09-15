@@ -6,6 +6,7 @@ import {
   EDGE_BOARD_PRODUCT,
   EDGE_BOARD_SCHEMA_ID,
   EDGE_BOARD_TIERS,
+  EDGE_SIZE_BANDS,
   exampleCards,
   loadEdgeConfidenceSchema,
   type EdgeExampleCard,
@@ -22,9 +23,9 @@ export function EdgeBoardPanel({ className }: { className?: string }) {
       </p>
       <h2 className="mt-2 font-display text-2xl tracking-wide">Confidence schema</h2>
       <p className="mt-3 text-sm leading-relaxed text-muted">
-        Tiers A–D, calibration FLAGS, edge and lean bands. Free board is public
-        schedule HX vs Vegas. Paid pack is ranked confidence cards. Schema demo —
-        not the full paid pack.
+        Tiers A–D, calibration FLAGS, small / medium / large edge bands (large
+        ≥ 7 pts) and lean bands. Free board is public schedule HX vs Vegas. Paid
+        pack is ranked confidence cards. Schema demo — not the full paid pack.
       </p>
       <Link
         to="/edge/board"
@@ -119,12 +120,18 @@ export function EdgeBoardView() {
         <Panel>
           <h2 className="font-display text-2xl tracking-wide">Edge / lean bands</h2>
           <ul className="mt-4 space-y-2 text-sm leading-relaxed text-muted">
-            <li>{schema.bands.edge_size.large.rule} → large</li>
-            <li>{schema.bands.edge_size.small.rule} → small</li>
+            {EDGE_SIZE_BANDS.map((band) => (
+              <li key={band}>
+                {schema.bands.edge_size[band].rule} → {band}
+              </li>
+            ))}
             <li>{schema.bands.lean.strong.rule} → strong</li>
             <li>{schema.bands.lean.lean.rule} → lean</li>
             <li>{schema.bands.lean.coin.rule} → coin</li>
           </ul>
+          <p className="mt-4 text-sm leading-relaxed text-muted">
+            {schema.bands.notable_gap.rule}.
+          </p>
         </Panel>
         <Panel>
           <h2 className="font-display text-2xl tracking-wide">Copy ban list</h2>
