@@ -1,0 +1,28 @@
+{
+  "contract_version": "2026.09.14",
+  "product": "hx_edge_scenario_sim",
+  "n_sims": 10000,
+  "seed": null,
+  "hx_stamp": "HX 2026.4",
+  "hx_ship_path": "week2_od_hx_ship_2026.json",
+  "overrides": [
+    {
+      "type": "force_winner",
+      "espn_event_id": "401856700",
+      "week": 4,
+      "home_slug": "georgia",
+      "away_slug": "oklahoma",
+      "winner_slug": "oklahoma"
+    },
+    {
+      "type": "hx_bump",
+      "team_slug": "oregon",
+      "delta_hx": -0.25
+    }
+  ],
+  "return": {
+    "teams": ["georgia", "oklahoma", "oregon"],
+    "include_full_board": false,
+    "include_baseline_delta": true
+  }
+}

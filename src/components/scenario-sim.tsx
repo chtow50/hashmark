@@ -8,11 +8,15 @@ import { cn, fmtNum, fmtPct } from "@/lib/utils";
 import {
   SCENARIO_SIM_CONFIDENCE_NOTE,
   SCENARIO_SIM_DEMO_LABEL,
+  SCENARIO_SIM_GOLDEN_BUMP,
+  SCENARIO_SIM_GOLDEN_EVENT_ID,
+  SCENARIO_SIM_GOLDEN_FORCE,
   SCENARIO_SIM_HX_BUMP_MAX,
   SCENARIO_SIM_HX_BUMP_MIN,
   SCENARIO_SIM_MAX_OVERRIDES,
   buildScenarioRequest,
   formatScenarioError,
+  loadScenarioSimGoldenRequest,
   runDemoScenarioSim,
   type ForceWinnerOverride,
   type HxBumpOverride,
@@ -33,6 +37,7 @@ export type ScenarioTeamOption = {
 type ForceRow = {
   key: string;
   week: string;
+  espnEventId: string;
   homeSlug: string;
   awaySlug: string;
   winner: "home" | "away";
@@ -53,14 +58,17 @@ const METRIC_COLS = [
   { key: "conf_title" as const, label: "Conf. title", kind: "pct" as const, digits: 1 },
 ];
 
-function newRow(teams: ScenarioTeamOption[], seed: number): ForceRow {
-  const home = teams.find((t) => t.slug === "georgia") ?? teams[0];
-  const away = teams.find((t) => t.slug === "alabama") ?? teams[1] ?? teams[0];
+function newRow(teams: ScenarioTeamOption[], seed: number, golden = false): ForceRow {
+  const home =
+    teams.find((t) => t.slug === SCENARIO_SIM_GOLDEN_FORCE.home_slug) ?? teams[0];
+  const away =
+    teams.find((t) => t.slug === SCENARIO_SIM_GOLDEN_FORCE.away_slug) ?? teams[1] ?? teams[0];
   return {
     key: `fw-${seed}`,
-    week: "4",
-    homeSlug: home?.slug ?? "georgia",
-    awaySlug: away?.slug ?? "alabama",
+    week: String(SCENARIO_SIM_GOLDEN_FORCE.week ?? 4),
+    espnEventId: golden ? SCENARIO_SIM_GOLDEN_EVENT_ID : "",
+    homeSlug: home?.slug ?? SCENARIO_SIM_GOLDEN_FORCE.home_slug,
+    awaySlug: away?.slug ?? SCENARIO_SIM_GOLDEN_FORCE.away_slug,
     winner: "away",
     note: "",
   };
@@ -110,14 +118,19 @@ export function ScenarioSimPanel({
   teams: ScenarioTeamOption[];
   className?: string;
 }) {
-  const [rows, setRows] = useState<ForceRow[]>(() => [newRow(teams, 1)]);
+  const [rows, setRows] = useState<ForceRow[]>(() => [newRow(teams, 1, true)]);
   const [bump, setBump] = useState<BumpDraft>({
-    on: false,
-    teamSlug: teams.find((t) => t.slug === "ohio-state")?.slug ?? teams[0]?.slug ?? "ohio-state",
-    deltaHx: "0.15",
+    on: true,
+    teamSlug:
+      teams.find((t) => t.slug === SCENARIO_SIM_GOLDEN_BUMP.team_slug)?.slug ??
+      teams[0]?.slug ??
+      SCENARIO_SIM_GOLDEN_BUMP.team_slug,
+    deltaHx: String(SCENARIO_SIM_GOLDEN_BUMP.delta_hx),
     note: "",
   });
-  const [returnSlugs, setReturnSlugs] = useState("georgia, ohio-state");
+  const [returnSlugs, setReturnSlugs] = useState(() =>
+    loadScenarioSimGoldenRequest().return.teams.join(", "),
+  );
   const [error, setError] = useState<string | null>(null);
   const [request, setRequest] = useState<ScenarioSimRequest | null>(null);
   const [response, setResponse] = useState<ScenarioSimResponse | null>(null);
@@ -145,6 +158,7 @@ export function ScenarioSimPanel({
         winner_slug: row.winner === "home" ? row.homeSlug : row.awaySlug,
       };
       if (Number.isFinite(weekNum)) ov.week = weekNum;
+      if (row.espnEventId.trim()) ov.espn_event_id = row.espnEventId.trim();
       if (row.note.trim()) ov.note = row.note.trim();
       return ov;
     });
@@ -168,7 +182,7 @@ export function ScenarioSimPanel({
       .filter(Boolean);
     const built = buildScenarioRequest({
       overrides: collectOverrides(),
-      teams: teamsWanted.length ? teamsWanted : ["georgia", "ohio-state"],
+      teams: teamsWanted.length ? teamsWanted : loadScenarioSimGoldenRequest().return.teams,
     });
     if (!built.ok) {
       setError(formatScenarioError(built.error));
@@ -320,6 +334,19 @@ function ForceWinnerEditor({
             value={row.week}
             onChange={(e) => onChange({ week: e.target.value })}
             className="h-12 w-full rounded-lg bg-inset px-3 text-sm text-fg shadow-[var(--shadow-border)] outline-none focus:shadow-[var(--shadow-border-hover)]"
+          />
+        </label>
+        <label className="block min-w-0">
+          <span className="mb-2 block text-[11px] uppercase tracking-[0.14em] text-faint">
+            ESPN event
+          </span>
+          <input
+            value={row.espnEventId}
+            onChange={(e) => onChange({ espnEventId: e.target.value })}
+            spellCheck={false}
+            placeholder="401856700"
+            className="h-12 w-full rounded-lg bg-inset px-3 text-sm text-fg shadow-[var(--shadow-border)] outline-none placeholder:text-faint focus:shadow-[var(--shadow-border-hover)]"
+            aria-label="ESPN event id"
           />
         </label>
         <TeamNativeSelect

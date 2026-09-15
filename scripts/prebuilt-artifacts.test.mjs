@@ -165,6 +165,8 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /\/edge\/sim/);
     assert.match(text, /demo fixture — CLI not wired/);
     assert.match(text, /Monte Carlo ± noise on 10k draws; not a lock/);
+    assert.match(text, /401856700/);
+    assert.match(text, /52\.4/);
     assert.doesNotMatch(text, /live interactive sim/i);
     assert.doesNotMatch(text, /Open Scenario Sim \(preview\)/);
     assert.doesNotMatch(text, /waitlist/i);

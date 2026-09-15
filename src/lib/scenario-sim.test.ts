@@ -9,6 +9,9 @@ import {
   SCENARIO_SIM_CONFIDENCE_NOTE,
   SCENARIO_SIM_CONTRACT_VERSION,
   SCENARIO_SIM_DEMO_LABEL,
+  SCENARIO_SIM_GOLDEN_BUMP,
+  SCENARIO_SIM_GOLDEN_EVENT_ID,
+  SCENARIO_SIM_GOLDEN_FORCE,
   SCENARIO_SIM_MAX_OVERRIDES,
   SCENARIO_SIM_PRODUCT,
   buildScenarioRequest,
@@ -16,6 +19,7 @@ import {
   isScenarioSimUnlocked,
   loadScenarioSimExample,
   loadScenarioSimFixture,
+  loadScenarioSimGoldenRequest,
   parseScenarioUnlockSearch,
   runDemoScenarioSim,
   validateOverrides,
@@ -27,18 +31,15 @@ const here = dirname(fileURLToPath(import.meta.url));
 
 function forceWinner(partial?: Partial<ForceWinnerOverride>): ForceWinnerOverride {
   return {
-    type: "force_winner",
-    week: 4,
-    home_slug: "georgia",
-    away_slug: "alabama",
-    winner_slug: "alabama",
+    ...SCENARIO_SIM_GOLDEN_FORCE,
     ...partial,
   };
 }
 
-test("AMD fixture keeps Georgia make-field 75.26 separate from title 21.59", () => {
+test("AMD golden fixture keeps Georgia make-field 75.26 separate from title 21.59", () => {
   const example = loadScenarioSimExample();
   const fixture = loadScenarioSimFixture();
+  const request = loadScenarioSimGoldenRequest();
   assert.equal(example.contract_version, SCENARIO_SIM_CONTRACT_VERSION);
   assert.equal(example.product, SCENARIO_SIM_PRODUCT);
   assert.equal(example.request.contract_version, SCENARIO_SIM_CONTRACT_VERSION);
@@ -49,14 +50,30 @@ test("AMD fixture keeps Georgia make-field 75.26 separate from title 21.59", () 
   assert.ok(example.request.overrides.length >= 1);
   assert.ok(example.request.overrides.length <= SCENARIO_SIM_MAX_OVERRIDES);
 
+  const force = example.request.overrides[0] as ForceWinnerOverride;
+  assert.equal(force.type, "force_winner");
+  assert.equal(force.espn_event_id, SCENARIO_SIM_GOLDEN_EVENT_ID);
+  assert.equal(force.week, 4);
+  assert.equal(force.home_slug, "georgia");
+  assert.equal(force.away_slug, "oklahoma");
+  assert.equal(force.winner_slug, "oklahoma");
+  const bump = example.request.overrides[1] as HxBumpOverride;
+  assert.equal(bump.type, "hx_bump");
+  assert.equal(bump.team_slug, "oregon");
+  assert.equal(bump.delta_hx, -0.25);
+  assert.deepEqual(request.overrides, example.request.overrides);
+  assert.deepEqual(fixture.overrides_echo, example.request.overrides);
+
   const g = fixture.baseline.georgia;
   assert.ok(g);
   assert.equal(g.make_field, 75.26);
   assert.equal(g.win_title, 21.59);
   assert.notEqual(g.make_field, g.win_title);
-  assert.equal(fixture.scenario.georgia.make_field, 72.1);
-  assert.equal(fixture.scenario.georgia.win_title, 18.4);
+  assert.equal(fixture.scenario.georgia.make_field, 52.4);
+  assert.equal(fixture.scenario.georgia.win_title, 14.78);
   assert.notEqual(fixture.scenario.georgia.make_field, fixture.scenario.georgia.win_title);
+  assert.equal(fixture.delta.georgia.make_field, -22.86);
+  assert.equal(fixture.delta.georgia.win_title, -6.81);
   assert.equal(fixture.confidence_note, SCENARIO_SIM_CONFIDENCE_NOTE);
   assert.match(fixture.confidence_note, /not a lock/i);
 
@@ -120,10 +137,10 @@ test("validators reject empty, too many, unknown slug, bad winner, strict bump r
   if (!range.ok) assert.equal(range.error, "delta_hx_out_of_range");
 });
 
-test("demo runner returns fixture baseline/scenario/Δ and is not a Monte Carlo", () => {
+test("demo runner returns golden Georgia cells and does not invent uncleared Δ", () => {
   const built = buildScenarioRequest({
-    overrides: [forceWinner(), { type: "hx_bump", team_slug: "ohio-state", delta_hx: 0.15 }],
-    teams: ["georgia", "ohio-state"],
+    overrides: [SCENARIO_SIM_GOLDEN_FORCE, SCENARIO_SIM_GOLDEN_BUMP],
+    teams: ["georgia", "oklahoma", "oregon"],
   });
   assert.equal(built.ok, true);
   if (!built.ok) return;
@@ -137,12 +154,23 @@ test("demo runner returns fixture baseline/scenario/Δ and is not a Monte Carlo"
   assert.equal(a.baseline.georgia.make_field, 75.26);
   assert.equal(a.baseline.georgia.win_title, 21.59);
   assert.notEqual(a.baseline.georgia.make_field, a.baseline.georgia.win_title);
+  assert.equal(a.scenario.georgia.make_field, 52.4);
+  assert.equal(a.scenario.georgia.win_title, 14.78);
   assert.notEqual(a.scenario.georgia.make_field, a.scenario.georgia.win_title);
-  assert.equal(a.delta.georgia.make_field, -3.16);
+  assert.equal(a.delta.georgia.make_field, -22.86);
+  assert.equal(a.delta.georgia.win_title, -6.81);
+  assert.equal(a.baseline.oklahoma.make_field, a.scenario.oklahoma.make_field);
+  assert.equal(a.delta.oklahoma.make_field, 0);
+  assert.equal(a.delta.oklahoma.win_title, 0);
+  assert.equal(a.baseline.oregon.make_field, a.scenario.oregon.make_field);
+  assert.equal(a.delta.oregon.make_field, 0);
   assert.equal(a.confidence_note, SCENARIO_SIM_CONFIDENCE_NOTE);
   assert.equal(a.meta.overrides_applied, 2);
   assert.equal(a.overrides_echo.length, 2);
+  const echoForce = a.overrides_echo[0] as ForceWinnerOverride;
+  assert.equal(echoForce.espn_event_id, "401856700");
   assert.doesNotMatch(JSON.stringify(a), /guarantee|ROI|lock ticket/i);
+  assert.doesNotMatch(readFileSync(join(here, "scenario-sim.ts"), "utf8"), /demoShift/);
 });
 
 test("soft unlock is query/demo only — constant defaults false", () => {
@@ -169,6 +197,8 @@ test("/edge marketing does not promo Scenario Sim; tool is preview/offline only"
   assert.doesNotMatch(preview, /ScenarioSimPreviewLink|Open Scenario Sim/);
   assert.match(preview, /preview \/ offline/);
   assert.doesNotMatch(preview, /live interactive sim/i);
+  assert.match(preview, /401856700/);
+  assert.match(preview, /SCENARIO_SIM_GOLDEN_FORCE/);
   assert.match(sim, /preview \/ offline/);
   assert.match(sim, /Not this week’s paid pack|Not this week's paid pack/);
   assert.doesNotMatch(sim, /live interactive sim/i);

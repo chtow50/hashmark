@@ -4,6 +4,8 @@
  * No browser Monte Carlo. Paid CLI engine is not wired.
  */
 import exampleRaw from "../../data/scenario_sim_rerun_contract_example.json" with { type: "json" };
+import goldenRequestRaw from "../../data/scenario_sim_golden_request.json" with { type: "json" };
+import goldenResponseRaw from "../../data/scenario_sim_golden_response.json" with { type: "json" };
 import { make12FromSim } from "./cfb/season-sim.ts";
 import { sim10k, simTeamBySlug } from "./cfb/truth-pack.ts";
 
@@ -23,6 +25,22 @@ export const SCENARIO_SIM_CONFIDENCE_NOTE =
   "Monte Carlo ± noise on 10k draws; not a lock.";
 
 export const SCENARIO_SIM_DEMO_LABEL = "demo fixture — CLI not wired";
+
+/** Website-cleared AMD golden: Oklahoma @ Georgia W4 + Oregon HX bump. */
+export const SCENARIO_SIM_GOLDEN_EVENT_ID = "401856700";
+export const SCENARIO_SIM_GOLDEN_FORCE: ForceWinnerOverride = {
+  type: "force_winner",
+  espn_event_id: SCENARIO_SIM_GOLDEN_EVENT_ID,
+  week: 4,
+  home_slug: "georgia",
+  away_slug: "oklahoma",
+  winner_slug: "oklahoma",
+};
+export const SCENARIO_SIM_GOLDEN_BUMP: HxBumpOverride = {
+  type: "hx_bump",
+  team_slug: "oregon",
+  delta_hx: -0.25,
+};
 
 export type ScenarioSimErrorCode =
   | "too_many_overrides"
@@ -319,7 +337,7 @@ export function defaultReturnTeams(overrides: ScenarioOverride[]): string[] {
       teams.push(slug);
     }
   }
-  for (const slug of ["georgia", "ohio-state"]) {
+  for (const slug of ["georgia", "oklahoma", "oregon"]) {
     if (!seen.has(slug)) {
       seen.add(slug);
       teams.push(slug);
@@ -332,8 +350,12 @@ export function loadScenarioSimExample(): ScenarioSimContractExample {
   return exampleRaw as ScenarioSimContractExample;
 }
 
+export function loadScenarioSimGoldenRequest(): ScenarioSimRequest {
+  return goldenRequestRaw as ScenarioSimRequest;
+}
+
 export function loadScenarioSimFixture(): ScenarioSimOkResponse {
-  return loadScenarioSimExample().response;
+  return goldenResponseRaw as ScenarioSimOkResponse;
 }
 
 export type ScenarioUnlockSearch = {
@@ -402,18 +424,13 @@ function metricsFromSimRow(slug: string): ScenarioTeamMetrics | null {
   };
 }
 
-/** Deterministic fake shift — not a Monte Carlo. Sign from override count only. */
-function demoShift(baseline: ScenarioTeamMetrics, sign: number): ScenarioTeamMetrics {
-  const scenario: ScenarioTeamMetrics = {
-    make_field: roundTo(baseline.make_field + sign * 0.42, 2),
-    win_title: roundTo(baseline.win_title + sign * 0.18, 2),
-    proj_wins: roundTo(baseline.proj_wins + sign * 0.05, 2),
-    conf_title: roundTo(baseline.conf_title + sign * 0.3, 1),
+function zeroDelta(): ScenarioTeamMetrics {
+  return {
+    make_field: 0,
+    win_title: 0,
+    proj_wins: 0,
+    conf_title: 0,
   };
-  if (scenario.make_field === scenario.win_title) {
-    scenario.win_title = roundTo(scenario.win_title - 0.11, 2);
-  }
-  return scenario;
 }
 
 function errorResponse(
@@ -441,8 +458,8 @@ function errorResponse(
 }
 
 /**
- * Demo runner: fixture numbers for Georgia / Ohio State, else HX 2026.4
- * 10k baseline + a tiny labeled fake delta. Does not draw seasons.
+ * Demo runner: website-cleared golden cells (Georgia 75.26/21.59 → 52.40/14.78).
+ * Uncleared teams stay on the HX 2026.4 10k baseline with Δ 0. Does not draw seasons.
  */
 export function runDemoScenarioSim(request: ScenarioSimRequest): ScenarioSimResponse {
   const validated = validateOverrides(request.overrides);
@@ -470,10 +487,9 @@ export function runDemoScenarioSim(request: ScenarioSimRequest): ScenarioSimResp
     }
     const row = metricsFromSimRow(slug);
     if (!row) return errorResponse("unknown_slug", request);
-    const sign = slug === validated.overrides.find((o) => o.type === "force_winner")?.winner_slug ? 1 : -1;
     baseline[slug] = row;
-    scenario[slug] = demoShift(row, sign);
-    delta[slug] = subtractMetrics(scenario[slug], baseline[slug]);
+    scenario[slug] = row;
+    delta[slug] = fixture.delta[slug] ?? zeroDelta();
   }
 
   return {

@@ -11,21 +11,20 @@
     "overrides": [
       {
         "type": "force_winner",
+        "espn_event_id": "401856700",
         "week": 4,
         "home_slug": "georgia",
-        "away_slug": "alabama",
-        "winner_slug": "alabama",
-        "note": "AMD example — Alabama takes Athens"
+        "away_slug": "oklahoma",
+        "winner_slug": "oklahoma"
       },
       {
         "type": "hx_bump",
-        "team_slug": "ohio-state",
-        "delta_hx": 0.15,
-        "note": "AMD example — small HX bump"
+        "team_slug": "oregon",
+        "delta_hx": -0.25
       }
     ],
     "return": {
-      "teams": ["georgia", "ohio-state"],
+      "teams": ["georgia", "oklahoma", "oregon"],
       "include_full_board": false,
       "include_baseline_delta": true
     }
@@ -44,58 +43,39 @@
       "georgia": {
         "make_field": 75.26,
         "win_title": 21.59,
-        "proj_wins": 10.45,
-        "conf_title": 49.5
-      },
-      "ohio-state": {
-        "make_field": 59.57,
-        "win_title": 14.89,
-        "proj_wins": 9.54,
-        "conf_title": 46.5
+        "proj_wins": 10.498,
+        "conf_title": 48.54
       }
     },
     "scenario": {
       "georgia": {
-        "make_field": 72.1,
-        "win_title": 18.4,
-        "proj_wins": 10.12,
-        "conf_title": 46.2
-      },
-      "ohio-state": {
-        "make_field": 61.8,
-        "win_title": 16.05,
-        "proj_wins": 9.72,
-        "conf_title": 48.4
+        "make_field": 52.4,
+        "win_title": 14.78,
+        "proj_wins": 10.498,
+        "conf_title": 48.54
       }
     },
     "delta": {
       "georgia": {
-        "make_field": -3.16,
-        "win_title": -3.19,
-        "proj_wins": -0.33,
-        "conf_title": -3.3
-      },
-      "ohio-state": {
-        "make_field": 2.23,
-        "win_title": 1.16,
-        "proj_wins": 0.18,
-        "conf_title": 1.9
+        "make_field": -22.86,
+        "win_title": -6.81,
+        "proj_wins": 0,
+        "conf_title": 0
       }
     },
     "overrides_echo": [
       {
         "type": "force_winner",
+        "espn_event_id": "401856700",
         "week": 4,
         "home_slug": "georgia",
-        "away_slug": "alabama",
-        "winner_slug": "alabama",
-        "note": "AMD example — Alabama takes Athens"
+        "away_slug": "oklahoma",
+        "winner_slug": "oklahoma"
       },
       {
         "type": "hx_bump",
-        "team_slug": "ohio-state",
-        "delta_hx": 0.15,
-        "note": "AMD example — small HX bump"
+        "team_slug": "oregon",
+        "delta_hx": -0.25
       }
     ],
     "confidence_note": "Monte Carlo ± noise on 10k draws; not a lock."
