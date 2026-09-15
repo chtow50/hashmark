@@ -5,6 +5,7 @@ import {
   BOARD_WEEK,
   FEATURED_SLATE_WEEK,
   WEEK2_FEATURED,
+  WEEK3_FEATURED,
   featuredBook,
   featuredSlateWeek,
   favoriteLine,
@@ -235,39 +236,47 @@ test("Week 2 Research pin helpers stay historical (Ohio State @ Texas)", () => {
   assert.equal(favoriteLine("Texas", "Ohio St", 1.5), "Texas −1.5");
 });
 
-test("Week 3 board featured is the next FBS kick, not an invented pin", () => {
+test("Week 3 board featured is Syracuse @ Pittsburgh with stamped kick/TV/Vegas", () => {
   const pitt = game({
-    id: 300,
+    id: WEEK3_FEATURED.id,
     week: 3,
-    homeSlug: "pittsburgh",
-    awaySlug: "syracuse",
+    homeSlug: WEEK3_FEATURED.homeSlug,
+    awaySlug: WEEK3_FEATURED.awaySlug,
     homeShort: "Pitt",
     awayShort: "Syracuse",
     kickoffDate: "2026-09-17",
-    kickoffAt: null,
+    kickoffAt: "2026-09-17T23:30:00.000Z",
     location: "Acrisure Stadium",
-    vegasSpread: null,
-    vegasTotal: null,
+    tv: "ESPN",
+    vegasSpread: 10.5,
+    vegasTotal: 51.5,
   });
   const wake = game({
-    id: 301,
+    id: 98,
     week: 3,
     homeSlug: "wake-forest",
     awaySlug: "miami",
     homeShort: "Wake",
     awayShort: "Miami",
     kickoffDate: "2026-09-18",
-    kickoffAt: null,
+    kickoffAt: "2026-09-18T23:30:00.000Z",
     location: "Allegacy Federal Credit Union Stadium",
-    vegasSpread: null,
-    vegasTotal: null,
+    tv: "ESPN",
+    vegasSpread: -20.5,
+    vegasTotal: 55.5,
   });
-  const now = Date.parse("2026-09-13T16:00:00.000Z");
+  const now = Date.parse("2026-09-14T16:00:00.000Z");
   const featured = selectBoardFeaturedKick([pitt, wake], now);
+  assert.equal(featured?.id, 97);
   assert.equal(featured?.homeSlug, "pittsburgh");
   assert.equal(featured?.awaySlug, "syracuse");
+  assert.equal(featured?.tv, "ESPN");
   assert.equal(featuredSlateWeek(pitt), 3);
-  assert.equal(featuredBook(featured!), null);
+  const book = featuredBook(featured!);
+  assert.equal(book?.kind, "close");
+  assert.equal(book?.spread, 10.5);
+  assert.equal(book?.total, "51.5");
+  assert.equal(favoriteLine("Pitt", "Syracuse", book?.spread ?? 0), "Pitt −10.5");
 });
 
 test("Week 3 board featured does not invent a pin when the slate is empty", () => {

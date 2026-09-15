@@ -34,6 +34,13 @@ export const WEEK2_FEATURED_ALT = {
   awaySlug: "oklahoma",
 } as const;
 
+/** Thursday night ESPN: Syracuse at Pittsburgh. Research Week 3 featured card. */
+export const WEEK3_FEATURED = {
+  id: 97,
+  homeSlug: "pittsburgh",
+  awaySlug: "syracuse",
+} as const;
+
 /**
  * Pre-kick Thursday books for Colorado at GT. Used only when the row has no
  * stamped close. After kick the close is Georgia Tech −6.5 / 50.5 on games.vegas_*.
@@ -96,7 +103,8 @@ export function selectFeaturedKick<
  * Board featured for the live chrome week.
  * Week 2 Research pins (Ohio State @ Texas, Oklahoma @ Michigan) stay as
  * historical helpers only — those rows are FINAL and must not feature.
- * Week 3: next upcoming FBS kick on the week-3 slate. No invented pin.
+ * Week 3: next upcoming FBS kick on the week-3 slate (Research featured is
+ * Syracuse @ Pittsburgh, hashmark_id 97 — earliest stamped kick). No invented pin.
  * Never a FINAL. Never FCS. Never invent a book or matchup.
  */
 export function selectBoardFeaturedKick<

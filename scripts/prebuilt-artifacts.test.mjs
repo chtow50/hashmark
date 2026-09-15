@@ -124,6 +124,16 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /Top 25 closer 12\/19/);
   });
 
+  it("includes Week 3 FBS–FBS Research kick/TV/Vegas stamps in committed output", () => {
+    const text = corpus();
+    assert.match(text, /0029_week3_kick_tv_vegas/);
+    assert.match(text, /week3_stamp_compact_2026/);
+    assert.match(text, /timestamptz '2026-09-17 18:30:00-05'/);
+    assert.match(text, /h\.slug = 'pittsburgh' then 10\.5 else -10\.5/);
+    assert.match(text, /h\.slug = 'wake-forest' then -20\.5 else 20\.5/);
+    assert.match(text, /Syracuse @ Pittsburgh/);
+  });
+
   it("includes Week 2 O/D + HX 2026.4 stamp and Week 3 chrome in committed output", () => {
     const text = corpus();
     assert.match(text, /0028_week2_od_hx_ship/);
