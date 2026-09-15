@@ -51,9 +51,10 @@ describe("LEAN polish gates", () => {
     assert.match(src, /Top 25 · HX or last stamped AP/);
   });
 
-  it("sitemap lists /edge, /desk, and Week 2 tape on hashmarkcfb.com", () => {
+  it("sitemap lists /edge, /edge/board, /desk, and Week 2 tape on hashmarkcfb.com", () => {
     const xml = read("public/sitemap.xml");
     assert.match(xml, /https:\/\/hashmarkcfb\.com\/edge</);
+    assert.match(xml, /https:\/\/hashmarkcfb\.com\/edge\/board</);
     assert.match(xml, /https:\/\/hashmarkcfb\.com\/desk</);
     assert.match(xml, /https:\/\/hashmarkcfb\.com\/stories\/week-2-tape</);
     assert.doesNotMatch(xml, /localhost/);

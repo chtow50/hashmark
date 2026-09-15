@@ -1,0 +1,30 @@
+{
+  "contract_version": "2026.09.14",
+  "product": "hx_edge_scenario_sim",
+  "n_sims": 10000,
+  "seed": 20260913,
+  "hx_stamp": "HX 2026.4",
+  "hx_ship_path": "week2_od_hx_ship_2026.json",
+  "overrides": [
+    {
+      "type": "force_winner",
+      "espn_event_id": "401856700",
+      "week": 4,
+      "home_slug": "georgia",
+      "away_slug": "oklahoma",
+      "winner_slug": "oklahoma",
+      "note": "golden smoke — force Oklahoma @ Georgia week 4 (remaining non-FINAL)"
+    },
+    {
+      "type": "hx_bump",
+      "team_slug": "oregon",
+      "delta_hx": -0.25,
+      "note": "user scenario — not a live board rewrite"
+    }
+  ],
+  "return": {
+    "teams": ["georgia", "oklahoma", "oregon", "ohio-state", "michigan"],
+    "include_full_board": false,
+    "include_baseline_delta": true
+  }
+}

@@ -187,9 +187,27 @@ describe("prebuilt deploy artifacts", () => {
       .filter((p) => /\.js$/.test(p))
       .map((p) => readFileSync(p, "utf8"))
       .join("\n");
-    assert.doesNotMatch(client, /hx_edge_confidence_schema_2026/);
     assert.doesNotMatch(client, /SAMPLE_5/);
+    assert.doesNotMatch(client, /pack_body_paste/);
+    assert.doesNotMatch(client, /hx_edge_pack_week3_sample_thickened_2026/);
     assert.match(client, /\/edge\/unlock|edge\/unlock/);
+    assert.match(client, /hx_edge_confidence_schema_2026|hx_edge_card_confidence/);
+  });
+
+  it("includes Scenario Sim preview route and Edge Board v1 without live-interactive marketing", () => {
+    const text = corpus();
+    assert.match(text, /Scenario Sim \(preview \/ offline\)/);
+    assert.match(text, /\/edge\/sim/);
+    assert.match(text, /\/edge\/board/);
+    assert.match(text, /demo fixture — CLI not wired/);
+    assert.match(text, /Monte Carlo ± noise on 10k draws; not a lock/);
+    assert.match(text, /401856700/);
+    assert.match(text, /52\.4/);
+    assert.match(text, /hx_edge_card_confidence/);
+    assert.match(text, /card\.demo_label|EXAMPLE \/ schema demo/);
+    assert.doesNotMatch(text, /live interactive sim/i);
+    assert.doesNotMatch(text, /Open Scenario Sim \(preview\)/);
+    assert.doesNotMatch(text, /waitlist/i);
   });
 
   it("keeps PGLite wasm sidecars next to the server bundle", () => {
