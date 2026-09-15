@@ -1,5 +1,4 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
 import { PageHead, Panel } from "@/components/shell";
 import { StateMosaic } from "@/components/state-mosaic";
 import { TeamSwatch } from "@/components/marks";
@@ -9,35 +8,31 @@ import type { StateCommit } from "@/lib/cfb/types";
 
 type Search = { code?: string };
 
+function parseStateCode(value: unknown): string {
+  if (typeof value === "string" && /^[A-Za-z]{2}$/.test(value)) return value.toUpperCase();
+  return "TX";
+}
+
 export const Route = createFileRoute("/states")({
   validateSearch: (s: Record<string, unknown>): Search => ({
-    code: typeof s.code === "string" ? s.code.toUpperCase() : "TX",
+    code: parseStateCode(s.code),
   }),
-  loader: () => listStates(),
+  loaderDeps: ({ search }) => ({ code: search.code ?? "TX" }),
+  loader: async ({ deps }) => {
+    const code = deps.code;
+    const [states, detail] = await Promise.all([
+      listStates(),
+      getStateDetail({ data: { code } }),
+    ]);
+    return { states, detail, code };
+  },
   component: StatesPage,
   head: () => ({ meta: [{ title: "States · HASHMARK" }] }),
 });
 
 function StatesPage() {
-  const states = Route.useLoaderData();
-  const search = Route.useSearch();
+  const { states, detail, code } = Route.useLoaderData();
   const navigate = Route.useNavigate();
-  const code = search.code ?? "TX";
-  const [detail, setDetail] = useState<{
-    state: (typeof states)[number] | null;
-    teams: { slug: string; name: string; conference: string; city: string; color_primary: string; hx_rank: number; mascot: string }[];
-    commits: StateCommit[];
-  } | null>(null);
-
-  useEffect(() => {
-    let live = true;
-    getStateDetail({ data: { code } }).then((d) => {
-      if (live) setDetail(d);
-    });
-    return () => {
-      live = false;
-    };
-  }, [code]);
 
   function select(next: string) {
     navigate({ search: { code: next } });
@@ -59,9 +54,9 @@ function StatesPage() {
       <div className="grid gap-6 lg:grid-cols-2">
         <Panel>
           <h2 className="font-display text-2xl tracking-wide">
-            {detail?.state?.name ?? code}
+            {detail.state?.name ?? code}
           </h2>
-          {detail?.state ? (
+          {detail.state ? (
             <dl className="mt-4 grid grid-cols-2 gap-4 text-sm">
               <div>
                 <dt className="text-[11px] uppercase tracking-[0.14em] text-faint">Recruits</dt>
@@ -81,10 +76,10 @@ function StatesPage() {
               </div>
             </dl>
           ) : (
-            <p className="mt-3 text-sm text-muted">Loading pipeline…</p>
+            <p className="mt-3 text-sm text-muted">No pipeline on the desk for this state.</p>
           )}
 
-          {detail && detail.teams.length > 0 ? (
+          {detail.teams.length > 0 ? (
             <div className="mt-6">
               <h3 className="text-[11px] uppercase tracking-[0.14em] text-faint">Programs in state</h3>
               <ul className="mt-2">
@@ -105,69 +100,90 @@ function StatesPage() {
                 ))}
               </ul>
             </div>
+          ) : detail.state ? (
+            <p className="mt-6 text-sm text-muted">No FBS programs in {detail.state.name}.</p>
           ) : null}
         </Panel>
 
         <Panel>
           <h2 className="font-display text-2xl tracking-wide">Who signed them</h2>
           <p className="mt-1 mb-4 text-sm text-muted">Tracked starters whose hometown is {code}.</p>
-          <ul>
-            {(detail?.commits ?? []).map((c) => (
-              <li key={c.teamSlug} className="flex items-center justify-between gap-3 border-b border-line py-2.5 last:border-0">
-                <Link
-                  to="/teams/$slug"
-                  params={{ slug: c.teamSlug }}
-                  className="flex min-h-11 items-center gap-2.5"
-                >
-                  <TeamSwatch color={c.colorPrimary} />
-                  <span>
-                    <span className="block font-medium">{c.teamName}</span>
-                    <span className="block text-xs text-muted">{c.conference}</span>
-                  </span>
-                </Link>
-                <span className="tabular text-sm">{c.commits}</span>
-              </li>
-            ))}
-          </ul>
+          {detail.commits.length > 0 ? (
+            <CommitList commits={detail.commits} />
+          ) : (
+            <p className="text-sm text-muted">No tracked starters from {code} on the desk.</p>
+          )}
         </Panel>
       </div>
 
-      <Panel className="mt-6 overflow-hidden p-0 sm:p-0">
-        <div className="overflow-x-auto">
-          <table className="w-full min-w-[560px] text-left text-sm">
-            <thead>
-              <tr className="border-b border-line text-[11px] uppercase tracking-[0.12em] text-faint">
-                <th className="px-4 py-3 font-medium">State</th>
-                <th className="px-3 py-3 font-medium">Region</th>
-                <th className="px-3 py-3 font-medium">Recruits</th>
-                <th className="px-3 py-3 font-medium">5-st</th>
-                <th className="px-3 py-3 font-medium">Avg</th>
-                <th className="px-3 py-3 font-medium">Index</th>
-              </tr>
-            </thead>
-            <tbody>
-              {states.map((s) => (
-                <tr
-                  key={s.code}
-                  className="cursor-pointer border-b border-line last:border-0 hover:bg-raised/60"
-                  onClick={() => select(s.code)}
-                >
-                  <td className="px-4 py-3">
-                    <button type="button" className="min-h-11 text-left font-medium">
-                      {s.name} <span className="text-faint">{s.code}</span>
-                    </button>
-                  </td>
-                  <td className="px-3 py-3 text-muted">{s.region}</td>
-                  <td className="px-3 py-3 tabular">{s.recruits}</td>
-                  <td className="px-3 py-3 tabular">{s.fiveStars}</td>
-                  <td className="px-3 py-3 tabular">{fmtNum(s.avgRating, 1)}</td>
-                  <td className="px-3 py-3 tabular">{fmtNum(s.talentIndex, 1)}</td>
+      {states.length === 0 ? (
+        <Panel className="mt-6">
+          <p className="font-display text-2xl tracking-wide">Pipeline empty</p>
+          <p className="mt-2 text-sm leading-relaxed text-muted">
+            State rows did not load. The mosaic and table stay blank until the desk has pipeline data.
+          </p>
+        </Panel>
+      ) : (
+        <Panel className="mt-6 overflow-hidden p-0 sm:p-0">
+          <div className="overflow-x-auto">
+            <table className="w-full min-w-[560px] text-left text-sm">
+              <thead>
+                <tr className="border-b border-line text-[11px] uppercase tracking-[0.12em] text-faint">
+                  <th className="px-4 py-3 font-medium">State</th>
+                  <th className="px-3 py-3 font-medium">Region</th>
+                  <th className="px-3 py-3 font-medium">Recruits</th>
+                  <th className="px-3 py-3 font-medium">5-st</th>
+                  <th className="px-3 py-3 font-medium">Avg</th>
+                  <th className="px-3 py-3 font-medium">Index</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </Panel>
+              </thead>
+              <tbody>
+                {states.map((s) => (
+                  <tr
+                    key={s.code}
+                    className="cursor-pointer border-b border-line last:border-0 hover:bg-raised/60"
+                    onClick={() => select(s.code)}
+                  >
+                    <td className="px-4 py-3">
+                      <button type="button" className="min-h-11 text-left font-medium">
+                        {s.name} <span className="text-faint">{s.code}</span>
+                      </button>
+                    </td>
+                    <td className="px-3 py-3 text-muted">{s.region}</td>
+                    <td className="px-3 py-3 tabular">{s.recruits}</td>
+                    <td className="px-3 py-3 tabular">{s.fiveStars}</td>
+                    <td className="px-3 py-3 tabular">{fmtNum(s.avgRating, 1)}</td>
+                    <td className="px-3 py-3 tabular">{fmtNum(s.talentIndex, 1)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </Panel>
+      )}
     </div>
+  );
+}
+
+function CommitList({ commits }: { commits: StateCommit[] }) {
+  return (
+    <ul>
+      {commits.map((c) => (
+        <li key={c.teamSlug} className="flex items-center justify-between gap-3 border-b border-line py-2.5 last:border-0">
+          <Link
+            to="/teams/$slug"
+            params={{ slug: c.teamSlug }}
+            className="flex min-h-11 items-center gap-2.5"
+          >
+            <TeamSwatch color={c.colorPrimary} />
+            <span>
+              <span className="block font-medium">{c.teamName}</span>
+              <span className="block text-xs text-muted">{c.conference}</span>
+            </span>
+          </Link>
+          <span className="tabular text-sm">{c.commits}</span>
+        </li>
+      ))}
+    </ul>
   );
 }

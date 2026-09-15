@@ -3,7 +3,7 @@ import { useMemo, useState, type ReactNode } from "react";
 import { ConfPills, PageHead, Panel } from "@/components/shell";
 import { DeltaChip, RankNum, TeamMark, TeamSwatch } from "@/components/marks";
 import { inConf, parseConf, type ConfFilter } from "@/lib/cfb/conferences";
-import { BOARD_WEEK } from "@/lib/cfb/featured";
+import { BOARD_WEEK, AP_STAMP } from "@/lib/cfb/featured";
 import { MODEL } from "@/lib/cfb/model";
 import { listTeams } from "@/lib/cfb/queries";
 import { formatSeasonRecord } from "@/lib/cfb/season-record";
@@ -32,9 +32,9 @@ type SortKey =
   | "talentScore"
   | "recRank";
 
-/** Rank col is w-16; Team sticks at that offset so names never slide under Off/Def. */
+/** Rank col is w-16; Team sticks at that offset so names never slide under AP. */
 const STICKY_RANK = "sticky left-0 z-20 w-16 min-w-16 bg-surface";
-const STICKY_TEAM = "sticky left-16 z-20 min-w-52 border-r border-line bg-surface";
+const STICKY_TEAM = "sticky left-16 z-20 min-w-36 border-r border-line bg-surface sm:min-w-52";
 
 function RankingsPage() {
   const teams = Route.useLoaderData();
@@ -66,7 +66,7 @@ function RankingsPage() {
       <PageHead
         kicker={`Week ${BOARD_WEEK} · HX ${MODEL.version}`}
         title="Power rankings"
-        lede="Every FBS program, ranked by HX. Talent is listed two-deep composite, not class rank — TWO·DEEP / 247. Talent and prior-year SP+/Elo/SRS carry the real signal. Make 12 is make-field, not title odds; projected wins are Elo vs the 2026 slate. AP is Week 1 AP (Sept. 8)."
+        lede={`Every FBS program, ranked by HX. Talent is listed two-deep composite, not class rank — TWO·DEEP / 247. Talent and prior-year SP+/Elo/SRS carry the real signal. Make 12 is make-field, not title odds; projected wins are Elo vs the 2026 slate. ${AP_STAMP.lede}`}
       />
 
       <ConfPills
@@ -78,81 +78,91 @@ function RankingsPage() {
         {filtered.length} of {teams.length}
         {conf !== "All" ? ` · ${conf}` : ""}
       </p>
+      <p className="mb-2 text-xs text-faint sm:hidden">Swipe → AP stays with HX · Rating · Make 12</p>
 
       <Panel className="overflow-hidden p-0 sm:p-0">
-        <div className="overflow-x-auto">
-          <table className="w-full min-w-[760px] border-separate border-spacing-0 text-left text-sm">
-            <thead>
-              <tr className="text-[11px] uppercase tracking-[0.12em] text-faint">
-                <Th
-                  onClick={() => toggle("hxRank")}
-                  active={sort === "hxRank"}
-                  className={cn(STICKY_RANK, "z-30 border-b border-line px-4")}
-                >
-                  HX
-                </Th>
-                <th className={cn(STICKY_TEAM, "z-30 border-b border-line px-3 py-3 font-medium")}>
-                  Team
-                </th>
-                <Th onClick={() => toggle("hxRating")} active={sort === "hxRating"} className="border-b border-line">
-                  Rating
-                </Th>
-                <Th onClick={() => toggle("apRank")} active={sort === "apRank"} className="border-b border-line">
-                  AP
-                </Th>
-                <th className="border-b border-line px-3 py-3 font-medium">Off / Def</th>
-                <Th onClick={() => toggle("projectedWins")} active={sort === "projectedWins"} className="border-b border-line">
-                  Proj W
-                </Th>
-                <Th onClick={() => toggle("makeField")} active={sort === "makeField"} className="border-b border-line">
-                  Make 12
-                </Th>
-                <Th onClick={() => toggle("talentScore")} active={sort === "talentScore"} className="border-b border-line">
-                  <span className="block">Talent</span>
-                  <span className="mt-0.5 block text-[10px] font-normal normal-case tracking-[0.08em] text-faint">
-                    two-deep
-                  </span>
-                </Th>
-              </tr>
-            </thead>
-            <tbody>
-              {filtered.map((t) => (
-                <tr key={t.slug} className="group last:[&>td]:border-b-0 hover:bg-raised/60">
-                  <td className={cn(STICKY_RANK, "border-b border-line px-4 py-3 group-hover:bg-raised")}>
-                    <RankNum rank={t.hxRank} className="text-xl text-fg" />
-                  </td>
-                  <td className={cn(STICKY_TEAM, "border-b border-line px-3 py-3 group-hover:bg-raised")}>
-                    <Link
-                      to="/teams/$slug"
-                      params={{ slug: t.slug }}
-                      className="flex min-h-11 items-center gap-2.5"
-                    >
-                      <TeamMark slug={t.slug} color={t.colorPrimary} />
-                      <span>
-                        <span className="block whitespace-nowrap font-medium">{t.name}</span>
-                        <span className="block whitespace-nowrap text-xs text-muted">
-                          {t.conference} · {formatSeasonRecord(t.seasonWins, t.seasonLosses)}
-                        </span>
-                      </span>
-                    </Link>
-                  </td>
-                  <td className="border-b border-line px-3 py-3 tabular">{fmtNum(t.hxRating, 2)}</td>
-                  <td className="border-b border-line px-3 py-3">
-                    <div className="tabular">{t.apRank ?? "NR"}</div>
-                    <DeltaChip hxRank={t.hxRank} apRank={t.apRank} />
-                  </td>
-                  <td className="border-b border-line px-3 py-3 tabular text-muted">
-                    {fmtNum(t.offenseRating, 1)} / {fmtNum(t.defenseRating, 1)}
-                  </td>
-                  <td className="border-b border-line px-3 py-3 tabular">{fmtNum(t.projectedWins, 1)}</td>
-                  <td className="border-b border-line px-3 py-3 tabular">
-                    {fmtPct(make12FromSim(t.slug, t).makeField ?? t.playoffOdds, 1)}
-                  </td>
-                  <td className="border-b border-line px-3 py-3 tabular">{fmtNum(t.talentScore, 1)}</td>
+        <div className="relative">
+          <div className="overflow-x-auto">
+            <table className="w-full min-w-[760px] border-separate border-spacing-0 text-left text-sm">
+              <thead>
+                <tr className="text-[11px] uppercase tracking-[0.12em] text-faint">
+                  <Th
+                    onClick={() => toggle("hxRank")}
+                    active={sort === "hxRank"}
+                    className={cn(STICKY_RANK, "z-30 border-b border-line px-4")}
+                  >
+                    HX
+                  </Th>
+                  <th className={cn(STICKY_TEAM, "z-30 border-b border-line px-3 py-3 font-medium")}>
+                    Team
+                  </th>
+                  <Th onClick={() => toggle("apRank")} active={sort === "apRank"} className="border-b border-line">
+                    <span className="block">AP</span>
+                    <span className="mt-0.5 block text-[10px] font-normal normal-case tracking-[0.08em] text-faint">
+                      {AP_STAMP.columnHint}
+                    </span>
+                  </Th>
+                  <Th onClick={() => toggle("hxRating")} active={sort === "hxRating"} className="border-b border-line">
+                    Rating
+                  </Th>
+                  <th className="hidden border-b border-line px-3 py-3 font-medium md:table-cell">Off / Def</th>
+                  <Th onClick={() => toggle("projectedWins")} active={sort === "projectedWins"} className="hidden border-b border-line md:table-cell">
+                    Proj W
+                  </Th>
+                  <Th onClick={() => toggle("makeField")} active={sort === "makeField"} className="border-b border-line">
+                    Make 12
+                  </Th>
+                  <Th onClick={() => toggle("talentScore")} active={sort === "talentScore"} className="border-b border-line">
+                    <span className="block">Talent</span>
+                    <span className="mt-0.5 block text-[10px] font-normal normal-case tracking-[0.08em] text-faint">
+                      two-deep
+                    </span>
+                  </Th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {filtered.map((t) => (
+                  <tr key={t.slug} className="group last:[&>td]:border-b-0 hover:bg-raised/60">
+                    <td className={cn(STICKY_RANK, "border-b border-line px-4 py-3 group-hover:bg-raised")}>
+                      <RankNum rank={t.hxRank} className="text-xl text-fg" />
+                    </td>
+                    <td className={cn(STICKY_TEAM, "border-b border-line px-3 py-3 group-hover:bg-raised")}>
+                      <Link
+                        to="/teams/$slug"
+                        params={{ slug: t.slug }}
+                        className="flex min-h-11 items-center gap-2.5"
+                      >
+                        <TeamMark slug={t.slug} color={t.colorPrimary} />
+                        <span>
+                          <span className="block whitespace-nowrap font-medium">{t.name}</span>
+                          <span className="block whitespace-nowrap text-xs text-muted">
+                            {t.conference} · {formatSeasonRecord(t.seasonWins, t.seasonLosses)}
+                          </span>
+                        </span>
+                      </Link>
+                    </td>
+                    <td className="border-b border-line px-3 py-3">
+                      <div className="tabular">{t.apRank ?? "NR"}</div>
+                      <DeltaChip hxRank={t.hxRank} apRank={t.apRank} />
+                    </td>
+                    <td className="border-b border-line px-3 py-3 tabular">{fmtNum(t.hxRating, 2)}</td>
+                    <td className="hidden border-b border-line px-3 py-3 tabular text-muted md:table-cell">
+                      {fmtNum(t.offenseRating, 1)} / {fmtNum(t.defenseRating, 1)}
+                    </td>
+                    <td className="hidden border-b border-line px-3 py-3 tabular md:table-cell">{fmtNum(t.projectedWins, 1)}</td>
+                    <td className="border-b border-line px-3 py-3 tabular">
+                      {fmtPct(make12FromSim(t.slug, t).makeField ?? t.playoffOdds, 1)}
+                    </td>
+                    <td className="border-b border-line px-3 py-3 tabular">{fmtNum(t.talentScore, 1)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-surface to-transparent sm:hidden"
+          />
         </div>
       </Panel>
     </div>

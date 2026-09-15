@@ -16,7 +16,9 @@ export function DisagreementCard({ rows }: { rows: BoardGapRow[] }) {
   return (
     <Panel>
       <h2 className="font-display text-2xl tracking-wide">Where HX disagrees</h2>
-      <p className="mt-1 mb-4 text-sm text-muted">Largest gaps versus Week 1 AP — not the preseason ballot.</p>
+      <p className="mt-1 mb-4 text-sm text-muted">
+        Largest gaps versus last stamped AP (Week 1, Sept. 8) — HX is Week 3. Not the preseason ballot.
+      </p>
       <ul>
         {rows.map((row) => (
           <li

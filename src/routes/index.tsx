@@ -7,6 +7,7 @@ import { AccountabilityCard, DisagreementCard } from "@/components/truth-pack";
 import { DeltaChip, RankNum, Stat, TeamLink, TeamMark, WinBar } from "@/components/marks";
 import { formatKickCt, formatKickDayTitle } from "@/lib/cfb/chicago";
 import {
+  AP_STAMP,
   BOARD_WEEK,
   FEATURED_SLATE_WEEK,
   favoriteLine,
@@ -77,10 +78,8 @@ function Home() {
       <PageHead
         kicker={`Week ${BOARD_WEEK} · HX ${MODEL.version}`}
         title={`Week ${BOARD_WEEK} board`}
-        lede="HASHMARK runs a single rating — HX — from recruiting talent, last year’s SP+/Elo/SRS, four-year win trend, returning production, and portal net. Full 136 FBS. The AP column is Week 1 AP (Sept. 8)."
+        lede={`HASHMARK runs a single rating — HX — from recruiting talent, last year’s SP+/Elo/SRS, four-year win trend, returning production, and portal net. Full 136 FBS. ${AP_STAMP.lede}`}
       />
-
-      <EdgePackStrip />
 
       {one ? (
         <Panel className="enter">
@@ -105,7 +104,7 @@ function Home() {
             </div>
             <div className="grid grid-cols-3 gap-3 sm:gap-6">
               <Stat label="HX" value={fmtNum(one.hxRating, 2)} />
-              <Stat label="AP" value={apLabel(one.apRank)} />
+              <Stat label="AP" value={apLabel(one.apRank)} hint={AP_STAMP.columnHint} />
               <Stat
                 label="Make 12"
                 value={oneMake?.makeField != null ? fmtPct(oneMake.makeField, 1) : fmtPct(one.playoffOdds, 0)}
@@ -149,7 +148,9 @@ function Home() {
         </div>
       </div>
 
-          <AccountabilityCard tape={tape} top25={top25} season={season} flags={flags} />
+      <EdgePackStrip compact paid />
+
+      <AccountabilityCard tape={tape} top25={top25} season={season} flags={flags} />
 
       <Panel>
         <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-baseline sm:justify-between">

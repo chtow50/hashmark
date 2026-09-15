@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://hashmarkcfb.com</loc></url>
+  <url><loc>https://hashmarkcfb.com/edge</loc></url>
+  <url><loc>https://hashmarkcfb.com/desk</loc></url>
   <url><loc>https://hashmarkcfb.com/schedule</loc></url>
   <url><loc>https://hashmarkcfb.com/stories</loc></url>
   <url><loc>https://hashmarkcfb.com/rankings</loc></url>
@@ -14,6 +16,7 @@
   <url><loc>https://hashmarkcfb.com/recruiting?year=2024</loc></url>
   <url><loc>https://hashmarkcfb.com/recruiting?year=2025</loc></url>
   <url><loc>https://hashmarkcfb.com/recruiting?year=2026</loc></url>
+  <url><loc>https://hashmarkcfb.com/stories/week-2-tape</loc></url>
   <url><loc>https://hashmarkcfb.com/stories/week-1-lsu-clemson-gap</loc></url>
   <url><loc>https://hashmarkcfb.com/stories/week-1-georgia-hx-one</loc></url>
   <url><loc>https://hashmarkcfb.com/stories/week-1-miami-stanford-gap</loc></url>

@@ -149,10 +149,10 @@ describe("schedule-filter", () => {
     assert.equal(accOnly.length, 0);
   });
 
-  it("defaults the slate to Top 25", () => {
-    assert.equal(parseScheduleView(undefined), "top25");
-    assert.equal(parseScheduleView("top25"), "top25");
+  it("defaults the slate to All FBS", () => {
+    assert.equal(parseScheduleView(undefined), "all");
     assert.equal(parseScheduleView("all"), "all");
+    assert.equal(parseScheduleView("top25"), "top25");
     assert.equal(parseScheduleView("conf"), "conf");
   });
 

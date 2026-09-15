@@ -224,7 +224,7 @@ describe("Week 2 FBS–FCS JSON ingest", () => {
     assert.match(src, /Vegas-only/);
     assert.match(src, /isVegasOnlyFcs/);
     assert.match(src, /parseScheduleView/);
-    assert.match(src, /view !== "top25"/);
+    assert.match(src, /view !== "all"/);
   });
 
   it("sorts by civil day, then kick; untimed after timed on that day", () => {

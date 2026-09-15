@@ -23,9 +23,9 @@ import { cn, fmtPct } from "@/lib/utils";
 type Search = { w?: number; view?: ScheduleView; conf?: ConfFilter };
 
 const VIEW_OPTIONS: { key: ScheduleView; label: string }[] = [
+  { key: "all", label: "All FBS" },
   { key: "top25", label: "Top 25" },
   { key: "conf", label: "Conference" },
-  { key: "all", label: "All FBS" },
 ];
 
 function parseWeek(v: unknown): number | undefined {
@@ -43,7 +43,7 @@ function defaultWeek(ymd: string): number {
 
 function searchForView(view: ScheduleView, conf: ConfFilter, week: number) {
   const base: Search = { w: week === defaultWeek(todayChicago()) ? undefined : week };
-  if (view !== "top25") base.view = view;
+  if (view !== "all") base.view = view;
   if (view === "conf" && conf !== "All") base.conf = conf;
   return base;
 }
@@ -55,7 +55,7 @@ export const Route = createFileRoute("/schedule")({
     const conf = parseConf(s.conf);
     return {
       ...(w !== undefined ? { w } : {}),
-      ...(view !== "top25" ? { view } : {}),
+      ...(view !== "all" ? { view } : {}),
       ...(view === "conf" && conf !== "All" ? { conf } : {}),
     };
   },
@@ -84,7 +84,7 @@ function SchedulePage() {
     if (view === "top25") {
       return {
         title: "No Top 25 games this week",
-        body: "Nothing on the slate matches a team in the HX or Week 1 AP Top 25. Try All FBS or pick another week.",
+        body: "Nothing on the slate matches a team in the HX or last stamped AP Top 25. Try All FBS or pick another week.",
       };
     }
     if (view === "conf" && conf !== "All") {
@@ -147,7 +147,7 @@ function SchedulePage() {
 
       <p className="mb-4 text-xs tabular text-faint">
         {filtered.length} of {games.length} games
-        {view === "top25" ? " · Top 25" : null}
+        {view === "top25" ? " · Top 25 · HX or last stamped AP" : null}
         {view === "conf" && conf !== "All" ? ` · ${conf}` : null}
         {view === "all" ? " · All FBS" : null}
       </p>
