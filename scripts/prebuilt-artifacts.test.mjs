@@ -147,16 +147,23 @@ describe("prebuilt deploy artifacts", () => {
     assert.doesNotMatch(text, /The board is posted/);
   });
 
-  it("includes HX Edge Pack /edge with no week→month checkout fallback", () => {
+  it("includes HX Edge Pack /edge with baked Stripe Payment Links", () => {
     const text = corpus();
     assert.match(text, /HX Edge Pack/);
     assert.match(text, /\$9 Week sample/);
     assert.match(text, /\$29\/mo/);
     assert.match(text, /createFileRoute\("\/edge"\)|path:"\/edge"|id:"\/edge"|to:"\/edge"/);
-    assert.match(text, /#checkout-pending/);
+    assert.match(text, /buy\.stripe\.com\/6oUdRa0caaQV1wQ5kqdUY01/);
+    assert.match(text, /buy\.stripe\.com\/eVqaEY9MK0cha3meV0dUY00/);
+    // Isolation: week still reads only WEEK_URL (no monthly fallback).
     assert.match(text, /VITE_EDGE_CHECKOUT_WEEK_URL/);
     assert.match(text, /VITE_EDGE_CHECKOUT_URL/);
-    assert.doesNotMatch(text, /buy\.stripe\.com|checkout\.stripe\.com/);
+    // Fallback hash remains for unset-env, but week Buy is not left on it.
+    assert.match(text, /#checkout-pending/);
+    assert.match(
+      text,
+      /VITE_EDGE_CHECKOUT_WEEK_URL[`"']?:[`"']https:\/\/buy\.stripe\.com\/6oUdRa0caaQV1wQ5kqdUY01/,
+    );
   });
 
   it("keeps PGLite wasm sidecars next to the server bundle", () => {
