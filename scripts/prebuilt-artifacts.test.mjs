@@ -188,7 +188,7 @@ describe("prebuilt deploy artifacts", () => {
       .map((p) => readFileSync(p, "utf8"))
       .join("\n");
     assert.doesNotMatch(client, /hx_edge_confidence_schema_2026/);
-    assert.doesNotMatch(client, /SAMPLE_9/);
+    assert.doesNotMatch(client, /SAMPLE_5/);
     assert.match(client, /\/edge\/unlock|edge\/unlock/);
   });
 

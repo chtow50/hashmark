@@ -1,8 +1,8 @@
-# HX Edge Pack · Week 3 SAMPLE ($9) · HX 2026.4 · as_of 2026-09-14 CT
+# HX Edge Pack · Week 3 SAMPLE ($5) · HX 2026.4 · as_of 2026-09-14 CT
 
 **Product:** Model accountability brief for email delivery after Stripe purchase. **Not betting advice. No locks.**  
 **Stamp:** HX 2026.4 · Week 3 board · Website peer-cleared · Kick/TV/Vegas from ESPN/DraftKings CLEAR pack  
-**Price tier:** SAMPLE ($9)
+**Price tier:** SAMPLE ($5)
 
 ## Desk line
 
@@ -226,7 +226,7 @@ Research desk · not a sportsbook · HASHMARK does not take wagers.
 
 ## Pack body (paste)
 
-HASHMARK HX Edge Pack — Week 3 SAMPLE ($9)
+HASHMARK HX Edge Pack — Week 3 SAMPLE ($5)
 
 Lead the desk with the scorecard that holds: when a Top 25 team was on the card in Week 2, HX was closer to the final than Vegas 12 of 19 times (63.2%). That Top 25 closer slice is calibration ok under the Edge confidence schema (≥50%). Full-slate closer on all 47 FBS–FBS games was 20/47 (42.6%) — FLAG soft under the 45% threshold. Straight-up, HX went 37/47 (78.7%) on the Week 2 slate and 17/19 (89.5%) in the Top 25 cut. Top 25 MAE favored HX (10.81 vs Vegas 12.03). Season through Week 2: SU 81.1%, closer 44.4%. Board for Week 3 ships on HX 2026.4 (tape itself graded on pre-Δ HX 2026.3). Public tape: hashmarkcfb.com/stories/week-2-tape.
 
