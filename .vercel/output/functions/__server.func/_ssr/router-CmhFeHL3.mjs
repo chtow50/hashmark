@@ -867,7 +867,7 @@ function ConfPills({ value, to, searchFor }) {
 	});
 }
 //#endregion
-//#region node_modules/.nitro/vite/services/ssr/assets/featured-BE2CMLid.js
+//#region node_modules/.nitro/vite/services/ssr/assets/featured-CrMFSjwy.js
 /** Thursday night flag: Colorado at Georgia Tech, Bobby Dodd. */
 var WEEK1_FLAG = {
 	homeSlug: "georgia-tech",
@@ -914,7 +914,8 @@ function selectFeaturedKick(slate, nowMs) {
 * Board featured for the live chrome week.
 * Week 2 Research pins (Ohio State @ Texas, Oklahoma @ Michigan) stay as
 * historical helpers only — those rows are FINAL and must not feature.
-* Week 3: next upcoming FBS kick on the week-3 slate. No invented pin.
+* Week 3: next upcoming FBS kick on the week-3 slate (Research featured is
+* Syracuse @ Pittsburgh, hashmark_id 97 — earliest stamped kick). No invented pin.
 * Never a FINAL. Never FCS. Never invent a book or matchup.
 */
 function selectBoardFeaturedKick(slate, nowMs) {
@@ -1417,7 +1418,7 @@ function getStory(slug) {
 	return STORIES.find((s) => s.slug === slug) ?? null;
 }
 //#endregion
-//#region node_modules/.nitro/vite/services/ssr/assets/router-Bxvj8j2l.js
+//#region node_modules/.nitro/vite/services/ssr/assets/router-CmhFeHL3.js
 var __defProp = Object.defineProperty;
 var __exportAll = (all, no_symbols) => {
 	let target = {};
@@ -1845,7 +1846,7 @@ function Root() {
 		] })]
 	});
 }
-var $$splitComponentImporter$13 = () => import("./routes-CXmQ_FlN.mjs");
+var $$splitComponentImporter$13 = () => import("./routes-D0RGS1rD.mjs");
 var Route$13 = createFileRoute("/")({
 	loader: async () => {
 		const [teams, games, slate] = await Promise.all([
@@ -1881,13 +1882,13 @@ var Route$11 = createFileRoute("/edge")({
 		content: "HX Edge Pack is the weekly depth product: HX vs AP and market disagreements, flagged games, SU/closer tape, and short model notes. The public board stays free."
 	}] })
 });
-var $$splitComponentImporter$10 = () => import("./logos-k7_hplng.mjs");
+var $$splitComponentImporter$10 = () => import("./logos-D_mQsVv6.mjs");
 var Route$10 = createFileRoute("/logos")({
 	loader: async () => listTeams(),
 	component: lazyRouteComponent($$splitComponentImporter$10, "component"),
 	head: () => ({ meta: [{ title: "Team logos · HASHMARK" }] })
 });
-var $$splitComponentImporter$9 = () => import("./matchup-Cuxpz08L.mjs");
+var $$splitComponentImporter$9 = () => import("./matchup-C7lpU-sx.mjs");
 function parseNeutral(v) {
 	if (v === true || v === "1" || v === "true") return true;
 	if (v === false || v === "0" || v === "false") return false;
@@ -1922,7 +1923,7 @@ var Route$8 = createFileRoute("/model")({
 	component: lazyRouteComponent($$splitComponentImporter$8, "component"),
 	head: () => ({ meta: [{ title: "The Model · HASHMARK" }] })
 });
-var $$splitComponentImporter$7 = () => import("./rankings-C1_4Hc2Q.mjs");
+var $$splitComponentImporter$7 = () => import("./rankings-CEabAqMj.mjs");
 var Route$7 = createFileRoute("/rankings")({
 	validateSearch: (s) => {
 		const conf = parseConf(s.conf);
@@ -1939,7 +1940,7 @@ var YEARS = [
 	2025,
 	2026
 ];
-var $$splitComponentImporter$6 = () => import("./recruiting-BE315XlE.mjs");
+var $$splitComponentImporter$6 = () => import("./recruiting-BaqkDi2O.mjs");
 var Route$6 = createFileRoute("/recruiting")({
 	validateSearch: (s) => {
 		const y = Number(s.year);
@@ -1979,7 +1980,7 @@ function filterScheduleGames(games, teams, view, conf) {
 	const inConference = new Set(teams.filter((t) => inConf(t.conference, conf)).map((t) => t.slug));
 	return games.filter((g) => inConference.has(g.homeSlug) || inConference.has(g.awaySlug));
 }
-var $$splitComponentImporter$5 = () => import("./schedule-D6bR2TFI.mjs");
+var $$splitComponentImporter$5 = () => import("./schedule-CYToKWhQ.mjs");
 function parseWeek(v) {
 	const n = typeof v === "number" ? v : typeof v === "string" ? Number(v) : NaN;
 	if (!Number.isInteger(n) || n < 0 || n > 13) return void 0;
@@ -2018,20 +2019,20 @@ var Route$5 = createFileRoute("/schedule")({
 	component: lazyRouteComponent($$splitComponentImporter$5, "component"),
 	head: () => ({ meta: [{ title: "Schedule · HASHMARK" }] })
 });
-var $$splitComponentImporter$4 = () => import("./states-CwisMy7T.mjs");
+var $$splitComponentImporter$4 = () => import("./states-DXQtNc9i.mjs");
 var Route$4 = createFileRoute("/states")({
 	validateSearch: (s) => ({ code: typeof s.code === "string" ? s.code.toUpperCase() : "TX" }),
 	loader: () => listStates(),
 	component: lazyRouteComponent($$splitComponentImporter$4, "component"),
 	head: () => ({ meta: [{ title: "States · HASHMARK" }] })
 });
-var $$splitComponentImporter$3 = () => import("./stories-BT-p5Xtu.mjs");
+var $$splitComponentImporter$3 = () => import("./stories-DNLWhW0Y.mjs");
 var Route$3 = createFileRoute("/stories")({
 	loader: () => listStories(),
 	component: lazyRouteComponent($$splitComponentImporter$3, "component"),
 	head: () => ({ meta: [{ title: "Stories · HASHMARK" }] })
 });
-var $$splitComponentImporter$2 = () => import("./talent-DGHcnXF0.mjs");
+var $$splitComponentImporter$2 = () => import("./talent-BCBHJx0v.mjs");
 var Route$2 = createFileRoute("/talent")({
 	validateSearch: (s) => ({
 		board: s.board === "size" ? "size" : "composite",
@@ -2041,7 +2042,7 @@ var Route$2 = createFileRoute("/talent")({
 	component: lazyRouteComponent($$splitComponentImporter$2, "component"),
 	head: () => ({ meta: [{ title: "Roster Talent · HASHMARK" }] })
 });
-var $$splitComponentImporter$1 = () => import("./stories._slug-DmE2nTWu.mjs");
+var $$splitComponentImporter$1 = () => import("./stories._slug-BT3qVOsW.mjs");
 var Route$1 = createFileRoute("/stories/$slug")({
 	loader: ({ params }) => {
 		const story = getStory(params.slug);
@@ -2051,7 +2052,7 @@ var Route$1 = createFileRoute("/stories/$slug")({
 	component: lazyRouteComponent($$splitComponentImporter$1, "component"),
 	head: ({ loaderData }) => ({ meta: [{ title: loaderData ? `${loaderData.headline} · HASHMARK` : "Story · HASHMARK" }] })
 });
-var $$splitComponentImporter = () => import("./teams._slug-B7_ZKs2F.mjs");
+var $$splitComponentImporter = () => import("./teams._slug-0YytoGEA.mjs");
 var Route = createFileRoute("/teams/$slug")({
 	loader: async ({ params }) => {
 		const data = await getTeam({ data: { slug: params.slug } });

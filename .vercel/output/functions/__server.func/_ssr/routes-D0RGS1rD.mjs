@@ -1,11 +1,11 @@
 import { i as formatKickDayTitle, r as formatKickCt, s as predictMatchup, t as MODEL } from "./chicago-BYU7n4bi.mjs";
 import { S as require_jsx_runtime, y as Link } from "../_libs/@tanstack/react-router+[...].mjs";
 import { s as ArrowRight } from "../_libs/lucide-react.mjs";
-import { A as apLabel, D as PageHead, E as EdgePackStrip, F as fmtPct, O as Panel, P as fmtNum, _ as featuredBook, b as spreadGap, g as favoriteLine, j as cn, m as Route$13, v as featuredSlateWeek, x as Button } from "./router-Bxvj8j2l.mjs";
+import { A as apLabel, D as PageHead, E as EdgePackStrip, F as fmtPct, O as Panel, P as fmtNum, _ as featuredBook, b as spreadGap, g as favoriteLine, j as cn, m as Route$13, v as featuredSlateWeek, x as Button } from "./router-CmhFeHL3.mjs";
 import { c as Stat, f as WinBar, l as TeamLink, n as DeltaChip, o as RankNum, u as TeamMark } from "./marks-B21lB8re.mjs";
 import { n as formatSeasonRecord } from "./season-record-BNAp7shU.mjs";
 import { a as make12FromSim, c as odTermLabel, d as week2Tape, f as week2Top25Tape, l as week2BoardFlags, t as boardDisagreementRows, u as week2SeasonTape } from "./season-sim-BfATRojz.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/routes-CXmQ_FlN.js
+//#region node_modules/.nitro/vite/services/ssr/assets/routes-D0RGS1rD.js
 var import_jsx_runtime = require_jsx_runtime();
 function DisagreementCard({ rows }) {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Panel, { children: [

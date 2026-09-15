@@ -1,10 +1,10 @@
 import { o as __toESM } from "../_runtime.mjs";
 import { n as require_react } from "../_libs/@radix-ui/react-compose-refs+[...].mjs";
 import { S as require_jsx_runtime, y as Link } from "../_libs/@tanstack/react-router+[...].mjs";
-import { D as PageHead, L as inConf, O as Panel, P as fmtNum, S as ConfPills, j as cn, l as Route$6, u as YEARS } from "./router-Bxvj8j2l.mjs";
+import { D as PageHead, L as inConf, O as Panel, P as fmtNum, S as ConfPills, j as cn, l as Route$6, u as YEARS } from "./router-CmhFeHL3.mjs";
 import { a as RankMove, o as RankNum, s as RankSpark, u as TeamMark } from "./marks-B21lB8re.mjs";
 import { a as ratedStarCount, i as featuredByComposite, n as compareAvgSort, o as visibleClassAvg, t as COMPOSITE_SOURCE } from "./recruiting-B2tK2ji6.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/recruiting-BE315XlE.js
+//#region node_modules/.nitro/vite/services/ssr/assets/recruiting-BaqkDi2O.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 function RecruitingPage() {
