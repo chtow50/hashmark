@@ -115,6 +115,29 @@ var ChevronRight = createLucideIcon("chevron-right", [["path", {
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
+var Download = createLucideIcon("download", [
+	["path", {
+		d: "M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4",
+		key: "ih7n3h"
+	}],
+	["polyline", {
+		points: "7 10 12 15 17 10",
+		key: "2ggqvy"
+	}],
+	["line", {
+		x1: "12",
+		x2: "12",
+		y1: "15",
+		y2: "3",
+		key: "1vk2je"
+	}]
+]);
+/**
+* @license lucide-react v0.510.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
 var Menu = createLucideIcon("menu", [
 	["path", {
 		d: "M4 12h16",
@@ -178,4 +201,4 @@ var X = createLucideIcon("x", [["path", {
 	key: "d8bk6v"
 }]]);
 //#endregion
-export { ChevronRight as a, Menu as i, TriangleAlert as n, ChevronLeft as o, Search as r, ArrowRight as s, X as t };
+export { Download as a, ArrowRight as c, Menu as i, TriangleAlert as n, ChevronRight as o, Search as r, ChevronLeft as s, X as t };
