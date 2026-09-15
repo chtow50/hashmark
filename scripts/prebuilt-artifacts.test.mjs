@@ -159,6 +159,15 @@ describe("prebuilt deploy artifacts", () => {
     assert.doesNotMatch(text, /buy\.stripe\.com|checkout\.stripe\.com/);
   });
 
+  it("includes Scenario Sim preview route without live-interactive marketing", () => {
+    const text = corpus();
+    assert.match(text, /Scenario Sim \(preview\)/);
+    assert.match(text, /createFileRoute\("\/edge\/sim"\)|path:"\/edge\/sim"|id:"\/edge\/sim"|to:"\/edge\/sim"/);
+    assert.match(text, /demo fixture — CLI not wired/);
+    assert.match(text, /Monte Carlo ± noise on 10k draws; not a lock/);
+    assert.doesNotMatch(text, /live interactive sim/i);
+  });
+
   it("keeps PGLite wasm sidecars next to the server bundle", () => {
     const libs = join(OUT, "functions/__server.func/_libs");
     for (const name of ["pglite.wasm", "initdb.wasm", "pglite.data"]) {
