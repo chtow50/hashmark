@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Panel } from "@/components/shell";
 import { TeamLink } from "@/components/marks";
+import { AP_STAMP, BOARD_WEEK } from "@/lib/cfb/featured";
 import {
   odTermLabel,
   type BoardGapRow,
@@ -17,7 +18,7 @@ export function DisagreementCard({ rows }: { rows: BoardGapRow[] }) {
     <Panel>
       <h2 className="font-display text-2xl tracking-wide">Where HX disagrees</h2>
       <p className="mt-1 mb-4 text-sm text-muted">
-        Largest gaps versus last stamped AP (Week 1, Sept. 8) — HX is Week 3. Not the preseason ballot.
+        Largest gaps versus {AP_STAMP.vsHx} — HX is Week {BOARD_WEEK}. Not the preseason ballot.
       </p>
       <ul>
         {rows.map((row) => (
