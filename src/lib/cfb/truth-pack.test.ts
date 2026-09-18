@@ -28,36 +28,60 @@ import {
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "../../..");
 
-test("gaps JSON flags Virginia / Houston / LSU / Missouri / Texas Tech", () => {
-  const expected: Record<string, number> = {
-    Virginia: -20,
-    Houston: -18,
-    LSU: -11,
-    Missouri: 9,
-    "Texas Tech": 6,
+test("gaps JSON flags Virginia / Houston / LSU / Missouri / Texas Tech vs Week 3 AP", () => {
+  const expected: Record<string, { ap: number; hx: number; delta: number }> = {
+    Virginia: { ap: 25, hx: 45, delta: -20 },
+    Houston: { ap: 22, hx: 41, delta: -19 },
+    LSU: { ap: 7, hx: 19, delta: -12 },
+    Missouri: { ap: 20, hx: 14, delta: 6 },
+    "Texas Tech": { ap: 13, hx: 7, delta: 6 },
   };
   for (const name of DISAGREE_HIGHLIGHT_NAMES) {
     const g = gapByName(name);
     assert.ok(g, `missing gap ${name}`);
-    assert.equal(g.delta, expected[name], `${name} delta`);
+    assert.equal(g.ap, expected[name].ap, `${name} ap`);
+    assert.equal(g.hx, expected[name].hx, `${name} hx`);
+    assert.equal(g.delta, expected[name].delta, `${name} delta`);
     assert.equal(g.delta, g.ap - g.hx, `${name} delta must be ap − hx`);
   }
-  assert.match(hxApGaps.source_ap, /week1_ap/i);
+  assert.equal(hxApGaps.poll_week, 3);
+  assert.match(hxApGaps.source_ap, /week3_ap/i);
+  assert.doesNotMatch(hxApGaps.source_ap, /week1_ap/i);
   assert.doesNotMatch(hxApGaps.source_ap, /preseason/i);
+  const src = readFileSync(join(root, "src/lib/cfb/truth-pack.ts"), "utf8");
+  assert.match(src, /week3_hx_vs_ap_gaps_2026\.json/);
+  assert.doesNotMatch(src, /week1_hx_vs_ap_gaps_2026/);
 });
 
-test("recompute from Week 1 AP + HX ship matches AMD gaps file", () => {
-  const ap = JSON.parse(readFileSync(join(root, "data/week1_ap_top25_2026.json"), "utf8"));
-  const ship = JSON.parse(readFileSync(join(root, "data/week1_od_hx_ship_2026.json"), "utf8"));
+test("Week 3 ballot ranks on the disagreement card — not the Week 1 stamp", () => {
+  assert.equal(gapByName("LSU")?.ap, 7);
+  assert.equal(gapByName("Missouri")?.ap, 20);
+  assert.equal(gapByName("USC")?.ap, 12);
+  assert.equal(gapByName("Indiana")?.ap, 4);
+  assert.equal(gapByName("Washington"), undefined);
+  assert.equal(
+    hxApGaps.hx_not_in_ap.some((t) => t.name === "Washington" && t.hx_rank === 25),
+    true,
+  );
+  assert.notEqual(gapByName("LSU")?.ap, 8);
+  assert.notEqual(gapByName("Missouri")?.ap, 23);
+  assert.notEqual(gapByName("USC")?.ap, 14);
+  assert.notEqual(gapByName("Indiana")?.ap, 5);
+});
+
+test("recompute from Week 3 AP + HX 2026.4 ship matches gaps file", () => {
+  const ap = JSON.parse(readFileSync(join(root, "data/week3_ap_top25_2026.json"), "utf8"));
+  const ship = JSON.parse(readFileSync(join(root, "data/week2_od_hx_ship_2026.json"), "utf8"));
   const recomputed = recomputeHxVsApGaps(ap.teams, ship.teams);
-  for (const name of DISAGREE_HIGHLIGHT_NAMES) {
-    const fromFile = gapByName(name);
-    const fromRe = recomputed.find((g) => g.name === name);
-    assert.ok(fromFile && fromRe, name);
-    assert.equal(fromRe.ap, fromFile.ap, `${name} ap`);
-    assert.equal(fromRe.hx, fromFile.hx, `${name} hx`);
-    assert.equal(fromRe.delta, fromFile.delta, `${name} delta`);
+  for (const fromFile of hxApGaps.gaps) {
+    const fromRe = recomputed.find((g) => g.name === fromFile.name);
+    assert.ok(fromRe, fromFile.name);
+    assert.equal(fromRe.ap, fromFile.ap, `${fromFile.name} ap`);
+    assert.equal(fromRe.hx, fromFile.hx, `${fromFile.name} hx`);
+    assert.equal(fromRe.delta, fromFile.delta, `${fromFile.name} delta`);
   }
+  const washington = recomputed.find((g) => g.name === "Washington");
+  assert.equal(washington, undefined);
 });
 
 test("board card leads with the five flags, then remaining JSON gaps", () => {

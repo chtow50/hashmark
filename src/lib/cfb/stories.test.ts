@@ -2,6 +2,14 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { STORIES } from "./stories.ts";
 
+const WEEK3_FRIDAY = [
+  "week-3-houston-texas-tech",
+  "week-3-lsu-ole-miss",
+  "week-3-unc-clemson",
+  "week-3-usc-rutgers",
+  "week-3-indiana-wku",
+] as const;
+
 const WEEK1_FRIDAY = [
   "week-1-lsu-clemson-gap",
   "week-1-georgia-hx-one",
@@ -18,39 +26,94 @@ const SOURCED_CLOSES = [
   "Notre Dame −20.5",
 ] as const;
 
-test("Week 2 tape leads STORIES; Week 1 tape then Friday package follow", () => {
-  assert.equal(STORIES[0]?.slug, "week-2-tape");
-  assert.match(STORIES[0]?.headline ?? "", /37\/47/);
-  assert.match(STORIES[0]?.headline ?? "", /20\/47/);
-  assert.match(STORIES[0]?.headline ?? "", /FLAG/);
-  assert.match(STORIES[0]?.headline ?? "", /12\/19/);
-  assert.match(STORIES[0]?.dek ?? "", /12\/19/);
-  assert.match(STORIES[0]?.body.join("\n") ?? "", /78\.7%/);
-  assert.match(STORIES[0]?.body.join("\n") ?? "", /42\.6%/);
-  assert.match(STORIES[0]?.body.join("\n") ?? "", /81\.1%/);
-  assert.match(STORIES[0]?.body.join("\n") ?? "", /44\.4%/);
-  assert.match(STORIES[0]?.body.join("\n") ?? "", /63\.2%/);
-  assert.match(STORIES[0]?.body.join("\n") ?? "", /17\/19/);
-  assert.match(STORIES[0]?.body.join("\n") ?? "", /10\.81/);
-  assert.match(STORIES[0]?.body.join("\n") ?? "", /12\.03/);
-  assert.match(STORIES[0]?.body.join("\n") ?? "", /12\/18/);
-  assert.match(STORIES[0]?.body.join("\n") ?? "", /66\.7%/);
-  assert.match(STORIES[0]?.body.join("\n") ?? "", /Oregon @ OKST/);
-  assert.match(STORIES[0]?.body.join("\n") ?? "", /OSU @ Texas/);
-  assert.match(STORIES[0]?.whyItMatters ?? "", /12\/19/);
-  assert.match(STORIES[0]?.body.join("\n") ?? "", /pre-Δ/);
-  assert.match(STORIES[0]?.body.join("\n") ?? "", /2026\.3/);
-  assert.doesNotMatch(STORIES[0]?.body.join("\n") ?? "", /The board is posted/);
-  assert.doesNotMatch(STORIES[0]?.headline ?? "", /2026\.4/);
-  assert.doesNotMatch(STORIES[0]?.body.join("\n") ?? "", /FCS/);
-  assert.equal(STORIES[1]?.slug, "week-1-tape");
-  assert.match(STORIES[1]?.headline ?? "", /36\/43/);
-  assert.match(STORIES[1]?.headline ?? "", /20\/43/);
-  assert.match(STORIES[1]?.body.join("\n") ?? "", /term = O\/D/i);
+const WEEK3_SOURCED_CLOSES = [
+  "Texas Tech −7.5",
+  "LSU −3.0",
+  "Clemson −3.5",
+  "USC −23.5",
+  "Indiana −44.5",
+] as const;
+
+test("Week 3 Friday package leads STORIES; Week 2 tape then Week 1 follow", () => {
   assert.deepEqual(
-    STORIES.slice(2, 2 + WEEK1_FRIDAY.length).map((s) => s.slug),
+    STORIES.slice(0, WEEK3_FRIDAY.length).map((s) => s.slug),
+    [...WEEK3_FRIDAY],
+  );
+  const tapeIdx = WEEK3_FRIDAY.length;
+  assert.equal(STORIES[tapeIdx]?.slug, "week-2-tape");
+  assert.match(STORIES[tapeIdx]?.headline ?? "", /37\/47/);
+  assert.match(STORIES[tapeIdx]?.headline ?? "", /20\/47/);
+  assert.match(STORIES[tapeIdx]?.headline ?? "", /FLAG/);
+  assert.match(STORIES[tapeIdx]?.headline ?? "", /12\/19/);
+  assert.match(STORIES[tapeIdx]?.dek ?? "", /12\/19/);
+  assert.match(STORIES[tapeIdx]?.body.join("\n") ?? "", /78\.7%/);
+  assert.match(STORIES[tapeIdx]?.body.join("\n") ?? "", /42\.6%/);
+  assert.match(STORIES[tapeIdx]?.body.join("\n") ?? "", /81\.1%/);
+  assert.match(STORIES[tapeIdx]?.body.join("\n") ?? "", /44\.4%/);
+  assert.match(STORIES[tapeIdx]?.body.join("\n") ?? "", /63\.2%/);
+  assert.match(STORIES[tapeIdx]?.body.join("\n") ?? "", /17\/19/);
+  assert.match(STORIES[tapeIdx]?.body.join("\n") ?? "", /10\.81/);
+  assert.match(STORIES[tapeIdx]?.body.join("\n") ?? "", /12\.03/);
+  assert.match(STORIES[tapeIdx]?.body.join("\n") ?? "", /12\/18/);
+  assert.match(STORIES[tapeIdx]?.body.join("\n") ?? "", /66\.7%/);
+  assert.match(STORIES[tapeIdx]?.body.join("\n") ?? "", /Oregon @ OKST/);
+  assert.match(STORIES[tapeIdx]?.body.join("\n") ?? "", /OSU @ Texas/);
+  assert.match(STORIES[tapeIdx]?.whyItMatters ?? "", /12\/19/);
+  assert.match(STORIES[tapeIdx]?.body.join("\n") ?? "", /pre-Δ/);
+  assert.match(STORIES[tapeIdx]?.body.join("\n") ?? "", /2026\.3/);
+  assert.doesNotMatch(STORIES[tapeIdx]?.body.join("\n") ?? "", /The board is posted/);
+  assert.doesNotMatch(STORIES[tapeIdx]?.headline ?? "", /2026\.4/);
+  assert.doesNotMatch(STORIES[tapeIdx]?.body.join("\n") ?? "", /FCS/);
+  assert.equal(STORIES[tapeIdx + 1]?.slug, "week-1-tape");
+  assert.match(STORIES[tapeIdx + 1]?.headline ?? "", /36\/43/);
+  assert.match(STORIES[tapeIdx + 1]?.headline ?? "", /20\/43/);
+  assert.match(STORIES[tapeIdx + 1]?.body.join("\n") ?? "", /term = O\/D/i);
+  assert.deepEqual(
+    STORIES.slice(tapeIdx + 2, tapeIdx + 2 + WEEK1_FRIDAY.length).map((s) => s.slug),
     [...WEEK1_FRIDAY],
   );
+});
+
+test("Week 3 package uses Week 3 AP ranks and sourced HASHMARK Vegas closes", () => {
+  const week3 = STORIES.filter((s) => s.slug.startsWith("week-3-"));
+  assert.equal(week3.length, 5);
+  const text = week3
+    .flatMap((s) => [...s.body, s.whyItMatters, s.dek, s.headline])
+    .join("\n");
+  for (const close of WEEK3_SOURCED_CLOSES) {
+    assert.equal(text.includes(close), true, `missing sourced close: ${close}`);
+  }
+  assert.match(text, /AP(?:’s)? 13|AP 13/);
+  assert.match(text, /Tigers 7th|AP 7|AP ballot that has the Tigers 7th/);
+  assert.match(text, /against AP 12/);
+  assert.match(text, /against AP 4/);
+  assert.doesNotMatch(text, /AP 8/);
+  assert.doesNotMatch(text, /AP 14/);
+  assert.doesNotMatch(text, /AP 5/);
+  assert.doesNotMatch(text, /AP 23/);
+  assert.doesNotMatch(text, /Week 4 board/);
+  assert.doesNotMatch(text, /home (?:gap )?module still/);
+  assert.doesNotMatch(text, /\block\b/i);
+  assert.doesNotMatch(text, /guaranteed ROI/i);
+  for (const s of week3) {
+    assert.ok(s.sources.some((src) => src.href.startsWith("https://hashmarkcfb.com")));
+    assert.equal(
+      s.sources.every(
+        (src) =>
+          src.href.startsWith("https://hashmarkcfb.com") ||
+          src.href.startsWith("https://www.ncaa.com/") ||
+          src.href.startsWith("https://www.thebiglead.com/") ||
+          src.href.startsWith("https://gatorswire.usatoday.com/") ||
+          src.href.startsWith("https://www.reuters.com/") ||
+          src.href.startsWith("https://www.wafb.com/") ||
+          src.href.startsWith("https://www.wlbt.com/") ||
+          src.href.startsWith("https://www.si.com/") ||
+          src.href.startsWith("https://www.espn.com/"),
+      ),
+      true,
+      s.slug,
+    );
+  }
 });
 
 test("Week 1 package uses only the four sourced HASHMARK Vegas closes", () => {

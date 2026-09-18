@@ -161,3 +161,20 @@ describe("Week 3 FBS–FBS Research stamps", () => {
     assert.equal(favoriteLine("Ole Miss", "LSU", -3), "LSU −3.0");
   });
 });
+
+describe("Week 3 Syracuse @ Pittsburgh FINAL", () => {
+  const finalSql = readFileSync(join(root, "migrations/0032_week3_pitt_syracuse_final.sql"), "utf8");
+
+  it("stamps Pittsburgh 27, Syracuse 13, status final, scores only", () => {
+    assert.match(finalSql, /Syracuse @ Pittsburgh — Pittsburgh 27, Syracuse 13/);
+    assert.match(finalSql, /status = 'final'/);
+    assert.match(finalSql, /home_score = 27/);
+    assert.match(finalSql, /away_score = 13/);
+    assert.match(finalSql, /g\.week = 3/);
+    assert.match(finalSql, /h\.slug = 'pittsburgh' and a\.slug = 'syracuse'/);
+    assert.doesNotMatch(finalSql, /kickoff_at/);
+    assert.doesNotMatch(finalSql, /vegas_spread/);
+    assert.doesNotMatch(finalSql, /401\d{6,}/);
+    assert.doesNotMatch(finalSql, /ESPN \d{6,}/);
+  });
+});

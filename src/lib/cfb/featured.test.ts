@@ -183,9 +183,9 @@ const beforeThursday = Date.parse("2026-09-01T22:00:00.000Z");
 const afterGtKick = Date.parse("2026-09-04T00:01:00.000Z");
 const fridayAfternoon = Date.parse("2026-09-04T18:00:00.000Z");
 
-test("board chrome is Week 4; featured reads /schedule?w=4", () => {
-  assert.equal(BOARD_WEEK, 4);
-  assert.equal(FEATURED_SLATE_WEEK, 4);
+test("board chrome is Week 3; featured reads /schedule?w=3", () => {
+  assert.equal(BOARD_WEEK, 3);
+  assert.equal(FEATURED_SLATE_WEEK, 3);
 });
 
 test("AP chrome is the last stamped Week 3 poll, not an invented Week 4 ballot", () => {
@@ -193,9 +193,9 @@ test("AP chrome is the last stamped Week 3 poll, not an invented Week 4 ballot",
   assert.equal(AP_STAMP.asOf, "Sept. 13");
   assert.equal(AP_STAMP.label, "Week 3 AP");
   assert.equal(AP_STAMP.columnHint, "W3 stamp");
-  assert.notEqual(AP_STAMP.week, BOARD_WEEK);
+  assert.equal(AP_STAMP.week, BOARD_WEEK);
   assert.match(AP_STAMP.vsHx, /Week 3, Sept\. 13/);
-  assert.match(AP_STAMP.lede, /HX is Week 4/);
+  assert.match(AP_STAMP.lede, /HX is Week 3/);
   assert.match(AP_STAMP.lede, /last stamped poll \(Week 3/);
   assert.match(AP_STAMP.lede, /not a Week 4 ballot/);
 });
@@ -296,6 +296,63 @@ test("Week 3 board featured is Syracuse @ Pittsburgh with stamped kick/TV/Vegas"
 test("Week 3 board featured does not invent a pin when the slate is empty", () => {
   const featured = selectBoardFeaturedKick([], Date.parse("2026-09-13T16:00:00.000Z"));
   assert.equal(featured, null);
+});
+
+test("after Pitt FINAL, earliest Friday kick is Miami @ Wake Forest, not Houston @ Tech", () => {
+  const pittFinal = game({
+    id: WEEK3_FEATURED.id,
+    week: 3,
+    homeSlug: WEEK3_FEATURED.homeSlug,
+    awaySlug: WEEK3_FEATURED.awaySlug,
+    homeShort: "Pitt",
+    awayShort: "Syracuse",
+    kickoffDate: "2026-09-17",
+    kickoffAt: "2026-09-17T23:30:00.000Z",
+    status: "final",
+    homeScore: 27,
+    awayScore: 13,
+    location: "Acrisure Stadium",
+    tv: "ESPN",
+    vegasSpread: 10.5,
+    vegasTotal: 51.5,
+  });
+  const wake = game({
+    id: 98,
+    week: 3,
+    homeSlug: "wake-forest",
+    awaySlug: "miami",
+    homeShort: "Wake",
+    awayShort: "Miami",
+    kickoffDate: "2026-09-18",
+    kickoffAt: "2026-09-18T23:30:00.000Z",
+    location: "Allegacy Federal Credit Union Stadium",
+    tv: "ESPN",
+    vegasSpread: -20.5,
+    vegasTotal: 55.5,
+  });
+  const tech = game({
+    id: 99,
+    week: 3,
+    homeSlug: "texas-tech",
+    awaySlug: "houston",
+    homeShort: "Texas Tech",
+    awayShort: "Houston",
+    kickoffDate: "2026-09-18",
+    kickoffAt: "2026-09-19T00:00:00.000Z",
+    location: "Jones AT&T Stadium",
+    tv: "FOX",
+    vegasSpread: 7.5,
+    vegasTotal: null,
+  });
+  const fridayAfternoon = Date.parse("2026-09-18T16:00:00.000Z");
+  const featured = selectBoardFeaturedKick([pittFinal, wake, tech], fridayAfternoon);
+  assert.equal(featured?.homeSlug, "wake-forest");
+  assert.equal(featured?.awaySlug, "miami");
+  assert.equal(isUpcomingKick(pittFinal, fridayAfternoon), false);
+  const book = featuredBook(featured!);
+  assert.equal(book?.kind, "close");
+  assert.equal(book?.spread, -20.5);
+  assert.equal(favoriteLine("Wake", "Miami", book?.spread ?? 0), "Miami −20.5");
 });
 
 test("Week 4 board featured is Liberty @ Coastal Carolina with kick/TV and blank Vegas", () => {
