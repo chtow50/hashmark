@@ -134,11 +134,23 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /Syracuse @ Pittsburgh/);
   });
 
+  it("includes Week 4 FBS–FBS Research kick/TV/Vegas stamps in committed output", () => {
+    const text = corpus();
+    assert.match(text, /0031_week4_kick_tv_vegas/);
+    assert.match(text, /week4_fbs_fbs_kick_tv_vegas_2026/);
+    assert.match(text, /timestamptz '2026-09-24 18:30:00-05'/);
+    assert.match(text, /h\.slug = 'coastal-carolina' and a\.slug = 'liberty'/);
+    assert.match(text, /h\.slug = 'lsu' then 5\.5 else -5\.5/);
+    assert.match(text, /h\.slug = 'tennessee' then -4\.5 else 4\.5/);
+    assert.match(text, /Liberty @ Coastal Carolina/);
+    assert.match(text, /WEEK4_FEATURED|coastal-carolina/);
+  });
+
   it("includes Week 2 O/D + HX 2026.4 stamp and Week 3 chrome in committed output", () => {
     const text = corpus();
     assert.match(text, /0028_week2_od_hx_ship/);
     assert.match(text, /HX 2026\.4/);
-    assert.match(text, /Week 3 board/);
+    assert.match(text, /Week 4 board/);
     assert.match(text, /7\.9055/);
     assert.match(text, /7\.8131/);
     assert.match(text, /6\.4443/);

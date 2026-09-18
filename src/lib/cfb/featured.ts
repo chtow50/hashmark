@@ -4,12 +4,12 @@ import type { ScheduleGame } from "./types";
  * Board chrome week (Rankings / home PageHead). Ranking *rows* stay
  * `season = 2026 AND week = 0` — that is what queries read.
  */
-export const BOARD_WEEK = 3;
+export const BOARD_WEEK = 4;
 
 /**
  * Last stamped AP ballot on the live board.
- * HX chrome is Week 3; AP is the last stamped poll (Week 3, Sept. 13) —
- * not a leftover Week 1 ballot.
+ * HX chrome is Week 4; AP is the last stamped poll (Week 3, Sept. 13) —
+ * not an invented Week 4 ballot.
  */
 export const AP_STAMP = {
   week: 3,
@@ -17,18 +17,18 @@ export const AP_STAMP = {
   label: "Week 3 AP",
   columnHint: "W3 stamp",
   vsHx: "last stamped AP (Week 3, Sept. 13)",
-  lede: "HX is Week 3. AP is the last stamped poll (Week 3, Sept. 13) — not a Week 1 ballot.",
+  lede: "HX is Week 4. AP is the last stamped poll (Week 3, Sept. 13) — not a Week 4 ballot.",
 } as const;
 
 /**
- * Featured kick reads the HASHMARK Week 3 slate (`/schedule?w=3`).
- * Seed has 56 Week 3 FBS–FBS rows (Sept 17–20). Next upcoming non-final
+ * Featured kick reads the HASHMARK Week 4 slate (`/schedule?w=4`).
+ * Seed has 57 Week 4 FBS–FBS rows (Sept 24–26). Next upcoming non-final
  * by kick time; if the slate has dates but no times, first non-final in
  * slate order. Never invent a kick, TV, Vegas, or a Research pin.
  * FCS rows are Vegas-only (unrated) — never feature them (would invent HX).
- * Week 2 Ohio State @ Texas / Oklahoma @ Michigan pins are FINAL — dead.
+ * Week 3 Syracuse @ Pittsburgh is historical — that slate is no longer the board.
  */
-export const FEATURED_SLATE_WEEK = 3;
+export const FEATURED_SLATE_WEEK = 4;
 
 /** Thursday night flag: Colorado at Georgia Tech, Bobby Dodd. */
 export const WEEK1_FLAG = {
@@ -48,11 +48,17 @@ export const WEEK2_FEATURED_ALT = {
   awaySlug: "oklahoma",
 } as const;
 
-/** Thursday night ESPN: Syracuse at Pittsburgh. Research Week 3 featured card. */
+/** Thursday night ESPN: Syracuse at Pittsburgh. Research Week 3 featured card. Historical. */
 export const WEEK3_FEATURED = {
   id: 97,
   homeSlug: "pittsburgh",
   awaySlug: "syracuse",
+} as const;
+
+/** Thursday night ESPN: Liberty at Coastal Carolina. Research Week 4 featured card. Vegas HOLD. */
+export const WEEK4_FEATURED = {
+  homeSlug: "coastal-carolina",
+  awaySlug: "liberty",
 } as const;
 
 /**
@@ -117,8 +123,8 @@ export function selectFeaturedKick<
  * Board featured for the live chrome week.
  * Week 2 Research pins (Ohio State @ Texas, Oklahoma @ Michigan) stay as
  * historical helpers only — those rows are FINAL and must not feature.
- * Week 3: next upcoming FBS kick on the week-3 slate (Research featured is
- * Syracuse @ Pittsburgh, hashmark_id 97 — earliest stamped kick). No invented pin.
+ * Week 4: next upcoming FBS kick on the week-4 slate (Research featured is
+ * Liberty @ Coastal Carolina — earliest stamped kick; Vegas HOLD, do not invent).
  * Never a FINAL. Never FCS. Never invent a book or matchup.
  */
 export function selectBoardFeaturedKick<
