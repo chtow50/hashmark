@@ -8,16 +8,16 @@ export const BOARD_WEEK = 3;
 
 /**
  * Last stamped AP ballot on the live board.
- * HX chrome is Week 3; AP ranks are still the Week 1 poll (Sept. 8).
- * Do not invent a later AP ballot.
+ * HX chrome is Week 3; AP is the last stamped poll (Week 3, Sept. 13) —
+ * not a leftover Week 1 ballot.
  */
 export const AP_STAMP = {
-  week: 1,
-  asOf: "Sept. 8",
-  label: "Week 1 AP",
-  columnHint: "W1 stamp",
-  vsHx: "last stamped AP (Week 1, Sept. 8)",
-  lede: "HX is Week 3. AP is the last stamped poll (Week 1, Sept. 8) — not a Week 3 ballot.",
+  week: 3,
+  asOf: "Sept. 13",
+  label: "Week 3 AP",
+  columnHint: "W3 stamp",
+  vsHx: "last stamped AP (Week 3, Sept. 13)",
+  lede: "HX is Week 3. AP is the last stamped poll (Week 3, Sept. 13) — not a Week 1 ballot.",
 } as const;
 
 /**

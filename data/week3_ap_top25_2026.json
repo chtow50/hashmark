@@ -1,0 +1,263 @@
+{
+  "product": "AP Top 25 stamp pack",
+  "poll": "AP",
+  "season": 2026,
+  "poll_week": 3,
+  "as_of": "2026-09-13",
+  "as_of_label": "Week 3 AP \u00b7 Sept. 13",
+  "source": "https://www.ncaa.com/news/football/article/2026-09-13/texas-climbs-no-1-oregon-plummets-latest-ap-top-25-college-football-rankings",
+  "source_secondary": "Cash Scout verify: Texas #1 \u00b7 Oregon #21",
+  "chrome": {
+    "replace": "Week 1 AP (Sept. 8) / AP_STAMP week:1",
+    "set": {
+      "week": 3,
+      "asOf": "Sept. 13",
+      "label": "Week 3 AP",
+      "columnHint": "W3 stamp",
+      "lede": "HX is Week 3. AP is the last stamped poll (Week 3, Sept. 13) \u2014 not a Week 1 ballot."
+    }
+  },
+  "scope": "AP ranks + chrome only \u2014 no HX retune",
+  "teams": [
+    {
+      "rank": 1,
+      "school": "Texas",
+      "slug": "texas",
+      "record": "2-0",
+      "previous_rank": 4,
+      "first_place_votes": 56,
+      "points": 1678
+    },
+    {
+      "rank": 2,
+      "school": "Georgia",
+      "slug": "georgia",
+      "record": "2-0",
+      "previous_rank": 2,
+      "first_place_votes": 3,
+      "points": 1551
+    },
+    {
+      "rank": 3,
+      "school": "Notre Dame",
+      "slug": "notre-dame",
+      "record": "2-0",
+      "previous_rank": 3,
+      "first_place_votes": 1,
+      "points": 1531
+    },
+    {
+      "rank": 4,
+      "school": "Indiana",
+      "slug": "indiana",
+      "record": "2-0",
+      "previous_rank": 5,
+      "first_place_votes": 3,
+      "points": 1466
+    },
+    {
+      "rank": 5,
+      "school": "Miami (FL)",
+      "slug": "miami",
+      "record": "2-0",
+      "previous_rank": 7,
+      "first_place_votes": 4,
+      "points": 1452
+    },
+    {
+      "rank": 6,
+      "school": "Ohio State",
+      "slug": "ohio-state",
+      "record": "1-1",
+      "previous_rank": 1,
+      "first_place_votes": 0,
+      "points": 1407
+    },
+    {
+      "rank": 7,
+      "school": "LSU",
+      "slug": "lsu",
+      "record": "2-0",
+      "previous_rank": 8,
+      "first_place_votes": 1,
+      "points": 1334
+    },
+    {
+      "rank": 8,
+      "school": "Ole Miss",
+      "slug": "ole-miss",
+      "record": "2-0",
+      "previous_rank": 9,
+      "first_place_votes": 0,
+      "points": 1216
+    },
+    {
+      "rank": 9,
+      "school": "Texas A&M",
+      "slug": "texas-am",
+      "record": "2-0",
+      "previous_rank": 10,
+      "first_place_votes": 0,
+      "points": 1165
+    },
+    {
+      "rank": 10,
+      "school": "Alabama",
+      "slug": "alabama",
+      "record": "2-0",
+      "previous_rank": 12,
+      "first_place_votes": 0,
+      "points": 1068
+    },
+    {
+      "rank": 11,
+      "school": "BYU",
+      "slug": "byu",
+      "record": "2-0",
+      "previous_rank": "T14",
+      "first_place_votes": 0,
+      "points": 966
+    },
+    {
+      "rank": 12,
+      "school": "Southern Cal",
+      "slug": "usc",
+      "record": "3-0",
+      "previous_rank": "T14",
+      "first_place_votes": 0,
+      "points": 944
+    },
+    {
+      "rank": 13,
+      "school": "Texas Tech",
+      "slug": "texas-tech",
+      "record": "2-0",
+      "previous_rank": 13,
+      "first_place_votes": 0,
+      "points": 910
+    },
+    {
+      "rank": 14,
+      "school": "Penn State",
+      "slug": "penn-state",
+      "record": "2-0",
+      "previous_rank": 16,
+      "first_place_votes": 0,
+      "points": 692
+    },
+    {
+      "rank": 15,
+      "school": "Tennessee",
+      "slug": "tennessee",
+      "record": "2-0",
+      "previous_rank": 18,
+      "first_place_votes": 0,
+      "points": 676
+    },
+    {
+      "rank": 16,
+      "school": "SMU",
+      "slug": "smu",
+      "record": "2-0",
+      "previous_rank": 17,
+      "first_place_votes": 0,
+      "points": 636
+    },
+    {
+      "rank": 17,
+      "school": "Utah",
+      "slug": "utah",
+      "record": "2-0",
+      "previous_rank": 20,
+      "first_place_votes": 0,
+      "points": 558
+    },
+    {
+      "rank": 18,
+      "school": "Iowa",
+      "slug": "iowa",
+      "record": "2-0",
+      "previous_rank": 21,
+      "first_place_votes": 0,
+      "points": 391
+    },
+    {
+      "rank": 19,
+      "school": "Michigan",
+      "slug": "michigan",
+      "record": "2-0",
+      "previous_rank": null,
+      "first_place_votes": 0,
+      "points": 382
+    },
+    {
+      "rank": 20,
+      "school": "Missouri",
+      "slug": "missouri",
+      "record": "2-0",
+      "previous_rank": 23,
+      "first_place_votes": 0,
+      "points": 344
+    },
+    {
+      "rank": 21,
+      "school": "Oregon",
+      "slug": "oregon",
+      "record": "1-1",
+      "previous_rank": 6,
+      "first_place_votes": 0,
+      "points": 324
+    },
+    {
+      "rank": 22,
+      "school": "Houston",
+      "slug": "houston",
+      "record": "2-0",
+      "previous_rank": 22,
+      "first_place_votes": 0,
+      "points": 292
+    },
+    {
+      "rank": 23,
+      "school": "Louisville",
+      "slug": "louisville",
+      "record": "1-1",
+      "previous_rank": 24,
+      "first_place_votes": 0,
+      "points": 244
+    },
+    {
+      "rank": 24,
+      "school": "Oklahoma",
+      "slug": "oklahoma",
+      "record": "1-1",
+      "previous_rank": 11,
+      "first_place_votes": 0,
+      "points": 222
+    },
+    {
+      "rank": 25,
+      "school": "Virginia",
+      "slug": "virginia",
+      "record": "2-0",
+      "previous_rank": 25,
+      "first_place_votes": 0,
+      "points": 182
+    }
+  ],
+  "dropped_from_top25_vs_prev": [
+    "Washington"
+  ],
+  "entered_top25": [
+    "Michigan"
+  ],
+  "headline_moves": [
+    "Texas 4\u21921 (56 FPV) after win vs Ohio State",
+    "Ohio State 1\u21926",
+    "Oregon 6\u219221 after loss at Oklahoma State",
+    "Oklahoma 11\u219224 after loss at Michigan",
+    "Michigan NR\u219219"
+  ],
+  "researched_at_ct": "2026-09-17",
+  "status": "RESEARCH CLEAR pack \u2014 Website stamp + peer gate"
+}

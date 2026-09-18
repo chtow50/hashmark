@@ -187,12 +187,15 @@ test("board chrome is Week 3; featured reads /schedule?w=3", () => {
   assert.equal(FEATURED_SLATE_WEEK, 3);
 });
 
-test("AP chrome is the last stamped Week 1 poll, not an invented Week 3 ballot", () => {
-  assert.equal(AP_STAMP.week, 1);
-  assert.equal(AP_STAMP.label, "Week 1 AP");
-  assert.notEqual(AP_STAMP.week, BOARD_WEEK);
-  assert.match(AP_STAMP.lede, /last stamped poll \(Week 1/);
-  assert.match(AP_STAMP.lede, /not a Week 3 ballot/);
+test("AP chrome is the last stamped Week 3 poll, not a leftover Week 1 ballot", () => {
+  assert.equal(AP_STAMP.week, 3);
+  assert.equal(AP_STAMP.asOf, "Sept. 13");
+  assert.equal(AP_STAMP.label, "Week 3 AP");
+  assert.equal(AP_STAMP.columnHint, "W3 stamp");
+  assert.equal(AP_STAMP.week, BOARD_WEEK);
+  assert.match(AP_STAMP.vsHx, /Week 3, Sept\. 13/);
+  assert.match(AP_STAMP.lede, /last stamped poll \(Week 3/);
+  assert.match(AP_STAMP.lede, /not a Week 1 ballot/);
 });
 
 test("Colorado at GT is HASHMARK GT −10.3 / 73.3% at home, Neutral off", () => {
