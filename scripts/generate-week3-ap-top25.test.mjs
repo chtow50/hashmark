@@ -89,7 +89,8 @@ test("home / rankings / disagreement chrome is Week 3 AP, not leftover Week 1 / 
   assert.match(featured, /asOf: "Sept\. 13"/);
   assert.match(featured, /label: "Week 3 AP"/);
   assert.match(featured, /columnHint: "W3 stamp"/);
-  assert.match(featured, /not a Week 1 ballot/);
+  assert.match(featured, /HX is Week 4/);
+  assert.match(featured, /not a Week 4 ballot/);
   assert.doesNotMatch(featured, /Week 1 AP/);
   assert.doesNotMatch(featured, /Sept\. 8/);
   assert.doesNotMatch(featured, /W1 stamp/);
