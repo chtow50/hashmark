@@ -15,8 +15,167 @@ export const STORY_DATE = "Friday, Aug 28, 2026";
 export const STORY_DATE_WEEK1 = "Friday, Sep 4, 2026";
 export const STORY_DATE_TAPE = "Tuesday, Sep 8, 2026";
 export const STORY_DATE_TAPE_WEEK2 = "Sunday, Sep 13, 2026";
+export const STORY_DATE_WEEK3 = "Friday, Sep 18, 2026";
 
 export const STORIES: Story[] = [
+  {
+    slug: "week-3-houston-texas-tech",
+    kicker: "Week 3 · Friday",
+    headline: "Vegas has Texas Tech −7.5. HX has Tech −18.8.",
+    dek: "Friday night FOX is the first stress test of HASHMARK’s Tech overrate vs AP.",
+    date: STORY_DATE_WEEK3,
+    body: [
+      "No. 22 Houston visits No. 13 Texas Tech on Friday (7:00 CT, FOX). Live HASHMARK: Texas Tech −18.8 / 84.4%. Vegas close on the schedule: Texas Tech −7.5 — an ~11-point gap and the loudest Friday card.",
+      "HX ranks Texas Tech 7th (5.84), +6 vs AP’s 13. Houston sits AP 22 / HX 41 (−19), the second-largest negative AP gap on the Week 3 disagreement card. Post–Week 2 FPI has Tech 16th; SP+ has Tech 15th (19.1). HX is the bullish Tech model among the boards HASHMARK tracks.",
+      "This is an HX-vs-market and HX-vs-ballot story, not a claim about Houston’s résumé after two wins. The number on the schedule is the post. If Tech covers like an HX 7 seed, the prior looks early. If Houston keeps it one-score, the book was closer.",
+    ],
+    whyItMatters: "Ready Friday social before the Magnolia Bowl lead; HX brand disagreement with a live kick tonight.",
+    sources: [
+      { label: "HASHMARK Board", href: "https://hashmarkcfb.com/" },
+      { label: "HASHMARK Schedule", href: "https://hashmarkcfb.com/schedule?w=3" },
+      {
+        label: "NCAA.com · Week 3 AP",
+        href: "https://www.ncaa.com/news/football/article/2026-09-13/texas-climbs-no-1-oregon-plummets-latest-ap-top-25-college-football-rankings",
+      },
+      {
+        label: "The Big Lead · FPI",
+        href: "https://www.thebiglead.com/updated-espn-fpi-college-football-top-25-rankings-after-wild-week-2/",
+      },
+      {
+        label: "Gators Wire · SP+",
+        href: "https://gatorswire.usatoday.com/story/sports/college/gators/football/2026/09/13/florida-football-sp-rankings-ratings-week-2-campbell-win/91746475007/",
+      },
+    ],
+  },
+  {
+    slug: "week-3-lsu-ole-miss",
+    kicker: "Week 3 · Magnolia Bowl",
+    headline: "HX takes Ole Miss. Vegas takes LSU. Leavitt is questionable.",
+    dek: "First AP top-10 Magnolia Bowl since 1962 — and HASHMARK flips the favorite in Oxford.",
+    date: STORY_DATE_WEEK3,
+    body: [
+      "No. 7 LSU visits No. 8 Ole Miss on Saturday (6:30 CT, ABC). Live HASHMARK posts a winner flip: Ole Miss −7.8 / 68.8%. The sourced Vegas close on the schedule is LSU −3.0, O/U 59.5.",
+      "That is the cleanest HX-vs-market card of the weekend. HX ranks Ole Miss 8th (5.46) — even with AP — and still has LSU 19th (4.06) against an AP ballot that has the Tigers 7th. Public boards are warmer on LSU than HX: post–Week 2 FPI has LSU 9th and Ole Miss 17th; SP+ (Sept. 13) has LSU 8th (24.1) and Ole Miss 20th (15.2). HX is the Rebel-leaning model among the boards HASHMARK tracks.",
+      "The injury cloud is real and sourced. LSU QB Sam Leavitt was upgraded from doubtful to questionable on Thursday’s SEC availability report. Reuters / Field Level Media and WAFB report he missed Wednesday with back spasms (per LouisianaSports.net / Matt Moscona) and returned Thursday; the SEC report itself does not name the injury. Lane Kiffin stayed quiet. If he sits, backups Husan Longstreet or Landen Clark are the next names in the public notes — do not invent snaps.",
+      "Context without inventing: first time both sides enter AP top 10 since 1962 (WLBT / Saturday Down South); Kiffin’s first game back at Vaught-Hemingway as LSU coach.",
+    ],
+    whyItMatters: "Primetime winner flip + Leavitt status + HX’s season-long LSU under-rank vs AP. Lead card for the weekend.",
+    sources: [
+      { label: "HASHMARK Board", href: "https://hashmarkcfb.com/" },
+      { label: "HASHMARK Schedule", href: "https://hashmarkcfb.com/schedule?w=3" },
+      {
+        label: "Reuters · Leavitt questionable",
+        href: "https://www.reuters.com/sports/lsu-qb-sam-leavitt-upgraded-questionable-vs-ole-miss--flm-2026-09-18/",
+      },
+      {
+        label: "WAFB",
+        href: "https://www.wafb.com/2026/09/18/lsu-qb-sam-leavitt-no-longer-listed-doubtful-ahead-ole-miss-matchup/",
+      },
+      {
+        label: "WLBT · Magnolia Bowl since 1962",
+        href: "https://www.wlbt.com/2026/09/18/no-8-ole-miss-no-7-lsu-meet-first-top-10-magnolia-bowl-since-1962/",
+      },
+      {
+        label: "NCAA.com · Week 3 AP",
+        href: "https://www.ncaa.com/news/football/article/2026-09-13/texas-climbs-no-1-oregon-plummets-latest-ap-top-25-college-football-rankings",
+      },
+      {
+        label: "The Big Lead · FPI",
+        href: "https://www.thebiglead.com/updated-espn-fpi-college-football-top-25-rankings-after-wild-week-2/",
+      },
+      {
+        label: "Gators Wire · SP+",
+        href: "https://gatorswire.usatoday.com/story/sports/college/gators/football/2026/09/13/florida-football-sp-rankings-ratings-week-2-campbell-win/91746475007/",
+      },
+    ],
+  },
+  {
+    slug: "week-3-unc-clemson",
+    kicker: "Week 3 · HX Flag",
+    headline: "Vegas has Clemson −3.5. HX has Clemson −21.6.",
+    dek: "An ~18-point chill is the biggest HX–market disagreement on the Week 3 Top 25–adjacent slate.",
+    date: STORY_DATE_WEEK3,
+    body: [
+      "North Carolina visits Clemson on Saturday (11:00 CT, ESPN/Disney+). Live HASHMARK: Clemson −21.6 / 86.9%. Vegas close on the schedule: Clemson −3.5, O/U 44.5.",
+      "That absolute gap (~18 points) dwarfs most of the weekend’s ranked cards. HX still has Clemson 22nd (3.83) after the LSU loss — AP has the Tigers unranked. The market is pricing a short-field-goal favorite; HX is pricing a three-score home side.",
+      "Belichick’s UNC is the road story the national desk will write. Stick to the number on the HASHMARK schedule. Do not invent Carolina injury or portal angles. Pair with Indiana–WKU and USC–Rutgers if the cut is “where HX and Vegas disagree” — Clemson is the largest sourced spread gap among the featured cards.",
+    ],
+    whyItMatters: "Largest sourced HX–Vegas spread gap on the Week 3 slate HASHMARK is featuring.",
+    sources: [
+      { label: "HASHMARK Schedule", href: "https://hashmarkcfb.com/schedule?w=3" },
+      { label: "HASHMARK Board", href: "https://hashmarkcfb.com/" },
+      {
+        label: "NCAA.com · Week 3 AP",
+        href: "https://www.ncaa.com/news/football/article/2026-09-13/texas-climbs-no-1-oregon-plummets-latest-ap-top-25-college-football-rankings",
+      },
+    ],
+  },
+  {
+    slug: "week-3-usc-rutgers",
+    kicker: "Week 3 · HX Flag",
+    headline: "Vegas wants USC −23.5 at Rutgers. HX has −9.3.",
+    dek: "A 14-point chill on CBS — and the Trojans’ leading receiver is out.",
+    date: STORY_DATE_WEEK3,
+    body: [
+      "No. 12 USC visits Rutgers on Saturday (2:30 CT, CBS) for the Big Ten opener. Live HASHMARK: USC −9.3 / 71.5%. Vegas close on the schedule: USC −23.5, O/U 59.5.",
+      "That is a clear “HX cools chalk” card. HX ranks USC 21st (3.88) against AP 12. FPI has USC 10th; SP+ has USC 12th (19.5). HX is cooler on the Trojans than the poll, FPI, and the book.",
+      "Injury context is sourced, not invented. Freshman WR Trent Mosley is Out on USC’s first Big Ten injury report vs Rutgers. Lincoln Riley told SI the timeline is “not extremely long-term” but still inconclusive; CBS’s Matt Zenitz reported Mosley is expected to miss multiple games. Mosley had 13 catches, 255 yards, four TDs through three games (SI). Do not invent snap counts for anyone else — the spread gap is the story; the injury is the public why.",
+    ],
+    whyItMatters: "Second-largest featured chill after Clemson/Indiana; pairs injury news with an HX–Vegas disagreement.",
+    sources: [
+      { label: "HASHMARK Schedule", href: "https://hashmarkcfb.com/schedule?w=3" },
+      { label: "HASHMARK Board", href: "https://hashmarkcfb.com/" },
+      {
+        label: "Sports Illustrated · Mosley",
+        href: "https://www.si.com/college/usc/football/lincoln-riley-explains-trent-mosley-status-official-injury-report",
+      },
+      {
+        label: "ESPN · Mosley",
+        href: "https://www.espn.com/college-football/story/_/id/49961942/usc-star-freshman-receiver-trent-mosley-vs-rutgers-undisclosed-injury",
+      },
+      {
+        label: "NCAA.com · Week 3 AP",
+        href: "https://www.ncaa.com/news/football/article/2026-09-13/texas-climbs-no-1-oregon-plummets-latest-ap-top-25-college-football-rankings",
+      },
+      {
+        label: "The Big Lead · FPI",
+        href: "https://www.thebiglead.com/updated-espn-fpi-college-football-top-25-rankings-after-wild-week-2/",
+      },
+      {
+        label: "Gators Wire · SP+",
+        href: "https://gatorswire.usatoday.com/story/sports/college/gators/football/2026/09/13/florida-football-sp-rankings-ratings-week-2-campbell-win/91746475007/",
+      },
+    ],
+  },
+  {
+    slug: "week-3-indiana-wku",
+    kicker: "Week 3 · HX Flag",
+    headline: "Vegas has Indiana −44.5. HX has Indiana −20.8.",
+    dek: "A 23-point chill on Peacock — HASHMARK refuses the smash number.",
+    date: STORY_DATE_WEEK3,
+    body: [
+      "Western Kentucky visits No. 4 Indiana on Saturday (3:00 CT, Peacock). Live HASHMARK: Indiana −20.8 / 86.1%. Vegas close on the schedule: Indiana −44.5, O/U 60.5.",
+      "That is the largest absolute HX–Vegas gap on the featured Week 3 cards. HX ranks Indiana 11th (4.98) against AP 4. FPI has Indiana 6th; SP+ has Indiana 5th (25.4). Public efficiency boards and the ballot love the Hoosiers more than HX does — and the book is pricing a five-touchdown favorite HX will not match.",
+      "Do not invent WKU injury or Indiana portal angles. When the market goes nuclear, HX stays inside two to three scores. Pair with Clemson (−21.6 vs −3.5) and USC (−9.3 vs −23.5) for a three-chills cut.",
+    ],
+    whyItMatters: "Largest featured absolute spread gap; frames HX as the cooler chalk model on smash favorites.",
+    sources: [
+      { label: "HASHMARK Schedule", href: "https://hashmarkcfb.com/schedule?w=3" },
+      { label: "HASHMARK Board", href: "https://hashmarkcfb.com/" },
+      {
+        label: "NCAA.com · Week 3 AP",
+        href: "https://www.ncaa.com/news/football/article/2026-09-13/texas-climbs-no-1-oregon-plummets-latest-ap-top-25-college-football-rankings",
+      },
+      {
+        label: "The Big Lead · FPI",
+        href: "https://www.thebiglead.com/updated-espn-fpi-college-football-top-25-rankings-after-wild-week-2/",
+      },
+      {
+        label: "Gators Wire · SP+",
+        href: "https://gatorswire.usatoday.com/story/sports/college/gators/football/2026/09/13/florida-football-sp-rankings-ratings-week-2-campbell-win/91746475007/",
+      },
+    ],
+  },
   {
     slug: "week-2-tape",
     kicker: "Week 2 tape",

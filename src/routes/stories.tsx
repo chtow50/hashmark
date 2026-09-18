@@ -40,23 +40,23 @@ function StoriesPage() {
   return (
     <div>
       <PageHead
-        kicker="Week 2 · 2026"
-        title="The Week 2 desk."
-        lede="Tape is in. Full slate 20/47 FLAG. Top 25 closer 12/19. HX not retuned."
+        kicker="Week 3 · 2026"
+        title="The Week 3 desk."
+        lede="Friday Tech gap. Magnolia winner flip. Clemson, USC, Indiana chills. HX 2026.4."
       />
 
       <p className="mb-8 font-mono text-[11px] uppercase tracking-[0.16em] text-faint">
         <Link
           to="/schedule"
-          search={{ w: 2 }}
+          search={{ w: 3 }}
           className="text-fg underline decoration-border underline-offset-4 hover:text-accent"
         >
-          Week 2 schedule
+          Week 3 schedule
         </Link>
         <span className="mx-2" aria-hidden>
           ·
         </span>
-        HX 2026.3 · pre-Δ · no retune
+        HX 2026.4 · Week 3 board · no locks
       </p>
 
       {lead ? (

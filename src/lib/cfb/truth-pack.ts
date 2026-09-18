@@ -2,18 +2,18 @@
  * Truth-pack loaders. Numbers come from the AMD / Research JSON payloads —
  * do not invent deltas, tape rates, or make/title splits.
  *
- *   data/week1_hx_vs_ap_gaps_2026.json
+ *   data/week3_hx_vs_ap_gaps_2026.json
  *   data/week1_accountability_pack_2026.json
  *   data/week2_tape_2026.json
  *   data/week2_tape_top25_closer_2026.json
  *   data/sim_10k_2026_hx2026_4.json
  */
-import gapsRaw from "../../../data/week1_hx_vs_ap_gaps_2026.json" with { type: "json" };
+import gapsRaw from "../../../data/week3_hx_vs_ap_gaps_2026.json" with { type: "json" };
 import packRaw from "../../../data/week1_accountability_pack_2026.json" with { type: "json" };
 import week2TapeRaw from "../../../data/week2_tape_2026.json" with { type: "json" };
 import week2Top25Raw from "../../../data/week2_tape_top25_closer_2026.json" with { type: "json" };
 import simRaw from "../../../data/sim_10k_2026_hx2026_4.json" with { type: "json" };
-import week1ApRaw from "../../../data/week1_ap_top25_2026.json" with { type: "json" };
+import week3ApRaw from "../../../data/week3_ap_top25_2026.json" with { type: "json" };
 
 export const DISAGREE_HIGHLIGHT_NAMES = [
   "Virginia",
@@ -35,6 +35,9 @@ export type HxApGapsFile = {
   as_of: string;
   source_ap: string;
   source_hx: string;
+  poll_week?: number;
+  hx_board?: string;
+  note?: string;
   gaps: HxApGap[];
   hx_not_in_ap: { hx_rank: number; name: string; hx: number }[];
   ap_not_in_hx25: { ap: number; name: string; hx_rank: number }[];
@@ -199,7 +202,13 @@ export const week2Top25Pack = week2Top25Raw as Week2Top25CutFile;
 export const sim10k = simRaw as Sim10kFile;
 
 const AP_SLUG_BY_NAME = new Map(
-  (week1ApRaw.teams as { team: string; slug: string }[]).map((t) => [t.team, t.slug]),
+  (week3ApRaw.teams as { school: string; slug: string }[]).flatMap((t) => {
+    const names = [t.school];
+    if (t.slug === "usc") names.push("USC");
+    if (t.slug === "miami") names.push("Miami");
+    if (t.slug === "ole-miss") names.push("Ole Miss");
+    return names.map((n) => [n, t.slug] as const);
+  }),
 );
 
 /** HX 2026.4 10k draws — AMD re-sim on live board (seed 20260913). */
@@ -236,21 +245,22 @@ export function gapByName(name: string): HxApGap | undefined {
 }
 
 /**
- * Recompute HX-vs-AP gaps from a Week 1 AP ballot + HX ship.
+ * Recompute HX-vs-AP gaps from an AP ballot + HX ship.
  * delta = ap_rank − hx_rank (negative = HX colder than the ballot).
+ * Names follow the HX ship (USC, Miami) so the board card matches live ranks.
  */
 export function recomputeHxVsApGaps(
-  apTeams: { rank: number; team: string; slug: string }[],
+  apTeams: { rank: number; team?: string; school?: string; slug: string }[],
   hxTeams: { slug: string; name: string; hx_rank_post: number; hx_post: number }[],
 ): HxApGap[] {
   const hxBySlug = new Map(hxTeams.map((t) => [t.slug, t]));
   const hxByName = new Map(hxTeams.map((t) => [t.name, t]));
   const gaps: HxApGap[] = [];
   for (const ap of apTeams) {
-    const hx = hxBySlug.get(ap.slug) ?? hxByName.get(ap.team);
+    const hx = hxBySlug.get(ap.slug) ?? hxByName.get(ap.team ?? ap.school ?? "");
     if (!hx) continue;
     gaps.push({
-      name: ap.team,
+      name: hx.name,
       ap: ap.rank,
       hx: hx.hx_rank_post,
       hx_rating: hx.hx_post,
