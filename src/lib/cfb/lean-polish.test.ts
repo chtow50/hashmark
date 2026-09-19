@@ -65,11 +65,19 @@ describe("LEAN polish gates", () => {
     assert.doesNotMatch(xml, /localhost/);
   });
 
-  it("rankings mobile keeps AP beside HX with a swipe cue", () => {
+  it("rankings mobile stacks cards so AP, rating, and Make 12 stay unclipped", () => {
     const src = read("src/routes/rankings.tsx");
-    assert.match(src, /Swipe → AP stays with HX/);
-    const apTh = src.indexOf('toggle("apRank")');
-    const ratingTh = src.indexOf('toggle("hxRating")');
+    assert.match(src, /function RankingCard/);
+    assert.match(src, /space-y-3 sm:hidden/);
+    assert.match(src, /hidden overflow-hidden p-0 sm:block/);
+    assert.match(src, /AP · \{AP_STAMP\.columnHint\}/);
+    assert.match(src, /DeltaChip hxRank=\{team\.hxRank\} apRank=\{team\.apRank\}/);
+    assert.match(src, /fmtNum\(team\.hxRating, 2\)/);
+    assert.match(src, /make12Pct\(team\)/);
+    assert.doesNotMatch(src, /Swipe → AP stays/);
+    const table = src.slice(src.indexOf("<table"));
+    const apTh = table.indexOf('toggle("apRank")');
+    const ratingTh = table.indexOf('toggle("hxRating")');
     assert.ok(apTh >= 0 && ratingTh >= 0 && apTh < ratingTh);
   });
 });
