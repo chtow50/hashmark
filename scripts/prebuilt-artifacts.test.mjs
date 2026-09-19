@@ -241,6 +241,14 @@ describe("prebuilt deploy artifacts", () => {
     assert.doesNotMatch(text, /waitlist/i);
   });
 
+  it("includes mobile ranking cards so Re-Publish does not ship the swipe table", () => {
+    const text = corpus();
+    assert.match(text, /RankingCard/);
+    assert.match(text, /AP · /);
+    assert.match(text, /space-y-3 sm:hidden/);
+    assert.doesNotMatch(text, /Swipe → AP stays/);
+  });
+
   it("keeps PGLite wasm sidecars next to the server bundle", () => {
     const libs = join(OUT, "functions/__server.func/_libs");
     for (const name of ["pglite.wasm", "initdb.wasm", "pglite.data"]) {
