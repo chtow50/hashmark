@@ -34,12 +34,46 @@ const WEEK3_SOURCED_CLOSES = [
   "Indiana −44.5",
 ] as const;
 
-test("Week 3 Friday package leads STORIES; Week 2 tape then Week 1 follow", () => {
+test("Week 3 tape leads STORIES; Week 3 Friday then Week 2 tape then Week 1 follow", () => {
+  assert.equal(STORIES[0]?.slug, "week-3-tape");
+  assert.match(STORIES[0]?.headline ?? "", /49\/56/);
+  assert.match(STORIES[0]?.headline ?? "", /23\/56/);
+  assert.match(STORIES[0]?.headline ?? "", /FLAG/);
+  assert.match(STORIES[0]?.headline ?? "", /5\/21/);
+  assert.match(STORIES[0]?.dek ?? "", /20\/21/);
+  assert.match(STORIES[0]?.dek ?? "", /5\/21/);
+  const w3 = [STORIES[0]?.headline, STORIES[0]?.dek, STORIES[0]?.whyItMatters, ...(STORIES[0]?.body ?? [])].join(
+    "\n",
+  );
+  assert.match(w3, /87\.5%/);
+  assert.match(w3, /41\.1%/);
+  assert.match(w3, /29\/56/);
+  assert.match(w3, /51\.8%/);
+  assert.match(w3, /83\.6%/);
+  assert.match(w3, /43\.2%/);
+  assert.match(w3, /122\/146/);
+  assert.match(w3, /63\/146/);
+  assert.match(w3, /23\.8%/);
+  assert.match(w3, /20\/21/);
+  assert.match(w3, /16\/21/);
+  assert.match(w3, /10\.03/);
+  assert.match(w3, /8\.71/);
+  assert.match(w3, /Kentucky @ Texas A&M/);
+  assert.match(w3, /Nevada @ Middle Tennessee/);
+  assert.match(w3, /LSU @ Ole Miss/);
+  assert.match(w3, /UConn @ Southern Miss/);
+  assert.match(w3, /Ohio @ South Alabama/);
+  assert.match(w3, /HX not retuned/);
+  assert.doesNotMatch(w3, /The board is posted/);
+  assert.doesNotMatch(w3, /2026\.5/);
+  assert.doesNotMatch(w3, /FCS/);
+  assert.doesNotMatch(w3, /\block/i);
+  assert.doesNotMatch(w3, /guaranteed ROI/i);
   assert.deepEqual(
-    STORIES.slice(0, WEEK3_FRIDAY.length).map((s) => s.slug),
+    STORIES.slice(1, 1 + WEEK3_FRIDAY.length).map((s) => s.slug),
     [...WEEK3_FRIDAY],
   );
-  const tapeIdx = WEEK3_FRIDAY.length;
+  const tapeIdx = 1 + WEEK3_FRIDAY.length;
   assert.equal(STORIES[tapeIdx]?.slug, "week-2-tape");
   assert.match(STORIES[tapeIdx]?.headline ?? "", /37\/47/);
   assert.match(STORIES[tapeIdx]?.headline ?? "", /20\/47/);
@@ -75,7 +109,7 @@ test("Week 3 Friday package leads STORIES; Week 2 tape then Week 1 follow", () =
 });
 
 test("Week 3 package uses Week 3 AP ranks and sourced HASHMARK Vegas closes", () => {
-  const week3 = STORIES.filter((s) => s.slug.startsWith("week-3-"));
+  const week3 = STORIES.filter((s) => s.slug.startsWith("week-3-") && s.slug !== "week-3-tape");
   assert.equal(week3.length, 5);
   const text = week3
     .flatMap((s) => [...s.body, s.whyItMatters, s.dek, s.headline])

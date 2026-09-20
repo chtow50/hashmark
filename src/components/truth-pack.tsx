@@ -58,23 +58,30 @@ export function AccountabilityCard({
   season,
   flags,
   movers,
+  weekLabel = "Week 3 tape",
+  storySlug = "week-3-tape",
+  dek = "Full slate closer is a FLAG. Top 25 closer 5/21. HX not retuned.",
+  flagsKicker = "Board flags · HX not retuned",
 }: {
   tape: Week2Tape;
   top25: Week2Top25Tape;
   season: Week2SeasonTape;
   flags: Week2BoardFlag[];
   movers?: HxMover[];
+  weekLabel?: string;
+  storySlug?: string;
+  dek?: string;
+  flagsKicker?: string;
 }) {
+  const top25CloserFlag = top25.hx_closer_pct < 45;
   return (
     <Panel>
       <div className="mb-4 flex flex-wrap items-baseline justify-between gap-2">
         <div>
-          <h2 className="font-display text-2xl tracking-wide">Week 2 tape</h2>
-          <p className="mt-1 text-sm text-muted">
-            Full slate closer is a FLAG. Top 25 closer is the scorecard beat. HX not retuned.
-          </p>
+          <h2 className="font-display text-2xl tracking-wide">{weekLabel}</h2>
+          <p className="mt-1 text-sm text-muted">{dek}</p>
         </div>
-        <Link to="/stories/$slug" params={{ slug: "week-2-tape" }} className="text-sm text-muted hover:text-fg">
+        <Link to="/stories/$slug" params={{ slug: storySlug }} className="text-sm text-muted hover:text-fg">
           Desk note
         </Link>
       </div>
@@ -100,8 +107,20 @@ export function AccountabilityCard({
           </div>
           <div className="mt-1.5 text-xs tabular text-muted">{fmtNum(top25.su_pct, 1)}%</div>
         </div>
-        <div className="rounded-md border border-up/40 bg-raised/40 px-4 py-3">
-          <div className="text-[11px] uppercase tracking-[0.14em] text-up">Closer · Top 25</div>
+        <div
+          className={cn(
+            "rounded-md border bg-raised/40 px-4 py-3",
+            top25CloserFlag ? "border-warn/40" : "border-up/40",
+          )}
+        >
+          <div
+            className={cn(
+              "text-[11px] uppercase tracking-[0.14em]",
+              top25CloserFlag ? "text-warn" : "text-up",
+            )}
+          >
+            {top25CloserFlag ? "Closer · Top 25 · FLAG" : "Closer · Top 25"}
+          </div>
           <div className="mt-1 font-display text-2xl tabular leading-none text-fg sm:text-3xl">
             {top25.hx_closer}
           </div>
@@ -109,14 +128,17 @@ export function AccountabilityCard({
         </div>
       </div>
       <p className="mt-4 text-sm text-muted">
-        Top 25 MAE HX {fmtNum(top25.mae_hx, 2)} / Vegas {fmtNum(top25.mae_vegas, 2)}. Vegas closer{" "}
-        {top25.vegas_closer}.
+        Slate MAE HX {fmtNum(tape.mae_hx, 2)} / Vegas {fmtNum(tape.mae_vegas, 2)}. ATS {tape.hx_ats}.
+        Vegas closer {tape.vegas_closer}.
+        {top25.mae_hx != null && top25.mae_vegas != null
+          ? ` Top 25 MAE HX ${fmtNum(top25.mae_hx, 2)} / Vegas ${fmtNum(top25.mae_vegas, 2)}.`
+          : ` Top 25 Vegas closer ${top25.vegas_closer}.`}
       </p>
       <p className="mt-2 text-sm text-muted">
         Season {season.label}: SU {fmtNum(season.su_pct, 1)}% · closer {fmtNum(season.hx_closer_pct, 1)}%
       </p>
       <p className="mt-5 font-mono text-[11px] uppercase tracking-[0.14em] text-faint">
-        Board flags · pre-Δ · HX 2026.3
+        {flagsKicker}
       </p>
       <ul className="mt-2">
         {flags.map((flag) => (
