@@ -41,8 +41,8 @@ function StoriesPage() {
     <div>
       <PageHead
         kicker="Week 3 · 2026"
-        title="The Week 3 desk."
-        lede="Friday Tech gap. Magnolia winner flip. Clemson, USC, Indiana chills. HX 2026.4."
+        title="The Week 3 tape."
+        lede="49/56 SU. Closer FLAG 23/56. Top 25 closer 5/21. HX not retuned."
       />
 
       <p className="mb-8 font-mono text-[11px] uppercase tracking-[0.16em] text-faint">
@@ -56,7 +56,7 @@ function StoriesPage() {
         <span className="mx-2" aria-hidden>
           ·
         </span>
-        HX 2026.4 · Week 3 board · no locks
+        HX 2026.5 · Week 3 board · no locks
       </p>
 
       {lead ? (

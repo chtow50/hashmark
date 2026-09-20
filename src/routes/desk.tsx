@@ -27,7 +27,7 @@ const GLOSSARY = [
   },
   {
     term: "Closer / SU",
-    def: "Straight-up (SU) is who HX picked to win. Closer is whether the HASHMARK spread was nearer the final margin than the market close. Week 2 tape: 37/47 SU, 20/47 closer FLAG. HX Top 25 closer 12/19 (63.2%). Season W1–W2: 81.1% SU · 44.4% closer.",
+    def: "Straight-up (SU) is who HX picked to win. Closer is whether the HASHMARK spread was nearer the final margin than the market close. Week 3 tape: 49/56 SU, 23/56 closer FLAG. HX Top 25 closer 5/21. SU 20/21 in that cut. Season W1–W3: 83.6% SU · 43.2% closer.",
   },
   {
     term: "Vegas-only",

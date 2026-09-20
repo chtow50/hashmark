@@ -178,3 +178,79 @@ describe("Week 3 Syracuse @ Pittsburgh FINAL", () => {
     assert.doesNotMatch(finalSql, /ESPN \d{6,}/);
   });
 });
+
+describe("Week 3 remaining FINALs (Research CLEAR pack)", () => {
+  const remainingSql = readFileSync(join(root, "migrations/0033_week3_remaining_finals.sql"), "utf8");
+  const remaining = JSON.parse(
+    readFileSync(join(root, "data/week3_remaining_finals_clear_2026.json"), "utf8"),
+  ) as {
+    meta: { week: number; season: number; n_clear: number; n_hold: number; n_already_live: number; n_fbs_fbs_slate: number };
+    clear: Array<{ espn_event_id: string; home: string; away: string; home_score: number; away_score: number }>;
+    hold: unknown[];
+    already_live: Array<{ espn_event_id: string; home_score: number; away_score: number }>;
+  };
+
+  it("covers 55 CLEAR games, 0 HOLD, and skips Syracuse @ Pittsburgh", () => {
+    assert.equal(remaining.meta.week, 3);
+    assert.equal(remaining.meta.season, 2026);
+    assert.equal(remaining.meta.n_clear, 55);
+    assert.equal(remaining.clear.length, 55);
+    assert.equal(remaining.meta.n_hold, 0);
+    assert.equal(remaining.hold.length, 0);
+    assert.equal(remaining.meta.n_already_live, 1);
+    assert.equal(remaining.already_live.length, 1);
+    assert.equal(remaining.already_live[0]?.espn_event_id, "401858225");
+    assert.equal(remaining.already_live[0]?.away_score, 13);
+    assert.equal(remaining.already_live[0]?.home_score, 27);
+    const live = new Set(remaining.already_live.map((g) => g.espn_event_id));
+    for (const g of remaining.clear) {
+      assert.equal(live.has(g.espn_event_id), false, g.espn_event_id);
+    }
+    assert.equal((remainingSql.match(/update games/g) ?? []).length, 55);
+    assert.equal((remainingSql.match(/g\.week = 3/g) ?? []).length, 55);
+    assert.doesNotMatch(remainingSql, /slug = 'pittsburgh'/);
+    assert.doesNotMatch(remainingSql, /slug = 'syracuse'/);
+  });
+
+  it("stamps key CLEAR scores home-perspective: Wake 20–33, TAMU 21–31, Ole Miss 32–24", () => {
+    const wake = remaining.clear.find((g) => g.espn_event_id === "401858226");
+    assert.ok(wake);
+    assert.equal(wake.away_score, 33);
+    assert.equal(wake.home_score, 20);
+    const tamu = remaining.clear.find((g) => g.espn_event_id === "401856694");
+    assert.ok(tamu);
+    assert.equal(tamu.away_score, 31);
+    assert.equal(tamu.home_score, 21);
+    const ole = remaining.clear.find((g) => g.espn_event_id === "401856688");
+    assert.ok(ole);
+    assert.equal(ole.away_score, 24);
+    assert.equal(ole.home_score, 32);
+    assert.match(remainingSql, /home_score = 20/);
+    assert.match(remainingSql, /away_score = 33/);
+    assert.match(remainingSql, /h\.slug = 'wake-forest' and a\.slug = 'miami'/);
+    assert.match(remainingSql, /home_score = 21/);
+    assert.match(remainingSql, /away_score = 31/);
+    assert.match(remainingSql, /h\.slug = 'texas-am' and a\.slug = 'kentucky'/);
+    assert.match(remainingSql, /home_score = 32/);
+    assert.match(remainingSql, /away_score = 24/);
+    assert.match(remainingSql, /h\.slug = 'ole-miss' and a\.slug = 'lsu'/);
+    assert.match(remainingSql, /h\.slug = 'cincinnati' and a\.slug = 'miami-oh'/);
+    assert.match(remainingSql, /h\.slug = 'san-jose-state' and a\.slug = 'fresno-state'/);
+  });
+
+  it("does not restamp kick, TV, or Vegas, omits ESPN digits, and leaves 0032 Pitt", () => {
+    assert.doesNotMatch(remainingSql, /kickoff_at/);
+    assert.doesNotMatch(remainingSql, /\btv\s*=/);
+    assert.doesNotMatch(remainingSql, /vegas_spread/);
+    assert.doesNotMatch(remainingSql, /vegas_total/);
+    assert.doesNotMatch(remainingSql, /401\d{6,}/);
+    const pitt = readFileSync(join(root, "migrations/0032_week3_pitt_syracuse_final.sql"), "utf8");
+    assert.match(pitt, /home_score = 27/);
+    assert.match(pitt, /away_score = 13/);
+    assert.match(pitt, /h\.slug = 'pittsburgh' and a\.slug = 'syracuse'/);
+    const kickSql = readFileSync(join(root, "migrations/0029_week3_kick_tv_vegas.sql"), "utf8");
+    assert.match(kickSql, /kickoff_at = timestamptz '2026-09-17 18:30:00-05'/);
+    assert.match(kickSql, /h\.slug = 'pittsburgh' then 10\.5 else -10\.5/);
+  });
+});
+

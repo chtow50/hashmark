@@ -15,9 +15,35 @@ export const STORY_DATE = "Friday, Aug 28, 2026";
 export const STORY_DATE_WEEK1 = "Friday, Sep 4, 2026";
 export const STORY_DATE_TAPE = "Tuesday, Sep 8, 2026";
 export const STORY_DATE_TAPE_WEEK2 = "Sunday, Sep 13, 2026";
+export const STORY_DATE_TAPE_WEEK3 = "Sunday, Sep 20, 2026";
 export const STORY_DATE_WEEK3 = "Friday, Sep 18, 2026";
 
 export const STORIES: Story[] = [
+  {
+    slug: "week-3-tape",
+    kicker: "Week 3 tape",
+    headline: "Week 3 tape: 49/56 SU, 23/56 closer FLAG. Top 25 closer 5/21.",
+    dek: "Full slate closer is a FLAG. Top 25 closer 5/21. SU 20/21 in that cut. HX not retuned.",
+    date: STORY_DATE_TAPE_WEEK3,
+    body: [
+      "Week 3 SU 49/56 (87.5%). HX closer to the final than Vegas 23/56 (41.1%) — FLAG, under 45%. Vegas closer 33/56. HX ATS 29/56 (51.8%). FBS–FBS only, n=56. Season W1–W3: SU 83.6% (122/146) · closer 43.2% (63/146). This week’s ledger, not the 70.8% 2019–2025 claim.",
+      "HX Top 25 involvement (n=21, hx_rank ≤25 on the live board): closer 5/21 (23.8%). Vegas 16/21. SU 20/21. Full slate closer stays FLAG. The ranked cut was not the scorecard beat this week — margin accuracy lagged Vegas on several chalk blowouts.",
+      "The one SU miss in the Top 25 cut: Kentucky @ Texas A&M (HX Texas A&M −26.0 / Vegas TA&M −16.5 / FINAL Kentucky 31–Texas A&M 21). Vegas closer.",
+      "HX closer hits in the Top 25 cut (5): Miami @ Wake Forest, USC @ Rutgers, Troy @ Missouri, LSU @ Ole Miss, UTSA @ Texas.",
+      "Seven full-slate SU misses, HX favorites: Kentucky @ Texas A&M, Mississippi State @ South Carolina, East Carolina @ Old Dominion, UConn @ Southern Miss, Ohio @ South Alabama, West Virginia @ Virginia, James Madison @ San Diego State. Winner-flip hits: Nevada @ Middle Tennessee (HX Middle Tennessee −5.0 vs Vegas NEV −3.5, FINAL 20–27), LSU @ Ole Miss (HX Ole Miss −7.8 vs Vegas LSU −3, FINAL 24–32). Winner-flip misses: UConn @ Southern Miss, Ohio @ South Alabama. HX ATS 29/56 (51.8%). Full-slate MAE HX 10.03 / Vegas 8.71. Brier 0.119. Research Vegas pack + ESPN FINALs. HX not retuned.",
+    ],
+    whyItMatters: "Third public ledger of 2026. Full slate closer is a FLAG. Top 25 closer 5/21. SU 20/21 in that cut. HX not retuned.",
+    sources: [
+      {
+        label: "HASHMARK Board",
+        href: "https://hashmarkcfb.com/",
+      },
+      {
+        label: "HASHMARK Schedule",
+        href: "https://hashmarkcfb.com/schedule?w=3",
+      },
+    ],
+  },
   {
     slug: "week-3-houston-texas-tech",
     kicker: "Week 3 · Friday",

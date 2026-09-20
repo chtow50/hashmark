@@ -44,6 +44,8 @@
     "data/week2_fbs_fcs_spreads_2026.json",
     "data/week2_tape_2026.json",
     "data/week2_tape_top25_closer_2026.json",
+    "data/week3_tape_2026.json",
+    "data/week3_tape_top25_closer_2026.json",
     "data/scenario_sim_rerun_contract_example.json",
     "data/scenario_sim_golden_request.json",
     "data/scenario_sim_golden_response.json",

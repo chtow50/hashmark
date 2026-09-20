@@ -159,6 +159,35 @@ describe("prebuilt deploy artifacts", () => {
     assert.doesNotMatch(text, /The board is posted/);
   });
 
+  it("includes Week 3 O/D + HX 2026.5 stamp while board chrome stays Week 3", () => {
+    const text = corpus();
+    assert.match(text, /0034_week3_od_hx_ship/);
+    assert.match(text, /HX 2026\.5/);
+    assert.match(text, /Week 3 board/);
+    assert.match(text, /7\.8978/);
+    assert.match(text, /0\.0711/);
+    assert.match(text, /week3_od_hx_ship_2026/);
+    assert.match(text, /sunday_od_delta_2026_w3/);
+    assert.doesNotMatch(text, /Week 4 board/);
+    assert.match(text, /sim_10k_2026_hx2026_4/);
+    assert.match(text, /HX 2026\.4 · 10k draws/);
+  });
+
+  it("includes Week 3 remaining CLEAR FINALs and Week 3 tape in committed output", () => {
+    const text = corpus();
+    assert.match(text, /0033_week3_remaining_finals/);
+    assert.match(text, /Miami @ Wake Forest — Wake Forest 20, Miami 33/);
+    assert.match(text, /h\.slug = 'wake-forest' and a\.slug = 'miami'/);
+    assert.match(text, /h\.slug = 'texas-am' and a\.slug = 'kentucky'/);
+    assert.match(text, /week-3-tape/);
+    assert.match(text, /49\/56/);
+    assert.match(text, /23\/56/);
+    assert.match(text, /week3_tape_2026/);
+    assert.match(text, /week3_tape_top25_closer_2026/);
+    assert.match(text, /5\/21/);
+    assert.match(text, /20\/21/);
+  });
+
   it("includes Week 3 Pitt FINAL and Week 3 HX-vs-AP gaps in committed output", () => {
     const text = corpus();
     assert.match(text, /0032_week3_pitt_syracuse_final/);

@@ -22,10 +22,10 @@ import { MODEL, predictMatchup } from "@/lib/cfb/model";
 import { make12FromSim } from "@/lib/cfb/season-sim";
 import {
   boardDisagreementRows,
-  week2BoardFlags,
-  week2SeasonTape,
-  week2Tape,
-  week2Top25Tape,
+  week3BoardFlags,
+  week3SeasonTape,
+  week3Tape,
+  week3Top25Tape,
 } from "@/lib/cfb/truth-pack";
 import type { Prediction, ScheduleGame } from "@/lib/cfb/types";
 import { apLabel, fmtNum, fmtPct } from "@/lib/utils";
@@ -64,10 +64,10 @@ function Home() {
     : null;
 
   const disagreements = boardDisagreementRows(teams).slice(0, 8);
-  const tape = week2Tape();
-  const top25 = week2Top25Tape();
-  const season = week2SeasonTape();
-  const flags = week2BoardFlags();
+  const tape = week3Tape();
+  const top25 = week3Top25Tape();
+  const season = week3SeasonTape();
+  const flags = week3BoardFlags();
   const oneMake = one ? make12FromSim(one.slug, one) : null;
 
   const recLeaders = [...teams].sort((a, b) => a.recRank - b.recRank).slice(0, 5);

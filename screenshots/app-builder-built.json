@@ -7,11 +7,13 @@
       "status": 200,
       "title": "HASHMARK · Week 3 board",
       "hasCanvas": false,
-      "bodyTextLen": 3044,
-      "bodyTextHash": "ca5696468fe29b53d913870c168efac9594284e758dffcf5cef48f027f1ea060",
+      "bodyTextLen": 3028,
+      "bodyTextHash": "3da33837875a7c9d1cc563a957882e8cbd70022fccbd83647095f447d45ec308",
       "bodyTextPrefix": "Skip to board HASHMARK Board Schedule Stories Rankings Matchup R",
       "horizontalOverflow": false,
-      "consoleErrors": [],
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 404 ()"
+      ],
       "pageErrors": [],
       "screenshot": "/workspace/screenshots/app-builder-built.png"
     },
@@ -21,11 +23,13 @@
       "status": 200,
       "title": "HASHMARK · Week 3 board",
       "hasCanvas": false,
-      "bodyTextLen": 2831,
-      "bodyTextHash": "df178baf3e8fe81f033de7f92452991d7ca9552975a3c751929efa0d3c262b2a",
+      "bodyTextLen": 2815,
+      "bodyTextHash": "a771b794f756d6a7778fc30cb1161ca8601faaa3fab7807da3bffb0533b5754e",
       "bodyTextPrefix": "Skip to board HASHMARK Edge Pack WEEK 3 · HX 2026.4 Week 3 board",
       "horizontalOverflow": false,
-      "consoleErrors": [],
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 404 ()"
+      ],
       "pageErrors": [],
       "screenshot": "/workspace/screenshots/app-builder-built-mobile.png"
     }
@@ -33,6 +37,9 @@
   "brandWarnings": [],
   "authWarnings": [],
   "verdictFile": "/workspace/screenshots/app-builder-built.json",
-  "divergesFromBaseline": false,
-  "baselineReasons": []
+  "divergesFromBaseline": true,
+  "baselineReasons": [
+    "desktop: console/page errors appeared (1)",
+    "mobile: console/page errors appeared (1)"
+  ]
 }

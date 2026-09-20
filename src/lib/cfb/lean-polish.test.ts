@@ -56,6 +56,7 @@ describe("LEAN polish gates", () => {
     assert.match(xml, /https:\/\/hashmarkcfb\.com\/edge</);
     assert.match(xml, /https:\/\/hashmarkcfb\.com\/edge\/board</);
     assert.match(xml, /https:\/\/hashmarkcfb\.com\/desk</);
+    assert.match(xml, /https:\/\/hashmarkcfb\.com\/stories\/week-3-tape</);
     assert.match(xml, /https:\/\/hashmarkcfb\.com\/stories\/week-2-tape</);
     assert.match(xml, /https:\/\/hashmarkcfb\.com\/stories\/week-3-houston-texas-tech</);
     assert.match(xml, /https:\/\/hashmarkcfb\.com\/stories\/week-3-lsu-ole-miss</);
