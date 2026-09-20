@@ -56,7 +56,7 @@ function StoriesPage() {
         <span className="mx-2" aria-hidden>
           ·
         </span>
-        HX 2026.4 · Week 3 board · no locks
+        HX 2026.5 · Week 3 board · no locks
       </p>
 
       {lead ? (

@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { predictMatchup } from "./model.ts";
+import { MODEL, predictMatchup } from "./model.ts";
 import {
   AP_STAMP,
   BOARD_WEEK,
@@ -186,6 +186,9 @@ const fridayAfternoon = Date.parse("2026-09-04T18:00:00.000Z");
 test("board chrome is Week 3; featured reads /schedule?w=3", () => {
   assert.equal(BOARD_WEEK, 3);
   assert.equal(FEATURED_SLATE_WEEK, 3);
+  assert.equal(MODEL.version, "2026.5");
+  assert.equal(MODEL.week, 3);
+  assert.equal(MODEL.weekLabel, "Week 3 board");
 });
 
 test("AP chrome is the last stamped Week 3 poll, not an invented Week 4 ballot", () => {
