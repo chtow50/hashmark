@@ -1,7 +1,7 @@
 import { n as MODEL } from "./fcs-stubs-DntyZ00F.mjs";
 import { S as require_jsx_runtime, h as Outlet, m as useChildMatches, y as Link } from "../_libs/@tanstack/react-router+[...].mjs";
 import { n as EdgeBoardPanel } from "./edge-board-p07aj1cN.mjs";
-import { $ as Panel, Q as PageHead, X as EdgeCheckoutNote, Y as EdgeBuyButton, q as EDGE } from "./router-D5cz8CyB.mjs";
+import { $ as Panel, Q as PageHead, X as EdgeCheckoutNote, Y as EdgeBuyButton, q as EDGE } from "./router-mpRDmuA6.mjs";
 //#region node_modules/.nitro/vite/services/ssr/assets/edge-DPBukRWf.js
 var import_jsx_runtime = require_jsx_runtime();
 var INCLUDED = [
