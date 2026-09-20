@@ -142,7 +142,7 @@ async function createPgliteSql(): Promise<Sql> {
       import: "default",
       eager: true,
     }) as Record<string, string>;
-    // New files in migrations/ are picked up here on HMR.
+    // New files in migrations/ are picked up here on HMR (0034 HX 2026.5).
     const doneRows = await pg.query<{ name: string }>(
       "select name from _migrations",
     );
