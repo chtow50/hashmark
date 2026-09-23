@@ -4,8 +4,8 @@ import { n as require_react } from "../_libs/@radix-ui/react-compose-refs+[...].
 import { S as require_jsx_runtime, y as Link } from "../_libs/@tanstack/react-router+[...].mjs";
 import { a as Minus, i as Plus } from "../_libs/lucide-react.mjs";
 import { r as DeskChip } from "./marks-Csjo_8eC.mjs";
-import { $ as Panel, G as Button, Q as PageHead, Y as EdgeBuyButton, at as fmtNum, c as SCENARIO_SIM_GOLDEN_EVENT_ID, d as formatScenarioError, f as isScenarioSimUnlocked, i as Route$3, l as SCENARIO_SIM_GOLDEN_FORCE, m as runDemoScenarioSim, nt as cn, o as SCENARIO_SIM_DEMO_LABEL, ot as fmtPct, p as loadScenarioSimGoldenRequest, q as EDGE, s as SCENARIO_SIM_GOLDEN_BUMP, u as buildScenarioRequest } from "./router-BSUIG7vw.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/edge_.sim-rnvOuaGZ.js
+import { $ as Panel, G as Button, Q as PageHead, Y as EdgeBuyButton, at as fmtNum, c as SCENARIO_SIM_GOLDEN_EVENT_ID, d as formatScenarioError, f as isScenarioSimUnlocked, i as Route$3, l as SCENARIO_SIM_GOLDEN_FORCE, m as runDemoScenarioSim, nt as cn, o as SCENARIO_SIM_DEMO_LABEL, ot as fmtPct, p as loadScenarioSimGoldenRequest, q as EDGE, s as SCENARIO_SIM_GOLDEN_BUMP, u as buildScenarioRequest } from "./router-BkdnoR0o.mjs";
+//#region node_modules/.nitro/vite/services/ssr/assets/edge_.sim-RVZruds1.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 var METRIC_COLS = [

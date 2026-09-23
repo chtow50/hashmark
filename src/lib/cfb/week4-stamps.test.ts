@@ -28,6 +28,7 @@ const payload = JSON.parse(
     clear_or_hold: string;
   };
   games: Array<{
+    espn_event_id: string;
     matchup: string;
     kick_ct: string;
     kick_iso: string;
@@ -213,5 +214,173 @@ describe("Week 4 FBS–FBS Research stamps", () => {
     assert.equal((sql.match(/neutral = false/g) ?? []).length, 57);
     assert.doesNotMatch(sql, /neutral = true/);
     assert.match(sqlBlock("wyoming", "hawaii"), /a\.slug = 'hawaii'/);
+  });
+});
+
+const clearPack = JSON.parse(
+  readFileSync(join(root, "data/week4_vegas_clear_pack_2026-09-23.json"), "utf8"),
+) as {
+  meta: {
+    n_games: number;
+    n_clear: number;
+    n_hold: number;
+    n_blank_vegas: number;
+    n_with_ou: number;
+    n_new_lines: number;
+    n_moved_lines: number;
+    n_kick_corrections: number;
+    n_tv_gains: number;
+  };
+  games: Array<{
+    espn_id: string;
+    away: string;
+    home: string;
+    matchup: string;
+    kick_ct: string;
+    weekday: string;
+    tv: string;
+    vegas_details: string;
+    vegas_spread: number;
+    ou: number;
+    status: string;
+  }>;
+  stamp_table: Array<{ espn_id: string; vegas_details: string; ou: number; status: string }>;
+};
+
+const clearSql = readFileSync(join(root, "migrations/0035_week4_vegas_clear_2026_09_23.sql"), "utf8");
+
+function clearBlock(espnId: string): string {
+  const re = new RegExp(
+    `^--[^\\n]*ESPN ${espnId}[^\\n]*\\nupdate games[\\s\\S]*?g\\.week = 4;`,
+    "m",
+  );
+  const m = clearSql.match(re);
+  assert.ok(m, `missing CLEAR SQL block for ESPN ${espnId}`);
+  return m[0];
+}
+
+describe("Week 4 Sep 23 Vegas CLEAR refresh", () => {
+  it("covers 57 CLEAR games, 0 HOLD, 0 blank Vegas, 43 NEW, 14 MOVED", () => {
+    assert.equal(clearPack.meta.n_games, 57);
+    assert.equal(clearPack.games.length, 57);
+    assert.equal(clearPack.stamp_table.length, 57);
+    assert.equal(clearPack.meta.n_clear, 57);
+    assert.equal(clearPack.meta.n_hold, 0);
+    assert.equal(clearPack.meta.n_blank_vegas, 0);
+    assert.equal(clearPack.meta.n_with_ou, 57);
+    assert.equal(clearPack.meta.n_new_lines, 43);
+    assert.equal(clearPack.meta.n_moved_lines, 14);
+    assert.equal(clearPack.meta.n_kick_corrections, 2);
+    assert.equal(clearPack.meta.n_tv_gains, 7);
+    assert.equal(clearPack.games.filter((g) => g.status === "CLEAR").length, 57);
+    assert.equal(clearPack.games.filter((g) => g.vegas_spread == null || g.ou == null).length, 0);
+    const ids = new Set(clearPack.games.map((g) => g.espn_id));
+    assert.equal(ids.size, 57);
+    for (const row of clearPack.stamp_table) {
+      const g = clearPack.games.find((x) => x.espn_id === row.espn_id);
+      assert.ok(g);
+      assert.equal(row.vegas_details, g.vegas_details);
+      assert.equal(row.ou, g.ou);
+      assert.equal(row.status, "CLEAR");
+    }
+  });
+
+  it("maps vegas_details onto the home-favored board spread (does not negate vegas_spread)", () => {
+    const archive = payload.games;
+    for (const g of clearPack.games) {
+      const prior = archive.find((a) => a.espn_event_id === g.espn_id);
+      assert.ok(prior, g.espn_id);
+      const m = g.vegas_details.match(/^(.+?)\s+(-?\d+(?:\.\d+)?)$/);
+      assert.ok(m, g.vegas_details);
+      const fav = m[1] === "AF" ? "AFA" : m[1];
+      const line = Number(m[2]);
+      assert.equal(g.vegas_spread, line);
+      assert.ok(line < 0);
+      const homeFav = fav === prior.home_short;
+      const awayFav = fav === prior.away_short;
+      assert.ok(homeFav !== awayFav, `${g.espn_id} ${g.vegas_details}`);
+      const board = homeFav ? Math.abs(line) : -Math.abs(line);
+      const block = clearBlock(g.espn_id);
+      const mag = Number.isInteger(Math.abs(line)) ? String(Math.abs(line)) : String(Math.abs(line));
+      const homeSlug = block.match(/h\.slug = '([^']+)' and a\.slug = '([^']+)'/);
+      assert.ok(homeSlug);
+      if (homeFav) {
+        assert.match(block, new RegExp(`h\\.slug = '${homeSlug[1]}' then ${mag} else -${mag}`));
+      } else {
+        assert.match(block, new RegExp(`h\\.slug = '${homeSlug[1]}' then -${mag} else ${mag}`));
+      }
+      assert.equal(board > 0, homeFav);
+      assert.match(block, new RegExp(`vegas_total = ${g.ou}`));
+      assert.match(block, new RegExp(`tv = '${g.tv.replace("+", "\\+")}'`));
+      const [ymd, hm] = g.kick_ct.split(" ");
+      assert.match(block, new RegExp(`timestamptz '${ymd} ${hm}:00-05'`));
+      assert.match(block, new RegExp(`kickoff_date = date '${ymd}'`));
+      assert.equal(g.weekday, prior.weekday === "Fri" && ymd === "2026-09-26" ? "Sat" : g.weekday);
+    }
+    assert.equal((clearSql.match(/g\.week = 4;/g) ?? []).length, 57);
+    assert.equal((clearSql.match(/neutral = false/g) ?? []).length, 57);
+    assert.doesNotMatch(clearSql, /home_score|away_score|hx_rating|BOARD_WEEK/);
+  });
+
+  it("stamps Liberty @ Coastal as Thu 18:30 CT · ESPN · LIB -2.5 / 50.5", () => {
+    const g = clearPack.games.find((x) => x.espn_id === "401869941");
+    assert.ok(g);
+    assert.equal(g.matchup, "Liberty @ Coastal Carolina");
+    assert.equal(g.kick_ct, "2026-09-24 18:30");
+    assert.equal(g.weekday, "Thu");
+    assert.equal(g.tv, "ESPN");
+    assert.equal(g.vegas_details, "LIB -2.5");
+    assert.equal(g.ou, 50.5);
+    const block = clearBlock("401869941");
+    assert.match(block, /timestamptz '2026-09-24 18:30:00-05'/);
+    assert.match(block, /tv = 'ESPN'/);
+    assert.match(block, /h\.slug = 'coastal-carolina' then -2\.5 else 2\.5/);
+    assert.match(block, /vegas_total = 50\.5/);
+    assert.equal(favoriteLine("Coastal", "Liberty", -2.5), "Liberty −2.5");
+    assert.equal(WEEK4_FEATURED.homeSlug, "coastal-carolina");
+    assert.equal(WEEK4_FEATURED.awaySlug, "liberty");
+  });
+
+  it("moves Boise and Houston off Friday night onto Saturday afternoon with TV", () => {
+    const boise = clearPack.games.find((g) => g.espn_id === "401860897");
+    const hou = clearPack.games.find((g) => g.espn_id === "401856806");
+    assert.ok(boise && hou);
+    assert.equal(boise.kick_ct, "2026-09-26 14:30");
+    assert.equal(boise.weekday, "Sat");
+    assert.equal(boise.tv, "ESPN2");
+    assert.equal(boise.vegas_details, "BOIS -7");
+    assert.equal(hou.kick_ct, "2026-09-26 15:00");
+    assert.equal(hou.weekday, "Sat");
+    assert.equal(hou.tv, "ESPNU");
+    assert.equal(hou.vegas_details, "HOU -18.5");
+    assert.match(clearBlock("401860897"), /h\.slug = 'western-michigan' then -7 else 7/);
+    assert.match(clearBlock("401856806"), /h\.slug = 'georgia-southern' then -18\.5 else 18\.5/);
+    assert.equal(clearPack.games.filter((g) => g.weekday === "Fri").length, 4);
+    assert.equal(clearPack.games.filter((g) => g.weekday === "Sat").length, 52);
+    assert.equal(clearPack.games.filter((g) => g.weekday === "Thu").length, 1);
+  });
+
+  it("stamps the seven TV gains and the flipped favorites", () => {
+    const tv = [
+      ["401856813", "ESPN2", "BAY -10"],
+      ["401858242", "ACC Network", "VT -14"],
+      ["401858243", "ESPN", "LOU -12.5"],
+      ["401856700", "ESPN", "UGA -14"],
+      ["401856699", "ABC", "FLA -3.5"],
+      ["401860897", "ESPN2", "BOIS -7"],
+      ["401856806", "ESPNU", "HOU -18.5"],
+    ] as const;
+    for (const [id, network, details] of tv) {
+      const g = clearPack.games.find((x) => x.espn_id === id);
+      assert.equal(g?.tv, network);
+      assert.equal(g?.vegas_details, details);
+      assert.match(clearBlock(id), new RegExp(`tv = '${network}'`));
+    }
+    assert.match(clearBlock("401856881"), /h\.slug = 'west-virginia' then 1\.5 else -1\.5/);
+    assert.match(clearBlock("401858469"), /h\.slug = 'usc' then -3 else 3/);
+    assert.match(clearBlock("401856702"), /h\.slug = 'lsu' then 8\.5 else -8\.5/);
+    assert.equal(favoriteLine("West Virginia", "Oklahoma St", 1.5), "West Virginia −1.5");
+    assert.equal(favoriteLine("USC", "Oregon", -3), "Oregon −3.0");
+    assert.equal(favoriteLine("LSU", "Texas A&M", 8.5), "LSU −8.5");
   });
 });

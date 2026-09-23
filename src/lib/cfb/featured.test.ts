@@ -359,7 +359,7 @@ test("after Pitt FINAL, earliest Friday kick is Miami @ Wake Forest, not Houston
   assert.equal(favoriteLine("Wake", "Miami", book?.spread ?? 0), "Miami −20.5");
 });
 
-test("Week 4 board featured is Liberty @ Coastal Carolina with kick/TV and blank Vegas", () => {
+test("Week 4 board featured is Liberty @ Coastal Carolina with kick/TV and LIB −2.5", () => {
   const coastal = game({
     id: 200,
     week: 4,
@@ -371,8 +371,8 @@ test("Week 4 board featured is Liberty @ Coastal Carolina with kick/TV and blank
     kickoffAt: "2026-09-24T23:30:00.000Z",
     location: "Brooks Stadium (SC)",
     tv: "ESPN",
-    vegasSpread: null,
-    vegasTotal: null,
+    vegasSpread: -2.5,
+    vegasTotal: 50.5,
   });
   const lsu = game({
     id: 201,
@@ -385,18 +385,23 @@ test("Week 4 board featured is Liberty @ Coastal Carolina with kick/TV and blank
     kickoffAt: "2026-09-26T23:30:00.000Z",
     location: "Tiger Stadium (LA)",
     tv: "ABC",
-    vegasSpread: 5.5,
-    vegasTotal: 54.5,
+    vegasSpread: 8.5,
+    vegasTotal: 51.5,
   });
   const now = Date.parse("2026-09-18T16:00:00.000Z");
   const featured = selectBoardFeaturedKick([coastal, lsu], now);
   assert.equal(featured?.homeSlug, "coastal-carolina");
   assert.equal(featured?.awaySlug, "liberty");
   assert.equal(featured?.tv, "ESPN");
+  assert.equal(featured?.kickoffAt, "2026-09-24T23:30:00.000Z");
   assert.equal(featuredSlateWeek(coastal), 4);
-  assert.equal(featuredBook(featured!), null);
-  assert.equal(featuredBook(lsu)?.kind, "close");
-  assert.equal(favoriteLine("LSU", "Texas A&M", 5.5), "LSU −5.5");
+  const book = featuredBook(featured!);
+  assert.equal(book?.kind, "close");
+  assert.equal(book?.spread, -2.5);
+  assert.equal(book?.total, "50.5");
+  assert.equal(favoriteLine("Coastal", "Liberty", book?.spread ?? 0), "Liberty −2.5");
+  assert.equal(featuredBook(lsu)?.spread, 8.5);
+  assert.equal(favoriteLine("LSU", "Texas A&M", featuredBook(lsu)?.spread ?? 0), "LSU −8.5");
 });
 
 test("Week 4 board featured does not invent a pin when the slate is empty", () => {
