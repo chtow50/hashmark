@@ -183,12 +183,12 @@ const beforeThursday = Date.parse("2026-09-01T22:00:00.000Z");
 const afterGtKick = Date.parse("2026-09-04T00:01:00.000Z");
 const fridayAfternoon = Date.parse("2026-09-04T18:00:00.000Z");
 
-test("board chrome is Week 3; featured reads /schedule?w=3", () => {
-  assert.equal(BOARD_WEEK, 3);
-  assert.equal(FEATURED_SLATE_WEEK, 3);
+test("board chrome is Week 4; featured reads /schedule?w=4", () => {
+  assert.equal(BOARD_WEEK, 4);
+  assert.equal(FEATURED_SLATE_WEEK, 4);
   assert.equal(MODEL.version, "2026.5");
-  assert.equal(MODEL.week, 3);
-  assert.equal(MODEL.weekLabel, "Week 3 board");
+  assert.equal(MODEL.week, 4);
+  assert.equal(MODEL.weekLabel, "Week 4 board");
 });
 
 test("AP chrome is the last stamped Week 3 poll, not an invented Week 4 ballot", () => {
@@ -196,10 +196,11 @@ test("AP chrome is the last stamped Week 3 poll, not an invented Week 4 ballot",
   assert.equal(AP_STAMP.asOf, "Sept. 13");
   assert.equal(AP_STAMP.label, "Week 3 AP");
   assert.equal(AP_STAMP.columnHint, "W3 stamp");
-  assert.equal(AP_STAMP.week, BOARD_WEEK);
+  assert.notEqual(AP_STAMP.week, BOARD_WEEK);
   assert.match(AP_STAMP.vsHx, /Week 3, Sept\. 13/);
-  assert.match(AP_STAMP.lede, /HX is Week 3/);
+  assert.match(AP_STAMP.lede, /HX is Week 4/);
   assert.match(AP_STAMP.lede, /last stamped poll \(Week 3/);
+  assert.match(AP_STAMP.lede, /Sept\. 13/);
   assert.match(AP_STAMP.lede, /not a Week 4 ballot/);
 });
 

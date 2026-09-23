@@ -4,11 +4,11 @@ import type { ScheduleGame } from "./types";
  * Board chrome week (Rankings / home PageHead). Ranking *rows* stay
  * `season = 2026 AND week = 0` — that is what queries read.
  */
-export const BOARD_WEEK = 3;
+export const BOARD_WEEK = 4;
 
 /**
  * Last stamped AP ballot on the live board.
- * HX chrome is Week 3; AP is the last stamped poll (Week 3, Sept. 13) —
+ * HX chrome is Week 4; AP is the last stamped poll (Week 3, Sept. 13) —
  * not an invented Week 4 ballot.
  */
 export const AP_STAMP = {
@@ -17,19 +17,18 @@ export const AP_STAMP = {
   label: "Week 3 AP",
   columnHint: "W3 stamp",
   vsHx: "last stamped AP (Week 3, Sept. 13)",
-  lede: "HX is Week 3. AP is the last stamped poll (Week 3, Sept. 13) — not a Week 4 ballot.",
+  lede: "HX is Week 4. AP is the last stamped poll (Week 3, Sept. 13) — not a Week 4 ballot.",
 } as const;
 
 /**
- * Featured kick reads the HASHMARK Week 3 slate (`/schedule?w=3`).
+ * Featured kick reads the HASHMARK Week 4 slate (`/schedule?w=4`).
  * Next upcoming non-final by kick time; if the slate has dates but no
  * times, first non-final in slate order. Never invent a kick, TV, Vegas,
  * or a Research pin. FCS rows are Vegas-only (unrated) — never feature
- * them (would invent HX). Pitt FINAL is not featured. Week 4 schedule
- * data stays at `/schedule?w=4` (Liberty @ Coastal, Vegas HOLD) and is
- * not the home featured until Week 3 is done.
+ * them (would invent HX). Liberty @ Coastal is the Week 4 opener
+ * (kick and TV stamped; Vegas HOLD — blank Vegas stays blank).
  */
-export const FEATURED_SLATE_WEEK = 3;
+export const FEATURED_SLATE_WEEK = 4;
 
 /** Thursday night flag: Colorado at Georgia Tech, Bobby Dodd. */
 export const WEEK1_FLAG = {
@@ -121,16 +120,13 @@ export function selectFeaturedKick<
 }
 
 /**
- * Board featured for the live chrome week.
- * Week 2 Research pins (Ohio State @ Texas, Oklahoma @ Michigan) stay as
- * historical helpers only — those rows are FINAL and must not feature.
- * Week 3: next upcoming FBS kick on the week-3 slate. Pitt is FINAL and
- * must not feature; earliest remaining Friday kick is Miami @ Wake Forest
- * (Houston @ Texas Tech is later the same night).
- * Week 4 Liberty @ Coastal stays a historical helper / `/schedule?w=4`
- * card (Vegas HOLD, do not invent) — not the home featured while Week 3
- * is live.
- * Never a FINAL. Never FCS. Never invent a book or matchup.
+ * Board featured for the live chrome week (Week 4 slate).
+ * Week 2 and Week 3 Research pins stay historical helpers — those rows
+ * are FINAL and must not feature. Pitt FINAL is not featured.
+ * Week 4: next upcoming FBS kick on the week-4 slate. While Liberty @
+ * Coastal is still ahead, that is the card (kick/TV stamped, Vegas HOLD).
+ * Blank Vegas is allowed. Never invent a book.
+ * Never a FINAL. Never FCS. Never invent a matchup.
  */
 export function selectBoardFeaturedKick<
   T extends Pick<ScheduleGame, "status" | "kickoffAt" | "homeSlug" | "awaySlug"> & { isFcs?: boolean },
