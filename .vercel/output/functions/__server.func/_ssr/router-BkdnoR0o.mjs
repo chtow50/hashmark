@@ -874,7 +874,7 @@ function ConfPills({ value, to, searchFor }) {
 	});
 }
 //#endregion
-//#region node_modules/.nitro/vite/services/ssr/assets/featured-BoVQ_pyB.js
+//#region node_modules/.nitro/vite/services/ssr/assets/featured-BRH5Yo_0.js
 /**
 * Last stamped AP ballot on the live board.
 * HX chrome is Week 4; AP is the last stamped poll (Week 3, Sept. 13) —
@@ -935,8 +935,8 @@ function selectFeaturedKick(slate, nowMs) {
 * Week 2 and Week 3 Research pins stay historical helpers — those rows
 * are FINAL and must not feature. Pitt FINAL is not featured.
 * Week 4: next upcoming FBS kick on the week-4 slate. While Liberty @
-* Coastal is still ahead, that is the card (kick/TV stamped, Vegas HOLD).
-* Blank Vegas is allowed. Never invent a book.
+* Coastal is still ahead, that is the card (Thu 18:30 CT · ESPN · LIB −2.5 / 50.5).
+* Blank Vegas stays blank when the row has no stamped book. Never invent a book.
 * Never a FINAL. Never FCS. Never invent a matchup.
 */
 function selectBoardFeaturedKick(slate, nowMs) {
@@ -1653,7 +1653,7 @@ function getStory(slug) {
 	return STORIES.find((s) => s.slug === slug) ?? null;
 }
 //#endregion
-//#region node_modules/.nitro/vite/services/ssr/assets/router-BSUIG7vw.js
+//#region node_modules/.nitro/vite/services/ssr/assets/router-BkdnoR0o.js
 var __defProp = Object.defineProperty;
 var __exportAll = (all, no_symbols) => {
 	let target = {};
@@ -2082,7 +2082,7 @@ function Root() {
 		] })]
 	});
 }
-var $$splitComponentImporter$16 = () => import("./routes-BEjI4HWZ.mjs");
+var $$splitComponentImporter$16 = () => import("./routes-Dnni23k9.mjs");
 var Route$17 = createFileRoute("/")({
 	loader: async () => {
 		const [teams, games, slate] = await Promise.all([
@@ -2118,13 +2118,13 @@ var Route$15 = createFileRoute("/edge")({
 		content: "HX Edge Pack is the weekly depth product. The $5 week sample is the full pack — confidence cards, unit O/D pulse, tape write-up — not the free-board teaser. The public board stays free."
 	}] })
 });
-var $$splitComponentImporter$13 = () => import("./logos-D3NcXlqR.mjs");
+var $$splitComponentImporter$13 = () => import("./logos-B0IDTHfc.mjs");
 var Route$14 = createFileRoute("/logos")({
 	loader: async () => listTeams(),
 	component: lazyRouteComponent($$splitComponentImporter$13, "component"),
 	head: () => ({ meta: [{ title: "Team logos · HASHMARK" }] })
 });
-var $$splitComponentImporter$12 = () => import("./matchup-yxkGNqYV.mjs");
+var $$splitComponentImporter$12 = () => import("./matchup-C3jvHzV9.mjs");
 function parseNeutral(v) {
 	if (v === true || v === "1" || v === "true") return true;
 	if (v === false || v === "0" || v === "false") return false;
@@ -2159,7 +2159,7 @@ var Route$12 = createFileRoute("/model")({
 	component: lazyRouteComponent($$splitComponentImporter$11, "component"),
 	head: () => ({ meta: [{ title: "The Model · HASHMARK" }] })
 });
-var $$splitComponentImporter$10 = () => import("./rankings-qbX-wD6g.mjs");
+var $$splitComponentImporter$10 = () => import("./rankings-C8skfK4g.mjs");
 var Route$11 = createFileRoute("/rankings")({
 	validateSearch: (s) => {
 		const conf = parseConf(s.conf);
@@ -2176,7 +2176,7 @@ var YEARS = [
 	2025,
 	2026
 ];
-var $$splitComponentImporter$9 = () => import("./recruiting-DhOCp_0Y.mjs");
+var $$splitComponentImporter$9 = () => import("./recruiting-BWCXoK4B.mjs");
 var Route$10 = createFileRoute("/recruiting")({
 	validateSearch: (s) => {
 		const y = Number(s.year);
@@ -2237,7 +2237,7 @@ function filterScheduleGames(games, teams, view, conf) {
 	const inConference = new Set(teams.filter((t) => inConf(t.conference, conf)).map((t) => t.slug));
 	return games.filter((g) => inConference.has(g.homeSlug) || inConference.has(g.awaySlug));
 }
-var $$splitComponentImporter$8 = () => import("./schedule-DStvubeP.mjs");
+var $$splitComponentImporter$8 = () => import("./schedule-CDTnfjEd.mjs");
 function parseWeek(v) {
 	const n = typeof v === "number" ? v : typeof v === "string" ? Number(v) : NaN;
 	if (!Number.isInteger(n) || n < 0 || n > 13) return void 0;
@@ -2276,7 +2276,7 @@ var Route$9 = createFileRoute("/schedule")({
 	component: lazyRouteComponent($$splitComponentImporter$8, "component"),
 	head: () => ({ meta: [{ title: "Schedule · HASHMARK" }] })
 });
-var $$splitComponentImporter$7 = () => import("./states-BcyU765f.mjs");
+var $$splitComponentImporter$7 = () => import("./states-CYIw4i_E.mjs");
 function parseStateCode(value) {
 	if (typeof value === "string" && /^[A-Za-z]{2}$/.test(value)) return value.toUpperCase();
 	return "TX";
@@ -2296,13 +2296,13 @@ var Route$8 = createFileRoute("/states")({
 	component: lazyRouteComponent($$splitComponentImporter$7, "component"),
 	head: () => ({ meta: [{ title: "States · HASHMARK" }] })
 });
-var $$splitComponentImporter$6 = () => import("./stories-DXtvL-hU.mjs");
+var $$splitComponentImporter$6 = () => import("./stories-B3917g2m.mjs");
 var Route$7 = createFileRoute("/stories")({
 	loader: () => listStories(),
 	component: lazyRouteComponent($$splitComponentImporter$6, "component"),
 	head: () => ({ meta: [{ title: "Stories · HASHMARK" }] })
 });
-var $$splitComponentImporter$5 = () => import("./talent-3Mawo5mI.mjs");
+var $$splitComponentImporter$5 = () => import("./talent-BpkqouWH.mjs");
 var Route$6 = createFileRoute("/talent")({
 	validateSearch: (s) => ({
 		board: s.board === "size" ? "size" : "composite",
@@ -2321,7 +2321,7 @@ var Route$5 = createFileRoute("/edge/board")({
 	}] })
 });
 var verifyEdgeUnlock = createServerFn({ method: "GET" }).validator(object({ sessionId: string().optional() })).handler(createSsrRpc("4fe58dd28fd7340a345c36b313f0f7fe83bb1daaeec7d6b97ee43c0751bef21c"));
-var $$splitComponentImporter$3 = () => import("./edge.unlock-Bp_a7xaE.mjs");
+var $$splitComponentImporter$3 = () => import("./edge.unlock-BvoC-o7L.mjs");
 var Route$4 = createFileRoute("/edge/unlock")({
 	validateSearch: (s) => ({ ...typeof s.session_id === "string" && s.session_id ? { session_id: s.session_id } : {} }),
 	loaderDeps: ({ search }) => ({ session_id: search.session_id }),
@@ -8243,7 +8243,7 @@ function formatScenarioError(code) {
 		default: return "Could not build the request.";
 	}
 }
-var $$splitComponentImporter$2 = () => import("./edge_.sim-rnvOuaGZ.mjs");
+var $$splitComponentImporter$2 = () => import("./edge_.sim-RVZruds1.mjs");
 var Route$3 = createFileRoute("/edge_/sim")({
 	validateSearch: (s) => parseScenarioUnlockSearch(s),
 	loader: async () => {
@@ -8268,7 +8268,7 @@ var Route$3 = createFileRoute("/edge_/sim")({
 		}
 	] })
 });
-var $$splitComponentImporter$1 = () => import("./stories._slug-DxiZgqoU.mjs");
+var $$splitComponentImporter$1 = () => import("./stories._slug-BCRrzjyF.mjs");
 var Route$2 = createFileRoute("/stories/$slug")({
 	loader: ({ params }) => {
 		const story = getStory(params.slug);
@@ -8278,7 +8278,7 @@ var Route$2 = createFileRoute("/stories/$slug")({
 	component: lazyRouteComponent($$splitComponentImporter$1, "component"),
 	head: ({ loaderData }) => ({ meta: [{ title: loaderData ? `${loaderData.headline} · HASHMARK` : "Story · HASHMARK" }] })
 });
-var $$splitComponentImporter = () => import("./teams._slug-DrH11ncm.mjs");
+var $$splitComponentImporter = () => import("./teams._slug-SXeZgupe.mjs");
 var Route$1 = createFileRoute("/teams/$slug")({
 	loader: async ({ params }) => {
 		const data = await getTeam({ data: { slug: params.slug } });
