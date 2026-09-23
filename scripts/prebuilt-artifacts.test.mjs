@@ -146,6 +146,24 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /WEEK4_FEATURED|coastal-carolina/);
   });
 
+  it("includes the Sep 23 Week 4 Vegas CLEAR refresh in committed output", () => {
+    const text = corpus();
+    assert.match(text, /0035_week4_vegas_clear_2026_09_23/);
+    assert.match(text, /week4_vegas_clear_pack_2026-09-23/);
+    assert.match(text, /h\.slug = 'coastal-carolina' then -2\.5 else 2\.5/);
+    assert.match(text, /vegas_total = 50\.5/);
+    assert.match(text, /h\.slug = 'lsu' then 8\.5 else -8\.5/);
+    assert.match(text, /h\.slug = 'west-virginia' then 1\.5 else -1\.5/);
+    assert.match(text, /h\.slug = 'usc' then -3 else 3/);
+    assert.match(text, /timestamptz '2026-09-26 14:30:00-05'/);
+    assert.match(text, /tv = 'ESPN2'/);
+    assert.match(text, /timestamptz '2026-09-26 15:00:00-05'/);
+    assert.match(text, /tv = 'ESPNU'/);
+    assert.match(text, /401869941/);
+    assert.match(text, /401860897/);
+    assert.match(text, /401856806/);
+  });
+
   it("includes Week 2 O/D + HX 2026.4 stamp and Week 3 chrome in committed output", () => {
     const text = corpus();
     assert.match(text, /0028_week2_od_hx_ship/);

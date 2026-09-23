@@ -26,7 +26,7 @@ export const AP_STAMP = {
  * times, first non-final in slate order. Never invent a kick, TV, Vegas,
  * or a Research pin. FCS rows are Vegas-only (unrated) — never feature
  * them (would invent HX). Liberty @ Coastal is the Week 4 opener
- * (kick and TV stamped; Vegas HOLD — blank Vegas stays blank).
+ * (Thu 18:30 CT · ESPN). The Sep 23 CLEAR pack stamps Vegas LIB −2.5 / 50.5.
  */
 export const FEATURED_SLATE_WEEK = 4;
 
@@ -55,7 +55,7 @@ export const WEEK3_FEATURED = {
   awaySlug: "syracuse",
 } as const;
 
-/** Thursday night ESPN: Liberty at Coastal Carolina. Research Week 4 featured card. Vegas HOLD. */
+/** Thursday night ESPN: Liberty at Coastal Carolina. Research Week 4 featured card. Vegas LIB −2.5 / 50.5. */
 export const WEEK4_FEATURED = {
   homeSlug: "coastal-carolina",
   awaySlug: "liberty",
@@ -124,8 +124,8 @@ export function selectFeaturedKick<
  * Week 2 and Week 3 Research pins stay historical helpers — those rows
  * are FINAL and must not feature. Pitt FINAL is not featured.
  * Week 4: next upcoming FBS kick on the week-4 slate. While Liberty @
- * Coastal is still ahead, that is the card (kick/TV stamped, Vegas HOLD).
- * Blank Vegas is allowed. Never invent a book.
+ * Coastal is still ahead, that is the card (Thu 18:30 CT · ESPN · LIB −2.5 / 50.5).
+ * Blank Vegas stays blank when the row has no stamped book. Never invent a book.
  * Never a FINAL. Never FCS. Never invent a matchup.
  */
 export function selectBoardFeaturedKick<

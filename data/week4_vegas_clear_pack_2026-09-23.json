@@ -1,0 +1,1298 @@
+{
+  "meta": {
+    "as_of": "2026-09-23 15:35",
+    "as_of_tz": "America/Chicago",
+    "verified_label": "2026-09-23 15:35 CT",
+    "week": 4,
+    "season": 2026,
+    "n_games": 57,
+    "n_clear": 57,
+    "n_hold": 0,
+    "n_blank_vegas": 0,
+    "n_with_ou": 57,
+    "n_new_lines": 43,
+    "n_moved_lines": 14,
+    "n_kick_corrections": 2,
+    "n_tv_gains": 7,
+    "n_tv_corrections": 0,
+    "by_day": {
+      "Thu": 1,
+      "Fri": 4,
+      "Sat": 52
+    },
+    "priority_thu_fri_ids": [
+      "401869941",
+      "401862779",
+      "401862778",
+      "401858461",
+      "401858234",
+      "401856806",
+      "401860897"
+    ],
+    "new_line_ids": [
+      "401869941",
+      "401862779",
+      "401862778",
+      "401858461",
+      "401858234",
+      "401856806",
+      "401856813",
+      "401856805",
+      "401860893",
+      "401866425",
+      "401864512",
+      "401858465",
+      "401858242",
+      "401858243",
+      "401860896",
+      "401864576",
+      "401858467",
+      "401864511",
+      "401864510",
+      "401856816",
+      "401861970",
+      "401856815",
+      "401864579",
+      "401862785",
+      "401869961",
+      "401858239",
+      "401862780",
+      "401858238",
+      "401862784",
+      "401869931",
+      "401856814",
+      "401871048",
+      "401864572",
+      "401860894",
+      "401856804",
+      "401862782",
+      "401856697",
+      "401858241",
+      "401860895",
+      "401860891",
+      "401864509",
+      "401858240",
+      "401858470"
+    ],
+    "moved_line_ids": [
+      "401860897",
+      "401856704",
+      "401858462",
+      "401856700",
+      "401856699",
+      "401858463",
+      "401856698",
+      "401858466",
+      "401858464",
+      "401856696",
+      "401856881",
+      "401856702",
+      "401858469",
+      "401856703"
+    ],
+    "kick_corrections": [
+      {
+        "espn_id": "401860897",
+        "matchup": "Boise State @ Western Michigan",
+        "old": "2026-09-25 23:00 Fri",
+        "new": "2026-09-26 14:30 Sat"
+      },
+      {
+        "espn_id": "401856806",
+        "matchup": "Houston @ Georgia Southern",
+        "old": "2026-09-25 23:00 Fri",
+        "new": "2026-09-26 15:00 Sat"
+      }
+    ],
+    "tv_gains": [
+      {
+        "espn_id": "401860897",
+        "matchup": "Boise State @ Western Michigan",
+        "tv": "ESPN2"
+      },
+      {
+        "espn_id": "401856806",
+        "matchup": "Houston @ Georgia Southern",
+        "tv": "ESPNU"
+      },
+      {
+        "espn_id": "401856813",
+        "matchup": "Colorado @ Baylor",
+        "tv": "ESPN2"
+      },
+      {
+        "espn_id": "401858242",
+        "matchup": "Virginia Tech @ Boston College",
+        "tv": "ACC Network"
+      },
+      {
+        "espn_id": "401858243",
+        "matchup": "Wake Forest @ Louisville",
+        "tv": "ESPN"
+      },
+      {
+        "espn_id": "401856700",
+        "matchup": "Oklahoma @ Georgia",
+        "tv": "ESPN"
+      },
+      {
+        "espn_id": "401856699",
+        "matchup": "Ole Miss @ Florida",
+        "tv": "ABC"
+      }
+    ],
+    "tv_corrections": [],
+    "sources": [
+      "ESPN site.web.api scoreboard groups=80 week=4 seasontype=2 dates=2026",
+      "ESPN competition.odds DraftKings provider details + overUnder",
+      "Baseline archive week4_fbs_fbs_kick_tv_vegas_2026 (Sep 17)"
+    ],
+    "policy": "CLEAR only with real DraftKings details. Blank/HOLD if missing. No invent. No HX. No site stamp. No X. No locks.",
+    "scoreboard_snapshot": "/workspace/cfb/data/espn_week4_2026_scoreboard_20260923.json",
+    "archive_baseline": "/workspace/cfb/week4_fbs_fbs_kick_tv_vegas_2026.md"
+  },
+  "games": [
+    {
+      "espn_id": "401869941",
+      "away": "LIB",
+      "home": "CCU",
+      "matchup": "Liberty @ Coastal Carolina",
+      "kick_ct": "2026-09-24 18:30",
+      "weekday": "Thu",
+      "tv": "ESPN",
+      "vegas_details": "LIB -2.5",
+      "vegas_spread": -2.5,
+      "ou": 50.5,
+      "status": "CLEAR",
+      "notes": "NEW line vs Sep 17 pack (was blank)"
+    },
+    {
+      "espn_id": "401862779",
+      "away": "ARMY",
+      "home": "TEM",
+      "matchup": "Army @ Temple",
+      "kick_ct": "2026-09-25 15:00",
+      "weekday": "Fri",
+      "tv": "ESPN",
+      "vegas_details": "ARMY -3",
+      "vegas_spread": -3.0,
+      "ou": 47.5,
+      "status": "CLEAR",
+      "notes": "NEW line vs Sep 17 pack (was blank)"
+    },
+    {
+      "espn_id": "401862778",
+      "away": "NAVY",
+      "home": "UAB",
+      "matchup": "Navy @ UAB",
+      "kick_ct": "2026-09-25 18:00",
+      "weekday": "Fri",
+      "tv": "ESPN",
+      "vegas_details": "NAVY -7",
+      "vegas_spread": -7.0,
+      "ou": 51.5,
+      "status": "CLEAR",
+      "notes": "NEW line vs Sep 17 pack (was blank)"
+    },
+    {
+      "espn_id": "401858461",
+      "away": "NU",
+      "home": "IU",
+      "matchup": "Northwestern @ Indiana",
+      "kick_ct": "2026-09-25 19:00",
+      "weekday": "Fri",
+      "tv": "FOX",
+      "vegas_details": "IU -21",
+      "vegas_spread": -21.0,
+      "ou": 49.5,
+      "status": "CLEAR",
+      "notes": "NEW line vs Sep 17 pack (was blank)"
+    },
+    {
+      "espn_id": "401858234",
+      "away": "CLEM",
+      "home": "CAL",
+      "matchup": "Clemson @ California",
+      "kick_ct": "2026-09-25 21:30",
+      "weekday": "Fri",
+      "tv": "ESPN",
+      "vegas_details": "CAL -1.5",
+      "vegas_spread": -1.5,
+      "ou": 50.5,
+      "status": "CLEAR",
+      "notes": "NEW line vs Sep 17 pack (was blank)"
+    },
+    {
+      "espn_id": "401856704",
+      "away": "TEX",
+      "home": "TENN",
+      "matchup": "Texas @ Tennessee",
+      "kick_ct": "2026-09-26 11:00",
+      "weekday": "Sat",
+      "tv": "ABC",
+      "vegas_details": "TEX -4.5",
+      "vegas_spread": -4.5,
+      "ou": 55.5,
+      "status": "CLEAR",
+      "notes": "MOVED vs Sep 17: was TEX -4.5 / O/U 56.5 \u2192 TEX -4.5 / O/U 55.5"
+    },
+    {
+      "espn_id": "401856805",
+      "away": "SHSU",
+      "home": "TTU",
+      "matchup": "Sam Houston @ Texas Tech",
+      "kick_ct": "2026-09-26 11:00",
+      "weekday": "Sat",
+      "tv": "TNT",
+      "vegas_details": "TTU -34.5",
+      "vegas_spread": -34.5,
+      "ou": 55.5,
+      "status": "CLEAR",
+      "notes": "NEW line vs Sep 17 pack (was blank)"
+    },
+    {
+      "espn_id": "401856813",
+      "away": "COLO",
+      "home": "BAY",
+      "matchup": "Colorado @ Baylor",
+      "kick_ct": "2026-09-26 11:00",
+      "weekday": "Sat",
+      "tv": "ESPN2",
+      "vegas_details": "BAY -10",
+      "vegas_spread": -10.0,
+      "ou": 55.5,
+      "status": "CLEAR",
+      "notes": "NEW line vs Sep 17 pack (was blank); TV GAIN: \u2014 \u2192 ESPN2"
+    },
+    {
+      "espn_id": "401858242",
+      "away": "VT",
+      "home": "BC",
+      "matchup": "Virginia Tech @ Boston College",
+      "kick_ct": "2026-09-26 11:00",
+      "weekday": "Sat",
+      "tv": "ACC Network",
+      "vegas_details": "VT -14",
+      "vegas_spread": -14.0,
+      "ou": 48.5,
+      "status": "CLEAR",
+      "notes": "NEW line vs Sep 17 pack (was blank); TV GAIN: \u2014 \u2192 ACC Network"
+    },
+    {
+      "espn_id": "401858243",
+      "away": "WAKE",
+      "home": "LOU",
+      "matchup": "Wake Forest @ Louisville",
+      "kick_ct": "2026-09-26 11:00",
+      "weekday": "Sat",
+      "tv": "ESPN",
+      "vegas_details": "LOU -12.5",
+      "vegas_spread": -12.5,
+      "ou": 58.5,
+      "status": "CLEAR",
+      "notes": "NEW line vs Sep 17 pack (was blank); TV GAIN: \u2014 \u2192 ESPN"
+    },
+    {
+      "espn_id": "401858465",
+      "away": "ILL",
+      "home": "OSU",
+      "matchup": "Illinois @ Ohio State",
+      "kick_ct": "2026-09-26 11:00",
+      "weekday": "Sat",
+      "tv": "FOX",
+      "vegas_details": "OSU -26.5",
+      "vegas_spread": -26.5,
+      "ou": 53.5,
+      "status": "CLEAR",
+      "notes": "NEW line vs Sep 17 pack (was blank)"
+    },
+    {
+      "espn_id": "401860893",
+      "away": "SDSU",
+      "home": "TOL",
+      "matchup": "San Diego State @ Toledo",
+      "kick_ct": "2026-09-26 11:00",
+      "weekday": "Sat",
+      "tv": "CBSSN",
+      "vegas_details": "TOL -3",
+      "vegas_spread": -3.0,
+      "ou": 51.5,
+      "status": "CLEAR",
+      "notes": "NEW line vs Sep 17 pack (was blank)"
+    },
+    {
+      "espn_id": "401860896",
+      "away": "CSU",
+      "home": "UTSA",
+      "matchup": "Colorado State @ UTSA",
+      "kick_ct": "2026-09-26 11:00",
+      "weekday": "Sat",
+      "tv": "ESPNU",
+      "vegas_details": "UTSA -13.5",
+      "vegas_spread": -13.5,
+      "ou": 58.5,
+      "status": "CLEAR",
+      "notes": "NEW line vs Sep 17 pack (was blank)"
+    },
+    {
+      "espn_id": "401864512",
+      "away": "UNLV",
+      "home": "AKR",
+      "matchup": "UNLV @ Akron",
+      "kick_ct": "2026-09-26 11:00",
+      "weekday": "Sat",
+      "tv": "ESPN+",
+      "vegas_details": "UNLV -13.5",
+      "vegas_spread": -13.5,
+      "ou": 52.5,
+      "status": "CLEAR",
+      "notes": "NEW line vs Sep 17 pack (was blank)"
+    },
+    {
+      "espn_id": "401866425",
+      "away": "BALL",
+      "home": "KENT",
+      "matchup": "Ball State @ Kent State",
+      "kick_ct": "2026-09-26 11:00",
+      "weekday": "Sat",
+      "tv": "ESPN+",
+      "vegas_details": "KENT -3.5",
+      "vegas_spread": -3.5,
+      "ou": 50.5,
+      "status": "CLEAR",
+      "notes": "NEW line vs Sep 17 pack (was blank)"
+    },
+    {
+      "espn_id": "401864576",
+      "away": "USA",
+      "home": "UK",
+      "matchup": "South Alabama @ Kentucky",
+      "kick_ct": "2026-09-26 11:45",
+      "weekday": "Sat",
+      "tv": "SEC Network",
+      "vegas_details": "UK -20.5",
+      "vegas_spread": -20.5,
+      "ou": 54.5,
+      "status": "CLEAR",
+      "notes": "NEW line vs Sep 17 pack (was blank)"
+    },
+    {
+      "espn_id": "401858462",
+      "away": "UCLA",
+      "home": "MD",
+      "matchup": "UCLA @ Maryland",
+      "kick_ct": "2026-09-26 12:30",
+      "weekday": "Sat",
+      "tv": "BTN",
+      "vegas_details": "UCLA -1.5",
+      "vegas_spread": -1.5,
+      "ou": 56.5,
+      "status": "CLEAR",
+      "notes": "MOVED vs Sep 17: was UCLA -1.5 / O/U 51.5 \u2192 UCLA -1.5 / O/U 56.5"
+    },
+    {
+      "espn_id": "401858467",
+      "away": "ND",
+      "home": "PUR",
+      "matchup": "Notre Dame @ Purdue",
+      "kick_ct": "2026-09-26 13:00",
+      "weekday": "Sat",
+      "tv": "Peacock",
+      "vegas_details": "ND -27.5",
+      "vegas_spread": -27.5,
+      "ou": 58.5,
+      "status": "CLEAR",
+      "notes": "NEW line vs Sep 17 pack (was blank)"
+    },
+    {
+      "espn_id": "401864511",
+      "away": "NIU",
+      "home": "GAST",
+      "matchup": "Northern Illinois @ Georgia State",
+      "kick_ct": "2026-09-26 13:00",
+      "weekday": "Sat",
+      "tv": "ESPN+",
+      "vegas_details": "GAST -10.5",
+      "vegas_spread": -10.5,
+      "ou": 55.5,
+      "status": "CLEAR",
+      "notes": "NEW line vs Sep 17 pack (was blank)"
+    },
+    {
+      "espn_id": "401864510",
+      "away": "HAW",
+      "home": "WYO",
+      "matchup": "Hawai\u02bbi @ Wyoming",
+      "kick_ct": "2026-09-26 14:00",
+      "weekday": "Sat",
+      "tv": "CW",
+      "vegas_details": "HAW -3",
+      "vegas_spread": -3.0,
+      "ou": 44.5,
+      "status": "CLEAR",
+      "notes": "NEW line vs Sep 17 pack (was blank)"
+    },
+    {
+      "espn_id": "401856699",
+      "away": "MISS",
+      "home": "FLA",
+      "matchup": "Ole Miss @ Florida",
+      "kick_ct": "2026-09-26 14:30",
+      "weekday": "Sat",
+      "tv": "ABC",
+      "vegas_details": "FLA -3.5",
+      "vegas_spread": -3.5,
+      "ou": 58.5,
+      "status": "CLEAR",
+      "notes": "MOVED vs Sep 17: was FLA -1.5 / O/U 57.5 \u2192 FLA -3.5 / O/U 58.5; TV GAIN: \u2014 \u2192 ABC"
+    },
+    {
+      "espn_id": "401856700",
+      "away": "OU",
+      "home": "UGA",
+      "matchup": "Oklahoma @ Georgia",
+      "kick_ct": "2026-09-26 14:30",
+      "weekday": "Sat",
+      "tv": "ESPN",
+      "vegas_details": "UGA -14",
+      "vegas_spread": -14.0,
+      "ou": 44.5,
+      "status": "CLEAR",
+      "notes": "MOVED vs Sep 17: was UGA -13.5 / O/U 47.5 \u2192 UGA -14 / O/U 44.5; TV GAIN: \u2014 \u2192 ESPN"
+    },
+    {
+      "espn_id": "401856815",
+      "away": "TCU",
+      "home": "UCF",
+      "matchup": "TCU @ UCF",
+      "kick_ct": "2026-09-26 14:30",
+      "weekday": "Sat",
+      "tv": "FS1",
+      "vegas_details": "TCU -3",
+      "vegas_spread": -3.0,
+      "ou": 48.5,
+      "status": "CLEAR",
+      "notes": "NEW line vs Sep 17 pack (was blank)"
+    },
+    {
+      "espn_id": "401856816",
+      "away": "UTAH",
+      "home": "ISU",
+      "matchup": "Utah @ Iowa State",
+      "kick_ct": "2026-09-26 14:30",
+      "weekday": "Sat",
+      "tv": "FOX",
+      "vegas_details": "UTAH -8.5",
+      "vegas_spread": -8.5,
+      "ou": 48.5,
+      "status": "CLEAR",
+      "notes": "NEW line vs Sep 17 pack (was blank)"
+    },
+    {
+      "espn_id": "401858463",
+      "away": "IOWA",
+      "home": "MICH",
+      "matchup": "Iowa @ Michigan",
+      "kick_ct": "2026-09-26 14:30",
+      "weekday": "Sat",
+      "tv": "CBS",
+      "vegas_details": "MICH -5.5",
+      "vegas_spread": -5.5,
+      "ou": 38.5,
+      "status": "CLEAR",
+      "notes": "MOVED vs Sep 17: was MICH -4.5 / O/U 39.5 \u2192 MICH -5.5 / O/U 38.5"
+    },
+    {
+      "espn_id": "401860897",
+      "away": "BOIS",
+      "home": "WMU",
+      "matchup": "Boise State @ Western Michigan",
+      "kick_ct": "2026-09-26 14:30",
+      "weekday": "Sat",
+      "tv": "ESPN2",
+      "vegas_details": "BOIS -7",
+      "vegas_spread": -7.0,
+      "ou": 50.5,
+      "status": "CLEAR",
+      "notes": "MOVED vs Sep 17: was BOIS -7.5 / O/U 47.5 \u2192 BOIS -7 / O/U 50.5; KICK CORRECTION vs Sep 17 pack: 2026-09-25 23:00 Fri \u2192 2026-09-26 14:30 Sat; TV GAIN: \u2014 \u2192 ESPN2"
+    },
+    {
+      "espn_id": "401861970",
+      "away": "CONN",
+      "home": "M-OH",
+      "matchup": "UConn @ Miami (OH)",
+      "kick_ct": "2026-09-26 14:30",
+      "weekday": "Sat",
+      "tv": "ESPN+",
+      "vegas_details": "M-OH -3.5",
+      "vegas_spread": -3.5,
+      "ou": 51.5,
+      "status": "CLEAR",
+      "notes": "NEW line vs Sep 17 pack (was blank)"
+    },
+    {
+      "espn_id": "401864579",
+      "away": "UNM",
+      "home": "NMSU",
+      "matchup": "New Mexico @ New Mexico State",
+      "kick_ct": "2026-09-26 14:30",
+      "weekday": "Sat",
+      "tv": "CBSSN",
+      "vegas_details": "UNM -11.5",
+      "vegas_spread": -11.5,
+      "ou": 48.5,
+      "status": "CLEAR",
+      "notes": "NEW line vs Sep 17 pack (was blank)"
+    },
+    {
+      "espn_id": "401856806",
+      "away": "HOU",
+      "home": "GASO",
+      "matchup": "Houston @ Georgia Southern",
+      "kick_ct": "2026-09-26 15:00",
+      "weekday": "Sat",
+      "tv": "ESPNU",
+      "vegas_details": "HOU -18.5",
+      "vegas_spread": -18.5,
+      "ou": 56.5,
+      "status": "CLEAR",
+      "notes": "NEW line vs Sep 17 pack (was blank); KICK CORRECTION vs Sep 17 pack: 2026-09-25 23:00 Fri \u2192 2026-09-26 15:00 Sat; TV GAIN: \u2014 \u2192 ESPNU"
+    },
+    {
+      "espn_id": "401856698",
+      "away": "VAN",
+      "home": "AUB",
+      "matchup": "Vanderbilt @ Auburn",
+      "kick_ct": "2026-09-26 15:15",
+      "weekday": "Sat",
+      "tv": "SEC Network",
+      "vegas_details": "AUB -9.5",
+      "vegas_spread": -9.5,
+      "ou": 55.5,
+      "status": "CLEAR",
+      "notes": "MOVED vs Sep 17: was AUB -8.5 / O/U 50.5 \u2192 AUB -9.5 / O/U 55.5"
+    },
+    {
+      "espn_id": "401858464",
+      "away": "NEB",
+      "home": "MSU",
+      "matchup": "Nebraska @ Michigan State",
+      "kick_ct": "2026-09-26 16:00",
+      "weekday": "Sat",
+      "tv": "BTN",
+      "vegas_details": "NEB -5.5",
+      "vegas_spread": -5.5,
+      "ou": 48.5,
+      "status": "CLEAR",
+      "notes": "MOVED vs Sep 17: was NEB -5.5 / O/U 52.5 \u2192 NEB -5.5 / O/U 48.5"
+    },
+    {
+      "espn_id": "401858466",
+      "away": "WIS",
+      "home": "PSU",
+      "matchup": "Wisconsin @ Penn State",
+      "kick_ct": "2026-09-26 16:00",
+      "weekday": "Sat",
+      "tv": "Peacock",
+      "vegas_details": "PSU -10",
+      "vegas_spread": -10.0,
+      "ou": 44.5,
+      "status": "CLEAR",
+      "notes": "MOVED vs Sep 17: was PSU -11.5 / O/U 42.5 \u2192 PSU -10 / O/U 44.5"
+    },
+    {
+      "espn_id": "401862785",
+      "away": "USF",
+      "home": "BGSU",
+      "matchup": "South Florida @ Bowling Green",
+      "kick_ct": "2026-09-26 16:00",
+      "weekday": "Sat",
+      "tv": "ESPN+",
+      "vegas_details": "USF -17.5",
+      "vegas_spread": -17.5,
+      "ou": 48.5,
+      "status": "CLEAR",
+      "notes": "NEW line vs Sep 17 pack (was blank)"
+    },
+    {
+      "espn_id": "401858239",
+      "away": "DEL",
+      "home": "UVA",
+      "matchup": "Delaware @ Virginia",
+      "kick_ct": "2026-09-26 17:00",
+      "weekday": "Sat",
+      "tv": "ACC Network",
+      "vegas_details": "UVA -19.5",
+      "vegas_spread": -19.5,
+      "ou": 52.5,
+      "status": "CLEAR",
+      "notes": "NEW line vs Sep 17 pack (was blank)"
+    },
+    {
+      "espn_id": "401869961",
+      "away": "JMU",
+      "home": "ODU",
+      "matchup": "James Madison @ Old Dominion",
+      "kick_ct": "2026-09-26 17:00",
+      "weekday": "Sat",
+      "tv": "ESPN+",
+      "vegas_details": "JMU -6",
+      "vegas_spread": -6.0,
+      "ou": 44.5,
+      "status": "CLEAR",
+      "notes": "NEW line vs Sep 17 pack (was blank)"
+    },
+    {
+      "espn_id": "401858238",
+      "away": "CMU",
+      "home": "MIA",
+      "matchup": "Central Michigan @ Miami",
+      "kick_ct": "2026-09-26 17:30",
+      "weekday": "Sat",
+      "tv": "CW",
+      "vegas_details": "MIA -41.5",
+      "vegas_spread": -41.5,
+      "ou": 53.5,
+      "status": "CLEAR",
+      "notes": "NEW line vs Sep 17 pack (was blank)"
+    },
+    {
+      "espn_id": "401862780",
+      "away": "UL",
+      "home": "CLT",
+      "matchup": "Louisiana @ Charlotte",
+      "kick_ct": "2026-09-26 17:30",
+      "weekday": "Sat",
+      "tv": "ESPN+",
+      "vegas_details": "UL -10",
+      "vegas_spread": -10.0,
+      "ou": 48.5,
+      "status": "CLEAR",
+      "notes": "NEW line vs Sep 17 pack (was blank)"
+    },
+    {
+      "espn_id": "401856696",
+      "away": "SC",
+      "home": "ALA",
+      "matchup": "South Carolina @ Alabama",
+      "kick_ct": "2026-09-26 18:00",
+      "weekday": "Sat",
+      "tv": "ESPN",
+      "vegas_details": "ALA -12.5",
+      "vegas_spread": -12.5,
+      "ou": 53.5,
+      "status": "CLEAR",
+      "notes": "MOVED vs Sep 17: was ALA -11.5 / O/U 46.5 \u2192 ALA -12.5 / O/U 53.5"
+    },
+    {
+      "espn_id": "401856814",
+      "away": "KSU",
+      "home": "CIN",
+      "matchup": "Kansas State @ Cincinnati",
+      "kick_ct": "2026-09-26 18:00",
+      "weekday": "Sat",
+      "tv": "ESPN2",
+      "vegas_details": "KSU -6.5",
+      "vegas_spread": -6.5,
+      "ou": 55.5,
+      "status": "CLEAR",
+      "notes": "NEW line vs Sep 17 pack (was blank)"
+    },
+    {
+      "espn_id": "401856881",
+      "away": "OKST",
+      "home": "WVU",
+      "matchup": "Oklahoma State @ West Virginia",
+      "kick_ct": "2026-09-26 18:00",
+      "weekday": "Sat",
+      "tv": "FS1",
+      "vegas_details": "WVU -1.5",
+      "vegas_spread": -1.5,
+      "ou": 60.5,
+      "status": "CLEAR",
+      "notes": "MOVED vs Sep 17: was OKST -2.5 / O/U 57.5 \u2192 WVU -1.5 / O/U 60.5"
+    },
+    {
+      "espn_id": "401862784",
+      "away": "USM",
+      "home": "TULN",
+      "matchup": "Southern Miss @ Tulane",
+      "kick_ct": "2026-09-26 18:00",
+      "weekday": "Sat",
+      "tv": "ESPN+",
+      "vegas_details": "TULN -18.5",
+      "vegas_spread": -18.5,
+      "ou": 52.5,
+      "status": "CLEAR",
+      "notes": "NEW line vs Sep 17 pack (was blank)"
+    },
+    {
+      "espn_id": "401869931",
+      "away": "KENN",
+      "home": "ARST",
+      "matchup": "Kennesaw State @ Arkansas State",
+      "kick_ct": "2026-09-26 18:00",
+      "weekday": "Sat",
+      "tv": "ESPN+",
+      "vegas_details": "ARST -6",
+      "vegas_spread": -6.0,
+      "ou": 52.5,
+      "status": "CLEAR",
+      "notes": "NEW line vs Sep 17 pack (was blank)"
+    },
+    {
+      "espn_id": "401871048",
+      "away": "MTSU",
+      "home": "JXST",
+      "matchup": "Middle Tennessee @ Jacksonville State",
+      "kick_ct": "2026-09-26 18:00",
+      "weekday": "Sat",
+      "tv": "ESPN+",
+      "vegas_details": "JXST -7",
+      "vegas_spread": -7.0,
+      "ou": 51.5,
+      "status": "CLEAR",
+      "notes": "NEW line vs Sep 17 pack (was blank)"
+    },
+    {
+      "espn_id": "401856702",
+      "away": "TA&M",
+      "home": "LSU",
+      "matchup": "Texas A&M @ LSU",
+      "kick_ct": "2026-09-26 18:30",
+      "weekday": "Sat",
+      "tv": "ABC",
+      "vegas_details": "LSU -8.5",
+      "vegas_spread": -8.5,
+      "ou": 51.5,
+      "status": "CLEAR",
+      "notes": "MOVED vs Sep 17: was LSU -5.5 / O/U 54.5 \u2192 LSU -8.5 / O/U 51.5"
+    },
+    {
+      "espn_id": "401856804",
+      "away": "ARIZ",
+      "home": "WSU",
+      "matchup": "Arizona @ Washington State",
+      "kick_ct": "2026-09-26 18:30",
+      "weekday": "Sat",
+      "tv": "CBS",
+      "vegas_details": "ARIZ -10",
+      "vegas_spread": -10.0,
+      "ou": 48.5,
+      "status": "CLEAR",
+      "notes": "NEW line vs Sep 17 pack (was blank)"
+    },
+    {
+      "espn_id": "401858469",
+      "away": "ORE",
+      "home": "USC",
+      "matchup": "Oregon @ USC",
+      "kick_ct": "2026-09-26 18:30",
+      "weekday": "Sat",
+      "tv": "NBC",
+      "vegas_details": "ORE -3",
+      "vegas_spread": -3.0,
+      "ou": 62.5,
+      "status": "CLEAR",
+      "notes": "MOVED vs Sep 17: was USC -2.5 / O/U 62.5 \u2192 ORE -3 / O/U 62.5"
+    },
+    {
+      "espn_id": "401860894",
+      "away": "TROY",
+      "home": "USU",
+      "matchup": "Troy @ Utah State",
+      "kick_ct": "2026-09-26 18:30",
+      "weekday": "Sat",
+      "tv": "CBSSN",
+      "vegas_details": "USU -3",
+      "vegas_spread": -3.0,
+      "ou": 47.5,
+      "status": "CLEAR",
+      "notes": "NEW line vs Sep 17 pack (was blank)"
+    },
+    {
+      "espn_id": "401864572",
+      "away": "APP",
+      "home": "NCSU",
+      "matchup": "App State @ NC State",
+      "kick_ct": "2026-09-26 18:30",
+      "weekday": "Sat",
+      "tv": "ESPNU",
+      "vegas_details": "NCSU -14",
+      "vegas_spread": -14.0,
+      "ou": 55.5,
+      "status": "CLEAR",
+      "notes": "NEW line vs Sep 17 pack (was blank)"
+    },
+    {
+      "espn_id": "401856703",
+      "away": "MIZ",
+      "home": "MSST",
+      "matchup": "Missouri @ Mississippi State",
+      "kick_ct": "2026-09-26 18:45",
+      "weekday": "Sat",
+      "tv": "SEC Network",
+      "vegas_details": "MSST -6.5",
+      "vegas_spread": -6.5,
+      "ou": 58.5,
+      "status": "CLEAR",
+      "notes": "MOVED vs Sep 17: was MSST -1.5 / O/U 56.5 \u2192 MSST -6.5 / O/U 58.5"
+    },
+    {
+      "espn_id": "401856697",
+      "away": "TLSA",
+      "home": "ARK",
+      "matchup": "Tulsa @ Arkansas",
+      "kick_ct": "2026-09-26 19:00",
+      "weekday": "Sat",
+      "tv": "SECN+",
+      "vegas_details": "ARK -7",
+      "vegas_spread": -7.0,
+      "ou": 50.5,
+      "status": "CLEAR",
+      "notes": "NEW line vs Sep 17 pack (was blank)"
+    },
+    {
+      "espn_id": "401862782",
+      "away": "FAU",
+      "home": "ULM",
+      "matchup": "Florida Atlantic @ UL Monroe",
+      "kick_ct": "2026-09-26 19:00",
+      "weekday": "Sat",
+      "tv": "ESPN+",
+      "vegas_details": "FAU -13.5",
+      "vegas_spread": -13.5,
+      "ou": 57.5,
+      "status": "CLEAR",
+      "notes": "NEW line vs Sep 17 pack (was blank)"
+    },
+    {
+      "espn_id": "401858241",
+      "away": "MOST",
+      "home": "SMU",
+      "matchup": "Missouri State @ SMU",
+      "kick_ct": "2026-09-26 20:00",
+      "weekday": "Sat",
+      "tv": "ACC Network",
+      "vegas_details": "SMU -34.5",
+      "vegas_spread": -34.5,
+      "ou": 59.5,
+      "status": "CLEAR",
+      "notes": "NEW line vs Sep 17 pack (was blank)"
+    },
+    {
+      "espn_id": "401860895",
+      "away": "ORST",
+      "home": "UTEP",
+      "matchup": "Oregon State @ UTEP",
+      "kick_ct": "2026-09-26 20:00",
+      "weekday": "Sat",
+      "tv": "MW+",
+      "vegas_details": "ORST -10.5",
+      "vegas_spread": -10.5,
+      "ou": 55.5,
+      "status": "CLEAR",
+      "notes": "NEW line vs Sep 17 pack (was blank)"
+    },
+    {
+      "espn_id": "401860891",
+      "away": "RICE",
+      "home": "FRES",
+      "matchup": "Rice @ Fresno State",
+      "kick_ct": "2026-09-26 21:00",
+      "weekday": "Sat",
+      "tv": "CW",
+      "vegas_details": "FRES -13.5",
+      "vegas_spread": -13.5,
+      "ou": 44.5,
+      "status": "CLEAR",
+      "notes": "NEW line vs Sep 17 pack (was blank)"
+    },
+    {
+      "espn_id": "401858240",
+      "away": "GT",
+      "home": "STAN",
+      "matchup": "Georgia Tech @ Stanford",
+      "kick_ct": "2026-09-26 21:30",
+      "weekday": "Sat",
+      "tv": "ESPN",
+      "vegas_details": "GT -3.5",
+      "vegas_spread": -3.5,
+      "ou": 48.5,
+      "status": "CLEAR",
+      "notes": "NEW line vs Sep 17 pack (was blank)"
+    },
+    {
+      "espn_id": "401864509",
+      "away": "AFA",
+      "home": "NEV",
+      "matchup": "Air Force @ Nevada",
+      "kick_ct": "2026-09-26 21:30",
+      "weekday": "Sat",
+      "tv": "FS1",
+      "vegas_details": "AF -5.5",
+      "vegas_spread": -5.5,
+      "ou": 49.5,
+      "status": "CLEAR",
+      "notes": "NEW line vs Sep 17 pack (was blank)"
+    },
+    {
+      "espn_id": "401858470",
+      "away": "MINN",
+      "home": "WASH",
+      "matchup": "Minnesota @ Washington",
+      "kick_ct": "2026-09-26 22:00",
+      "weekday": "Sat",
+      "tv": "FOX",
+      "vegas_details": "WASH -10",
+      "vegas_spread": -10.0,
+      "ou": 45.5,
+      "status": "CLEAR",
+      "notes": "NEW line vs Sep 17 pack (was blank)"
+    }
+  ],
+  "stamp_table": [
+    {
+      "espn_id": "401869941",
+      "vegas_details": "LIB -2.5",
+      "ou": 50.5,
+      "status": "CLEAR"
+    },
+    {
+      "espn_id": "401862779",
+      "vegas_details": "ARMY -3",
+      "ou": 47.5,
+      "status": "CLEAR"
+    },
+    {
+      "espn_id": "401862778",
+      "vegas_details": "NAVY -7",
+      "ou": 51.5,
+      "status": "CLEAR"
+    },
+    {
+      "espn_id": "401858461",
+      "vegas_details": "IU -21",
+      "ou": 49.5,
+      "status": "CLEAR"
+    },
+    {
+      "espn_id": "401858234",
+      "vegas_details": "CAL -1.5",
+      "ou": 50.5,
+      "status": "CLEAR"
+    },
+    {
+      "espn_id": "401856704",
+      "vegas_details": "TEX -4.5",
+      "ou": 55.5,
+      "status": "CLEAR"
+    },
+    {
+      "espn_id": "401856805",
+      "vegas_details": "TTU -34.5",
+      "ou": 55.5,
+      "status": "CLEAR"
+    },
+    {
+      "espn_id": "401856813",
+      "vegas_details": "BAY -10",
+      "ou": 55.5,
+      "status": "CLEAR"
+    },
+    {
+      "espn_id": "401858242",
+      "vegas_details": "VT -14",
+      "ou": 48.5,
+      "status": "CLEAR"
+    },
+    {
+      "espn_id": "401858243",
+      "vegas_details": "LOU -12.5",
+      "ou": 58.5,
+      "status": "CLEAR"
+    },
+    {
+      "espn_id": "401858465",
+      "vegas_details": "OSU -26.5",
+      "ou": 53.5,
+      "status": "CLEAR"
+    },
+    {
+      "espn_id": "401860893",
+      "vegas_details": "TOL -3",
+      "ou": 51.5,
+      "status": "CLEAR"
+    },
+    {
+      "espn_id": "401860896",
+      "vegas_details": "UTSA -13.5",
+      "ou": 58.5,
+      "status": "CLEAR"
+    },
+    {
+      "espn_id": "401864512",
+      "vegas_details": "UNLV -13.5",
+      "ou": 52.5,
+      "status": "CLEAR"
+    },
+    {
+      "espn_id": "401866425",
+      "vegas_details": "KENT -3.5",
+      "ou": 50.5,
+      "status": "CLEAR"
+    },
+    {
+      "espn_id": "401864576",
+      "vegas_details": "UK -20.5",
+      "ou": 54.5,
+      "status": "CLEAR"
+    },
+    {
+      "espn_id": "401858462",
+      "vegas_details": "UCLA -1.5",
+      "ou": 56.5,
+      "status": "CLEAR"
+    },
+    {
+      "espn_id": "401858467",
+      "vegas_details": "ND -27.5",
+      "ou": 58.5,
+      "status": "CLEAR"
+    },
+    {
+      "espn_id": "401864511",
+      "vegas_details": "GAST -10.5",
+      "ou": 55.5,
+      "status": "CLEAR"
+    },
+    {
+      "espn_id": "401864510",
+      "vegas_details": "HAW -3",
+      "ou": 44.5,
+      "status": "CLEAR"
+    },
+    {
+      "espn_id": "401856699",
+      "vegas_details": "FLA -3.5",
+      "ou": 58.5,
+      "status": "CLEAR"
+    },
+    {
+      "espn_id": "401856700",
+      "vegas_details": "UGA -14",
+      "ou": 44.5,
+      "status": "CLEAR"
+    },
+    {
+      "espn_id": "401856815",
+      "vegas_details": "TCU -3",
+      "ou": 48.5,
+      "status": "CLEAR"
+    },
+    {
+      "espn_id": "401856816",
+      "vegas_details": "UTAH -8.5",
+      "ou": 48.5,
+      "status": "CLEAR"
+    },
+    {
+      "espn_id": "401858463",
+      "vegas_details": "MICH -5.5",
+      "ou": 38.5,
+      "status": "CLEAR"
+    },
+    {
+      "espn_id": "401860897",
+      "vegas_details": "BOIS -7",
+      "ou": 50.5,
+      "status": "CLEAR"
+    },
+    {
+      "espn_id": "401861970",
+      "vegas_details": "M-OH -3.5",
+      "ou": 51.5,
+      "status": "CLEAR"
+    },
+    {
+      "espn_id": "401864579",
+      "vegas_details": "UNM -11.5",
+      "ou": 48.5,
+      "status": "CLEAR"
+    },
+    {
+      "espn_id": "401856806",
+      "vegas_details": "HOU -18.5",
+      "ou": 56.5,
+      "status": "CLEAR"
+    },
+    {
+      "espn_id": "401856698",
+      "vegas_details": "AUB -9.5",
+      "ou": 55.5,
+      "status": "CLEAR"
+    },
+    {
+      "espn_id": "401858464",
+      "vegas_details": "NEB -5.5",
+      "ou": 48.5,
+      "status": "CLEAR"
+    },
+    {
+      "espn_id": "401858466",
+      "vegas_details": "PSU -10",
+      "ou": 44.5,
+      "status": "CLEAR"
+    },
+    {
+      "espn_id": "401862785",
+      "vegas_details": "USF -17.5",
+      "ou": 48.5,
+      "status": "CLEAR"
+    },
+    {
+      "espn_id": "401858239",
+      "vegas_details": "UVA -19.5",
+      "ou": 52.5,
+      "status": "CLEAR"
+    },
+    {
+      "espn_id": "401869961",
+      "vegas_details": "JMU -6",
+      "ou": 44.5,
+      "status": "CLEAR"
+    },
+    {
+      "espn_id": "401858238",
+      "vegas_details": "MIA -41.5",
+      "ou": 53.5,
+      "status": "CLEAR"
+    },
+    {
+      "espn_id": "401862780",
+      "vegas_details": "UL -10",
+      "ou": 48.5,
+      "status": "CLEAR"
+    },
+    {
+      "espn_id": "401856696",
+      "vegas_details": "ALA -12.5",
+      "ou": 53.5,
+      "status": "CLEAR"
+    },
+    {
+      "espn_id": "401856814",
+      "vegas_details": "KSU -6.5",
+      "ou": 55.5,
+      "status": "CLEAR"
+    },
+    {
+      "espn_id": "401856881",
+      "vegas_details": "WVU -1.5",
+      "ou": 60.5,
+      "status": "CLEAR"
+    },
+    {
+      "espn_id": "401862784",
+      "vegas_details": "TULN -18.5",
+      "ou": 52.5,
+      "status": "CLEAR"
+    },
+    {
+      "espn_id": "401869931",
+      "vegas_details": "ARST -6",
+      "ou": 52.5,
+      "status": "CLEAR"
+    },
+    {
+      "espn_id": "401871048",
+      "vegas_details": "JXST -7",
+      "ou": 51.5,
+      "status": "CLEAR"
+    },
+    {
+      "espn_id": "401856702",
+      "vegas_details": "LSU -8.5",
+      "ou": 51.5,
+      "status": "CLEAR"
+    },
+    {
+      "espn_id": "401856804",
+      "vegas_details": "ARIZ -10",
+      "ou": 48.5,
+      "status": "CLEAR"
+    },
+    {
+      "espn_id": "401858469",
+      "vegas_details": "ORE -3",
+      "ou": 62.5,
+      "status": "CLEAR"
+    },
+    {
+      "espn_id": "401860894",
+      "vegas_details": "USU -3",
+      "ou": 47.5,
+      "status": "CLEAR"
+    },
+    {
+      "espn_id": "401864572",
+      "vegas_details": "NCSU -14",
+      "ou": 55.5,
+      "status": "CLEAR"
+    },
+    {
+      "espn_id": "401856703",
+      "vegas_details": "MSST -6.5",
+      "ou": 58.5,
+      "status": "CLEAR"
+    },
+    {
+      "espn_id": "401856697",
+      "vegas_details": "ARK -7",
+      "ou": 50.5,
+      "status": "CLEAR"
+    },
+    {
+      "espn_id": "401862782",
+      "vegas_details": "FAU -13.5",
+      "ou": 57.5,
+      "status": "CLEAR"
+    },
+    {
+      "espn_id": "401858241",
+      "vegas_details": "SMU -34.5",
+      "ou": 59.5,
+      "status": "CLEAR"
+    },
+    {
+      "espn_id": "401860895",
+      "vegas_details": "ORST -10.5",
+      "ou": 55.5,
+      "status": "CLEAR"
+    },
+    {
+      "espn_id": "401860891",
+      "vegas_details": "FRES -13.5",
+      "ou": 44.5,
+      "status": "CLEAR"
+    },
+    {
+      "espn_id": "401858240",
+      "vegas_details": "GT -3.5",
+      "ou": 48.5,
+      "status": "CLEAR"
+    },
+    {
+      "espn_id": "401864509",
+      "vegas_details": "AF -5.5",
+      "ou": 49.5,
+      "status": "CLEAR"
+    },
+    {
+      "espn_id": "401858470",
+      "vegas_details": "WASH -10",
+      "ou": 45.5,
+      "status": "CLEAR"
+    }
+  ]
+}
