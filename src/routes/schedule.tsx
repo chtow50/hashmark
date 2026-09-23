@@ -7,6 +7,7 @@ import { DeskChip, TeamMark } from "@/components/marks";
 import { Button } from "@/components/ui/button";
 import { formatKickCt, formatKickDayTitle, todayChicago } from "@/lib/cfb/chicago";
 import { type ConfFilter, parseConf } from "@/lib/cfb/conferences";
+import { defaultWeek } from "@/lib/cfb/default-week";
 import { favoriteLine, formatVegas } from "@/lib/cfb/featured";
 import { predictMatchup } from "@/lib/cfb/model";
 import { HASHMARK_MAX_WEEK, listScheduleWeek, listTeams } from "@/lib/cfb/queries";
@@ -32,13 +33,6 @@ function parseWeek(v: unknown): number | undefined {
   const n = typeof v === "number" ? v : typeof v === "string" ? Number(v) : NaN;
   if (!Number.isInteger(n) || n < 0 || n > HASHMARK_MAX_WEEK) return undefined;
   return n;
-}
-
-function defaultWeek(ymd: string): number {
-  if (ymd <= "2026-08-30") return 0;
-  if (ymd <= "2026-09-07") return 1;
-  if (ymd <= "2026-09-12") return 2;
-  return Math.min(HASHMARK_MAX_WEEK, 3);
 }
 
 function searchForView(view: ScheduleView, conf: ConfFilter, week: number) {
