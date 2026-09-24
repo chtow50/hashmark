@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { formatKickCt, formatKickDayTitle, todayChicago } from "@/lib/cfb/chicago";
 import { type ConfFilter, parseConf } from "@/lib/cfb/conferences";
 import { defaultWeek } from "@/lib/cfb/default-week";
-import { favoriteLine, formatVegas } from "@/lib/cfb/featured";
+import { favoriteLine, featuredBook, formatVegas, selectWeekScopedFeatured } from "@/lib/cfb/featured";
 import { predictMatchup } from "@/lib/cfb/model";
 import { HASHMARK_MAX_WEEK, listScheduleWeek, listTeams } from "@/lib/cfb/queries";
 import {
@@ -73,6 +73,7 @@ function SchedulePage() {
   const { week, games, filtered, view, conf } = Route.useLoaderData();
   const prev = week > 0 ? week - 1 : null;
   const next = week < HASHMARK_MAX_WEEK ? week + 1 : null;
+  const featured = selectWeekScopedFeatured(week, games);
 
   const emptyCopy = useMemo(() => {
     if (view === "top25") {
@@ -175,6 +176,8 @@ function SchedulePage() {
         )}
       </div>
 
+      {featured ? <WeekScopedFeatured game={featured} /> : null}
+
       {filtered.length === 0 ? (
         <Panel>
           <p className="font-display text-2xl tracking-wide">{emptyCopy.title}</p>
@@ -190,6 +193,64 @@ function SchedulePage() {
         </Panel>
       )}
     </div>
+  );
+}
+
+function WeekScopedFeatured({ game: g }: { game: ScheduleGame }) {
+  const pred = predictMatchup(
+    { hxRating: g.homeHx, offenseRating: g.homeOff, defenseRating: g.homeDef },
+    { hxRating: g.awayHx, offenseRating: g.awayOff, defenseRating: g.awayDef },
+    { neutral: g.neutral },
+  );
+  const hxLine = favoriteLine(g.homeShort, g.awayShort, pred.spread);
+  const book = featuredBook(g);
+  const bookLine = book ? favoriteLine(g.homeShort, g.awayShort, book.spread) : null;
+  const kick = g.kickoffAt ? formatKickCt(g.kickoffAt) : formatKickDayTitle(null, g.kickoffDate);
+
+  return (
+    <Panel className="mb-5">
+      <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-faint">
+        Week {g.week} featured · {g.location}
+      </p>
+      <div className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1">
+        <span className="inline-flex items-center gap-2">
+          <TeamMark slug={g.awaySlug} color={g.awayColor} />
+          <span className="font-display text-2xl tracking-wide">{g.awayName}</span>
+        </span>
+        <span className="text-faint">@</span>
+        <span className="inline-flex items-center gap-2">
+          <TeamMark slug={g.homeSlug} color={g.homeColor} />
+          <span className="font-display text-2xl tracking-wide">{g.homeName}</span>
+        </span>
+      </div>
+      <p className="mt-1 text-sm text-muted">
+        {formatKickDayTitle(g.kickoffAt, g.kickoffDate)} · {kick}
+        {g.tv ? ` · ${g.tv}` : ""}
+      </p>
+      <div className="mt-4 grid grid-cols-2 gap-3">
+        <div>
+          <div className="text-[11px] uppercase tracking-[0.14em] text-faint">HASHMARK</div>
+          <div className="mt-1 font-display text-xl tabular leading-none">{hxLine}</div>
+        </div>
+        <div>
+          <div className="text-[11px] uppercase tracking-[0.14em] text-faint">Vegas</div>
+          <div className="mt-1 font-display text-xl tabular leading-none">
+            {book && bookLine ? `${bookLine} · O/U ${book.total}` : "—"}
+          </div>
+        </div>
+      </div>
+      <Button asChild variant="outline" size="sm" className="mt-4">
+        <Link
+          to="/matchup"
+          search={{
+            home: g.homeSlug,
+            away: g.awaySlug,
+          }}
+        >
+          Open matchup
+        </Link>
+      </Button>
+    </Panel>
   );
 }
 

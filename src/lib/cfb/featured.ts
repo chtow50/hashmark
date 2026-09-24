@@ -62,6 +62,16 @@ export const WEEK4_FEATURED = {
 } as const;
 
 /**
+ * Friday ESPN: Pittsburgh at Virginia Tech. Research Week 5 featured card
+ * for `/schedule?w=5` only. Fri 2026-10-02 18:00 CT · ESPN · VT −5.5 / 56.5.
+ * Not the live desk — BOARD_WEEK and FEATURED_SLATE_WEEK stay 4.
+ */
+export const WEEK5_FEATURED = {
+  homeSlug: "virginia-tech",
+  awaySlug: "pittsburgh",
+} as const;
+
+/**
  * Pre-kick Thursday books for Colorado at GT. Used only when the row has no
  * stamped close. After kick the close is Georgia Tech −6.5 / 50.5 on games.vegas_*.
  * Not a Week 2 featured path — do not invent a Week 2 book.
@@ -132,6 +142,27 @@ export function selectBoardFeaturedKick<
   T extends Pick<ScheduleGame, "status" | "kickoffAt" | "homeSlug" | "awaySlug"> & { isFcs?: boolean },
 >(slate: T[], nowMs: number): T | null {
   return selectFeaturedKick(slate, nowMs);
+}
+
+export function isPittsburghAtVirginiaTech(
+  g: Pick<ScheduleGame, "homeSlug" | "awaySlug">,
+): boolean {
+  return g.homeSlug === WEEK5_FEATURED.homeSlug && g.awaySlug === WEEK5_FEATURED.awaySlug;
+}
+
+/**
+ * Featured card scoped to the schedule week being viewed.
+ * Week 5 pins Pittsburgh @ Virginia Tech (CLEAR), even though WKU @ NMSU
+ * kicks earlier. Other weeks have no schedule-page pin — the homepage desk
+ * stays Week 4 via FEATURED_SLATE_WEEK. Never invents a matchup.
+ */
+export function selectWeekScopedFeatured<
+  T extends Pick<ScheduleGame, "status" | "homeSlug" | "awaySlug"> & { isFcs?: boolean },
+>(week: number, slate: T[]): T | null {
+  if (week !== 5) return null;
+  return (
+    slate.find((g) => !g.isFcs && g.status !== "final" && isPittsburghAtVirginiaTech(g)) ?? null
+  );
 }
 
 /** Same rule as hashmarkWeekFromRow: Aug 29–30 2026 is Week 0. */

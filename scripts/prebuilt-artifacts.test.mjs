@@ -164,6 +164,29 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /401856806/);
   });
 
+  it("includes Week 5 FBS–FBS Research kick/TV/Vegas stamps in committed output", () => {
+    const text = corpus();
+    assert.match(text, /0036_week5_kick_tv_vegas/);
+    assert.match(text, /week5_fbs_fbs_kick_tv_vegas_2026/);
+    assert.match(text, /timestamptz '2026-10-02 18:00:00-05'/);
+    assert.match(text, /h\.slug = 'virginia-tech' then 5\.5 else -5\.5/);
+    assert.match(text, /vegas_total = 56\.5/);
+    assert.match(text, /h\.slug = 'northwestern' then -7 else 7/);
+    assert.match(text, /h\.slug = 'minnesota' then -8\.5 else 8\.5/);
+    assert.match(text, /h\.slug = 'iowa' then -14 else 14/);
+    assert.match(text, /h\.slug = 'south-carolina' then 7 else -7/);
+    assert.match(text, /h\.slug = 'usc' then 10 else -10/);
+    assert.match(text, /timestamptz '2026-10-01 19:00:00-05'/);
+    assert.match(text, /timestamptz '2026-10-01 20:00:00-05'/);
+    assert.match(text, /timestamptz '2026-10-03 19:00:00-05'/);
+    assert.match(text, /timestamptz '2026-10-03 20:30:00-05'/);
+    assert.match(text, /timestamptz '2026-10-03 21:30:00-05'/);
+    assert.match(text, /WEEK5_FEATURED/);
+    assert.match(text, /selectWeekScopedFeatured/);
+    assert.match(text, /Week 4 board/);
+    assert.match(text, /401858245/);
+  });
+
   it("includes Week 2 O/D + HX 2026.4 stamp and Week 3 chrome in committed output", () => {
     const text = corpus();
     assert.match(text, /0028_week2_od_hx_ship/);

@@ -8,12 +8,14 @@ import {
   WEEK2_FEATURED,
   WEEK3_FEATURED,
   WEEK4_FEATURED,
+  WEEK5_FEATURED,
   featuredBook,
   featuredSlateWeek,
   favoriteLine,
   isUpcomingKick,
   selectBoardFeaturedKick,
   selectFeaturedKick,
+  selectWeekScopedFeatured,
   spreadGap,
 } from "./featured.ts";
 import type { ScheduleGame } from "./types.ts";
@@ -530,4 +532,46 @@ test("FCS Vegas-only rows are never featured (no invented HX)", () => {
   const featured = selectFeaturedKick([famu, osuTexas], Date.parse("2026-09-09T16:00:00.000Z"));
   assert.equal(featured?.homeSlug, "texas");
   assert.equal(isUpcomingKick(famu, Date.parse("2026-09-09T16:00:00.000Z")), false);
+});
+
+test("Week 5 schedule featured is Pittsburgh @ Virginia Tech; the live desk stays Week 4", () => {
+  assert.equal(BOARD_WEEK, 4);
+  assert.equal(FEATURED_SLATE_WEEK, 4);
+  assert.equal(WEEK5_FEATURED.homeSlug, "virginia-tech");
+  assert.equal(WEEK5_FEATURED.awaySlug, "pittsburgh");
+  const wku = game({
+    id: 301,
+    week: 5,
+    homeSlug: "new-mexico-state",
+    awaySlug: "western-kentucky",
+    kickoffDate: "2026-10-01",
+    kickoffAt: "2026-10-02T00:00:00.000Z",
+    tv: "CBSSN",
+  });
+  const pitt = game({
+    id: 302,
+    week: 5,
+    homeSlug: WEEK5_FEATURED.homeSlug,
+    awaySlug: WEEK5_FEATURED.awaySlug,
+    homeShort: "Virginia Tech",
+    awayShort: "Pitt",
+    kickoffDate: "2026-10-02",
+    kickoffAt: "2026-10-02T23:00:00.000Z",
+    tv: "ESPN",
+    vegasSpread: 5.5,
+    vegasTotal: 56.5,
+    location: "Lane Stadium",
+  });
+  const featured = selectWeekScopedFeatured(5, [wku, pitt]);
+  assert.equal(featured?.id, 302);
+  assert.equal(featured?.homeSlug, "virginia-tech");
+  assert.equal(featured?.awaySlug, "pittsburgh");
+  const book = featuredBook(featured!);
+  assert.equal(book?.spread, 5.5);
+  assert.equal(book?.total, "56.5");
+  assert.equal(favoriteLine("Virginia Tech", "Pitt", book?.spread ?? 0), "Virginia Tech −5.5");
+  assert.equal(selectWeekScopedFeatured(4, [wku, pitt]), null);
+  assert.equal(selectWeekScopedFeatured(5, []), null);
+  const board = selectBoardFeaturedKick([wku, pitt], Date.parse("2026-09-24T16:00:00.000Z"));
+  assert.equal(board?.awaySlug, "western-kentucky");
 });
