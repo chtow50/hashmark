@@ -206,8 +206,9 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /HX 2026\.5/);
     assert.match(text, /Week 4 board/);
     assert.match(text, /HX is Week 4/);
-    assert.match(text, /not a Week 4 ballot/);
-    assert.match(text, /Week 3 board/);
+    assert.match(text, /not a Week 3 ballot/);
+    assert.match(text, /Week 4 AP/);
+    assert.match(text, /W4 stamp/);
     assert.match(text, /7\.8978/);
     assert.match(text, /0\.0711/);
     assert.match(text, /week3_od_hx_ship_2026/);
@@ -231,14 +232,38 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /20\/21/);
   });
 
-  it("includes Week 3 Pitt FINAL and Week 3 HX-vs-AP gaps in committed output", () => {
+  it("includes Week 4 Friday stories, Liberty FINAL, Iowa FCS, and Week 4 AP in committed output", () => {
+    const text = corpus();
+    assert.match(text, /0037_week4_liberty_coastal_final/);
+    assert.match(text, /Liberty @ Coastal Carolina — Coastal Carolina 17, Liberty 34/);
+    assert.match(text, /home_score = 17/);
+    assert.match(text, /away_score = 34/);
+    assert.match(text, /h\.slug = 'coastal-carolina' and a\.slug = 'liberty'/);
+    assert.match(text, /0038_week4_ap_top25/);
+    assert.match(text, /week4_ap_top25_2026/);
+    assert.match(text, /\('ole-miss', 4\)/);
+    assert.match(text, /\('texas-am', 23\)/);
+    assert.match(text, /\('houston', 25\)/);
+    assert.match(text, /week4_hx_vs_ap_gaps_2026/);
+    assert.match(text, /week-4-texas-am-lsu/);
+    assert.match(text, /week-4-ole-miss-florida/);
+    assert.match(text, /week-4-clemson-cal/);
+    assert.match(text, /week-4-missouri-mississippi-state/);
+    assert.match(text, /Northern Iowa/);
+    assert.match(text, /W4 stamp/);
+    assert.match(text, /not a Week 3 ballot/);
+    assert.doesNotMatch(text, /Virginia AP 25/);
+  });
+
+  it("includes Week 3 Pitt FINAL and Week 4 HX-vs-AP gaps in committed output", () => {
     const text = corpus();
     assert.match(text, /0032_week3_pitt_syracuse_final/);
     assert.match(text, /Syracuse @ Pittsburgh — Pittsburgh 27, Syracuse 13/);
     assert.match(text, /home_score = 27/);
     assert.match(text, /away_score = 13/);
     assert.match(text, /h\.slug = 'pittsburgh' and a\.slug = 'syracuse'/);
-    assert.match(text, /week3_hx_vs_ap_gaps_2026/);
+    assert.match(text, /week4_hx_vs_ap_gaps_2026/);
+    assert.match(text, /week-4-texas-am-lsu/);
     assert.match(text, /week-3-houston-texas-tech/);
     assert.match(text, /week-3-lsu-ole-miss/);
     assert.match(text, /Vegas has Texas Tech/);

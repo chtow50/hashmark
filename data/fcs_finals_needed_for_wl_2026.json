@@ -1,7 +1,7 @@
 {
   "source": "Research CFB vs ESPN overall + Week 2 remaining FINAL CLEAR pack",
   "as_of": "2026-09-13",
-  "note": "Only this list is stamped. No guessed scores. Week 2: Miami–FAMU already_live plus 8 early-window CLEAR FINALs plus 30 remaining CLEAR FINALs. HOLD = 0.",
+  "note": "Only this list is stamped. No guessed scores. Week 2: Miami–FAMU already_live plus 8 early-window CLEAR FINALs plus 30 remaining CLEAR FINALs. HOLD = 0. Week 3: Northern Iowa @ Iowa FINAL (Iowa 55–0, Sep 19) so Iowa W–L is 3–0. No other Week 3 FCS scores invented.",
   "blocker": {
     "teamSlug": "georgia",
     "home": true,
@@ -554,6 +554,18 @@
       "source": "Research CLEAR remaining-finals pack"
     }
   ],
+  "week3_fcs": [
+    {
+      "teamSlug": "iowa",
+      "opponentLabel": "Northern Iowa",
+      "home": true,
+      "homeScore": 55,
+      "awayScore": 0,
+      "kickoffDate": "2026-09-19",
+      "week": 3,
+      "source": "Website peer CLEAR 2026-09-25 vs ESPN + NCAA AP Iowa 3-0. FCS stub, not a games-table row."
+    }
+  ],
   "peer_targets": {
     "georgia": "1-0",
     "usc": "2-0",
@@ -561,6 +573,7 @@
     "stanford": "1-1",
     "memphis": "2-0",
     "virginia": "1-0",
-    "miami": "2-0"
+    "miami": "2-0",
+    "iowa": "3-0"
   }
 }

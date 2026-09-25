@@ -17,8 +17,191 @@ export const STORY_DATE_TAPE = "Tuesday, Sep 8, 2026";
 export const STORY_DATE_TAPE_WEEK2 = "Sunday, Sep 13, 2026";
 export const STORY_DATE_TAPE_WEEK3 = "Sunday, Sep 20, 2026";
 export const STORY_DATE_WEEK3 = "Friday, Sep 18, 2026";
+export const STORY_DATE_WEEK4 = "Friday, Sep 25, 2026";
 
 export const STORIES: Story[] = [
+  {
+    slug: "week-4-texas-am-lsu",
+    kicker: "Week 4 · Winner flip",
+    headline: "HX takes Texas A&M. Vegas takes LSU by more than a touchdown.",
+    dek: "Both sides are 2–1 after SEC opener losses — and HASHMARK flips the favorite in Death Valley.",
+    date: STORY_DATE_WEEK4,
+    body: [
+      "No. 23 Texas A&M visits No. 10 LSU on Saturday (6:30 CT, ABC). Live HASHMARK posts a winner flip: Texas A&M −2.7 / 57.4%. The sourced Vegas close on the schedule is LSU −8.5, O/U 51.5 — roughly an 11-point HX–market disagreement and the loudest ranked flip of the week.",
+      "HX ranks Texas A&M 6th (6.11) against an AP Week 4 ballot that dropped the Aggies from 9 to 23 after the home loss to Kentucky. LSU sits HX 19th (4.08) while AP still has the Tigers 10th. Post–Week 3 FPI splits the difference: LSU 8th, A&M 12th. Among boards HASHMARK tracks, HX is the A&M-leaning model.",
+      "Context without inventing snaps: both lost Week 3 SEC openers as favorites. A&M WR Terry Bussey is out for the season (lower-body / right-leg injury on the Kentucky kickoff). LSU safety Dashawn Spears is out for the season (ACL vs Ole Miss); TE Trey’Dez Green is expected to miss time (knee). SI’s LSU injury card also lists CB Ja’Keem Jackson questionable and WR Phillip Wright III out. Sam Leavitt has five interceptions to three touchdown passes through three games; Marcel Reed is coming off a rough Kentucky tape.",
+    ],
+    whyItMatters:
+      "Primetime winner flip + HX’s season-long A&M overrate vs AP plummet. Lead card for the weekend.",
+    sources: [
+      { label: "HASHMARK Board", href: "https://hashmarkcfb.com/" },
+      { label: "HASHMARK Schedule", href: "https://hashmarkcfb.com/schedule?w=4" },
+      {
+        label: "CBS Sports",
+        href: "https://www.cbssports.com/college-football/news/lsu-texas-am-prediction-picks-odds-spread-where-to-watch-live/",
+      },
+      {
+        label: "SI · LSU",
+        href: "https://www.si.com/college/lsu/football/no-10-lsu-vs-no-23-texas-am-how-to-watch-odds-injuries-and-more",
+      },
+      {
+        label: "Yahoo · Week 4 guide",
+        href: "https://sports.yahoo.com/college-football/article/week-4-college-football-viewers-guide-texas-at-tennessee-ole-miss-florida-iowa-michigan-lsu-oregon-usc-132448309.html",
+      },
+      {
+        label: "NCAA.com · Week 4 AP",
+        href: "https://www.ncaa.com/news/football/article/2026-09-20/ole-miss-enters-top-five-latest-ap-top-25-college-football-rankings",
+      },
+      {
+        label: "The Big Lead · FPI",
+        href: "https://www.thebiglead.com/updated-espn-fpi-college-football-top-25-rankings-after-wild-week-3/",
+      },
+    ],
+  },
+  {
+    slug: "week-4-ole-miss-florida",
+    kicker: "Week 4 · Winner flip",
+    headline: "Vegas has Florida −3.5. HX has Ole Miss −2.5. Lacy is a game-time call.",
+    dek: "AP’s new No. 4 road underdog — and HASHMARK still takes the Rebels.",
+    date: STORY_DATE_WEEK4,
+    body: [
+      "No. 4 Ole Miss visits No. 21 Florida on Saturday (2:30 CT, ABC). Live HASHMARK: Ole Miss −2.5 / 56.8%. Vegas close on the schedule: Florida −3.5, O/U 58.5 — another winner flip on the SEC slate.",
+      "Ole Miss jumped to AP 4 after beating LSU 32–24. HX still has the Rebels 8th (5.45) — four spots behind the new ballot. Florida is HX 24th (3.50) and AP 21st in its first Sumrall-era ranking. FPI is warmer on Florida (16th) than HX is.",
+      "The injury cloud is sourced. Junior RB Kewan Lacy re-injured his surgically repaired left shoulder vs LSU and opened Wednesday’s SEC availability report as questionable. Pete Golding said the MRI wasn’t nearly as bad as we thought and called him a game-time decision (SI Ole Miss, Sep 24). Yahoo notes LSU ran for 172 yards in Oxford — Florida’s Jadan Baugh has 458 rush yards and eight touchdowns through three games.",
+    ],
+    whyItMatters: "Second ABC winner flip of the day; Lacy status is the national desk’s injury lead.",
+    sources: [
+      { label: "HASHMARK Schedule", href: "https://hashmarkcfb.com/schedule?w=4" },
+      {
+        label: "SI · Ole Miss · Lacy",
+        href: "https://www.si.com/college/olemiss/football/where-kewan-lacy-lands-on-first-injury-report-for-ole-miss-vs-florida",
+      },
+      {
+        label: "Yahoo · Week 4 guide",
+        href: "https://sports.yahoo.com/college-football/article/week-4-college-football-viewers-guide-texas-at-tennessee-ole-miss-florida-iowa-michigan-lsu-oregon-usc-132448309.html",
+      },
+      {
+        label: "NCAA.com · Week 4 AP",
+        href: "https://www.ncaa.com/news/football/article/2026-09-20/ole-miss-enters-top-five-latest-ap-top-25-college-football-rankings",
+      },
+      {
+        label: "The Big Lead · FPI",
+        href: "https://www.thebiglead.com/updated-espn-fpi-college-football-top-25-rankings-after-wild-week-3/",
+      },
+    ],
+  },
+  {
+    slug: "week-4-texas-tennessee",
+    kicker: "Week 4 · GameDay",
+    headline: "No. 1 Texas at No. 14 Tennessee — HX and Vegas are within a point.",
+    dek: "College GameDay is in Knoxville. The HASHMARK number is not the disagreement story this time.",
+    date: STORY_DATE_WEEK4,
+    body: [
+      "No. 1 Texas visits No. 14 Tennessee on Saturday (11:00 CT, ABC). Live HASHMARK: Texas −3.8 / 59.9%. Vegas close on the schedule: Texas −4.5, O/U 55.5. That is a rare close card on a weekend full of flips.",
+      "HX ranks Texas 5th (6.44) against AP’s No. 1; Tennessee is HX 18th (4.08) vs AP 14. FPI has Texas 2nd and Tennessee 10th — so the market and FPI are closer to each other than either is to HX’s Texas under-rank relative to the ballot.",
+      "Injury note for the desk: Texas RB Hollywood Smothers remains questionable (lower-leg) on the Thursday SEC report, with local reports flagging real concern he may not go. Do not invent snaps. Yahoo frames Faizon Brandon’s early Tennessee tape (nine total TDs, zero interceptions) against a Texas defense allowing 3.4 yards per carry.",
+    ],
+    whyItMatters:
+      "National window + clean HX/Vegas agreement contrast against the A&M–LSU and Ole Miss–Florida flips.",
+    sources: [
+      { label: "HASHMARK Schedule", href: "https://hashmarkcfb.com/schedule?w=4" },
+      {
+        label: "Yahoo · Week 4 guide",
+        href: "https://sports.yahoo.com/college-football/article/week-4-college-football-viewers-guide-texas-at-tennessee-ole-miss-florida-iowa-michigan-lsu-oregon-usc-132448309.html",
+      },
+      {
+        label: "Rocky Top Insider · Smothers",
+        href: "https://www.rockytopinsider.com/2026/09/24/key-texas-running-back-hollywood-smothers-remains-questionable-on-thursday-night-sec-injury-report-before-tennessee-game/",
+      },
+      {
+        label: "NCAA.com · Week 4 AP",
+        href: "https://www.ncaa.com/news/football/article/2026-09-20/ole-miss-enters-top-five-latest-ap-top-25-college-football-rankings",
+      },
+      {
+        label: "The Big Lead · FPI",
+        href: "https://www.thebiglead.com/updated-espn-fpi-college-football-top-25-rankings-after-wild-week-3/",
+      },
+    ],
+  },
+  {
+    slug: "week-4-oregon-usc",
+    kicker: "Week 4 · HX Flag",
+    headline: "Vegas has Oregon −3 at the Coliseum. HX has Oregon −6 — and ranks them fourth.",
+    dek: "AP’s No. 20 Ducks are still HX’s No. 4. Saturday night NBC is the stress test.",
+    date: STORY_DATE_WEEK4,
+    body: [
+      "No. 20 Oregon visits No. 12 USC on Saturday (6:30 CT, NBC). Live HASHMARK: Oregon −6.0 / 65.1%. Vegas close on the schedule: Oregon −3.0, O/U 62.5 — a three-point chill, not a smash gap, but the ranking disagreement is huge.",
+      "HX has Oregon 4th (6.91) — +16 vs AP Week 4’s 20th, still the biggest positive AP gap among HX’s Top 10 after Texas A&M’s ballot freefall. USC is HX 21st (3.85) against AP 12. FPI has Oregon 9th and USC 18th, so HX is the Oregon-bullish board and the USC-skeptical one.",
+      "Oregon already owns a loss (Oklahoma State in Week 2). USC is 4–0 but Yahoo flags 75 points allowed over the last two weeks, including 35 to Rutgers. Stick to the number on hashmarkcfb.com/schedule. Do not invent portal or injury angles beyond what the desk sources.",
+    ],
+    whyItMatters: "Clean brand story — HX’s Oregon overrate vs AP meets a live ranked road favorite.",
+    sources: [
+      { label: "HASHMARK Board", href: "https://hashmarkcfb.com/" },
+      { label: "HASHMARK Schedule", href: "https://hashmarkcfb.com/schedule?w=4" },
+      {
+        label: "Yahoo · Week 4 guide",
+        href: "https://sports.yahoo.com/college-football/article/week-4-college-football-viewers-guide-texas-at-tennessee-ole-miss-florida-iowa-michigan-lsu-oregon-usc-132448309.html",
+      },
+      {
+        label: "NCAA.com · Week 4 AP",
+        href: "https://www.ncaa.com/news/football/article/2026-09-20/ole-miss-enters-top-five-latest-ap-top-25-college-football-rankings",
+      },
+      {
+        label: "The Big Lead · FPI",
+        href: "https://www.thebiglead.com/updated-espn-fpi-college-football-top-25-rankings-after-wild-week-3/",
+      },
+    ],
+  },
+  {
+    slug: "week-4-clemson-cal",
+    kicker: "Week 4 · Friday",
+    headline: "Vegas has Cal −1.5. HX has Clemson −6.7.",
+    dek: "ACC after dark — HASHMARK flips the favorite in Berkeley.",
+    date: STORY_DATE_WEEK4,
+    body: [
+      "Clemson visits California on Friday (9:30 CT, ESPN). Live HASHMARK: Clemson −6.7 / 66.5%. Vegas close on the schedule: Cal −1.5, O/U 50.5 — a winner flip and the Friday late window.",
+      "HX still has Clemson 22nd (3.83) after the LSU loss in Week 1 and the UNC win last week; AP has the Tigers unranked. Yahoo notes freshman QB Tait Reynolds in his first road start after the weather-delayed UNC win, with Cal CB Kingston Lopa at five interceptions after Wagner.",
+      "Last week’s UNC–Clemson card was the loudest spread gap on the board (HX Clemson −21.6 vs Vegas −3.5). This week the absolute gap is smaller, but the favorite flip is cleaner for social. Stick to the live schedule number.",
+    ],
+    whyItMatters: "Ready Friday social before the Saturday ABC slate; keeps the Clemson HX-over-AP thread alive.",
+    sources: [
+      { label: "HASHMARK Schedule", href: "https://hashmarkcfb.com/schedule?w=4" },
+      { label: "HASHMARK Board", href: "https://hashmarkcfb.com/" },
+      {
+        label: "Yahoo · Week 4 guide",
+        href: "https://sports.yahoo.com/college-football/article/week-4-college-football-viewers-guide-texas-at-tennessee-ole-miss-florida-iowa-michigan-lsu-oregon-usc-132448309.html",
+      },
+    ],
+  },
+  {
+    slug: "week-4-missouri-mississippi-state",
+    kicker: "Week 4 · Winner flip",
+    headline: "Vegas has Miss State −6.5. HX has Missouri −9.5.",
+    dek: "Two newly relevant SEC teams — and HASHMARK flips the home favorite in Starkville.",
+    date: STORY_DATE_WEEK4,
+    body: [
+      "No. 19 Missouri visits No. 24 Mississippi State on Saturday (6:45 CT, SEC Network). Live HASHMARK: Missouri −9.5 / 71.9%. Vegas close on the schedule: Miss St −6.5, O/U 58.5 — a winner flip of roughly 16 points from favorite to favorite.",
+      "HX ranks Missouri 15th (4.26) vs AP 19; Mississippi State is HX 67th (0.20) while AP Week 4 has the Bulldogs 24th for the first time since 2022. That is a massive HX–ballot disagreement on the home side. FPI has Mississippi State 22nd — closer to AP than to HX.",
+      "Yahoo frames Kamario Taylor’s early star turn and last year’s 4–0-then-collapse MSU pattern. Stick to the schedule number. Pair with A&M–LSU and Ole Miss–Florida if the cut is an SEC flips thread — Missouri is the quiet third flip on Saturday night.",
+    ],
+    whyItMatters: "Completes the SEC winner-flip trio; HX’s Miss State under-rank vs a new AP entry.",
+    sources: [
+      { label: "HASHMARK Schedule", href: "https://hashmarkcfb.com/schedule?w=4" },
+      { label: "HASHMARK Board", href: "https://hashmarkcfb.com/" },
+      {
+        label: "Yahoo · Week 4 guide",
+        href: "https://sports.yahoo.com/college-football/article/week-4-college-football-viewers-guide-texas-at-tennessee-ole-miss-florida-iowa-michigan-lsu-oregon-usc-132448309.html",
+      },
+      {
+        label: "NCAA.com · Week 4 AP",
+        href: "https://www.ncaa.com/news/football/article/2026-09-20/ole-miss-enters-top-five-latest-ap-top-25-college-football-rankings",
+      },
+      {
+        label: "The Big Lead · FPI",
+        href: "https://www.thebiglead.com/updated-espn-fpi-college-football-top-25-rankings-after-wild-week-3/",
+      },
+    ],
+  },
   {
     slug: "week-3-tape",
     kicker: "Week 3 tape",
