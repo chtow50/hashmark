@@ -193,17 +193,17 @@ test("board chrome is Week 4; featured reads /schedule?w=4", () => {
   assert.equal(MODEL.weekLabel, "Week 4 board");
 });
 
-test("AP chrome is the last stamped Week 3 poll, not an invented Week 4 ballot", () => {
-  assert.equal(AP_STAMP.week, 3);
-  assert.equal(AP_STAMP.asOf, "Sept. 13");
-  assert.equal(AP_STAMP.label, "Week 3 AP");
-  assert.equal(AP_STAMP.columnHint, "W3 stamp");
-  assert.notEqual(AP_STAMP.week, BOARD_WEEK);
-  assert.match(AP_STAMP.vsHx, /Week 3, Sept\. 13/);
+test("AP chrome is the stamped Week 4 poll, not a leftover Week 3 ballot", () => {
+  assert.equal(AP_STAMP.week, 4);
+  assert.equal(AP_STAMP.asOf, "Sept. 20");
+  assert.equal(AP_STAMP.label, "Week 4 AP");
+  assert.equal(AP_STAMP.columnHint, "W4 stamp");
+  assert.equal(AP_STAMP.week, BOARD_WEEK);
+  assert.match(AP_STAMP.vsHx, /Week 4, Sept\. 20/);
   assert.match(AP_STAMP.lede, /HX is Week 4/);
-  assert.match(AP_STAMP.lede, /last stamped poll \(Week 3/);
-  assert.match(AP_STAMP.lede, /Sept\. 13/);
-  assert.match(AP_STAMP.lede, /not a Week 4 ballot/);
+  assert.match(AP_STAMP.lede, /last stamped poll \(Week 4/);
+  assert.match(AP_STAMP.lede, /Sept\. 20/);
+  assert.match(AP_STAMP.lede, /not a Week 3 ballot/);
 });
 
 test("Colorado at GT is HASHMARK GT −10.3 / 73.3% at home, Neutral off", () => {
@@ -404,6 +404,51 @@ test("Week 4 board featured is Liberty @ Coastal Carolina with kick/TV and LIB �
   assert.equal(favoriteLine("Coastal", "Liberty", book?.spread ?? 0), "Liberty −2.5");
   assert.equal(featuredBook(lsu)?.spread, 8.5);
   assert.equal(favoriteLine("LSU", "Texas A&M", featuredBook(lsu)?.spread ?? 0), "LSU −8.5");
+});
+
+test("FINAL Liberty is not featured; earliest Friday kick is Army @ Temple", () => {
+  const libertyFinal = game({
+    id: 200,
+    week: 4,
+    status: "final",
+    homeSlug: WEEK4_FEATURED.homeSlug,
+    awaySlug: WEEK4_FEATURED.awaySlug,
+    homeShort: "Coastal",
+    awayShort: "Liberty",
+    kickoffDate: "2026-09-24",
+    kickoffAt: "2026-09-24T23:30:00.000Z",
+    tv: "ESPN",
+    vegasSpread: -2.5,
+    vegasTotal: 50.5,
+  });
+  const army = game({
+    id: 210,
+    week: 4,
+    homeSlug: "temple",
+    awaySlug: "army",
+    homeShort: "Temple",
+    awayShort: "Army",
+    kickoffDate: "2026-09-25",
+    kickoffAt: "2026-09-25T20:00:00.000Z",
+    tv: "ESPN",
+    vegasSpread: -3,
+    vegasTotal: 47.5,
+  });
+  const clemson = game({
+    id: 211,
+    week: 4,
+    homeSlug: "california",
+    awaySlug: "clemson",
+    kickoffDate: "2026-09-25",
+    kickoffAt: "2026-09-26T02:30:00.000Z",
+    tv: "ESPN",
+  });
+  const stampTime = Date.parse("2026-09-25T14:23:00.000Z");
+  const featured = selectBoardFeaturedKick([libertyFinal, clemson, army], stampTime);
+  assert.equal(isUpcomingKick(libertyFinal, stampTime), false);
+  assert.equal(featured?.homeSlug, "temple");
+  assert.equal(featured?.awaySlug, "army");
+  assert.equal(favoriteLine("Temple", "Army", featuredBook(featured!)?.spread ?? 0), "Army −3.0");
 });
 
 test("Week 4 board featured does not invent a pin when the slate is empty", () => {

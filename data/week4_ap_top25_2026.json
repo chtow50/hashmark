@@ -1,0 +1,248 @@
+{
+  "product": "AP Top 25 stamp pack",
+  "poll": "AP",
+  "season": 2026,
+  "poll_week": 4,
+  "as_of": "2026-09-20",
+  "as_of_label": "Week 4 AP \u00b7 Sept. 20",
+  "source": "https://www.ncaa.com/news/football/article/2026-09-20/ole-miss-enters-top-five-latest-ap-top-25-college-football-rankings",
+  "source_secondary": "Website peer CLEAR 2026-09-25 vs NCAA Week 4 ballot",
+  "chrome": {
+    "replace": "Week 3 AP (Sept. 13) / AP_STAMP week:3",
+    "set": {
+      "week": 4,
+      "asOf": "Sept. 20",
+      "label": "Week 4 AP",
+      "columnHint": "W4 stamp",
+      "lede": "HX is Week 4. AP is the last stamped poll (Week 4, Sept. 20) \u2014 not a Week 3 ballot."
+    }
+  },
+  "scope": "AP ranks + chrome only \u2014 no HX retune",
+  "teams": [
+    {
+      "rank": 1,
+      "school": "Texas",
+      "slug": "texas",
+      "record": "3-0",
+      "previous_rank": 1,
+      "first_place_votes": 58,
+      "points": 1706
+    },
+    {
+      "rank": 2,
+      "school": "Georgia",
+      "slug": "georgia",
+      "record": "3-0",
+      "previous_rank": 2,
+      "first_place_votes": 3,
+      "points": 1580
+    },
+    {
+      "rank": 3,
+      "school": "Notre Dame",
+      "slug": "notre-dame",
+      "record": "3-0",
+      "previous_rank": 3,
+      "first_place_votes": 0,
+      "points": 1517
+    },
+    {
+      "rank": 4,
+      "school": "Ole Miss",
+      "slug": "ole-miss",
+      "record": "3-0",
+      "previous_rank": 8,
+      "first_place_votes": 3,
+      "points": 1488
+    },
+    {
+      "rank": 5,
+      "school": "Indiana",
+      "slug": "indiana",
+      "record": "3-0",
+      "previous_rank": 4,
+      "first_place_votes": 4,
+      "points": 1467
+    },
+    {
+      "rank": 6,
+      "school": "Miami (FL)",
+      "slug": "miami",
+      "record": "3-0",
+      "previous_rank": 5,
+      "first_place_votes": 1,
+      "points": 1445
+    },
+    {
+      "rank": 7,
+      "school": "Ohio State",
+      "slug": "ohio-state",
+      "record": "2-1",
+      "previous_rank": 6,
+      "first_place_votes": 0,
+      "points": 1415
+    },
+    {
+      "rank": 8,
+      "school": "Alabama",
+      "slug": "alabama",
+      "record": "3-0",
+      "previous_rank": 10,
+      "first_place_votes": 0,
+      "points": 1182
+    },
+    {
+      "rank": 9,
+      "school": "BYU",
+      "slug": "byu",
+      "record": "3-0",
+      "previous_rank": 11,
+      "first_place_votes": 0,
+      "points": 1090
+    },
+    {
+      "rank": 10,
+      "school": "LSU",
+      "slug": "lsu",
+      "record": "2-1",
+      "previous_rank": 7,
+      "first_place_votes": 0,
+      "points": 1078
+    },
+    {
+      "rank": 11,
+      "school": "Texas Tech",
+      "slug": "texas-tech",
+      "record": "3-0",
+      "previous_rank": 13,
+      "first_place_votes": 0,
+      "points": 1067
+    },
+    {
+      "rank": 12,
+      "school": "Southern Cal",
+      "slug": "usc",
+      "record": "4-0",
+      "previous_rank": 12,
+      "first_place_votes": 0,
+      "points": 907
+    },
+    {
+      "rank": 13,
+      "school": "Penn State",
+      "slug": "penn-state",
+      "record": "3-0",
+      "previous_rank": 14,
+      "first_place_votes": 0,
+      "points": 850
+    },
+    {
+      "rank": 14,
+      "school": "Tennessee",
+      "slug": "tennessee",
+      "record": "3-0",
+      "previous_rank": 15,
+      "first_place_votes": 0,
+      "points": 826
+    },
+    {
+      "rank": 15,
+      "school": "Utah",
+      "slug": "utah",
+      "record": "3-0",
+      "previous_rank": 17,
+      "first_place_votes": 0,
+      "points": 752
+    },
+    {
+      "rank": 16,
+      "school": "Louisville",
+      "slug": "louisville",
+      "record": "2-1",
+      "previous_rank": 23,
+      "first_place_votes": 0,
+      "points": 692
+    },
+    {
+      "rank": 17,
+      "school": "Iowa",
+      "slug": "iowa",
+      "record": "3-0",
+      "previous_rank": 18,
+      "first_place_votes": 0,
+      "points": 561
+    },
+    {
+      "rank": 18,
+      "school": "Michigan",
+      "slug": "michigan",
+      "record": "3-0",
+      "previous_rank": 19,
+      "first_place_votes": 0,
+      "points": 432
+    },
+    {
+      "rank": 19,
+      "school": "Missouri",
+      "slug": "missouri",
+      "record": "3-0",
+      "previous_rank": 20,
+      "first_place_votes": 0,
+      "points": 369
+    },
+    {
+      "rank": 20,
+      "school": "Oregon",
+      "slug": "oregon",
+      "record": "2-1",
+      "previous_rank": 21,
+      "first_place_votes": 0,
+      "points": 364
+    },
+    {
+      "rank": 21,
+      "school": "Florida",
+      "slug": "florida",
+      "record": "3-0",
+      "previous_rank": null,
+      "first_place_votes": 0,
+      "points": 269
+    },
+    {
+      "rank": 22,
+      "school": "SMU",
+      "slug": "smu",
+      "record": "2-1",
+      "previous_rank": 16,
+      "first_place_votes": 0,
+      "points": 212
+    },
+    {
+      "rank": 23,
+      "school": "Texas A&M",
+      "slug": "texas-am",
+      "record": "2-1",
+      "previous_rank": 9,
+      "first_place_votes": 0,
+      "points": 202
+    },
+    {
+      "rank": 24,
+      "school": "Mississippi State",
+      "slug": "mississippi-state",
+      "record": "3-0",
+      "previous_rank": null,
+      "first_place_votes": 0,
+      "points": 179
+    },
+    {
+      "rank": 25,
+      "school": "Houston",
+      "slug": "houston",
+      "record": "2-1",
+      "previous_rank": 22,
+      "first_place_votes": 0,
+      "points": 127
+    }
+  ]
+}

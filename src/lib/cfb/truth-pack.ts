@@ -2,7 +2,7 @@
  * Truth-pack loaders. Numbers come from the AMD / Research JSON payloads —
  * do not invent deltas, tape rates, or make/title splits.
  *
- *   data/week3_hx_vs_ap_gaps_2026.json
+ *   data/week4_hx_vs_ap_gaps_2026.json
  *   data/week1_accountability_pack_2026.json
  *   data/week2_tape_2026.json
  *   data/week2_tape_top25_closer_2026.json
@@ -10,21 +10,23 @@
  *   data/week3_tape_top25_closer_2026.json
  *   data/sim_10k_2026_hx2026_4.json
  */
-import gapsRaw from "../../../data/week3_hx_vs_ap_gaps_2026.json" with { type: "json" };
+import gapsRaw from "../../../data/week4_hx_vs_ap_gaps_2026.json" with { type: "json" };
 import packRaw from "../../../data/week1_accountability_pack_2026.json" with { type: "json" };
 import week2TapeRaw from "../../../data/week2_tape_2026.json" with { type: "json" };
 import week2Top25Raw from "../../../data/week2_tape_top25_closer_2026.json" with { type: "json" };
 import week3TapeRaw from "../../../data/week3_tape_2026.json" with { type: "json" };
 import week3Top25Raw from "../../../data/week3_tape_top25_closer_2026.json" with { type: "json" };
 import simRaw from "../../../data/sim_10k_2026_hx2026_4.json" with { type: "json" };
-import week3ApRaw from "../../../data/week3_ap_top25_2026.json" with { type: "json" };
+import week4ApRaw from "../../../data/week4_ap_top25_2026.json" with { type: "json" };
 
+/** Research desk flags on the Week 4 ballot. Mississippi State (−43) leads the |delta| sort after these. */
 export const DISAGREE_HIGHLIGHT_NAMES = [
-  "Virginia",
+  "Texas A&M",
+  "Oregon",
   "Houston",
   "LSU",
-  "Missouri",
-  "Texas Tech",
+  "USC",
+  "BYU",
 ] as const;
 
 export type HxApGap = {
@@ -295,7 +297,7 @@ export const week3Top25Pack = week3Top25Raw as Week3Top25NativeFile;
 export const sim10k = simRaw as Sim10kFile;
 
 const AP_SLUG_BY_NAME = new Map(
-  (week3ApRaw.teams as { school: string; slug: string }[]).flatMap((t) => {
+  (week4ApRaw.teams as { school: string; slug: string }[]).flatMap((t) => {
     const names = [t.school];
     if (t.slug === "usc") names.push("USC");
     if (t.slug === "miami") names.push("Miami");

@@ -1,0 +1,177 @@
+{
+  "as_of": "2026-09-25",
+  "poll_week": 4,
+  "source_ap": "week4_ap_top25_2026 / NCAA Week 4 (Sept. 20)",
+  "source_hx": "week3_od_hx_ship_2026.json",
+  "hx_board": "HX 2026.5",
+  "note": "Rebuilt vs Week 4 AP ballot (Sept. 20) and live HX 2026.5 ranks in week3_od_hx_ship_2026. Gaps with |delta| >= 3. Oklahoma and Virginia left the ballot. Houston is AP 25 / HX 39 (not the Week 3 AP 22 row). LSU is AP 10 / HX 19 (not AP 7).",
+  "gaps": [
+    {
+      "name": "Mississippi State",
+      "ap": 24,
+      "hx": 67,
+      "hx_rating": 0.2047,
+      "delta": -43
+    },
+    {
+      "name": "Texas A&M",
+      "ap": 23,
+      "hx": 6,
+      "hx_rating": 6.1053,
+      "delta": 17
+    },
+    {
+      "name": "Oregon",
+      "ap": 20,
+      "hx": 4,
+      "hx_rating": 6.9056,
+      "delta": 16
+    },
+    {
+      "name": "Houston",
+      "ap": 25,
+      "hx": 39,
+      "hx_rating": 1.623,
+      "delta": -14
+    },
+    {
+      "name": "Louisville",
+      "ap": 16,
+      "hx": 26,
+      "hx_rating": 3.0061,
+      "delta": -10
+    },
+    {
+      "name": "LSU",
+      "ap": 10,
+      "hx": 19,
+      "hx_rating": 4.0776,
+      "delta": -9
+    },
+    {
+      "name": "USC",
+      "ap": 12,
+      "hx": 21,
+      "hx_rating": 3.8488,
+      "delta": -9
+    },
+    {
+      "name": "BYU",
+      "ap": 9,
+      "hx": 17,
+      "hx_rating": 4.1233,
+      "delta": -8
+    },
+    {
+      "name": "Indiana",
+      "ap": 5,
+      "hx": 11,
+      "hx_rating": 4.981,
+      "delta": -6
+    },
+    {
+      "name": "Iowa",
+      "ap": 17,
+      "hx": 23,
+      "hx_rating": 3.7409,
+      "delta": -6
+    },
+    {
+      "name": "Michigan",
+      "ap": 18,
+      "hx": 12,
+      "hx_rating": 4.8942,
+      "delta": 6
+    },
+    {
+      "name": "Ohio State",
+      "ap": 7,
+      "hx": 2,
+      "hx_rating": 7.8131,
+      "delta": 5
+    },
+    {
+      "name": "Texas",
+      "ap": 1,
+      "hx": 5,
+      "hx_rating": 6.4443,
+      "delta": -4
+    },
+    {
+      "name": "Ole Miss",
+      "ap": 4,
+      "hx": 8,
+      "hx_rating": 5.4492,
+      "delta": -4
+    },
+    {
+      "name": "Miami",
+      "ap": 6,
+      "hx": 10,
+      "hx_rating": 5.2345,
+      "delta": -4
+    },
+    {
+      "name": "Texas Tech",
+      "ap": 11,
+      "hx": 7,
+      "hx_rating": 5.8206,
+      "delta": 4
+    },
+    {
+      "name": "Tennessee",
+      "ap": 14,
+      "hx": 18,
+      "hx_rating": 4.0824,
+      "delta": -4
+    },
+    {
+      "name": "Missouri",
+      "ap": 19,
+      "hx": 15,
+      "hx_rating": 4.2596,
+      "delta": 4
+    },
+    {
+      "name": "Florida",
+      "ap": 21,
+      "hx": 24,
+      "hx_rating": 3.4998,
+      "delta": -3
+    }
+  ],
+  "hx_not_in_ap": [
+    {
+      "hx_rank": 16,
+      "name": "Oklahoma",
+      "hx": 4.1874
+    },
+    {
+      "hx_rank": 22,
+      "name": "Clemson",
+      "hx": 3.8301
+    },
+    {
+      "hx_rank": 25,
+      "name": "Washington",
+      "hx": 3.2867
+    }
+  ],
+  "ap_not_in_hx25": [
+    {
+      "ap": 16,
+      "name": "Louisville",
+      "hx_rank": 26
+    },
+    {
+      "ap": 24,
+      "name": "Mississippi State",
+      "hx_rank": 67
+    },
+    {
+      "ap": 25,
+      "name": "Houston",
+      "hx_rank": 39
+    }
+  ]
+}

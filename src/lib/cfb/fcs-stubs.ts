@@ -224,8 +224,21 @@ const WEEK1_FCS_STUBS: FcsStubGame[] = [
 
 const WEEK2_FCS_STUBS: FcsStubGame[] = WEEK2_FCS.games.map(week2StubFromJson);
 
+/**
+ * Week 3 W–L only. Northern Iowa is FCS — not a `games` row and not a
+ * Vegas-only schedule card (no invented HX). Same pattern as Week 1
+ * Georgia–Tennessee State. See data/fcs_finals_needed_for_wl_2026.json.
+ */
+const WEEK3_FCS_STUBS: FcsStubGame[] = [
+  finalHome("iowa", 3, "2026-09-19", "Northern Iowa", 55, 0),
+];
+
 /** FBS vs FCS rows dropped from the 136-team games table. Unlisted Week 1 FCS stay scheduled stubs. */
-export const FCS_STUB_GAMES: FcsStubGame[] = [...WEEK1_FCS_STUBS, ...WEEK2_FCS_STUBS];
+export const FCS_STUB_GAMES: FcsStubGame[] = [
+  ...WEEK1_FCS_STUBS,
+  ...WEEK2_FCS_STUBS,
+  ...WEEK3_FCS_STUBS,
+];
 
 export function fcsStubIsFinal(stub: FcsStubGame): boolean {
   return stub.status === "final" && stub.homeScore != null && stub.awayScore != null;

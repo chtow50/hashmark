@@ -8,16 +8,16 @@ export const BOARD_WEEK = 4;
 
 /**
  * Last stamped AP ballot on the live board.
- * HX chrome is Week 4; AP is the last stamped poll (Week 3, Sept. 13) —
- * not an invented Week 4 ballot.
+ * HX chrome is Week 4. AP is the last stamped poll (Week 4, Sept. 20) —
+ * not a Week 3 ballot.
  */
 export const AP_STAMP = {
-  week: 3,
-  asOf: "Sept. 13",
-  label: "Week 3 AP",
-  columnHint: "W3 stamp",
-  vsHx: "last stamped AP (Week 3, Sept. 13)",
-  lede: "HX is Week 4. AP is the last stamped poll (Week 3, Sept. 13) — not a Week 4 ballot.",
+  week: 4,
+  asOf: "Sept. 20",
+  label: "Week 4 AP",
+  columnHint: "W4 stamp",
+  vsHx: "last stamped AP (Week 4, Sept. 20)",
+  lede: "HX is Week 4. AP is the last stamped poll (Week 4, Sept. 20) — not a Week 3 ballot.",
 } as const;
 
 /**
@@ -25,8 +25,9 @@ export const AP_STAMP = {
  * Next upcoming non-final by kick time; if the slate has dates but no
  * times, first non-final in slate order. Never invent a kick, TV, Vegas,
  * or a Research pin. FCS rows are Vegas-only (unrated) — never feature
- * them (would invent HX). Liberty @ Coastal is the Week 4 opener
- * (Thu 18:30 CT · ESPN). The Sep 23 CLEAR pack stamps Vegas LIB −2.5 / 50.5.
+ * them (would invent HX). Liberty @ Coastal is FINAL (Liberty 34, Coastal 17)
+ * and must not feature. Earliest remaining Friday window is the card while
+ * it is still upcoming (Army @ Temple, Fri 15:00 CT).
  */
 export const FEATURED_SLATE_WEEK = 4;
 
@@ -55,7 +56,11 @@ export const WEEK3_FEATURED = {
   awaySlug: "syracuse",
 } as const;
 
-/** Thursday night ESPN: Liberty at Coastal Carolina. Research Week 4 featured card. Vegas LIB −2.5 / 50.5. */
+/**
+ * Thursday night ESPN: Liberty at Coastal Carolina. Historical opener identity
+ * for stamp tests. FINAL Liberty 34–Coastal 17 — not the live featured card.
+ * Vegas close stays LIB −2.5 / 50.5 from the Sep 23 CLEAR pack.
+ */
 export const WEEK4_FEATURED = {
   homeSlug: "coastal-carolina",
   awaySlug: "liberty",
@@ -133,8 +138,9 @@ export function selectFeaturedKick<
  * Board featured for the live chrome week (Week 4 slate).
  * Week 2 and Week 3 Research pins stay historical helpers — those rows
  * are FINAL and must not feature. Pitt FINAL is not featured.
- * Week 4: next upcoming FBS kick on the week-4 slate. While Liberty @
- * Coastal is still ahead, that is the card (Thu 18:30 CT · ESPN · LIB −2.5 / 50.5).
+ * Week 4: next upcoming FBS kick on the week-4 slate. Liberty @ Coastal
+ * is FINAL (34–17) and must not feature. While Friday is still ahead, the
+ * earliest kick is the card (Army @ Temple, Fri 15:00 CT).
  * Blank Vegas stays blank when the row has no stamped book. Never invent a book.
  * Never a FINAL. Never FCS. Never invent a matchup.
  */

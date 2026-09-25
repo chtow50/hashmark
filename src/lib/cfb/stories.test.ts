@@ -34,17 +34,36 @@ const WEEK3_SOURCED_CLOSES = [
   "Indiana −44.5",
 ] as const;
 
-test("Week 3 tape leads STORIES; Week 3 Friday then Week 2 tape then Week 1 follow", () => {
-  assert.equal(STORIES[0]?.slug, "week-3-tape");
-  assert.match(STORIES[0]?.headline ?? "", /49\/56/);
-  assert.match(STORIES[0]?.headline ?? "", /23\/56/);
-  assert.match(STORIES[0]?.headline ?? "", /FLAG/);
-  assert.match(STORIES[0]?.headline ?? "", /5\/21/);
-  assert.match(STORIES[0]?.dek ?? "", /20\/21/);
-  assert.match(STORIES[0]?.dek ?? "", /5\/21/);
-  const w3 = [STORIES[0]?.headline, STORIES[0]?.dek, STORIES[0]?.whyItMatters, ...(STORIES[0]?.body ?? [])].join(
-    "\n",
+const WEEK4_FRIDAY = [
+  "week-4-texas-am-lsu",
+  "week-4-ole-miss-florida",
+  "week-4-texas-tennessee",
+  "week-4-oregon-usc",
+  "week-4-clemson-cal",
+  "week-4-missouri-mississippi-state",
+] as const;
+
+test("Week 4 Friday leads STORIES; Week 3 tape then Week 3 Friday then Week 2 tape then Week 1 follow", () => {
+  assert.deepEqual(
+    STORIES.slice(0, WEEK4_FRIDAY.length).map((s) => s.slug),
+    [...WEEK4_FRIDAY],
   );
+  assert.equal(STORIES[0]?.slug, "week-4-texas-am-lsu");
+  assert.equal(STORIES[0]?.date, "Friday, Sep 25, 2026");
+  const w3Lead = WEEK4_FRIDAY.length;
+  assert.equal(STORIES[w3Lead]?.slug, "week-3-tape");
+  assert.match(STORIES[w3Lead]?.headline ?? "", /49\/56/);
+  assert.match(STORIES[w3Lead]?.headline ?? "", /23\/56/);
+  assert.match(STORIES[w3Lead]?.headline ?? "", /FLAG/);
+  assert.match(STORIES[w3Lead]?.headline ?? "", /5\/21/);
+  assert.match(STORIES[w3Lead]?.dek ?? "", /20\/21/);
+  assert.match(STORIES[w3Lead]?.dek ?? "", /5\/21/);
+  const w3 = [
+    STORIES[w3Lead]?.headline,
+    STORIES[w3Lead]?.dek,
+    STORIES[w3Lead]?.whyItMatters,
+    ...(STORIES[w3Lead]?.body ?? []),
+  ].join("\n");
   assert.match(w3, /87\.5%/);
   assert.match(w3, /41\.1%/);
   assert.match(w3, /29\/56/);
@@ -70,10 +89,10 @@ test("Week 3 tape leads STORIES; Week 3 Friday then Week 2 tape then Week 1 foll
   assert.doesNotMatch(w3, /\block/i);
   assert.doesNotMatch(w3, /guaranteed ROI/i);
   assert.deepEqual(
-    STORIES.slice(1, 1 + WEEK3_FRIDAY.length).map((s) => s.slug),
+    STORIES.slice(w3Lead + 1, w3Lead + 1 + WEEK3_FRIDAY.length).map((s) => s.slug),
     [...WEEK3_FRIDAY],
   );
-  const tapeIdx = 1 + WEEK3_FRIDAY.length;
+  const tapeIdx = w3Lead + 1 + WEEK3_FRIDAY.length;
   assert.equal(STORIES[tapeIdx]?.slug, "week-2-tape");
   assert.match(STORIES[tapeIdx]?.headline ?? "", /37\/47/);
   assert.match(STORIES[tapeIdx]?.headline ?? "", /20\/47/);
@@ -106,6 +125,62 @@ test("Week 3 tape leads STORIES; Week 3 Friday then Week 2 tape then Week 1 foll
     STORIES.slice(tapeIdx + 2, tapeIdx + 2 + WEEK1_FRIDAY.length).map((s) => s.slug),
     [...WEEK1_FRIDAY],
   );
+});
+
+const WEEK4_SOURCED_CLOSES = [
+  "Texas A&M −2.7 / 57.4%",
+  "LSU −8.5",
+  "Ole Miss −2.5 / 56.8%",
+  "Florida −3.5",
+  "Texas −3.8 / 59.9%",
+  "Texas −4.5",
+  "Oregon −6.0 / 65.1%",
+  "Oregon −3.0",
+  "Clemson −6.7 / 66.5%",
+  "Cal −1.5",
+  "Missouri −9.5 / 71.9%",
+  "Miss St −6.5",
+] as const;
+
+test("Week 4 package uses the Research order, Week 4 AP ranks, and sourced HASHMARK closes", () => {
+  const week4 = STORIES.filter((s) => s.slug.startsWith("week-4-"));
+  assert.equal(week4.length, 6);
+  assert.deepEqual(
+    week4.map((s) => s.slug),
+    [...WEEK4_FRIDAY],
+  );
+  const text = week4.flatMap((s) => [...s.body, s.whyItMatters, s.dek, s.headline]).join("\n");
+  for (const close of WEEK4_SOURCED_CLOSES) {
+    assert.equal(text.includes(close), true, `missing sourced close: ${close}`);
+  }
+  assert.match(text, /6th \(6\.11\)/);
+  assert.match(text, /AP Week 4/);
+  assert.match(text, /Tigers 10th/);
+  assert.match(text, /AP 23|to 23/);
+  assert.match(text, /game-time decision/);
+  assert.match(text, /questionable/);
+  assert.match(text, /9:30 CT, ESPN/);
+  assert.match(text, /6:45 CT, SEC Network/);
+  assert.doesNotMatch(text, /\block\b/i);
+  assert.doesNotMatch(text, /guaranteed ROI/i);
+  for (const s of week4) {
+    assert.equal(s.date, "Friday, Sep 25, 2026");
+    assert.ok(s.sources.some((src) => src.href.startsWith("https://hashmarkcfb.com")));
+    assert.equal(
+      s.sources.every(
+        (src) =>
+          src.href.startsWith("https://hashmarkcfb.com") ||
+          src.href.startsWith("https://www.cbssports.com/") ||
+          src.href.startsWith("https://www.si.com/") ||
+          src.href.startsWith("https://sports.yahoo.com/") ||
+          src.href.startsWith("https://www.ncaa.com/") ||
+          src.href.startsWith("https://www.thebiglead.com/") ||
+          src.href.startsWith("https://www.rockytopinsider.com/"),
+      ),
+      true,
+      s.slug,
+    );
+  }
 });
 
 test("Week 3 package uses Week 3 AP ranks and sourced HASHMARK Vegas closes", () => {
