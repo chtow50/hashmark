@@ -22,10 +22,10 @@ import { MODEL, predictMatchup } from "@/lib/cfb/model";
 import { make12FromSim } from "@/lib/cfb/season-sim";
 import {
   boardDisagreementRows,
-  week3BoardFlags,
-  week3SeasonTape,
-  week3Tape,
-  week3Top25Tape,
+  week4BoardFlags,
+  week4SeasonTape,
+  week4Tape,
+  week4Top25Tape,
 } from "@/lib/cfb/truth-pack";
 import type { Prediction, ScheduleGame } from "@/lib/cfb/types";
 import { apLabel, fmtNum, fmtPct } from "@/lib/utils";
@@ -64,10 +64,10 @@ function Home() {
     : null;
 
   const disagreements = boardDisagreementRows(teams).slice(0, 8);
-  const tape = week3Tape();
-  const top25 = week3Top25Tape();
-  const season = week3SeasonTape();
-  const flags = week3BoardFlags();
+  const tape = week4Tape();
+  const top25 = week4Top25Tape();
+  const season = week4SeasonTape();
+  const flags = week4BoardFlags();
   const oneMake = one ? make12FromSim(one.slug, one) : null;
 
   const recLeaders = [...teams].sort((a, b) => a.recRank - b.recRank).slice(0, 5);
@@ -150,7 +150,15 @@ function Home() {
 
       <EdgePackStrip compact paid />
 
-      <AccountabilityCard tape={tape} top25={top25} season={season} flags={flags} />
+      <AccountabilityCard
+        tape={tape}
+        top25={top25}
+        season={season}
+        flags={flags}
+        weekLabel="Week 4 tape"
+        storySlug="week-4-tape"
+        dek="Full slate closer is a FLAG. Top 25 closer 8/18 is a FLAG. HX not retuned."
+      />
 
       <Panel>
         <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-baseline sm:justify-between">

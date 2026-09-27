@@ -8,6 +8,8 @@
  *   data/week2_tape_top25_closer_2026.json
  *   data/week3_tape_2026.json
  *   data/week3_tape_top25_closer_2026.json
+ *   data/week4_tape_2026.json
+ *   data/week4_tape_top25_closer_2026.json
  *   data/sim_10k_2026_hx2026_4.json
  */
 import gapsRaw from "../../../data/week4_hx_vs_ap_gaps_2026.json" with { type: "json" };
@@ -16,6 +18,8 @@ import week2TapeRaw from "../../../data/week2_tape_2026.json" with { type: "json
 import week2Top25Raw from "../../../data/week2_tape_top25_closer_2026.json" with { type: "json" };
 import week3TapeRaw from "../../../data/week3_tape_2026.json" with { type: "json" };
 import week3Top25Raw from "../../../data/week3_tape_top25_closer_2026.json" with { type: "json" };
+import week4TapeRaw from "../../../data/week4_tape_2026.json" with { type: "json" };
+import week4Top25Raw from "../../../data/week4_tape_top25_closer_2026.json" with { type: "json" };
 import simRaw from "../../../data/sim_10k_2026_hx2026_4.json" with { type: "json" };
 import week4ApRaw from "../../../data/week4_ap_top25_2026.json" with { type: "json" };
 
@@ -294,6 +298,73 @@ export const week2TapePack = week2TapeRaw as Week2TapeFile;
 export const week2Top25Pack = week2Top25Raw as Week2Top25CutFile;
 export const week3TapePack = week3TapeRaw as Week3TapeNativeFile;
 export const week3Top25Pack = week3Top25Raw as Week3Top25NativeFile;
+
+export type Week4TapeNativeFile = {
+  meta: {
+    as_of: string;
+    week: number;
+    season: number;
+    scope: string;
+    n_games: number;
+    su: string;
+    su_pct: number;
+    hx_closer: string;
+    hx_closer_pct: number;
+    vegas_closer: string;
+    ats_hx: string;
+    ats_hx_pct: number;
+    mae_hx: number;
+    mae_vegas: number;
+    brier: number;
+    season_w1_w4_su: string;
+    season_w1_w4_closer: string;
+    season_w1_w4_su_frac: string;
+    season_w1_w4_closer_frac: string;
+    headline_flags: {
+      closer_below_45: boolean;
+      n_su_misses: number;
+      n_winner_flip_hits: number;
+      n_winner_flip_misses: number;
+    };
+  };
+  su_misses: Array<{
+    matchup: string;
+    hx_fav: string;
+    winner_flip: boolean;
+    espn_event_id: string;
+  }>;
+  winner_flip_hits: Array<{
+    matchup: string;
+    hx: string;
+    vegas: string;
+    final: string;
+    espn_event_id: string;
+  }>;
+  winner_flip_misses: Array<{
+    matchup: string;
+    hx: string;
+    vegas: string;
+    final: string;
+    espn_event_id: string;
+  }>;
+  games: Array<{
+    espn_event_id: string;
+    away: string;
+    home: string;
+    away_slug: string;
+    home_slug: string;
+    score_away: number;
+    score_home: number;
+    closer: string;
+    su_hit: boolean;
+    hx_spread_display: string;
+    vegas_details: string;
+    flags: string[];
+  }>;
+};
+
+export const week4TapePack = week4TapeRaw as Week4TapeNativeFile;
+export const week4Top25Pack = week4Top25Raw as Week3Top25NativeFile;
 export const sim10k = simRaw as Sim10kFile;
 
 const AP_SLUG_BY_NAME = new Map(
@@ -507,6 +578,80 @@ export function week3Top25Tape(): Week2Top25Tape {
     hx_closer_pct: m.hx_closer_pct,
     vegas_closer: `${vegasN}/${m.n_games}`,
     source: "Research week3_tape_top25_closer_2026 · HX Top 25 involvement n=21 · ESPN FINALs",
+  };
+}
+
+/** Research Week 4 tape mapped onto the board chrome shape. Headline numbers only from the pack. */
+export function week4Tape(): Week2Tape {
+  const m = week4TapePack.meta;
+  return {
+    n: m.n_games,
+    su: m.su,
+    su_pct: m.su_pct,
+    hx_closer: m.hx_closer,
+    hx_closer_pct: m.hx_closer_pct,
+    closer_flag: m.headline_flags.closer_below_45,
+    closer_flag_rule: "<45%",
+    vegas_closer: m.vegas_closer,
+    hx_ats: m.ats_hx,
+    hx_ats_pct: m.ats_hx_pct,
+    mae_hx: m.mae_hx,
+    mae_vegas: m.mae_vegas,
+    brier: m.brier,
+    source: "Research week4_tape_2026 · FBS–FBS n=57 · ESPN FINALs",
+  };
+}
+
+export function week4SeasonTape(): Week2SeasonTape {
+  const m = week4TapePack.meta;
+  return {
+    label: "W1–W4",
+    weeks: [1, 2, 3, 4],
+    su: m.season_w1_w4_su_frac,
+    su_pct: pctFromLabeled(m.season_w1_w4_su),
+    hx_closer: m.season_w1_w4_closer_frac,
+    hx_closer_pct: pctFromLabeled(m.season_w1_w4_closer),
+    note: "Week 1–4 rollup from Research week4_tape_2026",
+  };
+}
+
+export function week4BoardFlags(): Week2BoardFlag[] {
+  const byEspn = new Map(week4TapePack.games.map((g) => [g.espn_event_id, g]));
+  const rows: Array<{
+    result: "HIT" | "MISS";
+    row: (typeof week4TapePack.winner_flip_hits)[number];
+  }> = [
+    ...week4TapePack.winner_flip_hits.map((row) => ({ result: "HIT" as const, row })),
+    ...week4TapePack.winner_flip_misses.map((row) => ({ result: "MISS" as const, row })),
+  ];
+  return rows.map(({ result, row }) => {
+    const game = byEspn.get(row.espn_event_id);
+    return {
+      id: flagId(row.matchup, result),
+      label: `${row.matchup} winner-flip`,
+      result,
+      matchup: row.matchup,
+      espn_event_id: row.espn_event_id,
+      hx: asciiLineToDisplay(row.hx),
+      vegas: asciiLineToDisplay(row.vegas),
+      final: row.final,
+      away_score: game?.score_away ?? 0,
+      home_score: game?.score_home ?? 0,
+    };
+  });
+}
+
+export function week4Top25Tape(): Week2Top25Tape {
+  const m = week4Top25Pack.meta;
+  const vegasN = week4Top25Pack.games.filter((g) => g.closer === "vegas").length;
+  return {
+    n: m.n_games,
+    su: m.su,
+    su_pct: m.su_pct,
+    hx_closer: m.hx_closer,
+    hx_closer_pct: m.hx_closer_pct,
+    vegas_closer: `${vegasN}/${m.n_games}`,
+    source: "week4_tape_top25_closer_2026 · HX Top 25 involvement n=18 · HX 2026.5 ranks · ESPN FINALs",
   };
 }
 

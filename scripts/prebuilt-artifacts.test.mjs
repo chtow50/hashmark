@@ -232,6 +232,24 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /20\/21/);
   });
 
+  it("includes Week 4 remaining FINALs and the Week 4 tape in committed output", () => {
+    const text = corpus();
+    assert.match(text, /0039_week4_remaining_finals/);
+    assert.match(text, /Army @ Temple — Temple 17, Army 21/);
+    assert.match(text, /h\.slug = 'temple' and a\.slug = 'army'/);
+    assert.match(text, /h\.slug = 'lsu' and a\.slug = 'texas-am'/);
+    assert.match(text, /h\.slug = 'wyoming' and a\.slug = 'hawaii'/);
+    assert.match(text, /week-4-tape/);
+    assert.match(text, /42\/57/);
+    assert.match(text, /20\/57/);
+    assert.match(text, /week4_tape_2026/);
+    assert.match(text, /week4_tape_top25_closer_2026/);
+    assert.match(text, /8\/18/);
+    assert.match(text, /Soft-cal FLAG/);
+    assert.match(text, /Week 4 is entirely FINAL/);
+    assert.match(text, /HX is Week 4/);
+  });
+
   it("includes Week 4 Friday stories, Liberty FINAL, Iowa FCS, and Week 4 AP in committed output", () => {
     const text = corpus();
     assert.match(text, /0037_week4_liberty_coastal_final/);
