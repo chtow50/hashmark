@@ -30,18 +30,24 @@ import {
   week3TapePack,
   week3Top25Pack,
   week3Top25Tape,
+  week4BoardFlags,
+  week4SeasonTape,
+  week4Tape,
+  week4TapePack,
+  week4Top25Pack,
+  week4Top25Tape,
 } from "./truth-pack.ts";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "../../..");
 
-test("gaps JSON flags Week 4 Research desks vs live HX 2026.5", () => {
+test("gaps JSON flags Week 4 Research desks vs live HX 2026.6", () => {
   const expected: Record<string, { ap: number; hx: number; delta: number }> = {
     "Texas A&M": { ap: 23, hx: 6, delta: 17 },
     Oregon: { ap: 20, hx: 4, delta: 16 },
     Houston: { ap: 25, hx: 39, delta: -14 },
-    LSU: { ap: 10, hx: 19, delta: -9 },
+    LSU: { ap: 10, hx: 17, delta: -7 },
     USC: { ap: 12, hx: 21, delta: -9 },
-    BYU: { ap: 9, hx: 17, delta: -8 },
+    BYU: { ap: 9, hx: 18, delta: -9 },
   };
   for (const name of DISAGREE_HIGHLIGHT_NAMES) {
     const g = gapByName(name);
@@ -51,14 +57,14 @@ test("gaps JSON flags Week 4 Research desks vs live HX 2026.5", () => {
     assert.equal(g.delta, expected[name].delta, `${name} delta`);
     assert.equal(g.delta, g.ap - g.hx, `${name} delta must be ap − hx`);
   }
-  assert.equal(gapByName("Mississippi State")?.delta, -43);
-  assert.equal(gapByName("Mississippi State")?.hx, 67);
+  assert.equal(gapByName("Mississippi State")?.delta, -42);
+  assert.equal(gapByName("Mississippi State")?.hx, 66);
   assert.equal(gapByName("Virginia"), undefined);
   assert.notEqual(gapByName("Houston")?.ap, 22);
   assert.notEqual(gapByName("LSU")?.ap, 7);
   assert.equal(hxApGaps.poll_week, 4);
-  assert.match(hxApGaps.source_hx, /week3_od_hx_ship_2026/);
-  assert.match(hxApGaps.hx_board ?? "", /2026\.5/);
+  assert.match(hxApGaps.source_hx, /week4_od_hx_ship_2026/);
+  assert.match(hxApGaps.hx_board ?? "", /2026\.6/);
   assert.match(hxApGaps.source_ap, /week4_ap/i);
   assert.doesNotMatch(hxApGaps.source_ap, /week3_ap/i);
   assert.doesNotMatch(hxApGaps.source_ap, /week1_ap/i);
@@ -92,9 +98,9 @@ test("Week 4 ballot ranks on the disagreement card — not the Week 3 stamp", ()
   assert.notEqual(gapByName("Texas A&M")?.ap, 9);
 });
 
-test("recompute from Week 4 AP + HX 2026.5 ship matches gaps file", () => {
+test("recompute from Week 4 AP + HX 2026.6 ship matches gaps file", () => {
   const ap = JSON.parse(readFileSync(join(root, "data/week4_ap_top25_2026.json"), "utf8"));
-  const ship = JSON.parse(readFileSync(join(root, "data/week3_od_hx_ship_2026.json"), "utf8"));
+  const ship = JSON.parse(readFileSync(join(root, "data/week4_od_hx_ship_2026.json"), "utf8"));
   const recomputed = recomputeHxVsApGaps(ap.teams, ship.teams);
   const kept = recomputed.filter((g) => Math.abs(g.delta) >= 3);
   assert.deepEqual(
@@ -130,7 +136,7 @@ test("board card leads with the Week 4 flags, then remaining JSON gaps", () => {
   const miss = rows.find((r) => r.name === "Mississippi State");
   assert.equal(miss?.slug, "mississippi-state");
   assert.equal(miss?.ap, 24);
-  assert.equal(miss?.hx, 67);
+  assert.equal(miss?.hx, 66);
   assert.equal(rows.find((r) => r.name === "Virginia"), undefined);
   assert.notEqual(rows.find((r) => r.name === "Houston")?.ap, 22);
   assert.notEqual(rows.find((r) => r.name === "LSU")?.ap, 7);
@@ -260,9 +266,78 @@ test("Week 3 Top 25 closer cut is 5/21 HX · 20/21 SU", () => {
   assert.equal(week3Top25Pack.games.filter((g) => g.closer === "hx").length, 5);
   assert.equal(week3Top25Pack.games.filter((g) => g.su_hit).length, 20);
   assert.match(week3Top25Pack.meta.full_slate_closer, /23\/56/);
-  const src = readFileSync(join(root, "src/routes/index.tsx"), "utf8");
-  assert.match(src, /week3Tape\(\)/);
-  assert.doesNotMatch(src, /week2Tape\(\)/);
+  const src = readFileSync(join(root, "src/lib/cfb/truth-pack.ts"), "utf8");
+  assert.match(src, /function week3Tape\(\)/);
+  const home = readFileSync(join(root, "src/routes/index.tsx"), "utf8");
+  assert.match(home, /week4Tape\(\)/);
+  assert.doesNotMatch(home, /week3Tape\(\)/);
+  assert.doesNotMatch(home, /week2Tape\(\)/);
+});
+
+test("Week 4 tape is 42/57 SU and 20/57 closer FLAG", () => {
+  const tape = week4Tape();
+  assert.equal(tape.n, 57);
+  assert.equal(tape.su, "42/57");
+  assert.equal(tape.su_pct, 73.7);
+  assert.equal(tape.hx_closer, "20/57");
+  assert.equal(tape.hx_closer_pct, 35.1);
+  assert.equal(tape.closer_flag, true);
+  assert.equal(tape.vegas_closer, "37/57");
+  assert.equal(tape.hx_ats, "28/57");
+  assert.equal(tape.hx_ats_pct, 49.1);
+  assert.equal(tape.mae_hx, 12.79);
+  assert.equal(tape.mae_vegas, 11.21);
+  assert.equal(tape.brier, 0.181);
+  assert.equal(week4TapePack.meta.n_games, 57);
+  assert.equal(week4TapePack.meta.scope, "FBS–FBS only");
+  assert.equal(week4TapePack.su_misses.length, 15);
+  assert.equal(week4TapePack.winner_flip_hits.length, 2);
+  assert.equal(week4TapePack.winner_flip_misses.length, 6);
+  assert.equal(week4TapePack.games.length, 57);
+  const season = week4SeasonTape();
+  assert.equal(season.label, "W1–W4");
+  assert.equal(season.su, "164/203");
+  assert.equal(season.su_pct, 80.8);
+  assert.equal(season.hx_closer, "83/203");
+  assert.equal(season.hx_closer_pct, 40.9);
+  const flags = week4BoardFlags();
+  assert.equal(flags.length, 8);
+  assert.equal(flags.filter((f) => f.result === "HIT").length, 2);
+  assert.equal(flags.filter((f) => f.result === "MISS").length, 6);
+  const names = flags.map((f) => f.matchup).join(" | ");
+  assert.match(names, /Navy @ UAB/);
+  assert.match(names, /Clemson @ California/);
+  assert.match(names, /Texas A&M @ LSU/);
+  assert.match(names, /Air Force @ Nevada/);
+  const src = readFileSync(join(root, "src/lib/cfb/truth-pack.ts"), "utf8");
+  assert.match(src, /week4_tape_2026\.json/);
+  assert.match(src, /week4_tape_top25_closer_2026\.json/);
+  const packText = JSON.stringify(week4TapePack);
+  assert.doesNotMatch(packText, /The board is posted/);
+  assert.doesNotMatch(packText, /guaranteed ROI/i);
+  assert.doesNotMatch(packText, /2026\.6/);
+});
+
+test("Week 4 Top 25 closer cut is 8/18 HX FLAG · 12/18 SU", () => {
+  const cut = week4Top25Tape();
+  assert.equal(cut.n, 18);
+  assert.equal(cut.su, "12/18");
+  assert.equal(cut.su_pct, 66.7);
+  assert.equal(cut.hx_closer, "8/18");
+  assert.equal(cut.hx_closer_pct, 44.4);
+  assert.ok(cut.hx_closer_pct < 45);
+  assert.equal(cut.vegas_closer, "10/18");
+  assert.equal(week4Top25Pack.meta.n_games, 18);
+  assert.equal(week4Top25Pack.games.length, 18);
+  assert.equal(week4Top25Pack.games.filter((g) => g.closer === "hx").length, 8);
+  assert.equal(week4Top25Pack.games.filter((g) => g.su_hit).length, 12);
+  assert.match(week4Top25Pack.meta.full_slate_closer, /20\/57/);
+  const hawaii = week4TapePack.games.find((g) => g.away_slug === "hawaii");
+  assert.ok(hawaii);
+  assert.equal(hawaii.away, "Hawaiʻi");
+  assert.equal(hawaii.home_slug, "wyoming");
+  assert.equal(hawaii.score_away, 10);
+  assert.equal(hawaii.score_home, 27);
 });
 
 test("movers_by_abs_dhx are O/D terms", () => {

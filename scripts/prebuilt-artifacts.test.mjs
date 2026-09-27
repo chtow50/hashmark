@@ -232,6 +232,39 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /20\/21/);
   });
 
+  it("includes Week 4 O/D + HX 2026.6 stamp with Week 4 board chrome", () => {
+    const text = corpus();
+    assert.match(text, /0040_week4_od_hx_ship/);
+    assert.match(text, /HX 2026\.6/);
+    assert.match(text, /Week 4 board/);
+    assert.match(text, /7\.8964/);
+    assert.match(text, /UCLA \+0\.071/);
+    assert.match(text, /week4_od_hx_ship_2026/);
+    assert.match(text, /sunday_od_delta_2026_w4/);
+    assert.match(text, /Soft-cal FLAG/);
+    assert.match(text, /sim_10k_2026_hx2026_4/);
+    assert.match(text, /HX 2026\.4 · 10k draws/);
+    assert.doesNotMatch(text, /unit O\/D pulse is live|pulse chrome/i);
+  });
+
+  it("includes Week 4 remaining FINALs and the Week 4 tape in committed output", () => {
+    const text = corpus();
+    assert.match(text, /0039_week4_remaining_finals/);
+    assert.match(text, /Army @ Temple — Temple 17, Army 21/);
+    assert.match(text, /h\.slug = 'temple' and a\.slug = 'army'/);
+    assert.match(text, /h\.slug = 'lsu' and a\.slug = 'texas-am'/);
+    assert.match(text, /h\.slug = 'wyoming' and a\.slug = 'hawaii'/);
+    assert.match(text, /week-4-tape/);
+    assert.match(text, /42\/57/);
+    assert.match(text, /20\/57/);
+    assert.match(text, /week4_tape_2026/);
+    assert.match(text, /week4_tape_top25_closer_2026/);
+    assert.match(text, /8\/18/);
+    assert.match(text, /Soft-cal FLAG/);
+    assert.match(text, /homepage desk uses FEATURED_SLATE_WEEK/);
+    assert.match(text, /HX is Week 4/);
+  });
+
   it("includes Week 4 Friday stories, Liberty FINAL, Iowa FCS, and Week 4 AP in committed output", () => {
     const text = corpus();
     assert.match(text, /0037_week4_liberty_coastal_final/);

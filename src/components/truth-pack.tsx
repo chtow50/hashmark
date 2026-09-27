@@ -58,9 +58,9 @@ export function AccountabilityCard({
   season,
   flags,
   movers,
-  weekLabel = "Week 3 tape",
-  storySlug = "week-3-tape",
-  dek = "Full slate closer is a FLAG. Top 25 closer 5/21. HX not retuned.",
+  weekLabel = "Week 4 tape",
+  storySlug = "week-4-tape",
+  dek = "Full slate closer is a FLAG. Top 25 closer 8/18 is a FLAG. HX not retuned.",
   flagsKicker = "Board flags · HX not retuned",
 }: {
   tape: Week2Tape;

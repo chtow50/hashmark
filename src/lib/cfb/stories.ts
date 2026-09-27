@@ -16,10 +16,31 @@ export const STORY_DATE_WEEK1 = "Friday, Sep 4, 2026";
 export const STORY_DATE_TAPE = "Tuesday, Sep 8, 2026";
 export const STORY_DATE_TAPE_WEEK2 = "Sunday, Sep 13, 2026";
 export const STORY_DATE_TAPE_WEEK3 = "Sunday, Sep 20, 2026";
+export const STORY_DATE_TAPE_WEEK4 = "Sunday, Sep 27, 2026";
 export const STORY_DATE_WEEK3 = "Friday, Sep 18, 2026";
 export const STORY_DATE_WEEK4 = "Friday, Sep 25, 2026";
 
 export const STORIES: Story[] = [
+  {
+    slug: "week-4-tape",
+    kicker: "Week 4 tape",
+    headline: "Week 4 tape: 42/57 SU, 20/57 closer FLAG. Top 25 closer 8/18.",
+    dek: "Full slate closer is a FLAG. Top 25 closer 8/18 is a FLAG. SU 12/18 in that cut. HX not retuned.",
+    date: STORY_DATE_TAPE_WEEK4,
+    body: [
+      "Week 4 SU 42/57 (73.7%). HX closer to the final than Vegas 20/57 (35.1%) — FLAG, under 45%. Vegas closer 37/57. HX ATS 28/57 (49.1%). FBS–FBS only, n=57. Season W1–W4: SU 80.8% (164/203) · closer 40.9% (83/203). Soft-cal FLAG. This week’s ledger, not a retune.",
+      "HX Top 25 involvement (n=18, hx_rank ≤25 on the live HX 2026.5 board): closer 8/18 (44.4%) — FLAG, under 45%. Vegas 10/18. SU 12/18. Full slate closer stays FLAG. The ranked cut did not clear 45% either.",
+      "Six SU misses in the Top 25 cut: Ole Miss @ Florida, Iowa @ Michigan, Wisconsin @ Penn State, Texas A&M @ LSU, Missouri @ Mississippi State, Minnesota @ Washington. Minnesota @ Washington was closer for HX (Washington −8.0 vs Vegas WASH −10, FINAL 27–24) and still an SU miss.",
+      "HX closer hits in the Top 25 cut (8): Northwestern @ Indiana, Clemson @ California, Texas @ Tennessee, Notre Dame @ Purdue, Oklahoma @ Georgia, Oregon @ USC, Missouri State @ SMU, Minnesota @ Washington.",
+      "Fifteen full-slate SU misses, HX favorites: Army @ Temple, Wake Forest @ Louisville, Hawaiʻi @ Wyoming, Ole Miss @ Florida, TCU @ UCF, Iowa @ Michigan, Boise State @ Western Michigan, Wisconsin @ Penn State, Kansas State @ Cincinnati, Oklahoma State @ West Virginia, Texas A&M @ LSU, Missouri @ Mississippi State, Georgia Tech @ Stanford, Air Force @ Nevada, Minnesota @ Washington. Winner-flip hits: Navy @ UAB (HX UAB −13.8 vs Vegas NAVY −7, FINAL 20–24), Clemson @ California (HX Clemson −6.7 vs Vegas CAL −1.5, FINAL 24–10). Winner-flip misses: Army @ Temple, Ole Miss @ Florida, Boise State @ Western Michigan, Texas A&M @ LSU, Missouri @ Mississippi State, Air Force @ Nevada. HX ATS 28/57 (49.1%). Full-slate MAE HX 12.79 / Vegas 11.21. Brier 0.181. Research Vegas pack + ESPN FINALs. Soft-cal FLAG. all-D still in force. HX not retuned.",
+    ],
+    whyItMatters:
+      "Fourth public ledger of 2026. Full slate closer is a FLAG. Top 25 closer 8/18 is a FLAG. SU 12/18 in that cut. HX not retuned.",
+    sources: [
+      { label: "HASHMARK Board", href: "https://hashmarkcfb.com/" },
+      { label: "HASHMARK Schedule", href: "https://hashmarkcfb.com/schedule?w=4" },
+    ],
+  },
   {
     slug: "week-4-texas-am-lsu",
     kicker: "Week 4 · Winner flip",

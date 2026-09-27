@@ -384,3 +384,93 @@ describe("Week 4 Sep 23 Vegas CLEAR refresh", () => {
     assert.equal(favoriteLine("LSU", "Texas A&M", 8.5), "LSU −8.5");
   });
 });
+
+describe("Week 4 remaining FINALs (Research CLEAR pack)", () => {
+  const remainingSql = readFileSync(join(root, "migrations/0039_week4_remaining_finals.sql"), "utf8");
+  const remaining = JSON.parse(
+    readFileSync(join(root, "data/week4_remaining_finals_clear_2026.json"), "utf8"),
+  ) as {
+    meta: { week: number; season: number; n_clear: number; n_hold: number; n_already_live: number; n_fbs_fbs_slate: number };
+    clear: Array<{
+      espn_event_id: string;
+      home: string;
+      away: string;
+      home_slug: string;
+      away_slug: string;
+      home_score: number;
+      away_score: number;
+    }>;
+    hold: unknown[];
+    already_live: Array<{ espn_event_id: string; home_score: number; away_score: number; home_slug: string; away_slug: string }>;
+  };
+
+  it("covers 56 CLEAR games, 0 HOLD, and skips Liberty @ Coastal", () => {
+    assert.equal(remaining.meta.week, 4);
+    assert.equal(remaining.meta.season, 2026);
+    assert.equal(remaining.meta.n_clear, 56);
+    assert.equal(remaining.clear.length, 56);
+    assert.equal(remaining.meta.n_hold, 0);
+    assert.equal(remaining.hold.length, 0);
+    assert.equal(remaining.meta.n_already_live, 1);
+    assert.equal(remaining.meta.n_fbs_fbs_slate, 57);
+    assert.equal(remaining.already_live[0]?.espn_event_id, "401869941");
+    assert.equal(remaining.already_live[0]?.away_score, 34);
+    assert.equal(remaining.already_live[0]?.home_score, 17);
+    const live = new Set(remaining.already_live.map((g) => g.espn_event_id));
+    for (const g of remaining.clear) {
+      assert.equal(live.has(g.espn_event_id), false, g.espn_event_id);
+    }
+    assert.equal((remainingSql.match(/update games/g) ?? []).length, 56);
+    assert.equal((remainingSql.match(/g\.week = 4/g) ?? []).length, 56);
+    assert.doesNotMatch(remainingSql, /slug = 'liberty'/);
+    assert.doesNotMatch(remainingSql, /slug = 'coastal-carolina'/);
+  });
+
+  it("stamps key CLEAR scores home-perspective and Hawaiʻi on slug hawaii", () => {
+    const army = remaining.clear.find((g) => g.away_slug === "army" && g.home_slug === "temple");
+    assert.ok(army);
+    assert.equal(army.away_score, 21);
+    assert.equal(army.home_score, 17);
+    const tamu = remaining.clear.find((g) => g.away_slug === "texas-am" && g.home_slug === "lsu");
+    assert.ok(tamu);
+    assert.equal(tamu.away_score, 6);
+    assert.equal(tamu.home_score, 35);
+    const ole = remaining.clear.find((g) => g.away_slug === "ole-miss" && g.home_slug === "florida");
+    assert.ok(ole);
+    assert.equal(ole.away_score, 28);
+    assert.equal(ole.home_score, 52);
+    const haw = remaining.clear.find((g) => g.away_slug === "hawaii");
+    assert.ok(haw);
+    assert.equal(haw.away, "Hawaiʻi");
+    assert.equal(haw.home_slug, "wyoming");
+    assert.equal(haw.away_score, 10);
+    assert.equal(haw.home_score, 27);
+    assert.match(remainingSql, /Hawaiʻi @ Wyoming — Wyoming 27, Hawaiʻi 10/);
+    assert.match(remainingSql, /h\.slug = 'wyoming' and a\.slug = 'hawaii'/);
+    assert.match(remainingSql, /home_score = 17/);
+    assert.match(remainingSql, /away_score = 21/);
+    assert.match(remainingSql, /h\.slug = 'temple' and a\.slug = 'army'/);
+    assert.match(remainingSql, /home_score = 35/);
+    assert.match(remainingSql, /away_score = 6/);
+    assert.match(remainingSql, /h\.slug = 'lsu' and a\.slug = 'texas-am'/);
+    assert.match(remainingSql, /home_score = 52/);
+    assert.match(remainingSql, /away_score = 28/);
+    assert.match(remainingSql, /h\.slug = 'florida' and a\.slug = 'ole-miss'/);
+  });
+
+  it("does not restamp kick, TV, or Vegas, omits event digits, and leaves 0037 Liberty", () => {
+    assert.doesNotMatch(remainingSql, /kickoff_at/);
+    assert.doesNotMatch(remainingSql, /\btv\s*=/);
+    assert.doesNotMatch(remainingSql, /vegas_spread/);
+    assert.doesNotMatch(remainingSql, /vegas_total/);
+    assert.doesNotMatch(remainingSql, /hx_rating/);
+    assert.doesNotMatch(remainingSql, /401\d{6,}/);
+    const liberty = readFileSync(join(root, "migrations/0037_week4_liberty_coastal_final.sql"), "utf8");
+    assert.match(liberty, /home_score = 17/);
+    assert.match(liberty, /away_score = 34/);
+    assert.match(liberty, /h\.slug = 'coastal-carolina' and a\.slug = 'liberty'/);
+    const kickSql = readFileSync(join(root, "migrations/0035_week4_vegas_clear_2026_09_23.sql"), "utf8");
+    assert.match(kickSql, /kickoff_at = timestamptz '2026-09-24 18:30:00-05'/);
+    assert.match(kickSql, /h\.slug = 'coastal-carolina' then -2\.5 else 2\.5/);
+  });
+});

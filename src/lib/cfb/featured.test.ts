@@ -185,10 +185,10 @@ const beforeThursday = Date.parse("2026-09-01T22:00:00.000Z");
 const afterGtKick = Date.parse("2026-09-04T00:01:00.000Z");
 const fridayAfternoon = Date.parse("2026-09-04T18:00:00.000Z");
 
-test("board chrome is Week 4; featured reads /schedule?w=4", () => {
+test("board chrome stays Week 4; featured slate is the next Week 5 kick", () => {
   assert.equal(BOARD_WEEK, 4);
-  assert.equal(FEATURED_SLATE_WEEK, 4);
-  assert.equal(MODEL.version, "2026.5");
+  assert.equal(FEATURED_SLATE_WEEK, 5);
+  assert.equal(MODEL.version, "2026.6");
   assert.equal(MODEL.week, 4);
   assert.equal(MODEL.weekLabel, "Week 4 board");
 });
@@ -579,9 +579,9 @@ test("FCS Vegas-only rows are never featured (no invented HX)", () => {
   assert.equal(isUpcomingKick(famu, Date.parse("2026-09-09T16:00:00.000Z")), false);
 });
 
-test("Week 5 schedule featured is Pittsburgh @ Virginia Tech; the live desk stays Week 4", () => {
+test("Week 5 schedule pin is Pittsburgh @ Virginia Tech; home slate week is 5", () => {
   assert.equal(BOARD_WEEK, 4);
-  assert.equal(FEATURED_SLATE_WEEK, 4);
+  assert.equal(FEATURED_SLATE_WEEK, 5);
   assert.equal(WEEK5_FEATURED.homeSlug, "virginia-tech");
   assert.equal(WEEK5_FEATURED.awaySlug, "pittsburgh");
   const wku = game({

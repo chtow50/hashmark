@@ -21,15 +21,15 @@ export const AP_STAMP = {
 } as const;
 
 /**
- * Featured kick reads the HASHMARK Week 4 slate (`/schedule?w=4`).
- * Next upcoming non-final by kick time; if the slate has dates but no
- * times, first non-final in slate order. Never invent a kick, TV, Vegas,
- * or a Research pin. FCS rows are Vegas-only (unrated) — never feature
- * them (would invent HX). Liberty @ Coastal is FINAL (Liberty 34, Coastal 17)
- * and must not feature. Earliest remaining Friday window is the card while
- * it is still upcoming (Army @ Temple, Fri 15:00 CT).
+ * Featured kick reads the HASHMARK Week 5 slate (`/schedule?w=5`).
+ * Week 4 is entirely FINAL, so the home card is the next upcoming
+ * non-final by kick time. Earliest Week 5 kick is Western Kentucky at
+ * New Mexico State (Thu 19:00 CT, CBSSN). That card’s Vegas stays blank
+ * (HOLD) — do not invent a book. FCS rows are never featured.
+ * BOARD_WEEK stays 4. Live ratings are HX 2026.6. The Week 4 tape
+ * grades the HX 2026.5 pregame board.
  */
-export const FEATURED_SLATE_WEEK = 4;
+export const FEATURED_SLATE_WEEK = 5;
 
 /** Thursday night flag: Colorado at Georgia Tech, Bobby Dodd. */
 export const WEEK1_FLAG = {
@@ -67,9 +67,10 @@ export const WEEK4_FEATURED = {
 } as const;
 
 /**
- * Friday ESPN: Pittsburgh at Virginia Tech. Research Week 5 featured card
- * for `/schedule?w=5` only. Fri 2026-10-02 18:00 CT · ESPN · VT −5.5 / 56.5.
- * Not the live desk — BOARD_WEEK and FEATURED_SLATE_WEEK stay 4.
+ * Friday ESPN: Pittsburgh at Virginia Tech. Schedule-page pin for
+ * `/schedule?w=5`. Fri 2026-10-02 18:00 CT · ESPN · VT −5.5 / 56.5.
+ * The home desk uses the earliest Week 5 kick, not this pin.
+ * BOARD_WEEK stays 4.
  */
 export const WEEK5_FEATURED = {
   homeSlug: "virginia-tech",
@@ -135,14 +136,12 @@ export function selectFeaturedKick<
 }
 
 /**
- * Board featured for the live chrome week (Week 4 slate).
- * Week 2 and Week 3 Research pins stay historical helpers — those rows
- * are FINAL and must not feature. Pitt FINAL is not featured.
- * Week 4: next upcoming FBS kick on the week-4 slate. Liberty @ Coastal
- * is FINAL (34–17) and must not feature. While Friday is still ahead, the
- * earliest kick is the card (Army @ Temple, Fri 15:00 CT).
- * Blank Vegas stays blank when the row has no stamped book. Never invent a book.
- * Never a FINAL. Never FCS. Never invent a matchup.
+ * Board featured for the live featured slate (Week 5).
+ * Week 2, Week 3, and Week 4 Research pins stay historical helpers —
+ * those rows are FINAL and must not feature. Liberty @ Coastal is FINAL
+ * (34–17) and must not feature. A finished Week 4 slate returns null.
+ * Week 5: earliest upcoming FBS kick. Blank Vegas stays blank.
+ * Never a FINAL. Never FCS. Never invent a book or matchup.
  */
 export function selectBoardFeaturedKick<
   T extends Pick<ScheduleGame, "status" | "kickoffAt" | "homeSlug" | "awaySlug"> & { isFcs?: boolean },
@@ -159,8 +158,8 @@ export function isPittsburghAtVirginiaTech(
 /**
  * Featured card scoped to the schedule week being viewed.
  * Week 5 pins Pittsburgh @ Virginia Tech (CLEAR), even though WKU @ NMSU
- * kicks earlier. Other weeks have no schedule-page pin — the homepage desk
- * stays Week 4 via FEATURED_SLATE_WEEK. Never invents a matchup.
+ * kicks earlier. The homepage desk uses FEATURED_SLATE_WEEK and the
+ * earliest kick, not this pin. Never invents a matchup.
  */
 export function selectWeekScopedFeatured<
   T extends Pick<ScheduleGame, "status" | "homeSlug" | "awaySlug"> & { isFcs?: boolean },

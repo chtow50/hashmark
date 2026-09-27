@@ -102,7 +102,7 @@ describe("Week 5 FBS–FBS Research kick/TV/Vegas stamp", () => {
     assert.equal(WEEK5_FEATURED.homeSlug, "virginia-tech");
     assert.equal(WEEK5_FEATURED.awaySlug, "pittsburgh");
     assert.equal(BOARD_WEEK, 4);
-    assert.equal(FEATURED_SLATE_WEEK, 4);
+    assert.equal(FEATURED_SLATE_WEEK, 5);
   });
 
   it("stamps every sourced field from vegas_details, and leaves HOLD blanks null", () => {
