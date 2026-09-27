@@ -26,7 +26,8 @@ export const AP_STAMP = {
  * non-final by kick time. Earliest Week 5 kick is Western Kentucky at
  * New Mexico State (Thu 19:00 CT, CBSSN). That card’s Vegas stays blank
  * (HOLD) — do not invent a book. FCS rows are never featured.
- * BOARD_WEEK stays 4. HX 2026.5 is not retuned.
+ * BOARD_WEEK stays 4. Live ratings are HX 2026.6. The Week 4 tape
+ * grades the HX 2026.5 pregame board.
  */
 export const FEATURED_SLATE_WEEK = 5;
 

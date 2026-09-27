@@ -23,7 +23,7 @@ import week4Top25Raw from "../../../data/week4_tape_top25_closer_2026.json" with
 import simRaw from "../../../data/sim_10k_2026_hx2026_4.json" with { type: "json" };
 import week4ApRaw from "../../../data/week4_ap_top25_2026.json" with { type: "json" };
 
-/** Research desk flags on the Week 4 ballot. Mississippi State (−43) leads the |delta| sort after these. */
+/** Research desk flags on the Week 4 ballot. Mississippi State (−42) leads the |delta| sort after these. */
 export const DISAGREE_HIGHLIGHT_NAMES = [
   "Texas A&M",
   "Oregon",

@@ -63,7 +63,7 @@ HX Top 25 involvement (n=18, hx_rank ≤25 on HX 2026.5): closer 8/18 (44.4%). V
 ## Coverage / honesty
 
 - Vegas closes: Sep 23 Research CLEAR pack — **57/57**. Not rewritten by this stamp.
-- HX pregame: live HX 2026.5 board. Not retuned. No 2026.6 ship.
+- HX pregame lines on this ledger are the HX 2026.5 board. The tape is not a retune of those lines.
 - FINAL scores: ESPN STATUS_FINAL. Liberty @ Coastal already live (34–17).
 - No invented lines. No open FBS–FBS games.
 

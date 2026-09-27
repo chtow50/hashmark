@@ -56,7 +56,7 @@ function StoriesPage() {
         <span className="mx-2" aria-hidden>
           ·
         </span>
-        HX 2026.5 · Week 4 board · Soft-cal FLAG
+        HX 2026.6 · Week 4 board · Soft-cal FLAG
       </p>
 
       {lead ? (
