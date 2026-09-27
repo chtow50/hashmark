@@ -246,7 +246,7 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /week4_tape_top25_closer_2026/);
     assert.match(text, /8\/18/);
     assert.match(text, /Soft-cal FLAG/);
-    assert.match(text, /Week 4 is entirely FINAL/);
+    assert.match(text, /homepage desk uses FEATURED_SLATE_WEEK/);
     assert.match(text, /HX is Week 4/);
   });
 
