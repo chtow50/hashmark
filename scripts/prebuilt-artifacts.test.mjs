@@ -46,15 +46,20 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /lbAvgWeightLbs/);
   });
 
-  it("includes Week 1 tape, gaps, and HX 2026.4 Make 12 in committed output", () => {
+  it("includes Week 1 tape, gaps, and HX 2026.6 Make the 12 in committed output", () => {
     const text = corpus();
     assert.match(text, /36\/43/);
     assert.match(text, /make_field/);
-    assert.match(text, /75\.26/);
-    assert.match(text, /21\.59/);
-    assert.match(text, /2026-09-13/);
-    assert.match(text, /HX 2026\.4 · 10k draws|make-field · HX 2026\.4 10k/);
+    assert.match(text, /84\.5/);
+    assert.match(text, /23\.56/);
+    assert.match(text, /20260913/);
+    assert.match(text, /2026-09-28/);
+    assert.match(text, /sim_10k_2026_hx2026_6/);
+    assert.match(text, /HX 2026\.6/);
+    assert.match(text, /10k draws/);
     assert.match(text, /make12FromSim|amd-draws|make-field, not title/);
+    assert.doesNotMatch(text, /HX 2026\.4 · 10k draws/);
+    assert.doesNotMatch(text, /make-field · HX 2026\.4 10k/);
     assert.doesNotMatch(text, /pre-Δ 10k draws/);
     assert.doesNotMatch(text, /not a post-2026\.3 re-sim/);
   });
@@ -213,8 +218,9 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /0\.0711/);
     assert.match(text, /week3_od_hx_ship_2026/);
     assert.match(text, /sunday_od_delta_2026_w3/);
-    assert.match(text, /sim_10k_2026_hx2026_4/);
-    assert.match(text, /HX 2026\.4 · 10k draws/);
+    assert.match(text, /sim_10k_2026_hx2026_6/);
+    assert.match(text, /HX 2026\.6/);
+    assert.match(text, /10k draws/);
   });
 
   it("includes Week 3 remaining CLEAR FINALs and Week 3 tape in committed output", () => {
@@ -242,8 +248,9 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /week4_od_hx_ship_2026/);
     assert.match(text, /sunday_od_delta_2026_w4/);
     assert.match(text, /Soft-cal FLAG/);
-    assert.match(text, /sim_10k_2026_hx2026_4/);
-    assert.match(text, /HX 2026\.4 · 10k draws/);
+    assert.match(text, /sim_10k_2026_hx2026_6/);
+    assert.match(text, /HX 2026\.6/);
+    assert.match(text, /10k draws/);
     assert.doesNotMatch(text, /unit O\/D pulse is live|pulse chrome/i);
   });
 
