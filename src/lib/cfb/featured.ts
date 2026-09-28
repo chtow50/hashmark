@@ -68,7 +68,7 @@ export const WEEK4_FEATURED = {
 
 /**
  * Friday ESPN: Pittsburgh at Virginia Tech. Schedule-page pin for
- * `/schedule?w=5`. Fri 2026-10-02 18:00 CT · ESPN · VT −5.5 / 56.5.
+ * `/schedule?w=5`. Fri 2026-10-02 18:00 CT · ESPN · VT −3.5 / 52.5.
  * The home desk uses the earliest Week 5 kick, not this pin.
  * BOARD_WEEK stays 4.
  */

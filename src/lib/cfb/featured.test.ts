@@ -603,8 +603,8 @@ test("Week 5 schedule pin is Pittsburgh @ Virginia Tech; home slate week is 5", 
     kickoffDate: "2026-10-02",
     kickoffAt: "2026-10-02T23:00:00.000Z",
     tv: "ESPN",
-    vegasSpread: 5.5,
-    vegasTotal: 56.5,
+    vegasSpread: 3.5,
+    vegasTotal: 52.5,
     location: "Lane Stadium",
   });
   const featured = selectWeekScopedFeatured(5, [wku, pitt]);
@@ -612,9 +612,9 @@ test("Week 5 schedule pin is Pittsburgh @ Virginia Tech; home slate week is 5", 
   assert.equal(featured?.homeSlug, "virginia-tech");
   assert.equal(featured?.awaySlug, "pittsburgh");
   const book = featuredBook(featured!);
-  assert.equal(book?.spread, 5.5);
-  assert.equal(book?.total, "56.5");
-  assert.equal(favoriteLine("Virginia Tech", "Pitt", book?.spread ?? 0), "Virginia Tech −5.5");
+  assert.equal(book?.spread, 3.5);
+  assert.equal(book?.total, "52.5");
+  assert.equal(favoriteLine("Virginia Tech", "Pitt", book?.spread ?? 0), "Virginia Tech −3.5");
   assert.equal(selectWeekScopedFeatured(4, [wku, pitt]), null);
   assert.equal(selectWeekScopedFeatured(5, []), null);
   const board = selectBoardFeaturedKick([wku, pitt], Date.parse("2026-09-24T16:00:00.000Z"));
