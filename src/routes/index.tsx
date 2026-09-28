@@ -22,6 +22,7 @@ import { MODEL, predictMatchup } from "@/lib/cfb/model";
 import { make12FromSim } from "@/lib/cfb/season-sim";
 import {
   boardDisagreementRows,
+  SIM_10K_HX_STAMP,
   week4BoardFlags,
   week4SeasonTape,
   week4Tape,
@@ -108,7 +109,7 @@ function Home() {
               <Stat
                 label="Make 12"
                 value={oneMake?.makeField != null ? fmtPct(oneMake.makeField, 1) : fmtPct(one.playoffOdds, 0)}
-                hint={oneMake?.makeFieldSource === "amd-draws" ? "make-field · HX 2026.4 10k" : undefined}
+                hint={oneMake?.makeFieldSource === "amd-draws" ? `make-field · ${SIM_10K_HX_STAMP} 10k` : undefined}
               />
             </div>
           </div>

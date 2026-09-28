@@ -1,0 +1,157 @@
+{
+  "product": "hx_edge_unit_pulse",
+  "contract_version": "2026.09.14",
+  "week_from": 4,
+  "week_to": "2026.6",
+  "hx_stamp": "HX 2026.6",
+  "as_of": "2026-09-28",
+  "as_of_tz": "America/Chicago",
+  "max_abs_delta_hx": 0.071,
+  "max_abs_delta_hx_display": 0.071,
+  "n_updated": 117,
+  "n_teams": 136,
+  "method_blurb": "Capped O/D EPA \u0394 (PRIOR_N=7.5, w_data\u22480.118 FBS, OBS_CLIP=18, garbage WP strip). \u0394HX=(\u0394O+\u0394D)/55. Not a second rating. Heavy prior \u2014 max |\u0394HX| stays small.",
+  "source_files": [
+    "sunday_od_delta_2026_w4.json",
+    "week4_od_hx_ship_2026.json"
+  ],
+  "top_up": [
+    {
+      "team": "UCLA",
+      "slug": "ucla",
+      "delta_off": 1.789,
+      "delta_def": 2.118,
+      "delta_hx": 0.071,
+      "w_data": 0.1176,
+      "updated": true,
+      "note": ""
+    },
+    {
+      "team": "Missouri State",
+      "slug": "missouri-state",
+      "delta_off": 1.57,
+      "delta_def": 1.238,
+      "delta_hx": 0.0511,
+      "w_data": 0.1176,
+      "updated": true,
+      "note": ""
+    },
+    {
+      "team": "Wisconsin",
+      "slug": "wisconsin",
+      "delta_off": 1.29,
+      "delta_def": 1.463,
+      "delta_hx": 0.0501,
+      "w_data": 0.1176,
+      "updated": true,
+      "note": ""
+    },
+    {
+      "team": "LSU",
+      "slug": "lsu",
+      "delta_off": 2.058,
+      "delta_def": 0.509,
+      "delta_hx": 0.0467,
+      "w_data": 0.1176,
+      "updated": true,
+      "note": ""
+    },
+    {
+      "team": "Minnesota",
+      "slug": "minnesota",
+      "delta_off": 2.118,
+      "delta_def": 0.229,
+      "delta_hx": 0.0427,
+      "w_data": 0.1176,
+      "updated": true,
+      "note": ""
+    },
+    {
+      "team": "Boise State",
+      "slug": "boise-state",
+      "delta_off": 1.534,
+      "delta_def": 0.759,
+      "delta_hx": 0.0417,
+      "w_data": 0.1176,
+      "updated": true,
+      "note": ""
+    }
+  ],
+  "top_down": [
+    {
+      "team": "Maryland",
+      "slug": "maryland",
+      "delta_off": -2.118,
+      "delta_def": -1.789,
+      "delta_hx": -0.071,
+      "w_data": 0.1176,
+      "updated": true,
+      "note": ""
+    },
+    {
+      "team": "SMU",
+      "slug": "smu",
+      "delta_off": -1.238,
+      "delta_def": -1.57,
+      "delta_hx": -0.0511,
+      "w_data": 0.1176,
+      "updated": true,
+      "note": ""
+    },
+    {
+      "team": "Penn State",
+      "slug": "penn-state",
+      "delta_off": -1.463,
+      "delta_def": -1.29,
+      "delta_hx": -0.0501,
+      "w_data": 0.1176,
+      "updated": true,
+      "note": ""
+    },
+    {
+      "team": "Texas A&M",
+      "slug": "texas-am",
+      "delta_off": -0.509,
+      "delta_def": -2.058,
+      "delta_hx": -0.0467,
+      "w_data": 0.1176,
+      "updated": true,
+      "note": ""
+    },
+    {
+      "team": "Washington",
+      "slug": "washington",
+      "delta_off": -0.229,
+      "delta_def": -2.118,
+      "delta_hx": -0.0427,
+      "w_data": 0.1176,
+      "updated": true,
+      "note": ""
+    },
+    {
+      "team": "Western Michigan",
+      "slug": "western-michigan",
+      "delta_off": -0.759,
+      "delta_def": -1.534,
+      "delta_hx": -0.0417,
+      "w_data": 0.1176,
+      "updated": true,
+      "note": ""
+    }
+  ],
+  "watch_notes": [
+    "UCLA \u0394HX +0.071 / Maryland \u0394HX \u22120.071 (largest |\u0394|; clip-bound unit pulse) after UCLA @ Maryland FINAL \u2014 not a second rating.",
+    "Penn State \u0394HX \u22120.050 after Wisconsin @ Penn State FINAL (Week 4 SU miss, HX Penn St \u221214.6) \u2014 still HX #14 on 2026.6.",
+    "Texas A&M \u0394HX \u22120.047 after Texas A&M @ LSU FINAL 6\u201335 (winner-flip MISS) \u2014 small board move, still HX #6.",
+    "LSU \u0394HX +0.047 / Michigan \u0394HX +0.035 after CLEARed Week 4 FINALs \u2014 clip-bound; HX not retuned.",
+    "Winner-flip HIT (Navy@UAB; Clemson@California) and MISS (Army@Temple; Ole Miss@Florida; Boise@WMU; TAMU@LSU; Missouri@MSST; AF@Nevada) graded on Week 4 tape \u2014 pulse movers listed by |\u0394HX| only; do not re-invent scores."
+  ],
+  "georgia": {
+    "rank": 1,
+    "hx_post": 7.8964,
+    "delta_hx": -0.0014,
+    "display": "#1 @ 7.8964 (\u0394HX -0.0014)"
+  },
+  "offline_note": "Standalone for Research packaging. Soft-cal FLAG stays. Do not claim LIVE. Filled from week4_od_hx_ship + sunday_od_delta_2026_w4; watch notes from CLEARed Week 4 FINALs only.",
+  "chase_approval": "offline draft pending Research/Website peer CLEAR of HX 2026.6; Research FINALs CLEAR + tape peer CLEAR already on disk (week4_fbs_fbs_finals_clear_2026-09-27, week4_tape_research_peer_clear_2026-09-27); units + \u0394HX=(\u0394O+\u0394D)/55 on HX 2026.5 (week3 ship hx_post); do not claim LIVE"
+}
