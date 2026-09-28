@@ -192,6 +192,26 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /401858245/);
   });
 
+  it("includes the Sep 28 Week 5 Vegas CLEAR refresh in committed output", () => {
+    const text = corpus();
+    assert.match(text, /0041_week5_vegas_refresh_2026_09_28/);
+    assert.match(text, /week5_vegas_clear_pack_2026-09-28/);
+    assert.match(text, /VT −3\.5 \/ 52\.5/);
+    assert.match(text, /h\.slug = 'new-mexico-state' then 2\.5 else -2\.5/);
+    assert.match(text, /vegas_total = 54\.5/);
+    assert.match(text, /h\.slug = 'tulsa' then 1\.5 else -1\.5/);
+    assert.match(text, /vegas_total = 57\.5/);
+    assert.match(text, /h\.slug = 'delaware' then -7 else 7/);
+    assert.match(text, /vegas_total = 49\.5/);
+    assert.match(text, /h\.slug = 'virginia-tech' then 3\.5 else -3\.5/);
+    assert.match(text, /vegas_total = 52\.5/);
+    assert.match(text, /h\.slug = 'northwestern' then -2\.5 else 2\.5/);
+    assert.match(text, /vegas_total = 46\.5/);
+    assert.match(text, /h\.slug = 'tennessee' then 7 else -7/);
+    assert.match(text, /HOLD \(TV\) Auburn @ Tennessee/);
+    assert.match(text, /leave tv null/);
+  });
+
   it("includes Week 2 O/D + HX 2026.4 stamp and Week 3 chrome in committed output", () => {
     const text = corpus();
     assert.match(text, /0028_week2_od_hx_ship/);
