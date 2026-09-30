@@ -4,9 +4,9 @@ import { n as require_react } from "../_libs/@radix-ui/react-compose-refs+[...].
 import { S as require_jsx_runtime, y as Link } from "../_libs/@tanstack/react-router+[...].mjs";
 import { c as ChevronRight, l as ChevronLeft } from "../_libs/lucide-react.mjs";
 import { r as DeskChip, u as TeamMark } from "./marks-DXbV0VAZ.mjs";
-import { $ as EdgePackStrip, G as selectWeekScopedFeatured, H as featuredBook, J as ConfPills, M as Route$9, N as defaultWeek, V as favoriteLine, W as formatVegas, ct as fmtPct, et as PageHead, it as cn, q as Button, tt as Panel } from "./router-D78zPErf.mjs";
+import { $ as EdgePackStrip, G as selectWeekScopedFeatured, H as featuredBook, J as ConfPills, M as Route$9, N as defaultWeek, V as favoriteLine, W as formatVegas, ct as fmtPct, et as PageHead, it as cn, q as Button, tt as Panel } from "./router-D0bpj8RE.mjs";
 import { n as matchupChips, t as isWinnerFlip } from "./schedule-flags-Doc6gf8I.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/schedule-DcAUccNu.js
+//#region node_modules/.nitro/vite/services/ssr/assets/schedule-BH0hvnS_.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 var VIEW_OPTIONS = [

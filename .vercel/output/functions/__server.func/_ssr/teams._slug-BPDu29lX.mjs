@@ -1,13 +1,13 @@
 import { f as modelShare, n as MODEL, p as predictMatchup, s as formatKickCt } from "./fcs-stubs-Clb7Di69.mjs";
 import { S as require_jsx_runtime, y as Link } from "../_libs/@tanstack/react-router+[...].mjs";
 import { a as RankMove, c as Stat, i as MixBar, n as DeltaChip, r as DeskChip, u as TeamMark } from "./marks-DXbV0VAZ.mjs";
-import { V as favoriteLine, W as formatVegas, _ as make12FieldLabel, b as make12TitleLabel, ct as fmtPct, et as PageHead, g as buildSeasonSchedule, h as buildRemainingSchedule, it as cn, n as Route$1, ot as fmtHeight, rt as apLabel, st as fmtNum, tt as Panel, v as make12FromSim, y as make12PanelLede } from "./router-D78zPErf.mjs";
+import { V as favoriteLine, W as formatVegas, _ as make12FieldLabel, b as make12TitleLabel, ct as fmtPct, et as PageHead, g as buildSeasonSchedule, h as buildRemainingSchedule, it as cn, n as Route$1, ot as fmtHeight, rt as apLabel, st as fmtNum, tt as Panel, v as make12FromSim, y as make12PanelLede } from "./router-D0bpj8RE.mjs";
 import { c as TALENT_UNITS } from "./positions-C0zZnrTX.mjs";
 import { n as RosterList } from "./roster-duel-D9NkhSOs.mjs";
 import { n as matchupChips, t as isWinnerFlip } from "./schedule-flags-Doc6gf8I.mjs";
 import { a as ratedStarCount, o as visibleClassAvg, t as COMPOSITE_SOURCE } from "./recruiting-B2tK2ji6.mjs";
 import { n as formatSeasonRecord } from "./season-record-DPRq_XJL.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/teams._slug-CGhFAg3Z.js
+//#region node_modules/.nitro/vite/services/ssr/assets/teams._slug-BPDu29lX.js
 var import_jsx_runtime = require_jsx_runtime();
 function OddsCell({ label, value, sourceNote, pending }) {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
