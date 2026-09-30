@@ -19,12 +19,12 @@ const PAID_ID = "cs_test_paidSessionAbcdefgh";
 const UNPAID_ID = "cs_test_unpaidSessionAbcdef";
 
 const MANIFEST = {
-  week: 3,
+  week: 5,
   season: 2026,
-  product: "HX Edge Pack Week 3 SAMPLE",
+  product: "HX Edge Pack Week 5 SAMPLE",
   files: {
-    md: "hx_edge_pack_week3_sample_thickened_2026.md",
-    json: "hx_edge_pack_week3_sample_thickened_2026.json",
+    md: "hx_edge_pack_week5_sample_2026.md",
+    json: "hx_edge_pack_week5_sample_2026.json",
   },
   support_email: "hello@hashmarkcfb.com",
 };
@@ -232,7 +232,7 @@ test("current on-disk pack manifest is valid and files exist", () => {
   const raw = readFileSync(join(dir, "manifest.json"), "utf8");
   const manifest = parsePackManifest(raw);
   assert.ok(manifest);
-  assert.equal(manifest.week, 3);
+  assert.equal(manifest.week, 5);
   assert.equal(manifest.season, 2026);
   assert.equal(manifest.support_email, "hello@hashmarkcfb.com");
   const md = readFileSync(join(dir, manifest.files.md), "utf8");

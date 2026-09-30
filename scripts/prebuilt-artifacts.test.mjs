@@ -212,11 +212,24 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /leave tv null/);
   });
 
+  it("includes the Sep 30 Auburn @ Tennessee TV ESPN stamp in committed output", () => {
+    const text = corpus();
+    assert.match(text, /0042_week5_auburn_tennessee_tv_espn/);
+    assert.match(text, /week5_auburn_tennessee_tv_clear_2026-09-30/);
+    assert.match(text, /TV field only/);
+    assert.match(text, /set tv = 'ESPN'/);
+    assert.match(text, /h\.slug = 'tennessee' and a\.slug = 'auburn'/);
+    assert.match(text, /Source event 401856710/);
+    assert.match(text, /Do not put ESPN event digits in this header/);
+  });
+
   it("includes Week 2 O/D + HX 2026.4 stamp and Week 3 chrome in committed output", () => {
     const text = corpus();
     assert.match(text, /0028_week2_od_hx_ship/);
     assert.match(text, /HX 2026\.4/);
-    assert.match(text, /Week 3 board/);
+    // Chrome string used to ride along via the Week 3 SAMPLE pack embed; after
+    // the Week 5 unlock bake that pack is gone — assert the 0028 migration note.
+    assert.match(text, /chrome markets Week 3/);
     assert.match(text, /7\.9055/);
     assert.match(text, /7\.8131/);
     assert.match(text, /6\.4443/);
@@ -362,7 +375,7 @@ describe("prebuilt deploy artifacts", () => {
     assert.doesNotMatch(server, /VITE_STRIPE_SECRET_KEY/);
     assert.match(server, /hello@hashmarkcfb\.com/);
     assert.match(server, /hx_edge_confidence_schema_2026/);
-    assert.match(server, /hx_edge_pack_week3_sample_thickened_2026/);
+    assert.match(server, /hx_edge_pack_week5_sample_2026/);
   });
 
   it("does not dump the current Edge Pack onto public client assets", () => {
@@ -372,6 +385,7 @@ describe("prebuilt deploy artifacts", () => {
       .join("\n");
     assert.doesNotMatch(client, /SAMPLE_5/);
     assert.doesNotMatch(client, /pack_body_paste/);
+    assert.doesNotMatch(client, /hx_edge_pack_week5_sample_2026/);
     assert.doesNotMatch(client, /hx_edge_pack_week3_sample_thickened_2026/);
     assert.match(client, /\/edge\/unlock|edge\/unlock/);
     assert.match(client, /hx_edge_confidence_schema_2026|hx_edge_card_confidence/);

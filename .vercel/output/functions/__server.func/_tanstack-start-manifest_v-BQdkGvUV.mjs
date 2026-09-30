@@ -1,7 +1,7 @@
-//#region node_modules/.nitro/vite/services/ssr/assets/_tanstack-start-manifest_v-DXz8AV1z.js
+//#region node_modules/.nitro/vite/services/ssr/assets/_tanstack-start-manifest_v-BQdkGvUV.js
 var tsrStartManifest = () => ({ routes: {
 	__root__: {
-		filePath: "/workspace/src/routes/__root.tsx",
+		filePath: "/workspace/hashmark-repo/src/routes/__root.tsx",
 		children: [
 			"/",
 			"/desk",
@@ -32,7 +32,7 @@ var tsrStartManifest = () => ({ routes: {
 		} }]
 	},
 	"/": {
-		filePath: "/workspace/src/routes/index.tsx",
+		filePath: "/workspace/hashmark-repo/src/routes/index.tsx",
 		children: void 0,
 		preloads: [
 			"/assets/routes-W50ceKGG.js",
@@ -41,22 +41,22 @@ var tsrStartManifest = () => ({ routes: {
 		]
 	},
 	"/desk": {
-		filePath: "/workspace/src/routes/desk.tsx",
+		filePath: "/workspace/hashmark-repo/src/routes/desk.tsx",
 		children: void 0,
 		preloads: ["/assets/desk-DXCT_Qqq.js"]
 	},
 	"/edge": {
-		filePath: "/workspace/src/routes/edge.tsx",
+		filePath: "/workspace/hashmark-repo/src/routes/edge.tsx",
 		children: ["/edge/board", "/edge/unlock"],
 		preloads: ["/assets/edge-Hj2XYLRi.js", "/assets/edge-board-ZjT6zifE.js"]
 	},
 	"/logos": {
-		filePath: "/workspace/src/routes/logos.tsx",
+		filePath: "/workspace/hashmark-repo/src/routes/logos.tsx",
 		children: void 0,
 		preloads: ["/assets/logos-uoOMTA4x.js", "/assets/team-logo-D-egKDob.js"]
 	},
 	"/matchup": {
-		filePath: "/workspace/src/routes/matchup.tsx",
+		filePath: "/workspace/hashmark-repo/src/routes/matchup.tsx",
 		children: void 0,
 		preloads: [
 			"/assets/matchup-DHNBy7xz.js",
@@ -66,12 +66,12 @@ var tsrStartManifest = () => ({ routes: {
 		]
 	},
 	"/model": {
-		filePath: "/workspace/src/routes/model.tsx",
+		filePath: "/workspace/hashmark-repo/src/routes/model.tsx",
 		children: void 0,
 		preloads: ["/assets/model-BN64cPng.js"]
 	},
 	"/rankings": {
-		filePath: "/workspace/src/routes/rankings.tsx",
+		filePath: "/workspace/hashmark-repo/src/routes/rankings.tsx",
 		children: void 0,
 		preloads: [
 			"/assets/rankings-B_yRoq3v.js",
@@ -80,7 +80,7 @@ var tsrStartManifest = () => ({ routes: {
 		]
 	},
 	"/recruiting": {
-		filePath: "/workspace/src/routes/recruiting.tsx",
+		filePath: "/workspace/hashmark-repo/src/routes/recruiting.tsx",
 		children: void 0,
 		preloads: [
 			"/assets/recruiting-CIbDpIGs.js",
@@ -89,7 +89,7 @@ var tsrStartManifest = () => ({ routes: {
 		]
 	},
 	"/schedule": {
-		filePath: "/workspace/src/routes/schedule.tsx",
+		filePath: "/workspace/hashmark-repo/src/routes/schedule.tsx",
 		children: void 0,
 		preloads: [
 			"/assets/schedule-CHLNhkmt.js",
@@ -98,17 +98,17 @@ var tsrStartManifest = () => ({ routes: {
 		]
 	},
 	"/states": {
-		filePath: "/workspace/src/routes/states.tsx",
+		filePath: "/workspace/hashmark-repo/src/routes/states.tsx",
 		children: void 0,
 		preloads: ["/assets/states-D2FstEGd.js", "/assets/marks-XmPUpEzG.js"]
 	},
 	"/stories": {
-		filePath: "/workspace/src/routes/stories.tsx",
+		filePath: "/workspace/hashmark-repo/src/routes/stories.tsx",
 		children: ["/stories/$slug"],
 		preloads: ["/assets/stories-D4-usifa.js"]
 	},
 	"/talent": {
-		filePath: "/workspace/src/routes/talent.tsx",
+		filePath: "/workspace/hashmark-repo/src/routes/talent.tsx",
 		children: void 0,
 		preloads: [
 			"/assets/talent-CFDkR2HO.js",
@@ -117,27 +117,27 @@ var tsrStartManifest = () => ({ routes: {
 		]
 	},
 	"/edge/board": {
-		filePath: "/workspace/src/routes/edge.board.tsx",
+		filePath: "/workspace/hashmark-repo/src/routes/edge.board.tsx",
 		children: void 0,
 		preloads: ["/assets/edge.board-CTxzceNS.js"]
 	},
 	"/edge/unlock": {
-		filePath: "/workspace/src/routes/edge.unlock.tsx",
+		filePath: "/workspace/hashmark-repo/src/routes/edge.unlock.tsx",
 		children: void 0,
 		preloads: ["/assets/edge.unlock-DHgaDxXj.js"]
 	},
 	"/edge_/sim": {
-		filePath: "/workspace/src/routes/edge_.sim.tsx",
+		filePath: "/workspace/hashmark-repo/src/routes/edge_.sim.tsx",
 		children: void 0,
 		preloads: ["/assets/edge_.sim-kol7vCFs.js", "/assets/marks-XmPUpEzG.js"]
 	},
 	"/stories/$slug": {
-		filePath: "/workspace/src/routes/stories.$slug.tsx",
+		filePath: "/workspace/hashmark-repo/src/routes/stories.$slug.tsx",
 		children: void 0,
 		preloads: ["/assets/stories._slug-BC4X2lyP.js"]
 	},
 	"/teams/$slug": {
-		filePath: "/workspace/src/routes/teams.$slug.tsx",
+		filePath: "/workspace/hashmark-repo/src/routes/teams.$slug.tsx",
 		children: void 0,
 		preloads: [
 			"/assets/teams._slug-BTaedziD.js",

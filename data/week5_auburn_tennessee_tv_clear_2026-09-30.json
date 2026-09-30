@@ -1,0 +1,133 @@
+{
+  "meta": {
+    "title": "CLEAR pack \u2014 Auburn @ Tennessee TV only (Week 5)",
+    "role": "Research CFB CLEAR \u2014 TV field only for Website stamp",
+    "as_of_ct": "2026-09-30 15:20 CT",
+    "timezone": "America/Chicago",
+    "week": 5,
+    "season": 2026,
+    "live_board": "https://hashmarkcfb.com/schedule?w=5",
+    "soft_cal_flag": "still_in_force",
+    "prior_pack": "/workspace/cfb/week5_vegas_clear_pack_2026-09-28.json",
+    "prior_hold_note": "Aub@Tenn was the sole Week 5 HOLD (TV blank) in Sep 28 Vegas pack; kick + Vegas already live",
+    "verdict": "TV CLEAR",
+    "tv": "ESPN",
+    "stamp_scope": "tv_only",
+    "do_not_restamp": [
+      "kick_ct",
+      "vegas",
+      "ou"
+    ],
+    "research_does_not_message": [
+      "Website",
+      "Management",
+      "Marketing",
+      "Chase"
+    ]
+  },
+  "game": {
+    "espn_id": "401856710",
+    "away": "AUB",
+    "home": "TENN",
+    "away_location": "Auburn",
+    "home_location": "Tennessee",
+    "matchup": "Auburn @ Tennessee",
+    "venue": "Neyland Stadium",
+    "kick_ct": "2026-10-03 14:30",
+    "kick_display_ct": "Saturday, Oct 3 \u00b7 2:30 CT",
+    "kick_et": "3:30 PM EDT",
+    "weekday": "Sat",
+    "tv": "ESPN",
+    "tv_prior": null,
+    "vegas_details": "TENN -7.0",
+    "vegas_spread": -7.0,
+    "vegas_favorite": "TENN",
+    "ou": 54.5,
+    "provider": "DraftKings",
+    "status": "CLEAR",
+    "clear_or_hold": "CLEAR",
+    "hold_reasons_closed": [
+      "TV"
+    ],
+    "live_board_confirmed": {
+      "kick_ct": "2:30 CT",
+      "vegas": "Tennessee \u22127.0 \u00b7 O/U 54.5",
+      "tv_blank_before_stamp": true,
+      "source": "https://hashmarkcfb.com/schedule?w=5",
+      "fetched_ct": "2026-09-30 CT"
+    }
+  },
+  "sources": [
+    {
+      "rank": 1,
+      "label": "ESPN site API summary",
+      "url": "https://site.web.api.espn.com/apis/site/v2/sports/football/college-football/summary?event=401856710",
+      "says": "National TV ESPN; Sat Oct 3 3:30 PM EDT; DraftKings TENN -7 / 54.5",
+      "as_of_ct": "2026-09-30 CT"
+    },
+    {
+      "rank": 2,
+      "label": "ESPN scoreboard week 5",
+      "url": "https://site.web.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?week=5&seasontype=2&dates=2026&groups=80&limit=300",
+      "says": "broadcasts names ESPN; DraftKings TENN -7 OU 54.5",
+      "as_of_ct": "2026-09-30 CT"
+    },
+    {
+      "rank": 3,
+      "label": "ESPN Press Room Week 5 commentators schedule",
+      "url": "https://espnpressroom.com/2026-27-espn-college-football-commentators-schedule/",
+      "says": "Sat Oct 3 3:30 p.m. Auburn at No. 17 Tennessee \u00b7 ESPN/ESPN Radio",
+      "as_of_ct": "2026-09-30 CT",
+      "published": "2026-09-28"
+    },
+    {
+      "rank": 4,
+      "label": "University of Tennessee News",
+      "url": "https://news.utk.edu/2026/09/30/ut-to-celebrate-100-years-of-gen-neyland-at-football-game-vs-auburn/",
+      "says": "broadcast nationally on ESPN at 3:30 p.m. EDT",
+      "as_of_ct": "2026-09-30 CT",
+      "published": "2026-09-30"
+    },
+    {
+      "rank": 5,
+      "label": "SEC designation via Saturday Down South",
+      "url": "https://www.saturdaydownsouth.com/news/college-football/sec-announces-finalized-tv-networks-for-5-week-5-games/",
+      "says": "Auburn at Tennessee \u00b7 3:30 PM ET on ESPN (cites @SEC)",
+      "as_of_ct": "2026-09-30 CT",
+      "published": "2026-09-27",
+      "role": "corroborating"
+    }
+  ],
+  "stamp_instruction": {
+    "one_liner": "Stamp Auburn @ Tennessee Week 5 TV = ESPN only (espn_id 401856710 / /schedule?w=5); leave kick 2:30 CT and Vegas TENN \u22127.0 / 54.5 unchanged.",
+    "fields": [
+      "tv"
+    ],
+    "tv_value": "ESPN",
+    "do_not_restamp": [
+      "kick_ct",
+      "vegas",
+      "ou"
+    ],
+    "soft_cal_flag": "still_in_force"
+  },
+  "payload": {
+    "espn_id": "401856710",
+    "matchup": "Auburn @ Tennessee",
+    "kick_ct": "2026-10-03 14:30",
+    "kick_display": "Saturday, Oct 3 \u00b7 2:30 CT",
+    "vegas": "TENN -7.0",
+    "ou": 54.5,
+    "tv": "ESPN",
+    "tv_prior": null,
+    "status": "CLEAR",
+    "stamp_fields": [
+      "tv"
+    ],
+    "do_not_restamp": [
+      "kick_ct",
+      "vegas",
+      "ou"
+    ]
+  }
+}

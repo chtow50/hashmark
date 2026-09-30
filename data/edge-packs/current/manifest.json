@@ -1,13 +1,13 @@
 {
-  "week": 3,
+  "week": 5,
   "season": 2026,
-  "product": "HX Edge Pack Week 3 SAMPLE",
+  "product": "HX Edge Pack Week 5 SAMPLE",
   "tier": "SAMPLE_5",
-  "hx_stamp": "HX 2026.4",
+  "hx_stamp": "HX 2026.6",
   "cleared": true,
   "files": {
-    "md": "hx_edge_pack_week3_sample_thickened_2026.md",
-    "json": "hx_edge_pack_week3_sample_thickened_2026.json"
+    "md": "hx_edge_pack_week5_sample_2026.md",
+    "json": "hx_edge_pack_week5_sample_2026.json"
   },
   "support_email": "hello@hashmarkcfb.com"
 }

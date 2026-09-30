@@ -411,3 +411,65 @@ describe("Week 5 Sep 28 Vegas CLEAR refresh", () => {
     assert.equal(favoriteLine("Tulsa", "North Texas", 1.5), "Tulsa −1.5");
   });
 });
+
+
+const tvClearPack = JSON.parse(
+  readFileSync(join(root, "data/week5_auburn_tennessee_tv_clear_2026-09-30.json"), "utf8"),
+) as {
+  meta: { as_of_ct: string; verdict: string; tv: string; stamp_scope: string; soft_cal_flag: string };
+  game: {
+    espn_id: string;
+    matchup: string;
+    kick_ct: string;
+    tv: string;
+    tv_prior: string | null;
+    vegas_details: string;
+    ou: number;
+    status: string;
+  };
+  stamp_instruction: { fields: string[]; tv_value: string; do_not_restamp: string[] };
+};
+
+const tvSql = readFileSync(
+  join(root, "migrations/0042_week5_auburn_tennessee_tv_espn.sql"),
+  "utf8",
+);
+
+describe("Week 5 Sep 30 Auburn @ Tennessee TV ESPN CLEAR", () => {
+  it("CLEAR pack is TV-only ESPN and leaves kick/Vegas alone", () => {
+    assert.match(tvClearPack.meta.as_of_ct, /2026-09-30/);
+    assert.equal(tvClearPack.meta.verdict, "TV CLEAR");
+    assert.equal(tvClearPack.meta.tv, "ESPN");
+    assert.equal(tvClearPack.meta.stamp_scope, "tv_only");
+    assert.equal(tvClearPack.meta.soft_cal_flag, "still_in_force");
+    assert.equal(tvClearPack.game.espn_id, "401856710");
+    assert.equal(tvClearPack.game.matchup, "Auburn @ Tennessee");
+    assert.equal(tvClearPack.game.kick_ct, "2026-10-03 14:30");
+    assert.equal(tvClearPack.game.tv, "ESPN");
+    assert.equal(tvClearPack.game.tv_prior, null);
+    assert.equal(tvClearPack.game.vegas_details, "TENN -7.0");
+    assert.equal(tvClearPack.game.ou, 54.5);
+    assert.equal(tvClearPack.game.status, "CLEAR");
+    assert.deepEqual(tvClearPack.stamp_instruction.fields, ["tv"]);
+    assert.equal(tvClearPack.stamp_instruction.tv_value, "ESPN");
+    assert.deepEqual(tvClearPack.stamp_instruction.do_not_restamp, ["kick_ct", "vegas", "ou"]);
+  });
+
+  it("migration 0042 stamps TV=ESPN only without ESPN digits in the header", () => {
+    assert.match(tvSql, /week5_auburn_tennessee_tv_clear_2026-09-30/);
+    assert.match(tvSql, /TV field only/);
+    assert.match(tvSql, /set tv = 'ESPN'/);
+    assert.match(tvSql, /g\.week = 5/);
+    assert.match(tvSql, /h\.slug = 'tennessee' and a\.slug = 'auburn'/);
+    assert.match(tvSql, /Source event 401856710/);
+    assert.match(tvSql, /Do not put ESPN event digits in this header/);
+    assert.doesNotMatch(tvSql, /kickoff_at\s*=/);
+    assert.doesNotMatch(tvSql, /vegas_spread\s*=/);
+    assert.doesNotMatch(tvSql, /vegas_total\s*=/);
+    assert.doesNotMatch(tvSql, /home_score|away_score|hx_rating|BOARD_WEEK/);
+    // Header before the update must not carry event digits (stamp-gate overwrite).
+    const header = tvSql.split(/update games/i)[0] ?? "";
+    assert.doesNotMatch(header, /401856710/);
+    assert.doesNotMatch(header, /\b401\d{6,}\b/);
+  });
+});

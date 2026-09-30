@@ -1,6 +1,6 @@
 import { n as MODEL } from "./fcs-stubs-Clb7Di69.mjs";
 import { S as require_jsx_runtime, y as Link } from "../_libs/@tanstack/react-router+[...].mjs";
-import { et as PageHead, tt as Panel } from "./router-B5dt1FzD.mjs";
+import { et as PageHead, tt as Panel } from "./router-D78zPErf.mjs";
 //#region node_modules/.nitro/vite/services/ssr/assets/model-CxUw9c8X.js
 var import_jsx_runtime = require_jsx_runtime();
 var WEIGHTS = [
