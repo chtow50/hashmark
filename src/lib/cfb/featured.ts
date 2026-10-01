@@ -78,6 +78,18 @@ export const WEEK5_FEATURED = {
 } as const;
 
 /**
+ * Friday ESPN: Iowa State at BYU. Schedule-page pin for
+ * `/schedule?w=6`. Fri 2026-10-09 21:15 CT · ESPN · BYU −14.5 / 50.5.
+ * Day-risk: HM labels Saturday, Oct 10; ESPN CT is Friday.
+ * Live desk / FEATURED_SLATE_WEEK stays 5. BOARD_WEEK stays 4.
+ */
+export const WEEK6_FEATURED = {
+  homeSlug: "byu",
+  awaySlug: "iowa-state",
+} as const;
+
+
+/**
  * Pre-kick Thursday books for Colorado at GT. Used only when the row has no
  * stamped close. After kick the close is Georgia Tech −6.5 / 50.5 on games.vegas_*.
  * Not a Week 2 featured path — do not invent a Week 2 book.
@@ -155,19 +167,31 @@ export function isPittsburghAtVirginiaTech(
   return g.homeSlug === WEEK5_FEATURED.homeSlug && g.awaySlug === WEEK5_FEATURED.awaySlug;
 }
 
+export function isIowaStateAtByu(
+  g: Pick<ScheduleGame, "homeSlug" | "awaySlug">,
+): boolean {
+  return g.homeSlug === WEEK6_FEATURED.homeSlug && g.awaySlug === WEEK6_FEATURED.awaySlug;
+}
+
 /**
  * Featured card scoped to the schedule week being viewed.
  * Week 5 pins Pittsburgh @ Virginia Tech (CLEAR), even though WKU @ NMSU
- * kicks earlier. The homepage desk uses FEATURED_SLATE_WEEK and the
- * earliest kick, not this pin. Never invents a matchup.
+ * kicks earlier. Week 6 pins Iowa State @ BYU (CLEAR), even though midweek
+ * cards kick earlier. The homepage desk uses FEATURED_SLATE_WEEK (still 5)
+ * and the earliest kick, not these pins. Never invents a matchup.
  */
 export function selectWeekScopedFeatured<
   T extends Pick<ScheduleGame, "status" | "homeSlug" | "awaySlug"> & { isFcs?: boolean },
 >(week: number, slate: T[]): T | null {
-  if (week !== 5) return null;
-  return (
-    slate.find((g) => !g.isFcs && g.status !== "final" && isPittsburghAtVirginiaTech(g)) ?? null
-  );
+  if (week === 5) {
+    return (
+      slate.find((g) => !g.isFcs && g.status !== "final" && isPittsburghAtVirginiaTech(g)) ?? null
+    );
+  }
+  if (week === 6) {
+    return slate.find((g) => !g.isFcs && g.status !== "final" && isIowaStateAtByu(g)) ?? null;
+  }
+  return null;
 }
 
 /** Same rule as hashmarkWeekFromRow: Aug 29–30 2026 is Week 0. */
