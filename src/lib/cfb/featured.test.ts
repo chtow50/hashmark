@@ -9,6 +9,7 @@ import {
   WEEK3_FEATURED,
   WEEK4_FEATURED,
   WEEK5_FEATURED,
+  WEEK6_FEATURED,
   featuredBook,
   featuredSlateWeek,
   favoriteLine,
@@ -619,4 +620,48 @@ test("Week 5 schedule pin is Pittsburgh @ Virginia Tech; home slate week is 5", 
   assert.equal(selectWeekScopedFeatured(5, []), null);
   const board = selectBoardFeaturedKick([wku, pitt], Date.parse("2026-09-24T16:00:00.000Z"));
   assert.equal(board?.awaySlug, "western-kentucky");
+});
+
+test("Week 6 schedule pin is Iowa State @ BYU; live desk stays Week 5", () => {
+  assert.equal(BOARD_WEEK, 4);
+  assert.equal(FEATURED_SLATE_WEEK, 5);
+  assert.equal(WEEK6_FEATURED.homeSlug, "byu");
+  assert.equal(WEEK6_FEATURED.awaySlug, "iowa-state");
+  const usm = game({
+    id: 401,
+    week: 6,
+    homeSlug: "troy",
+    awaySlug: "southern-miss",
+    kickoffDate: "2026-10-06",
+    kickoffAt: "2026-10-07T00:00:00.000Z",
+    tv: "ESPN2",
+    vegasSpread: 8.5,
+    vegasTotal: 48.5,
+  });
+  const byu = game({
+    id: 402,
+    week: 6,
+    homeSlug: WEEK6_FEATURED.homeSlug,
+    awaySlug: WEEK6_FEATURED.awaySlug,
+    homeShort: "BYU",
+    awayShort: "Iowa St",
+    kickoffDate: "2026-10-09",
+    kickoffAt: "2026-10-10T02:15:00.000Z",
+    tv: "ESPN",
+    vegasSpread: 14.5,
+    vegasTotal: 50.5,
+    location: "LaVell Edwards Stadium",
+  });
+  const featured = selectWeekScopedFeatured(6, [usm, byu]);
+  assert.equal(featured?.id, 402);
+  assert.equal(featured?.homeSlug, "byu");
+  assert.equal(featured?.awaySlug, "iowa-state");
+  const book = featuredBook(featured!);
+  assert.equal(book?.spread, 14.5);
+  assert.equal(book?.total, "50.5");
+  assert.equal(favoriteLine("BYU", "Iowa St", book?.spread ?? 0), "BYU −14.5");
+  assert.equal(selectWeekScopedFeatured(6, []), null);
+  assert.equal(selectWeekScopedFeatured(7, [byu]), null);
+  // Week 5 pin still works; Week 6 slate does not steal the Week 5 desk
+  assert.equal(WEEK5_FEATURED.homeSlug, "virginia-tech");
 });
