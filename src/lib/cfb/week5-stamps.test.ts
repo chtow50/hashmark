@@ -101,7 +101,7 @@ describe("Week 5 FBS–FBS Research kick/TV/Vegas stamp", () => {
     assert.equal(payload.featured_pick.clear_or_hold, "CLEAR");
     assert.equal(WEEK5_FEATURED.homeSlug, "virginia-tech");
     assert.equal(WEEK5_FEATURED.awaySlug, "pittsburgh");
-    assert.equal(BOARD_WEEK, 4);
+    assert.equal(BOARD_WEEK, 5);
     assert.equal(FEATURED_SLATE_WEEK, 5);
   });
 
@@ -361,7 +361,7 @@ describe("Week 5 Sep 28 Vegas CLEAR refresh", () => {
     for (const id of EXCLUDED_ESPN) assert.doesNotMatch(clearSql, new RegExp(id));
     assert.equal(WEEK5_FEATURED.homeSlug, "virginia-tech");
     assert.equal(WEEK5_FEATURED.awaySlug, "pittsburgh");
-    assert.equal(BOARD_WEEK, 4);
+    assert.equal(BOARD_WEEK, 5);
   });
 
   it("stamps the Thu/Fri spot checks and leaves Auburn @ Tennessee TV blank", () => {

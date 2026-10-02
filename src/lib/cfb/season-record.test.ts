@@ -74,6 +74,15 @@ describe("tallyFcsStubRecord", () => {
 
   it("counts Week 3 Northern Iowa @ Iowa FINAL as one FCS win (home 55–0)", () => {
     assert.deepEqual(tallyFcsStubRecord("iowa"), { seasonWins: 1, seasonLosses: 0 });
+
+  it("counts Week 3 Portland State @ Oregon FINAL as one FCS win (home 84–0)", () => {
+    assert.deepEqual(tallyFcsStubRecord("oregon"), { seasonWins: 1, seasonLosses: 0 });
+    assert.deepEqual(
+      combineSeasonRecord({ seasonWins: 2, seasonLosses: 1 }, tallyFcsStubRecord("oregon")),
+      { seasonWins: 3, seasonLosses: 1 },
+    );
+  });
+
     assert.deepEqual(
       combineSeasonRecord({ seasonWins: 2, seasonLosses: 0 }, tallyFcsStubRecord("iowa")),
       { seasonWins: 3, seasonLosses: 0 },
@@ -113,6 +122,7 @@ describe("SEASON_RECORD_JOIN", () => {
     assert.match(SEASON_RECORD_JOIN, /'northern-illinois'/);
     assert.match(SEASON_RECORD_JOIN, /'air-force'/);
     assert.match(SEASON_RECORD_JOIN, /'iowa', 1::int, 0::int/);
+    assert.match(SEASON_RECORD_JOIN, /'oregon', 1::int, 0::int/);
   });
 });
 

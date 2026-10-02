@@ -2,7 +2,7 @@
  * Truth-pack loaders. Numbers come from the AMD / Research JSON payloads —
  * do not invent deltas, tape rates, or make/title splits.
  *
- *   data/week4_hx_vs_ap_gaps_2026.json
+ *   data/week5_hx_vs_ap_gaps_2026.json
  *   data/week1_accountability_pack_2026.json
  *   data/week2_tape_2026.json
  *   data/week2_tape_top25_closer_2026.json
@@ -12,7 +12,7 @@
  *   data/week4_tape_top25_closer_2026.json
  *   data/sim_10k_2026_hx2026_6.json
  */
-import gapsRaw from "../../../data/week4_hx_vs_ap_gaps_2026.json" with { type: "json" };
+import gapsRaw from "../../../data/week5_hx_vs_ap_gaps_2026.json" with { type: "json" };
 import packRaw from "../../../data/week1_accountability_pack_2026.json" with { type: "json" };
 import week2TapeRaw from "../../../data/week2_tape_2026.json" with { type: "json" };
 import week2Top25Raw from "../../../data/week2_tape_top25_closer_2026.json" with { type: "json" };
@@ -21,15 +21,15 @@ import week3Top25Raw from "../../../data/week3_tape_top25_closer_2026.json" with
 import week4TapeRaw from "../../../data/week4_tape_2026.json" with { type: "json" };
 import week4Top25Raw from "../../../data/week4_tape_top25_closer_2026.json" with { type: "json" };
 import simRaw from "../../../data/sim_10k_2026_hx2026_6.json" with { type: "json" };
-import week4ApRaw from "../../../data/week4_ap_top25_2026.json" with { type: "json" };
+import week5ApRaw from "../../../data/week5_ap_top25_2026.json" with { type: "json" };
 
-/** Research desk flags on the Week 4 ballot. Mississippi State (−42) leads the |delta| sort after these. */
+/** Research desk flags on the Week 5 ballot. Mississippi State (−50) / Oklahoma State (−70) lead the |delta| sort after these. */
 export const DISAGREE_HIGHLIGHT_NAMES = [
-  "Texas A&M",
+  "Florida",
   "Oregon",
   "Houston",
-  "LSU",
-  "USC",
+  "Missouri",
+  "Iowa",
   "BYU",
 ] as const;
 
@@ -370,7 +370,7 @@ export const week4Top25Pack = week4Top25Raw as Week3Top25NativeFile;
 export const sim10k = simRaw as Sim10kFile;
 
 const AP_SLUG_BY_NAME = new Map(
-  (week4ApRaw.teams as { school: string; slug: string }[]).flatMap((t) => {
+  (week5ApRaw.teams as { school: string; slug: string }[]).flatMap((t) => {
     const names = [t.school];
     if (t.slug === "usc") names.push("USC");
     if (t.slug === "miami") names.push("Miami");

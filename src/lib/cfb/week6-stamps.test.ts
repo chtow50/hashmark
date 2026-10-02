@@ -109,7 +109,7 @@ describe("Week 6 FBS–FBS Research kick/TV/Vegas stamp", () => {
     assert.equal(WEEK6_FEATURED.homeSlug, "byu");
     assert.equal(WEEK6_FEATURED.awaySlug, "iowa-state");
     assert.equal(WEEK5_FEATURED.homeSlug, "virginia-tech");
-    assert.equal(BOARD_WEEK, 4);
+    assert.equal(BOARD_WEEK, 5);
     assert.equal(FEATURED_SLATE_WEEK, 5);
   });
 

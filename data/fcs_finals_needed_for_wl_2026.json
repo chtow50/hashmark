@@ -1,7 +1,7 @@
 {
   "source": "Research CFB vs ESPN overall + Week 2 remaining FINAL CLEAR pack",
-  "as_of": "2026-09-13",
-  "note": "Only this list is stamped. No guessed scores. Week 2: Miami–FAMU already_live plus 8 early-window CLEAR FINALs plus 30 remaining CLEAR FINALs. HOLD = 0. Week 3: Northern Iowa @ Iowa FINAL (Iowa 55–0, Sep 19) so Iowa W–L is 3–0. No other Week 3 FCS scores invented.",
+  "as_of": "2026-10-02",
+  "note": "Only this list is stamped. No guessed scores. Week 2: Miami\u2013FAMU already_live plus 8 early-window CLEAR FINALs plus 30 remaining CLEAR FINALs. HOLD = 0. Week 3: Northern Iowa @ Iowa FINAL (Iowa 55\u20130, Sep 19) so Iowa W\u2013L is 3\u20130; Portland State @ Oregon FINAL (Oregon 84\u20130, Sep 18) so Oregon W\u2013L is 3\u20131 after the USC win. No other Week 3 FCS scores invented.",
   "blocker": {
     "teamSlug": "georgia",
     "home": true,
@@ -564,6 +564,14 @@
       "kickoffDate": "2026-09-19",
       "week": 3,
       "source": "Website peer CLEAR 2026-09-25 vs ESPN + NCAA AP Iowa 3-0. FCS stub, not a games-table row."
+    },
+    {
+      "teamSlug": "oregon",
+      "opponentLabel": "Portland State",
+      "homeScore": 84,
+      "awayScore": 0,
+      "kickoffDate": "2026-09-18",
+      "note": "Website peer CLEAR 2026-10-02; goducks/goviks/FOX FINAL 84\u20130"
     }
   ],
   "peer_targets": {

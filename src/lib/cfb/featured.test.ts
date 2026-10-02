@@ -186,25 +186,25 @@ const beforeThursday = Date.parse("2026-09-01T22:00:00.000Z");
 const afterGtKick = Date.parse("2026-09-04T00:01:00.000Z");
 const fridayAfternoon = Date.parse("2026-09-04T18:00:00.000Z");
 
-test("board chrome stays Week 4; featured slate is the next Week 5 kick", () => {
-  assert.equal(BOARD_WEEK, 4);
+test("board chrome is Week 5; featured slate is the next Week 5 kick", () => {
+  assert.equal(BOARD_WEEK, 5);
   assert.equal(FEATURED_SLATE_WEEK, 5);
   assert.equal(MODEL.version, "2026.6");
-  assert.equal(MODEL.week, 4);
-  assert.equal(MODEL.weekLabel, "Week 4 board");
+  assert.equal(MODEL.week, 5);
+  assert.equal(MODEL.weekLabel, "Week 5 board");
 });
 
-test("AP chrome is the stamped Week 4 poll, not a leftover Week 3 ballot", () => {
-  assert.equal(AP_STAMP.week, 4);
-  assert.equal(AP_STAMP.asOf, "Sept. 20");
-  assert.equal(AP_STAMP.label, "Week 4 AP");
-  assert.equal(AP_STAMP.columnHint, "W4 stamp");
+test("AP chrome is the stamped Week 5 poll, not a leftover Week 4 ballot", () => {
+  assert.equal(AP_STAMP.week, 5);
+  assert.equal(AP_STAMP.asOf, "Sept. 27");
+  assert.equal(AP_STAMP.label, "Week 5 AP");
+  assert.equal(AP_STAMP.columnHint, "W5 stamp");
   assert.equal(AP_STAMP.week, BOARD_WEEK);
-  assert.match(AP_STAMP.vsHx, /Week 4, Sept\. 20/);
-  assert.match(AP_STAMP.lede, /HX is Week 4/);
-  assert.match(AP_STAMP.lede, /last stamped poll \(Week 4/);
-  assert.match(AP_STAMP.lede, /Sept\. 20/);
-  assert.match(AP_STAMP.lede, /not a Week 3 ballot/);
+  assert.match(AP_STAMP.vsHx, /Week 5, Sept\. 27/);
+  assert.match(AP_STAMP.lede, /HX is Week 5/);
+  assert.match(AP_STAMP.lede, /last stamped poll \(Week 5/);
+  assert.match(AP_STAMP.lede, /Sept\. 27/);
+  assert.match(AP_STAMP.lede, /not a Week 4 ballot/);
 });
 
 test("Colorado at GT is HASHMARK GT −10.3 / 73.3% at home, Neutral off", () => {
@@ -581,7 +581,7 @@ test("FCS Vegas-only rows are never featured (no invented HX)", () => {
 });
 
 test("Week 5 schedule pin is Pittsburgh @ Virginia Tech; home slate week is 5", () => {
-  assert.equal(BOARD_WEEK, 4);
+  assert.equal(BOARD_WEEK, 5);
   assert.equal(FEATURED_SLATE_WEEK, 5);
   assert.equal(WEEK5_FEATURED.homeSlug, "virginia-tech");
   assert.equal(WEEK5_FEATURED.awaySlug, "pittsburgh");
@@ -623,7 +623,7 @@ test("Week 5 schedule pin is Pittsburgh @ Virginia Tech; home slate week is 5", 
 });
 
 test("Week 6 schedule pin is Iowa State @ BYU; live desk stays Week 5", () => {
-  assert.equal(BOARD_WEEK, 4);
+  assert.equal(BOARD_WEEK, 5);
   assert.equal(FEATURED_SLATE_WEEK, 5);
   assert.equal(WEEK6_FEATURED.homeSlug, "byu");
   assert.equal(WEEK6_FEATURED.awaySlug, "iowa-state");

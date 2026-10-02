@@ -1,0 +1,200 @@
+{
+  "as_of": "2026-10-02",
+  "poll_week": 5,
+  "source_ap": "week5_ap_top25_2026 / NCAA Week 5 (Sept. 27)",
+  "source_hx": "week4_od_hx_ship_2026.json",
+  "hx_board": "HX 2026.6",
+  "note": "Rebuilt vs Week 5 AP ballot (Sept. 27) and live HX 2026.6 ranks in week4_od_hx_ship_2026. Gaps with |delta| >= 3. Penn State, Louisville, Michigan, and Texas A&M left the ballot. Mississippi State is AP 16 / HX 66 (\u221250). Florida is AP 8 / HX 24 (\u221216).",
+  "gaps": [
+    {
+      "name": "Oklahoma State",
+      "ap": 19,
+      "hx": 89,
+      "hx_rating": -1.1718,
+      "delta": -70
+    },
+    {
+      "name": "Mississippi State",
+      "ap": 16,
+      "hx": 66,
+      "hx_rating": 0.2071,
+      "delta": -50
+    },
+    {
+      "name": "Kentucky",
+      "ap": 24,
+      "hx": 62,
+      "hx_rating": 0.3218,
+      "delta": -38
+    },
+    {
+      "name": "Boise State",
+      "ap": 22,
+      "hx": 47,
+      "hx_rating": 1.3371,
+      "delta": -25
+    },
+    {
+      "name": "UCLA",
+      "ap": 23,
+      "hx": 45,
+      "hx_rating": 1.3963,
+      "delta": -22
+    },
+    {
+      "name": "Houston",
+      "ap": 20,
+      "hx": 39,
+      "hx_rating": 1.623,
+      "delta": -19
+    },
+    {
+      "name": "Florida",
+      "ap": 8,
+      "hx": 24,
+      "hx_rating": 3.5201,
+      "delta": -16
+    },
+    {
+      "name": "Oregon",
+      "ap": 15,
+      "hx": 4,
+      "hx_rating": 6.9019,
+      "delta": 11
+    },
+    {
+      "name": "Missouri",
+      "ap": 25,
+      "hx": 15,
+      "hx_rating": 4.2572,
+      "delta": 10
+    },
+    {
+      "name": "Iowa",
+      "ap": 14,
+      "hx": 23,
+      "hx_rating": 3.7055,
+      "delta": -9
+    },
+    {
+      "name": "BYU",
+      "ap": 10,
+      "hx": 18,
+      "hx_rating": 4.1233,
+      "delta": -8
+    },
+    {
+      "name": "Miami",
+      "ap": 4,
+      "hx": 10,
+      "hx_rating": 5.2345,
+      "delta": -6
+    },
+    {
+      "name": "LSU",
+      "ap": 11,
+      "hx": 17,
+      "hx_rating": 4.1243,
+      "delta": -6
+    },
+    {
+      "name": "Indiana",
+      "ap": 6,
+      "hx": 11,
+      "hx_rating": 4.9465,
+      "delta": -5
+    },
+    {
+      "name": "Texas Tech",
+      "ap": 12,
+      "hx": 7,
+      "hx_rating": 5.8155,
+      "delta": 5
+    },
+    {
+      "name": "Texas",
+      "ap": 1,
+      "hx": 5,
+      "hx_rating": 6.4516,
+      "delta": -4
+    },
+    {
+      "name": "Ohio State",
+      "ap": 5,
+      "hx": 2,
+      "hx_rating": 7.8131,
+      "delta": 3
+    },
+    {
+      "name": "USC",
+      "ap": 18,
+      "hx": 21,
+      "hx_rating": 3.8525,
+      "delta": -3
+    }
+  ],
+  "hx_not_in_ap": [
+    {
+      "hx_rank": 6,
+      "name": "Texas A&M",
+      "hx": 6.0586
+    },
+    {
+      "hx_rank": 12,
+      "name": "Michigan",
+      "hx": 4.9296
+    },
+    {
+      "hx_rank": 14,
+      "name": "Penn State",
+      "hx": 4.2841
+    },
+    {
+      "hx_rank": 16,
+      "name": "Oklahoma",
+      "hx": 4.1888
+    },
+    {
+      "hx_rank": 22,
+      "name": "Clemson",
+      "hx": 3.8338
+    },
+    {
+      "hx_rank": 25,
+      "name": "Washington",
+      "hx": 3.244
+    }
+  ],
+  "ap_not_in_hx25": [
+    {
+      "ap": 16,
+      "name": "Mississippi State",
+      "hx_rank": 66
+    },
+    {
+      "ap": 19,
+      "name": "Oklahoma State",
+      "hx_rank": 89
+    },
+    {
+      "ap": 20,
+      "name": "Houston",
+      "hx_rank": 39
+    },
+    {
+      "ap": 22,
+      "name": "Boise State",
+      "hx_rank": 47
+    },
+    {
+      "ap": 23,
+      "name": "UCLA",
+      "hx_rank": 45
+    },
+    {
+      "ap": 24,
+      "name": "Kentucky",
+      "hx_rank": 62
+    }
+  ]
+}

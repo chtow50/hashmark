@@ -4,30 +4,28 @@ import type { ScheduleGame } from "./types";
  * Board chrome week (Rankings / home PageHead). Ranking *rows* stay
  * `season = 2026 AND week = 0` — that is what queries read.
  */
-export const BOARD_WEEK = 4;
+export const BOARD_WEEK = 5;
 
 /**
  * Last stamped AP ballot on the live board.
- * HX chrome is Week 4. AP is the last stamped poll (Week 4, Sept. 20) —
- * not a Week 3 ballot.
+ * HX chrome is Week 5. AP is the last stamped poll (Week 5, Sept. 27) —
+ * not a Week 4 ballot.
  */
 export const AP_STAMP = {
-  week: 4,
-  asOf: "Sept. 20",
-  label: "Week 4 AP",
-  columnHint: "W4 stamp",
-  vsHx: "last stamped AP (Week 4, Sept. 20)",
-  lede: "HX is Week 4. AP is the last stamped poll (Week 4, Sept. 20) — not a Week 3 ballot.",
+  week: 5,
+  asOf: "Sept. 27",
+  label: "Week 5 AP",
+  columnHint: "W5 stamp",
+  vsHx: "last stamped AP (Week 5, Sept. 27)",
+  lede: "HX is Week 5. AP is the last stamped poll (Week 5, Sept. 27) — not a Week 4 ballot.",
 } as const;
 
 /**
  * Featured kick reads the HASHMARK Week 5 slate (`/schedule?w=5`).
- * Week 4 is entirely FINAL, so the home card is the next upcoming
- * non-final by kick time. Earliest Week 5 kick is Western Kentucky at
- * New Mexico State (Thu 19:00 CT, CBSSN). That card’s Vegas stays blank
- * (HOLD) — do not invent a book. FCS rows are never featured.
- * BOARD_WEEK stays 4. Live ratings are HX 2026.6. The Week 4 tape
- * grades the HX 2026.5 pregame board.
+ * Thursday Week 5 openers are FINAL, so the home card is the next
+ * upcoming non-final by kick time (Friday Liberty @ Delaware / Pitt @ VT
+ * windows while still Kick). FCS rows are never featured. Never invent
+ * Vegas. BOARD_WEEK is 5. Live ratings are HX 2026.6.
  */
 export const FEATURED_SLATE_WEEK = 5;
 
@@ -70,7 +68,7 @@ export const WEEK4_FEATURED = {
  * Friday ESPN: Pittsburgh at Virginia Tech. Schedule-page pin for
  * `/schedule?w=5`. Fri 2026-10-02 18:00 CT · ESPN · VT −3.5 / 52.5.
  * The home desk uses the earliest Week 5 kick, not this pin.
- * BOARD_WEEK stays 4.
+ * BOARD_WEEK is 5.
  */
 export const WEEK5_FEATURED = {
   homeSlug: "virginia-tech",
@@ -81,7 +79,7 @@ export const WEEK5_FEATURED = {
  * Friday ESPN: Iowa State at BYU. Schedule-page pin for
  * `/schedule?w=6`. Fri 2026-10-09 21:15 CT · ESPN · BYU −14.5 / 50.5.
  * Day-risk: HM labels Saturday, Oct 10; ESPN CT is Friday.
- * Live desk / FEATURED_SLATE_WEEK stays 5. BOARD_WEEK stays 4.
+ * Live desk / FEATURED_SLATE_WEEK stays 5. BOARD_WEEK is 5.
  */
 export const WEEK6_FEATURED = {
   homeSlug: "byu",
