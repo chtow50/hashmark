@@ -231,6 +231,9 @@ const WEEK2_FCS_STUBS: FcsStubGame[] = WEEK2_FCS.games.map(week2StubFromJson);
  */
 const WEEK3_FCS_STUBS: FcsStubGame[] = [
   finalHome("iowa", 3, "2026-09-19", "Northern Iowa", 55, 0),
+  // Oregon W–L: home still 2–1 without this FCS FINAL; AP Week 5 is 3–1 after USC.
+  // Portland State @ Oregon — Oregon 84, Portland State 0 (Sep 18). goducks / goviks / FOX.
+  finalHome("oregon", 3, "2026-09-18", "Portland State", 84, 0),
 ];
 
 /** FBS vs FCS rows dropped from the 136-team games table. Unlisted Week 1 FCS stay scheduled stubs. */

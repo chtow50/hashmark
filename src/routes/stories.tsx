@@ -40,23 +40,23 @@ function StoriesPage() {
   return (
     <div>
       <PageHead
-        kicker="Week 4 · Sep 27"
-        title="The Week 4 tape."
-        lede="42/57 SU. Closer FLAG 20/57. Top 25 closer 8/18 FLAG. HX not retuned."
+        kicker="Week 5 · Oct 2"
+        title="Week 5 Friday desk."
+        lede="Florida–Missouri flip. Miami–Clemson chill. Alabama doubles the book. GameDay in Iowa City."
       />
 
       <p className="mb-8 font-mono text-[11px] uppercase tracking-[0.16em] text-faint">
         <Link
           to="/schedule"
-          search={{ w: 4 }}
+          search={{ w: 5 }}
           className="text-fg underline decoration-border underline-offset-4 hover:text-accent"
         >
-          Week 4 schedule
+          Week 5 schedule
         </Link>
         <span className="mx-2" aria-hidden>
           ·
         </span>
-        HX 2026.6 · Week 4 board · Soft-cal FLAG
+        HX 2026.6 · Week 5 board · Soft-cal FLAG
       </p>
 
       {lead ? (

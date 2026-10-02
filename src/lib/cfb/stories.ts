@@ -19,8 +19,191 @@ export const STORY_DATE_TAPE_WEEK3 = "Sunday, Sep 20, 2026";
 export const STORY_DATE_TAPE_WEEK4 = "Sunday, Sep 27, 2026";
 export const STORY_DATE_WEEK3 = "Friday, Sep 18, 2026";
 export const STORY_DATE_WEEK4 = "Friday, Sep 25, 2026";
+export const STORY_DATE_WEEK5 = "Friday, Oct 2, 2026";
 
 export const STORIES: Story[] = [
+
+  {
+    slug: "week-5-florida-missouri",
+    kicker: "Week 5 · Winner flip",
+    headline: "Vegas has Florida −4.5. HX has Missouri −5.6.",
+    dek: "AP’s new No. 8 road favorite — and HASHMARK flips the card in Columbia.",
+    date: STORY_DATE_WEEK5,
+    body: [
+      "No. 8 Florida visits No. 25 Missouri on Saturday (2:30 CT, ABC). Live HASHMARK posts a winner flip: Missouri −5.6 / 64.1%. The sourced Vegas close on the schedule is Florida −4.5, O/U 56.5 — roughly a 10-point HX–market disagreement and the only ranked-vs-ranked flip on the Week 5 board.",
+      "HX ranks Missouri 15th (4.26) against an AP Week 5 ballot that dropped the Tigers from 19 to 25 after the Miss State loss. Florida sits HX 24th (3.52) while AP vaulted the Gators 13 spots to 8 after the 52–28 win over Ole Miss (NCAA / AP Week 5). That is a −16 HX–ballot gap on the road favorite — HX still treats Sumrall’s start as mid-20s talent, not a top-10 ballot surge.",
+      "Injury cloud is sourced. Florida WR Vernell Brown III (knee) and WR Bailey Stockton (back) opened the week questionable; RB Kelvin Jimenez is out (knee). Missouri lists RB Ahmad Hardy out among five outs on the Thursday availability report (Florida athletics / On3). Stick to the number on hashmarkcfb.com/schedule. Do not invent snaps.",
+    ],
+    whyItMatters:
+      "Primetime ranked winner flip + HX’s Florida under-rank vs the biggest AP riser of the week. Lead card for @Hashmark_CFB.",
+    sources: [
+      { label: "HASHMARK Board", href: "https://hashmarkcfb.com/" },
+      { label: "HASHMARK Schedule", href: "https://hashmarkcfb.com/schedule?w=5" },
+      {
+        label: "NCAA.com · Week 5 AP",
+        href: "https://www.ncaa.com/news/football/article/2026-09-27/florida-flies-top-10-latest-ap-top-25-college-football-rankings",
+      },
+      {
+        label: "Florida Gators · Opening Kickoff",
+        href: "https://floridagators.com/news/2026/10/1/football-the-opening-kickoff-no-8-gators-at-no-25-missouri-buzz-builds-focus-required",
+      },
+      {
+        label: "On3 · Florida availability",
+        href: "https://www.on3.com/teams/florida-gators/news/thursday-availability-report-for-florida-gators-vs-missouri-tigers/",
+      },
+      {
+        label: "CBS Sports · Week 5 odds",
+        href: "https://www.cbssports.com/betting/news/2026-week-5-college-football-odds-betting-lines-spreads-start-times-get-cfb-predictions-best-bets-picks/",
+      },
+    ],
+  },
+  {
+    slug: "week-5-miami-clemson",
+    kicker: "Week 5 · Spread gap",
+    headline: "Same favorite. Sixteen-plus points apart.",
+    dek: "No. 4 Miami in Death Valley — HASHMARK almost calls it a coin flip; the book does not.",
+    date: STORY_DATE_WEEK5,
+    body: [
+      "No. 4 Miami visits Clemson on Saturday (6:30 CT, ABC). Live HASHMARK: Miami −0.9 / 52.5%. Vegas close on the schedule: Miami −17.5, O/U 49.5. Same side, ~16.6-point chill — the largest HX–Vegas absolute gap on the Week 5 FBS–FBS slate.",
+      "HX ranks Miami 10th (5.23) against AP’s No. 4. Clemson is HX 22nd (3.83) and still unranked on the Week 5 ballot after the LSU opener loss and three straight wins (including last week’s Cal flip hit on the HASHMARK tape). The market prices Miami as a blowout road favorite; HX prices a one-point lean.",
+      "CBS frames Darian Mensah’s early tape (14 TD passes, zero interceptions through four games) against a Clemson pass defense that held opponents under 150 passing yards in each of the last two. Miami is averaging 51.8 points per game and a 42.8-point margin through four — school-record pace per CBS. Stick to the live schedule number. This is not a winner flip; it is the board’s loudest disagreement.",
+    ],
+    whyItMatters:
+      "Clean brand story — HX vs book magnitude on a national ABC night, with Clemson’s HX-over-AP thread still alive.",
+    sources: [
+      { label: "HASHMARK Schedule", href: "https://hashmarkcfb.com/schedule?w=5" },
+      { label: "HASHMARK Board", href: "https://hashmarkcfb.com/" },
+      {
+        label: "CBS Sports · Miami–Clemson",
+        href: "https://www.cbssports.com/college-football/news/miami-clemson-prediction-picks-odds-spread-where-to-watch-live/",
+      },
+      {
+        label: "NCAA.com · Week 5 AP",
+        href: "https://www.ncaa.com/news/football/article/2026-09-27/florida-flies-top-10-latest-ap-top-25-college-football-rankings",
+      },
+      {
+        label: "USA Today · Week 5 picks",
+        href: "https://www.usatoday.com/story/sports/ncaaf/2026/09/30/college-football-picks-week-5-top-25-game-predictions-odds/91987813007/",
+      },
+    ],
+  },
+  {
+    slug: "week-5-alabama-mississippi-state",
+    kicker: "Week 5 · Spread gap",
+    headline: "Vegas has Alabama −6. HX has Alabama −13.3 — and Miss State is still HX 66th.",
+    dek: "AP’s No. 16 hosts No. 7. HASHMARK’s ballot gap on the Bulldogs is the loudest on the board.",
+    date: STORY_DATE_WEEK5,
+    body: [
+      "No. 7 Alabama visits No. 16 Mississippi State on Saturday (11:00 CT, ABC). Live HASHMARK: Alabama −13.3 / 77.9%. Vegas close on the schedule: Alabama −6.0, O/U 59.5 — a 7.3-point chill, same favorite.",
+      "The ranking fight is louder than the spread. Mississippi State climbed to AP 16 after beating Missouri 31–24 (NCAA Week 5). HX still has the Bulldogs 66th (0.21) — a −50 gap vs the Week 5 ballot, and the site’s Week 4 stamp already showed −42 vs AP 24. Alabama is HX 9th (5.28) against AP 7.",
+      "CBS frames Kamario Taylor (SEC-leading yards of offense per game) against Keelon Russell’s recent explosion (685 yards, seven TDs in the last two). Both sides are 4–0. Stick to the schedule number. Pair in social with the Florida–Missouri flip if Marketing wants an “SEC numbers” thread — Starkville is the morning ABC window.",
+    ],
+    whyItMatters:
+      "Biggest HX–AP disagreement meeting a live ranked home underdog; clean Make-12 / CFP resume stress for both.",
+    sources: [
+      { label: "HASHMARK Schedule", href: "https://hashmarkcfb.com/schedule?w=5" },
+      { label: "HASHMARK Rankings", href: "https://hashmarkcfb.com/rankings" },
+      {
+        label: "CBS Sports · Alabama–Miss State",
+        href: "https://www.cbssports.com/college-football/news/alabama-mississippi-state-prediction-picks-odds-spread-where-to-watch-live/",
+      },
+      {
+        label: "NCAA.com · Week 5 AP",
+        href: "https://www.ncaa.com/news/football/article/2026-09-27/florida-flies-top-10-latest-ap-top-25-college-football-rankings",
+      },
+    ],
+  },
+  {
+    slug: "week-5-ohio-state-iowa",
+    kicker: "Week 5 · GameDay",
+    headline: "No. 5 Ohio State at No. 14 Iowa — HX has Ohio State −9.7; Vegas has −13.5.",
+    dek: "College GameDay is in Iowa City for the first time in 20 years. HASHMARK trims the road favorite.",
+    date: STORY_DATE_WEEK5,
+    body: [
+      "No. 5 Ohio State visits No. 14 Iowa on Saturday (2:30 CT, CBS). Live HASHMARK: Ohio St −9.7 / 72.2%. Vegas close on the schedule: Ohio St −13.5, O/U 45.5. Same favorite; HX is ~3.8 points cooler on the Buckeyes at Kinnick.",
+      "HX ranks Ohio State 2nd (7.81) against AP 5; Iowa is HX 23rd (3.71) vs AP 14 — a −9 ballot gap on the home side. Iowa jumped after the last-play 20–19 win at Michigan (NCAA / Bleacher Report GameDay). Ohio State’s only loss is the one-point road game at Texas.",
+      "CBS and SI note Ohio State’s last Kinnick trip (55–24 loss in 2017) and Iowa’s early-season run game. Do not invent snaps. The card is agreement on the side, disagreement on the margin — useful contrast against the Florida–Missouri flip and the Miami–Clemson chill.",
+    ],
+    whyItMatters: "National GameDay window + HX’s Iowa under-rank vs a top-15 ballot home dog.",
+    sources: [
+      { label: "HASHMARK Schedule", href: "https://hashmarkcfb.com/schedule?w=5" },
+      { label: "HASHMARK Board", href: "https://hashmarkcfb.com/" },
+      {
+        label: "CBS Sports · Ohio State–Iowa",
+        href: "https://www.cbssports.com/college-football/news/ohio-state-iowa-prediction-picks-odds-spread-where-to-watch-live/",
+      },
+      {
+        label: "SI · McElroy / GameDay",
+        href: "https://www.si.com/fannation/college/cfb-hq/picks/greg-mcelroy-predicts-ohio-state-iowa-winner-college-gameday-heads-kinnick-buckeyes-hawkeyes",
+      },
+      {
+        label: "Bleacher Report · GameDay",
+        href: "https://bleacherreport.com/articles/25505507-espn-college-gameday-2026-week-5-schedule-location-predictions-and-more",
+      },
+      {
+        label: "NCAA.com · Week 5 AP",
+        href: "https://www.ncaa.com/news/football/article/2026-09-27/florida-flies-top-10-latest-ap-top-25-college-football-rankings",
+      },
+    ],
+  },
+  {
+    slug: "week-5-louisville-nc-state",
+    kicker: "Week 5 · Winner flip",
+    headline: "Vegas has Louisville −6.5. HX has NC State −0.6.",
+    dek: "Louisville fell out of the AP. HASHMARK flips the favorite in Raleigh.",
+    date: STORY_DATE_WEEK5,
+    body: [
+      "Louisville visits NC State on Saturday (2:30 CT, ACC Network). Live HASHMARK: NC State −0.6 / 51.6%. Vegas close on the schedule: Louisville −6.5, O/U 60.5 — a winner flip of roughly seven points from favorite to favorite.",
+      "HX still has Louisville 26th (2.98) after the team dropped out of the Week 5 AP (was 16 on the Week 4 stamp). NC State is HX 33rd (2.10) and unranked. Wake Forest’s win at Louisville last week helped push the Cardinals off the ballot (NCAA others-receiving-votes list still has Louisville with 25 points).",
+      "Stick to the live schedule number. Pair with Miami–Clemson if Marketing wants an ACC Saturday thread — this is the quieter flip under the Death Valley ABC card.",
+    ],
+    whyItMatters: "Clean winner flip on a team HX still rates inside the top 30 after an AP exit.",
+    sources: [
+      { label: "HASHMARK Schedule", href: "https://hashmarkcfb.com/schedule?w=5" },
+      { label: "HASHMARK Rankings", href: "https://hashmarkcfb.com/rankings" },
+      {
+        label: "NCAA.com · Week 5 AP",
+        href: "https://www.ncaa.com/news/football/article/2026-09-27/florida-flies-top-10-latest-ap-top-25-college-football-rankings",
+      },
+      {
+        label: "CBS Sports · Miami–Clemson (ACC slate)",
+        href: "https://www.cbssports.com/college-football/news/miami-clemson-prediction-picks-odds-spread-where-to-watch-live/",
+      },
+    ],
+  },
+  {
+    slug: "week-5-wku-nmsu-final",
+    kicker: "Week 5 · Tape",
+    headline: "HX took Western Kentucky −13. New Mexico State won 34–13.",
+    dek: "First Week 5 winner-flip result is in. Live /schedule has not stamped the FINAL.",
+    date: STORY_DATE_WEEK5,
+    body: [
+      "Western Kentucky visited New Mexico State on Thursday (7:00 CT, CBSSN). Live HASHMARK had posted a winner flip: WKU −13.0 / 77.5% against Vegas NM State −2.5, O/U 54.5. Final: New Mexico State 34, Western Kentucky 13 (NMSU athletics / ESPN box). Aggies SU and cover; HX flip MISS.",
+      "James Jones ran for 155 yards and a touchdown; De’Marcus Peters returned an interception for a score (ESPN). Rodney Tisdale Jr. threw for 314 yards with an interception for WKU. The card was one of the largest absolute HX–Vegas disagreements on the early Week 5 board — and the first flip result of the weekend went against the model.",
+      "Same night: North Texas 45, Tulsa 44 in OT (ESPN). HX had Tulsa −0.3 / 50.9% vs Vegas Tulsa −1.5 — both sides leaned Tulsa. Live /schedule?w=5 still shows both Thursday games as Kick until this stamp ships the FINALs.",
+    ],
+    whyItMatters:
+      "Honest early-weekend tape note; board-hole flag for the FINAL stamp; social-ready “flip miss” before Friday’s ESPN/FOX windows.",
+    sources: [
+      { label: "HASHMARK Schedule", href: "https://hashmarkcfb.com/schedule?w=5" },
+      {
+        label: "NMSU athletics",
+        href: "https://nmstatesports.com/news/2026/10/1/football-aggies-shine-in-all-three-phases-to-defeat-western-kentucky-in-cusa-opener.aspx",
+      },
+      {
+        label: "ESPN · WKU @ NMSU",
+        href: "https://www.espn.com/college-football/recap?gameId=401871049",
+      },
+      {
+        label: "ESPN · UNT @ Tulsa",
+        href: "https://www.espn.com/college-football/recap?gameId=401862786",
+      },
+      {
+        label: "NMSU box score",
+        href: "https://nmstatesports.com/sports/football/stats/2026/western-kentucky/boxscore/19276",
+      },
+    ],
+  },
   {
     slug: "week-4-tape",
     kicker: "Week 4 tape",
