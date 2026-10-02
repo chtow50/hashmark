@@ -1,5 +1,5 @@
 import { c as formatKickDayTitle, n as MODEL, p as predictMatchup, s as formatKickCt } from "./fcs-stubs-B-n2OGu5.mjs";
-import { S as require_jsx_runtime, y as Link } from "../_libs/@tanstack/react-router+[...].mjs";
+import { w as require_jsx_runtime, x as Link } from "../_libs/@tanstack/react-router+[...].mjs";
 import { u as ArrowRight } from "../_libs/lucide-react.mjs";
 import { c as Stat, f as WinBar, l as TeamLink, n as DeltaChip, o as RankNum, u as TeamMark } from "./marks-Bl_cCKUl.mjs";
 import { $ as EdgePackStrip, B as AP_STAMP, C as odTermLabel, D as week4Top25Tape, E as week4Tape, H as featuredBook, K as spreadGap, S as boardDisagreementRows, T as week4SeasonTape, U as featuredSlateWeek, V as favoriteLine, ct as fmtPct, et as PageHead, it as cn, q as Button, rt as apLabel, st as fmtNum, tt as Panel, v as make12FromSim, w as week4BoardFlags, x as SIM_10K_HX_STAMP, z as Route$17 } from "./router-Ch8vCdZy.mjs";

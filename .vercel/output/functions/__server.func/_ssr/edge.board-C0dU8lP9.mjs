@@ -1,5 +1,5 @@
 import { n as MODEL } from "./fcs-stubs-B-n2OGu5.mjs";
-import { S as require_jsx_runtime, y as Link } from "../_libs/@tanstack/react-router+[...].mjs";
+import { w as require_jsx_runtime, x as Link } from "../_libs/@tanstack/react-router+[...].mjs";
 import { r as EdgeBoardView, t as EDGE_BOARD_SCHEMA_ID } from "./edge-board-DNHxZ14V.mjs";
 import { Y as EDGE, et as PageHead } from "./router-Ch8vCdZy.mjs";
 //#region node_modules/.nitro/vite/services/ssr/assets/edge.board-C0dU8lP9.js

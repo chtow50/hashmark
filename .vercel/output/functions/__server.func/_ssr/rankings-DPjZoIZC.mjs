@@ -1,7 +1,7 @@
 import { o as __toESM } from "../_runtime.mjs";
 import { n as MODEL } from "./fcs-stubs-B-n2OGu5.mjs";
 import { n as require_react } from "../_libs/@radix-ui/react-compose-refs+[...].mjs";
-import { S as require_jsx_runtime, y as Link } from "../_libs/@tanstack/react-router+[...].mjs";
+import { w as require_jsx_runtime, x as Link } from "../_libs/@tanstack/react-router+[...].mjs";
 import { n as DeltaChip, o as RankNum, u as TeamMark } from "./marks-Bl_cCKUl.mjs";
 import { B as AP_STAMP, I as Route$11, J as ConfPills, ct as fmtPct, et as PageHead, it as cn, lt as inConf, st as fmtNum, tt as Panel, v as make12FromSim } from "./router-Ch8vCdZy.mjs";
 import { n as formatSeasonRecord } from "./season-record-BhizIxqU.mjs";

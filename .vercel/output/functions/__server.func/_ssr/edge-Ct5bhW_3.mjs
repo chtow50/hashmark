@@ -1,5 +1,5 @@
 import { n as MODEL } from "./fcs-stubs-B-n2OGu5.mjs";
-import { S as require_jsx_runtime, h as Outlet, m as useChildMatches, y as Link } from "../_libs/@tanstack/react-router+[...].mjs";
+import { _ as Outlet, g as useChildMatches, w as require_jsx_runtime, x as Link } from "../_libs/@tanstack/react-router+[...].mjs";
 import { n as EdgeBoardPanel } from "./edge-board-DNHxZ14V.mjs";
 import { Q as EdgeCheckoutNote, Y as EDGE, Z as EdgeBuyButton, et as PageHead, tt as Panel } from "./router-Ch8vCdZy.mjs";
 //#region node_modules/.nitro/vite/services/ssr/assets/edge-Ct5bhW_3.js
