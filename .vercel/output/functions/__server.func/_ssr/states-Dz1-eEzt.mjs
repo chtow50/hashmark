@@ -1,4 +1,4 @@
-import { S as require_jsx_runtime, y as Link } from "../_libs/@tanstack/react-router+[...].mjs";
+import { w as require_jsx_runtime, x as Link } from "../_libs/@tanstack/react-router+[...].mjs";
 import { d as TeamSwatch } from "./marks-Bl_cCKUl.mjs";
 import { et as PageHead, it as cn, j as Route$8, st as fmtNum, tt as Panel } from "./router-Ch8vCdZy.mjs";
 //#region node_modules/.nitro/vite/services/ssr/assets/states-Dz1-eEzt.js

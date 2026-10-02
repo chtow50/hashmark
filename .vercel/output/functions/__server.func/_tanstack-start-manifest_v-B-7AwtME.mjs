@@ -1,4 +1,4 @@
-//#region node_modules/.nitro/vite/services/ssr/assets/_tanstack-start-manifest_v-W4WJSWAB.js
+//#region node_modules/.nitro/vite/services/ssr/assets/_tanstack-start-manifest_v-B-7AwtME.js
 var tsrStartManifest = () => ({ routes: {
 	__root__: {
 		filePath: "/workspace/hashmark-repo/src/routes/__root.tsx",
@@ -20,71 +20,72 @@ var tsrStartManifest = () => ({ routes: {
 			"/api/edge/pack"
 		],
 		preloads: [
-			"/assets/index-DX4NBc-J.js",
-			"/assets/shell-CJHD9V-F.js",
-			"/assets/root-DLTE-HSj.js",
+			"/assets/index-DqWyrDOz.js",
+			"/assets/rolldown-runtime-hePW80VL.js",
+			"/assets/shell-CsLvxUk9.js",
+			"/assets/utils-Ddv8GGNu.js",
 			"/assets/chicago-KrhQJvSg.js"
 		],
 		scripts: [{ attrs: {
 			type: "module",
 			async: !0,
-			src: "/assets/index-DX4NBc-J.js"
+			src: "/assets/index-DqWyrDOz.js"
 		} }]
 	},
 	"/": {
 		filePath: "/workspace/hashmark-repo/src/routes/index.tsx",
 		children: void 0,
 		preloads: [
-			"/assets/routes-DP05rH4N.js",
-			"/assets/marks-DR-DQ4lQ.js",
-			"/assets/season-record-B9m2lk6S.js"
+			"/assets/routes-BWaEVqTC.js",
+			"/assets/marks-Db1AuTTl.js",
+			"/assets/season-record-CUsJA6hH.js"
 		]
 	},
 	"/desk": {
 		filePath: "/workspace/hashmark-repo/src/routes/desk.tsx",
 		children: void 0,
-		preloads: ["/assets/desk-Ejk4JHZ4.js"]
+		preloads: ["/assets/desk-xE4jL3LW.js"]
 	},
 	"/edge": {
 		filePath: "/workspace/hashmark-repo/src/routes/edge.tsx",
 		children: ["/edge/board", "/edge/unlock"],
-		preloads: ["/assets/edge-0zN7ua-8.js", "/assets/edge-board-WiQOaOoG.js"]
+		preloads: ["/assets/edge-GY-Kuy1M.js", "/assets/edge-board-DZU6R9b6.js"]
 	},
 	"/logos": {
 		filePath: "/workspace/hashmark-repo/src/routes/logos.tsx",
 		children: void 0,
-		preloads: ["/assets/logos-aAT4HwN2.js", "/assets/team-logo-smCkHwAQ.js"]
+		preloads: ["/assets/logos-DS-Mshm6.js", "/assets/team-logo-M1SxgAc8.js"]
 	},
 	"/matchup": {
 		filePath: "/workspace/hashmark-repo/src/routes/matchup.tsx",
 		children: void 0,
 		preloads: [
-			"/assets/matchup-D6nt_EzM.js",
-			"/assets/marks-DR-DQ4lQ.js",
-			"/assets/roster-duel-Shpzvj_2.js",
-			"/assets/schedule-flags-BgQhu6Dy.js"
+			"/assets/matchup-CGiC3eWR.js",
+			"/assets/marks-Db1AuTTl.js",
+			"/assets/roster-duel-ChbkXTjo.js",
+			"/assets/schedule-flags-B_EphBSl.js"
 		]
 	},
 	"/model": {
 		filePath: "/workspace/hashmark-repo/src/routes/model.tsx",
 		children: void 0,
-		preloads: ["/assets/model-DwfT-QS9.js"]
+		preloads: ["/assets/model-oNn4I4cw.js"]
 	},
 	"/rankings": {
 		filePath: "/workspace/hashmark-repo/src/routes/rankings.tsx",
 		children: void 0,
 		preloads: [
-			"/assets/rankings-Dn4GheKd.js",
-			"/assets/marks-DR-DQ4lQ.js",
-			"/assets/season-record-B9m2lk6S.js"
+			"/assets/rankings-CtqNi8-M.js",
+			"/assets/marks-Db1AuTTl.js",
+			"/assets/season-record-CUsJA6hH.js"
 		]
 	},
 	"/recruiting": {
 		filePath: "/workspace/hashmark-repo/src/routes/recruiting.tsx",
 		children: void 0,
 		preloads: [
-			"/assets/recruiting-B_AsVatX.js",
-			"/assets/marks-DR-DQ4lQ.js",
+			"/assets/recruiting-BOexgHG9.js",
+			"/assets/marks-Db1AuTTl.js",
 			"/assets/recruiting-BkjesnSs.js"
 		]
 	},
@@ -92,60 +93,60 @@ var tsrStartManifest = () => ({ routes: {
 		filePath: "/workspace/hashmark-repo/src/routes/schedule.tsx",
 		children: void 0,
 		preloads: [
-			"/assets/schedule-Br34Uprx.js",
-			"/assets/marks-DR-DQ4lQ.js",
-			"/assets/schedule-flags-BgQhu6Dy.js"
+			"/assets/schedule-Dfp42Scg.js",
+			"/assets/marks-Db1AuTTl.js",
+			"/assets/schedule-flags-B_EphBSl.js"
 		]
 	},
 	"/states": {
 		filePath: "/workspace/hashmark-repo/src/routes/states.tsx",
 		children: void 0,
-		preloads: ["/assets/states-CSAcOdDO.js", "/assets/marks-DR-DQ4lQ.js"]
+		preloads: ["/assets/states-C6gCEoq1.js", "/assets/marks-Db1AuTTl.js"]
 	},
 	"/stories": {
 		filePath: "/workspace/hashmark-repo/src/routes/stories.tsx",
 		children: ["/stories/$slug"],
-		preloads: ["/assets/stories-DRIRRqFA.js"]
+		preloads: ["/assets/stories-DXQaYUk8.js"]
 	},
 	"/talent": {
 		filePath: "/workspace/hashmark-repo/src/routes/talent.tsx",
 		children: void 0,
 		preloads: [
-			"/assets/talent-CCLVK5TE.js",
-			"/assets/marks-DR-DQ4lQ.js",
+			"/assets/talent-Cohla2QQ.js",
+			"/assets/marks-Db1AuTTl.js",
 			"/assets/positions-B2Br_5sf.js"
 		]
 	},
 	"/edge/board": {
 		filePath: "/workspace/hashmark-repo/src/routes/edge.board.tsx",
 		children: void 0,
-		preloads: ["/assets/edge.board-BQHdSWgB.js"]
+		preloads: ["/assets/edge.board-CDXRSC_H.js"]
 	},
 	"/edge/unlock": {
 		filePath: "/workspace/hashmark-repo/src/routes/edge.unlock.tsx",
 		children: void 0,
-		preloads: ["/assets/edge.unlock-BjT98lKV.js"]
+		preloads: ["/assets/edge.unlock-BHEYNc-p.js"]
 	},
 	"/edge_/sim": {
 		filePath: "/workspace/hashmark-repo/src/routes/edge_.sim.tsx",
 		children: void 0,
-		preloads: ["/assets/edge_.sim-C__MBGCt.js", "/assets/marks-DR-DQ4lQ.js"]
+		preloads: ["/assets/edge_.sim-DokW0ifW.js", "/assets/marks-Db1AuTTl.js"]
 	},
 	"/stories/$slug": {
 		filePath: "/workspace/hashmark-repo/src/routes/stories.$slug.tsx",
 		children: void 0,
-		preloads: ["/assets/stories._slug-DWoHfHMl.js"]
+		preloads: ["/assets/stories._slug-BTgcR2cP.js"]
 	},
 	"/teams/$slug": {
 		filePath: "/workspace/hashmark-repo/src/routes/teams.$slug.tsx",
 		children: void 0,
 		preloads: [
-			"/assets/teams._slug-F_zWJDfd.js",
-			"/assets/marks-DR-DQ4lQ.js",
-			"/assets/season-record-B9m2lk6S.js",
+			"/assets/teams._slug-XChaccIL.js",
+			"/assets/marks-Db1AuTTl.js",
+			"/assets/season-record-CUsJA6hH.js",
 			"/assets/positions-B2Br_5sf.js",
-			"/assets/roster-duel-Shpzvj_2.js",
-			"/assets/schedule-flags-BgQhu6Dy.js",
+			"/assets/roster-duel-ChbkXTjo.js",
+			"/assets/schedule-flags-B_EphBSl.js",
 			"/assets/recruiting-BkjesnSs.js"
 		]
 	}

@@ -1,4 +1,4 @@
-import { S as require_jsx_runtime, y as Link } from "../_libs/@tanstack/react-router+[...].mjs";
+import { w as require_jsx_runtime, x as Link } from "../_libs/@tanstack/react-router+[...].mjs";
 import { u as ArrowRight } from "../_libs/lucide-react.mjs";
 import { r as DeskChip } from "./marks-Bl_cCKUl.mjs";
 import { Y as EDGE, it as cn, tt as Panel } from "./router-Ch8vCdZy.mjs";

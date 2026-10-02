@@ -1,7 +1,7 @@
 import { o as __toESM } from "../_runtime.mjs";
 import { n as MODEL } from "./fcs-stubs-B-n2OGu5.mjs";
 import { n as require_react } from "../_libs/@radix-ui/react-compose-refs+[...].mjs";
-import { S as require_jsx_runtime, y as Link } from "../_libs/@tanstack/react-router+[...].mjs";
+import { w as require_jsx_runtime, x as Link } from "../_libs/@tanstack/react-router+[...].mjs";
 import { a as Minus, i as Plus } from "../_libs/lucide-react.mjs";
 import { r as DeskChip } from "./marks-Bl_cCKUl.mjs";
 import { Y as EDGE, Z as EdgeBuyButton, c as SCENARIO_SIM_GOLDEN_EVENT_ID, ct as fmtPct, d as formatScenarioError, et as PageHead, f as isScenarioSimUnlocked, i as Route$3, it as cn, l as SCENARIO_SIM_GOLDEN_FORCE, m as runDemoScenarioSim, o as SCENARIO_SIM_DEMO_LABEL, p as loadScenarioSimGoldenRequest, q as Button, s as SCENARIO_SIM_GOLDEN_BUMP, st as fmtNum, tt as Panel, u as buildScenarioRequest } from "./router-Ch8vCdZy.mjs";

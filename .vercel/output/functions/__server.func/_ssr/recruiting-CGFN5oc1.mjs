@@ -1,6 +1,6 @@
 import { o as __toESM } from "../_runtime.mjs";
 import { n as require_react } from "../_libs/@radix-ui/react-compose-refs+[...].mjs";
-import { S as require_jsx_runtime, y as Link } from "../_libs/@tanstack/react-router+[...].mjs";
+import { w as require_jsx_runtime, x as Link } from "../_libs/@tanstack/react-router+[...].mjs";
 import { a as RankMove, o as RankNum, s as RankSpark, u as TeamMark } from "./marks-Bl_cCKUl.mjs";
 import { F as YEARS, J as ConfPills, P as Route$10, et as PageHead, it as cn, lt as inConf, st as fmtNum, tt as Panel } from "./router-Ch8vCdZy.mjs";
 import { a as ratedStarCount, i as featuredByComposite, n as compareAvgSort, o as visibleClassAvg, t as COMPOSITE_SOURCE } from "./recruiting-B2tK2ji6.mjs";
