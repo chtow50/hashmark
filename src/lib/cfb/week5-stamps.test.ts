@@ -102,7 +102,7 @@ describe("Week 5 FBS–FBS Research kick/TV/Vegas stamp", () => {
     assert.equal(WEEK5_FEATURED.homeSlug, "virginia-tech");
     assert.equal(WEEK5_FEATURED.awaySlug, "pittsburgh");
     assert.equal(BOARD_WEEK, 5);
-    assert.equal(FEATURED_SLATE_WEEK, 5);
+    assert.equal(FEATURED_SLATE_WEEK, 6);
   });
 
   it("stamps every sourced field from vegas_details, and leaves HOLD blanks null", () => {
@@ -471,5 +471,58 @@ describe("Week 5 Sep 30 Auburn @ Tennessee TV ESPN CLEAR", () => {
     const header = tvSql.split(/update games/i)[0] ?? "";
     assert.doesNotMatch(header, /401856710/);
     assert.doesNotMatch(header, /\b401\d{6,}\b/);
+  });
+});
+
+
+describe("Week 5 Sunday remaining FINALs and HX 2026.7", () => {
+  const finalsSql = readFileSync(join(root, "migrations/0046_week5_remaining_finals.sql"), "utf8");
+  const hxSql = readFileSync(join(root, "migrations/0047_week5_od_hx_ship.sql"), "utf8");
+  const thuSql = readFileSync(join(root, "migrations/0045_week5_thu_finals.sql"), "utf8");
+
+  it("stamps 53 remaining FINALs and leaves the two Thursday cards to 0045", () => {
+    assert.equal((finalsSql.match(/update games/g) ?? []).length, 53);
+    assert.equal((finalsSql.match(/g\.week = 5/g) ?? []).length, 53);
+    assert.doesNotMatch(finalsSql, /kickoff_at/);
+    assert.doesNotMatch(finalsSql, /vegas_spread/);
+    assert.doesNotMatch(finalsSql, /vegas_total/);
+    assert.doesNotMatch(finalsSql, /\btv\s*=/);
+    assert.doesNotMatch(finalsSql, /hx_rating/);
+    assert.doesNotMatch(finalsSql, /401\d{6,}/);
+    assert.doesNotMatch(finalsSql, /slug = 'western-kentucky'/);
+    assert.doesNotMatch(finalsSql, /slug = 'new-mexico-state'/);
+    assert.doesNotMatch(finalsSql, /slug = 'north-texas'/);
+    assert.doesNotMatch(finalsSql, /slug = 'tulsa'/);
+    assert.doesNotMatch(finalsSql, /slug = 'lsu'/);
+    assert.doesNotMatch(finalsSql, /slug = 'uab'/);
+    assert.doesNotMatch(finalsSql, /slug = 'florida-atlantic'/);
+    assert.doesNotMatch(finalsSql, /north-dakota-state/);
+    assert.match(finalsSql, /h\.slug = 'uconn' and a\.slug = 'syracuse'/);
+    assert.match(finalsSql, /home_score = 41/);
+    assert.match(finalsSql, /away_score = 42/);
+    assert.match(finalsSql, /ESPN Final\/OT/);
+    assert.match(finalsSql, /h\.slug = 'south-carolina' and a\.slug = 'kentucky'/);
+    assert.match(finalsSql, /home_score = 34/);
+    assert.match(finalsSql, /away_score = 35/);
+    assert.match(finalsSql, /h\.slug = 'kansas' and a\.slug = 'middle-tennessee'/);
+    assert.match(finalsSql, /home_score = 55/);
+    assert.match(finalsSql, /away_score = 0/);
+    assert.match(thuSql, /home_score = 34/);
+    assert.match(thuSql, /away_score = 13/);
+    assert.match(thuSql, /h\.slug = 'new-mexico-state' and a\.slug = 'western-kentucky'/);
+    assert.match(thuSql, /home_score = 44/);
+    assert.match(thuSql, /away_score = 45/);
+  });
+
+  it("stamps HX 2026.7 on week 0 rankings and leaves Make 12 alone", () => {
+    assert.match(hxSql, /HX 2026\.7/);
+    assert.match(hxSql, /hx_2026_7_week5_research_peer_clear/);
+    assert.match(hxSql, /soft-cal FLAG/i);
+    assert.doesNotMatch(hxSql, /home_score|away_score|playoff|make_field|win_title/);
+    assert.match(hxSql, /'georgia'::text, 7\.8964::double precision, 1::int/);
+    assert.equal((hxSql.match(/^\s+\('/gm) ?? []).length, 136);
+    assert.match(hxSql, /r\.week = 0/);
+    assert.equal(BOARD_WEEK, 5);
+    assert.equal(FEATURED_SLATE_WEEK, 6);
   });
 });

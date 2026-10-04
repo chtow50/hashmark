@@ -23,10 +23,10 @@ import { make12FromSim } from "@/lib/cfb/season-sim";
 import {
   boardDisagreementRows,
   SIM_10K_HX_STAMP,
-  week4BoardFlags,
-  week4SeasonTape,
-  week4Tape,
-  week4Top25Tape,
+  week5BoardFlags,
+  week5SeasonTape,
+  week5Tape,
+  week5Top25Tape,
 } from "@/lib/cfb/truth-pack";
 import type { Prediction, ScheduleGame } from "@/lib/cfb/types";
 import { apLabel, fmtNum, fmtPct } from "@/lib/utils";
@@ -65,10 +65,10 @@ function Home() {
     : null;
 
   const disagreements = boardDisagreementRows(teams).slice(0, 8);
-  const tape = week4Tape();
-  const top25 = week4Top25Tape();
-  const season = week4SeasonTape();
-  const flags = week4BoardFlags();
+  const tape = week5Tape();
+  const top25 = week5Top25Tape();
+  const season = week5SeasonTape();
+  const flags = week5BoardFlags();
   const oneMake = one ? make12FromSim(one.slug, one) : null;
 
   const recLeaders = [...teams].sort((a, b) => a.recRank - b.recRank).slice(0, 5);
@@ -156,9 +156,9 @@ function Home() {
         top25={top25}
         season={season}
         flags={flags}
-        weekLabel="Week 4 tape"
-        storySlug="week-4-tape"
-        dek="Full slate closer is a FLAG. Top 25 closer 8/18 is a FLAG. HX not retuned."
+        weekLabel="Week 5 tape"
+        storySlug="week-5-tape"
+        dek="Full slate closer is a FLAG. Soft-cal FLAG stays. HX not retuned."
       />
 
       <Panel>

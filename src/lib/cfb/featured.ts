@@ -21,13 +21,14 @@ export const AP_STAMP = {
 } as const;
 
 /**
- * Featured kick reads the HASHMARK Week 5 slate (`/schedule?w=5`).
- * Thursday Week 5 openers are FINAL, so the home card is the next
- * upcoming non-final by kick time (Friday Liberty @ Delaware / Pitt @ VT
- * windows while still Kick). FCS rows are never featured. Never invent
- * Vegas. BOARD_WEEK is 5. Live ratings are HX 2026.6.
+ * Featured kick reads the HASHMARK Week 6 slate (`/schedule?w=6`).
+ * Week 5 is entirely FINAL, so the home card is the earliest upcoming
+ * Week 6 FBS kick (already stamped by the Week 6 kick/TV/Vegas pack).
+ * FCS rows are never featured. Never invent Vegas. BOARD_WEEK stays 5.
+ * Live ratings are HX 2026.7. The Week 5 tape grades the HX 2026.6
+ * pregame board. Make the 12 stays the HX 2026.6 10k table.
  */
-export const FEATURED_SLATE_WEEK = 5;
+export const FEATURED_SLATE_WEEK = 6;
 
 /** Thursday night flag: Colorado at Georgia Tech, Bobby Dodd. */
 export const WEEK1_FLAG = {
@@ -67,8 +68,8 @@ export const WEEK4_FEATURED = {
 /**
  * Friday ESPN: Pittsburgh at Virginia Tech. Schedule-page pin for
  * `/schedule?w=5`. Fri 2026-10-02 18:00 CT · ESPN · VT −3.5 / 52.5.
- * The home desk uses the earliest Week 5 kick, not this pin.
- * BOARD_WEEK is 5.
+ * The home desk uses FEATURED_SLATE_WEEK (6) and the earliest Week 6
+ * kick, not this pin. BOARD_WEEK stays 5.
  */
 export const WEEK5_FEATURED = {
   homeSlug: "virginia-tech",
@@ -79,7 +80,8 @@ export const WEEK5_FEATURED = {
  * Friday ESPN: Iowa State at BYU. Schedule-page pin for
  * `/schedule?w=6`. Fri 2026-10-09 21:15 CT · ESPN · BYU −14.5 / 50.5.
  * Day-risk: HM labels Saturday, Oct 10; ESPN CT is Friday.
- * Live desk / FEATURED_SLATE_WEEK stays 5. BOARD_WEEK is 5.
+ * Home desk FEATURED_SLATE_WEEK is 6 (earliest Week 6 kick, not this pin).
+ * BOARD_WEEK stays 5.
  */
 export const WEEK6_FEATURED = {
   homeSlug: "byu",
@@ -175,8 +177,8 @@ export function isIowaStateAtByu(
  * Featured card scoped to the schedule week being viewed.
  * Week 5 pins Pittsburgh @ Virginia Tech (CLEAR), even though WKU @ NMSU
  * kicks earlier. Week 6 pins Iowa State @ BYU (CLEAR), even though midweek
- * cards kick earlier. The homepage desk uses FEATURED_SLATE_WEEK (still 5)
- * and the earliest kick, not these pins. Never invents a matchup.
+ * cards kick earlier. The homepage desk uses FEATURED_SLATE_WEEK (6)
+ * and the earliest Week 6 kick, not these pins. Never invents a matchup.
  */
 export function selectWeekScopedFeatured<
   T extends Pick<ScheduleGame, "status" | "homeSlug" | "awaySlug"> & { isFcs?: boolean },

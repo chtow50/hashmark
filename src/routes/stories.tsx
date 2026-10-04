@@ -40,9 +40,9 @@ function StoriesPage() {
   return (
     <div>
       <PageHead
-        kicker="Week 5 · Oct 2"
-        title="Week 5 Friday desk."
-        lede="Florida–Missouri flip. Miami–Clemson chill. Alabama doubles the book. GameDay in Iowa City."
+        kicker="Week 5 · Oct 4"
+        title="Week 5 tape."
+        lede="39/55 straight up. Closer 20/55 is a FLAG. Soft-cal stays. HX not retuned."
       />
 
       <p className="mb-8 font-mono text-[11px] uppercase tracking-[0.16em] text-faint">
@@ -56,7 +56,7 @@ function StoriesPage() {
         <span className="mx-2" aria-hidden>
           ·
         </span>
-        HX 2026.6 · Week 5 board · Soft-cal FLAG
+        HX 2026.7 · Week 5 board · Soft-cal FLAG
       </p>
 
       {lead ? (
