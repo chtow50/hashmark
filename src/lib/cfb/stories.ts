@@ -20,9 +20,30 @@ export const STORY_DATE_TAPE_WEEK4 = "Sunday, Sep 27, 2026";
 export const STORY_DATE_WEEK3 = "Friday, Sep 18, 2026";
 export const STORY_DATE_WEEK4 = "Friday, Sep 25, 2026";
 export const STORY_DATE_WEEK5 = "Friday, Oct 2, 2026";
+export const STORY_DATE_TAPE_WEEK5 = "Sunday, Oct 4, 2026";
 
 export const STORIES: Story[] = [
 
+  {
+    slug: "week-5-tape",
+    kicker: "Week 5 tape",
+    headline: "Week 5 tape: 39/55 SU, 20/55 closer FLAG.",
+    dek: "Full slate closer is a FLAG. Soft-cal FLAG stays. HX not retuned.",
+    date: STORY_DATE_TAPE_WEEK5,
+    body: [
+      "Week 5 SU 39/55 (70.9%). HX closer to the final than Vegas 20/55 (36.4%) — FLAG, under 45%. Vegas closer 35/55. Ties 0. FBS–FBS only, n=55. Season W1–W5 arithmetic, not a fresh audit of Weeks 1–4: SU 78.7% (203/258) · closer 39.9% (103/258). Soft-cal FLAG. This week’s ledger, not a retune.",
+      "Stored file ATS is 26/55 (47.3%). This desk did not re-derive that ATS rule. Full-slate MAE HX 14.87 / Vegas 13.19. Brier 0.195. Research Vegas books + ESPN FINALs. Soft-cal FLAG. all-D still in force. HX not retuned.",
+      "Sixteen SU misses, HX favorites: Western Kentucky @ New Mexico State, North Texas @ Tulsa, Pittsburgh @ Virginia Tech, Penn State @ Northwestern, Michigan @ Minnesota, Syracuse @ UConn, Navy @ Air Force, Old Dominion @ Georgia State, Bowling Green @ Miami (OH), Kentucky @ South Carolina, Purdue @ Illinois, Georgia Southern @ Coastal Carolina, Temple @ South Florida, Fresno State @ Washington State, Baylor @ Arizona State, San José State @ Hawaiʻi.",
+      "Winner-flip hits: Florida @ Missouri, Eastern Michigan @ Massachusetts, Louisville @ NC State, Virginia @ Florida State, Army @ Louisiana Tech, Texas State @ San Diego State. Winner-flip misses: Western Kentucky @ New Mexico State, Syracuse @ UConn, Navy @ Air Force, Old Dominion @ Georgia State, Georgia Southern @ Coastal Carolina. Two overtime cards in the new stamps: Syracuse 42–UConn 41 and Kentucky 35–South Carolina 34. The schedule card has no overtime badge, so those rows stamp as FINAL with the score only. North Texas 45–44 Tulsa was already live.",
+      "Top 25 involvement on the HX 2026.6 pregame board (n=15, hx_rank ≤25): closer 7/15 (46.7%), SU 13/15. That cut uses the Week 4 rule on this week’s CLEARed finals. It is not the Research headline and it does not clear the full-slate FLAG.",
+    ],
+    whyItMatters:
+      "Fifth public ledger of 2026. Full slate closer is a FLAG. Soft-cal FLAG stays. HX not retuned.",
+    sources: [
+      { label: "HASHMARK Board", href: "https://hashmarkcfb.com/" },
+      { label: "HASHMARK Schedule", href: "https://hashmarkcfb.com/schedule?w=5" },
+    ],
+  },
   {
     slug: "week-5-florida-missouri",
     kicker: "Week 5 · Winner flip",

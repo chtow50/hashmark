@@ -1,17 +1,17 @@
 import type { Prediction, TeamSummary } from "./types";
 
 /**
- * HASHMARK Index — the user's validated model (HX 2026.6 chrome after Week 4 units + ΔHX).
+ * HASHMARK Index — the user's validated model (HX 2026.7 chrome after Week 5 units + ΔHX).
  * Weights from power_rankings.py DEFAULT_WEIGHTS, walk-forward Top 25
  * balanced ≈ 0.646. Talent and prior_rating carry the real signal.
  * Matchup math is the Elo mapping from matchup.py (70.8% SU, 2019–2025).
  * Spread is a quadratic on Elo gap, fit on 2019–2023 FBS MOV (holdout 2024–2025).
  * Quadratic / talent / z* weights / team-HFA / weather / QB tenure SOS — unchanged.
- * Make the 12 / Win the title from HX 2026.6 10k draws (make-field and win-title stay separate).
+ * Make the 12 / Win the title stay on HX 2026.6 10k draws (no 2026.7 re-sim).
  */
 export const MODEL = {
   name: "HX Rating",
-  version: "2026.6",
+  version: "2026.7",
   season: 2026,
   week: 5,
   weekLabel: "Week 5 board",
