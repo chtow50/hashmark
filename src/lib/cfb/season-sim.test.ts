@@ -48,27 +48,29 @@ function scheduleFixture(
   };
 }
 
-test("make12FromSim loads Georgia HX 2026.6 draws — make-field is not title", () => {
+test("make12FromSim loads Georgia HX 2026.7 draws — make-field is not title", () => {
   const odds = make12FromSim("georgia", { playoffOdds: 98.4 });
   assert.equal(odds.makeFieldSource, "amd-draws");
   assert.equal(odds.winTitleSource, "amd-draws");
   assert.ok(odds.makeField != null);
   assert.ok(odds.winTitle != null);
-  assert.equal(odds.makeField, 84.5);
-  assert.equal(odds.winTitle, 23.56);
-  assert.equal(Number(odds.makeField.toFixed(1)), 84.5);
-  assert.equal(Number(odds.winTitle.toFixed(1)), 23.6);
+  assert.equal(odds.makeField, 86.51);
+  assert.equal(odds.winTitle, 24.29);
+  assert.equal(Number(odds.makeField.toFixed(1)), 86.5);
+  assert.equal(Number(odds.winTitle.toFixed(1)), 24.3);
   assert.notEqual(odds.makeField, odds.winTitle);
   assert.notEqual(Number(odds.makeField.toFixed(0)), 98);
-  assert.match(make12FieldLabel(odds.makeFieldSource) ?? "", /HX 2026\.6 · 10k draws/);
-  assert.match(make12FieldLabel(odds.makeFieldSource) ?? "", /2026-09-28/);
+  assert.match(make12FieldLabel(odds.makeFieldSource) ?? "", /HX 2026\.7 · 10k draws/);
+  assert.match(make12FieldLabel(odds.makeFieldSource) ?? "", /2026-10-05/);
   assert.match(make12FieldLabel(odds.makeFieldSource) ?? "", /not title/);
+  assert.doesNotMatch(make12FieldLabel(odds.makeFieldSource) ?? "", /HX 2026\.6 ·/);
   assert.doesNotMatch(make12FieldLabel(odds.makeFieldSource) ?? "", /HX 2026\.4/);
   assert.doesNotMatch(make12FieldLabel(odds.makeFieldSource) ?? "", /pre-Δ/);
   assert.doesNotMatch(make12TitleLabel(odds.winTitleSource) ?? "", /not a post-2026\.3 re-sim/);
   assert.doesNotMatch(make12TitleLabel(odds.winTitleSource) ?? "", /pre-Δ/);
   assert.match(make12PanelLede(odds.makeFieldSource), /not a national title/);
-  assert.match(make12PanelLede(odds.makeFieldSource), /HX 2026\.6 · 10k draws/);
+  assert.match(make12PanelLede(odds.makeFieldSource), /HX 2026\.7 · 10k draws/);
+  assert.doesNotMatch(make12PanelLede(odds.makeFieldSource), /HX 2026\.6 ·/);
   assert.doesNotMatch(make12PanelLede(odds.makeFieldSource), /HX 2026\.4/);
   assert.doesNotMatch(make12PanelLede(odds.makeFieldSource), /pre-Δ/);
   assert.doesNotMatch(make12PanelLede(odds.makeFieldSource), /not a post-2026\.3 re-sim/);

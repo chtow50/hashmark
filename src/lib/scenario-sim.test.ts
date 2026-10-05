@@ -106,8 +106,8 @@ test("AMD golden fixture keeps Georgia make-field 75.26 separate from title 21.5
   assert.deepEqual(example.response, fixture);
 
   const board = make12FromSim("georgia");
-  assert.equal(board.makeField, 84.5);
-  assert.equal(board.winTitle, 23.56);
+  assert.equal(board.makeField, 86.51);
+  assert.equal(board.winTitle, 24.29);
   assert.notEqual(board.makeField, g.make_field);
   assert.notEqual(board.winTitle, g.win_title);
 });

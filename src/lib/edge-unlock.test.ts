@@ -232,14 +232,21 @@ test("current on-disk pack manifest is valid and files exist", () => {
   const raw = readFileSync(join(dir, "manifest.json"), "utf8");
   const manifest = parsePackManifest(raw);
   assert.ok(manifest);
-  assert.equal(manifest.week, 5);
+  assert.equal(manifest.week, 6);
   assert.equal(manifest.season, 2026);
+  assert.equal(manifest.product, "HX Edge Pack Week 6 SAMPLE");
   assert.equal(manifest.support_email, "hello@hashmarkcfb.com");
+  assert.equal(manifest.files.md, "hx_edge_pack_week6_sample_2026.md");
+  assert.equal(manifest.files.json, "hx_edge_pack_week6_sample_2026.json");
   const md = readFileSync(join(dir, manifest.files.md), "utf8");
   const json = readFileSync(join(dir, manifest.files.json), "utf8");
   assert.match(md, /HX Edge Pack/);
+  assert.match(md, /Week 6 SAMPLE/);
   assert.ok(json.length > 0);
-  JSON.parse(json);
+  const pack = JSON.parse(json);
+  assert.equal(pack.week, 6);
+  assert.equal(pack.confidence_card_n, 12);
+  assert.equal(pack.price_tier, "SAMPLE_5");
 });
 
 test("download href keeps session_id and format as query params", () => {
