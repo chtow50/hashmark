@@ -498,6 +498,17 @@ describe("prebuilt deploy artifacts", () => {
     assert.doesNotMatch(text, /Swipe → AP stays/);
   });
 
+  it("pins serverless function runtime to nodejs22.x (Vercel blocked new nodejs20.x after 2026-10-01)", () => {
+    const cfgPath = join(OUT, "functions/__server.func/.vc-config.json");
+    assert.ok(existsSync(cfgPath), "missing .vc-config.json");
+    const cfg = JSON.parse(readFileSync(cfgPath, "utf8"));
+    assert.equal(cfg.runtime, "nodejs22.x");
+    const nitro = JSON.parse(readFileSync(join(OUT, "nitro.json"), "utf8"));
+    assert.equal(nitro?.config?.vercel?.functions?.runtime, "nodejs22.x");
+    const nitroText = readFileSync(join(OUT, "nitro.json"), "utf8");
+    assert.doesNotMatch(nitroText, /nodejs20\.x/);
+  });
+
   it("keeps PGLite wasm sidecars next to the server bundle", () => {
     const libs = join(OUT, "functions/__server.func/_libs");
     for (const name of ["pglite.wasm", "initdb.wasm", "pglite.data"]) {
