@@ -12,7 +12,7 @@
  *   data/week4_tape_top25_closer_2026.json
  *   data/week5_tape_2026.json
  *   data/week5_tape_top25_closer_2026.json
- *   data/sim_10k_2026_hx2026_6.json
+ *   data/sim_10k_2026_hx2026_7.json
  */
 import gapsRaw from "../../../data/week5_hx_vs_ap_gaps_2026.json" with { type: "json" };
 import packRaw from "../../../data/week1_accountability_pack_2026.json" with { type: "json" };
@@ -24,7 +24,7 @@ import week4TapeRaw from "../../../data/week4_tape_2026.json" with { type: "json
 import week4Top25Raw from "../../../data/week4_tape_top25_closer_2026.json" with { type: "json" };
 import week5TapeRaw from "../../../data/week5_tape_2026.json" with { type: "json" };
 import week5Top25Raw from "../../../data/week5_tape_top25_closer_2026.json" with { type: "json" };
-import simRaw from "../../../data/sim_10k_2026_hx2026_6.json" with { type: "json" };
+import simRaw from "../../../data/sim_10k_2026_hx2026_7.json" with { type: "json" };
 import week5ApRaw from "../../../data/week5_ap_top25_2026.json" with { type: "json" };
 
 /** Research desk flags on the Week 5 ballot. Mississippi State (−50) / Oklahoma State (−70) lead the |delta| sort after these. */
@@ -205,7 +205,7 @@ export type Sim10kFile = {
     as_of: string;
     as_of_tz: string;
     hx_policy: string;
-    /** Present on HX 2026.6+ packs. Absent packs fall back to the hardcoded stamp. */
+    /** Present on HX 2026.6+ packs (live free board is HX 2026.7). Absent packs fall back to the hardcoded stamp. */
     hx_stamp?: string;
   };
   teams: Sim10kTeam[];
@@ -420,9 +420,9 @@ const AP_SLUG_BY_NAME = new Map(
   }),
 );
 
-/** HX 2026.6 10k draws — AMD re-sim (seed 20260913). Stamp from meta.hx_stamp when present. */
+/** HX 2026.7 10k draws — AMD re-sim (seed 20260913). Stamp from meta.hx_stamp when present. */
 export const SIM_10K_AS_OF = sim10k.meta.as_of;
-export const SIM_10K_HX_STAMP = sim10k.meta.hx_stamp ?? "HX 2026.6";
+export const SIM_10K_HX_STAMP = sim10k.meta.hx_stamp ?? "HX 2026.7";
 export const SIM_10K_NOTE = `${SIM_10K_HX_STAMP} · 10k draws · as_of ${SIM_10K_AS_OF}`;
 
 export type TeamRef = {

@@ -4,12 +4,12 @@ import type { ScheduleGame } from "./types";
  * Board chrome week (Rankings / home PageHead). Ranking *rows* stay
  * `season = 2026 AND week = 0` — that is what queries read.
  */
-export const BOARD_WEEK = 5;
+export const BOARD_WEEK = 6;
 
 /**
  * Last stamped AP ballot on the live board.
- * HX chrome is Week 5. AP is the last stamped poll (Week 5, Sept. 27) —
- * not a Week 4 ballot.
+ * HX chrome is Week 6. AP is the last stamped poll (Week 5, Sept. 27) —
+ * not a Week 4 ballot. No Week 6 AP yet — do not invent one.
  */
 export const AP_STAMP = {
   week: 5,
@@ -17,16 +17,16 @@ export const AP_STAMP = {
   label: "Week 5 AP",
   columnHint: "W5 stamp",
   vsHx: "last stamped AP (Week 5, Sept. 27)",
-  lede: "HX is Week 5. AP is the last stamped poll (Week 5, Sept. 27) — not a Week 4 ballot.",
+  lede: "HX is Week 6. AP is the last stamped poll (Week 5, Sept. 27) — not a Week 4 ballot.",
 } as const;
 
 /**
  * Featured kick reads the HASHMARK Week 6 slate (`/schedule?w=6`).
- * Week 5 is entirely FINAL, so the home card is the earliest upcoming
- * Week 6 FBS kick (already stamped by the Week 6 kick/TV/Vegas pack).
- * FCS rows are never featured. Never invent Vegas. BOARD_WEEK stays 5.
- * Live ratings are HX 2026.7. The Week 5 tape grades the HX 2026.6
- * pregame board. Make the 12 stays the HX 2026.6 10k table.
+ * Board chrome is Week 6. Live ratings are HX 2026.7. The Week 5 tape
+ * grades the HX 2026.6 pregame board. Make the 12 stays the HX 2026.6
+ * 10k table. Home desk aligns to the Week 6 Research pin (Iowa State @
+ * BYU), matching `/schedule?w=6` featured — not the earliest kick.
+ * FCS rows are never featured. Never invent Vegas.
  */
 export const FEATURED_SLATE_WEEK = 6;
 
@@ -68,8 +68,8 @@ export const WEEK4_FEATURED = {
 /**
  * Friday ESPN: Pittsburgh at Virginia Tech. Schedule-page pin for
  * `/schedule?w=5`. Fri 2026-10-02 18:00 CT · ESPN · VT −3.5 / 52.5.
- * The home desk uses FEATURED_SLATE_WEEK (6) and the earliest Week 6
- * kick, not this pin. BOARD_WEEK stays 5.
+ * Historical Week 5 pin — home desk now uses WEEK6_FEATURED.
+ * BOARD_WEEK is 6.
  */
 export const WEEK5_FEATURED = {
   homeSlug: "virginia-tech",
@@ -78,10 +78,12 @@ export const WEEK5_FEATURED = {
 
 /**
  * Friday ESPN: Iowa State at BYU. Schedule-page pin for
- * `/schedule?w=6`. Fri 2026-10-09 21:15 CT · ESPN · BYU −14.5 / 50.5.
+ * `/schedule?w=6` and the home desk featured card.
+ * Fri 2026-10-09 21:15 CT · ESPN · BYU −10.5 / 48.5
+ * (Oct 5 CLEAR restamp; was −14.5 / 50.5).
  * Day-risk: HM labels Saturday, Oct 10; ESPN CT is Friday.
- * Home desk FEATURED_SLATE_WEEK is 6 (earliest Week 6 kick, not this pin).
- * BOARD_WEEK stays 5.
+ * Home desk FEATURED_SLATE_WEEK is 6 and prefers this pin over the
+ * earliest Week 6 kick. BOARD_WEEK is 6.
  */
 export const WEEK6_FEATURED = {
   homeSlug: "byu",
@@ -148,16 +150,18 @@ export function selectFeaturedKick<
 }
 
 /**
- * Board featured for the live featured slate (Week 5).
- * Week 2, Week 3, and Week 4 Research pins stay historical helpers —
- * those rows are FINAL and must not feature. Liberty @ Coastal is FINAL
- * (34–17) and must not feature. A finished Week 4 slate returns null.
- * Week 5: earliest upcoming FBS kick. Blank Vegas stays blank.
- * Never a FINAL. Never FCS. Never invent a book or matchup.
+ * Board featured for the live featured slate (Week 6).
+ * Prefers the Week 6 Research pin (Iowa State @ BYU) via
+ * `selectWeekScopedFeatured(FEATURED_SLATE_WEEK, …)`. Falls back to the
+ * earliest upcoming kick only when the pin is missing or FINAL.
+ * Week 2–5 Research pins stay historical helpers. Never a FINAL. Never
+ * FCS. Never invent a book or matchup. Blank Vegas stays blank.
  */
 export function selectBoardFeaturedKick<
   T extends Pick<ScheduleGame, "status" | "kickoffAt" | "homeSlug" | "awaySlug"> & { isFcs?: boolean },
 >(slate: T[], nowMs: number): T | null {
+  const pinned = selectWeekScopedFeatured(FEATURED_SLATE_WEEK, slate);
+  if (pinned && isUpcomingKick(pinned, nowMs)) return pinned;
   return selectFeaturedKick(slate, nowMs);
 }
 
@@ -177,8 +181,8 @@ export function isIowaStateAtByu(
  * Featured card scoped to the schedule week being viewed.
  * Week 5 pins Pittsburgh @ Virginia Tech (CLEAR), even though WKU @ NMSU
  * kicks earlier. Week 6 pins Iowa State @ BYU (CLEAR), even though midweek
- * cards kick earlier. The homepage desk uses FEATURED_SLATE_WEEK (6)
- * and the earliest Week 6 kick, not these pins. Never invents a matchup.
+ * cards kick earlier. The homepage desk uses FEATURED_SLATE_WEEK (6) and
+ * the same Week 6 pin via `selectBoardFeaturedKick`. Never invents a matchup.
  */
 export function selectWeekScopedFeatured<
   T extends Pick<ScheduleGame, "status" | "homeSlug" | "awaySlug"> & { isFcs?: boolean },

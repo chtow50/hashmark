@@ -46,16 +46,16 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /lbAvgWeightLbs/);
   });
 
-  it("includes Week 1 tape, gaps, and HX 2026.6 Make the 12 in committed output", () => {
+  it("includes Week 1 tape, gaps, and HX 2026.7 Make the 12 in committed output", () => {
     const text = corpus();
     assert.match(text, /36\/43/);
     assert.match(text, /make_field/);
-    assert.match(text, /84\.5/);
-    assert.match(text, /23\.56/);
+    assert.match(text, /86\.51/);
+    assert.match(text, /24\.29/);
     assert.match(text, /20260913/);
-    assert.match(text, /2026-09-28/);
-    assert.match(text, /sim_10k_2026_hx2026_6/);
-    assert.match(text, /HX 2026\.6/);
+    assert.match(text, /2026-10-05/);
+    assert.match(text, /sim_10k_2026_hx2026_7/);
+    assert.match(text, /HX 2026\.7/);
     assert.match(text, /10k draws/);
     assert.match(text, /make12FromSim|amd-draws|make-field, not title/);
     assert.doesNotMatch(text, /HX 2026\.4 · 10k draws/);
@@ -189,6 +189,7 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /WEEK5_FEATURED/);
     assert.match(text, /selectWeekScopedFeatured/);
     assert.match(text, /Week 5 board/);
+    assert.match(text, /Week 6 board/);
     assert.match(text, /401858245/);
   });
 
@@ -244,6 +245,27 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /FEATURED_SLATE_WEEK = 5/);
   });
 
+  it("includes the Oct 5 Week 6 Vegas CLEAR refresh in committed output", () => {
+    const text = corpus();
+    assert.match(text, /0048_week6_vegas_clear_2026_10_05/);
+    assert.match(text, /week6_vegas_clear_pack_2026-10-05/);
+    assert.match(text, /timestamptz '2026-10-09 21:15:00-05'/);
+    assert.match(text, /h\.slug = 'byu' then 10\.5 else -10\.5/);
+    assert.match(text, /vegas_total = 48\.5/);
+    assert.match(text, /h\.slug = 'troy' then 10\.5 else -10\.5/);
+    assert.match(text, /h\.slug = 'florida' then 13\.5 else -13\.5/);
+    assert.match(text, /vegas_total = 62\.5/);
+    assert.match(text, /h\.slug = 'missouri' then 3\.5 else -3\.5/);
+    assert.match(text, /h\.slug = 'alabama' then 1\.5 else -1\.5/);
+    assert.match(text, /vegas_total = 55\.5/);
+    assert.match(text, /h\.slug = 'washington' then 2\.5 else -2\.5/);
+    assert.match(text, /tv = null/);
+    assert.match(text, /HOLD \(TV\) Iowa @ Washington/);
+    assert.match(text, /HOLD \(Vegas\) Kansas @ Utah/);
+    assert.match(text, /WEEK6_FEATURED/);
+    assert.match(text, /BOARD_WEEK is 6|BOARD_WEEK = 6/);
+  });
+
 
   it("includes Week 2 O/D + HX 2026.4 stamp and Week 3 chrome in committed output", () => {
     const text = corpus();
@@ -260,12 +282,12 @@ describe("prebuilt deploy artifacts", () => {
     assert.doesNotMatch(text, /The board is posted/);
   });
 
-  it("includes Week 3 O/D + HX 2026.5 stamp (live chrome is Week 5)", () => {
+  it("includes Week 3 O/D + HX 2026.5 stamp (live chrome is Week 6)", () => {
     const text = corpus();
     assert.match(text, /0034_week3_od_hx_ship/);
     assert.match(text, /HX 2026\.5/);
-    assert.match(text, /Week 5 board/);
-    assert.match(text, /HX is Week 5/);
+    assert.match(text, /Week 6 board/);
+    assert.match(text, /HX is Week 6/);
     assert.match(text, /not a Week 4 ballot/);
     assert.match(text, /Week 5 AP/);
     assert.match(text, /W5 stamp/);
@@ -273,8 +295,8 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /0\.0711/);
     assert.match(text, /week3_od_hx_ship_2026/);
     assert.match(text, /sunday_od_delta_2026_w3/);
-    assert.match(text, /sim_10k_2026_hx2026_6/);
-    assert.match(text, /HX 2026\.6/);
+    assert.match(text, /sim_10k_2026_hx2026_7/);
+    assert.match(text, /HX 2026\.7/);
     assert.match(text, /10k draws/);
   });
 
@@ -293,18 +315,18 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /20\/21/);
   });
 
-  it("includes Week 4 O/D + HX 2026.6 stamp (live chrome is Week 5)", () => {
+  it("includes Week 4 O/D + HX 2026.6 stamp (live chrome is Week 6)", () => {
     const text = corpus();
     assert.match(text, /0040_week4_od_hx_ship/);
     assert.match(text, /HX 2026\.6/);
-    assert.match(text, /Week 5 board/);
+    assert.match(text, /Week 6 board/);
     assert.match(text, /7\.8964/);
     assert.match(text, /UCLA \+0\.071/);
     assert.match(text, /week4_od_hx_ship_2026/);
     assert.match(text, /sunday_od_delta_2026_w4/);
     assert.match(text, /Soft-cal FLAG/);
-    assert.match(text, /sim_10k_2026_hx2026_6/);
-    assert.match(text, /HX 2026\.6/);
+    assert.match(text, /sim_10k_2026_hx2026_7/);
+    assert.match(text, /HX 2026\.7/);
     assert.match(text, /10k draws/);
     assert.doesNotMatch(text, /unit O\/D pulse is live|pulse chrome/i);
   });
@@ -324,7 +346,7 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /8\/18/);
     assert.match(text, /Soft-cal FLAG/);
     assert.match(text, /homepage desk uses FEATURED_SLATE_WEEK/);
-    assert.match(text, /HX is Week 5/);
+    assert.match(text, /HX is Week 6/);
   });
 
   it("includes Week 4 Friday stories, Liberty FINAL, Iowa FCS, and Week 4 AP in committed output", () => {
@@ -375,8 +397,8 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /week-5-wku-nmsu-final/);
     assert.match(text, /Portland State/);
     assert.match(text, /W5 stamp/);
-    assert.match(text, /Week 5 board/);
-    assert.match(text, /HX is Week 5/);
+    assert.match(text, /Week 6 board/);
+    assert.match(text, /HX is Week 6/);
     assert.match(text, /not a Week 4 ballot/);
     assert.doesNotMatch(text, /Texas A&M AP 23/);
   });
@@ -395,6 +417,7 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /week-3-lsu-ole-miss/);
     assert.match(text, /Vegas has Texas Tech/);
     assert.match(text, /Week 5 board/);
+    assert.match(text, /Week 6 board/);
   });
 
   it("includes HX Edge Pack /edge with baked Stripe Payment Links", () => {
@@ -429,7 +452,7 @@ describe("prebuilt deploy artifacts", () => {
     assert.doesNotMatch(server, /VITE_STRIPE_SECRET_KEY/);
     assert.match(server, /hello@hashmarkcfb\.com/);
     assert.match(server, /hx_edge_confidence_schema_2026/);
-    assert.match(server, /hx_edge_pack_week5_sample_2026/);
+    assert.match(server, /hx_edge_pack_week6_sample_2026/);
   });
 
   it("does not dump the current Edge Pack onto public client assets", () => {
@@ -439,6 +462,7 @@ describe("prebuilt deploy artifacts", () => {
       .join("\n");
     assert.doesNotMatch(client, /SAMPLE_5/);
     assert.doesNotMatch(client, /pack_body_paste/);
+    assert.doesNotMatch(client, /hx_edge_pack_week6_sample_2026/);
     assert.doesNotMatch(client, /hx_edge_pack_week5_sample_2026/);
     assert.doesNotMatch(client, /hx_edge_pack_week3_sample_thickened_2026/);
     assert.match(client, /\/edge\/unlock|edge\/unlock/);
