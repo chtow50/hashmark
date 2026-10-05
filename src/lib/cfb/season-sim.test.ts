@@ -9,6 +9,8 @@ import {
   buildSeasonSchedule,
   make12FieldLabel,
   make12FromSim,
+  make12FreeFromSim,
+  make12FreeView,
   make12FromTeam,
   make12PanelLede,
   make12TitleLabel,
@@ -83,6 +85,35 @@ test("rankings Make 12 column reads make12FromSim makeField, not playoffOdds", (
   );
   assert.match(src, /make12FromSim\(t\.slug, t\)\.makeField/);
   assert.doesNotMatch(src, /fmtPct\(t\.playoffOdds/);
+});
+
+test("free Make 12 keeps Georgia make-field public and drops win_title (Edge Pack only)", () => {
+  const free = make12FreeFromSim("georgia", { playoffOdds: 98.4 });
+  assert.equal(free.makeField, 86.51);
+  assert.equal(free.makeFieldSource, "amd-draws");
+  assert.equal(free.winTitle, null);
+  assert.equal(free.winTitleSource, "pack-only");
+  assert.match(make12TitleLabel(free.winTitleSource) ?? "", /Edge Pack only/);
+  assert.doesNotMatch(JSON.stringify(free), /24\.29|24\.3/);
+  // Pending / legacy stay pending — never relabelled as a pack number.
+  const legacy = make12FreeView(make12FromTeam({ playoffOdds: 42.5 }));
+  assert.equal(legacy.winTitle, null);
+  assert.equal(legacy.winTitleSource, "pending");
+});
+
+test("free team page and Make12Panel never render win_title", () => {
+  const here = dirname(fileURLToPath(import.meta.url));
+  const team = readFileSync(join(here, "../../routes/teams.$slug.tsx"), "utf8");
+  assert.match(team, /make12FreeFromSim\(team\.slug, team\)/);
+  assert.doesNotMatch(team, /make12FromSim\(/);
+  assert.doesNotMatch(team, /tier="pack"/);
+  const panel = readFileSync(join(here, "../../components/season-sim.tsx"), "utf8");
+  assert.match(panel, /tier = "free"/);
+  assert.match(panel, /make12FreeView\(odds\)/);
+  for (const route of ["index.tsx", "rankings.tsx"]) {
+    const src = readFileSync(join(here, "../../routes", route), "utf8");
+    assert.doesNotMatch(src, /winTitle|win_title/, `${route} must not render win_title on free chrome`);
+  }
 });
 
 test("make12FromTeam maps legacy playoff_odds to make-field only", () => {

@@ -1,6 +1,6 @@
 import { n as MODEL } from "./fcs-stubs-B14O3-Wy.mjs";
 import { w as require_jsx_runtime, x as Link } from "../_libs/@tanstack/react-router+[...].mjs";
-import { et as PageHead, tt as Panel } from "./router-B1sVPkvZ.mjs";
+import { nt as PageHead, rt as Panel } from "./router-ZJ_50n8c.mjs";
 //#region node_modules/.nitro/vite/services/ssr/assets/desk-BIEia1RN.js
 var import_jsx_runtime = require_jsx_runtime();
 var GLOSSARY = [

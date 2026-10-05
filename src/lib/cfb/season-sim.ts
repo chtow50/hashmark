@@ -32,7 +32,11 @@ export type TeamScheduleRow = {
 /** @deprecated Use ScheduleGame — kept for test fixtures. */
 export type TeamScheduleGame = ScheduleGame;
 
-export type Make12Source = "amd-draws" | "legacy-playoff-odds" | "pending";
+/**
+ * "pack-only" marks a value that exists in the AMD draws but is Edge Pack / paid only
+ * (win_title). Free surfaces never carry the number — make-field stays public.
+ */
+export type Make12Source = "amd-draws" | "legacy-playoff-odds" | "pending" | "pack-only";
 
 /** CFP Make 12 odds — make-field and win-title are separate draws (AMD owns 10k sim). */
 export type Make12Odds = {
@@ -102,6 +106,27 @@ export function make12FromSim(
   };
 }
 
+/**
+ * Free-surface projection of Make 12: make-field stays public, win_title is
+ * Edge Pack / paid only (AMD + Research rule). The number is dropped, not hidden.
+ */
+export function make12FreeView(odds: Make12Odds): Make12Odds {
+  return {
+    makeField: odds.makeField,
+    makeFieldSource: odds.makeFieldSource,
+    winTitle: null,
+    winTitleSource: odds.winTitleSource === "amd-draws" ? "pack-only" : odds.winTitleSource,
+  };
+}
+
+/** Free board / free team page Make 12 — make-field only; win_title gated to Edge Pack. */
+export function make12FreeFromSim(
+  slug: string,
+  team?: Pick<TeamSummary, "playoffOdds">,
+): Make12Odds {
+  return make12FreeView(make12FromSim(slug, team));
+}
+
 function toFcsStubRow(stub: FcsStubGame, i: number): TeamScheduleRow {
   return {
     key: `fcs-${stub.teamSlug}-${stub.kickoffDate}-${i}`,
@@ -158,6 +183,7 @@ export function make12FieldLabel(source: Make12Source): string | undefined {
 
 export function make12TitleLabel(source: Make12Source): string | undefined {
   if (source === "pending") return "Awaiting AMD draws";
+  if (source === "pack-only") return "Edge Pack only · make-field stays free";
   return SIM_10K_NOTE;
 }
 
