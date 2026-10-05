@@ -7,11 +7,13 @@ import { predictMatchup } from "@/lib/cfb/model";
 import { isWinnerFlip, matchupChips } from "@/lib/cfb/schedule-flags";
 import {
   make12FieldLabel,
+  make12FreeView,
   make12PanelLede,
   make12TitleLabel,
   type Make12Odds,
   type TeamScheduleRow,
 } from "@/lib/cfb/season-sim";
+import { EDGE } from "@/lib/edge";
 import { cn, fmtPct } from "@/lib/utils";
 
 function OddsCell({
@@ -190,30 +192,62 @@ function TeamHubScheduleRow({ row }: { row: TeamScheduleRow }) {
   return <li className="py-3.5">{inner}</li>;
 }
 
-/** Make 12 panel — make-field and win-title are separate cells (never title-only). */
-export function Make12Panel({ odds, className }: { odds: Make12Odds; className?: string }) {
-  const makeFieldPending = odds.makeField == null;
-  const winTitlePending = odds.winTitle == null;
+/** Locked Win title cell on free surfaces — no number, points at Edge Pack. */
+function PackOnlyCell({ label, sourceNote }: { label: string; sourceNote?: string }) {
+  return (
+    <div className="rounded-md border border-dashed border-line bg-raised/40 px-4 py-3">
+      <div className="text-[11px] uppercase tracking-[0.14em] text-faint">{label}</div>
+      <div className="mt-1 font-display text-2xl leading-none text-muted sm:text-3xl">
+        <Link to="/edge" className="hover:text-accent">
+          {EDGE.shortName}
+        </Link>
+      </div>
+      {sourceNote ? <div className="mt-1.5 text-xs text-muted">{sourceNote}</div> : null}
+    </div>
+  );
+}
+
+/**
+ * Make 12 panel — make-field and win-title are separate cells (never title-only).
+ * Free tier (default): make-field public, win_title is Edge Pack / paid only — the
+ * number is never rendered on free surfaces even if a caller passes it in.
+ */
+export function Make12Panel({
+  odds,
+  className,
+  tier = "free",
+}: {
+  odds: Make12Odds;
+  className?: string;
+  tier?: "free" | "pack";
+}) {
+  const view = tier === "pack" ? odds : make12FreeView(odds);
+  const makeFieldPending = view.makeField == null;
+  const winTitlePending = view.winTitle == null;
 
   return (
     <div className={className}>
       <div className="mb-3">
         <h2 className="font-display text-2xl tracking-wide">Make 12</h2>
-        <p className="mt-1 text-sm text-muted">{make12PanelLede(odds.makeFieldSource)}</p>
+        <p className="mt-1 text-sm text-muted">{make12PanelLede(view.makeFieldSource)}</p>
       </div>
       <div className="grid gap-3 sm:grid-cols-2">
         <OddsCell
           label="Make field"
-          value={makeFieldPending ? "—" : fmtPct(odds.makeField!, 1)}
-          sourceNote={make12FieldLabel(odds.makeFieldSource)}
+          value={makeFieldPending ? "—" : fmtPct(view.makeField!, 1)}
+          sourceNote={make12FieldLabel(view.makeFieldSource)}
           pending={makeFieldPending}
         />
-        <OddsCell
-          label="Win title"
-          value={winTitlePending ? "—" : fmtPct(odds.winTitle!, 1)}
-          sourceNote={make12TitleLabel(odds.winTitleSource)}
-          pending={winTitlePending}
-        />
+        {view.winTitleSource === "pack-only" ? (
+          <PackOnlyCell label="Win title" sourceNote={make12TitleLabel(view.winTitleSource)} />
+        ) : (
+          <OddsCell
+            label="Win title"
+            value={winTitlePending ? "—" : fmtPct(view.winTitle!, 1)}
+            sourceNote={make12TitleLabel(view.winTitleSource)}
+            pending={winTitlePending}
+          />
+        )}
       </div>
     </div>
   );

@@ -8,7 +8,7 @@ import { getTeam } from "@/lib/cfb/queries";
 import { formatSeasonRecord } from "@/lib/cfb/season-record";
 import { COMPOSITE_SOURCE, ratedStarCount, visibleClassAvg } from "@/lib/cfb/recruiting";
 import { modelShare, MODEL } from "@/lib/cfb/model";
-import { buildRemainingSchedule, buildSeasonSchedule, make12FromSim } from "@/lib/cfb/season-sim";
+import { buildRemainingSchedule, buildSeasonSchedule, make12FreeFromSim } from "@/lib/cfb/season-sim";
 import { apLabel, fmtHeight, fmtNum, fmtPct } from "@/lib/utils";
 
 export const Route = createFileRoute("/teams/$slug")({
@@ -26,7 +26,8 @@ export const Route = createFileRoute("/teams/$slug")({
 function TeamPage() {
   const { team, players, games, classes } = Route.useLoaderData();
   const share = modelShare(team);
-  const make12 = make12FromSim(team.slug, team);
+  // Free team page: make-field public; win_title is Edge Pack / paid only.
+  const make12 = make12FreeFromSim(team.slug, team);
   const remaining = buildRemainingSchedule(team.slug, games);
   const season = buildSeasonSchedule(team.slug, games);
 
@@ -59,7 +60,7 @@ function TeamPage() {
       </Panel>
 
       <Panel className="mb-6">
-        <Make12Panel odds={make12} />
+        <Make12Panel odds={make12} tier="free" />
       </Panel>
 
       <RemainingScheduleSection rows={remaining} teamShortName={team.shortName} />
