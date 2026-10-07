@@ -1,7 +1,7 @@
 import { w as require_jsx_runtime } from "../_libs/@tanstack/react-router+[...].mjs";
 import { n as TeamLogo, t as TEAM_LOGO_ESPN_IDS } from "./team-logo-Da16Dhme.mjs";
-import { P as Route$14, X as PageHead, Z as Panel } from "./router-BoxxtaTh.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/logos-mY4cWXu0.js
+import { P as Route$14, X as PageHead, Z as Panel } from "./router-C9dr0PeT.mjs";
+//#region node_modules/.nitro/vite/services/ssr/assets/logos-Qs8nrxav.js
 var import_jsx_runtime = require_jsx_runtime();
 function LogosPage() {
 	const teams = Route$14.useLoaderData();

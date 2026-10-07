@@ -1,7 +1,7 @@
 import { w as require_jsx_runtime, x as Link } from "../_libs/@tanstack/react-router+[...].mjs";
 import { d as TeamSwatch } from "./marks-FF-JtpEJ.mjs";
-import { D as Route$8, X as PageHead, Z as Panel, et as cn, rt as fmtNum } from "./router-BoxxtaTh.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/states-BIKn44yk.js
+import { D as Route$8, X as PageHead, Z as Panel, et as cn, rt as fmtNum } from "./router-C9dr0PeT.mjs";
+//#region node_modules/.nitro/vite/services/ssr/assets/states-qlw_xEWl.js
 var import_jsx_runtime = require_jsx_runtime();
 var ROWS = [
 	[

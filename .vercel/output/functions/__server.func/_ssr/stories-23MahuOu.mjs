@@ -1,6 +1,6 @@
 import { _ as Outlet, g as useChildMatches, w as require_jsx_runtime, x as Link } from "../_libs/@tanstack/react-router+[...].mjs";
-import { E as Route$7, X as PageHead, Z as Panel, a as WEEK0_SLATE } from "./router-BoxxtaTh.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/stories-DYdUkExG.js
+import { E as Route$7, X as PageHead, Z as Panel, a as WEEK0_SLATE } from "./router-C9dr0PeT.mjs";
+//#region node_modules/.nitro/vite/services/ssr/assets/stories-23MahuOu.js
 var import_jsx_runtime = require_jsx_runtime();
 function hxLabel(side) {
 	return side.rank == null ? "—" : String(side.rank);

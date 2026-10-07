@@ -2,7 +2,7 @@ import { t as createServerFn } from "./ssr.mjs";
 import { a as string, i as object } from "../_libs/zod.mjs";
 import { a as verifyEdgeUnlockResult } from "./edge-unlock-LiQPcn50.mjs";
 import { t as createServerRpc } from "./createServerRpc-A6pJPYTF.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/edge-unlock-fn-B6Wn7yNI.js
+//#region node_modules/.nitro/vite/services/ssr/assets/edge-unlock-fn-Bt6U_BoD.js
 function stripeSecret() {
 	return typeof process !== "undefined" ? process.env.STRIPE_SECRET_KEY : void 0;
 }
@@ -18,7 +18,7 @@ var verifyEdgeUnlock = createServerFn({ method: "GET" }).validator(object({ sess
 		fetchFn: fetch
 	});
 	if (!verified.ok) return verified;
-	const { currentPackManifest } = await import("./edge-pack-files.server-CRuX8tN5.mjs");
+	const { currentPackManifest } = await import("./edge-pack-files.server-DJuVV6KJ.mjs");
 	const manifest = currentPackManifest();
 	if (!manifest) return {
 		ok: false,

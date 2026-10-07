@@ -4,6 +4,15 @@
   "product": "HX Edge Pack Week 6 SAMPLE",
   "tier": "SAMPLE_5",
   "hx_stamp": "HX 2026.7",
+  "as_of": "2026-10-07",
+  "as_of_tz": "America/Chicago",
+  "confidence_card_n": 55,
+  "confidence_card_counts": {
+    "A": 0,
+    "B": 0,
+    "C": 0,
+    "D": 55
+  },
   "cleared": true,
   "files": {
     "md": "hx_edge_pack_week6_sample_2026.md",

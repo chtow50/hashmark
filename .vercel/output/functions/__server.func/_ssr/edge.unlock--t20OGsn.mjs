@@ -1,8 +1,8 @@
 import { w as require_jsx_runtime, x as Link } from "../_libs/@tanstack/react-router+[...].mjs";
 import { s as Download } from "../_libs/lucide-react.mjs";
 import { t as packDownloadHref } from "./edge-unlock-LiQPcn50.mjs";
-import { G as EDGE, K as EDGE_SUPPORT_EMAIL, U as Button, X as PageHead, Z as Panel, w as Route$4 } from "./router-BoxxtaTh.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/edge.unlock-C1qEqT3m.js
+import { G as EDGE, K as EDGE_SUPPORT_EMAIL, U as Button, X as PageHead, Z as Panel, w as Route$4 } from "./router-C9dr0PeT.mjs";
+//#region node_modules/.nitro/vite/services/ssr/assets/edge.unlock--t20OGsn.js
 var import_jsx_runtime = require_jsx_runtime();
 function SupportLine() {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {

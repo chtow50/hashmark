@@ -1,6 +1,6 @@
-import { g as SIM_10K_NOTE, y as simTeamBySlug } from "./router-BoxxtaTh.mjs";
+import { g as SIM_10K_NOTE, y as simTeamBySlug } from "./router-C9dr0PeT.mjs";
 import { i as fcsStubsForTeam, r as fcsStubIsFinal } from "./fcs-stubs-B-_G6ret.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/season-sim-CZT2PppJ.js
+//#region node_modules/.nitro/vite/services/ssr/assets/season-sim-BczKV3B-.js
 function toScheduleRow(teamSlug, g) {
 	const homeIs = g.homeSlug === teamSlug;
 	const oppSlug = homeIs ? g.awaySlug : g.homeSlug;
