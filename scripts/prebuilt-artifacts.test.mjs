@@ -23,6 +23,14 @@ function corpus() {
   return files.map((p) => readFileSync(p, "utf8")).join("\n");
 }
 
+/** Server-only, Stripe-gated Edge Pack chunk (data/edge-packs/current via import.meta.glob). */
+const GATED_PACK_CHUNK_RE = /functions\/__server\.func\/_ssr\/edge-pack-files\.server-[^/]+\.mjs$/;
+
+function corpusExcludingGatedPack() {
+  const files = walk(OUT).filter((p) => /\.(js|mjs)$/.test(p) && !GATED_PACK_CHUNK_RE.test(p));
+  return files.map((p) => readFileSync(p, "utf8")).join("\n");
+}
+
 describe("prebuilt deploy artifacts", () => {
   it("public static output carries no win_title (Edge Pack / paid only)", () => {
     const hits = scanClientOutput(join(OUT, "static"));
@@ -65,8 +73,9 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /36\/43/);
     assert.match(text, /make_field/);
     assert.match(text, /86\.51/);
-    // Georgia HX 2026.7 win_title (24.29) is Edge Pack only — not in any committed bundle.
-    assert.doesNotMatch(text, /24\.29/);
+    // Georgia HX 2026.7 win_title (24.29) is Edge Pack only: it may live in the
+    // Stripe-gated server pack chunk (edge-pack-files.server-*), never anywhere else.
+    assert.doesNotMatch(corpusExcludingGatedPack(), /24\.29/);
     assert.match(text, /20260913/);
     assert.match(text, /2026-10-05/);
     assert.match(text, /sim_10k_2026_hx2026_7/);
@@ -468,6 +477,15 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(server, /hello@hashmarkcfb\.com/);
     assert.match(server, /hx_edge_confidence_schema_2026/);
     assert.match(server, /hx_edge_pack_week6_sample_2026/);
+    // Week 6 rebuild (as_of 2026-10-07, HX 2026.7, 55 cards) is the gated current pack.
+    const packChunks = walk(join(OUT, "functions")).filter((p) => GATED_PACK_CHUNK_RE.test(p));
+    assert.equal(packChunks.length, 1, "exactly one gated edge-pack-files chunk");
+    const pack = readFileSync(packChunks[0], "utf8");
+    assert.match(pack, /\\?"as_of\\?": \\?"2026-10-07/);
+    assert.match(pack, /\\?"confidence_card_n\\?": 55,/);
+    assert.match(pack, /HX 2026\.7/);
+    assert.match(pack, /24\.29/);
+    assert.doesNotMatch(pack, /correction_note/);
   });
 
   it("does not dump the current Edge Pack onto public client assets", () => {

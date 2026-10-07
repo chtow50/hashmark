@@ -3,10 +3,10 @@ import { i as formatKickCt } from "./chicago-DFO_OETY.mjs";
 import { n as require_react } from "../_libs/@radix-ui/react-compose-refs+[...].mjs";
 import { S as useNavigate, w as require_jsx_runtime } from "../_libs/@tanstack/react-router+[...].mjs";
 import { c as Stat, f as WinBar, r as DeskChip, t as CompareRow, u as TeamMark } from "./marks-FF-JtpEJ.mjs";
-import { H as spreadGap, L as favoriteLine, N as Route$13, Q as TeamSelect, X as PageHead, Y as EdgePackStrip, Z as Panel, it as fmtPct, rt as fmtNum } from "./router-BoxxtaTh.mjs";
+import { H as spreadGap, L as favoriteLine, N as Route$13, Q as TeamSelect, X as PageHead, Y as EdgePackStrip, Z as Panel, it as fmtPct, rt as fmtNum } from "./router-C9dr0PeT.mjs";
 import { t as RosterDuel } from "./roster-duel-FI1KZTei.mjs";
 import { n as matchupChips, t as isWinnerFlip } from "./schedule-flags-CBhOlFRt.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/matchup-COYxaVrq.js
+//#region node_modules/.nitro/vite/services/ssr/assets/matchup-COLcWVtQ.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 /** AMD in-game restamp. Same HX mean. Sigma from 2019–2023 FBS linescores (n=3458). */

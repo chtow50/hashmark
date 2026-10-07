@@ -245,8 +245,18 @@ test("current on-disk pack manifest is valid and files exist", () => {
   assert.ok(json.length > 0);
   const pack = JSON.parse(json);
   assert.equal(pack.week, 6);
-  assert.equal(pack.confidence_card_n, 12);
+  assert.equal(pack.confidence_card_n, 55);
+  assert.equal(pack.confidence_cards.length, 55);
+  assert.deepEqual(pack.confidence_card_counts, { A: 0, B: 0, C: 0, D: 55 });
+  assert.equal(pack.as_of, "2026-10-07");
+  assert.equal(pack.hx_stamp, "HX 2026.7");
   assert.equal(pack.price_tier, "SAMPLE_5");
+  assert.ok(!("correction_note" in pack));
+  assert.doesNotMatch(md + json, /≠/);
+  const raw2 = JSON.parse(raw);
+  assert.equal(raw2.as_of, pack.as_of);
+  assert.equal(raw2.hx_stamp, pack.hx_stamp);
+  assert.equal(raw2.confidence_card_n, pack.confidence_card_n);
 });
 
 test("download href keeps session_id and format as query params", () => {
