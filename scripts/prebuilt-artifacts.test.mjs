@@ -498,6 +498,17 @@ describe("prebuilt deploy artifacts", () => {
     assert.doesNotMatch(text, /Swipe → AP stays/);
   });
 
+  it("includes Week 6 Southern Miss @ Troy FINAL in committed output", () => {
+    const text = corpus();
+    assert.match(text, /0049_week6_usm_troy_final/);
+    assert.match(text, /Southern Miss @ Troy — Troy 55, Southern Miss 34/);
+    assert.match(text, /home_score = 55/);
+    assert.match(text, /away_score = 34/);
+    assert.match(text, /h\.slug = 'troy' and a\.slug = 'southern-miss'/);
+    assert.match(text, /week6_finals_clear_2026-10-07/);
+    assert.match(text, /Soft-cal FLAG stays/);
+  });
+
   it("pins serverless function runtime to nodejs22.x (Vercel blocked new nodejs20.x after 2026-10-01)", () => {
     const cfgPath = join(OUT, "functions/__server.func/.vc-config.json");
     assert.ok(existsSync(cfgPath), "missing .vc-config.json");

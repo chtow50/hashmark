@@ -508,3 +508,33 @@ describe("Week 6 Oct 5 Vegas CLEAR refresh", () => {
     assert.doesNotMatch(clearSql, /home_score|away_score/);
   });
 });
+
+
+describe("Week 6 Tuesday USM @ Troy FINAL", () => {
+  const finalsSql = readFileSync(join(root, "migrations/0049_week6_usm_troy_final.sql"), "utf8");
+
+  it("stamps only Southern Miss @ Troy FINAL scores+status from Research CLEAR", () => {
+    assert.equal((finalsSql.match(/update games/g) ?? []).length, 1);
+    assert.equal((finalsSql.match(/g\.week = 6/g) ?? []).length, 1);
+    assert.match(finalsSql, /week6_finals_clear_2026-10-07/);
+    assert.match(finalsSql, /Scores and status only/);
+    assert.match(finalsSql, /Soft-cal FLAG stays/);
+    assert.match(finalsSql, /Southern Miss @ Troy — Troy 55, Southern Miss 34/);
+    assert.match(finalsSql, /status = 'final'/);
+    assert.match(finalsSql, /home_score = 55/);
+    assert.match(finalsSql, /away_score = 34/);
+    assert.match(finalsSql, /h\.slug = 'troy' and a\.slug = 'southern-miss'/);
+    assert.match(finalsSql, /Source event 401871090/);
+    assert.match(finalsSql, /Do not put ESPN event digits in this header/);
+    assert.doesNotMatch(finalsSql, /kickoff_at/);
+    assert.doesNotMatch(finalsSql, /vegas_spread/);
+    assert.doesNotMatch(finalsSql, /vegas_total/);
+    assert.doesNotMatch(finalsSql, /\btv\s*=/);
+    assert.doesNotMatch(finalsSql, /hx_rating/);
+    assert.doesNotMatch(finalsSql, /win_title|make_field/);
+    // Header before the update must not carry event digits (stamp-gate overwrite).
+    const header = finalsSql.split(/update games/i)[0] ?? "";
+    assert.doesNotMatch(header, /401871090/);
+    assert.doesNotMatch(header, /\b401\d{6,}\b/);
+  });
+});
