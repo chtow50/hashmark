@@ -19,7 +19,7 @@ import {
 import { listGames, listScheduleWeek, listTeams } from "@/lib/cfb/queries";
 import { formatSeasonRecord } from "@/lib/cfb/season-record";
 import { MODEL, predictMatchup } from "@/lib/cfb/model";
-import { make12FromSim } from "@/lib/cfb/season-sim";
+import { make12FreeFromSim } from "@/lib/cfb/season-sim";
 import {
   boardDisagreementRows,
   SIM_10K_HX_STAMP,
@@ -69,7 +69,7 @@ function Home() {
   const top25 = week5Top25Tape();
   const season = week5SeasonTape();
   const flags = week5BoardFlags();
-  const oneMake = one ? make12FromSim(one.slug, one) : null;
+  const oneMake = one ? make12FreeFromSim(one.slug, one) : null;
 
   const recLeaders = [...teams].sort((a, b) => a.recRank - b.recRank).slice(0, 5);
   const talentLeaders = [...teams].sort((a, b) => a.talentRank - b.talentRank).slice(0, 5);

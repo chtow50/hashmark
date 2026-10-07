@@ -80,22 +80,29 @@ export function make12FromTeam(team: Pick<TeamSummary, "playoffOdds">): Make12Od
   };
 }
 
+/** A sim row as seen by the Make 12 mapper — make-field only (free export shape). */
+export type Make12SimRow = { make_field: number };
+
 /**
- * Make-field and win-title from HX 2026.7 10k draws (sim_10k_2026_hx2026_7.json).
- * Falls back to the legacy logistic make-field if the slug is missing.
- * Never treat make_field as a national title.
+ * Map one HX 2026.7 10k-draw row to Make 12 odds. Falls back to the legacy
+ * logistic make-field if the row is missing. Never treat make_field as a title.
+ *
+ * Client code never passes `winTitle` — this module is bundled into the public
+ * JS, so it must not read any title field off a row. Only the server-only full
+ * loader (./sim-full.server.ts) supplies it. No title → "pack-only".
  */
-export function make12FromSim(
-  slug: string,
+export function make12FromSimRow(
+  row: Make12SimRow | undefined,
   team?: Pick<TeamSummary, "playoffOdds">,
+  winTitle: number | null = null,
 ): Make12Odds {
-  const row = simTeamBySlug(slug);
   if (row) {
+    const hasTitle = winTitle != null && Number.isFinite(winTitle);
     return {
       makeField: row.make_field,
-      winTitle: row.win_title,
+      winTitle: hasTitle ? winTitle : null,
       makeFieldSource: "amd-draws",
-      winTitleSource: "amd-draws",
+      winTitleSource: hasTitle ? "amd-draws" : "pack-only",
     };
   }
   return team ? make12FromTeam(team) : {
@@ -119,12 +126,17 @@ export function make12FreeView(odds: Make12Odds): Make12Odds {
   };
 }
 
-/** Free board / free team page Make 12 — make-field only; win_title gated to Edge Pack. */
+/**
+ * Free board / rankings / free team page Make 12 — reads the free sim export
+ * (data/sim_free_hx2026_7.json), which has no win_title at all, so nothing
+ * title-shaped can reach the client bundle. The full sim with win_title is
+ * server/test only: ./sim-full.server.ts (make12FromSimFull).
+ */
 export function make12FreeFromSim(
   slug: string,
   team?: Pick<TeamSummary, "playoffOdds">,
 ): Make12Odds {
-  return make12FreeView(make12FromSim(slug, team));
+  return make12FreeView(make12FromSimRow(simTeamBySlug(slug), team));
 }
 
 function toFcsStubRow(stub: FcsStubGame, i: number): TeamScheduleRow {

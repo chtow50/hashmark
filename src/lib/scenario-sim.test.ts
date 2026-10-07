@@ -3,7 +3,8 @@ import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { test } from "node:test";
-import { make12FromSim } from "./cfb/season-sim.ts";
+import { make12FromSimFull } from "./cfb/sim-full.server.ts";
+import { loadScenarioSimExample, loadScenarioSimFullFixture } from "./scenario-sim-contract.server.ts";
 import {
   EDGE_SCENARIO_UNLOCK,
   SCENARIO_SIM_CONFIDENCE_NOTE,
@@ -19,7 +20,6 @@ import {
   buildScenarioRequest,
   clampHxBump,
   isScenarioSimUnlocked,
-  loadScenarioSimExample,
   loadScenarioSimFixture,
   loadScenarioSimGoldenRequest,
   parseScenarioUnlockSearch,
@@ -40,7 +40,8 @@ function forceWinner(partial?: Partial<ForceWinnerOverride>): ForceWinnerOverrid
 
 test("AMD golden fixture keeps Georgia make-field 75.26 separate from title 21.59", () => {
   const example = loadScenarioSimExample();
-  const fixture = loadScenarioSimFixture();
+  // Full AMD contract (with win_title) — server / test only.
+  const fixture = loadScenarioSimFullFixture();
   const request = loadScenarioSimGoldenRequest();
   assert.equal(example.contract_version, SCENARIO_SIM_CONTRACT_VERSION);
   assert.equal(example.product, SCENARIO_SIM_PRODUCT);
@@ -105,11 +106,34 @@ test("AMD golden fixture keeps Georgia make-field 75.26 separate from title 21.5
   assert.match(fixture.confidence_note, /not a lock/i);
   assert.deepEqual(example.response, fixture);
 
-  const board = make12FromSim("georgia");
+  const board = make12FromSimFull("georgia");
   assert.equal(board.makeField, 86.51);
   assert.equal(board.winTitle, 24.29);
   assert.notEqual(board.makeField, g.make_field);
   assert.notEqual(board.winTitle, g.win_title);
+});
+
+test("client golden fixture is the full contract minus win_title", () => {
+  const full = loadScenarioSimFullFixture();
+  const free = loadScenarioSimFixture();
+  const raw = readFileSync(join(here, "../../data/scenario_sim_golden_response_free.json"), "utf8");
+  assert.doesNotMatch(raw, /win_title/);
+  assert.deepEqual(free.meta, full.meta);
+  assert.deepEqual(free.overrides_echo, full.overrides_echo);
+  assert.equal(free.confidence_note, full.confidence_note);
+  for (const cut of ["baseline", "scenario", "delta"] as const) {
+    assert.deepEqual(Object.keys(free[cut]), Object.keys(full[cut]));
+    for (const [slug, m] of Object.entries(full[cut])) {
+      const { win_title: _title, ...rest } = m;
+      assert.deepEqual(free[cut][slug], rest, `${cut}.${slug}`);
+    }
+  }
+  const lib = readFileSync(join(here, "scenario-sim.ts"), "utf8");
+  assert.doesNotMatch(lib, /from "[^"]*scenario_sim_golden_response\.json"/);
+  assert.doesNotMatch(lib, /from "[^"]*scenario_sim_rerun_contract_example\.json"/);
+  const preview = readFileSync(join(here, "../components/scenario-sim.tsx"), "utf8");
+  assert.doesNotMatch(preview, /"win_title"/);
+  assert.match(preview, /label: "Win title", locked: true/);
 });
 
 test("buildScenarioRequest fills contract defaults and clamps hx_bump", () => {
@@ -183,12 +207,11 @@ test("demo runner returns golden cells for all five AMD return teams", () => {
   assert.deepEqual(a.baseline.georgia, b.baseline.georgia);
   assert.deepEqual(a.scenario.georgia, b.scenario.georgia);
   assert.equal(a.baseline.georgia.make_field, 75.26);
-  assert.equal(a.baseline.georgia.win_title, 21.59);
-  assert.notEqual(a.baseline.georgia.make_field, a.baseline.georgia.win_title);
   assert.equal(a.scenario.georgia.make_field, 52.4);
-  assert.equal(a.scenario.georgia.win_title, 14.78);
   assert.equal(a.delta.georgia.make_field, -22.86);
-  assert.equal(a.delta.georgia.win_title, -6.81);
+  assert.equal(a.baseline.georgia.proj_wins, 10.491);
+  // Free preview: title odds are Edge Pack only — not in the demo response at all.
+  assert.doesNotMatch(JSON.stringify(a), /win_title/);
   assert.equal(a.scenario.oklahoma.make_field, 6.53);
   assert.equal(a.delta.oklahoma.make_field, 4.58);
   assert.equal(a.scenario.oregon.make_field, 42.41);
@@ -243,10 +266,10 @@ test("/edge marketing does not promo Scenario Sim; tool is preview/offline only"
   assert.match(SCENARIO_SIM_DEMO_LABEL, /demo fixture/);
 });
 
-test("public Make 12 stamps stay on make12FromSim — scenario-sim is not imported there", () => {
+test("public Make 12 stamps stay on make12FreeFromSim — scenario-sim is not imported there", () => {
   const rankings = readFileSync(join(here, "../routes/rankings.tsx"), "utf8");
   const board = readFileSync(join(here, "../routes/index.tsx"), "utf8");
-  assert.match(rankings, /make12FromSim\(t\.slug, t\)\.makeField/);
+  assert.match(rankings, /make12FreeFromSim\(t\.slug, t\)\.makeField/);
   assert.doesNotMatch(rankings, /scenario-sim/);
   assert.doesNotMatch(board, /scenario-sim/);
   assert.match(board, /Make 12/);

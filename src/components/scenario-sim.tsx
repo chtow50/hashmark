@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import { Minus, Plus } from "lucide-react";
 import { useMemo, useState } from "react";
 import { EdgeBuyButton } from "@/components/edge-pack";
@@ -52,11 +53,25 @@ type BumpDraft = {
   note: string;
 };
 
-const METRIC_COLS = [
-  { key: "make_field" as const, label: "Make field", kind: "pct" as const, digits: 2 },
-  { key: "win_title" as const, label: "Win title", kind: "pct" as const, digits: 2 },
-  { key: "proj_wins" as const, label: "Proj. wins", kind: "num" as const, digits: 2 },
-  { key: "conf_title" as const, label: "Conf. title", kind: "pct" as const, digits: 1 },
+type MetricCol =
+  | {
+      key: keyof ScenarioTeamMetrics;
+      label: string;
+      kind: "pct" | "num";
+      digits: number;
+      locked?: false;
+    }
+  | { key: "title-locked"; label: string; locked: true };
+
+/**
+ * Win title is Edge Pack / paid only — the free preview renders a locked column
+ * and never carries the number (the fixture it reads has no title field).
+ */
+const METRIC_COLS: MetricCol[] = [
+  { key: "make_field", label: "Make field", kind: "pct", digits: 2 },
+  { key: "title-locked", label: "Win title", locked: true },
+  { key: "proj_wins", label: "Proj. wins", kind: "num", digits: 2 },
+  { key: "conf_title", label: "Conf. title", kind: "pct", digits: 1 },
 ];
 
 function newRow(teams: ScenarioTeamOption[], seed: number, golden = false): ForceRow {
@@ -524,6 +539,19 @@ function ScenarioSimResult({
                   </td>
                   <td className="py-2.5 pr-3 text-muted">{row.cut}</td>
                   {METRIC_COLS.map((col) => {
+                    if (col.locked) {
+                      return (
+                        <td key={col.key} className="py-2.5 pr-3 text-faint">
+                          {i === 0 ? (
+                            <Link to="/edge" className="hover:text-accent">
+                              {EDGE.shortName}
+                            </Link>
+                          ) : (
+                            "·"
+                          )}
+                        </td>
+                      );
+                    }
                     const n = row.metrics[col.key];
                     const formatted = fmtMetric(n, col.kind, col.digits);
                     return (
@@ -545,8 +573,8 @@ function ScenarioSimResult({
         </table>
       </div>
       <p className="mt-4 text-xs leading-relaxed text-faint">
-        Make field is not win title. Numbers above are a desk fixture until the
-        AMD CLI is wired. Not this week’s paid pack. {response.confidence_note}
+        Make field is not win title. Win title is Edge Pack only. Numbers above are a
+        desk fixture until the AMD CLI is wired. Not this week’s paid pack. {response.confidence_note}
       </p>
     </Panel>
   );

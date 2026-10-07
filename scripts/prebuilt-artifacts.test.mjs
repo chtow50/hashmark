@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
 import { join } from "node:path";
 import { describe, it } from "node:test";
+import { scanClientOutput } from "./check-client-bundle.mjs";
 
 const ROOT = join(import.meta.dirname, "..");
 const OUT = join(ROOT, ".vercel/output");
@@ -23,6 +24,19 @@ function corpus() {
 }
 
 describe("prebuilt deploy artifacts", () => {
+  it("public static output carries no win_title (Edge Pack / paid only)", () => {
+    const hits = scanClientOutput(join(OUT, "static"));
+    assert.deepEqual(hits, [], `win_title leaked into public static: ${JSON.stringify(hits)}`);
+    const assets = walk(join(OUT, "static/assets")).filter((p) => p.endsWith(".js"));
+    assert.ok(assets.length > 5, "static/assets has client chunks");
+    const client = assets.map((p) => readFileSync(p, "utf8")).join("\n");
+    // Free Make 12 still ships: Georgia make-field 86.51 on HX 2026.7.
+    assert.match(client, /86\.51/);
+    assert.match(client, /sim_free_hx2026_7|sim_10k_2026_hx2026_7\.json/);
+    assert.doesNotMatch(client, /24\.29/);
+    assert.doesNotMatch(client, /\/workspace\/cfb\/week5_od_hx_ship_2026/);
+  });
+
   it("includes PR #19 schedule filters in committed output", () => {
     const text = corpus();
     assert.match(text, /Top 25/);
@@ -51,7 +65,8 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /36\/43/);
     assert.match(text, /make_field/);
     assert.match(text, /86\.51/);
-    assert.match(text, /24\.29/);
+    // Georgia HX 2026.7 win_title (24.29) is Edge Pack only — not in any committed bundle.
+    assert.doesNotMatch(text, /24\.29/);
     assert.match(text, /20260913/);
     assert.match(text, /2026-10-05/);
     assert.match(text, /sim_10k_2026_hx2026_7/);

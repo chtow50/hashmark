@@ -7,7 +7,7 @@ import { BOARD_WEEK, AP_STAMP } from "@/lib/cfb/featured";
 import { MODEL } from "@/lib/cfb/model";
 import { listTeams } from "@/lib/cfb/queries";
 import { formatSeasonRecord } from "@/lib/cfb/season-record";
-import { make12FromSim } from "@/lib/cfb/season-sim";
+import { make12FreeFromSim } from "@/lib/cfb/season-sim";
 import { cn, fmtNum, fmtPct } from "@/lib/utils";
 import type { TeamSummary } from "@/lib/cfb/types";
 
@@ -44,7 +44,7 @@ const STICKY_RANK = "sticky left-0 z-20 w-16 min-w-16 bg-surface";
 const STICKY_TEAM = "sticky left-16 z-20 min-w-36 border-r border-line bg-surface sm:min-w-52";
 
 function make12Pct(t: TeamSummary) {
-  return fmtPct(make12FromSim(t.slug, t).makeField ?? t.playoffOdds, 1);
+  return fmtPct(make12FreeFromSim(t.slug, t).makeField ?? t.playoffOdds, 1);
 }
 
 function RankingsPage() {
@@ -242,7 +242,7 @@ function RankingCard({ team }: { team: TeamSummary }) {
 
 function value(t: TeamSummary, key: SortKey) {
   if (key === "apRank") return t.apRank ?? 99;
-  if (key === "makeField") return make12FromSim(t.slug, t).makeField ?? t.playoffOdds;
+  if (key === "makeField") return make12FreeFromSim(t.slug, t).makeField ?? t.playoffOdds;
   return t[key];
 }
 
