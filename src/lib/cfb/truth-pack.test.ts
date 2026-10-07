@@ -43,6 +43,7 @@ import {
   week5Top25Pack,
   week5Top25Tape,
 } from "./truth-pack.ts";
+import { SIM_FULL_FILE, sim10kFull, simFullTeamBySlug } from "./sim-full.server.ts";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "../../..");
 
@@ -434,6 +435,11 @@ test("movers_by_abs_dhx are O/D terms", () => {
 test("truth-pack loads the HX 2026.7 10k pack, not the 2026.3, 2026.4, or 2026.6 file", () => {
   const src = readFileSync(join(root, "src/lib/cfb/truth-pack.ts"), "utf8");
   assert.match(src, /sim_10k_2026_hx2026_7\.json/);
+  // Client-bundled truth-pack reads the free export; the full sim (win_title) is server-only.
+  assert.match(src, /from "\.\.\/\.\.\/\.\.\/data\/sim_free_hx2026_7\.json"/);
+  assert.doesNotMatch(src, /from "\.\.\/\.\.\/\.\.\/data\/sim_10k_2026_hx2026_7\.json"/);
+  assert.equal(sim10k.meta.source, SIM_FULL_FILE);
+  assert.equal(sim10k.meta.as_of, sim10kFull.meta.as_of);
   assert.doesNotMatch(src, /from "\.\.\/\.\.\/\.\.\/data\/sim_10k_2026\.json"/);
   assert.doesNotMatch(src, /from "\.\.\/\.\.\/\.\.\/data\/sim_10k_2026_hx2026_4\.json"/);
   assert.doesNotMatch(src, /from "\.\.\/\.\.\/\.\.\/data\/sim_10k_2026_hx2026_6\.json"/);
@@ -444,7 +450,11 @@ test("truth-pack loads the HX 2026.7 10k pack, not the 2026.3, 2026.4, or 2026.6
 });
 
 test("sim_10k Georgia is 86.51 / 24.29 on HX 2026.7 as_of 2026-10-05", () => {
-  const g = simTeamBySlug("georgia");
+  const free = simTeamBySlug("georgia");
+  assert.ok(free);
+  assert.equal(free.make_field, 86.51);
+  assert.equal("win_title" in free, false, "free export carries no win_title");
+  const g = simFullTeamBySlug("georgia");
   assert.ok(g);
   assert.equal(g.make_field, 86.51);
   assert.equal(g.win_title, 24.29);
@@ -461,8 +471,22 @@ test("sim_10k Georgia is 86.51 / 24.29 on HX 2026.7 as_of 2026-10-05", () => {
   assert.doesNotMatch(SIM_10K_NOTE, /not a post-2026\.3 re-sim/);
 });
 
+test("free sim export mirrors the full sim make-field cells and drops win_title", () => {
+  assert.equal(sim10k.teams.length, sim10kFull.teams.length);
+  for (const [i, full] of sim10kFull.teams.entries()) {
+    const free = sim10k.teams[i]!;
+    assert.equal(free.slug, full.slug);
+    assert.equal(free.make_field, full.make_field, full.slug);
+    assert.equal(free.proj_wins, full.proj_wins, full.slug);
+    assert.equal(free.conf_title, full.conf_title, full.slug);
+    assert.equal("win_title" in free, false, full.slug);
+  }
+  const raw = readFileSync(join(root, "data/sim_free_hx2026_7.json"), "utf8");
+  assert.doesNotMatch(raw, /win_title/);
+});
+
 test("sim_10k top win_title and make_field stay separate cells", () => {
-  const byTitle = [...sim10k.teams].sort((a, b) => b.win_title - a.win_title).slice(0, 5);
+  const byTitle = [...sim10kFull.teams].sort((a, b) => b.win_title - a.win_title).slice(0, 5);
   const byMake = [...sim10k.teams].sort((a, b) => b.make_field - a.make_field).slice(0, 5);
   assert.deepEqual(
     byTitle.map((t) => [t.name, t.win_title]),

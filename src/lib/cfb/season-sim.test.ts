@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { readdirSync, readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { test } from "node:test";
@@ -8,13 +8,14 @@ import {
   buildRemainingSchedule,
   buildSeasonSchedule,
   make12FieldLabel,
-  make12FromSim,
   make12FreeFromSim,
+  make12FromSimRow,
   make12FreeView,
   make12FromTeam,
   make12PanelLede,
   make12TitleLabel,
 } from "./season-sim.ts";
+import { make12FromSimFull } from "./sim-full.server.ts";
 import type { ScheduleGame } from "./types.ts";
 
 function scheduleFixture(
@@ -50,8 +51,8 @@ function scheduleFixture(
   };
 }
 
-test("make12FromSim loads Georgia HX 2026.7 draws — make-field is not title", () => {
-  const odds = make12FromSim("georgia", { playoffOdds: 98.4 });
+test("make12FromSimFull (server-only) loads Georgia HX 2026.7 draws — make-field is not title", () => {
+  const odds = make12FromSimFull("georgia", { playoffOdds: 98.4 });
   assert.equal(odds.makeFieldSource, "amd-draws");
   assert.equal(odds.winTitleSource, "amd-draws");
   assert.ok(odds.makeField != null);
@@ -78,12 +79,13 @@ test("make12FromSim loads Georgia HX 2026.7 draws — make-field is not title", 
   assert.doesNotMatch(make12PanelLede(odds.makeFieldSource), /not a post-2026\.3 re-sim/);
 });
 
-test("rankings Make 12 column reads make12FromSim makeField, not playoffOdds", () => {
+test("rankings Make 12 column reads make12FreeFromSim makeField, not playoffOdds", () => {
   const src = readFileSync(
     join(dirname(fileURLToPath(import.meta.url)), "../../routes/rankings.tsx"),
     "utf8",
   );
-  assert.match(src, /make12FromSim\(t\.slug, t\)\.makeField/);
+  assert.match(src, /make12FreeFromSim\(t\.slug, t\)\.makeField/);
+  assert.doesNotMatch(src, /make12FromSim\(/);
   assert.doesNotMatch(src, /fmtPct\(t\.playoffOdds/);
 });
 
@@ -95,6 +97,11 @@ test("free Make 12 keeps Georgia make-field public and drops win_title (Edge Pac
   assert.equal(free.winTitleSource, "pack-only");
   assert.match(make12TitleLabel(free.winTitleSource) ?? "", /Edge Pack only/);
   assert.doesNotMatch(JSON.stringify(free), /24\.29|24\.3/);
+  // Free row (no title field) maps straight to pack-only — the client never reads a title.
+  const row = make12FromSimRow({ make_field: 86.51 });
+  assert.equal(row.makeField, 86.51);
+  assert.equal(row.winTitle, null);
+  assert.equal(row.winTitleSource, "pack-only");
   // Pending / legacy stay pending — never relabelled as a pack number.
   const legacy = make12FreeView(make12FromTeam({ playoffOdds: 42.5 }));
   assert.equal(legacy.winTitle, null);
@@ -113,6 +120,28 @@ test("free team page and Make12Panel never render win_title", () => {
   for (const route of ["index.tsx", "rankings.tsx"]) {
     const src = readFileSync(join(here, "../../routes", route), "utf8");
     assert.doesNotMatch(src, /winTitle|win_title/, `${route} must not render win_title on free chrome`);
+    assert.match(src, /make12FreeFromSim\(/, `${route} reads the free Make 12 export`);
+  }
+});
+
+test("client modules never import the full sim or title-bearing fixtures", () => {
+  const here = dirname(fileURLToPath(import.meta.url));
+  const src = join(here, "../..");
+  const walk = (dir: string): string[] =>
+    readdirSync(dir, { withFileTypes: true }).flatMap((d) =>
+      d.isDirectory() ? walk(join(dir, d.name)) : [join(dir, d.name)],
+    );
+  const clientFiles = walk(src).filter(
+    (f) => /\.(ts|tsx)$/.test(f) && !/\.test\.tsx?$/.test(f) && !/\.server\.tsx?$/.test(f),
+  );
+  assert.ok(clientFiles.length > 20);
+  for (const f of clientFiles) {
+    const text = readFileSync(f, "utf8");
+    assert.doesNotMatch(text, /from "[^"]*sim_10k_2026[^"]*\.json"/, f);
+    assert.doesNotMatch(text, /from "[^"]*scenario_sim_golden_response\.json"/, f);
+    assert.doesNotMatch(text, /from "[^"]*scenario_sim_rerun_contract_example\.json"/, f);
+    assert.doesNotMatch(text, /from "[^"]*(sim-full|scenario-sim-contract)\.server[^"]*"/, f);
+    assert.doesNotMatch(text, /hx_edge_full_sim_table/, f);
   }
 });
 

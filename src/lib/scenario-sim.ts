@@ -2,11 +2,16 @@
  * HX Edge Pack — Scenario Sim AMD contract (2026.09.14).
  * MVP: types, validators, request builder, golden fixture runner.
  * No browser Monte Carlo. Live CLI path is not wired — desk fixture only.
+ *
+ * Free preview metrics only: win_title is Edge Pack / paid and never appears in
+ * this module's runtime data (the preview renders a locked Edge Pack column).
  */
-import exampleRaw from "../../data/scenario_sim_rerun_contract_example.json" with { type: "json" };
 import goldenRequestRaw from "../../data/scenario_sim_golden_request.json" with { type: "json" };
-import goldenResponseRaw from "../../data/scenario_sim_golden_response.json" with { type: "json" };
-import { make12FromSim } from "./cfb/season-sim.ts";
+// Free export of scenario_sim_golden_response.json (scripts/generate-sim-free.mjs):
+// win_title stripped. This module is bundled into the public /edge/sim client JS.
+// The full AMD contract fixtures (with win_title) are server/test only —
+// ./scenario-sim-contract.server.ts.
+import goldenResponseFreeRaw from "../../data/scenario_sim_golden_response_free.json" with { type: "json" };
 import { sim10k, simTeamBySlug } from "./cfb/truth-pack.ts";
 
 export const SCENARIO_SIM_CONTRACT_VERSION = "2026.09.14";
@@ -99,12 +104,15 @@ export type ScenarioSimRequest = {
   return: ScenarioSimReturn;
 };
 
+/** Free preview metrics — no win_title (Edge Pack / paid only). */
 export type ScenarioTeamMetrics = {
   make_field: number;
-  win_title: number;
   proj_wins: number;
   conf_title: number;
 };
+
+/** Full AMD contract metrics — server / test only (./scenario-sim-contract.server.ts). */
+export type ScenarioTeamMetricsFull = ScenarioTeamMetrics & { win_title: number };
 
 export type ScenarioSimMeta = {
   n_sims: number;
@@ -146,11 +154,18 @@ export type ScenarioSimErrorResponse = {
 
 export type ScenarioSimResponse = ScenarioSimOkResponse | ScenarioSimErrorResponse;
 
+/** Full AMD contract response (with win_title) — server / test only. */
+export type ScenarioSimOkResponseFull = Omit<ScenarioSimOkResponse, "baseline" | "scenario" | "delta"> & {
+  baseline: Record<string, ScenarioTeamMetricsFull>;
+  scenario: Record<string, ScenarioTeamMetricsFull>;
+  delta: Record<string, ScenarioTeamMetricsFull>;
+};
+
 export type ScenarioSimContractExample = {
   contract_version: string;
   product: string;
   request: ScenarioSimRequest;
-  response: ScenarioSimOkResponse;
+  response: ScenarioSimOkResponseFull;
 };
 
 export type ScenarioValidationResult =
@@ -363,16 +378,13 @@ export function defaultReturnTeams(overrides: ScenarioOverride[]): string[] {
   return teams.slice(0, 6);
 }
 
-export function loadScenarioSimExample(): ScenarioSimContractExample {
-  return exampleRaw as ScenarioSimContractExample;
-}
-
 export function loadScenarioSimGoldenRequest(): ScenarioSimRequest {
   return goldenRequestRaw as ScenarioSimRequest;
 }
 
+/** Free golden fixture (win_title stripped). Full contract fixture: scenario-sim-contract.server.ts. */
 export function loadScenarioSimFixture(): ScenarioSimOkResponse {
-  return goldenResponseRaw as ScenarioSimOkResponse;
+  return goldenResponseFreeRaw as ScenarioSimOkResponse;
 }
 
 export type ScenarioUnlockSearch = {
@@ -415,7 +427,6 @@ function roundTo(n: number, digits: number): number {
 function subtractMetrics(scenario: ScenarioTeamMetrics, baseline: ScenarioTeamMetrics): ScenarioTeamMetrics {
   return {
     make_field: roundTo(scenario.make_field - baseline.make_field, 2),
-    win_title: roundTo(scenario.win_title - baseline.win_title, 2),
     proj_wins: roundTo(scenario.proj_wins - baseline.proj_wins, 2),
     conf_title: roundTo(scenario.conf_title - baseline.conf_title, 1),
   };
@@ -423,28 +434,17 @@ function subtractMetrics(scenario: ScenarioTeamMetrics, baseline: ScenarioTeamMe
 
 function metricsFromSimRow(slug: string): ScenarioTeamMetrics | null {
   const row = simTeamBySlug(slug);
-  if (row) {
-    return {
-      make_field: row.make_field,
-      win_title: row.win_title,
-      proj_wins: roundTo(row.proj_wins, 3),
-      conf_title: roundTo(row.conf_title, 2),
-    };
-  }
-  const odds = make12FromSim(slug);
-  if (odds.makeField == null || odds.winTitle == null) return null;
+  if (!row) return null;
   return {
-    make_field: odds.makeField,
-    win_title: odds.winTitle,
-    proj_wins: 0,
-    conf_title: 0,
+    make_field: row.make_field,
+    proj_wins: roundTo(row.proj_wins, 3),
+    conf_title: roundTo(row.conf_title, 2),
   };
 }
 
 function zeroDelta(): ScenarioTeamMetrics {
   return {
     make_field: 0,
-    win_title: 0,
     proj_wins: 0,
     conf_title: 0,
   };
@@ -476,7 +476,8 @@ function errorResponse(
 
 /**
  * Golden fixture runner until the live CLI path exists.
- * Georgia 75.26/21.59 → 52.40/14.78 plus the four other AMD return teams.
+ * Georgia make-field 75.26 → 52.40 plus the four other AMD return teams.
+ * Free preview: title odds stay in the Edge Pack (locked column in the UI).
  * Does not draw seasons in the browser.
  */
 export function runDemoScenarioSim(request: ScenarioSimRequest): ScenarioSimResponse {
