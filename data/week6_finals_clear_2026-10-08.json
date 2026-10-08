@@ -1,0 +1,155 @@
+{
+ "meta": {
+  "title": "HASHMARK Week 6 FINALs CLEAR pack",
+  "week": 6,
+  "run_ct": "2026-10-08 01:07 CT (Thu nightly)",
+  "window": "Wed 2026-10-07 evening FBS–FBS games",
+  "model": "HX 2026.7",
+  "soft_cal": "FLAG (stays)",
+  "game_list_source": "week6_vegas_clear_pack_2026-10-05.json (56 games)",
+  "sources": [
+   "https://site.web.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?groups=80&dates=20261007&limit=300",
+   "https://www.cbssports.com/college-football/scoreboard/FBS/2026/regular/6/",
+   "https://hashmarkcfb.com/schedule?w=6"
+  ]
+ },
+ "counts": {
+  "games_in_window": 2,
+  "CLEAR": 2,
+  "HOLD": 0,
+  "already_live_final": 0,
+  "to_stamp": 2,
+  "ot_finals": 0,
+  "week_final": "3/56",
+  "week_100pct_final": false,
+  "note": "Prior FINAL 401871090 USM@Troy (site 265) already live: Troy 55–USM 34, matches; no restamp."
+ },
+ "games": [
+  {
+   "espn_id": "401871051",
+   "site_game_id": 266,
+   "matchup": "Jacksonville State @ Kennesaw State",
+   "away": "JXST",
+   "home": "KENN",
+   "kick_ct": "2026-10-07 18:00 Wed",
+   "tv": "CBSSN",
+   "espn_status": "STATUS_FINAL",
+   "status_detail": "Final",
+   "away_score": 27,
+   "home_score": 26,
+   "winner": "JXST",
+   "ot": false,
+   "linescore_away": [
+    0,
+    14,
+    7,
+    6
+   ],
+   "linescore_home": [
+    3,
+    13,
+    7,
+    3
+   ],
+   "cross_check": {
+    "source": "CBS Sports FBS Week 6 scoreboard",
+    "away_score": 27,
+    "home_score": 26,
+    "linescores_match": true,
+    "result": "MATCH"
+   },
+   "live_site_before": {
+    "url": "https://hashmarkcfb.com/schedule?w=6",
+    "status": "scheduled",
+    "shown": "Kick 6:00 CT · CBSSN",
+    "homeScore": null,
+    "awayScore": null,
+    "day_label": "Wednesday, Oct 7"
+   },
+   "already_live_final": false,
+   "clear_or_hold": "CLEAR",
+   "action": "Website stamp FINAL Jacksonville State 27, Kennesaw State 26",
+   "hx_vs_vegas": {
+    "hx": "Jax State -6.1 / 65.3%",
+    "vegas": "Jax State -3.0 / O/U 50.5",
+    "margin": "Jax State +1",
+    "total": 53,
+    "hx_su": "HIT (Jax State)",
+    "winner_flip": false,
+    "closer": "Vegas (|1-3.0|=2.0 vs |1-6.1|=5.1)",
+    "total_vs_ou": "OVER by 2.5"
+   }
+  },
+  {
+   "espn_id": "401871066",
+   "site_game_id": 267,
+   "matchup": "New Mexico State @ FIU",
+   "away": "NMSU",
+   "home": "FIU",
+   "kick_ct": "2026-10-07 18:30 Wed",
+   "tv": "ESPN2",
+   "espn_status": "STATUS_FINAL",
+   "status_detail": "Final",
+   "away_score": 3,
+   "home_score": 22,
+   "winner": "FIU",
+   "ot": false,
+   "linescore_away": [
+    0,
+    3,
+    0,
+    0
+   ],
+   "linescore_home": [
+    7,
+    3,
+    6,
+    6
+   ],
+   "cross_check": {
+    "source": "CBS Sports FBS Week 6 scoreboard",
+    "away_score": 3,
+    "home_score": 22,
+    "linescores_match": true,
+    "result": "MATCH"
+   },
+   "live_site_before": {
+    "url": "https://hashmarkcfb.com/schedule?w=6",
+    "status": "scheduled",
+    "shown": "Kick 6:30 CT · ESPN2",
+    "homeScore": null,
+    "awayScore": null,
+    "day_label": "Wednesday, Oct 7"
+   },
+   "already_live_final": false,
+   "clear_or_hold": "CLEAR",
+   "action": "Website stamp FINAL FIU 22, New Mexico State 3",
+   "hx_vs_vegas": {
+    "hx": "FIU -9.1 / 71.1%",
+    "vegas": "FIU -6.0 / O/U 46.5",
+    "margin": "FIU +19",
+    "total": 25,
+    "hx_su": "HIT (FIU)",
+    "winner_flip": false,
+    "closer": "HX (|19-9.1|=9.9 vs |19-6.0|=13.0)",
+    "total_vs_ou": "UNDER by 21.5"
+   }
+  }
+ ],
+ "holds": [],
+ "next": {
+  "thu_2026_10_08": [
+   "401871052 MOST @ WKU 18:00 CT",
+   "401870766 SHSU @ LIB 18:00 CT",
+   "401869933 USA @ ARST 18:30 CT",
+   "401862794 USF @ UTSA 18:30 CT"
+  ],
+  "next_run": "Fri 2026-10-09 01:02 CT"
+ },
+ "handoff": {
+  "website": "Stamp FINAL 401871051 (site id 266) Jacksonville State 27–Kennesaw State 26 and 401871066 (site id 267) FIU 22–New Mexico State 3 on /schedule?w=6; then smoke for Research LIVE CLEAR.",
+  "management": "FYI only.",
+  "marketing": "FINAL quotes wait for Research LIVE CLEAR after Website smoke; Chase HOLD ALL posts.",
+  "no_self_stamp": true
+ }
+}
