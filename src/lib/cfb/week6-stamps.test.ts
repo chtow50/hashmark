@@ -11,7 +11,11 @@ import {
   WEEK6_FEATURED,
   favoriteLine,
 } from "./featured.ts";
-import { countSeedFbsGamesForWeek } from "./fcs-fbs-stamp-gate.ts";
+import {
+  countSeedFbsGamesForWeek,
+  parseSqlStampsForWeek,
+  readMigrationsSql,
+} from "./fcs-fbs-stamp-gate.ts";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "../../..");
 const payload = JSON.parse(
@@ -536,5 +540,96 @@ describe("Week 6 Tuesday USM @ Troy FINAL", () => {
     const header = finalsSql.split(/update games/i)[0] ?? "";
     assert.doesNotMatch(header, /401871090/);
     assert.doesNotMatch(header, /\b401\d{6,}\b/);
+  });
+});
+
+
+describe("Week 6 Wednesday JXST @ KENN and NMSU @ FIU FINALs", () => {
+  const finalsSql = readFileSync(
+    join(root, "migrations/0050_week6_jxst_kenn_nmsu_fiu_final.sql"),
+    "utf8",
+  );
+  const pack = JSON.parse(
+    readFileSync(join(root, "data/week6_finals_clear_2026-10-08.json"), "utf8"),
+  ) as {
+    counts: { CLEAR: number; HOLD: number; to_stamp: number; week_final: string };
+    games: {
+      espn_id: string;
+      site_game_id: number;
+      away_score: number;
+      home_score: number;
+      winner: string;
+      ot: boolean;
+      clear_or_hold: string;
+      espn_status: string;
+      cross_check: { result: string };
+    }[];
+  };
+
+  it("matches the Research CLEAR pack (2 CLEAR, 0 HOLD, week 3/56 FINAL)", () => {
+    assert.equal(pack.counts.CLEAR, 2);
+    assert.equal(pack.counts.HOLD, 0);
+    assert.equal(pack.counts.to_stamp, 2);
+    assert.equal(pack.counts.week_final, "3/56");
+    const byId = new Map(pack.games.map((g) => [g.espn_id, g]));
+    const jxst = byId.get("401871051");
+    const fiu = byId.get("401871066");
+    assert.ok(jxst && fiu);
+    assert.deepEqual(
+      [jxst.site_game_id, jxst.away_score, jxst.home_score, jxst.winner, jxst.ot],
+      [266, 27, 26, "JXST", false],
+    );
+    assert.deepEqual(
+      [fiu.site_game_id, fiu.away_score, fiu.home_score, fiu.winner, fiu.ot],
+      [267, 3, 22, "FIU", false],
+    );
+    for (const g of [jxst, fiu]) {
+      assert.equal(g.clear_or_hold, "CLEAR");
+      assert.equal(g.espn_status, "STATUS_FINAL");
+      assert.equal(g.cross_check.result, "MATCH");
+    }
+  });
+
+  it("stamps only the two Wednesday FINALs scores+status from Research CLEAR", () => {
+    assert.equal((finalsSql.match(/update games/g) ?? []).length, 2);
+    assert.equal((finalsSql.match(/g\.week = 6/g) ?? []).length, 2);
+    assert.match(finalsSql, /week6_finals_clear_2026-10-08/);
+    assert.match(finalsSql, /Scores and status only/);
+    assert.match(finalsSql, /Soft-cal FLAG stays/);
+    assert.match(
+      finalsSql,
+      /Jacksonville State @ Kennesaw State — Jacksonville State 27, Kennesaw State 26/,
+    );
+    assert.match(finalsSql, /New Mexico State @ FIU — FIU 22, New Mexico State 3/);
+    assert.equal((finalsSql.match(/status = 'final'/g) ?? []).length, 2);
+    assert.match(finalsSql, /home_score = 26,\n    away_score = 27/);
+    assert.match(finalsSql, /home_score = 22,\n    away_score = 3\n/);
+    assert.match(finalsSql, /h\.slug = 'kennesaw-state' and a\.slug = 'jacksonville-state'/);
+    assert.match(finalsSql, /h\.slug = 'fiu' and a\.slug = 'new-mexico-state'/);
+    assert.match(finalsSql, /Source event 401871051/);
+    assert.match(finalsSql, /Source event 401871066/);
+    assert.match(finalsSql, /Do not put ESPN event digits in this header/);
+    // USM @ Troy is already FINAL in 0049; no restamp.
+    assert.doesNotMatch(finalsSql, /'troy'|'southern-miss'|401871090/);
+    assert.doesNotMatch(finalsSql, /kickoff_at/);
+    assert.doesNotMatch(finalsSql, /vegas_spread/);
+    assert.doesNotMatch(finalsSql, /vegas_total/);
+    assert.doesNotMatch(finalsSql, /\btv\s*=/);
+    assert.doesNotMatch(finalsSql, /hx_rating/);
+    assert.doesNotMatch(finalsSql, /win_title|make_field/);
+    // Header before the first update must not carry event digits (stamp-gate overwrite).
+    const header = finalsSql.split(/update games/i)[0] ?? "";
+    assert.doesNotMatch(header, /401871051|401871066/);
+    assert.doesNotMatch(header, /\b401\d{6,}\b/);
+  });
+
+  it("keeps 0043/0048 kick + Vegas on both cards in the stamp gate", () => {
+    const sqlByEspn = parseSqlStampsForWeek(readMigrationsSql(root), 6);
+    for (const espn of ["401871051", "401871066", "401871090"]) {
+      const row = sqlByEspn.get(espn);
+      assert.ok(row, `missing stamp-gate row for ${espn}`);
+      assert.equal(row.hasKick, true, `${espn} kick`);
+      assert.equal(row.hasVegas, true, `${espn} vegas`);
+    }
   });
 });
