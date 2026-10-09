@@ -9,13 +9,13 @@ import {
   resolveCheckoutUrl,
 } from "./edge.ts";
 
-test("Edge Pack display prices stay at the Cash Scout cut", () => {
+test("Edge Pack display price is the $5 week sample only (Edge pause step 1)", () => {
   assert.equal(EDGE.weekPrice, "$5");
   assert.equal(EDGE.weekLabel, "$5 Week sample");
-  assert.equal(EDGE.monthPrice, "$15/mo");
-  assert.equal(EDGE.monthLabel, "$15/mo");
+  assert.equal("monthPrice" in EDGE, false);
+  assert.equal("monthLabel" in EDGE, false);
+  assert.doesNotMatch(JSON.stringify(EDGE), /\/mo|monthly|subscri/i);
 });
-
 test("unset, blank, and non-http values do not become a checkout URL", () => {
   assert.equal(resolveCheckoutUrl(undefined), null);
   assert.equal(resolveCheckoutUrl(null), null);
@@ -37,31 +37,21 @@ test("absolute http(s) checkout URLs are kept", () => {
   );
 });
 
-test("week checkout does not fall back to monthly when week env is unset", () => {
-  const env = { VITE_EDGE_CHECKOUT_URL: "https://example.com/edge-month" };
+test("week checkout reads only VITE_EDGE_CHECKOUT_WEEK_URL; a leftover monthly env is ignored", () => {
+  const env = { VITE_EDGE_CHECKOUT_URL: "https://example.com/edge-month" } as Record<string, string>;
   assert.equal(edgeCheckoutUrl("week", env), null);
   assert.equal(edgeCheckoutHref("week", env), EDGE_CHECKOUT_PENDING);
   assert.equal(edgeCheckoutLive("week", env), false);
-  assert.equal(edgeCheckoutUrl("month", env), "https://example.com/edge-month");
-  assert.equal(edgeCheckoutHref("month", env), "https://example.com/edge-month");
-  assert.equal(edgeCheckoutLive("month", env), true);
+  const both = { ...env, VITE_EDGE_CHECKOUT_WEEK_URL: "https://example.com/edge-week" };
+  assert.equal(edgeCheckoutUrl("week", both), "https://example.com/edge-week");
+  assert.equal(edgeCheckoutHref(undefined, both), "https://example.com/edge-week");
 });
 
-test("blank or junk week env stays pending even if monthly is live", () => {
-  const monthly = { VITE_EDGE_CHECKOUT_URL: "https://example.com/edge-month" };
+test("blank or junk week env stays pending", () => {
   for (const week of ["", "   ", "#checkout-pending", "/edge"]) {
-    const env = { ...monthly, VITE_EDGE_CHECKOUT_WEEK_URL: week };
+    const env = { VITE_EDGE_CHECKOUT_WEEK_URL: week };
     assert.equal(edgeCheckoutUrl("week", env), null);
     assert.equal(edgeCheckoutHref("week", env), EDGE_CHECKOUT_PENDING);
     assert.equal(edgeCheckoutLive("week", env), false);
   }
-});
-
-test("week and month use only their own env URLs when both are set", () => {
-  const env = {
-    VITE_EDGE_CHECKOUT_URL: "https://example.com/edge-month",
-    VITE_EDGE_CHECKOUT_WEEK_URL: "https://example.com/edge-week",
-  };
-  assert.equal(edgeCheckoutUrl("week", env), "https://example.com/edge-week");
-  assert.equal(edgeCheckoutUrl("month", env), "https://example.com/edge-month");
 });

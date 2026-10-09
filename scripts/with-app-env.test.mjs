@@ -66,10 +66,8 @@ test("the template ships auth off", () => {
     env.VITE_EDGE_CHECKOUT_WEEK_URL,
     "https://buy.stripe.com/00w14obUSbUZ5N67sydUY03",
   );
-  assert.equal(
-    env.VITE_EDGE_CHECKOUT_URL,
-    "https://buy.stripe.com/4gM6oIf74cZ3cbubIOdUY02",
-  );
+  // Edge pause step 1: the monthly link is no longer carried in the workspace env.
+  assert.equal(env.VITE_EDGE_CHECKOUT_URL, undefined);
 });
 
 test("vite loadEnv resolves the wrapped value", () => {

@@ -46,7 +46,7 @@ function EdgePage() {
       <PageHead
         kicker={`Weekly pack · HX ${MODEL.version}`}
         title={EDGE.name}
-        lede="Weekly paid pack. The $5 week sample is the full depth pack — confidence cards, unit O/D pulse, tape write-up — not the free-board teaser. Same HX as the public board. The free board stays public."
+        lede="Paid depth pack. The $5 week sample is the full depth pack — confidence cards, unit O/D pulse, tape write-up — not the free-board teaser. Same HX as the public board. The free board stays public."
       />
 
       <div className="grid gap-6 sm:grid-cols-2">
@@ -57,17 +57,9 @@ function EdgePage() {
           <p className="mt-2 font-display text-4xl tabular tracking-wide">{EDGE.weekPrice}</p>
           <p className="mt-2 text-sm text-muted">
             One paid week of the full pack: confidence cards, unit O/D pulse, tape write-up.
-            Not the free-board teaser. Same contents as the month, once.
+            Not the free-board teaser.
           </p>
           <EdgeBuyButton kind="week" label={`Buy · ${EDGE.weekLabel}`} className="mt-5" />
-        </Panel>
-        <Panel>
-          <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-faint">
-            Monthly
-          </p>
-          <p className="mt-2 font-display text-4xl tabular tracking-wide">{EDGE.monthPrice}</p>
-          <p className="mt-2 text-sm text-muted">Weekly pack through the season.</p>
-          <EdgeBuyButton kind="month" label={`Buy · ${EDGE.monthLabel}`} className="mt-5" />
         </Panel>
       </div>
       <EdgeCheckoutNote />

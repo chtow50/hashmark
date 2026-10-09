@@ -121,7 +121,6 @@ export function ScenarioSimGate({ className }: { className?: string }) {
       </p>
       <div className="mt-5 grid gap-3 sm:grid-cols-2">
         <EdgeBuyButton kind="week" label={`Buy · ${EDGE.weekLabel}`} />
-        <EdgeBuyButton kind="month" label={`Buy · ${EDGE.monthLabel}`} />
       </div>
     </Panel>
   );
