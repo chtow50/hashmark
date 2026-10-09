@@ -312,9 +312,9 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /HX 2026\.5/);
     assert.match(text, /Week 6 board/);
     assert.match(text, /HX is Week 6/);
-    assert.match(text, /not a Week 4 ballot/);
-    assert.match(text, /Week 5 AP/);
-    assert.match(text, /W5 stamp/);
+    assert.match(text, /not a Week 5 ballot/);
+    assert.match(text, /Week 6 AP/);
+    assert.match(text, /W6 stamp/);
     assert.match(text, /7\.8978/);
     assert.match(text, /0\.0711/);
     assert.match(text, /week3_od_hx_ship_2026/);
@@ -385,14 +385,14 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /\('ole-miss', 4\)/);
     assert.match(text, /\('texas-am', 23\)/);
     assert.match(text, /\('houston', 25\)/);
-    assert.match(text, /week5_hx_vs_ap_gaps_2026/);
+    assert.match(text, /week6_hx_vs_ap_gaps_2026/);
     assert.match(text, /week-4-texas-am-lsu/);
     assert.match(text, /week-4-ole-miss-florida/);
     assert.match(text, /week-4-clemson-cal/);
     assert.match(text, /week-4-missouri-mississippi-state/);
     assert.match(text, /Northern Iowa/);
-    assert.match(text, /W5 stamp/);
-    assert.match(text, /not a Week 4 ballot/);
+    assert.match(text, /W6 stamp/);
+    assert.match(text, /not a Week 5 ballot/);
     assert.doesNotMatch(text, /Virginia AP 25/);
   });
 
@@ -412,7 +412,7 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /\('florida', 8\)/);
     assert.match(text, /\('mississippi-state', 16\)/);
     assert.match(text, /\('missouri', 25\)/);
-    assert.match(text, /week5_hx_vs_ap_gaps_2026/);
+    assert.match(text, /week6_hx_vs_ap_gaps_2026/);
     assert.match(text, /week-5-florida-missouri/);
     assert.match(text, /week-5-miami-clemson/);
     assert.match(text, /week-5-alabama-mississippi-state/);
@@ -420,13 +420,43 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /week-5-louisville-nc-state/);
     assert.match(text, /week-5-wku-nmsu-final/);
     assert.match(text, /Portland State/);
-    assert.match(text, /W5 stamp/);
+    assert.match(text, /W6 stamp/);
     assert.match(text, /Week 6 board/);
     assert.match(text, /HX is Week 6/);
-    assert.match(text, /not a Week 4 ballot/);
+    assert.match(text, /not a Week 5 ballot/);
     assert.doesNotMatch(text, /Texas A&M AP 23/);
   });
 
+
+  it("includes Week 6 Friday stories, AP Week 6 (Oct. 4), and KU @ Utah Vegas in committed output", () => {
+    const text = corpus();
+    assert.match(text, /0052_week6_ap_top25/);
+    assert.match(text, /week6_ap_top25_2026/);
+    assert.match(text, /\('florida', 16\)/);
+    assert.match(text, /\('missouri', 14\)/);
+    assert.match(text, /\('iowa', 20\)/);
+    assert.match(text, /\('byu', 8\)/);
+    assert.match(text, /\('pittsburgh', 25\)/);
+    assert.match(text, /week6_hx_vs_ap_gaps_2026/);
+    assert.match(text, /Week 6 AP/);
+    assert.match(text, /W6 stamp/);
+    assert.match(text, /not a Week 5 ballot/);
+    assert.match(text, /0053_week6_ku_utah_vegas/);
+    assert.match(text, /then 15\.5 else -15\.5 end/);
+    assert.match(text, /vegas_total = 51\.5/);
+    for (const slug of [
+      "week-6-georgia-alabama",
+      "week-6-ucla-oregon",
+      "week-6-texas-am-missouri",
+      "week-6-iowa-washington",
+      "week-6-ranked-chill-gaps",
+      "week-6-midweek-tape",
+    ]) {
+      assert.match(text, new RegExp(slug));
+    }
+    assert.match(text, /HX and Vegas have Washington by about two\. FPI has Iowa by 3\.5\./);
+    assert.match(text, /Week 6 Friday desk/);
+  });
 
   it("includes Week 3 Pitt FINAL and Week 5 HX-vs-AP gaps in committed output", () => {
     const text = corpus();
@@ -435,7 +465,7 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /home_score = 27/);
     assert.match(text, /away_score = 13/);
     assert.match(text, /h\.slug = 'pittsburgh' and a\.slug = 'syracuse'/);
-    assert.match(text, /week5_hx_vs_ap_gaps_2026/);
+    assert.match(text, /week6_hx_vs_ap_gaps_2026/);
     assert.match(text, /week-4-texas-am-lsu/);
     assert.match(text, /week-3-houston-texas-tech/);
     assert.match(text, /week-3-lsu-ole-miss/);

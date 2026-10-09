@@ -8,16 +8,16 @@ export const BOARD_WEEK = 6;
 
 /**
  * Last stamped AP ballot on the live board.
- * HX chrome is Week 6. AP is the last stamped poll (Week 5, Sept. 27) —
- * not a Week 4 ballot. No Week 6 AP yet — do not invent one.
+ * HX chrome is Week 6. AP is the last stamped poll (Week 6, Oct. 4) —
+ * not a Week 5 ballot. Source: data/week6_ap_top25_2026.json.
  */
 export const AP_STAMP = {
-  week: 5,
-  asOf: "Sept. 27",
-  label: "Week 5 AP",
-  columnHint: "W5 stamp",
-  vsHx: "last stamped AP (Week 5, Sept. 27)",
-  lede: "HX is Week 6. AP is the last stamped poll (Week 5, Sept. 27) — not a Week 4 ballot.",
+  week: 6,
+  asOf: "Oct. 4",
+  label: "Week 6 AP",
+  columnHint: "W6 stamp",
+  vsHx: "last stamped AP (Week 6, Oct. 4)",
+  lede: "HX is Week 6. AP is the last stamped poll (Week 6, Oct. 4) — not a Week 5 ballot.",
 } as const;
 
 /**

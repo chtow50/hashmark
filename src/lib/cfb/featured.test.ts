@@ -196,17 +196,18 @@ test("board chrome is Week 6; featured slate is Week 6 Research pin", () => {
   assert.equal(MODEL.weekLabel, "Week 6 board");
 });
 
-test("AP chrome is the stamped Week 5 poll, not a leftover Week 4 ballot", () => {
-  assert.equal(AP_STAMP.week, 5);
-  assert.equal(AP_STAMP.asOf, "Sept. 27");
-  assert.equal(AP_STAMP.label, "Week 5 AP");
-  assert.equal(AP_STAMP.columnHint, "W5 stamp");
-  assert.notEqual(AP_STAMP.week, BOARD_WEEK);
-  assert.match(AP_STAMP.vsHx, /Week 5, Sept\. 27/);
+test("AP chrome is the stamped Week 6 poll (Oct. 4), not a leftover Week 5 ballot", () => {
+  assert.equal(AP_STAMP.week, 6);
+  assert.equal(AP_STAMP.asOf, "Oct. 4");
+  assert.equal(AP_STAMP.label, "Week 6 AP");
+  assert.equal(AP_STAMP.columnHint, "W6 stamp");
+  assert.equal(AP_STAMP.week, BOARD_WEEK);
+  assert.match(AP_STAMP.vsHx, /Week 6, Oct\. 4/);
   assert.match(AP_STAMP.lede, /HX is Week 6/);
-  assert.match(AP_STAMP.lede, /last stamped poll \(Week 5/);
-  assert.match(AP_STAMP.lede, /Sept\. 27/);
-  assert.match(AP_STAMP.lede, /not a Week 4 ballot/);
+  assert.match(AP_STAMP.lede, /last stamped poll \(Week 6/);
+  assert.match(AP_STAMP.lede, /Oct\. 4/);
+  assert.match(AP_STAMP.lede, /not a Week 5 ballot/);
+  assert.doesNotMatch(AP_STAMP.lede, /Sept\. 27/);
 });
 
 test("Colorado at GT is HASHMARK GT −10.3 / 73.3% at home, Neutral off", () => {
