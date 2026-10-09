@@ -19,7 +19,7 @@ describe("LEAN polish gates", () => {
     assert.match(src, /not the free-board teaser/i);
     assert.match(src, /EDGE\.weekPrice/);
     assert.match(src, /kind="week"/);
-    assert.match(src, /kind="month"/);
+    assert.doesNotMatch(src, /kind="month"|EDGE\.month|Monthly|\/mo\b/);
     assert.match(src, /No locks/);
     assert.match(src, /No guaranteed ROI/);
     assert.doesNotMatch(src, /sure thing|print money|can't miss/i);
