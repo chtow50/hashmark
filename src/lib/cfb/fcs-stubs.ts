@@ -86,7 +86,8 @@ const TV_SHORT: Record<string, string> = {
 const FCS_SWATCH = "#6e6e68";
 const FBS_SWATCH = "#8a8a82";
 
-function scheduled(teamSlug: string, week: number, kickoffDate: string): FcsStubGame {
+/** Unplayed FCS stub (no score). Unused in data since #84; kept for fixtures and future weeks. */
+export function scheduled(teamSlug: string, week: number, kickoffDate: string): FcsStubGame {
   return {
     teamSlug,
     week,
@@ -117,6 +118,31 @@ function finalHome(
     status: "final",
     homeScore,
     awayScore,
+  };
+}
+
+/**
+ * FBS on the road at an FCS host (Research CLEAR). Mirrors `finalHome` but the
+ * FCS opponent is the venue home: teamScore → awayScore, oppScore → homeScore.
+ * Records (`tallyFcsStubs`) read the team side via `home: false`.
+ */
+function finalAway(
+  teamSlug: string,
+  week: number,
+  kickoffDate: string,
+  opponentLabel: string,
+  teamScore: number,
+  oppScore: number,
+): FcsStubGame {
+  return {
+    teamSlug,
+    week,
+    kickoffDate,
+    opponentLabel,
+    home: false,
+    status: "final",
+    homeScore: oppScore,
+    awayScore: teamScore,
   };
 }
 
@@ -173,6 +199,15 @@ function week2StubFromJson(g: Week2FcsJsonGame): FcsStubGame {
   };
 }
 
+/**
+ * Week 0 (Aug 29) FBS vs FCS finals — records audit vs ESPN
+ * (data/records_audit_vs_espn_2026-10-09.json change_spec, all CLEAR).
+ */
+const WEEK0_FCS_STUBS: FcsStubGame[] = [
+  finalHome("eastern-michigan", 0, "2026-08-29", "Sacramento State", 28, 17),
+  finalAway("jacksonville-state", 0, "2026-08-29", "North Dakota State", 7, 33),
+];
+
 const WEEK1_FCS_STUBS: FcsStubGame[] = [
   finalHome("buffalo", 1, "2026-09-03", "UAlbany", 21, 17),
   finalHome("delaware", 1, "2026-09-03", "Merrimack", 42, 7),
@@ -214,7 +249,7 @@ const WEEK1_FCS_STUBS: FcsStubGame[] = [
   finalHome("syracuse", 1, "2026-09-05", "New Hampshire", 66, 3),
   finalHome("temple", 1, "2026-09-05", "Rhode Island", 38, 14),
   finalHome("tennessee", 1, "2026-09-05", "Furman", 56, 9),
-  finalHome("texas-tech", 1, "2026-09-05", "Nicholls", 33, 3),
+  finalHome("texas-tech", 1, "2026-09-05", "Abilene Christian", 33, 10),
   finalHome("uconn", 1, "2026-09-05", "Lafayette", 56, 7),
   finalHome("utah-state", 1, "2026-09-05", "Idaho State", 17, 29),
   finalHome("utsa", 1, "2026-09-05", "UT Rio Grande Valley", 45, 16),
@@ -234,13 +269,59 @@ const WEEK3_FCS_STUBS: FcsStubGame[] = [
   // Oregon W–L: home still 2–1 without this FCS FINAL; AP Week 5 is 3–1 after USC.
   // Portland State @ Oregon — Oregon 84, Portland State 0 (Sep 18). goducks / goviks / FOX.
   finalHome("oregon", 3, "2026-09-18", "Portland State", 84, 0),
+  // Records audit vs ESPN (data/records_audit_vs_espn_2026-10-09.json), all CLEAR.
+  finalHome("boise-state", 3, "2026-09-19", "South Dakota", 38, 24),
+  finalHome("boston-college", 3, "2026-09-19", "Maine", 22, 16),
+  finalHome("california", 3, "2026-09-19", "Wagner", 49, 7),
+  finalHome("georgia-tech", 3, "2026-09-19", "Mercer", 44, 11),
+  finalHome("illinois", 3, "2026-09-19", "Southern Illinois", 48, 10),
+  finalHome("massachusetts", 3, "2026-09-19", "Stonehill", 36, 14),
+  finalHome("memphis", 3, "2026-09-19", "UT Martin", 45, 21),
+  finalHome("nebraska", 3, "2026-09-19", "North Dakota", 34, 7),
+  finalHome("oklahoma-state", 3, "2026-09-19", "Murray State", 59, 0),
+  finalHome("oregon-state", 3, "2026-09-19", "Montana", 52, 17),
+  finalHome("sam-houston", 3, "2026-09-19", "Nicholls", 59, 0),
+  finalHome("tulsa", 3, "2026-09-19", "East Texas A&M", 42, 0),
+  finalHome("ul-monroe", 3, "2026-09-19", "SE Louisiana", 35, 38),
+  finalHome("usf", 3, "2026-09-19", "Delaware State", 59, 17),
+  finalHome("washington", 3, "2026-09-19", "Eastern Washington", 48, 16),
+  finalHome("washington-state", 3, "2026-09-19", "Duquesne", 48, 7),
 ];
 
-/** FBS vs FCS rows dropped from the 136-team games table. Unlisted Week 1 FCS stay scheduled stubs. */
+/** Week 4 FBS vs FCS finals — records audit vs ESPN (change_spec, all CLEAR). */
+const WEEK4_FCS_STUBS: FcsStubGame[] = [
+  finalHome("buffalo", 4, "2026-09-26", "Robert Morris", 31, 28),
+  finalHome("duke", 4, "2026-09-26", "William & Mary", 62, 7),
+  finalHome("east-carolina", 4, "2026-09-26", "NC Central", 42, 9),
+  finalHome("eastern-michigan", 4, "2026-09-26", "Lindenwood", 29, 3),
+  finalHome("fiu", 4, "2026-09-26", "LIU", 20, 3),
+  finalHome("florida-state", 4, "2026-09-26", "Central Arkansas", 34, 7),
+  finalHome("marshall", 4, "2026-09-26", "Gardner-Webb", 36, 35),
+  finalAway("massachusetts", 4, "2026-09-26", "Sacramento State", 35, 6),
+  finalHome("north-texas", 4, "2026-09-26", "Houston Christian", 63, 14),
+  finalHome("ohio", 4, "2026-09-26", "Stonehill", 35, 7),
+  finalHome("pittsburgh", 4, "2026-09-26", "Bucknell", 59, 0),
+  finalHome("rutgers", 4, "2026-09-25", "Howard", 58, 7),
+  finalHome("texas-state", 4, "2026-09-26", "Incarnate Word", 63, 10),
+  finalHome("western-kentucky", 4, "2026-09-26", "Mercyhurst", 52, 7),
+];
+
+/** Week 5 FBS vs FCS finals — records audit vs ESPN (change_spec, all CLEAR). */
+const WEEK5_FCS_STUBS: FcsStubGame[] = [
+  finalHome("florida-atlantic", 5, "2026-10-03", "Texas Southern", 66, 10),
+  finalHome("lsu", 5, "2026-10-03", "McNeese", 63, 14),
+  finalHome("uab", 5, "2026-10-03", "Samford", 33, 14),
+  finalAway("wyoming", 5, "2026-10-03", "North Dakota State", 0, 28),
+];
+
+/** FBS vs FCS rows dropped from the 136-team games table (W–L stubs + Week 2 Vegas-only JSON). */
 export const FCS_STUB_GAMES: FcsStubGame[] = [
+  ...WEEK0_FCS_STUBS,
   ...WEEK1_FCS_STUBS,
   ...WEEK2_FCS_STUBS,
   ...WEEK3_FCS_STUBS,
+  ...WEEK4_FCS_STUBS,
+  ...WEEK5_FCS_STUBS,
 ];
 
 export function fcsStubIsFinal(stub: FcsStubGame): boolean {

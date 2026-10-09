@@ -592,6 +592,30 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /finalHome\("charlotte", 1, "2026-09-05", "The Citadel", 41, 43\)/);
   });
 
+  it("includes the records-audit FCS finals (W0/3/4/5 + finalAway + TTU fix) in committed output", () => {
+    const text = corpus();
+    const spec = JSON.parse(
+      readFileSync(join(ROOT, "data/records_audit_vs_espn_2026-10-09.json"), "utf8"),
+    );
+    const groups = spec.change_spec.groups;
+    const calls = [
+      ...groups.WEEK0_new_array.calls,
+      ...groups.WEEK3_append.calls,
+      ...groups.WEEK4_new_array.calls,
+      ...groups.WEEK5_new_array.calls,
+    ].map((c) => c.call);
+    assert.equal(calls.length, 36);
+    for (const call of calls) {
+      assert.ok(text.includes(call), `missing ${call}`);
+    }
+    const ttu = groups.WEEK1_ttu_fix.calls[0];
+    assert.ok(text.includes(ttu.with), `missing ${ttu.with}`);
+    assert.ok(!text.includes(ttu.replace), `stale ${ttu.replace}`);
+    assert.match(text, /finalHome\("kansas-state", 1, "2026-09-05", "Nicholls", 71, 3\)/);
+    assert.match(text, /function finalAway\(/);
+    assert.match(text, /finalAway\("jacksonville-state", 0, "2026-08-29", "North Dakota State", 7, 33\)/);
+  });
+
   it("pins serverless function runtime to nodejs22.x (Vercel blocked new nodejs20.x after 2026-10-01)", () => {
     const cfgPath = join(OUT, "functions/__server.func/.vc-config.json");
     assert.ok(existsSync(cfgPath), "missing .vc-config.json");
