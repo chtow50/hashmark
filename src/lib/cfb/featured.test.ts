@@ -18,6 +18,8 @@ import {
   selectFeaturedKick,
   selectWeekScopedFeatured,
   spreadGap,
+  SPREAD_GAP_MIN_PTS,
+  isNotableSpreadGap,
 } from "./featured.ts";
 import type { ScheduleGame } from "./types.ts";
 
@@ -560,6 +562,23 @@ test("same-favorite spread gap vs −6.5 is the flag", () => {
   assert.equal(favoriteLine("Georgia Tech", "Colorado", 10.3), "Georgia Tech −10.3");
   assert.equal(favoriteLine("Georgia Tech", "Colorado", 6.5), "Georgia Tech −6.5");
   assert.equal(spreadGap(10.3, -6.5), null);
+});
+
+test("isNotableSpreadGap: same favorite and |gap| >= 4; spreadGap keeps the number", () => {
+  assert.equal(SPREAD_GAP_MIN_PTS, 4);
+  assert.equal(spreadGap(7.0, 7), 0);
+  assert.equal(isNotableSpreadGap(7.0, 7), false);
+  assert.equal(spreadGap(10.3, 9.1), 1.2);
+  assert.equal(isNotableSpreadGap(10.3, 9.1), false);
+  assert.equal(isNotableSpreadGap(10.3, 6.5), false);
+  assert.equal(spreadGap(10.3, 6.0), 4.3);
+  assert.equal(isNotableSpreadGap(10.3, 6.0), true);
+  assert.equal(isNotableSpreadGap(11.0, 7), true);
+  assert.equal(isNotableSpreadGap(-15.0, -10.5), true);
+  assert.equal(isNotableSpreadGap(15.0, 10.5), true);
+  assert.equal(isNotableSpreadGap(3.0, 7), true);
+  assert.equal(isNotableSpreadGap(10.3, -6.5), false);
+  assert.equal(isNotableSpreadGap(0, 7), false);
 });
 
 test("FCS Vegas-only rows are never featured (no invented HX)", () => {

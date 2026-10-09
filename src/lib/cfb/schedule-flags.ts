@@ -1,4 +1,4 @@
-import { spreadGap } from "./featured.ts";
+import { isNotableSpreadGap } from "./featured.ts";
 import type { GameStatus, Prediction } from "./types.ts";
 
 /** HX and Vegas pick opposite favorites (both off PK). */
@@ -30,8 +30,18 @@ export function matchupChips(
   }
   if (isWinnerFlip(pred, opts.vegasSpread)) {
     chips.push({ kind: "winner_flip", label: "Winner flip", tone: "warn" });
-  } else if (opts.vegasSpread != null && spreadGap(pred.spread, opts.vegasSpread) != null) {
+  } else if (opts.vegasSpread != null && isNotableSpreadGap(pred.spread, opts.vegasSpread)) {
     chips.push({ kind: "spread_gap", label: "Spread gap", tone: "warn" });
   }
   return chips;
 }
+
+/**
+ * /schedule rows render matchupChips() and then their own Final chip for rows
+ * without an HX prediction (FCS Vegas-only). Only add it when matchupChips()
+ * did not already, so a FINAL row shows exactly one Final chip.
+ */
+export function needsRowFinalChip(chips: MatchupChip[], status: GameStatus): boolean {
+  return status === "final" && !chips.some((c) => c.kind === "final");
+}
+

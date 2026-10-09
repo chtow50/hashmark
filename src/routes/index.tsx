@@ -13,8 +13,8 @@ import {
   favoriteLine,
   featuredBook,
   featuredSlateWeek,
+  isNotableSpreadGap,
   selectBoardFeaturedKick,
-  spreadGap,
 } from "@/lib/cfb/featured";
 import { listGames, listScheduleWeek, listTeams } from "@/lib/cfb/queries";
 import { formatSeasonRecord } from "@/lib/cfb/season-record";
@@ -238,7 +238,7 @@ function FeaturedKick({ featured, pred }: { featured: ScheduleGame; pred: Predic
   const hxWin = pred.spread >= 0 ? pred.homeWinPct : pred.awayWinPct;
   const book = featuredBook(featured);
   const bookLine = book ? favoriteLine(featured.homeShort, featured.awayShort, book.spread) : null;
-  const gap = book ? spreadGap(pred.spread, book.spread) : null;
+  const notableGap = book ? isNotableSpreadGap(pred.spread, book.spread) : false;
   const kick = featured.kickoffAt
     ? formatKickCt(featured.kickoffAt)
     : formatKickDayTitle(null, featured.kickoffDate);
@@ -258,7 +258,7 @@ function FeaturedKick({ featured, pred }: { featured: ScheduleGame; pred: Predic
         {featured.tv ? ` · ${featured.tv}` : ""}
         {featured.neutral ? " · Neutral" : ""}
       </p>
-      {gap != null && bookLine ? (
+      {notableGap && bookLine ? (
         <p className="mt-3 inline-flex h-6 items-center rounded-full bg-raised px-2 text-[11px] uppercase tracking-[0.12em] text-warn">
           Spread gap
         </p>
@@ -284,7 +284,7 @@ function FeaturedKick({ featured, pred }: { featured: ScheduleGame; pred: Predic
           </div>
         </div>
       </div>
-      {gap != null && bookLine ? (
+      {notableGap && bookLine ? (
         <p className="mt-4 text-sm text-warn">
           HASHMARK {hxLine} vs book {bookLine} · same favorite
         </p>
