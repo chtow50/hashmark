@@ -109,9 +109,32 @@ export const STORIES: Story[] = [
       { label: "ESPN · AP Week 6 (Oct 4)", href: "https://www.espn.com/college-football/rankings" },
     ],
   },
-  // HOOK (Story 4 · week-6-iowa-washington): Website peer HOLD 2026-10-09 — dek / why
-  // framing ("three-way model split") is wrong: HX and Vegas both favor Washington.
-  // Research to rewrite; insert here once CLEAR. Iowa @ Washington TV stays HOLD.
+  {
+    // Story 4: Research ACCEPTED the dek / why rewrite 2026-10-09. Iowa @ Washington TV stays HOLD (not mentioned).
+    slug: "week-6-iowa-washington",
+    kicker: "Week 6 · Friday night",
+    headline: "Hank Brown questionable as Iowa visits Washington Friday night",
+    dek: "HX and Vegas have Washington by about two. FPI has Iowa by 3.5.",
+    date: STORY_DATE_WEEK6,
+    body: [
+      "No. 20 Iowa (4–1) plays at Washington (3–2) Friday at 8:00 CT. Quarterback Hank Brown is questionable with a sprained AC joint in his throwing shoulder from last week’s loss to Ohio State. Kirk Ferentz said Brown will likely be cleared medically, but “we can’t count on that.” Jeremy Hecklinski has been taking first-team reps, and Jimmy Sullivan is the backup. Brown has 832 passing yards, five touchdowns and one interception in five starts.",
+      "HX has Washington −1.9, 55.2%. Vegas has Washington −2.5 with a 41.5 total. FPI goes the other way: Iowa by 3.5 with a 60% win probability.",
+      "HX rates Washington 25th (3.24) and Iowa 23rd (3.68). Iowa is the stronger team on HX’s sheet, so the Huskies’ edge on the board comes from playing at home.",
+    ],
+    whyItMatters:
+      "A ranked team on a Friday night with a quarterback question, and FPI on the other side from HX and the book. That makes it a clean before-and-after test.",
+    sources: [
+      { label: "HASHMARK Schedule", href: "https://hashmarkcfb.com/schedule?w=6" },
+      {
+        label: "ESPN · Ferentz on Hank Brown",
+        href: "https://www.espn.com/college-football/story/_/id/50129420/kirk-ferentz-iowa-count-hank-brown-being-ready-fri",
+      },
+      {
+        label: "ESPN · Week 6 Top 25 lines",
+        href: "https://www.espn.com/espn/betting/story/_/id/50106943/2026-college-football-week-6-top-25-betting-lines-odds",
+      },
+    ],
+  },
   {
     slug: "week-6-ranked-chill-gaps",
     kicker: "Week 6 · Spread gap",

@@ -56,6 +56,7 @@ const WEEK6_FRIDAY = [
   "week-6-georgia-alabama",
   "week-6-ucla-oregon",
   "week-6-texas-am-missouri",
+  "week-6-iowa-washington",
   "week-6-ranked-chill-gaps",
   "week-6-midweek-tape",
 ] as const;
@@ -66,8 +67,19 @@ test("Week 6 Friday desk leads STORIES: CLEAR stories only, Oct 5 CLEAR Vegas, W
     STORIES.slice(0, W6).map((s) => s.slug),
     [...WEEK6_FRIDAY],
   );
-  // Story 4 (Iowa @ Washington) is Website peer HOLD for Research.
-  assert.equal(STORIES.find((s) => s.slug === "week-6-iowa-washington"), undefined);
+  // Story 4 (Iowa @ Washington): Research ACCEPTED the rewrite. HX and Vegas agree on Washington; no "three-way" framing; TV not invented.
+  const iowa = STORIES.find((s) => s.slug === "week-6-iowa-washington");
+  assert.ok(iowa);
+  assert.equal(iowa.dek, "HX and Vegas have Washington by about two. FPI has Iowa by 3.5.");
+  assert.equal(
+    iowa.whyItMatters,
+    "A ranked team on a Friday night with a quarterback question, and FPI on the other side from HX and the book. That makes it a clean before-and-after test.",
+  );
+  const iowaText = [iowa.headline, iowa.dek, iowa.whyItMatters, ...iowa.body].join("\n");
+  assert.match(iowaText, /Washington −1\.9, 55\.2%/);
+  assert.match(iowaText, /Vegas has Washington −2\.5 with a 41\.5 total/);
+  assert.doesNotMatch(iowaText, /three-way|three different|can’t agree|can't agree/i);
+  assert.doesNotMatch(iowaText, /\b(FOX|FS1|ESPN2?|ABC|CBS|NBC|Peacock|BTN)\b/);
   const text = (i: number) => {
     const s = STORIES[i];
     return [s?.headline, s?.dek, s?.whyItMatters, ...(s?.body ?? [])].join("\n");
@@ -99,7 +111,7 @@ test("Week 6 Friday desk leads STORIES: CLEAR stories only, Oct 5 CLEAR Vegas, W
   assert.match(mizz, /Texas A&M −2\.1, 55\.7%/);
   assert.match(mizz, /Vegas Missouri −3\.5/);
   assert.match(mizz, /No\. 25 to No\. 14/);
-  const chill = text(3);
+  const chill = text(4);
   assert.match(chill, /Florida −5\.2 \(63\.3%\) vs Vegas Florida −13\.5/);
   assert.match(chill, /Tennessee −7\.4 \(68\.0%\) vs Vegas −13\.5/);
   assert.match(chill, /Oklahoma State −1\.9 \(55\.2%\) vs Vegas −10\.0/);
@@ -108,7 +120,7 @@ test("Week 6 Friday desk leads STORIES: CLEAR stories only, Oct 5 CLEAR Vegas, W
   assert.match(chill, /No\. 25 Pittsburgh/);
   assert.match(chill, /soft-calibration FLAG/);
   assert.doesNotMatch(chill, /−11\.5|−10\.5|−3\.5/);
-  const tape = text(4);
+  const tape = text(5);
   for (const score of ["55–34", "27–26", "22–3", "35–3", "34–13", "31–24", "56–49"]) {
     assert.match(tape, new RegExp(score));
   }

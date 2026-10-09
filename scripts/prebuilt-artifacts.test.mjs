@@ -448,12 +448,13 @@ describe("prebuilt deploy artifacts", () => {
       "week-6-georgia-alabama",
       "week-6-ucla-oregon",
       "week-6-texas-am-missouri",
+      "week-6-iowa-washington",
       "week-6-ranked-chill-gaps",
       "week-6-midweek-tape",
     ]) {
       assert.match(text, new RegExp(slug));
     }
-    assert.doesNotMatch(text, /week-6-iowa-washington/);
+    assert.match(text, /HX and Vegas have Washington by about two\. FPI has Iowa by 3\.5\./);
     assert.match(text, /Week 6 Friday desk/);
   });
 
