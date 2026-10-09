@@ -5,7 +5,7 @@ import { PageHead, Panel, TeamSelect } from "@/components/shell";
 import { CompareRow, DeskChip, Stat, TeamMark, WinBar } from "@/components/marks";
 import { RosterDuel } from "@/components/roster-duel";
 import { formatKickCt } from "@/lib/cfb/chicago";
-import { favoriteLine, spreadGap } from "@/lib/cfb/featured";
+import { favoriteLine, isNotableSpreadGap } from "@/lib/cfb/featured";
 import { getMatchup, listTeams } from "@/lib/cfb/queries";
 import { RESTAMP_PERIODS, restamp, type RestampPeriod } from "@/lib/cfb/restamp";
 import { isWinnerFlip, matchupChips } from "@/lib/cfb/schedule-flags";
@@ -90,8 +90,11 @@ function MatchupPage() {
         })
       : [];
   const flip = prediction != null ? isWinnerFlip(prediction, game?.vegasSpread ?? null) : false;
-  const gap =
-    prediction != null && game?.vegasSpread != null ? spreadGap(prediction.spread, game.vegasSpread) : null;
+  // Same-favorite note only at |HX − Vegas| >= SPREAD_GAP_MIN_PTS (matches the chip and home note).
+  const notableGap =
+    prediction != null && game?.vegasSpread != null
+      ? isNotableSpreadGap(prediction.spread, game.vegasSpread)
+      : false;
   const homePts = homeScore === "" ? NaN : Number(homeScore);
   const awayPts = awayScore === "" ? NaN : Number(awayScore);
   const stamped =
@@ -206,7 +209,7 @@ function MatchupPage() {
                     HASHMARK takes {hxLine} · Vegas has {vegasLine}
                   </p>
                 ) : null}
-                {!flip && gap != null && hxLine && vegasLine ? (
+                {!flip && notableGap && hxLine && vegasLine ? (
                   <p className="mt-2 text-sm text-warn">
                     HASHMARK {hxLine} vs Vegas {vegasLine} · same favorite
                   </p>
