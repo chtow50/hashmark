@@ -1,0 +1,2387 @@
+{
+ "meta": {
+  "title": "HASHMARK FCS Week 1 ALL FINALs CLEAR pack (32 scheduled stubs)",
+  "week": 1,
+  "run_ct": "2026-10-09 01:45 CT (Fri)",
+  "window": "All 32 still-scheduled Week 1 FCS W\u2013L stubs in fcs-stubs.ts (buffalo through vanderbilt), including UTSA + South Alabama",
+  "repo": "https://github.com/chtow50/hashmark @ 4e721e7",
+  "storage": "src/lib/cfb/fcs-stubs.ts WEEK1_FCS_STUBS \u2014 only finalHome/scheduled helpers (no finalAway). All 32 played FBS home.",
+  "weeks_4_5_check": "No WEEK4/WEEK5 FCS stub arrays in fcs-stubs.ts. Week 2 JSON already STATUS_FINAL with scores; Week 3 only finalHome Iowa/Oregon. Buffalo Week 4 RMU and Jax State Week 0 NDSU are outside current stubs.",
+  "sources": [
+   "https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?groups=80&dates=20260903&limit=300",
+   "https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?groups=80&dates=20260904&limit=300",
+   "https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?groups=80&dates=20260905&limit=300",
+   "https://www.cbssports.com/college-football/scoreboard/FBS/2026/regular/1/"
+  ]
+ },
+ "counts": {
+  "games_in_window": 32,
+  "CLEAR": 32,
+  "HOLD": 0,
+  "already_live_final": 0,
+  "to_stamp": 32,
+  "ot_finals": 1,
+  "fbs_losses_in_window": 3,
+  "records_align_after": 30,
+  "records_still_differ_after": 2
+ },
+ "games": [
+  {
+   "espn_id": "401866409",
+   "site_game_id": -2001000,
+   "stub_key": {
+    "teamSlug": "buffalo",
+    "week": 1,
+    "kickoffDate": "2026-09-03"
+   },
+   "scheduled_call": "scheduled(\"buffalo\", 1, \"2026-09-03\")",
+   "replacement_call": "finalHome(\"buffalo\", 1, \"2026-09-03\", \"UAlbany\", 21, 17)",
+   "matchup": "UAlbany @ Buffalo",
+   "away_label": "UAlbany",
+   "away_abbr": "ALB",
+   "home_slug": "buffalo",
+   "home_abbr": "BUFF",
+   "kick_ct": "2026-09-03 18:00 CT",
+   "stub_date": "2026-09-03",
+   "espn_status": "STATUS_FINAL",
+   "status_detail": "Final",
+   "away_score": 17,
+   "home_score": 21,
+   "winner": "buffalo",
+   "fbs_result": "W",
+   "ot": false,
+   "linescore_away": [
+    7,
+    3,
+    7,
+    0
+   ],
+   "linescore_home": [
+    0,
+    14,
+    0,
+    7
+   ],
+   "cross_check": {
+    "source": "CBS Sports FBS Week 1 scoreboard (UAlbany 17 @ Buffalo 21)",
+    "away_score": 17,
+    "home_score": 21,
+    "linescores_match": true,
+    "result": "MATCH"
+   },
+   "sources": [
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/summary?event=401866409",
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?groups=80&dates=20260903&limit=300",
+    "https://www.cbssports.com/college-football/scoreboard/FBS/2026/regular/1/"
+   ],
+   "matchup_check": {
+    "orientation": "FBS home \u2014 matches stub home:true / finalHome",
+    "date_match": true,
+    "postponed_canceled_or_different_opponent": false,
+    "result": "MATCH"
+   },
+   "live_site_before": {
+    "url": "https://hashmarkcfb.com/teams/buffalo",
+    "status": "scheduled",
+    "shown": "Week 1 \u00b7 2026-09-03 \u00b7 FCS stub vs FCS opponent",
+    "season_record_before": "0\u20133"
+   },
+   "already_live_final": false,
+   "clear_or_hold": "CLEAR",
+   "action": "Website replace scheduled(\"buffalo\", 1, \"2026-09-03\") with finalHome(\"buffalo\", 1, \"2026-09-03\", \"UAlbany\", 21, 17)",
+   "record_impact": {
+    "site_before": "0\u20133",
+    "site_after_stamp": "1\u20133",
+    "espn_overall": "2\u20133",
+    "matches_espn": false
+   },
+   "nits": []
+  },
+  {
+   "espn_id": "401864424",
+   "site_game_id": -2001001,
+   "stub_key": {
+    "teamSlug": "delaware",
+    "week": 1,
+    "kickoffDate": "2026-09-03"
+   },
+   "scheduled_call": "scheduled(\"delaware\", 1, \"2026-09-03\")",
+   "replacement_call": "finalHome(\"delaware\", 1, \"2026-09-03\", \"Merrimack\", 42, 7)",
+   "matchup": "Merrimack @ Delaware",
+   "away_label": "Merrimack",
+   "away_abbr": "MRMK",
+   "home_slug": "delaware",
+   "home_abbr": "DEL",
+   "kick_ct": "2026-09-03 18:00 CT",
+   "stub_date": "2026-09-03",
+   "espn_status": "STATUS_FINAL",
+   "status_detail": "Final",
+   "away_score": 7,
+   "home_score": 42,
+   "winner": "delaware",
+   "fbs_result": "W",
+   "ot": false,
+   "linescore_away": [
+    0,
+    0,
+    7,
+    0
+   ],
+   "linescore_home": [
+    7,
+    14,
+    14,
+    7
+   ],
+   "cross_check": {
+    "source": "CBS Sports FBS Week 1 scoreboard (Merrimack 7 @ Delaware 42)",
+    "away_score": 7,
+    "home_score": 42,
+    "linescores_match": true,
+    "result": "MATCH"
+   },
+   "sources": [
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/summary?event=401864424",
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?groups=80&dates=20260903&limit=300",
+    "https://www.cbssports.com/college-football/scoreboard/FBS/2026/regular/1/"
+   ],
+   "matchup_check": {
+    "orientation": "FBS home \u2014 matches stub home:true / finalHome",
+    "date_match": true,
+    "postponed_canceled_or_different_opponent": false,
+    "result": "MATCH"
+   },
+   "live_site_before": {
+    "url": "https://hashmarkcfb.com/teams/delaware",
+    "status": "scheduled",
+    "shown": "Week 1 \u00b7 2026-09-03 \u00b7 FCS stub vs FCS opponent",
+    "season_record_before": "1\u20133"
+   },
+   "already_live_final": false,
+   "clear_or_hold": "CLEAR",
+   "action": "Website replace scheduled(\"delaware\", 1, \"2026-09-03\") with finalHome(\"delaware\", 1, \"2026-09-03\", \"Merrimack\", 42, 7)",
+   "record_impact": {
+    "site_before": "1\u20133",
+    "site_after_stamp": "2\u20133",
+    "espn_overall": "2\u20133",
+    "matches_espn": true
+   },
+   "nits": []
+  },
+  {
+   "espn_id": "401864425",
+   "site_game_id": -2001002,
+   "stub_key": {
+    "teamSlug": "kennesaw-state",
+    "week": 1,
+    "kickoffDate": "2026-09-03"
+   },
+   "scheduled_call": "scheduled(\"kennesaw-state\", 1, \"2026-09-03\")",
+   "replacement_call": "finalHome(\"kennesaw-state\", 1, \"2026-09-03\", \"West Georgia\", 47, 0)",
+   "matchup": "West Georgia @ Kennesaw St",
+   "away_label": "West Georgia",
+   "away_abbr": "WES",
+   "home_slug": "kennesaw-state",
+   "home_abbr": "KENN",
+   "kick_ct": "2026-09-03 18:00 CT",
+   "stub_date": "2026-09-03",
+   "espn_status": "STATUS_FINAL",
+   "status_detail": "Final",
+   "away_score": 0,
+   "home_score": 47,
+   "winner": "kennesaw-state",
+   "fbs_result": "W",
+   "ot": false,
+   "linescore_away": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "linescore_home": [
+    19,
+    21,
+    7,
+    0
+   ],
+   "cross_check": {
+    "source": "CBS Sports FBS Week 1 scoreboard (West Georgia 0 @ Kennesaw St. 47)",
+    "away_score": 0,
+    "home_score": 47,
+    "linescores_match": true,
+    "result": "MATCH"
+   },
+   "sources": [
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/summary?event=401864425",
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?groups=80&dates=20260903&limit=300",
+    "https://www.cbssports.com/college-football/scoreboard/FBS/2026/regular/1/"
+   ],
+   "matchup_check": {
+    "orientation": "FBS home \u2014 matches stub home:true / finalHome",
+    "date_match": true,
+    "postponed_canceled_or_different_opponent": false,
+    "result": "MATCH"
+   },
+   "live_site_before": {
+    "url": "https://hashmarkcfb.com/teams/kennesaw-state",
+    "status": "scheduled",
+    "shown": "Week 1 \u00b7 2026-09-03 \u00b7 FCS stub vs FCS opponent",
+    "season_record_before": "0\u20134"
+   },
+   "already_live_final": false,
+   "clear_or_hold": "CLEAR",
+   "action": "Website replace scheduled(\"kennesaw-state\", 1, \"2026-09-03\") with finalHome(\"kennesaw-state\", 1, \"2026-09-03\", \"West Georgia\", 47, 0)",
+   "record_impact": {
+    "site_before": "0\u20134",
+    "site_after_stamp": "1\u20134",
+    "espn_overall": "1\u20134",
+    "matches_espn": true
+   },
+   "nits": []
+  },
+  {
+   "espn_id": "401856767",
+   "site_game_id": -2001005,
+   "stub_key": {
+    "teamSlug": "ucf",
+    "week": 1,
+    "kickoffDate": "2026-09-03"
+   },
+   "scheduled_call": "scheduled(\"ucf\", 1, \"2026-09-03\")",
+   "replacement_call": "finalHome(\"ucf\", 1, \"2026-09-03\", \"Bethune-Cookman\", 73, 6)",
+   "matchup": "Bethune-Cookman @ UCF",
+   "away_label": "Bethune-Cookman",
+   "away_abbr": "BCU",
+   "home_slug": "ucf",
+   "home_abbr": "UCF",
+   "kick_ct": "2026-09-03 18:00 CT",
+   "stub_date": "2026-09-03",
+   "espn_status": "STATUS_FINAL",
+   "status_detail": "Final",
+   "away_score": 6,
+   "home_score": 73,
+   "winner": "ucf",
+   "fbs_result": "W",
+   "ot": false,
+   "linescore_away": [
+    0,
+    0,
+    0,
+    6
+   ],
+   "linescore_home": [
+    21,
+    17,
+    28,
+    7
+   ],
+   "cross_check": {
+    "source": "CBS Sports FBS Week 1 scoreboard (Bethune-Cook. 6 @ UCF 73)",
+    "away_score": 6,
+    "home_score": 73,
+    "linescores_match": true,
+    "result": "MATCH"
+   },
+   "sources": [
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/summary?event=401856767",
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?groups=80&dates=20260903&limit=300",
+    "https://www.cbssports.com/college-football/scoreboard/FBS/2026/regular/1/"
+   ],
+   "matchup_check": {
+    "orientation": "FBS home \u2014 matches stub home:true / finalHome",
+    "date_match": true,
+    "postponed_canceled_or_different_opponent": false,
+    "result": "MATCH"
+   },
+   "live_site_before": {
+    "url": "https://hashmarkcfb.com/teams/ucf",
+    "status": "scheduled",
+    "shown": "Week 1 \u00b7 2026-09-03 \u00b7 FCS stub vs FCS opponent",
+    "season_record_before": "2\u20132"
+   },
+   "already_live_final": false,
+   "clear_or_hold": "CLEAR",
+   "action": "Website replace scheduled(\"ucf\", 1, \"2026-09-03\") with finalHome(\"ucf\", 1, \"2026-09-03\", \"Bethune-Cookman\", 73, 6)",
+   "record_impact": {
+    "site_before": "2\u20132",
+    "site_after_stamp": "3\u20132",
+    "espn_overall": "3\u20132",
+    "matches_espn": true
+   },
+   "nits": []
+  },
+  {
+   "espn_id": "401866623",
+   "site_game_id": -2001007,
+   "stub_key": {
+    "teamSlug": "georgia-state",
+    "week": 1,
+    "kickoffDate": "2026-09-04"
+   },
+   "scheduled_call": "scheduled(\"georgia-state\", 1, \"2026-09-04\")",
+   "replacement_call": "finalHome(\"georgia-state\", 1, \"2026-09-04\", \"North Carolina A&T\", 59, 10)",
+   "matchup": "North Carolina A&T @ Georgia St",
+   "away_label": "North Carolina A&T",
+   "away_abbr": "NCAT",
+   "home_slug": "georgia-state",
+   "home_abbr": "GAST",
+   "kick_ct": "2026-09-04 18:00 CT",
+   "stub_date": "2026-09-04",
+   "espn_status": "STATUS_FINAL",
+   "status_detail": "Final",
+   "away_score": 10,
+   "home_score": 59,
+   "winner": "georgia-state",
+   "fbs_result": "W",
+   "ot": false,
+   "linescore_away": [
+    0,
+    7,
+    0,
+    3
+   ],
+   "linescore_home": [
+    14,
+    21,
+    24,
+    0
+   ],
+   "cross_check": {
+    "source": "CBS Sports FBS Week 1 scoreboard (NC A&amp;T 10 @ Georgia St. 59)",
+    "away_score": 10,
+    "home_score": 59,
+    "linescores_match": true,
+    "result": "MATCH"
+   },
+   "sources": [
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/summary?event=401866623",
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?groups=80&dates=20260904&limit=300",
+    "https://www.cbssports.com/college-football/scoreboard/FBS/2026/regular/1/"
+   ],
+   "matchup_check": {
+    "orientation": "FBS home \u2014 matches stub home:true / finalHome",
+    "date_match": true,
+    "postponed_canceled_or_different_opponent": false,
+    "result": "MATCH"
+   },
+   "live_site_before": {
+    "url": "https://hashmarkcfb.com/teams/georgia-state",
+    "status": "scheduled",
+    "shown": "Week 1 \u00b7 2026-09-04 \u00b7 FCS stub vs FCS opponent",
+    "season_record_before": "3\u20131"
+   },
+   "already_live_final": false,
+   "clear_or_hold": "CLEAR",
+   "action": "Website replace scheduled(\"georgia-state\", 1, \"2026-09-04\") with finalHome(\"georgia-state\", 1, \"2026-09-04\", \"North Carolina A&T\", 59, 10)",
+   "record_impact": {
+    "site_before": "3\u20131",
+    "site_after_stamp": "4\u20131",
+    "espn_overall": "4\u20131",
+    "matches_espn": true
+   },
+   "nits": []
+  },
+  {
+   "espn_id": "401856769",
+   "site_game_id": -2001008,
+   "stub_key": {
+    "teamSlug": "kansas",
+    "week": 1,
+    "kickoffDate": "2026-09-04"
+   },
+   "scheduled_call": "scheduled(\"kansas\", 1, \"2026-09-04\")",
+   "replacement_call": "finalHome(\"kansas\", 1, \"2026-09-04\", \"LIU\", 51, 6)",
+   "matchup": "LIU @ Kansas",
+   "away_label": "LIU",
+   "away_abbr": "LIU",
+   "home_slug": "kansas",
+   "home_abbr": "KU",
+   "kick_ct": "2026-09-04 19:00 CT",
+   "stub_date": "2026-09-04",
+   "espn_status": "STATUS_FINAL",
+   "status_detail": "Final",
+   "away_score": 6,
+   "home_score": 51,
+   "winner": "kansas",
+   "fbs_result": "W",
+   "ot": false,
+   "linescore_away": [
+    0,
+    0,
+    0,
+    6
+   ],
+   "linescore_home": [
+    6,
+    24,
+    7,
+    14
+   ],
+   "cross_check": {
+    "source": "CBS Sports FBS Week 1 scoreboard (LIU 6 @ Kansas 51)",
+    "away_score": 6,
+    "home_score": 51,
+    "linescores_match": true,
+    "result": "MATCH"
+   },
+   "sources": [
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/summary?event=401856769",
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?groups=80&dates=20260904&limit=300",
+    "https://www.cbssports.com/college-football/scoreboard/FBS/2026/regular/1/"
+   ],
+   "matchup_check": {
+    "orientation": "FBS home \u2014 matches stub home:true / finalHome",
+    "date_match": true,
+    "postponed_canceled_or_different_opponent": false,
+    "result": "MATCH"
+   },
+   "live_site_before": {
+    "url": "https://hashmarkcfb.com/teams/kansas",
+    "status": "scheduled",
+    "shown": "Week 1 \u00b7 2026-09-04 \u00b7 FCS stub vs FCS opponent",
+    "season_record_before": "1\u20132"
+   },
+   "already_live_final": false,
+   "clear_or_hold": "CLEAR",
+   "action": "Website replace scheduled(\"kansas\", 1, \"2026-09-04\") with finalHome(\"kansas\", 1, \"2026-09-04\", \"LIU\", 51, 6)",
+   "record_impact": {
+    "site_before": "1\u20132",
+    "site_after_stamp": "2\u20132",
+    "espn_overall": "2\u20132",
+    "matches_espn": true
+   },
+   "nits": []
+  },
+  {
+   "espn_id": "401864496",
+   "site_game_id": -2001010,
+   "stub_key": {
+    "teamSlug": "air-force",
+    "week": 1,
+    "kickoffDate": "2026-09-05"
+   },
+   "scheduled_call": "scheduled(\"air-force\", 1, \"2026-09-05\")",
+   "replacement_call": "finalHome(\"air-force\", 1, \"2026-09-05\", \"Duquesne\", 34, 0)",
+   "matchup": "Duquesne @ Air Force",
+   "away_label": "Duquesne",
+   "away_abbr": "DUQ",
+   "home_slug": "air-force",
+   "home_abbr": "AFA",
+   "kick_ct": "2026-09-05 12:00 CT",
+   "stub_date": "2026-09-05",
+   "espn_status": "STATUS_FINAL",
+   "status_detail": "Final",
+   "away_score": 0,
+   "home_score": 34,
+   "winner": "air-force",
+   "fbs_result": "W",
+   "ot": false,
+   "linescore_away": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "linescore_home": [
+    7,
+    13,
+    7,
+    7
+   ],
+   "cross_check": {
+    "source": "CBS Sports FBS Week 1 scoreboard (Duquesne 0 @ Air Force 34)",
+    "away_score": 0,
+    "home_score": 34,
+    "linescores_match": true,
+    "result": "MATCH"
+   },
+   "sources": [
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/summary?event=401864496",
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?groups=80&dates=20260905&limit=300",
+    "https://www.cbssports.com/college-football/scoreboard/FBS/2026/regular/1/"
+   ],
+   "matchup_check": {
+    "orientation": "FBS home \u2014 matches stub home:true / finalHome",
+    "date_match": true,
+    "postponed_canceled_or_different_opponent": false,
+    "result": "MATCH"
+   },
+   "live_site_before": {
+    "url": "https://hashmarkcfb.com/teams/air-force",
+    "status": "scheduled",
+    "shown": "Week 1 \u00b7 2026-09-05 \u00b7 FCS stub vs FCS opponent",
+    "season_record_before": "2\u20131"
+   },
+   "already_live_final": false,
+   "clear_or_hold": "CLEAR",
+   "action": "Website replace scheduled(\"air-force\", 1, \"2026-09-05\") with finalHome(\"air-force\", 1, \"2026-09-05\", \"Duquesne\", 34, 0)",
+   "record_impact": {
+    "site_before": "2\u20131",
+    "site_after_stamp": "3\u20131",
+    "espn_overall": "3\u20131",
+    "matches_espn": true
+   },
+   "nits": []
+  },
+  {
+   "espn_id": "401856773",
+   "site_game_id": -2001012,
+   "stub_key": {
+    "teamSlug": "arizona",
+    "week": 1,
+    "kickoffDate": "2026-09-05"
+   },
+   "scheduled_call": "scheduled(\"arizona\", 1, \"2026-09-05\")",
+   "replacement_call": "finalHome(\"arizona\", 1, \"2026-09-05\", \"Northern Arizona\", 35, 7)",
+   "matchup": "Northern Arizona @ Arizona",
+   "away_label": "Northern Arizona",
+   "away_abbr": "NAU",
+   "home_slug": "arizona",
+   "home_abbr": "ARIZ",
+   "kick_ct": "2026-09-05 20:30 CT",
+   "stub_date": "2026-09-05",
+   "espn_status": "STATUS_FINAL",
+   "status_detail": "Final",
+   "away_score": 7,
+   "home_score": 35,
+   "winner": "arizona",
+   "fbs_result": "W",
+   "ot": false,
+   "linescore_away": [
+    0,
+    0,
+    0,
+    7
+   ],
+   "linescore_home": [
+    7,
+    14,
+    7,
+    7
+   ],
+   "cross_check": {
+    "source": "CBS Sports FBS Week 1 scoreboard (N. Arizona 7 @ Arizona 35)",
+    "away_score": 7,
+    "home_score": 35,
+    "linescores_match": true,
+    "result": "MATCH"
+   },
+   "sources": [
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/summary?event=401856773",
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?groups=80&dates=20260905&limit=300",
+    "https://www.cbssports.com/college-football/scoreboard/FBS/2026/regular/1/"
+   ],
+   "matchup_check": {
+    "orientation": "FBS home \u2014 matches stub home:true / finalHome",
+    "date_match": true,
+    "postponed_canceled_or_different_opponent": false,
+    "result": "MATCH"
+   },
+   "live_site_before": {
+    "url": "https://hashmarkcfb.com/teams/arizona",
+    "status": "scheduled",
+    "shown": "Week 1 \u00b7 2026-09-05 \u00b7 FCS stub vs FCS opponent",
+    "season_record_before": "3\u20131"
+   },
+   "already_live_final": false,
+   "clear_or_hold": "CLEAR",
+   "action": "Website replace scheduled(\"arizona\", 1, \"2026-09-05\") with finalHome(\"arizona\", 1, \"2026-09-05\", \"Northern Arizona\", 35, 7)",
+   "record_impact": {
+    "site_before": "3\u20131",
+    "site_after_stamp": "4\u20131",
+    "espn_overall": "4\u20131",
+    "matches_espn": true
+   },
+   "nits": []
+  },
+  {
+   "espn_id": "401856774",
+   "site_game_id": -2001013,
+   "stub_key": {
+    "teamSlug": "arizona-state",
+    "week": 1,
+    "kickoffDate": "2026-09-05"
+   },
+   "scheduled_call": "scheduled(\"arizona-state\", 1, \"2026-09-05\")",
+   "replacement_call": "finalHome(\"arizona-state\", 1, \"2026-09-05\", \"Morgan State\", 70, 7)",
+   "matchup": "Morgan State @ Arizona St",
+   "away_label": "Morgan State",
+   "away_abbr": "MORG",
+   "home_slug": "arizona-state",
+   "home_abbr": "ASU",
+   "kick_ct": "2026-09-05 21:00 CT",
+   "stub_date": "2026-09-05",
+   "espn_status": "STATUS_FINAL",
+   "status_detail": "Final",
+   "away_score": 7,
+   "home_score": 70,
+   "winner": "arizona-state",
+   "fbs_result": "W",
+   "ot": false,
+   "linescore_away": [
+    7,
+    0,
+    0,
+    0
+   ],
+   "linescore_home": [
+    28,
+    21,
+    21,
+    0
+   ],
+   "cross_check": {
+    "source": "CBS Sports FBS Week 1 scoreboard (Morgan St. 7 @ Arizona St. 70)",
+    "away_score": 7,
+    "home_score": 70,
+    "linescores_match": true,
+    "result": "MATCH"
+   },
+   "sources": [
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/summary?event=401856774",
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?groups=80&dates=20260905&limit=300",
+    "https://www.cbssports.com/college-football/scoreboard/FBS/2026/regular/1/"
+   ],
+   "matchup_check": {
+    "orientation": "FBS home \u2014 matches stub home:true / finalHome",
+    "date_match": true,
+    "postponed_canceled_or_different_opponent": false,
+    "result": "MATCH"
+   },
+   "live_site_before": {
+    "url": "https://hashmarkcfb.com/teams/arizona-state",
+    "status": "scheduled",
+    "shown": "Week 1 \u00b7 2026-09-05 \u00b7 FCS stub vs FCS opponent",
+    "season_record_before": "1\u20132"
+   },
+   "already_live_final": false,
+   "clear_or_hold": "CLEAR",
+   "action": "Website replace scheduled(\"arizona-state\", 1, \"2026-09-05\") with finalHome(\"arizona-state\", 1, \"2026-09-05\", \"Morgan State\", 70, 7)",
+   "record_impact": {
+    "site_before": "1\u20132",
+    "site_after_stamp": "2\u20132",
+    "espn_overall": "2\u20132",
+    "matches_espn": true
+   },
+   "nits": []
+  },
+  {
+   "espn_id": "401856635",
+   "site_game_id": -2001014,
+   "stub_key": {
+    "teamSlug": "arkansas",
+    "week": 1,
+    "kickoffDate": "2026-09-05"
+   },
+   "scheduled_call": "scheduled(\"arkansas\", 1, \"2026-09-05\")",
+   "replacement_call": "finalHome(\"arkansas\", 1, \"2026-09-05\", \"North Alabama\", 31, 14)",
+   "matchup": "North Alabama @ Arkansas",
+   "away_label": "North Alabama",
+   "away_abbr": "UNA",
+   "home_slug": "arkansas",
+   "home_abbr": "ARK",
+   "kick_ct": "2026-09-05 15:15 CT",
+   "stub_date": "2026-09-05",
+   "espn_status": "STATUS_FINAL",
+   "status_detail": "Final",
+   "away_score": 14,
+   "home_score": 31,
+   "winner": "arkansas",
+   "fbs_result": "W",
+   "ot": false,
+   "linescore_away": [
+    0,
+    0,
+    7,
+    7
+   ],
+   "linescore_home": [
+    7,
+    7,
+    7,
+    10
+   ],
+   "cross_check": {
+    "source": "CBS Sports FBS Week 1 scoreboard (North Alabama 14 @ Arkansas 31)",
+    "away_score": 14,
+    "home_score": 31,
+    "linescores_match": true,
+    "result": "MATCH"
+   },
+   "sources": [
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/summary?event=401856635",
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?groups=80&dates=20260905&limit=300",
+    "https://www.cbssports.com/college-football/scoreboard/FBS/2026/regular/1/"
+   ],
+   "matchup_check": {
+    "orientation": "FBS home \u2014 matches stub home:true / finalHome",
+    "date_match": true,
+    "postponed_canceled_or_different_opponent": false,
+    "result": "MATCH"
+   },
+   "live_site_before": {
+    "url": "https://hashmarkcfb.com/teams/arkansas",
+    "status": "scheduled",
+    "shown": "Week 1 \u00b7 2026-09-05 \u00b7 FCS stub vs FCS opponent",
+    "season_record_before": "1\u20133"
+   },
+   "already_live_final": false,
+   "clear_or_hold": "CLEAR",
+   "action": "Website replace scheduled(\"arkansas\", 1, \"2026-09-05\") with finalHome(\"arkansas\", 1, \"2026-09-05\", \"North Alabama\", 31, 14)",
+   "record_impact": {
+    "site_before": "1\u20133",
+    "site_after_stamp": "2\u20133",
+    "espn_overall": "2\u20133",
+    "matches_espn": true
+   },
+   "nits": []
+  },
+  {
+   "espn_id": "401866410",
+   "site_game_id": -2001016,
+   "stub_key": {
+    "teamSlug": "bowling-green",
+    "week": 1,
+    "kickoffDate": "2026-09-05"
+   },
+   "scheduled_call": "scheduled(\"bowling-green\", 1, \"2026-09-05\")",
+   "replacement_call": "finalHome(\"bowling-green\", 1, \"2026-09-05\", \"Tarleton State\", 13, 20)",
+   "matchup": "Tarleton State @ Bowling Green",
+   "away_label": "Tarleton State",
+   "away_abbr": "TAR",
+   "home_slug": "bowling-green",
+   "home_abbr": "BGSU",
+   "kick_ct": "2026-09-05 11:00 CT",
+   "stub_date": "2026-09-05",
+   "espn_status": "STATUS_FINAL",
+   "status_detail": "Final",
+   "away_score": 20,
+   "home_score": 13,
+   "winner": "opponent",
+   "fbs_result": "L",
+   "ot": false,
+   "linescore_away": [
+    7,
+    10,
+    0,
+    3
+   ],
+   "linescore_home": [
+    0,
+    7,
+    3,
+    3
+   ],
+   "cross_check": {
+    "source": "CBS Sports FBS Week 1 scoreboard (Tarleton St. 20 @ Bowling Green 13)",
+    "away_score": 20,
+    "home_score": 13,
+    "linescores_match": true,
+    "result": "MATCH"
+   },
+   "sources": [
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/summary?event=401866410",
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?groups=80&dates=20260905&limit=300",
+    "https://www.cbssports.com/college-football/scoreboard/FBS/2026/regular/1/"
+   ],
+   "matchup_check": {
+    "orientation": "FBS home \u2014 matches stub home:true / finalHome",
+    "date_match": true,
+    "postponed_canceled_or_different_opponent": false,
+    "result": "MATCH"
+   },
+   "live_site_before": {
+    "url": "https://hashmarkcfb.com/teams/bowling-green",
+    "status": "scheduled",
+    "shown": "Week 1 \u00b7 2026-09-05 \u00b7 FCS stub vs FCS opponent",
+    "season_record_before": "1\u20133"
+   },
+   "already_live_final": false,
+   "clear_or_hold": "CLEAR",
+   "action": "Website replace scheduled(\"bowling-green\", 1, \"2026-09-05\") with finalHome(\"bowling-green\", 1, \"2026-09-05\", \"Tarleton State\", 13, 20)",
+   "record_impact": {
+    "site_before": "1\u20133",
+    "site_after_stamp": "1\u20134",
+    "espn_overall": "1\u20134",
+    "matches_espn": true
+   },
+   "nits": []
+  },
+  {
+   "espn_id": "401862694",
+   "site_game_id": -2001018,
+   "stub_key": {
+    "teamSlug": "charlotte",
+    "week": 1,
+    "kickoffDate": "2026-09-05"
+   },
+   "scheduled_call": "scheduled(\"charlotte\", 1, \"2026-09-05\")",
+   "replacement_call": "finalHome(\"charlotte\", 1, \"2026-09-05\", \"The Citadel\", 41, 43)",
+   "matchup": "The Citadel @ Charlotte",
+   "away_label": "The Citadel",
+   "away_abbr": "CIT",
+   "home_slug": "charlotte",
+   "home_abbr": "CLT",
+   "kick_ct": "2026-09-05 14:30 CT",
+   "stub_date": "2026-09-05",
+   "espn_status": "STATUS_FINAL",
+   "status_detail": "Final/3OT",
+   "away_score": 43,
+   "home_score": 41,
+   "winner": "opponent",
+   "fbs_result": "L",
+   "ot": true,
+   "linescore_away": [
+    7,
+    0,
+    14,
+    7,
+    7,
+    6,
+    2
+   ],
+   "linescore_home": [
+    7,
+    7,
+    7,
+    7,
+    7,
+    6,
+    0
+   ],
+   "cross_check": {
+    "source": "CBS Sports FBS Week 1 scoreboard (The Citadel 43 @ Charlotte 41)",
+    "away_score": 43,
+    "home_score": 41,
+    "linescores_match": true,
+    "result": "MATCH"
+   },
+   "sources": [
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/summary?event=401862694",
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?groups=80&dates=20260905&limit=300",
+    "https://www.cbssports.com/college-football/scoreboard/FBS/2026/regular/1/"
+   ],
+   "matchup_check": {
+    "orientation": "FBS home \u2014 matches stub home:true / finalHome",
+    "date_match": true,
+    "postponed_canceled_or_different_opponent": false,
+    "result": "MATCH"
+   },
+   "live_site_before": {
+    "url": "https://hashmarkcfb.com/teams/charlotte",
+    "status": "scheduled",
+    "shown": "Week 1 \u00b7 2026-09-05 \u00b7 FCS stub vs FCS opponent",
+    "season_record_before": "0\u20134"
+   },
+   "already_live_final": false,
+   "clear_or_hold": "CLEAR",
+   "action": "Website replace scheduled(\"charlotte\", 1, \"2026-09-05\") with finalHome(\"charlotte\", 1, \"2026-09-05\", \"The Citadel\", 41, 43)",
+   "record_impact": {
+    "site_before": "0\u20134",
+    "site_after_stamp": "0\u20135",
+    "espn_overall": "0\u20135",
+    "matches_espn": true
+   },
+   "nits": [
+    "ESPN status_detail=Final/3OT; CBS OT quarters collapsed differently but total 41-43 matches"
+   ]
+  },
+  {
+   "espn_id": "401868170",
+   "site_game_id": -2001020,
+   "stub_key": {
+    "teamSlug": "georgia-southern",
+    "week": 1,
+    "kickoffDate": "2026-09-05"
+   },
+   "scheduled_call": "scheduled(\"georgia-southern\", 1, \"2026-09-05\")",
+   "replacement_call": "finalHome(\"georgia-southern\", 1, \"2026-09-05\", \"Charleston Southern\", 31, 0)",
+   "matchup": "Charleston Southern @ GA Southern",
+   "away_label": "Charleston Southern",
+   "away_abbr": "CHSO",
+   "home_slug": "georgia-southern",
+   "home_abbr": "GASO",
+   "kick_ct": "2026-09-05 18:00 CT",
+   "stub_date": "2026-09-05",
+   "espn_status": "STATUS_FINAL",
+   "status_detail": "Final",
+   "away_score": 0,
+   "home_score": 31,
+   "winner": "georgia-southern",
+   "fbs_result": "W",
+   "ot": false,
+   "linescore_away": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "linescore_home": [
+    21,
+    3,
+    7,
+    0
+   ],
+   "cross_check": {
+    "source": "CBS Sports FBS Week 1 scoreboard (Charleston So. 0 @ Ga. Southern 31)",
+    "away_score": 0,
+    "home_score": 31,
+    "linescores_match": true,
+    "result": "MATCH"
+   },
+   "sources": [
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/summary?event=401868170",
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?groups=80&dates=20260905&limit=300",
+    "https://www.cbssports.com/college-football/scoreboard/FBS/2026/regular/1/"
+   ],
+   "matchup_check": {
+    "orientation": "FBS home \u2014 matches stub home:true / finalHome",
+    "date_match": true,
+    "postponed_canceled_or_different_opponent": false,
+    "result": "MATCH"
+   },
+   "live_site_before": {
+    "url": "https://hashmarkcfb.com/teams/georgia-southern",
+    "status": "scheduled",
+    "shown": "Week 1 \u00b7 2026-09-05 \u00b7 FCS stub vs FCS opponent",
+    "season_record_before": "1\u20133"
+   },
+   "already_live_final": false,
+   "clear_or_hold": "CLEAR",
+   "action": "Website replace scheduled(\"georgia-southern\", 1, \"2026-09-05\") with finalHome(\"georgia-southern\", 1, \"2026-09-05\", \"Charleston Southern\", 31, 0)",
+   "record_impact": {
+    "site_before": "1\u20133",
+    "site_after_stamp": "2\u20133",
+    "espn_overall": "2\u20133",
+    "matches_espn": true
+   },
+   "nits": []
+  },
+  {
+   "espn_id": "401856779",
+   "site_game_id": -2001021,
+   "stub_key": {
+    "teamSlug": "iowa-state",
+    "week": 1,
+    "kickoffDate": "2026-09-05"
+   },
+   "scheduled_call": "scheduled(\"iowa-state\", 1, \"2026-09-05\")",
+   "replacement_call": "finalHome(\"iowa-state\", 1, \"2026-09-05\", \"Southeast Missouri State\", 38, 10)",
+   "matchup": "Southeast Missouri State @ Iowa State",
+   "away_label": "Southeast Missouri State",
+   "away_abbr": "SEMO",
+   "home_slug": "iowa-state",
+   "home_abbr": "ISU",
+   "kick_ct": "2026-09-05 12:00 CT",
+   "stub_date": "2026-09-05",
+   "espn_status": "STATUS_FINAL",
+   "status_detail": "Final",
+   "away_score": 10,
+   "home_score": 38,
+   "winner": "iowa-state",
+   "fbs_result": "W",
+   "ot": false,
+   "linescore_away": [
+    0,
+    7,
+    0,
+    3
+   ],
+   "linescore_home": [
+    14,
+    14,
+    3,
+    7
+   ],
+   "cross_check": {
+    "source": "CBS Sports FBS Week 1 scoreboard (SE Missouri St. 10 @ Iowa St. 38); https://cyclones.com/sports/football/schedule/2026 \u2014 Win 38\u201310 vs Southeast Missouri",
+    "away_score": 10,
+    "home_score": 38,
+    "linescores_match": false,
+    "result": "MATCH"
+   },
+   "sources": [
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/summary?event=401856779",
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?groups=80&dates=20260905&limit=300",
+    "https://www.cbssports.com/college-football/scoreboard/FBS/2026/regular/1/",
+    "https://cyclones.com/sports/football/schedule/2026"
+   ],
+   "matchup_check": {
+    "orientation": "FBS home \u2014 matches stub home:true / finalHome",
+    "date_match": true,
+    "postponed_canceled_or_different_opponent": false,
+    "result": "MATCH"
+   },
+   "live_site_before": {
+    "url": "https://hashmarkcfb.com/teams/iowa-state",
+    "status": "scheduled",
+    "shown": "Week 1 \u00b7 2026-09-05 \u00b7 FCS stub vs FCS opponent",
+    "season_record_before": "2\u20132"
+   },
+   "already_live_final": false,
+   "clear_or_hold": "CLEAR",
+   "action": "Website replace scheduled(\"iowa-state\", 1, \"2026-09-05\") with finalHome(\"iowa-state\", 1, \"2026-09-05\", \"Southeast Missouri State\", 38, 10)",
+   "record_impact": {
+    "site_before": "2\u20132",
+    "site_after_stamp": "3\u20132",
+    "espn_overall": "3\u20132",
+    "matches_espn": true
+   },
+   "nits": [
+    "CBS regulation linescore differs from ESPN (CBS H[14, 3, 7, 14]/A[0, 7, 0, 3] vs ESPN H[14, 14, 3, 7]/A[0, 7, 0, 3]); finals totals match \u2014 using ESPN linescore"
+   ]
+  },
+  {
+   "espn_id": "401868140",
+   "site_game_id": -2001022,
+   "stub_key": {
+    "teamSlug": "jacksonville-state",
+    "week": 1,
+    "kickoffDate": "2026-09-05"
+   },
+   "scheduled_call": "scheduled(\"jacksonville-state\", 1, \"2026-09-05\")",
+   "replacement_call": "finalHome(\"jacksonville-state\", 1, \"2026-09-05\", \"Eastern Kentucky\", 49, 7)",
+   "matchup": "Eastern Kentucky @ Jax State",
+   "away_label": "Eastern Kentucky",
+   "away_abbr": "EKU",
+   "home_slug": "jacksonville-state",
+   "home_abbr": "JXST",
+   "kick_ct": "2026-09-05 18:00 CT",
+   "stub_date": "2026-09-05",
+   "espn_status": "STATUS_FINAL",
+   "status_detail": "Final",
+   "away_score": 7,
+   "home_score": 49,
+   "winner": "jacksonville-state",
+   "fbs_result": "W",
+   "ot": false,
+   "linescore_away": [
+    0,
+    7,
+    0,
+    0
+   ],
+   "linescore_home": [
+    14,
+    21,
+    7,
+    7
+   ],
+   "cross_check": {
+    "source": "CBS Sports FBS Week 1 scoreboard (E. Kentucky 7 @ Jacksonville St. 49); https://jaxstatesports.com/sports/football/schedule/2026 \u2014 W 49-7",
+    "away_score": 7,
+    "home_score": 49,
+    "linescores_match": true,
+    "result": "MATCH"
+   },
+   "sources": [
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/summary?event=401868140",
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?groups=80&dates=20260905&limit=300",
+    "https://www.cbssports.com/college-football/scoreboard/FBS/2026/regular/1/",
+    "https://jaxstatesports.com/sports/football/schedule/2026"
+   ],
+   "matchup_check": {
+    "orientation": "FBS home \u2014 matches stub home:true / finalHome",
+    "date_match": true,
+    "postponed_canceled_or_different_opponent": false,
+    "result": "MATCH"
+   },
+   "live_site_before": {
+    "url": "https://hashmarkcfb.com/teams/jacksonville-state",
+    "status": "scheduled",
+    "shown": "Week 1 \u00b7 2026-09-05 \u00b7 FCS stub vs FCS opponent",
+    "season_record_before": "3\u20131"
+   },
+   "already_live_final": false,
+   "clear_or_hold": "CLEAR",
+   "action": "Website replace scheduled(\"jacksonville-state\", 1, \"2026-09-05\") with finalHome(\"jacksonville-state\", 1, \"2026-09-05\", \"Eastern Kentucky\", 49, 7)",
+   "record_impact": {
+    "site_before": "3\u20131",
+    "site_after_stamp": "4\u20131",
+    "espn_overall": "4\u20132",
+    "matches_espn": false
+   },
+   "nits": []
+  },
+  {
+   "espn_id": "401856771",
+   "site_game_id": -2001023,
+   "stub_key": {
+    "teamSlug": "kansas-state",
+    "week": 1,
+    "kickoffDate": "2026-09-05"
+   },
+   "scheduled_call": "scheduled(\"kansas-state\", 1, \"2026-09-05\")",
+   "replacement_call": "finalHome(\"kansas-state\", 1, \"2026-09-05\", \"Nicholls\", 71, 3)",
+   "matchup": "Nicholls @ Kansas St",
+   "away_label": "Nicholls",
+   "away_abbr": "NICH",
+   "home_slug": "kansas-state",
+   "home_abbr": "KSU",
+   "kick_ct": "2026-09-05 18:00 CT",
+   "stub_date": "2026-09-05",
+   "espn_status": "STATUS_FINAL",
+   "status_detail": "Final",
+   "away_score": 3,
+   "home_score": 71,
+   "winner": "kansas-state",
+   "fbs_result": "W",
+   "ot": false,
+   "linescore_away": [
+    0,
+    3,
+    0,
+    0
+   ],
+   "linescore_home": [
+    22,
+    14,
+    21,
+    14
+   ],
+   "cross_check": {
+    "source": "CBS Sports FBS Week 1 scoreboard (Nicholls St. 3 @ Kansas State 71)",
+    "away_score": 3,
+    "home_score": 71,
+    "linescores_match": true,
+    "result": "MATCH"
+   },
+   "sources": [
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/summary?event=401856771",
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?groups=80&dates=20260905&limit=300",
+    "https://www.cbssports.com/college-football/scoreboard/FBS/2026/regular/1/"
+   ],
+   "matchup_check": {
+    "orientation": "FBS home \u2014 matches stub home:true / finalHome",
+    "date_match": true,
+    "postponed_canceled_or_different_opponent": false,
+    "result": "MATCH"
+   },
+   "live_site_before": {
+    "url": "https://hashmarkcfb.com/teams/kansas-state",
+    "status": "scheduled",
+    "shown": "Week 1 \u00b7 2026-09-05 \u00b7 FCS stub vs FCS opponent",
+    "season_record_before": "2\u20131"
+   },
+   "already_live_final": false,
+   "clear_or_hold": "CLEAR",
+   "action": "Website replace scheduled(\"kansas-state\", 1, \"2026-09-05\") with finalHome(\"kansas-state\", 1, \"2026-09-05\", \"Nicholls\", 71, 3)",
+   "record_impact": {
+    "site_before": "2\u20131",
+    "site_after_stamp": "3\u20131",
+    "espn_overall": "3\u20131",
+    "matches_espn": true
+   },
+   "nits": []
+  },
+  {
+   "espn_id": "401856659",
+   "site_game_id": -2001024,
+   "stub_key": {
+    "teamSlug": "kentucky",
+    "week": 1,
+    "kickoffDate": "2026-09-05"
+   },
+   "scheduled_call": "scheduled(\"kentucky\", 1, \"2026-09-05\")",
+   "replacement_call": "finalHome(\"kentucky\", 1, \"2026-09-05\", \"Youngstown State\", 45, 13)",
+   "matchup": "Youngstown State @ Kentucky",
+   "away_label": "Youngstown State",
+   "away_abbr": "YSU",
+   "home_slug": "kentucky",
+   "home_abbr": "UK",
+   "kick_ct": "2026-09-05 12:00 CT",
+   "stub_date": "2026-09-05",
+   "espn_status": "STATUS_FINAL",
+   "status_detail": "Final",
+   "away_score": 13,
+   "home_score": 45,
+   "winner": "kentucky",
+   "fbs_result": "W",
+   "ot": false,
+   "linescore_away": [
+    0,
+    7,
+    6,
+    0
+   ],
+   "linescore_home": [
+    14,
+    14,
+    7,
+    10
+   ],
+   "cross_check": {
+    "source": "CBS Sports FBS Week 1 scoreboard (Youngstown St. 13 @ Kentucky 45)",
+    "away_score": 13,
+    "home_score": 45,
+    "linescores_match": true,
+    "result": "MATCH"
+   },
+   "sources": [
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/summary?event=401856659",
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?groups=80&dates=20260905&limit=300",
+    "https://www.cbssports.com/college-football/scoreboard/FBS/2026/regular/1/"
+   ],
+   "matchup_check": {
+    "orientation": "FBS home \u2014 matches stub home:true / finalHome",
+    "date_match": true,
+    "postponed_canceled_or_different_opponent": false,
+    "result": "MATCH"
+   },
+   "live_site_before": {
+    "url": "https://hashmarkcfb.com/teams/kentucky",
+    "status": "scheduled",
+    "shown": "Week 1 \u00b7 2026-09-05 \u00b7 FCS stub vs FCS opponent",
+    "season_record_before": "3\u20131"
+   },
+   "already_live_final": false,
+   "clear_or_hold": "CLEAR",
+   "action": "Website replace scheduled(\"kentucky\", 1, \"2026-09-05\") with finalHome(\"kentucky\", 1, \"2026-09-05\", \"Youngstown State\", 45, 13)",
+   "record_impact": {
+    "site_before": "3\u20131",
+    "site_after_stamp": "4\u20131",
+    "espn_overall": "4\u20131",
+    "matches_espn": true
+   },
+   "nits": []
+  },
+  {
+   "espn_id": "401869142",
+   "site_game_id": -2001025,
+   "stub_key": {
+    "teamSlug": "louisiana",
+    "week": 1,
+    "kickoffDate": "2026-09-05"
+   },
+   "scheduled_call": "scheduled(\"louisiana\", 1, \"2026-09-05\")",
+   "replacement_call": "finalHome(\"louisiana\", 1, \"2026-09-05\", \"Lamar\", 38, 7)",
+   "matchup": "Lamar @ Louisiana",
+   "away_label": "Lamar",
+   "away_abbr": "LAM",
+   "home_slug": "louisiana",
+   "home_abbr": "UL",
+   "kick_ct": "2026-09-05 19:00 CT",
+   "stub_date": "2026-09-05",
+   "espn_status": "STATUS_FINAL",
+   "status_detail": "Final",
+   "away_score": 7,
+   "home_score": 38,
+   "winner": "louisiana",
+   "fbs_result": "W",
+   "ot": false,
+   "linescore_away": [
+    0,
+    0,
+    0,
+    7
+   ],
+   "linescore_home": [
+    7,
+    21,
+    7,
+    3
+   ],
+   "cross_check": {
+    "source": "CBS Sports FBS Week 1 scoreboard (Lamar 7 @ Louisiana 38)",
+    "away_score": 7,
+    "home_score": 38,
+    "linescores_match": true,
+    "result": "MATCH"
+   },
+   "sources": [
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/summary?event=401869142",
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?groups=80&dates=20260905&limit=300",
+    "https://www.cbssports.com/college-football/scoreboard/FBS/2026/regular/1/"
+   ],
+   "matchup_check": {
+    "orientation": "FBS home \u2014 matches stub home:true / finalHome",
+    "date_match": true,
+    "postponed_canceled_or_different_opponent": false,
+    "result": "MATCH"
+   },
+   "live_site_before": {
+    "url": "https://hashmarkcfb.com/teams/louisiana",
+    "status": "scheduled",
+    "shown": "Week 1 \u00b7 2026-09-05 \u00b7 FCS stub vs FCS opponent",
+    "season_record_before": "3\u20131"
+   },
+   "already_live_final": false,
+   "clear_or_hold": "CLEAR",
+   "action": "Website replace scheduled(\"louisiana\", 1, \"2026-09-05\") with finalHome(\"louisiana\", 1, \"2026-09-05\", \"Lamar\", 38, 7)",
+   "record_impact": {
+    "site_before": "3\u20131",
+    "site_after_stamp": "4\u20131",
+    "espn_overall": "4\u20131",
+    "matches_espn": true
+   },
+   "nits": []
+  },
+  {
+   "espn_id": "401869129",
+   "site_game_id": -2001026,
+   "stub_key": {
+    "teamSlug": "louisiana-tech",
+    "week": 1,
+    "kickoffDate": "2026-09-05"
+   },
+   "scheduled_call": "scheduled(\"louisiana-tech\", 1, \"2026-09-05\")",
+   "replacement_call": "finalHome(\"louisiana-tech\", 1, \"2026-09-05\", \"Northwestern State\", 80, 6)",
+   "matchup": "Northwestern State @ Louisiana Tech",
+   "away_label": "Northwestern State",
+   "away_abbr": "NWST",
+   "home_slug": "louisiana-tech",
+   "home_abbr": "LT",
+   "kick_ct": "2026-09-05 18:30 CT",
+   "stub_date": "2026-09-05",
+   "espn_status": "STATUS_FINAL",
+   "status_detail": "Final",
+   "away_score": 6,
+   "home_score": 80,
+   "winner": "louisiana-tech",
+   "fbs_result": "W",
+   "ot": false,
+   "linescore_away": [
+    3,
+    0,
+    0,
+    3
+   ],
+   "linescore_home": [
+    21,
+    42,
+    14,
+    3
+   ],
+   "cross_check": {
+    "source": "CBS Sports FBS Week 1 scoreboard (Northwestern St. 6 @ Louisiana Tech 80)",
+    "away_score": 6,
+    "home_score": 80,
+    "linescores_match": true,
+    "result": "MATCH"
+   },
+   "sources": [
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/summary?event=401869129",
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?groups=80&dates=20260905&limit=300",
+    "https://www.cbssports.com/college-football/scoreboard/FBS/2026/regular/1/"
+   ],
+   "matchup_check": {
+    "orientation": "FBS home \u2014 matches stub home:true / finalHome",
+    "date_match": true,
+    "postponed_canceled_or_different_opponent": false,
+    "result": "MATCH"
+   },
+   "live_site_before": {
+    "url": "https://hashmarkcfb.com/teams/louisiana-tech",
+    "status": "scheduled",
+    "shown": "Week 1 \u00b7 2026-09-05 \u00b7 FCS stub vs FCS opponent",
+    "season_record_before": "1\u20132"
+   },
+   "already_live_final": false,
+   "clear_or_hold": "CLEAR",
+   "action": "Website replace scheduled(\"louisiana-tech\", 1, \"2026-09-05\") with finalHome(\"louisiana-tech\", 1, \"2026-09-05\", \"Northwestern State\", 80, 6)",
+   "record_impact": {
+    "site_before": "1\u20132",
+    "site_after_stamp": "2\u20132",
+    "espn_overall": "2\u20132",
+    "matches_espn": true
+   },
+   "nits": []
+  },
+  {
+   "espn_id": "401867866",
+   "site_game_id": -2001028,
+   "stub_key": {
+    "teamSlug": "middle-tennessee",
+    "week": 1,
+    "kickoffDate": "2026-09-05"
+   },
+   "scheduled_call": "scheduled(\"middle-tennessee\", 1, \"2026-09-05\")",
+   "replacement_call": "finalHome(\"middle-tennessee\", 1, \"2026-09-05\", \"Murray State\", 38, 14)",
+   "matchup": "Murray State @ MTSU",
+   "away_label": "Murray State",
+   "away_abbr": "MUR",
+   "home_slug": "middle-tennessee",
+   "home_abbr": "MTSU",
+   "kick_ct": "2026-09-05 18:45 CT",
+   "stub_date": "2026-09-05",
+   "espn_status": "STATUS_FINAL",
+   "status_detail": "Final",
+   "away_score": 14,
+   "home_score": 38,
+   "winner": "middle-tennessee",
+   "fbs_result": "W",
+   "ot": false,
+   "linescore_away": [
+    0,
+    7,
+    7,
+    0
+   ],
+   "linescore_home": [
+    14,
+    7,
+    3,
+    14
+   ],
+   "cross_check": {
+    "source": "CBS Sports FBS Week 1 scoreboard (Murray St. 14 @ Middle Tenn. 38)",
+    "away_score": 14,
+    "home_score": 38,
+    "linescores_match": true,
+    "result": "MATCH"
+   },
+   "sources": [
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/summary?event=401867866",
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?groups=80&dates=20260905&limit=300",
+    "https://www.cbssports.com/college-football/scoreboard/FBS/2026/regular/1/"
+   ],
+   "matchup_check": {
+    "orientation": "FBS home \u2014 matches stub home:true / finalHome",
+    "date_match": true,
+    "postponed_canceled_or_different_opponent": false,
+    "result": "MATCH"
+   },
+   "live_site_before": {
+    "url": "https://hashmarkcfb.com/teams/middle-tennessee",
+    "status": "scheduled",
+    "shown": "Week 1 \u00b7 2026-09-05 \u00b7 FCS stub vs FCS opponent",
+    "season_record_before": "1\u20133"
+   },
+   "already_live_final": false,
+   "clear_or_hold": "CLEAR",
+   "action": "Website replace scheduled(\"middle-tennessee\", 1, \"2026-09-05\") with finalHome(\"middle-tennessee\", 1, \"2026-09-05\", \"Murray State\", 38, 14)",
+   "record_impact": {
+    "site_before": "1\u20133",
+    "site_after_stamp": "2\u20133",
+    "espn_overall": "2\u20133",
+    "matches_espn": true
+   },
+   "nits": []
+  },
+  {
+   "espn_id": "401870790",
+   "site_game_id": -2001030,
+   "stub_key": {
+    "teamSlug": "new-mexico-state",
+    "week": 1,
+    "kickoffDate": "2026-09-05"
+   },
+   "scheduled_call": "scheduled(\"new-mexico-state\", 1, \"2026-09-05\")",
+   "replacement_call": "finalHome(\"new-mexico-state\", 1, \"2026-09-05\", \"Mercyhurst\", 51, 14)",
+   "matchup": "Mercyhurst @ New Mexico St",
+   "away_label": "Mercyhurst",
+   "away_abbr": "MERC",
+   "home_slug": "new-mexico-state",
+   "home_abbr": "NMSU",
+   "kick_ct": "2026-09-05 20:00 CT",
+   "stub_date": "2026-09-05",
+   "espn_status": "STATUS_FINAL",
+   "status_detail": "Final",
+   "away_score": 14,
+   "home_score": 51,
+   "winner": "new-mexico-state",
+   "fbs_result": "W",
+   "ot": false,
+   "linescore_away": [
+    7,
+    7,
+    0,
+    0
+   ],
+   "linescore_home": [
+    13,
+    10,
+    7,
+    21
+   ],
+   "cross_check": {
+    "source": "CBS Sports FBS Week 1 scoreboard (Mercyhurst 14 @ New Mexico St. 51); https://nmstatesports.com/sports/football/schedule/2026 \u2014 51-14",
+    "away_score": 14,
+    "home_score": 51,
+    "linescores_match": true,
+    "result": "MATCH"
+   },
+   "sources": [
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/summary?event=401870790",
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?groups=80&dates=20260905&limit=300",
+    "https://www.cbssports.com/college-football/scoreboard/FBS/2026/regular/1/",
+    "https://nmstatesports.com/sports/football/schedule/2026"
+   ],
+   "matchup_check": {
+    "orientation": "FBS home \u2014 matches stub home:true / finalHome",
+    "date_match": true,
+    "postponed_canceled_or_different_opponent": false,
+    "result": "MATCH"
+   },
+   "live_site_before": {
+    "url": "https://hashmarkcfb.com/teams/new-mexico-state",
+    "status": "scheduled",
+    "shown": "Week 1 \u00b7 2026-09-05 \u00b7 FCS stub vs FCS opponent",
+    "season_record_before": "1\u20134"
+   },
+   "already_live_final": false,
+   "clear_or_hold": "CLEAR",
+   "action": "Website replace scheduled(\"new-mexico-state\", 1, \"2026-09-05\") with finalHome(\"new-mexico-state\", 1, \"2026-09-05\", \"Mercyhurst\", 51, 14)",
+   "record_impact": {
+    "site_before": "1\u20134",
+    "site_after_stamp": "2\u20134",
+    "espn_overall": "2\u20134",
+    "matches_espn": true
+   },
+   "nits": []
+  },
+  {
+   "espn_id": "401858431",
+   "site_game_id": -2001031,
+   "stub_key": {
+    "teamSlug": "northwestern",
+    "week": 1,
+    "kickoffDate": "2026-09-05"
+   },
+   "scheduled_call": "scheduled(\"northwestern\", 1, \"2026-09-05\")",
+   "replacement_call": "finalHome(\"northwestern\", 1, \"2026-09-05\", \"South Dakota State\", 34, 18)",
+   "matchup": "South Dakota State @ Northwestern",
+   "away_label": "South Dakota State",
+   "away_abbr": "SDST",
+   "home_slug": "northwestern",
+   "home_abbr": "NU",
+   "kick_ct": "2026-09-05 19:00 CT",
+   "stub_date": "2026-09-05",
+   "espn_status": "STATUS_FINAL",
+   "status_detail": "Final",
+   "away_score": 18,
+   "home_score": 34,
+   "winner": "northwestern",
+   "fbs_result": "W",
+   "ot": false,
+   "linescore_away": [
+    0,
+    6,
+    6,
+    6
+   ],
+   "linescore_home": [
+    7,
+    3,
+    7,
+    17
+   ],
+   "cross_check": {
+    "source": "CBS Sports FBS Week 1 scoreboard (S. Dakota St. 18 @ Northwestern 34)",
+    "away_score": 18,
+    "home_score": 34,
+    "linescores_match": true,
+    "result": "MATCH"
+   },
+   "sources": [
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/summary?event=401858431",
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?groups=80&dates=20260905&limit=300",
+    "https://www.cbssports.com/college-football/scoreboard/FBS/2026/regular/1/"
+   ],
+   "matchup_check": {
+    "orientation": "FBS home \u2014 matches stub home:true / finalHome",
+    "date_match": true,
+    "postponed_canceled_or_different_opponent": false,
+    "result": "MATCH"
+   },
+   "live_site_before": {
+    "url": "https://hashmarkcfb.com/teams/northwestern",
+    "status": "scheduled",
+    "shown": "Week 1 \u00b7 2026-09-05 \u00b7 FCS stub vs FCS opponent",
+    "season_record_before": "2\u20131"
+   },
+   "already_live_final": false,
+   "clear_or_hold": "CLEAR",
+   "action": "Website replace scheduled(\"northwestern\", 1, \"2026-09-05\") with finalHome(\"northwestern\", 1, \"2026-09-05\", \"South Dakota State\", 34, 18)",
+   "record_impact": {
+    "site_before": "2\u20131",
+    "site_after_stamp": "3\u20131",
+    "espn_overall": "3\u20131",
+    "matches_espn": true
+   },
+   "nits": []
+  },
+  {
+   "espn_id": "401867973",
+   "site_game_id": -2001032,
+   "stub_key": {
+    "teamSlug": "old-dominion",
+    "week": 1,
+    "kickoffDate": "2026-09-05"
+   },
+   "scheduled_call": "scheduled(\"old-dominion\", 1, \"2026-09-05\")",
+   "replacement_call": "finalHome(\"old-dominion\", 1, \"2026-09-05\", \"Norfolk State\", 31, 10)",
+   "matchup": "Norfolk State @ Old Dominion",
+   "away_label": "Norfolk State",
+   "away_abbr": "NORF",
+   "home_slug": "old-dominion",
+   "home_abbr": "ODU",
+   "kick_ct": "2026-09-05 17:00 CT",
+   "stub_date": "2026-09-05",
+   "espn_status": "STATUS_FINAL",
+   "status_detail": "Final",
+   "away_score": 10,
+   "home_score": 31,
+   "winner": "old-dominion",
+   "fbs_result": "W",
+   "ot": false,
+   "linescore_away": [
+    0,
+    7,
+    3,
+    0
+   ],
+   "linescore_home": [
+    7,
+    10,
+    14,
+    0
+   ],
+   "cross_check": {
+    "source": "CBS Sports FBS Week 1 scoreboard (Norfolk St. 10 @ Old Dominion 31)",
+    "away_score": 10,
+    "home_score": 31,
+    "linescores_match": false,
+    "result": "MATCH"
+   },
+   "sources": [
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/summary?event=401867973",
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?groups=80&dates=20260905&limit=300",
+    "https://www.cbssports.com/college-football/scoreboard/FBS/2026/regular/1/"
+   ],
+   "matchup_check": {
+    "orientation": "FBS home \u2014 matches stub home:true / finalHome",
+    "date_match": true,
+    "postponed_canceled_or_different_opponent": false,
+    "result": "MATCH"
+   },
+   "live_site_before": {
+    "url": "https://hashmarkcfb.com/teams/old-dominion",
+    "status": "scheduled",
+    "shown": "Week 1 \u00b7 2026-09-05 \u00b7 FCS stub vs FCS opponent",
+    "season_record_before": "0\u20134"
+   },
+   "already_live_final": false,
+   "clear_or_hold": "CLEAR",
+   "action": "Website replace scheduled(\"old-dominion\", 1, \"2026-09-05\") with finalHome(\"old-dominion\", 1, \"2026-09-05\", \"Norfolk State\", 31, 10)",
+   "record_impact": {
+    "site_before": "0\u20134",
+    "site_after_stamp": "1\u20134",
+    "espn_overall": "1\u20134",
+    "matches_espn": true
+   },
+   "nits": [
+    "CBS regulation linescore differs from ESPN (CBS H[7, 10, 14, 0]/A[7, 3, 0, 0] vs ESPN H[7, 10, 14, 0]/A[0, 7, 3, 0]); finals totals match \u2014 using ESPN linescore"
+   ]
+  },
+  {
+   "espn_id": "401862697",
+   "site_game_id": -2001033,
+   "stub_key": {
+    "teamSlug": "rice",
+    "week": 1,
+    "kickoffDate": "2026-09-05"
+   },
+   "scheduled_call": "scheduled(\"rice\", 1, \"2026-09-05\")",
+   "replacement_call": "finalHome(\"rice\", 1, \"2026-09-05\", \"Houston Christian\", 31, 3)",
+   "matchup": "Houston Christian @ Rice",
+   "away_label": "Houston Christian",
+   "away_abbr": "HCU",
+   "home_slug": "rice",
+   "home_abbr": "RICE",
+   "kick_ct": "2026-09-05 18:00 CT",
+   "stub_date": "2026-09-05",
+   "espn_status": "STATUS_FINAL",
+   "status_detail": "Final",
+   "away_score": 3,
+   "home_score": 31,
+   "winner": "rice",
+   "fbs_result": "W",
+   "ot": false,
+   "linescore_away": [
+    3,
+    0,
+    0,
+    0
+   ],
+   "linescore_home": [
+    7,
+    10,
+    0,
+    14
+   ],
+   "cross_check": {
+    "source": "CBS Sports FBS Week 1 scoreboard (Houston Christian 3 @ Rice 31)",
+    "away_score": 3,
+    "home_score": 31,
+    "linescores_match": true,
+    "result": "MATCH"
+   },
+   "sources": [
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/summary?event=401862697",
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?groups=80&dates=20260905&limit=300",
+    "https://www.cbssports.com/college-football/scoreboard/FBS/2026/regular/1/"
+   ],
+   "matchup_check": {
+    "orientation": "FBS home \u2014 matches stub home:true / finalHome",
+    "date_match": true,
+    "postponed_canceled_or_different_opponent": false,
+    "result": "MATCH"
+   },
+   "live_site_before": {
+    "url": "https://hashmarkcfb.com/teams/rice",
+    "status": "scheduled",
+    "shown": "Week 1 \u00b7 2026-09-05 \u00b7 FCS stub vs FCS opponent",
+    "season_record_before": "0\u20134"
+   },
+   "already_live_final": false,
+   "clear_or_hold": "CLEAR",
+   "action": "Website replace scheduled(\"rice\", 1, \"2026-09-05\") with finalHome(\"rice\", 1, \"2026-09-05\", \"Houston Christian\", 31, 3)",
+   "record_impact": {
+    "site_before": "0\u20134",
+    "site_after_stamp": "1\u20134",
+    "espn_overall": "1\u20134",
+    "matches_espn": true
+   },
+   "nits": []
+  },
+  {
+   "espn_id": "401860879",
+   "site_game_id": -2001034,
+   "stub_key": {
+    "teamSlug": "san-diego-state",
+    "week": 1,
+    "kickoffDate": "2026-09-05"
+   },
+   "scheduled_call": "scheduled(\"san-diego-state\", 1, \"2026-09-05\")",
+   "replacement_call": "finalHome(\"san-diego-state\", 1, \"2026-09-05\", \"Portland State\", 53, 20)",
+   "matchup": "Portland State @ San Diego St",
+   "away_label": "Portland State",
+   "away_abbr": "PRST",
+   "home_slug": "san-diego-state",
+   "home_abbr": "SDSU",
+   "kick_ct": "2026-09-05 20:30 CT",
+   "stub_date": "2026-09-05",
+   "espn_status": "STATUS_FINAL",
+   "status_detail": "Final",
+   "away_score": 20,
+   "home_score": 53,
+   "winner": "san-diego-state",
+   "fbs_result": "W",
+   "ot": false,
+   "linescore_away": [
+    6,
+    0,
+    7,
+    7
+   ],
+   "linescore_home": [
+    7,
+    22,
+    14,
+    10
+   ],
+   "cross_check": {
+    "source": "CBS Sports FBS Week 1 scoreboard (Portland St. 20 @ San Diego St. 53)",
+    "away_score": 20,
+    "home_score": 53,
+    "linescores_match": true,
+    "result": "MATCH"
+   },
+   "sources": [
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/summary?event=401860879",
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?groups=80&dates=20260905&limit=300",
+    "https://www.cbssports.com/college-football/scoreboard/FBS/2026/regular/1/"
+   ],
+   "matchup_check": {
+    "orientation": "FBS home \u2014 matches stub home:true / finalHome",
+    "date_match": true,
+    "postponed_canceled_or_different_opponent": false,
+    "result": "MATCH"
+   },
+   "live_site_before": {
+    "url": "https://hashmarkcfb.com/teams/san-diego-state",
+    "status": "scheduled",
+    "shown": "Week 1 \u00b7 2026-09-05 \u00b7 FCS stub vs FCS opponent",
+    "season_record_before": "1\u20133"
+   },
+   "already_live_final": false,
+   "clear_or_hold": "CLEAR",
+   "action": "Website replace scheduled(\"san-diego-state\", 1, \"2026-09-05\") with finalHome(\"san-diego-state\", 1, \"2026-09-05\", \"Portland State\", 53, 20)",
+   "record_impact": {
+    "site_before": "1\u20133",
+    "site_after_stamp": "2\u20133",
+    "espn_overall": "2\u20133",
+    "matches_espn": true
+   },
+   "nits": []
+  },
+  {
+   "espn_id": "401868316",
+   "site_game_id": -2001035,
+   "stub_key": {
+    "teamSlug": "south-alabama",
+    "week": 1,
+    "kickoffDate": "2026-09-05"
+   },
+   "scheduled_call": "scheduled(\"south-alabama\", 1, \"2026-09-05\")",
+   "replacement_call": "finalHome(\"south-alabama\", 1, \"2026-09-05\", \"SE Louisiana\", 39, 14)",
+   "matchup": "SE Louisiana @ South Alabama",
+   "away_label": "SE Louisiana",
+   "away_abbr": "SELA",
+   "home_slug": "south-alabama",
+   "home_abbr": "USA",
+   "kick_ct": "2026-09-05 18:00 CT",
+   "stub_date": "2026-09-05",
+   "espn_status": "STATUS_FINAL",
+   "status_detail": "Final",
+   "away_score": 14,
+   "home_score": 39,
+   "winner": "south-alabama",
+   "fbs_result": "W",
+   "ot": false,
+   "linescore_away": [
+    7,
+    0,
+    7,
+    0
+   ],
+   "linescore_home": [
+    19,
+    3,
+    10,
+    7
+   ],
+   "cross_check": {
+    "source": "CBS Sports FBS Week 1 scoreboard (SE Louisiana 14 @ South Alabama 39); https://usajaguars.com/sports/football/schedule/2026 \u2014 39-14",
+    "away_score": 14,
+    "home_score": 39,
+    "linescores_match": true,
+    "result": "MATCH"
+   },
+   "sources": [
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/summary?event=401868316",
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?groups=80&dates=20260905&limit=300",
+    "https://www.cbssports.com/college-football/scoreboard/FBS/2026/regular/1/",
+    "https://usajaguars.com/sports/football/schedule/2026"
+   ],
+   "matchup_check": {
+    "orientation": "FBS home \u2014 matches stub home:true / finalHome",
+    "date_match": true,
+    "postponed_canceled_or_different_opponent": false,
+    "result": "MATCH"
+   },
+   "live_site_before": {
+    "url": "https://hashmarkcfb.com/teams/south-alabama",
+    "status": "scheduled",
+    "shown": "Week 1 \u00b7 2026-09-05 \u00b7 FCS stub vs FCS opponent",
+    "season_record_before": "3\u20132"
+   },
+   "already_live_final": false,
+   "clear_or_hold": "CLEAR",
+   "action": "Website replace scheduled(\"south-alabama\", 1, \"2026-09-05\") with finalHome(\"south-alabama\", 1, \"2026-09-05\", \"SE Louisiana\", 39, 14)",
+   "record_impact": {
+    "site_before": "3\u20132",
+    "site_after_stamp": "4\u20132",
+    "espn_overall": "4\u20132",
+    "matches_espn": true
+   },
+   "nits": []
+  },
+  {
+   "espn_id": "401868356",
+   "site_game_id": -2001036,
+   "stub_key": {
+    "teamSlug": "southern-miss",
+    "week": 1,
+    "kickoffDate": "2026-09-05"
+   },
+   "scheduled_call": "scheduled(\"southern-miss\", 1, \"2026-09-05\")",
+   "replacement_call": "finalHome(\"southern-miss\", 1, \"2026-09-05\", \"Alcorn State\", 49, 3)",
+   "matchup": "Alcorn State @ Southern Miss",
+   "away_label": "Alcorn State",
+   "away_abbr": "ALCN",
+   "home_slug": "southern-miss",
+   "home_abbr": "USM",
+   "kick_ct": "2026-09-05 16:00 CT",
+   "stub_date": "2026-09-05",
+   "espn_status": "STATUS_FINAL",
+   "status_detail": "Final",
+   "away_score": 3,
+   "home_score": 49,
+   "winner": "southern-miss",
+   "fbs_result": "W",
+   "ot": false,
+   "linescore_away": [
+    3,
+    0,
+    0,
+    0
+   ],
+   "linescore_home": [
+    7,
+    14,
+    21,
+    7
+   ],
+   "cross_check": {
+    "source": "CBS Sports FBS Week 1 scoreboard (Alcorn St. 3 @ So. Miss 49); https://southernmiss.com/sports/football/schedule/2026 \u2014 W 49-3",
+    "away_score": 3,
+    "home_score": 49,
+    "linescores_match": true,
+    "result": "MATCH"
+   },
+   "sources": [
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/summary?event=401868356",
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?groups=80&dates=20260905&limit=300",
+    "https://www.cbssports.com/college-football/scoreboard/FBS/2026/regular/1/",
+    "https://southernmiss.com/sports/football/schedule/2026"
+   ],
+   "matchup_check": {
+    "orientation": "FBS home \u2014 matches stub home:true / finalHome",
+    "date_match": true,
+    "postponed_canceled_or_different_opponent": false,
+    "result": "MATCH"
+   },
+   "live_site_before": {
+    "url": "https://hashmarkcfb.com/teams/southern-miss",
+    "status": "scheduled",
+    "shown": "Week 1 \u00b7 2026-09-05 \u00b7 FCS stub vs FCS opponent",
+    "season_record_before": "0\u20134"
+   },
+   "already_live_final": false,
+   "clear_or_hold": "CLEAR",
+   "action": "Website replace scheduled(\"southern-miss\", 1, \"2026-09-05\") with finalHome(\"southern-miss\", 1, \"2026-09-05\", \"Alcorn State\", 49, 3)",
+   "record_impact": {
+    "site_before": "0\u20134",
+    "site_after_stamp": "1\u20134",
+    "espn_overall": "1\u20134",
+    "matches_espn": true
+   },
+   "nits": []
+  },
+  {
+   "espn_id": "401858208",
+   "site_game_id": -2001037,
+   "stub_key": {
+    "teamSlug": "syracuse",
+    "week": 1,
+    "kickoffDate": "2026-09-05"
+   },
+   "scheduled_call": "scheduled(\"syracuse\", 1, \"2026-09-05\")",
+   "replacement_call": "finalHome(\"syracuse\", 1, \"2026-09-05\", \"New Hampshire\", 66, 3)",
+   "matchup": "New Hampshire @ Syracuse",
+   "away_label": "New Hampshire",
+   "away_abbr": "UNH",
+   "home_slug": "syracuse",
+   "home_abbr": "SYR",
+   "kick_ct": "2026-09-05 11:00 CT",
+   "stub_date": "2026-09-05",
+   "espn_status": "STATUS_FINAL",
+   "status_detail": "Final",
+   "away_score": 3,
+   "home_score": 66,
+   "winner": "syracuse",
+   "fbs_result": "W",
+   "ot": false,
+   "linescore_away": [
+    0,
+    0,
+    0,
+    3
+   ],
+   "linescore_home": [
+    14,
+    27,
+    2,
+    23
+   ],
+   "cross_check": {
+    "source": "CBS Sports FBS Week 1 scoreboard (New Hamp. 3 @ Syracuse 66)",
+    "away_score": 3,
+    "home_score": 66,
+    "linescores_match": true,
+    "result": "MATCH"
+   },
+   "sources": [
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/summary?event=401858208",
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?groups=80&dates=20260905&limit=300",
+    "https://www.cbssports.com/college-football/scoreboard/FBS/2026/regular/1/"
+   ],
+   "matchup_check": {
+    "orientation": "FBS home \u2014 matches stub home:true / finalHome",
+    "date_match": true,
+    "postponed_canceled_or_different_opponent": false,
+    "result": "MATCH"
+   },
+   "live_site_before": {
+    "url": "https://hashmarkcfb.com/teams/syracuse",
+    "status": "scheduled",
+    "shown": "Week 1 \u00b7 2026-09-05 \u00b7 FCS stub vs FCS opponent",
+    "season_record_before": "1\u20132"
+   },
+   "already_live_final": false,
+   "clear_or_hold": "CLEAR",
+   "action": "Website replace scheduled(\"syracuse\", 1, \"2026-09-05\") with finalHome(\"syracuse\", 1, \"2026-09-05\", \"New Hampshire\", 66, 3)",
+   "record_impact": {
+    "site_before": "1\u20132",
+    "site_after_stamp": "2\u20132",
+    "espn_overall": "2\u20132",
+    "matches_espn": true
+   },
+   "nits": []
+  },
+  {
+   "espn_id": "401862698",
+   "site_game_id": -2001038,
+   "stub_key": {
+    "teamSlug": "temple",
+    "week": 1,
+    "kickoffDate": "2026-09-05"
+   },
+   "scheduled_call": "scheduled(\"temple\", 1, \"2026-09-05\")",
+   "replacement_call": "finalHome(\"temple\", 1, \"2026-09-05\", \"Rhode Island\", 38, 14)",
+   "matchup": "Rhode Island @ Temple",
+   "away_label": "Rhode Island",
+   "away_abbr": "URI",
+   "home_slug": "temple",
+   "home_abbr": "TEM",
+   "kick_ct": "2026-09-05 13:00 CT",
+   "stub_date": "2026-09-05",
+   "espn_status": "STATUS_FINAL",
+   "status_detail": "Final",
+   "away_score": 14,
+   "home_score": 38,
+   "winner": "temple",
+   "fbs_result": "W",
+   "ot": false,
+   "linescore_away": [
+    7,
+    7,
+    0,
+    0
+   ],
+   "linescore_home": [
+    10,
+    14,
+    7,
+    7
+   ],
+   "cross_check": {
+    "source": "CBS Sports FBS Week 1 scoreboard (Rhode Island 14 @ Temple 38)",
+    "away_score": 14,
+    "home_score": 38,
+    "linescores_match": true,
+    "result": "MATCH"
+   },
+   "sources": [
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/summary?event=401862698",
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?groups=80&dates=20260905&limit=300",
+    "https://www.cbssports.com/college-football/scoreboard/FBS/2026/regular/1/"
+   ],
+   "matchup_check": {
+    "orientation": "FBS home \u2014 matches stub home:true / finalHome",
+    "date_match": true,
+    "postponed_canceled_or_different_opponent": false,
+    "result": "MATCH"
+   },
+   "live_site_before": {
+    "url": "https://hashmarkcfb.com/teams/temple",
+    "status": "scheduled",
+    "shown": "Week 1 \u00b7 2026-09-05 \u00b7 FCS stub vs FCS opponent",
+    "season_record_before": "1\u20133"
+   },
+   "already_live_final": false,
+   "clear_or_hold": "CLEAR",
+   "action": "Website replace scheduled(\"temple\", 1, \"2026-09-05\") with finalHome(\"temple\", 1, \"2026-09-05\", \"Rhode Island\", 38, 14)",
+   "record_impact": {
+    "site_before": "1\u20133",
+    "site_after_stamp": "2\u20133",
+    "espn_overall": "2\u20133",
+    "matches_espn": true
+   },
+   "nits": []
+  },
+  {
+   "espn_id": "401860880",
+   "site_game_id": -2001042,
+   "stub_key": {
+    "teamSlug": "utah-state",
+    "week": 1,
+    "kickoffDate": "2026-09-05"
+   },
+   "scheduled_call": "scheduled(\"utah-state\", 1, \"2026-09-05\")",
+   "replacement_call": "finalHome(\"utah-state\", 1, \"2026-09-05\", \"Idaho State\", 17, 29)",
+   "matchup": "Idaho State @ Utah State",
+   "away_label": "Idaho State",
+   "away_abbr": "IDST",
+   "home_slug": "utah-state",
+   "home_abbr": "USU",
+   "kick_ct": "2026-09-05 18:00 CT",
+   "stub_date": "2026-09-05",
+   "espn_status": "STATUS_FINAL",
+   "status_detail": "Final",
+   "away_score": 29,
+   "home_score": 17,
+   "winner": "opponent",
+   "fbs_result": "L",
+   "ot": false,
+   "linescore_away": [
+    6,
+    10,
+    3,
+    10
+   ],
+   "linescore_home": [
+    7,
+    3,
+    7,
+    0
+   ],
+   "cross_check": {
+    "source": "CBS Sports FBS Week 1 scoreboard (Idaho State 29 @ Utah St. 17)",
+    "away_score": 29,
+    "home_score": 17,
+    "linescores_match": true,
+    "result": "MATCH"
+   },
+   "sources": [
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/summary?event=401860880",
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?groups=80&dates=20260905&limit=300",
+    "https://www.cbssports.com/college-football/scoreboard/FBS/2026/regular/1/"
+   ],
+   "matchup_check": {
+    "orientation": "FBS home \u2014 matches stub home:true / finalHome",
+    "date_match": true,
+    "postponed_canceled_or_different_opponent": false,
+    "result": "MATCH"
+   },
+   "live_site_before": {
+    "url": "https://hashmarkcfb.com/teams/utah-state",
+    "status": "scheduled",
+    "shown": "Week 1 \u00b7 2026-09-05 \u00b7 FCS stub vs FCS opponent",
+    "season_record_before": "1\u20133"
+   },
+   "already_live_final": false,
+   "clear_or_hold": "CLEAR",
+   "action": "Website replace scheduled(\"utah-state\", 1, \"2026-09-05\") with finalHome(\"utah-state\", 1, \"2026-09-05\", \"Idaho State\", 17, 29)",
+   "record_impact": {
+    "site_before": "1\u20133",
+    "site_after_stamp": "1\u20134",
+    "espn_overall": "1\u20134",
+    "matches_espn": true
+   },
+   "nits": []
+  },
+  {
+   "espn_id": "401862700",
+   "site_game_id": -2001043,
+   "stub_key": {
+    "teamSlug": "utsa",
+    "week": 1,
+    "kickoffDate": "2026-09-05"
+   },
+   "scheduled_call": "scheduled(\"utsa\", 1, \"2026-09-05\")",
+   "replacement_call": "finalHome(\"utsa\", 1, \"2026-09-05\", \"UT Rio Grande Valley\", 45, 16)",
+   "matchup": "UT Rio Grande Valley @ UTSA",
+   "away_label": "UT Rio Grande Valley",
+   "away_abbr": "RGV",
+   "home_slug": "utsa",
+   "home_abbr": "UTSA",
+   "kick_ct": "2026-09-05 14:30 CT",
+   "stub_date": "2026-09-05",
+   "espn_status": "STATUS_FINAL",
+   "status_detail": "Final",
+   "away_score": 16,
+   "home_score": 45,
+   "winner": "utsa",
+   "fbs_result": "W",
+   "ot": false,
+   "linescore_away": [
+    0,
+    6,
+    0,
+    10
+   ],
+   "linescore_home": [
+    7,
+    24,
+    0,
+    14
+   ],
+   "cross_check": {
+    "source": "CBS Sports FBS Week 1 scoreboard (UT-Rio Grande Valley 16 @ UTSA 45); https://goutsa.com/sports/football/schedule \u2014 W 45-16",
+    "away_score": 16,
+    "home_score": 45,
+    "linescores_match": true,
+    "result": "MATCH"
+   },
+   "sources": [
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/summary?event=401862700",
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?groups=80&dates=20260905&limit=300",
+    "https://www.cbssports.com/college-football/scoreboard/FBS/2026/regular/1/",
+    "https://goutsa.com/sports/football/schedule"
+   ],
+   "matchup_check": {
+    "orientation": "FBS home \u2014 matches stub home:true / finalHome",
+    "date_match": true,
+    "postponed_canceled_or_different_opponent": false,
+    "result": "MATCH"
+   },
+   "live_site_before": {
+    "url": "https://hashmarkcfb.com/teams/utsa",
+    "status": "scheduled",
+    "shown": "Week 1 \u00b7 2026-09-05 \u00b7 FCS stub vs FCS opponent",
+    "season_record_before": "4\u20131"
+   },
+   "already_live_final": false,
+   "clear_or_hold": "CLEAR",
+   "action": "Website replace scheduled(\"utsa\", 1, \"2026-09-05\") with finalHome(\"utsa\", 1, \"2026-09-05\", \"UT Rio Grande Valley\", 45, 16)",
+   "record_impact": {
+    "site_before": "4\u20131",
+    "site_after_stamp": "5\u20131",
+    "espn_overall": "5\u20131",
+    "matches_espn": true
+   },
+   "nits": []
+  },
+  {
+   "espn_id": "401856669",
+   "site_game_id": -2001044,
+   "stub_key": {
+    "teamSlug": "vanderbilt",
+    "week": 1,
+    "kickoffDate": "2026-09-05"
+   },
+   "scheduled_call": "scheduled(\"vanderbilt\", 1, \"2026-09-05\")",
+   "replacement_call": "finalHome(\"vanderbilt\", 1, \"2026-09-05\", \"Austin Peay\", 28, 9)",
+   "matchup": "Austin Peay @ Vanderbilt",
+   "away_label": "Austin Peay",
+   "away_abbr": "APSU",
+   "home_slug": "vanderbilt",
+   "home_abbr": "VAN",
+   "kick_ct": "2026-09-05 18:00 CT",
+   "stub_date": "2026-09-05",
+   "espn_status": "STATUS_FINAL",
+   "status_detail": "Final",
+   "away_score": 9,
+   "home_score": 28,
+   "winner": "vanderbilt",
+   "fbs_result": "W",
+   "ot": false,
+   "linescore_away": [
+    6,
+    3,
+    0,
+    0
+   ],
+   "linescore_home": [
+    5,
+    10,
+    6,
+    7
+   ],
+   "cross_check": {
+    "source": "CBS Sports FBS Week 1 scoreboard (Austin Peay 9 @ Vanderbilt 28)",
+    "away_score": 9,
+    "home_score": 28,
+    "linescores_match": true,
+    "result": "MATCH"
+   },
+   "sources": [
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/summary?event=401856669",
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?groups=80&dates=20260905&limit=300",
+    "https://www.cbssports.com/college-football/scoreboard/FBS/2026/regular/1/"
+   ],
+   "matchup_check": {
+    "orientation": "FBS home \u2014 matches stub home:true / finalHome",
+    "date_match": true,
+    "postponed_canceled_or_different_opponent": false,
+    "result": "MATCH"
+   },
+   "live_site_before": {
+    "url": "https://hashmarkcfb.com/teams/vanderbilt",
+    "status": "scheduled",
+    "shown": "Week 1 \u00b7 2026-09-05 \u00b7 FCS stub vs FCS opponent",
+    "season_record_before": "2\u20132"
+   },
+   "already_live_final": false,
+   "clear_or_hold": "CLEAR",
+   "action": "Website replace scheduled(\"vanderbilt\", 1, \"2026-09-05\") with finalHome(\"vanderbilt\", 1, \"2026-09-05\", \"Austin Peay\", 28, 9)",
+   "record_impact": {
+    "site_before": "2\u20132",
+    "site_after_stamp": "3\u20132",
+    "espn_overall": "3\u20132",
+    "matches_espn": true
+   },
+   "nits": []
+  }
+ ],
+ "holds": [],
+ "record_gaps_after_stamp": [
+  {
+   "teamSlug": "buffalo",
+   "site_after": "1\u20133",
+   "espn_overall": "2\u20133",
+   "reason": "After Week 1 stamp still 1\u20133 vs ESPN 2\u20133: missing Week 4 FCS FINAL Buffalo 31\u2013Robert Morris 28 (2026-09-26). No Week 4 FCS stub exists yet."
+  },
+  {
+   "teamSlug": "jacksonville-state",
+   "site_after": "4\u20131",
+   "espn_overall": "4\u20132",
+   "reason": "After Week 1 stamp still 4\u20131 vs ESPN 4\u20132: missing Week 0 FCS loss Jacksonville State 7 @ North Dakota State 33 (2026-08-29). No Week 0 FCS stub for Jax State."
+  }
+ ],
+ "replacement_calls": [
+  "finalHome(\"buffalo\", 1, \"2026-09-03\", \"UAlbany\", 21, 17)",
+  "finalHome(\"delaware\", 1, \"2026-09-03\", \"Merrimack\", 42, 7)",
+  "finalHome(\"kennesaw-state\", 1, \"2026-09-03\", \"West Georgia\", 47, 0)",
+  "finalHome(\"ucf\", 1, \"2026-09-03\", \"Bethune-Cookman\", 73, 6)",
+  "finalHome(\"georgia-state\", 1, \"2026-09-04\", \"North Carolina A&T\", 59, 10)",
+  "finalHome(\"kansas\", 1, \"2026-09-04\", \"LIU\", 51, 6)",
+  "finalHome(\"air-force\", 1, \"2026-09-05\", \"Duquesne\", 34, 0)",
+  "finalHome(\"arizona\", 1, \"2026-09-05\", \"Northern Arizona\", 35, 7)",
+  "finalHome(\"arizona-state\", 1, \"2026-09-05\", \"Morgan State\", 70, 7)",
+  "finalHome(\"arkansas\", 1, \"2026-09-05\", \"North Alabama\", 31, 14)",
+  "finalHome(\"bowling-green\", 1, \"2026-09-05\", \"Tarleton State\", 13, 20)",
+  "finalHome(\"charlotte\", 1, \"2026-09-05\", \"The Citadel\", 41, 43)",
+  "finalHome(\"georgia-southern\", 1, \"2026-09-05\", \"Charleston Southern\", 31, 0)",
+  "finalHome(\"iowa-state\", 1, \"2026-09-05\", \"Southeast Missouri State\", 38, 10)",
+  "finalHome(\"jacksonville-state\", 1, \"2026-09-05\", \"Eastern Kentucky\", 49, 7)",
+  "finalHome(\"kansas-state\", 1, \"2026-09-05\", \"Nicholls\", 71, 3)",
+  "finalHome(\"kentucky\", 1, \"2026-09-05\", \"Youngstown State\", 45, 13)",
+  "finalHome(\"louisiana\", 1, \"2026-09-05\", \"Lamar\", 38, 7)",
+  "finalHome(\"louisiana-tech\", 1, \"2026-09-05\", \"Northwestern State\", 80, 6)",
+  "finalHome(\"middle-tennessee\", 1, \"2026-09-05\", \"Murray State\", 38, 14)",
+  "finalHome(\"new-mexico-state\", 1, \"2026-09-05\", \"Mercyhurst\", 51, 14)",
+  "finalHome(\"northwestern\", 1, \"2026-09-05\", \"South Dakota State\", 34, 18)",
+  "finalHome(\"old-dominion\", 1, \"2026-09-05\", \"Norfolk State\", 31, 10)",
+  "finalHome(\"rice\", 1, \"2026-09-05\", \"Houston Christian\", 31, 3)",
+  "finalHome(\"san-diego-state\", 1, \"2026-09-05\", \"Portland State\", 53, 20)",
+  "finalHome(\"south-alabama\", 1, \"2026-09-05\", \"SE Louisiana\", 39, 14)",
+  "finalHome(\"southern-miss\", 1, \"2026-09-05\", \"Alcorn State\", 49, 3)",
+  "finalHome(\"syracuse\", 1, \"2026-09-05\", \"New Hampshire\", 66, 3)",
+  "finalHome(\"temple\", 1, \"2026-09-05\", \"Rhode Island\", 38, 14)",
+  "finalHome(\"utah-state\", 1, \"2026-09-05\", \"Idaho State\", 17, 29)",
+  "finalHome(\"utsa\", 1, \"2026-09-05\", \"UT Rio Grande Valley\", 45, 16)",
+  "finalHome(\"vanderbilt\", 1, \"2026-09-05\", \"Austin Peay\", 28, 9)"
+ ],
+ "nits": [
+  "Existing stamped finalHome(\"texas-tech\", 1, \"2026-09-05\", \"Nicholls\", 33, 3) is wrong opponent \u2014 ESPN Week 1 Texas Tech beat Abilene Christian 33\u201310; Nicholls played Kansas State (71\u20133). Out of scope for this pack; flag for Website hygiene.",
+  "iowa-state and old-dominion: CBS quarter lines differ from ESPN scoring-play linescores; finals totals match. Pack uses ESPN linescores.",
+  "charlotte Final/3OT: CBS collapses OT periods; score 41\u201343 matches ESPN.",
+  "charlotte: ESPN status_detail=Final/3OT; CBS OT quarters collapsed differently but total 41-43 matches",
+  "iowa-state: CBS regulation linescore differs from ESPN (CBS H[14, 3, 7, 14]/A[0, 7, 0, 3] vs ESPN H[14, 14, 3, 7]/A[0, 7, 0, 3]); finals totals match \u2014 using ESPN linescore",
+  "old-dominion: CBS regulation linescore differs from ESPN (CBS H[7, 10, 14, 0]/A[7, 3, 0, 0] vs ESPN H[7, 10, 14, 0]/A[0, 7, 3, 0]); finals totals match \u2014 using ESPN linescore"
+ ],
+ "weeks_4_5_fcs": {
+  "stubs_in_file": false,
+  "note": "No scheduled Week 4\u20135 FCS stubs in fcs-stubs.ts. Known outside-stub FCS finals affecting W\u2013L: Buffalo vs Robert Morris (Week 4), Jacksonville State @ NDSU (Week 0)."
+ },
+ "handoff": {
+  "website": "Replace all 32 scheduled(...) Week 1 stubs with the replacement_calls list (finalHome only). Smoke team hubs; expect 30/32 records to match ESPN overall. buffalo and jacksonville-state still need later FCS stub backfills (Week 4 RMU; Week 0 NDSU).",
+  "management": "FYI \u2014 FCS W\u2013L hygiene for Week 1 complete pending stamp.",
+  "marketing": "N/A",
+  "no_self_stamp": true
+ }
+}
