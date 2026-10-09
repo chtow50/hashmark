@@ -1,0 +1,272 @@
+{
+ "meta": {
+  "title": "HASHMARK Week 6 FINALs CLEAR pack",
+  "week": 6,
+  "run_ct": "2026-10-09 01:13 CT (Fri nightly)",
+  "window": "Thu 2026-10-08 evening FBS–FBS games",
+  "model": "HX 2026.7",
+  "soft_cal": "FLAG (stays)",
+  "game_list_source": "week6_vegas_clear_pack_2026-10-05.json (56 games)",
+  "sources": [
+   "https://site.web.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?groups=80&dates=20261008&limit=300",
+   "https://www.cbssports.com/college-football/scoreboard/FBS/2026/regular/6/",
+   "https://hashmarkcfb.com/schedule?w=6"
+  ]
+ },
+ "counts": {
+  "games_in_window": 4,
+  "CLEAR": 4,
+  "HOLD": 0,
+  "already_live_final": 0,
+  "to_stamp": 4,
+  "ot_finals": 0,
+  "week_final": "7/56",
+  "week_100pct_final": false,
+  "hx_su_window": "3/4",
+  "hx_su_week_to_date": "6/7",
+  "winner_flips_in_window": 0,
+  "note": "Prior FINALs 401871090 USM@Troy (265), 401871051 JXST@KENN (266), 401871066 NMSU@FIU (267) already live with matching scores; no restamp."
+ },
+ "games": [
+  {
+   "espn_id": "401871052",
+   "site_game_id": 269,
+   "matchup": "Missouri State @ Western Kentucky",
+   "away": "MOST",
+   "home": "WKU",
+   "kick_ct": "2026-10-08 18:00 Thu",
+   "tv": "CBSSN",
+   "espn_status": "STATUS_FINAL",
+   "status_detail": "Final",
+   "away_score": 13,
+   "home_score": 34,
+   "winner": "WKU",
+   "ot": false,
+   "linescore_away": [
+    3,
+    3,
+    7,
+    0
+   ],
+   "linescore_home": [
+    7,
+    14,
+    3,
+    10
+   ],
+   "cross_check": {
+    "source": "CBS Sports FBS Week 6 scoreboard",
+    "away_score": 13,
+    "home_score": 34,
+    "linescores_match": true,
+    "result": "MATCH"
+   },
+   "live_site_before": {
+    "url": "https://hashmarkcfb.com/schedule?w=6",
+    "status": "scheduled",
+    "shown": "Kick 6:00 CT · CBSSN",
+    "homeScore": null,
+    "awayScore": null,
+    "day_label": "Thursday, Oct 8"
+   },
+   "already_live_final": false,
+   "clear_or_hold": "CLEAR",
+   "action": "Website stamp FINAL Western Kentucky 34, Missouri State 13",
+   "hx_vs_vegas": {
+    "hx": "WKU -13.9 / 78.6%",
+    "vegas": "WKU -2.5 / O/U 55.5",
+    "margin": "WKU +21",
+    "total": 47,
+    "hx_su": "HIT (WKU)",
+    "winner_flip": false,
+    "closer": "HX (|21-13.9|=7.1 vs |21-2.5|=18.5)",
+    "total_vs_ou": "UNDER by 8.5"
+   }
+  },
+  {
+   "espn_id": "401870766",
+   "site_game_id": 268,
+   "matchup": "Sam Houston @ Liberty",
+   "away": "SHSU",
+   "home": "LIB",
+   "kick_ct": "2026-10-08 18:00 Thu",
+   "tv": "ESPNU",
+   "espn_status": "STATUS_FINAL",
+   "status_detail": "Final",
+   "away_score": 3,
+   "home_score": 35,
+   "winner": "LIB",
+   "ot": false,
+   "linescore_away": [
+    0,
+    3,
+    0,
+    0
+   ],
+   "linescore_home": [
+    7,
+    7,
+    7,
+    14
+   ],
+   "cross_check": {
+    "source": "CBS Sports FBS Week 6 scoreboard",
+    "away_score": 3,
+    "home_score": 35,
+    "linescores_match": true,
+    "result": "MATCH"
+   },
+   "live_site_before": {
+    "url": "https://hashmarkcfb.com/schedule?w=6",
+    "status": "scheduled",
+    "shown": "Kick 6:00 CT · ESPNU",
+    "homeScore": null,
+    "awayScore": null,
+    "day_label": "Thursday, Oct 8"
+   },
+   "already_live_final": false,
+   "clear_or_hold": "CLEAR",
+   "action": "Website stamp FINAL Liberty 35, Sam Houston 3",
+   "hx_vs_vegas": {
+    "hx": "Liberty -16.4 / 81.8%",
+    "vegas": "Liberty -13.5 / O/U 52.5",
+    "margin": "Liberty +32",
+    "total": 38,
+    "hx_su": "HIT (Liberty)",
+    "winner_flip": false,
+    "closer": "HX (|32-16.4|=15.6 vs |32-13.5|=18.5)",
+    "total_vs_ou": "UNDER by 14.5"
+   }
+  },
+  {
+   "espn_id": "401869933",
+   "site_game_id": 271,
+   "matchup": "South Alabama @ Arkansas State",
+   "away": "USA",
+   "home": "ARST",
+   "kick_ct": "2026-10-08 18:30 Thu",
+   "tv": "ESPN2",
+   "espn_status": "STATUS_FINAL",
+   "status_detail": "Final",
+   "away_score": 56,
+   "home_score": 49,
+   "winner": "USA",
+   "ot": false,
+   "linescore_away": [
+    14,
+    20,
+    15,
+    7
+   ],
+   "linescore_home": [
+    7,
+    21,
+    7,
+    14
+   ],
+   "cross_check": {
+    "source": "CBS Sports FBS Week 6 scoreboard",
+    "away_score": 56,
+    "home_score": 49,
+    "linescores_match": true,
+    "result": "MATCH"
+   },
+   "live_site_before": {
+    "url": "https://hashmarkcfb.com/schedule?w=6",
+    "status": "scheduled",
+    "shown": "Kick 6:30 CT · ESPN2",
+    "homeScore": null,
+    "awayScore": null,
+    "day_label": "Thursday, Oct 8"
+   },
+   "already_live_final": false,
+   "clear_or_hold": "CLEAR",
+   "action": "Website stamp FINAL South Alabama 56, Arkansas State 49",
+   "hx_vs_vegas": {
+    "hx": "Arkansas St -7.5 / 68.2%",
+    "vegas": "Arkansas St -1.5 / O/U 57.5",
+    "margin": "South Alabama +7 (road upset)",
+    "total": 105,
+    "hx_su": "MISS (picked Arkansas St)",
+    "winner_flip": false,
+    "closer": "Vegas (|-7-1.5|=8.5 vs |-7-7.5|=14.5)",
+    "total_vs_ou": "OVER by 47.5"
+   }
+  },
+  {
+   "espn_id": "401862794",
+   "site_game_id": 270,
+   "matchup": "South Florida @ UTSA",
+   "away": "USF",
+   "home": "UTSA",
+   "kick_ct": "2026-10-08 18:30 Thu",
+   "tv": "ESPN",
+   "espn_status": "STATUS_FINAL",
+   "status_detail": "Final",
+   "away_score": 24,
+   "home_score": 31,
+   "winner": "UTSA",
+   "ot": false,
+   "linescore_away": [
+    14,
+    3,
+    0,
+    7
+   ],
+   "linescore_home": [
+    7,
+    3,
+    10,
+    11
+   ],
+   "cross_check": {
+    "source": "CBS Sports FBS Week 6 scoreboard",
+    "away_score": 24,
+    "home_score": 31,
+    "linescores_match": true,
+    "result": "MATCH"
+   },
+   "live_site_before": {
+    "url": "https://hashmarkcfb.com/schedule?w=6",
+    "status": "scheduled",
+    "shown": "Kick 6:30 CT · ESPN",
+    "homeScore": null,
+    "awayScore": null,
+    "day_label": "Thursday, Oct 8"
+   },
+   "already_live_final": false,
+   "clear_or_hold": "CLEAR",
+   "action": "Website stamp FINAL UTSA 31, South Florida 24",
+   "hx_vs_vegas": {
+    "hx": "UTSA -7.0 / 67.2%",
+    "vegas": "UTSA -7.0 / O/U 51.5",
+    "margin": "UTSA +7",
+    "total": 55,
+    "hx_su": "HIT (UTSA)",
+    "winner_flip": false,
+    "closer": "TIE (both exact, ATS push)",
+    "total_vs_ou": "OVER by 3.5"
+   }
+  }
+ ],
+ "holds": [],
+ "nits": [
+  "USF@UTSA card shows HX UTSA -7.0 equal to Vegas -7.0 yet still carries the 'Spread gap' chip (cosmetic; every row shows it)."
+ ],
+ "next": {
+  "fri_2026_10_09": [
+   "401858254 FSU @ LOU 18:00 CT",
+   "401858487 IOWA @ WASH 20:00 CT",
+   "401860922 WSU @ USU 20:00 CT",
+   "401864519 WYO @ SJSU 20:00 CT",
+   "401856826 ISU @ BYU 21:15 CT (featured)"
+  ],
+  "next_run": "Sat 2026-10-10 01:02 CT"
+ },
+ "handoff": {
+  "website": "Stamp FINAL on /schedule?w=6: site 268 Liberty 35–Sam Houston 3 (401870766); site 269 Western Kentucky 34–Missouri State 13 (401871052); site 270 UTSA 31–South Florida 24 (401862794); site 271 South Alabama 56–Arkansas State 49 (401869933). Then smoke for Research LIVE CLEAR.",
+  "management": "FYI only.",
+  "marketing": "FINAL quotes wait for Research LIVE CLEAR after Website smoke; Chase HOLD ALL posts.",
+  "no_self_stamp": true
+ }
+}

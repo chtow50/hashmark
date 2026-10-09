@@ -556,6 +556,27 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /Southern Miss @ Troy — Troy 55, Southern Miss 34/);
   });
 
+  it("includes Week 6 Thursday FINALs (0051) with exact home/away orientation in committed output", () => {
+    const text = corpus();
+    assert.match(text, /0051_week6_thu_finals/);
+    assert.match(text, /week6_finals_clear_2026-10-09/);
+    assert.match(text, /Sam Houston @ Liberty — Liberty 35, Sam Houston 3/);
+    assert.match(text, /Missouri State @ Western Kentucky — Western Kentucky 34, Missouri State 13/);
+    assert.match(text, /South Florida @ UTSA — UTSA 31, South Florida 24/);
+    assert.match(text, /South Alabama @ Arkansas State — South Alabama 56, Arkansas State 49/);
+    assert.match(text, /home_score = 35,\\n    away_score = 3\\n/);
+    assert.match(text, /home_score = 34,\\n    away_score = 13\\n/);
+    assert.match(text, /home_score = 31,\\n    away_score = 24\\n/);
+    assert.match(text, /home_score = 49,\\n    away_score = 56\\n/);
+    assert.match(text, /and h\.slug = 'liberty' and a\.slug = 'sam-houston';/);
+    assert.match(text, /and h\.slug = 'western-kentucky' and a\.slug = 'missouri-state';/);
+    assert.match(text, /and h\.slug = 'utsa' and a\.slug = 'usf';/);
+    assert.match(text, /and h\.slug = 'arkansas-state' and a\.slug = 'south-alabama';/);
+    // Prior FINALs (0049/0050) stay in the bundle untouched.
+    assert.match(text, /Jacksonville State @ Kennesaw State — Jacksonville State 27, Kennesaw State 26/);
+    assert.match(text, /New Mexico State @ FIU — FIU 22, New Mexico State 3/);
+  });
+
   it("pins serverless function runtime to nodejs22.x (Vercel blocked new nodejs20.x after 2026-10-01)", () => {
     const cfgPath = join(OUT, "functions/__server.func/.vc-config.json");
     assert.ok(existsSync(cfgPath), "missing .vc-config.json");
