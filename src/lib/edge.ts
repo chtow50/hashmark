@@ -1,8 +1,8 @@
 /**
  * HX Edge Pack — public monetization surface.
- * Checkout URLs are Stripe Payment Links from env when they exist:
- *   VITE_EDGE_CHECKOUT_URL       monthly ($15/mo) only
- *   VITE_EDGE_CHECKOUT_WEEK_URL  week sample ($5) only — never fall back to monthly
+ * Checkout URL is a Stripe Payment Link from env when it exists:
+ *   VITE_EDGE_CHECKOUT_WEEK_URL  week sample ($5) — the only paid buy on the site.
+ * Edge pause step 1 (2026-10-09): the recurring tier and its env path are removed.
  * Never invent a payment link. Unset → #checkout-pending.
  */
 
@@ -15,15 +15,12 @@ export const EDGE = {
   shortName: "Edge Pack",
   weekPrice: "$5",
   weekLabel: "$5 Week sample",
-  monthPrice: "$15/mo",
-  monthLabel: "$15/mo",
   supportEmail: EDGE_SUPPORT_EMAIL,
 } as const;
 
-export type EdgeCheckoutKind = "week" | "month";
+export type EdgeCheckoutKind = "week";
 
 export type EdgeCheckoutEnv = {
-  VITE_EDGE_CHECKOUT_URL?: string | undefined;
   VITE_EDGE_CHECKOUT_WEEK_URL?: string | undefined;
 };
 
@@ -45,24 +42,22 @@ export function resolveCheckoutUrl(raw: string | undefined | null): string | nul
 }
 
 export function edgeCheckoutUrl(
-  kind: EdgeCheckoutKind = "month",
+  kind: EdgeCheckoutKind = "week",
   env: EdgeCheckoutEnv = readCheckoutEnv(),
 ): string | null {
-  if (kind === "week") {
-    return resolveCheckoutUrl(env.VITE_EDGE_CHECKOUT_WEEK_URL);
-  }
-  return resolveCheckoutUrl(env.VITE_EDGE_CHECKOUT_URL);
+  void kind;
+  return resolveCheckoutUrl(env.VITE_EDGE_CHECKOUT_WEEK_URL);
 }
 
 export function edgeCheckoutHref(
-  kind: EdgeCheckoutKind = "month",
+  kind: EdgeCheckoutKind = "week",
   env: EdgeCheckoutEnv = readCheckoutEnv(),
 ): string {
   return edgeCheckoutUrl(kind, env) ?? EDGE_CHECKOUT_PENDING;
 }
 
 export function edgeCheckoutLive(
-  kind: EdgeCheckoutKind = "month",
+  kind: EdgeCheckoutKind = "week",
   env: EdgeCheckoutEnv = readCheckoutEnv(),
 ): boolean {
   return edgeCheckoutUrl(kind, env) != null;

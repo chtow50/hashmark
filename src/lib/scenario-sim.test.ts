@@ -258,7 +258,7 @@ test("/edge marketing does not promo Scenario Sim; tool is preview/offline only"
   assert.match(preview, /401856700/);
   assert.match(preview, /SCENARIO_SIM_GOLDEN_FORCE/);
   assert.match(preview, /EDGE\.weekLabel/);
-  assert.doesNotMatch(preview, /\$9 Week sample|\$29\/mo/);
+  assert.doesNotMatch(preview, /\$9 Week sample|\$29\/mo|\$15\/mo|monthLabel|kind="month"/);
   assert.match(sim, /preview \/ offline/);
   assert.match(sim, /Not this week’s paid pack|Not this week's paid pack/);
   assert.doesNotMatch(sim, /live interactive sim/i);

@@ -39,7 +39,7 @@ export function EdgePackStrip({
       >
         <span>
           {paidMark}
-          {EDGE.name} · weekly disagreements and SU/closer tape · {EDGE.weekLabel} · {EDGE.monthLabel}
+          {EDGE.name} · weekly disagreements and SU/closer tape · {EDGE.weekLabel}
         </span>
         <span className="inline-flex shrink-0 items-center gap-1 text-fg">
           Open
@@ -63,7 +63,7 @@ export function EdgePackStrip({
         </p>
         <p className="mt-1 text-sm text-muted">
           Weekly depth — HX vs AP/market, flagged games, SU/closer tape.{" "}
-          {EDGE.weekLabel} · {EDGE.monthLabel}.
+          {EDGE.weekLabel}.
         </p>
       </div>
       <span className="inline-flex h-11 shrink-0 items-center gap-1 text-sm text-fg">
@@ -79,7 +79,7 @@ export function EdgeBuyButton({
   label,
   className,
 }: {
-  kind: "week" | "month";
+  kind: "week";
   label: string;
   className?: string;
 }) {
@@ -98,7 +98,7 @@ export function EdgeBuyButton({
 }
 
 export function EdgeCheckoutNote({ className }: { className?: string }) {
-  if (edgeCheckoutLive("week") && edgeCheckoutLive("month")) return null;
+  if (edgeCheckoutLive("week")) return null;
   return (
     <p
       id={EDGE_CHECKOUT_PENDING.slice(1)}
