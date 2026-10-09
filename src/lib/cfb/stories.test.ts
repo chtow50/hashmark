@@ -127,6 +127,20 @@ test("Week 6 Friday desk leads STORIES: CLEAR stories only, Oct 5 CLEAR Vegas, W
   assert.match(tape, /6–1/);
 });
 
+test("Week 5 WKU @ NMSU story carries no stale 'has not stamped' wording (both Thursday FINALs are stamped)", () => {
+  const s = STORIES.find((x) => x.slug === "week-5-wku-nmsu-final");
+  assert.ok(s);
+  const t = [s.headline, s.dek, s.whyItMatters, ...s.body].join("\n");
+  assert.equal(s.dek, "First Week 5 winner-flip result is in.");
+  assert.doesNotMatch(t, /has not stamped|still shows both Thursday games as Kick|until this stamp|board-hole flag/i);
+  assert.match(t, /New Mexico State 34, Western Kentucky 13/);
+  assert.match(t, /North Texas 45, Tulsa 44/);
+  for (const x of STORIES) {
+    const all = [x.headline, x.dek, x.whyItMatters, ...x.body].join("\n");
+    assert.doesNotMatch(all, /has not stamped/i, x.slug);
+  }
+});
+
 test("Week 5 tape follows the Week 6 Friday desk; Week 5 Friday then Week 4 tape follow", () => {
   assert.equal(STORIES[W6 + 0]?.slug, "week-5-tape");
   assert.equal(STORIES[W6 + 0]?.date, "Sunday, Oct 4, 2026");
