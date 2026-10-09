@@ -728,3 +728,85 @@ describe("Week 6 Thursday FINALs (LIB/SHSU, WKU/MOST, UTSA/USF, ARST/USA)", () =
   });
 });
 
+
+describe("Week 6 Kansas @ Utah Vegas CLEAR (0053)", () => {
+  const kuSql = readFileSync(join(root, "migrations/0053_week6_ku_utah_vegas.sql"), "utf8");
+  const kuPack = JSON.parse(
+    readFileSync(join(root, "data/week6_vegas_ku_utah_clear_2026-10-09.json"), "utf8"),
+  ) as {
+    counts: { CLEAR: number; HOLD: number };
+    games: Array<{
+      espn_id: string;
+      clear_or_hold: string;
+      kick_ct: string;
+      tv: string;
+      vegas_details: string;
+      vegas_spread: number;
+      ou: number;
+      kick_tv_check: { matches_oct5_pack: boolean };
+    }>;
+  };
+
+  it("stamps UTAH −15.5 / O/U 51.5 from the Research pack; kick + TV unchanged vs 0048", () => {
+    assert.equal(kuPack.counts.CLEAR, 1);
+    assert.equal(kuPack.counts.HOLD, 0);
+    const g = kuPack.games[0];
+    assert.equal(g.espn_id, "401856827");
+    assert.equal(g.clear_or_hold, "CLEAR");
+    assert.equal(g.vegas_details, "UTAH -15.5");
+    assert.equal(g.vegas_spread, -15.5);
+    assert.equal(g.ou, 51.5);
+    assert.equal(g.kick_ct, "2026-10-10 21:15");
+    assert.equal(g.tv, "ESPN");
+    assert.equal(g.kick_tv_check.matches_oct5_pack, true);
+    // Board convention: positive = home favored.
+    assert.match(kuSql, /vegas_spread = case when h\.slug = 'utah' then 15\.5 else -15\.5 end/);
+    assert.match(kuSql, /vegas_total = 51\.5/);
+    assert.match(kuSql, /timestamptz '2026-10-10 21:15:00-05'/);
+    assert.match(kuSql, /tv = 'ESPN'/);
+    assert.match(clearBlock("401856827"), /timestamptz '2026-10-10 21:15:00-05'/);
+    assert.match(clearBlock("401856827"), /tv = 'ESPN'/);
+    assert.doesNotMatch(kuSql, /home_score|away_score|hx_rating|win_title|make_field/);
+    assert.equal(favoriteLine("Utah", "Kansas", 15.5), "Utah −15.5");
+    const row = parseSqlStampsForWeek(readMigrationsSql(root), 6).get("401856827");
+    assert.deepEqual(row, { hasKick: true, hasVegas: true });
+  });
+
+  it("after all migrations: 56 Week 6 games, every Vegas filled, only Iowa @ Washington TV blank", async () => {
+    const { PGlite } = await import("@electric-sql/pglite");
+    const { readdirSync } = await import("node:fs");
+    const db = new PGlite();
+    try {
+      const migDir = join(root, "migrations");
+      for (const f of readdirSync(migDir).filter((n) => n.endsWith(".sql")).sort()) {
+        await db.exec(readFileSync(join(migDir, f), "utf8"));
+      }
+      const { rows } = await db.query<{
+        home: string;
+        away: string;
+        tv: string | null;
+        vegas_spread: number | null;
+        vegas_total: number | null;
+      }>(
+        `select h.slug as home, a.slug as away, g.tv, g.vegas_spread::float8 as vegas_spread,
+                g.vegas_total::float8 as vegas_total
+         from games g join teams h on h.id = g.home_team_id join teams a on a.id = g.away_team_id
+         where g.week = 6`,
+      );
+      assert.equal(rows.length, 56);
+      const ku = rows.find((r) => r.home === "utah" && r.away === "kansas");
+      assert.ok(ku);
+      assert.deepEqual([ku.tv, ku.vegas_spread, ku.vegas_total], ["ESPN", 15.5, 51.5]);
+      assert.deepEqual(
+        rows.filter((r) => r.vegas_spread == null || r.vegas_total == null).map((r) => `${r.away}@${r.home}`),
+        [],
+      );
+      assert.deepEqual(
+        rows.filter((r) => r.tv == null).map((r) => `${r.away}@${r.home}`),
+        ["iowa@washington"],
+      );
+    } finally {
+      await db.close();
+    }
+  });
+});

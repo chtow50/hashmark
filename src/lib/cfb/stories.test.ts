@@ -52,18 +52,81 @@ const WEEK5_FRIDAY = [
   "week-5-wku-nmsu-final",
 ] as const;
 
-test("Week 5 tape leads STORIES; Week 5 Friday then Week 4 tape follow", () => {
-  assert.equal(STORIES[0]?.slug, "week-5-tape");
-  assert.equal(STORIES[0]?.date, "Sunday, Oct 4, 2026");
-  assert.match(STORIES[0]?.headline ?? "", /39\/55/);
-  assert.match(STORIES[0]?.headline ?? "", /20\/55/);
-  assert.match(STORIES[0]?.headline ?? "", /FLAG/);
-  assert.doesNotMatch(STORIES[0]?.headline ?? "", /7\/15/);
+const WEEK6_FRIDAY = [
+  "week-6-georgia-alabama",
+  "week-6-ucla-oregon",
+  "week-6-texas-am-missouri",
+  "week-6-ranked-chill-gaps",
+  "week-6-midweek-tape",
+] as const;
+const W6 = WEEK6_FRIDAY.length;
+
+test("Week 6 Friday desk leads STORIES: CLEAR stories only, Oct 5 CLEAR Vegas, Week 6 AP, no win_title", () => {
+  assert.deepEqual(
+    STORIES.slice(0, W6).map((s) => s.slug),
+    [...WEEK6_FRIDAY],
+  );
+  // Story 4 (Iowa @ Washington) is Website peer HOLD for Research.
+  assert.equal(STORIES.find((s) => s.slug === "week-6-iowa-washington"), undefined);
+  const text = (i: number) => {
+    const s = STORIES[i];
+    return [s?.headline, s?.dek, s?.whyItMatters, ...(s?.body ?? [])].join("\n");
+  };
+  for (let i = 0; i < W6; i++) {
+    const t = text(i);
+    assert.equal(STORIES[i]?.date, "Friday, Oct 9, 2026");
+    assert.doesNotMatch(t, /win_title|title odds|win the title/i);
+    assert.doesNotMatch(t, /The board is posted/);
+    assert.doesNotMatch(t, /ESPN now/);
+    assert.doesNotMatch(t, /\block\b/i);
+    assert.doesNotMatch(t, /guaranteed ROI/i);
+    for (const src of STORIES[i]?.sources ?? []) {
+      assert.match(src.href, /^https:\/\//, src.href);
+      assert.doesNotMatch(src.href, /grok\.me|www\.hashmarkcfb/);
+      if (/hashmark/i.test(src.label)) assert.match(src.href, /^https:\/\/hashmarkcfb\.com\//);
+    }
+  }
+  const uga = text(0);
+  assert.match(uga, /Georgia −4\.6, 61\.8%/);
+  assert.match(uga, /1\.5-point favorite/);
+  assert.match(uga, /86\.5% Make 12/);
+  assert.doesNotMatch(uga, /51\.5/);
+  const ore = text(1);
+  assert.match(ore, /Oregon −24\.5, 89\.0%/);
+  assert.match(ore, /Oregon −11\.5, O\/U 59\.5/);
+  assert.match(ore, /No\. 21 UCLA/);
+  const mizz = text(2);
+  assert.match(mizz, /Texas A&M −2\.1, 55\.7%/);
+  assert.match(mizz, /Vegas Missouri −3\.5/);
+  assert.match(mizz, /No\. 25 to No\. 14/);
+  const chill = text(3);
+  assert.match(chill, /Florida −5\.2 \(63\.3%\) vs Vegas Florida −13\.5/);
+  assert.match(chill, /Tennessee −7\.4 \(68\.0%\) vs Vegas −13\.5/);
+  assert.match(chill, /Oklahoma State −1\.9 \(55\.2%\) vs Vegas −10\.0/);
+  assert.match(chill, /Vegas \(−4\.5\)/);
+  assert.match(chill, /No\. 16 Florida/);
+  assert.match(chill, /No\. 25 Pittsburgh/);
+  assert.match(chill, /soft-calibration FLAG/);
+  assert.doesNotMatch(chill, /−11\.5|−10\.5|−3\.5/);
+  const tape = text(4);
+  for (const score of ["55–34", "27–26", "22–3", "35–3", "34–13", "31–24", "56–49"]) {
+    assert.match(tape, new RegExp(score));
+  }
+  assert.match(tape, /6–1/);
+});
+
+test("Week 5 tape follows the Week 6 Friday desk; Week 5 Friday then Week 4 tape follow", () => {
+  assert.equal(STORIES[W6 + 0]?.slug, "week-5-tape");
+  assert.equal(STORIES[W6 + 0]?.date, "Sunday, Oct 4, 2026");
+  assert.match(STORIES[W6 + 0]?.headline ?? "", /39\/55/);
+  assert.match(STORIES[W6 + 0]?.headline ?? "", /20\/55/);
+  assert.match(STORIES[W6 + 0]?.headline ?? "", /FLAG/);
+  assert.doesNotMatch(STORIES[W6 + 0]?.headline ?? "", /7\/15/);
   const w5tape = [
-    STORIES[0]?.headline,
-    STORIES[0]?.dek,
-    STORIES[0]?.whyItMatters,
-    ...(STORIES[0]?.body ?? []),
+    STORIES[W6 + 0]?.headline,
+    STORIES[W6 + 0]?.dek,
+    STORIES[W6 + 0]?.whyItMatters,
+    ...(STORIES[W6 + 0]?.body ?? []),
   ].join("\n");
   assert.match(w5tape, /70\.9%/);
   assert.match(w5tape, /36\.4%/);
@@ -88,18 +151,18 @@ test("Week 5 tape leads STORIES; Week 5 Friday then Week 4 tape follow", () => {
   assert.doesNotMatch(w5tape, /\block/i);
   assert.doesNotMatch(w5tape, /guaranteed ROI/i);
   assert.deepEqual(
-    STORIES.slice(1, 1 + WEEK5_FRIDAY.length).map((s) => s.slug),
+    STORIES.slice(W6 + 1, W6 + 1 + WEEK5_FRIDAY.length).map((s) => s.slug),
     [...WEEK5_FRIDAY],
   );
-  assert.equal(STORIES[1]?.slug, "week-5-florida-missouri");
-  assert.equal(STORIES[1]?.date, "Friday, Oct 2, 2026");
-  assert.match(STORIES[1]?.headline ?? "", /Florida/);
-  assert.match(STORIES[1]?.headline ?? "", /Missouri/);
+  assert.equal(STORIES[W6 + 1]?.slug, "week-5-florida-missouri");
+  assert.equal(STORIES[W6 + 1]?.date, "Friday, Oct 2, 2026");
+  assert.match(STORIES[W6 + 1]?.headline ?? "", /Florida/);
+  assert.match(STORIES[W6 + 1]?.headline ?? "", /Missouri/);
   const w5 = [
-    STORIES[1]?.headline,
-    STORIES[1]?.dek,
-    STORIES[1]?.whyItMatters,
-    ...(STORIES[1]?.body ?? []),
+    STORIES[W6 + 1]?.headline,
+    STORIES[W6 + 1]?.dek,
+    STORIES[W6 + 1]?.whyItMatters,
+    ...(STORIES[W6 + 1]?.body ?? []),
   ].join("\n");
   assert.match(w5, /Missouri −5\.6/);
   assert.match(w5, /64\.1%/);
@@ -107,25 +170,25 @@ test("Week 5 tape leads STORIES; Week 5 Friday then Week 4 tape follow", () => {
   assert.match(w5, /56\.5/);
   assert.doesNotMatch(w5, /\block/i);
   assert.doesNotMatch(w5, /guaranteed ROI/i);
-  const miami = STORIES[2];
+  const miami = STORIES[W6 + 2];
   assert.equal(miami?.slug, "week-5-miami-clemson");
   assert.match(miami?.body.join("\n") ?? "", /Miami −0\.9/);
   assert.match(miami?.body.join("\n") ?? "", /Miami −17\.5/);
-  const bama = STORIES[3];
+  const bama = STORIES[W6 + 3];
   assert.match(bama?.body.join("\n") ?? "", /Alabama −13\.3/);
   assert.match(bama?.body.join("\n") ?? "", /Alabama −6\.0/);
   assert.match(bama?.body.join("\n") ?? "", /66th/);
-  const osu = STORIES[4];
+  const osu = STORIES[W6 + 4];
   assert.match(osu?.body.join("\n") ?? "", /Ohio St −9\.7/);
   assert.match(osu?.body.join("\n") ?? "", /Ohio St −13\.5/);
-  const lou = STORIES[5];
+  const lou = STORIES[W6 + 5];
   assert.match(lou?.body.join("\n") ?? "", /NC State −0\.6/);
   assert.match(lou?.body.join("\n") ?? "", /Louisville −6\.5/);
-  const wku = STORIES[6];
+  const wku = STORIES[W6 + 6];
   assert.match(wku?.body.join("\n") ?? "", /34/);
   assert.match(wku?.body.join("\n") ?? "", /WKU −13\.0/);
   assert.match(wku?.body.join("\n") ?? "", /MISS/);
-  const tapeIdx = 1 + WEEK5_FRIDAY.length;
+  const tapeIdx = W6 + 1 + WEEK5_FRIDAY.length;
   assert.equal(STORIES[tapeIdx]?.slug, "week-4-tape");
   assert.equal(STORIES[tapeIdx]?.date, "Sunday, Sep 27, 2026");
   assert.match(STORIES[tapeIdx]?.headline ?? "", /42\/57/);

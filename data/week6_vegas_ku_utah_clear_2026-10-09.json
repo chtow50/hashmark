@@ -1,0 +1,144 @@
+{
+ "meta": {
+  "title": "Week 6 2026 Vegas CLEAR \u2014 Kansas @ Utah (single-game fill)",
+  "week": 6,
+  "run_ct": "2026-10-09 09:58 CT",
+  "scope": "Kansas @ Utah only (espn 401856827). Was HOLD in week6_vegas_clear_pack_2026-10-05.json",
+  "policy": "ESPN DraftKings details + independent book. Home-perspective vegas_spread (neg = home favored). No invented Vegas/kick/TV. Research does not stamp/merge/X.",
+  "prior_pack": "/workspace/cfb/week6_vegas_clear_pack_2026-10-05.json",
+  "live_board": "https://hashmarkcfb.com/schedule?w=6"
+ },
+ "counts": {
+  "games": 1,
+  "CLEAR": 1,
+  "HOLD": 0,
+  "change_NEW": 1
+ },
+ "games": [
+  {
+   "espn_id": "401856827",
+   "away": "KU",
+   "home": "UTAH",
+   "away_location": "Kansas",
+   "home_location": "Utah",
+   "matchup": "Kansas @ Utah",
+   "kick_ct": "2026-10-10 21:15",
+   "weekday": "Sat",
+   "tv": "ESPN",
+   "vegas_details": "UTAH -15.5",
+   "vegas_spread": -15.5,
+   "ou": 51.5,
+   "provider": "DraftKings",
+   "status": "CLEAR",
+   "clear_or_hold": "CLEAR",
+   "hold_reasons": [],
+   "change": "NEW",
+   "notes": "Was Vegas HOLD on Oct 5 pack (O/U 52.5 only, no spread). Now DraftKings posts full line UTAH -15.5 / 51.5; CBS Sports gametracker concurs exactly.",
+   "fri_sat_day_risk": false,
+   "hm_day_label": "Saturday, Oct 10",
+   "venue": "Rice-Eccles Stadium (UT)",
+   "site": "home",
+   "neutral": false,
+   "as_of_ct": "2026-10-09 09:58 CT",
+   "prior_pack": {
+    "file": "/workspace/cfb/week6_vegas_clear_pack_2026-10-05.json",
+    "status": "HOLD",
+    "vegas_details": "\u2014",
+    "vegas_spread": null,
+    "ou": null,
+    "ou_note_only": 52.5,
+    "as_of_ct": "2026-10-05 09:27"
+   },
+   "kick_tv_check": {
+    "espn_date_utc": "2026-10-11T02:15Z",
+    "espn_status_detail": "Sat, October 10th at 10:15 PM EDT",
+    "kick_ct_confirmed": "2026-10-10 21:15",
+    "tv_confirmed": "ESPN",
+    "matches_oct5_pack": true,
+    "cbs_gametracker": "Sat 10:15pm ET \u00b7 ESPN \u00b7 Rice-Eccles Stadium"
+   },
+   "sources": [
+    {
+     "name": "ESPN site.api summary pickcenter",
+     "provider": "DraftKings",
+     "url": "https://site.api.espn.com/apis/site/v2/sports/football/college-football/summary?event=401856827",
+     "as_of_ct": "2026-10-09 09:58 CT",
+     "details": "UTAH -15.5",
+     "spread": -15.5,
+     "overUnder": 51.5,
+     "spread_odds": -110,
+     "over_odds": -105,
+     "under_odds": -115,
+     "moneyline_home": -750
+    },
+    {
+     "name": "ESPN site.web.api scoreboard groups=80 dates=20261010",
+     "provider": "DraftKings",
+     "url": "https://site.web.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?groups=80&dates=20261010&limit=300",
+     "as_of_ct": "2026-10-09 09:58 CT",
+     "details": "UTAH -15.5",
+     "spread": -15.5,
+     "overUnder": 51.5,
+     "broadcasts": [
+      "ESPN"
+     ],
+     "kick_utc": "2026-10-11T02:15Z"
+    },
+    {
+     "name": "CBS Sports NCAAF gametracker",
+     "provider": "CBS Sports odds (opening=current)",
+     "url": "https://www.cbssports.com/college-football/gametracker/boxscore/NCAAF_20261010_KANSAS@UTAH/",
+     "as_of_ct": "2026-10-09 09:58 CT",
+     "details": "UTAH -15.5, O/U 51.5",
+     "opening_spread": -15.5,
+     "current_spread": -15.5,
+     "opening_total": 51.5,
+     "current_total": 51.5,
+     "tv": "ESPN",
+     "kick_et": "Sat 10:15pm",
+     "venue": "Rice-Eccles Stadium"
+    },
+    {
+     "name": "VegasInsider college-football odds (Las Vegas board)",
+     "url": "https://www.vegasinsider.com/college-football/odds/las-vegas/",
+     "as_of_ct": "2026-10-09 09:58 CT",
+     "note": "Consensus across books: Kansas +15.5 / Utah -15.5 with totals o51.5; some books +16.5 / o52.5 (\u22641 pt variance). Primary CLEAR cross-check is CBS exact match to ESPN DK.",
+     "sample_away_spread": "+15.5 (majority) / +16.5 (minority)",
+     "sample_total": "o51.5 (majority) / o52.5 (minority)"
+    }
+   ],
+   "cross_check": {
+    "espn_vs_cbs": "EXACT match UTAH -15.5 / 51.5",
+    "espn_vs_vegasinsider": "Within normal book variance (VI majority -15.5/51.5; minority -16.5/52.5)",
+    "result": "CLEAR"
+   },
+   "source_urls": [
+    "https://site.api.espn.com/apis/site/v2/sports/football/college-football/summary?event=401856827",
+    "https://site.web.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?groups=80&dates=20261010&limit=300",
+    "https://www.cbssports.com/college-football/gametracker/boxscore/NCAAF_20261010_KANSAS@UTAH/",
+    "https://www.vegasinsider.com/college-football/odds/las-vegas/"
+   ]
+  }
+ ],
+ "stamp_table": [
+  {
+   "espn_id": "401856827",
+   "away": "KU",
+   "home": "UTAH",
+   "kick_ct": "2026-10-10 21:15 Sat",
+   "tv": "ESPN",
+   "vegas_details": "UTAH -15.5",
+   "vegas_spread": -15.5,
+   "ou": 51.5,
+   "status": "CLEAR",
+   "change": "NEW"
+  }
+ ],
+ "holds": [],
+ "handoff": {
+  "website": "Stamp Kansas @ Utah on /schedule?w=6: kick 2026-10-10 21:15 CT \u00b7 TV ESPN \u00b7 Vegas UTAH -15.5 / O/U 51.5 (home-perspective vegas_spread=-15.5). Was blank/HOLD. Soft-cal FLAG stays.",
+  "management": "FYI \u2014 last Week 6 blank Vegas HOLD filled.",
+  "marketing": "HOLD quotes until Research LIVE CLEAR after Website smoke.",
+  "no_self_stamp": true
+ }
+}

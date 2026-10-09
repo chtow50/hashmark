@@ -2,7 +2,7 @@
  * Truth-pack loaders. Numbers come from the AMD / Research JSON payloads —
  * do not invent deltas, tape rates, or make/title splits.
  *
- *   data/week5_hx_vs_ap_gaps_2026.json
+ *   data/week6_hx_vs_ap_gaps_2026.json
  *   data/week1_accountability_pack_2026.json
  *   data/week2_tape_2026.json
  *   data/week2_tape_top25_closer_2026.json
@@ -17,7 +17,7 @@
  *     (with win_title) is server/test only: ./sim-full.server.ts. Never import the
  *     full file here — this module is bundled into the public client JS.
  */
-import gapsRaw from "../../../data/week5_hx_vs_ap_gaps_2026.json" with { type: "json" };
+import gapsRaw from "../../../data/week6_hx_vs_ap_gaps_2026.json" with { type: "json" };
 import packRaw from "../../../data/week1_accountability_pack_2026.json" with { type: "json" };
 import week2TapeRaw from "../../../data/week2_tape_2026.json" with { type: "json" };
 import week2Top25Raw from "../../../data/week2_tape_top25_closer_2026.json" with { type: "json" };
@@ -28,14 +28,18 @@ import week4Top25Raw from "../../../data/week4_tape_top25_closer_2026.json" with
 import week5TapeRaw from "../../../data/week5_tape_2026.json" with { type: "json" };
 import week5Top25Raw from "../../../data/week5_tape_top25_closer_2026.json" with { type: "json" };
 import simRaw from "../../../data/sim_free_hx2026_7.json" with { type: "json" };
-import week5ApRaw from "../../../data/week5_ap_top25_2026.json" with { type: "json" };
+import week6ApRaw from "../../../data/week6_ap_top25_2026.json" with { type: "json" };
 
-/** Research desk flags on the Week 5 ballot. Mississippi State (−50) / Oklahoma State (−70) lead the |delta| sort after these. */
+/**
+ * Research desk flags on the Week 6 ballot (Oct. 4). Missouri (AP 14 = HX 14)
+ * has no gap now; Pittsburgh (AP 25 debut, HX 53) takes its slot.
+ * Oklahoma State (−71) / Mississippi State (−49) lead the |delta| sort after these.
+ */
 export const DISAGREE_HIGHLIGHT_NAMES = [
   "Florida",
   "Oregon",
   "Houston",
-  "Missouri",
+  "Pittsburgh",
   "Iowa",
   "BYU",
 ] as const;
@@ -419,7 +423,7 @@ export const week5Top25Pack = week5Top25Raw as Week3Top25NativeFile;
 export const sim10k = simRaw as SimFreeFile;
 
 const AP_SLUG_BY_NAME = new Map(
-  (week5ApRaw.teams as { school: string; slug: string }[]).flatMap((t) => {
+  (week6ApRaw.teams as { school: string; slug: string }[]).flatMap((t) => {
     const names = [t.school];
     if (t.slug === "usc") names.push("USC");
     if (t.slug === "miami") names.push("Miami");

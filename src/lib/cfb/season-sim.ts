@@ -168,10 +168,12 @@ function toFcsStubRow(stub: FcsStubGame, i: number): TeamScheduleRow {
 export function buildRemainingSchedule(
   teamSlug: string,
   games: ScheduleGame[],
+  /** FCS stubs for this team. Defaults to the live data; fixtures pass their own. */
+  stubs: FcsStubGame[] = fcsStubsForTeam(teamSlug),
 ): TeamScheduleRow[] {
   const fbsRows = games.filter((g) => g.status !== "final").map((g) => toScheduleRow(teamSlug, g));
 
-  const fcsRows = fcsStubsForTeam(teamSlug)
+  const fcsRows = stubs
     .filter((stub) => !fcsStubIsFinal(stub))
     .map((stub, i) => toFcsStubRow(stub, i));
 

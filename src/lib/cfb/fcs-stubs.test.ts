@@ -635,8 +635,15 @@ describe("scheduled() fixture (unused in data since #84)", () => {
     const row = fcsStubToScheduleGame(s);
     assert.deepEqual([row.status, row.homeScore, row.awayScore, row.homeSlug], ["scheduled", null, null, "ohio-state"]);
     // A scheduled stub next to a FINAL: only the FINAL counts.
-    const fin = { ...s, week: 1, status: "final" as const, homeScore: 30, awayScore: 3 };
+    const fin = { ...s, week: 1, kickoffDate: "2026-09-05", status: "final" as const, homeScore: 30, awayScore: 3 };
     assert.deepEqual(tallyFcsStubs([s, fin]), { seasonWins: 1, seasonLosses: 0 });
+    // Remaining: the scheduled stub is listed; the FINAL is not.
+    const remaining = buildRemainingSchedule("ohio-state", [], [s, fin]);
+    assert.equal(remaining.length, 1);
+    assert.equal(remaining[0].isFcs, true);
+    assert.equal(remaining[0].week, 7);
+    assert.equal(remaining[0].kickoffDate, "2026-10-17");
+    assert.equal(buildRemainingSchedule("ohio-state", [], [fin]).length, 0);
     // No live data uses scheduled(): every current stub outside Week 2 JSON is FINAL.
     assert.equal(FCS_STUB_GAMES.filter((x) => x.status === "scheduled").length, 0);
   });

@@ -1,0 +1,207 @@
+{
+  "as_of": "2026-10-04",
+  "poll_week": 6,
+  "source_ap": "week6_ap_top25_2026 / AP Week 6 (Oct. 4) via ESPN rankings API",
+  "source_hx": "week5_od_hx_ship_2026.json",
+  "hx_board": "HX 2026.7",
+  "note": "Rebuilt vs Week 6 AP ballot (Oct. 4) and HX 2026.7 ranks in week5_od_hx_ship_2026 (live board ranks; no HX change). Gaps with |delta| >= 3. Same ballot as the Week 6 AP stamp. Missouri is AP 14 = HX 14 (no gap). Soft-cal FLAG stays.",
+  "gaps": [
+    {
+      "name": "Oklahoma State",
+      "ap": 18,
+      "hx": 89,
+      "hx_rating": -1.1718,
+      "delta": -71
+    },
+    {
+      "name": "Mississippi State",
+      "ap": 17,
+      "hx": 66,
+      "hx_rating": 0.1988,
+      "delta": -49
+    },
+    {
+      "name": "Pittsburgh",
+      "ap": 25,
+      "hx": 53,
+      "hx_rating": 0.8252,
+      "delta": -28
+    },
+    {
+      "name": "UCLA",
+      "ap": 21,
+      "hx": 45,
+      "hx_rating": 1.3963,
+      "delta": -24
+    },
+    {
+      "name": "Boise State",
+      "ap": 23,
+      "hx": 47,
+      "hx_rating": 1.3464,
+      "delta": -24
+    },
+    {
+      "name": "Houston",
+      "ap": 22,
+      "hx": 38,
+      "hx_rating": 1.6401,
+      "delta": -16
+    },
+    {
+      "name": "BYU",
+      "ap": 8,
+      "hx": 17,
+      "hx_rating": 4.1251,
+      "delta": -9
+    },
+    {
+      "name": "Oregon",
+      "ap": 13,
+      "hx": 4,
+      "hx_rating": 6.9019,
+      "delta": 9
+    },
+    {
+      "name": "LSU",
+      "ap": 10,
+      "hx": 18,
+      "hx_rating": 4.1243,
+      "delta": -8
+    },
+    {
+      "name": "Florida",
+      "ap": 16,
+      "hx": 24,
+      "hx_rating": 3.5318,
+      "delta": -8
+    },
+    {
+      "name": "Miami",
+      "ap": 4,
+      "hx": 10,
+      "hx_rating": 5.2538,
+      "delta": -6
+    },
+    {
+      "name": "Texas",
+      "ap": 1,
+      "hx": 5,
+      "hx_rating": 6.4516,
+      "delta": -4
+    },
+    {
+      "name": "Indiana",
+      "ap": 7,
+      "hx": 11,
+      "hx_rating": 4.9465,
+      "delta": -4
+    },
+    {
+      "name": "Texas Tech",
+      "ap": 11,
+      "hx": 7,
+      "hx_rating": 5.7444,
+      "delta": 4
+    },
+    {
+      "name": "Tennessee",
+      "ap": 15,
+      "hx": 19,
+      "hx_rating": 4.0473,
+      "delta": -4
+    },
+    {
+      "name": "SMU",
+      "ap": 24,
+      "hx": 20,
+      "hx_rating": 3.9458,
+      "delta": 4
+    },
+    {
+      "name": "Ohio State",
+      "ap": 5,
+      "hx": 2,
+      "hx_rating": 7.839,
+      "delta": 3
+    },
+    {
+      "name": "Alabama",
+      "ap": 6,
+      "hx": 9,
+      "hx_rating": 5.2904,
+      "delta": -3
+    },
+    {
+      "name": "Iowa",
+      "ap": 20,
+      "hx": 23,
+      "hx_rating": 3.6796,
+      "delta": -3
+    }
+  ],
+  "hx_not_in_ap": [
+    {
+      "hx_rank": 6,
+      "name": "Texas A&M",
+      "hx": 6.0649
+    },
+    {
+      "hx_rank": 12,
+      "name": "Michigan",
+      "hx": 4.8807
+    },
+    {
+      "hx_rank": 15,
+      "name": "Penn State",
+      "hx": 4.2432
+    },
+    {
+      "hx_rank": 16,
+      "name": "Oklahoma",
+      "hx": 4.1888
+    },
+    {
+      "hx_rank": 22,
+      "name": "Clemson",
+      "hx": 3.8145
+    },
+    {
+      "hx_rank": 25,
+      "name": "Washington",
+      "hx": 3.2445
+    }
+  ],
+  "ap_not_in_hx25": [
+    {
+      "ap": 17,
+      "name": "Mississippi State",
+      "hx_rank": 66
+    },
+    {
+      "ap": 18,
+      "name": "Oklahoma State",
+      "hx_rank": 89
+    },
+    {
+      "ap": 21,
+      "name": "UCLA",
+      "hx_rank": 45
+    },
+    {
+      "ap": 22,
+      "name": "Houston",
+      "hx_rank": 38
+    },
+    {
+      "ap": 23,
+      "name": "Boise State",
+      "hx_rank": 47
+    },
+    {
+      "ap": 25,
+      "name": "Pittsburgh",
+      "hx_rank": 53
+    }
+  ]
+}

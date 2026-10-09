@@ -21,9 +21,158 @@ export const STORY_DATE_WEEK3 = "Friday, Sep 18, 2026";
 export const STORY_DATE_WEEK4 = "Friday, Sep 25, 2026";
 export const STORY_DATE_WEEK5 = "Friday, Oct 2, 2026";
 export const STORY_DATE_TAPE_WEEK5 = "Sunday, Oct 4, 2026";
+export const STORY_DATE_WEEK6 = "Friday, Oct 9, 2026";
 
 export const STORIES: Story[] = [
-
+  {
+    slug: "week-6-georgia-alabama",
+    kicker: "Week 6 · Winner flip",
+    headline: "HX takes Georgia in Tuscaloosa as the book moves to Alabama",
+    dek: "The market swung from Georgia to Alabama. HX didn’t follow.",
+    date: STORY_DATE_WEEK6,
+    body: [
+      "No. 2 Georgia (5–0) visits No. 6 Alabama (5–0) Saturday at 6:30 CT on ABC, with College GameDay set up at Denny Chimes and Bryce Young as guest picker.",
+      "The line has traveled. Alabama opened as a three-point home underdog and was bet to a 1.5-point favorite, per ESPN’s DraftKings tracking. ESPN’s FPI makes it Alabama by 0.9 with a 53% win probability.",
+      "HASHMARK lands on the other side: Georgia −4.6, 61.8%. HX rates Georgia No. 1 nationally at 7.90 and Alabama ninth at 5.29, a gap of more than two and a half points of rating. HX’s board also gives the Bulldogs an 86.5% Make 12 number.",
+      "Georgia arrives without junior running back Chauncey Bowens, its touchdown leader with six and the primary short-yardage back, who is out after an injury against Vanderbilt. Nate Frazier, the team’s leading rusher (211 yards), came off the availability report after bruised ribs. Alabama’s run defense is allowing 78.6 yards per game, third in the SEC.",
+      "HX is a team rating. It doesn’t adjust for a single running back’s availability. That’s the honest gap between the model and a market that has spent all week digesting injury reports.",
+    ],
+    whyItMatters:
+      "It’s the week’s biggest game and the cleanest winner flip at the top of the board. HX and FPI split the winner, and the market moved toward Alabama.",
+    sources: [
+      { label: "HASHMARK Schedule", href: "https://hashmarkcfb.com/schedule?w=6" },
+      {
+        label: "ESPN · Week 6 Top 25 lines",
+        href: "https://www.espn.com/espn/betting/story/_/id/50106943/2026-college-football-week-6-top-25-betting-lines-odds",
+      },
+      {
+        label: "ESPN · Bowens out",
+        href: "https://www.espn.com/college-football/story/_/id/50128870/georgia-bulldogs-chauncey-bowens-vs-alabama-crimson-tide",
+      },
+      {
+        label: "ESPN · College GameDay Week 6",
+        href: "https://www.espn.com/college-football/story/_/id/50133318/2026-college-gameday-week-6-georgia-vs-alabama",
+      },
+    ],
+  },
+  {
+    slug: "week-6-ucla-oregon",
+    kicker: "Week 6 · Spread gap",
+    headline: "Dante Moore out vs. UCLA; HX’s Oregon number is twice the book’s",
+    dek: "HX has the Ducks by 24.5. Vegas has 11.5. Only one of them knows who’s playing quarterback.",
+    date: STORY_DATE_WEEK6,
+    body: [
+      "Oregon quarterback Dante Moore is officially out Saturday against No. 21 UCLA (2:30 CT, CBS), per the Big Ten injury report. Moore sustained a concussion against USC on Sept. 26. Former Nebraska starter Dylan Raiola, who threw for 289 yards and two touchdowns in relief in the USC win, makes his first start for the Ducks. Raiola is 13–9 as a college starter with 5,232 career passing yards.",
+      "HX has Oregon −24.5, 89.0%. Vegas has Oregon −11.5, O/U 59.5, and FPI makes it Oregon by 14.7. That’s a 13-point HX–Vegas gap, the largest among ranked matchups this week.",
+      "Two things drive it. HX rates Oregon fourth nationally (6.90) against an AP rank of 13, and it rates UCLA 45th (1.40) against an AP rank of 21. UCLA is 4–0 under first-year coach Bob Chesney, 13 months after an 0–3 start got DeShaun Foster fired. HX’s inputs (talent, prior-year SP+/Elo/SRS, portal net, returning production) haven’t caught up with that turnaround.",
+      "HX also doesn’t price a quarterback swap. Raiola is a former five-star with a full résumé, but the number on the board is a team number.",
+    ],
+    whyItMatters:
+      "It’s the week’s only other ranked-vs-ranked game besides Georgia–Alabama, and it’s where HX disagrees most with both the AP and the book.",
+    sources: [
+      { label: "HASHMARK Schedule", href: "https://hashmarkcfb.com/schedule?w=6" },
+      { label: "HASHMARK Rankings", href: "https://hashmarkcfb.com/rankings" },
+      {
+        label: "ESPN · Moore out, Raiola starts",
+        href: "https://www.espn.com/college-football/story/_/id/50129251/oregon-qb-moore-ruled-ucla-game-raiola-start",
+      },
+      {
+        label: "ESPN · Chesney’s UCLA turnaround",
+        href: "https://www.espn.com/college-football/story/_/id/50125661/2026-bob-chesney-ucla-winning-turnaround",
+      },
+      {
+        label: "ESPN · Week 6 Top 25 lines",
+        href: "https://www.espn.com/espn/betting/story/_/id/50106943/2026-college-football-week-6-top-25-betting-lines-odds",
+      },
+    ],
+  },
+  {
+    slug: "week-6-texas-am-missouri",
+    kicker: "Week 6 · Winner flip",
+    headline: "Missouri climbed 11 spots. HX still takes Texas A&M in Columbia",
+    dek: "The AP’s biggest riser hosts the team HX can’t stop ranking.",
+    date: STORY_DATE_WEEK6,
+    body: [
+      "Missouri jumped from No. 25 to No. 14 in the AP Week 6 poll after a 45–17 win over Florida, a game HX had as a winner flip toward the Tigers (Missouri −5.6 vs Vegas Florida −4.5). That one hit.",
+      "This week the model flips the other way. Texas A&M (3–2) visits Missouri (4–1) at 11:00 CT on ABC, and HX has Texas A&M −2.1, 55.7% against Vegas Missouri −3.5. FPI calls it nearly even, Missouri by 0.8 with a 52% win probability.",
+      "The disagreement is about A&M more than Missouri. HX rates the Aggies sixth nationally at 6.06 despite two losses and no AP ranking. Missouri sits 14th in HX at 4.25, which happens to match its new AP rank exactly. HX has held A&M high all season. It took the Aggies at LSU in Week 4 as a winner flip, and that one missed.",
+    ],
+    whyItMatters:
+      "It’s an 11:00 window winner flip involving a ranked home team, and it’s a direct test of HX’s most stubborn AP disagreement.",
+    sources: [
+      { label: "HASHMARK Schedule", href: "https://hashmarkcfb.com/schedule?w=6" },
+      { label: "HASHMARK Board", href: "https://hashmarkcfb.com/" },
+      {
+        label: "ESPN · Week 6 Top 25 lines",
+        href: "https://www.espn.com/espn/betting/story/_/id/50106943/2026-college-football-week-6-top-25-betting-lines-odds",
+      },
+      { label: "ESPN · AP Week 6 (Oct 4)", href: "https://www.espn.com/college-football/rankings" },
+    ],
+  },
+  // HOOK (Story 4 · week-6-iowa-washington): Website peer HOLD 2026-10-09 — dek / why
+  // framing ("three-way model split") is wrong: HX and Vegas both favor Washington.
+  // Research to rewrite; insert here once CLEAR. Iowa @ Washington TV stays HOLD.
+  {
+    slug: "week-6-ranked-chill-gaps",
+    kicker: "Week 6 · Spread gap",
+    headline: "HX trims the chalk on Florida, Tennessee and Oklahoma State",
+    dek: "Three ranked favorites, three HX numbers well below Vegas.",
+    date: STORY_DATE_WEEK6,
+    body: [
+      "HX agrees on the favorite in all three games. It just thinks the book has the margins too wide.",
+      "South Carolina at No. 16 Florida (11:45 CT, SEC Network): HX Florida −5.2 (63.3%) vs Vegas Florida −13.5. FPI has Florida by 8.5. HX rates Florida 24th, eight spots below its AP rank of 16, even after the Gators fell 8 spots in the poll.",
+      "No. 15 Tennessee at Arkansas (3:15 CT, SEC Network): HX Tennessee −7.4 (68.0%) vs Vegas −13.5. FPI is wider than both at 16.1.",
+      "UCF at No. 18 Oklahoma State (11:00 CT, ESPN2): HX Oklahoma State −1.9 (55.2%) vs Vegas −10.0. FPI says 4.4. HX rates Oklahoma State 89th (−1.17). That 71-spot gap against its AP rank is the biggest on the board.",
+      "The other way: No. 25 Pittsburgh (5–0) makes its AP debut ranked 53rd in HX. But against North Carolina, HX (Pitt −9.5) sits right next to FPI (9.2) and well above Vegas (−4.5).",
+    ],
+    whyItMatters:
+      "These are the board’s biggest ranked-team margin gaps. They’re a fair test of the soft-calibration FLAG that’s been on the board all season. The Week 5 full-slate closer was 20/55.",
+    sources: [
+      { label: "HASHMARK Schedule", href: "https://hashmarkcfb.com/schedule?w=6" },
+      { label: "HASHMARK Rankings", href: "https://hashmarkcfb.com/rankings" },
+      {
+        label: "ESPN · Week 6 Top 25 lines",
+        href: "https://www.espn.com/espn/betting/story/_/id/50106943/2026-college-football-week-6-top-25-betting-lines-odds",
+      },
+    ],
+  },
+  {
+    slug: "week-6-midweek-tape",
+    kicker: "Week 6 · Tape",
+    headline: "HX goes 6–1 midweek; South Alabama and Arkansas State set the season’s scoring high",
+    dek: "Seven games are in the books before Friday, and no head coach has been fired yet this season.",
+    date: STORY_DATE_WEEK6,
+    body: [
+      "Week 6 opened early. Troy beat Southern Miss 55–34 on Tuesday. Wednesday had Jacksonville State edging Kennesaw State 27–26 on a Garrison Rippa field goal with 51 seconds left, and FIU beating New Mexico State 22–3 behind five Robert Czeremcha field goals. Thursday brought Liberty 35–3 over Sam Houston, WKU 34–13 over Missouri State, UTSA 31–24 over USF, and South Alabama 56–49 at Arkansas State, the highest-scoring FBS game of the season according to ESPN.",
+      "HX picked six of the seven winners. The miss was Arkansas State (HX −7.5), which Vegas also favored at −1.5. UTSA landed exactly on HX’s −7.0, which matched the book’s number too.",
+      "Off the field, the carousel hasn’t started. ESPN’s Pete Thamel reports no FBS firings so far this season. By this point last year there were five power-conference openings. Turnover hit a record 33 jobs in the last cycle, and ADs are weighing big buyouts against rising roster costs. Separately, Big Ten commissioner Tony Petitti said the league has had “absolutely no discussions” about expansion, even though the proposed Protect College Sports Act would allow up to 20 members.",
+    ],
+    whyItMatters:
+      "The midweek results are already final on the site, and the carousel’s silence is the backdrop for a Saturday that could start it.",
+    sources: [
+      { label: "HASHMARK Schedule", href: "https://hashmarkcfb.com/schedule?w=6" },
+      {
+        label: "ESPN · South Alabama 56, Arkansas State 49",
+        href: "https://www.espn.com/college-football/recap/_/gameId/401869933",
+      },
+      {
+        label: "ESPN · Jacksonville State 27, Kennesaw State 26",
+        href: "https://www.espn.com/college-football/recap/_/gameId/401871051",
+      },
+      {
+        label: "ESPN · FIU 22, New Mexico State 3",
+        href: "https://www.espn.com/college-football/recap/_/gameId/401871066",
+      },
+      {
+        label: "ESPN · Coaching carousel buyouts",
+        href: "https://www.espn.com/college-football/story/_/id/50136127/college-football-coaching-carousel-buyouts",
+      },
+      {
+        label: "ESPN · Big Ten: no expansion talks",
+        href: "https://www.espn.com/college-sports/story/_/id/50133579/big-ten-18-strong-members-no-expansion-talks-commish-says",
+      },
+    ],
+  },
   {
     slug: "week-5-tape",
     kicker: "Week 5 tape",

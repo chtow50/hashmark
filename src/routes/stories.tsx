@@ -40,18 +40,18 @@ function StoriesPage() {
   return (
     <div>
       <PageHead
-        kicker="Week 5 · Oct 4"
-        title="Week 5 tape."
-        lede="39/55 straight up. Closer 20/55 is a FLAG. Soft-cal stays. HX not retuned."
+        kicker="Week 6 · Oct 9"
+        title="Week 6 Friday desk."
+        lede="Georgia–Alabama flip. Oregon doubles the book. A&M flip in Columbia. HX 6–1 midweek."
       />
 
       <p className="mb-8 font-mono text-[11px] uppercase tracking-[0.16em] text-faint">
         <Link
           to="/schedule"
-          search={{ w: 5 }}
+          search={{ w: 6 }}
           className="text-fg underline decoration-border underline-offset-4 hover:text-accent"
         >
-          Week 5 schedule
+          Week 6 schedule
         </Link>
         <span className="mx-2" aria-hidden>
           ·
