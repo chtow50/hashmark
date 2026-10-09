@@ -68,25 +68,35 @@ describe("tallyFcsStubRecord", () => {
   });
 
   it("leaves teams without FINAL FCS stubs at 0–0", () => {
-    // Week 1 backfill (fcs_backfill_week1_all_finals_clear_2026-10-09): Buffalo is now 1–0 vs UAlbany.
-    assert.deepEqual(tallyFcsStubRecord("buffalo"), { seasonWins: 1, seasonLosses: 0 });
-    assert.deepEqual(tallyFcsStubRecord("ohio-state"), { seasonWins: 0, seasonLosses: 0 });
+    // No FCS stub at all for these FBS teams (records audit 2026-10-09).
+    for (const slug of ["ohio-state", "alabama", "notre-dame"]) {
+      assert.deepEqual(tallyFcsStubRecord(slug), { seasonWins: 0, seasonLosses: 0 }, slug);
+    }
+  });
+
+  it("counts Buffalo FCS wins: Week 1 UAlbany 21–17 + Week 4 Robert Morris 31–28", () => {
+    assert.deepEqual(tallyFcsStubRecord("buffalo"), { seasonWins: 2, seasonLosses: 0 });
+  });
+
+  it("counts finalAway road FCS losses (Jax State @ NDSU W0, Wyoming @ NDSU W5)", () => {
+    assert.deepEqual(tallyFcsStubRecord("jacksonville-state"), { seasonWins: 1, seasonLosses: 1 });
+    assert.deepEqual(tallyFcsStubRecord("wyoming"), { seasonWins: 1, seasonLosses: 1 });
+    assert.deepEqual(tallyFcsStubRecord("massachusetts"), { seasonWins: 3, seasonLosses: 0 });
   });
 
   it("counts Week 3 Northern Iowa @ Iowa FINAL as one FCS win (home 55–0)", () => {
     assert.deepEqual(tallyFcsStubRecord("iowa"), { seasonWins: 1, seasonLosses: 0 });
+    assert.deepEqual(
+      combineSeasonRecord({ seasonWins: 2, seasonLosses: 0 }, tallyFcsStubRecord("iowa")),
+      { seasonWins: 3, seasonLosses: 0 },
+    );
+  });
 
   it("counts Week 3 Portland State @ Oregon FINAL as one FCS win (home 84–0)", () => {
     assert.deepEqual(tallyFcsStubRecord("oregon"), { seasonWins: 1, seasonLosses: 0 });
     assert.deepEqual(
       combineSeasonRecord({ seasonWins: 2, seasonLosses: 1 }, tallyFcsStubRecord("oregon")),
       { seasonWins: 3, seasonLosses: 1 },
-    );
-  });
-
-    assert.deepEqual(
-      combineSeasonRecord({ seasonWins: 2, seasonLosses: 0 }, tallyFcsStubRecord("iowa")),
-      { seasonWins: 3, seasonLosses: 0 },
     );
   });
 
@@ -115,6 +125,9 @@ describe("SEASON_RECORD_JOIN", () => {
     assert.match(SEASON_RECORD_JOIN, /'georgia'/);
     assert.match(SEASON_RECORD_JOIN, /'missouri'/);
     assert.match(SEASON_RECORD_JOIN, /'buffalo', 1::int, 0::int/);
+    assert.match(SEASON_RECORD_JOIN, /'jacksonville-state', 0::int, 1::int/);
+    assert.match(SEASON_RECORD_JOIN, /'wyoming', 0::int, 1::int/);
+    assert.match(SEASON_RECORD_JOIN, /'ul-monroe', 0::int, 1::int/);
     assert.match(SEASON_RECORD_JOIN, /'charlotte', 0::int, 1::int/);
     assert.doesNotMatch(SEASON_RECORD_JOIN, /'ohio-state'/);
     assert.match(SEASON_RECORD_JOIN, /'miami'/);
