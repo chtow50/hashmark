@@ -633,3 +633,98 @@ describe("Week 6 Wednesday JXST @ KENN and NMSU @ FIU FINALs", () => {
     }
   });
 });
+
+
+describe("Week 6 Thursday FINALs (LIB/SHSU, WKU/MOST, UTSA/USF, ARST/USA)", () => {
+  const thuSql = readFileSync(join(root, "migrations/0051_week6_thu_finals.sql"), "utf8");
+  const pack = JSON.parse(
+    readFileSync(join(root, "data/week6_finals_clear_2026-10-09.json"), "utf8"),
+  ) as {
+    counts: { CLEAR: number; HOLD: number; to_stamp: number; ot_finals: number; week_final: string };
+    games: {
+      espn_id: string;
+      site_game_id: number;
+      matchup: string;
+      away: string;
+      home: string;
+      away_score: number;
+      home_score: number;
+      winner: string;
+      ot: boolean;
+      clear_or_hold: string;
+      espn_status: string;
+      cross_check: { result: string };
+    }[];
+  };
+  // [espn, site id, home abbr, away abbr, home slug, away slug, home score, away score, winner, label]
+  const expected = [
+    ["401870766", 268, "LIB", "SHSU", "liberty", "sam-houston", 35, 3, "LIB", "Sam Houston @ Liberty — Liberty 35, Sam Houston 3"],
+    ["401871052", 269, "WKU", "MOST", "western-kentucky", "missouri-state", 34, 13, "WKU", "Missouri State @ Western Kentucky — Western Kentucky 34, Missouri State 13"],
+    ["401862794", 270, "UTSA", "USF", "utsa", "usf", 31, 24, "UTSA", "South Florida @ UTSA — UTSA 31, South Florida 24"],
+    ["401869933", 271, "ARST", "USA", "arkansas-state", "south-alabama", 49, 56, "USA", "South Alabama @ Arkansas State — South Alabama 56, Arkansas State 49"],
+  ] as const;
+
+  it("matches the Research CLEAR pack (4 CLEAR, 0 HOLD, 0 OT, week 7/56 FINAL)", () => {
+    assert.equal(pack.counts.CLEAR, 4);
+    assert.equal(pack.counts.HOLD, 0);
+    assert.equal(pack.counts.to_stamp, 4);
+    assert.equal(pack.counts.ot_finals, 0);
+    assert.equal(pack.counts.week_final, "7/56");
+    assert.equal(pack.games.length, 4);
+    const byId = new Map(pack.games.map((g) => [g.espn_id, g]));
+    for (const [espn, site, home, away, , , hs, as, winner] of expected) {
+      const g = byId.get(espn);
+      assert.ok(g, `missing ${espn}`);
+      assert.deepEqual(
+        [g.site_game_id, g.home, g.away, g.home_score, g.away_score, g.winner, g.ot],
+        [site, home, away, hs, as, winner, false],
+      );
+      assert.equal(g.clear_or_hold, "CLEAR");
+      assert.equal(g.espn_status, "STATUS_FINAL");
+      assert.equal(g.cross_check.result, "MATCH");
+    }
+  });
+
+  it("stamps scores+status only, with the exact home/away orientation", () => {
+    assert.equal((thuSql.match(/update games/g) ?? []).length, 4);
+    assert.equal((thuSql.match(/g\.week = 6/g) ?? []).length, 4);
+    assert.equal((thuSql.match(/status = 'final'/g) ?? []).length, 4);
+    assert.match(thuSql, /week6_finals_clear_2026-10-09/);
+    assert.match(thuSql, /Scores and status only/);
+    assert.match(thuSql, /Soft-cal FLAG stays/);
+    assert.match(thuSql, /Do not put ESPN event digits in this header/);
+    for (const [espn, , , , hSlug, aSlug, hs, as, , label] of expected) {
+      assert.ok(thuSql.includes(`-- ${label}`), label);
+      assert.ok(thuSql.includes(`home_score = ${hs},\n    away_score = ${as}\n`), `${espn} scores`);
+      assert.ok(thuSql.includes(`and h.slug = '${hSlug}' and a.slug = '${aSlug}';`), `${espn} orientation`);
+      // Research nit on 0049/0050: no reversed-order match.
+      assert.ok(!thuSql.includes(`h.slug = '${aSlug}' and a.slug = '${hSlug}'`), `${espn} reversed`);
+      assert.match(thuSql, new RegExp(`Source event ${espn}`));
+    }
+    assert.doesNotMatch(thuSql, /\bor\b \(h\.slug/);
+    // 265–267 already FINAL; no restamp.
+    assert.doesNotMatch(
+      thuSql,
+      /'troy'|'southern-miss'|'kennesaw-state'|'jacksonville-state'|'fiu'|'new-mexico-state'|401871090|401871051|401871066/,
+    );
+    assert.doesNotMatch(thuSql, /kickoff_at/);
+    assert.doesNotMatch(thuSql, /vegas_spread/);
+    assert.doesNotMatch(thuSql, /vegas_total/);
+    assert.doesNotMatch(thuSql, /\btv\s*=/);
+    assert.doesNotMatch(thuSql, /hx_rating/);
+    assert.doesNotMatch(thuSql, /win_title|make_field/);
+    const header = thuSql.split(/update games/i)[0] ?? "";
+    assert.doesNotMatch(header, /\b401\d{6,}\b/);
+  });
+
+  it("keeps 0043/0048 kick + Vegas on all four cards in the stamp gate", () => {
+    const sqlByEspn = parseSqlStampsForWeek(readMigrationsSql(root), 6);
+    for (const [espn] of expected) {
+      const row = sqlByEspn.get(espn);
+      assert.ok(row, `missing stamp-gate row for ${espn}`);
+      assert.equal(row.hasKick, true, `${espn} kick`);
+      assert.equal(row.hasVegas, true, `${espn} vegas`);
+    }
+  });
+});
+
