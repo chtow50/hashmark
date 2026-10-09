@@ -368,15 +368,15 @@ export const STORIES: Story[] = [
     slug: "week-5-wku-nmsu-final",
     kicker: "Week 5 · Tape",
     headline: "HX took Western Kentucky −13. New Mexico State won 34–13.",
-    dek: "First Week 5 winner-flip result is in. Live /schedule has not stamped the FINAL.",
+    dek: "First Week 5 winner-flip result is in.",
     date: STORY_DATE_WEEK5,
     body: [
       "Western Kentucky visited New Mexico State on Thursday (7:00 CT, CBSSN). Live HASHMARK had posted a winner flip: WKU −13.0 / 77.5% against Vegas NM State −2.5, O/U 54.5. Final: New Mexico State 34, Western Kentucky 13 (NMSU athletics / ESPN box). Aggies SU and cover; HX flip MISS.",
       "James Jones ran for 155 yards and a touchdown; De’Marcus Peters returned an interception for a score (ESPN). Rodney Tisdale Jr. threw for 314 yards with an interception for WKU. The card was one of the largest absolute HX–Vegas disagreements on the early Week 5 board — and the first flip result of the weekend went against the model.",
-      "Same night: North Texas 45, Tulsa 44 in OT (ESPN). HX had Tulsa −0.3 / 50.9% vs Vegas Tulsa −1.5 — both sides leaned Tulsa. Live /schedule?w=5 still shows both Thursday games as Kick until this stamp ships the FINALs.",
+      "Same night: North Texas 45, Tulsa 44 in OT (ESPN). HX had Tulsa −0.3 / 50.9% vs Vegas Tulsa −1.5 — both sides leaned Tulsa.",
     ],
     whyItMatters:
-      "Honest early-weekend tape note; board-hole flag for the FINAL stamp; social-ready “flip miss” before Friday’s ESPN/FOX windows.",
+      "Honest early-weekend tape note; social-ready “flip miss” before Friday’s ESPN/FOX windows.",
     sources: [
       { label: "HASHMARK Schedule", href: "https://hashmarkcfb.com/schedule?w=5" },
       {
