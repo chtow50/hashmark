@@ -17,7 +17,7 @@ import {
   type ScheduleView,
 } from "@/lib/cfb/schedule-filter";
 import { isVegasOnlyFcs } from "@/lib/cfb/fcs-stubs";
-import { isWinnerFlip, matchupChips } from "@/lib/cfb/schedule-flags";
+import { isWinnerFlip, matchupChips, needsRowFinalChip } from "@/lib/cfb/schedule-flags";
 import type { ScheduleGame } from "@/lib/cfb/types";
 import { cn, fmtPct } from "@/lib/utils";
 
@@ -283,7 +283,7 @@ function ScheduleRow({ game: g }: { game: ScheduleGame }) {
               {vegasOnly ? (
                 <DeskChip tone="muted">Vegas-only</DeskChip>
               ) : null}
-              {g.status === "final" ? (
+              {needsRowFinalChip(chips, g.status) ? (
                 <DeskChip tone="accent">Final</DeskChip>
               ) : null}
               {g.headline === "IN_PROGRESS" && g.status !== "final" ? (

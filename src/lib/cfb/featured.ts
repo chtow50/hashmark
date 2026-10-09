@@ -254,3 +254,15 @@ export function spreadGap(hxSpread: number, bookSpread: number): number | null {
   if (hxSpread > 0 !== bookSpread > 0) return null;
   return Math.round((hxSpread - bookSpread) * 10) / 10;
 }
+
+/**
+ * Minimum same-favorite |HX − Vegas| (points) for the "Spread gap" chip.
+ * Matches the Edge schema `bands.notable_gap.min_abs_gap_pts` (4).
+ */
+export const SPREAD_GAP_MIN_PTS = 4;
+
+/** Same-favorite gap of at least SPREAD_GAP_MIN_PTS. A 0.0 gap (HX = Vegas) is not a flag. */
+export function isNotableSpreadGap(hxSpread: number, bookSpread: number): boolean {
+  const gap = spreadGap(hxSpread, bookSpread);
+  return gap != null && Math.abs(gap) >= SPREAD_GAP_MIN_PTS;
+}
