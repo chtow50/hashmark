@@ -196,10 +196,11 @@ test("buildRemainingSchedule merges FCS stubs and drops finals", () => {
   assert.equal(fcs.length, 0);
 });
 
-test("buildRemainingSchedule keeps scheduled FCS stubs and drops FINAL stubs", () => {
-  const scheduled = buildRemainingSchedule("buffalo", []);
-  assert.ok(scheduled.some((r) => r.isFcs && r.kickoffDate === "2026-09-03"));
-  assert.ok(scheduled.every((r) => r.status !== "final"));
+test("buildRemainingSchedule drops FINAL FCS stubs", () => {
+  // Week 1 backfill stamped Buffalo 21–17 UAlbany: no stale "FCS opponent" row remains.
+  const buffalo = buildRemainingSchedule("buffalo", []);
+  assert.equal(buffalo.filter((r) => r.isFcs).length, 0);
+  assert.ok(buffalo.every((r) => r.status !== "final"));
 
   const georgia = buildRemainingSchedule("georgia", []);
   assert.equal(

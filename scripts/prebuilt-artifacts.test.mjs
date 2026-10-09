@@ -577,6 +577,21 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /New Mexico State @ FIU — FIU 22, New Mexico State 3/);
   });
 
+  it("includes the 32 Week 1 FCS stub finals (fcs-stubs backfill) in committed output", () => {
+    const text = corpus();
+    const pack = JSON.parse(
+      readFileSync(join(ROOT, "data/fcs_backfill_week1_all_finals_clear_2026-10-09.json"), "utf8"),
+    );
+    assert.equal(pack.replacement_calls.length, 32);
+    for (const call of pack.replacement_calls) {
+      assert.ok(text.includes(call), `missing ${call}`);
+    }
+    for (const g of pack.games) {
+      assert.ok(!text.includes(g.scheduled_call), `stale ${g.scheduled_call}`);
+    }
+    assert.match(text, /finalHome\("charlotte", 1, "2026-09-05", "The Citadel", 41, 43\)/);
+  });
+
   it("pins serverless function runtime to nodejs22.x (Vercel blocked new nodejs20.x after 2026-10-01)", () => {
     const cfgPath = join(OUT, "functions/__server.func/.vc-config.json");
     assert.ok(existsSync(cfgPath), "missing .vc-config.json");

@@ -1,7 +1,7 @@
 import { w as require_jsx_runtime, x as Link } from "../_libs/@tanstack/react-router+[...].mjs";
 import { u as ArrowRight } from "../_libs/lucide-react.mjs";
 import { r as DeskChip } from "./marks-FF-JtpEJ.mjs";
-import { K as EDGE, Q as Panel, tt as cn } from "./router-P0PDSXf-.mjs";
+import { K as EDGE, Q as Panel, tt as cn } from "./router-BSlUEYPc.mjs";
 //#region node_modules/.nitro/vite/services/ssr/assets/edge-board-BFqHiQ18.js
 var import_jsx_runtime = require_jsx_runtime();
 var hx_edge_confidence_schema_2026_default = {

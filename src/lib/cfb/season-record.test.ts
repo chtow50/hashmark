@@ -67,8 +67,9 @@ describe("tallyFcsStubRecord", () => {
     assert.deepEqual(tallyFcsStubRecord("byu"), { seasonWins: 1, seasonLosses: 0 });
   });
 
-  it("leaves unstamped FCS stubs at 0–0", () => {
-    assert.deepEqual(tallyFcsStubRecord("buffalo"), { seasonWins: 0, seasonLosses: 0 });
+  it("leaves teams without FINAL FCS stubs at 0–0", () => {
+    // Week 1 backfill (fcs_backfill_week1_all_finals_clear_2026-10-09): Buffalo is now 1–0 vs UAlbany.
+    assert.deepEqual(tallyFcsStubRecord("buffalo"), { seasonWins: 1, seasonLosses: 0 });
     assert.deepEqual(tallyFcsStubRecord("ohio-state"), { seasonWins: 0, seasonLosses: 0 });
   });
 
@@ -104,7 +105,8 @@ describe("tallyFcsStubRecord", () => {
     assert.deepEqual(tallyFcsStubRecord("west-virginia"), { seasonWins: 1, seasonLosses: 0 });
     assert.deepEqual(tallyFcsStubRecord("ball-state"), { seasonWins: 1, seasonLosses: 0 });
     assert.deepEqual(tallyFcsStubRecord("northern-illinois"), { seasonWins: 0, seasonLosses: 1 });
-    assert.deepEqual(tallyFcsStubRecord("air-force"), { seasonWins: 0, seasonLosses: 1 });
+    // Air Force: Week 2 NDSU loss + Week 1 Duquesne win (Week 1 backfill).
+    assert.deepEqual(tallyFcsStubRecord("air-force"), { seasonWins: 1, seasonLosses: 1 });
   });
 });
 
@@ -112,7 +114,9 @@ describe("SEASON_RECORD_JOIN", () => {
   it("unions Research FINAL FCS stubs into the SQL tally", () => {
     assert.match(SEASON_RECORD_JOIN, /'georgia'/);
     assert.match(SEASON_RECORD_JOIN, /'missouri'/);
-    assert.doesNotMatch(SEASON_RECORD_JOIN, /'buffalo'/);
+    assert.match(SEASON_RECORD_JOIN, /'buffalo', 1::int, 0::int/);
+    assert.match(SEASON_RECORD_JOIN, /'charlotte', 0::int, 1::int/);
+    assert.doesNotMatch(SEASON_RECORD_JOIN, /'ohio-state'/);
     assert.match(SEASON_RECORD_JOIN, /'miami'/);
     assert.match(SEASON_RECORD_JOIN, /'louisville'/);
     assert.match(SEASON_RECORD_JOIN, /'indiana'/);
