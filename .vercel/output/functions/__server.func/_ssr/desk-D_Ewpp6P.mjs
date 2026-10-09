@@ -1,6 +1,6 @@
 import { t as MODEL } from "./chicago-DFO_OETY.mjs";
 import { w as require_jsx_runtime, x as Link } from "../_libs/@tanstack/react-router+[...].mjs";
-import { X as PageHead, Z as Panel } from "./router-ugWKSnkv.mjs";
+import { X as PageHead, Z as Panel } from "./router-DcvLv-rp.mjs";
 //#region node_modules/.nitro/vite/services/ssr/assets/desk-D_Ewpp6P.js
 var import_jsx_runtime = require_jsx_runtime();
 var GLOSSARY = [
