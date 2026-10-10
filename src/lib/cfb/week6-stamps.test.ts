@@ -810,3 +810,40 @@ describe("Week 6 Kansas @ Utah Vegas CLEAR (0053)", () => {
     }
   });
 });
+
+describe("Week 6 Friday FINALs (LOU/FSU, USU/WSU, SJSU/WYO, WASH/IOWA, BYU/ISU)", () => {
+  const friSql = readFileSync(join(root, "migrations/0054_week6_fri_finals.sql"), "utf8");
+  // [espn, home slug, away slug, home score, away score, label]
+  const expected = [
+    ["401858254", "louisville", "florida-state", 44, 20, "Florida State @ Louisville — Louisville 44, Florida State 20"],
+    ["401860922", "utah-state", "washington-state", 17, 16, "Washington State @ Utah State — Utah State 17, Washington State 16"],
+    ["401864519", "san-jose-state", "wyoming", 13, 16, "Wyoming @ San José State — Wyoming 16, San José State 13 (OT, road win)"],
+    ["401858487", "washington", "iowa", 24, 41, "Iowa @ Washington — Iowa 41, Washington 24 (road win)"],
+    ["401856826", "byu", "iowa-state", 24, 10, "Iowa State @ BYU — BYU 24, Iowa State 10"],
+  ] as const;
+
+  it("stamps scores+status only, with the exact home/away orientation", () => {
+    assert.equal((friSql.match(/update games/g) ?? []).length, 5);
+    assert.equal((friSql.match(/g\.week = 6/g) ?? []).length, 5);
+    assert.equal((friSql.match(/status = 'final'/g) ?? []).length, 5);
+    for (const [espn, hSlug, aSlug, hs, as, label] of expected) {
+      assert.ok(friSql.includes(`-- ${label}`), label);
+      assert.ok(friSql.includes(`home_score = ${hs},\n    away_score = ${as}\n`), `${espn} scores`);
+      assert.ok(friSql.includes(`and h.slug = '${hSlug}' and a.slug = '${aSlug}';`), `${espn} orientation`);
+      assert.ok(!friSql.includes(`h.slug = '${aSlug}' and a.slug = '${hSlug}'`), `${espn} reversed`);
+      assert.match(friSql, new RegExp(`Source event ${espn}`));
+    }
+    assert.doesNotMatch(friSql, /kickoff_at|vegas_spread|vegas_total|\btv\s*=|hx_rating|win_title|make_field/);
+    const header = friSql.split(/update games/i)[0] ?? "";
+    assert.doesNotMatch(header, /\b401\d{6,}\b/);
+  });
+
+  it("keeps 0043/0048 kick + Vegas on all five cards in the stamp gate", () => {
+    const sqlByEspn = parseSqlStampsForWeek(readMigrationsSql(root), 6);
+    for (const [espn] of expected) {
+      const row = sqlByEspn.get(espn);
+      assert.ok(row, `missing stamp-gate row for ${espn}`);
+      assert.equal(row.hasKick, true, `${espn} kick`);
+    }
+  });
+});
