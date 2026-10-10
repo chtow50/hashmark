@@ -646,6 +646,23 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /finalAway\("jacksonville-state", 0, "2026-08-29", "North Dakota State", 7, 33\)/);
   });
 
+  it("includes Week 6 Friday FINALs (0054) with exact home/away orientation in committed output", () => {
+    const text = corpus();
+    assert.match(text, /0054_week6_fri_finals/);
+    assert.match(text, /Florida State @ Louisville — Louisville 44, Florida State 20/);
+    assert.match(text, /Washington State @ Utah State — Utah State 17, Washington State 16/);
+    assert.match(text, /Wyoming @ San José State — Wyoming 16, San José State 13/);
+    assert.match(text, /Iowa @ Washington — Iowa 41, Washington 24/);
+    assert.match(text, /Iowa State @ BYU — BYU 24, Iowa State 10/);
+    assert.match(text, /and h\.slug = 'louisville' and a\.slug = 'florida-state';/);
+    assert.match(text, /and h\.slug = 'utah-state' and a\.slug = 'washington-state';/);
+    assert.match(text, /and h\.slug = 'san-jose-state' and a\.slug = 'wyoming';/);
+    assert.match(text, /and h\.slug = 'washington' and a\.slug = 'iowa';/);
+    assert.match(text, /and h\.slug = 'byu' and a\.slug = 'iowa-state';/);
+    // Thursday FINALs (0051) stay in the bundle untouched.
+    assert.match(text, /Sam Houston @ Liberty — Liberty 35, Sam Houston 3/);
+  });
+
   it("pins serverless function runtime to nodejs22.x (Vercel blocked new nodejs20.x after 2026-10-01)", () => {
     const cfgPath = join(OUT, "functions/__server.func/.vc-config.json");
     assert.ok(existsSync(cfgPath), "missing .vc-config.json");
