@@ -60,6 +60,7 @@ export function AccountabilityCard({
   movers,
   weekLabel = "Week 4 tape",
   storySlug = "week-4-tape",
+  scheduleWeek,
   dek = "Full slate closer is a FLAG. Top 25 closer 8/18 is a FLAG. HX not retuned.",
   flagsKicker = "Board flags · HX not retuned",
 }: {
@@ -70,6 +71,8 @@ export function AccountabilityCard({
   movers?: HxMover[];
   weekLabel?: string;
   storySlug?: string;
+  /** When set, the header link goes to that week's FINALs on /schedule instead of a story. */
+  scheduleWeek?: number;
   dek?: string;
   flagsKicker?: string;
 }) {
@@ -81,9 +84,15 @@ export function AccountabilityCard({
           <h2 className="font-display text-2xl tracking-wide">{weekLabel}</h2>
           <p className="mt-1 text-sm text-muted">{dek}</p>
         </div>
-        <Link to="/stories/$slug" params={{ slug: storySlug }} className="text-sm text-muted hover:text-fg">
-          Desk note
-        </Link>
+        {scheduleWeek != null ? (
+          <Link to="/schedule" search={{ w: scheduleWeek }} className="text-sm text-muted hover:text-fg">
+            Week {scheduleWeek} FINALs
+          </Link>
+        ) : (
+          <Link to="/stories/$slug" params={{ slug: storySlug }} className="text-sm text-muted hover:text-fg">
+            Desk note
+          </Link>
+        )}
       </div>
       <div className="grid grid-cols-2 gap-3">
         <div className="rounded-md border border-line bg-raised/40 px-4 py-3">
@@ -93,8 +102,20 @@ export function AccountabilityCard({
           </div>
           <div className="mt-1.5 text-xs tabular text-muted">{fmtNum(tape.su_pct, 1)}%</div>
         </div>
-        <div className="rounded-md border border-warn/40 bg-raised/40 px-4 py-3">
-          <div className="text-[11px] uppercase tracking-[0.14em] text-warn">Closer · FLAG</div>
+        <div
+          className={cn(
+            "rounded-md border bg-raised/40 px-4 py-3",
+            tape.closer_flag ? "border-warn/40" : "border-up/40",
+          )}
+        >
+          <div
+            className={cn(
+              "text-[11px] uppercase tracking-[0.14em]",
+              tape.closer_flag ? "text-warn" : "text-up",
+            )}
+          >
+            {tape.closer_flag ? "Closer · FLAG" : "Closer · slate"}
+          </div>
           <div className="mt-1 font-display text-2xl tabular leading-none text-fg sm:text-3xl">
             {tape.hx_closer}
           </div>

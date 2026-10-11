@@ -370,7 +370,7 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /8\/18/);
     assert.match(text, /Soft-cal FLAG/);
     assert.match(text, /homepage desk uses FEATURED_SLATE_WEEK/);
-    assert.match(text, /HX is Week 6/);
+    assert.match(text, /HX is Week 7/);
   });
 
   it("includes Week 4 Friday stories, Liberty FINAL, Iowa FCS, and Week 4 AP in committed output", () => {
@@ -676,6 +676,15 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /finalHome\("unlv", 6, "2026-10-10", "North Dakota State", 13, 7\)/);
     // Friday FINALs (0054) stay in the bundle untouched.
     assert.match(text, /Iowa State @ BYU — BYU 24, Iowa State 10/);
+  });
+
+  it("includes Week 6 late FINALs (0056) so Week 6 is 56/56 in committed output", () => {
+    const text = corpus();
+    assert.match(text, /0056_week6_late_finals/);
+    assert.match(text, /Boise State @ Fresno State — Boise State 38, Fresno State 31/);
+    assert.match(text, /Hawaiʻi @ Arizona State — Arizona State 30, Hawaiʻi 12/);
+    assert.match(text, /and h\.slug = 'fresno-state' and a\.slug = 'boise-state';/);
+    assert.match(text, /and h\.slug = 'arizona-state' and a\.slug = 'hawaii';/);
   });
 
   it("pins serverless function runtime to nodejs22.x (Vercel blocked new nodejs20.x after 2026-10-01)", () => {
