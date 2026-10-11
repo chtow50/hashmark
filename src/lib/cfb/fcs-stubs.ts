@@ -314,6 +314,14 @@ const WEEK5_FCS_STUBS: FcsStubGame[] = [
   finalAway("wyoming", 5, "2026-10-03", "North Dakota State", 0, 28),
 ];
 
+/** Week 6 FBS vs FCS finals — ESPN game pages, STATUS_FINAL (nightly stamp 2026-10-11). */
+const WEEK6_FCS_STUBS: FcsStubGame[] = [
+  // Sacramento State @ Bowling Green — Bowling Green 38, Sacramento State 10 (ESPN 401866436).
+  finalHome("bowling-green", 6, "2026-10-10", "Sacramento State", 38, 10),
+  // North Dakota State @ UNLV — UNLV 13, North Dakota State 7 (ESPN 401864518).
+  finalHome("unlv", 6, "2026-10-10", "North Dakota State", 13, 7),
+];
+
 /** FBS vs FCS rows dropped from the 136-team games table (W–L stubs + Week 2 Vegas-only JSON). */
 export const FCS_STUB_GAMES: FcsStubGame[] = [
   ...WEEK0_FCS_STUBS,
@@ -322,6 +330,7 @@ export const FCS_STUB_GAMES: FcsStubGame[] = [
   ...WEEK3_FCS_STUBS,
   ...WEEK4_FCS_STUBS,
   ...WEEK5_FCS_STUBS,
+  ...WEEK6_FCS_STUBS,
 ];
 
 export function fcsStubIsFinal(stub: FcsStubGame): boolean {

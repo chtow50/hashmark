@@ -663,6 +663,21 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /Sam Houston @ Liberty — Liberty 35, Sam Houston 3/);
   });
 
+  it("includes Week 6 Saturday FINALs (0055) with exact home/away orientation in committed output", () => {
+    const text = corpus();
+    assert.match(text, /0055_week6_sat_finals/);
+    assert.match(text, /Georgia @ Alabama — Georgia 20, Alabama 17/);
+    assert.match(text, /Texas vs Oklahoma — Oklahoma 27, Texas 24/);
+    assert.match(text, /LSU @ Kentucky — Kentucky 35, LSU 34/);
+    assert.match(text, /and h\.slug = 'alabama' and a\.slug = 'georgia';/);
+    assert.match(text, /and h\.slug = 'oklahoma' and a\.slug = 'texas';/);
+    assert.match(text, /and h\.slug = 'kentucky' and a\.slug = 'lsu';/);
+    assert.match(text, /finalHome\("bowling-green", 6, "2026-10-10", "Sacramento State", 38, 10\)/);
+    assert.match(text, /finalHome\("unlv", 6, "2026-10-10", "North Dakota State", 13, 7\)/);
+    // Friday FINALs (0054) stay in the bundle untouched.
+    assert.match(text, /Iowa State @ BYU — BYU 24, Iowa State 10/);
+  });
+
   it("pins serverless function runtime to nodejs22.x (Vercel blocked new nodejs20.x after 2026-10-01)", () => {
     const cfgPath = join(OUT, "functions/__server.func/.vc-config.json");
     assert.ok(existsSync(cfgPath), "missing .vc-config.json");
