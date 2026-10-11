@@ -1,7 +1,6 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { Menu, Search, X } from "lucide-react";
 import { useMemo, useState, type ReactNode } from "react";
-import { EdgePackNavButton } from "@/components/edge-pack";
 import { TeamFinder } from "@/components/team-finder";
 import { Button } from "@/components/ui/button";
 import { CONFS, type ConfFilter } from "@/lib/cfb/conferences";
@@ -79,7 +78,6 @@ export function AppShell({ children }: { children: ReactNode }) {
             <span className="hidden font-mono text-[11px] uppercase tracking-[0.16em] text-faint xl:inline">
               {MODEL.weekLabel}
             </span>
-            <EdgePackNavButton />
             <TeamFinder />
             <Button
               variant="ghost"

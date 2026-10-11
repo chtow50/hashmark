@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import { EdgePackStrip } from "@/components/edge-pack";
 import { PageHead, Panel, TeamSelect } from "@/components/shell";
 import { CompareRow, DeskChip, Stat, TeamMark, WinBar } from "@/components/marks";
 import { RosterDuel } from "@/components/roster-duel";
@@ -134,8 +133,6 @@ function MatchupPage() {
         title="Head to head"
         lede="Type a school or pick from the list. HX seeds an Elo rating (1500 + 55 × composite). Home-field is 60 Elo points unless Neutral site is on (Dublin, CFP, etc.). Win probability and spread come from that gap."
       />
-
-      <EdgePackStrip compact />
 
       <div className="mb-6 grid gap-4 sm:grid-cols-[1fr_auto_1fr] sm:items-start">
         <TeamSelect

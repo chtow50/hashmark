@@ -1,7 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Minus, Plus } from "lucide-react";
 import { useMemo, useState } from "react";
-import { EdgeBuyButton } from "@/components/edge-pack";
 import { DeskChip } from "@/components/marks";
 import { Panel } from "@/components/shell";
 import { Button } from "@/components/ui/button";
@@ -115,13 +114,9 @@ export function ScenarioSimGate({ className }: { className?: string }) {
         Scenario Sim (preview / offline)
       </h2>
       <p className="mt-3 text-sm leading-relaxed text-muted">
-        Offline desk fixture — not this week’s paid pack. Soft unlock is a
-        query flag until Checkout returns a token. No site login.
-        The public board still shows one Make 12 cell.
+        Offline desk fixture. Edge is paused — nothing is for sale. No site
+        login. The public board still shows one Make 12 cell.
       </p>
-      <div className="mt-5 grid gap-3 sm:grid-cols-2">
-        <EdgeBuyButton kind="week" label={`Buy · ${EDGE.weekLabel}`} />
-      </div>
     </Panel>
   );
 }

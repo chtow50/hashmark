@@ -62,11 +62,8 @@ test("an explicit process-env override wins over the file", () => {
 test("the template ships auth off", () => {
   const env = readAppEnv(projectRoot());
   assert.equal(env.VITE_AUTH_ENABLED, "false");
-  assert.equal(
-    env.VITE_EDGE_CHECKOUT_WEEK_URL,
-    "https://buy.stripe.com/00w14obUSbUZ5N67sydUY03",
-  );
-  // Edge pause step 1: the monthly link is no longer carried in the workspace env.
+  // Edge pause step 2: no checkout link (week or monthly) is carried in the workspace env.
+  assert.equal(env.VITE_EDGE_CHECKOUT_WEEK_URL, undefined);
   assert.equal(env.VITE_EDGE_CHECKOUT_URL, undefined);
 });
 

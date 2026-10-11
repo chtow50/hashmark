@@ -11,17 +11,10 @@ function read(rel: string) {
 }
 
 describe("LEAN polish gates", () => {
-  it("Edge week sample is the full depth pack, not the free-board teaser", () => {
+  it("Edge is paused: /edge sells nothing and points to the free board", () => {
     const src = read("src/routes/edge.tsx");
-    assert.match(src, /confidence cards/i);
-    assert.match(src, /unit O\/D pulse/);
-    assert.match(src, /tape write-up/);
-    assert.match(src, /not the free-board teaser/i);
-    assert.match(src, /EDGE\.weekPrice/);
-    assert.match(src, /kind="week"/);
-    assert.doesNotMatch(src, /kind="month"|EDGE\.month|Monthly|\/mo\b/);
-    assert.match(src, /No locks/);
-    assert.match(src, /No guaranteed ROI/);
+    assert.match(src, /Edge is paused\./);
+    assert.doesNotMatch(src, /EDGE\.weekPrice|kind="week"|kind="month"|Monthly|\/mo\b/);
     assert.doesNotMatch(src, /sure thing|print money|can't miss/i);
   });
 
@@ -34,14 +27,12 @@ describe("LEAN polish gates", () => {
     assert.doesNotMatch(src, /useEffect/);
   });
 
-  it("Home leads with the HX board and labels Edge as paid depth", () => {
+  it("Home leads with the HX board and carries no Edge strip (Edge paused)", () => {
     const src = read("src/routes/index.tsx");
     const head = src.indexOf("<PageHead");
     const hxOne = src.indexOf("HX No. 1");
-    const edge = src.indexOf("<EdgePackStrip");
-    assert.ok(head >= 0 && hxOne >= 0 && edge >= 0);
-    assert.ok(hxOne < edge, "HX No. 1 must precede the Edge strip");
-    assert.match(src, /EdgePackStrip compact paid/);
+    assert.ok(head >= 0 && hxOne >= 0);
+    assert.doesNotMatch(src, /EdgePackStrip/);
   });
 
   it("schedule default omits view when All FBS", () => {

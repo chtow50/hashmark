@@ -36,7 +36,7 @@ function EdgeBoardPage() {
       </p>
       <p className="text-sm text-muted">
         <Link to="/edge" className="text-fg underline-offset-4 hover:underline">
-          Back to Edge Pack
+          Edge (paused)
         </Link>
         <span className="text-faint"> · </span>
         <Link to="/" className="text-fg underline-offset-4 hover:underline">

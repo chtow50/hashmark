@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
-import { EdgePackStrip } from "@/components/edge-pack";
 import { PageHead, Panel } from "@/components/shell";
 import { Button } from "@/components/ui/button";
 import { AccountabilityCard, DisagreementCard } from "@/components/truth-pack";
@@ -148,8 +147,6 @@ function Home() {
           <DisagreementCard rows={disagreements} />
         </div>
       </div>
-
-      <EdgePackStrip compact paid />
 
       <AccountabilityCard
         tape={tape}

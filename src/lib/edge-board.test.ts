@@ -103,8 +103,8 @@ test("Edge Board UI documents schema and does not dump the paid pack or lock bad
   assert.doesNotMatch(board, /SAMPLE_5|pack_body_paste/);
   assert.match(route, /createFileRoute\("\/edge\/board"\)/);
   assert.match(board, /to="\/edge\/board"/);
-  assert.match(edge, /EdgeBoardPanel/);
+  assert.doesNotMatch(edge, /EdgeBoardPanel/);
   assert.doesNotMatch(home, /hx_edge_pack_week3_sample_thickened|SAMPLE_5|EdgeBoardView/);
-  assert.equal(EDGE.weekPrice, "$5");
+  assert.equal(EDGE.status, "paused");
   assert.equal("monthPrice" in EDGE, false);
 });
