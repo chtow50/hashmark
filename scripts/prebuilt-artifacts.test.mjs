@@ -474,25 +474,18 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /Week 6 board/);
   });
 
-  it("includes HX Edge Pack /edge with only the baked $5 Stripe Payment Link (Edge pause step 1)", () => {
+  it("ships /edge as a paused page with zero paid CTAs (Edge pause step 2)", () => {
     const text = corpus();
     assert.match(text, /HX Edge Pack/);
-    assert.match(text, /\$5 Week sample/);
-    assert.doesNotMatch(text, /\$15\/mo|15\/mo/);
+    assert.match(text, /Edge is paused\./);
     assert.match(text, /createFileRoute\("\/edge"\)|path:"\/edge"|id:"\/edge"|to:"\/edge"/);
-    assert.match(text, /buy\.stripe\.com\/00w14obUSbUZ5N67sydUY03/);
-    assert.doesNotMatch(text, /4gM6oIf74cZ3cbubIOdUY02|UY02/);
-    assert.doesNotMatch(text, /buy\.stripe\.com\/6oUdRa0caaQV1wQ5kqdUY01/);
-    assert.doesNotMatch(text, /buy\.stripe\.com\/eVqaEY9MK0cha3meV0dUY00/);
-    // Only the week env path remains.
-    assert.match(text, /VITE_EDGE_CHECKOUT_WEEK_URL/);
-    assert.doesNotMatch(text, /VITE_EDGE_CHECKOUT_URL\b/);
-    // Fallback hash remains for unset-env, but week Buy is not left on it.
-    assert.match(text, /#checkout-pending/);
-    assert.match(
-      text,
-      /VITE_EDGE_CHECKOUT_WEEK_URL[`"']?:[`"']https:\/\/buy\.stripe\.com\/00w14obUSbUZ5N67sydUY03/,
-    );
+    assert.doesNotMatch(text, /\$5 Week sample/);
+    assert.doesNotMatch(text, /\$15\/mo|15\/mo/);
+    assert.doesNotMatch(text, /buy\.stripe\.com/);
+    assert.doesNotMatch(text, /VITE_EDGE_CHECKOUT/);
+    assert.doesNotMatch(text, /#checkout-pending/);
+    // Gated Week 6 pack no longer carries the monthly tier.
+    assert.doesNotMatch(text, /monthly_price|monthly \$15/);
   });
 
   it("includes gated /edge/unlock + pack download on the server", () => {

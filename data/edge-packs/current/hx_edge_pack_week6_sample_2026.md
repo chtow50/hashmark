@@ -4,7 +4,7 @@
 
 **Product:** Model accountability brief for email delivery after Stripe purchase. **Not betting advice. No locks.**  
 **Stamp:** HX 2026.7 (PR #74 `c703960` LIVE) · Week 6 board · Kick/TV/Vegas from the Oct 5 Week 6 CLEAR pack (live on `/schedule?w=6`; blank = HOLD, never invented)  
-**Price tier:** SAMPLE ($5) · monthly $15  
+**Price tier:** SAMPLE ($5)  
 **Make the 12 / Win the title:** HX 2026.7 · 10k sims · seed 20260913  
 **Scenario Sim:** no interactive marketing (30–60 day contract)
 

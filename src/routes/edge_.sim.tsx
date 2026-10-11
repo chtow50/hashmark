@@ -56,7 +56,7 @@ function EdgeSimPage() {
 
       <p className="text-sm text-muted">
         <Link to="/edge" className="text-fg underline-offset-4 hover:underline">
-          Back to Edge Pack
+          Edge (paused)
         </Link>
         <span className="text-faint"> · </span>
         <Link to="/edge/board" className="text-fg underline-offset-4 hover:underline">

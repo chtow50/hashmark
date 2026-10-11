@@ -1,116 +1,63 @@
 import { createFileRoute, Link, Outlet, useChildMatches } from "@tanstack/react-router";
-import { EdgeBoardPanel } from "@/components/edge-board";
-import { EdgeBuyButton, EdgeCheckoutNote } from "@/components/edge-pack";
 import { PageHead, Panel } from "@/components/shell";
-import { EDGE } from "@/lib/edge";
+import { BOARD_WEEK } from "@/lib/cfb/featured";
 import { MODEL } from "@/lib/cfb/model";
+import { EDGE } from "@/lib/edge";
 
 export const Route = createFileRoute("/edge")({
   component: EdgeLayout,
   head: () => ({
     meta: [
-      { title: `${EDGE.name} · HASHMARK` },
+      { title: `${EDGE.name} · Paused · HASHMARK` },
       {
         name: "description",
         content:
-          "HX Edge Pack is the weekly depth product. The $5 week sample is the full pack — confidence cards, unit O/D pulse, tape write-up — not the free-board teaser. The public board stays free.",
+          "HX Edge Pack is paused. The HX board, slate, matchup engine, and weekly tape stay free on hashmarkcfb.com.",
       },
     ],
   }),
 });
 
-const INCLUDED = [
-  "Confidence cards for the week — A–D tiers on the slate. Never a lock.",
-  "Unit O/D pulse — who moved on offense and defense after the tape.",
-  "Tape write-up — SU / closer for the week just played. Full depth, not the free-board teaser.",
-  "HX vs AP disagreements — where the last stamped ballot and the rating split.",
-  "HX vs market disagreements — spread gap versus the book, same favorite called out.",
-] as const;
-
-const NOT_INCLUDED = [
-  "No locks. The pack does not pick ‘plays’ or guarantee a side.",
-  "No guaranteed ROI. Tape is scored; it is not a promise the next week pays.",
-  "No second rating. Edge Pack is the same HX, written out.",
-  "No login wall on the public board, slate, or matchup engine.",
-] as const;
-
 function EdgeLayout() {
   const childMatches = useChildMatches();
   if (childMatches.length > 0) return <Outlet />;
-  return <EdgePage />;
+  return <EdgePausedPage />;
 }
 
-function EdgePage() {
+function EdgePausedPage() {
   return (
-    <div className="space-y-8">
+    <div className="mx-auto max-w-2xl space-y-6">
       <PageHead
-        kicker={`Weekly pack · HX ${MODEL.version}`}
-        title={EDGE.name}
-        lede="Paid depth pack. The $5 week sample is the full depth pack — confidence cards, unit O/D pulse, tape write-up — not the free-board teaser. Same HX as the public board. The free board stays public."
+        kicker={`${EDGE.name} · Paused`}
+        title="Edge is paused."
+        lede="Nothing is for sale. The desk runs one rating — HX — and all of it is on the free board."
       />
 
-      <div className="grid gap-6 sm:grid-cols-2">
-        <Panel>
-          <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-faint">
-            Week sample · paid depth
-          </p>
-          <p className="mt-2 font-display text-4xl tabular tracking-wide">{EDGE.weekPrice}</p>
-          <p className="mt-2 text-sm text-muted">
-            One paid week of the full pack: confidence cards, unit O/D pulse, tape write-up.
-            Not the free-board teaser.
-          </p>
-          <EdgeBuyButton kind="week" label={`Buy · ${EDGE.weekLabel}`} className="mt-5" />
-        </Panel>
-      </div>
-      <EdgeCheckoutNote />
-
-      <EdgeBoardPanel />
-
-      <div className="grid gap-6 lg:grid-cols-2">
-        <Panel>
-          <h2 className="font-display text-2xl tracking-wide">What is in it</h2>
-          <ul className="mt-3 space-y-2 text-sm leading-relaxed text-muted">
-            {INCLUDED.map((line) => (
-              <li key={line}>{line}</li>
-            ))}
-          </ul>
-        </Panel>
-        <Panel>
-          <h2 className="font-display text-2xl tracking-wide">What is not</h2>
-          <ul className="mt-3 space-y-2 text-sm leading-relaxed text-muted">
-            {NOT_INCLUDED.map((line) => (
-              <li key={line}>{line}</li>
-            ))}
-          </ul>
-        </Panel>
-      </div>
-
       <Panel>
-        <h2 className="font-display text-2xl tracking-wide">The board stays free</h2>
-        <p className="mt-3 text-sm leading-relaxed text-muted">
-          Rankings, slate, matchup engine, recruiting, and talent stay on the public desk.
-          Edge Pack does not replace that — it writes the week’s disagreements and the tape
-          so you do not have to reconstruct them from the board alone.
-        </p>
-        <p className="mt-4 text-sm">
-          <Link to="/" className="text-fg underline-offset-4 hover:underline">
-            Back to the board
+        <ul className="space-y-2 text-sm leading-relaxed text-muted">
+          <li>Week {BOARD_WEEK} board · HX {MODEL.version} · full 136 FBS.</li>
+          <li>Every slate game: HX spread and win% next to the Vegas close when one is sourced.</li>
+          <li>The weekly tape: SU and closer, scored in public against ESPN FINALs.</li>
+        </ul>
+        <p className="mt-5 flex flex-wrap gap-x-4 gap-y-2 text-sm">
+          <Link to="/" className="text-fg underline underline-offset-4 hover:text-accent">
+            Open the board
           </Link>
-          <span className="text-faint"> · </span>
-          <Link to="/model" className="text-fg underline-offset-4 hover:underline">
-            How the rating is built
+          <Link
+            to="/schedule"
+            search={{ w: BOARD_WEEK }}
+            className="text-fg underline underline-offset-4 hover:text-accent"
+          >
+            Week {BOARD_WEEK} slate
           </Link>
-          <span className="text-faint"> · </span>
-          <Link to="/desk" className="text-fg underline-offset-4 hover:underline">
-            The desk
+          <Link to="/model" className="text-fg underline underline-offset-4 hover:text-accent">
+            How HX is built
           </Link>
         </p>
       </Panel>
 
-      <p className="max-w-2xl text-xs leading-relaxed text-faint">
-        HX Edge Pack is an informational model product. It is not gambling advice.
-        HASHMARK does not take wagers or list a street line. The model is scored in
-        public on the board — Edge Pack is the write-up, not a promise the tape will pay.
+      <p className="text-xs leading-relaxed text-faint">
+        Questions: {EDGE.supportEmail}. Not betting advice.
       </p>
     </div>
   );

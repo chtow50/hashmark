@@ -1,6 +1,5 @@
 {
   "VITE_AUTH_ENABLED": "false",
-  "VITE_EDGE_CHECKOUT_WEEK_URL": "https://buy.stripe.com/00w14obUSbUZ5N67sydUY03",
   "deploy": {
     "database": true
   }
