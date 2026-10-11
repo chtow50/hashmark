@@ -1,7 +1,7 @@
 import type { Prediction, TeamSummary } from "./types";
 
 /**
- * HASHMARK Index — the user's validated model (HX 2026.7 · Week 6 board chrome after Week 5 units + ΔHX).
+ * HASHMARK Index — the user's validated model (HX 2026.7 · Week 7 board chrome; ratings unchanged since the Week 5 units + ΔHX ship).
  * Weights from power_rankings.py DEFAULT_WEIGHTS, walk-forward Top 25
  * balanced ≈ 0.646. Talent and prior_rating carry the real signal.
  * Matchup math is the Elo mapping from matchup.py (70.8% SU, 2019–2025).
@@ -13,8 +13,8 @@ export const MODEL = {
   name: "HX Rating",
   version: "2026.7",
   season: 2026,
-  week: 6,
-  weekLabel: "Week 6 board",
+  week: 7,
+  weekLabel: "Week 7 board",
   eloBase: 1500,
   eloScale: 55,
   homeFieldElo: 60,

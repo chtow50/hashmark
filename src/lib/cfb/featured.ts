@@ -4,12 +4,13 @@ import type { ScheduleGame } from "./types";
  * Board chrome week (Rankings / home PageHead). Ranking *rows* stay
  * `season = 2026 AND week = 0` — that is what queries read.
  */
-export const BOARD_WEEK = 6;
+export const BOARD_WEEK = 7;
 
 /**
  * Last stamped AP ballot on the live board.
- * HX chrome is Week 6. AP is the last stamped poll (Week 6, Oct. 4) —
- * not a Week 5 ballot. Source: data/week6_ap_top25_2026.json.
+ * HX chrome is Week 7. AP is the last stamped poll (Week 6, Oct. 4) —
+ * the post-Week 6 ballot was not out on ESPN at the Sunday 2026-10-11 ship.
+ * Source: data/week6_ap_top25_2026.json.
  */
 export const AP_STAMP = {
   week: 6,
@@ -17,18 +18,18 @@ export const AP_STAMP = {
   label: "Week 6 AP",
   columnHint: "W6 stamp",
   vsHx: "last stamped AP (Week 6, Oct. 4)",
-  lede: "HX is Week 6. AP is the last stamped poll (Week 6, Oct. 4) — not a Week 5 ballot.",
+  lede: "HX is Week 7. AP is the last stamped poll (Week 6, Oct. 4).",
 } as const;
 
 /**
- * Featured kick reads the HASHMARK Week 6 slate (`/schedule?w=6`).
- * Board chrome is Week 6. Live ratings are HX 2026.7. The Week 5 tape
- * grades the HX 2026.6 pregame board. Make the 12 stays the HX 2026.6
- * 10k table. Home desk aligns to the Week 6 Research pin (Iowa State @
- * BYU), matching `/schedule?w=6` featured — not the earliest kick.
- * FCS rows are never featured. Never invent Vegas.
+ * Featured kick reads the HASHMARK Week 7 slate (`/schedule?w=7`).
+ * Board chrome is Week 7. Live ratings are HX 2026.7. The Week 6 tape
+ * grades the HX 2026.7 pregame board. Make the 12 is the HX 2026.7
+ * 10k table (make-field only on free chrome). Home desk aligns to the
+ * Week 7 pin (Alabama @ Tennessee), matching `/schedule?w=7` featured —
+ * not the earliest kick. FCS rows are never featured. Never invent Vegas.
  */
-export const FEATURED_SLATE_WEEK = 6;
+export const FEATURED_SLATE_WEEK = 7;
 
 /** Thursday night flag: Colorado at Georgia Tech, Bobby Dodd. */
 export const WEEK1_FLAG = {
@@ -88,6 +89,17 @@ export const WEEK5_FEATURED = {
 export const WEEK6_FEATURED = {
   homeSlug: "byu",
   awaySlug: "iowa-state",
+} as const;
+
+/**
+ * Saturday ABC: Alabama at Tennessee, Neyland Stadium. Schedule-page pin for
+ * `/schedule?w=7` and the home desk featured card.
+ * Sat 2026-10-17 14:30 CT · ABC · ALA −6.5 / 55.5 (ESPN DraftKings = CBS
+ * Sports, 2026-10-11; migration 0057). Home desk FEATURED_SLATE_WEEK is 7.
+ */
+export const WEEK7_FEATURED = {
+  homeSlug: "tennessee",
+  awaySlug: "alabama",
 } as const;
 
 
@@ -150,8 +162,8 @@ export function selectFeaturedKick<
 }
 
 /**
- * Board featured for the live featured slate (Week 6).
- * Prefers the Week 6 Research pin (Iowa State @ BYU) via
+ * Board featured for the live featured slate (Week 7).
+ * Prefers the Week 7 pin (Alabama @ Tennessee) via
  * `selectWeekScopedFeatured(FEATURED_SLATE_WEEK, …)`. Falls back to the
  * earliest upcoming kick only when the pin is missing or FINAL.
  * Week 2–5 Research pins stay historical helpers. Never a FINAL. Never
@@ -177,12 +189,19 @@ export function isIowaStateAtByu(
   return g.homeSlug === WEEK6_FEATURED.homeSlug && g.awaySlug === WEEK6_FEATURED.awaySlug;
 }
 
+export function isAlabamaAtTennessee(
+  g: Pick<ScheduleGame, "homeSlug" | "awaySlug">,
+): boolean {
+  return g.homeSlug === WEEK7_FEATURED.homeSlug && g.awaySlug === WEEK7_FEATURED.awaySlug;
+}
+
 /**
  * Featured card scoped to the schedule week being viewed.
  * Week 5 pins Pittsburgh @ Virginia Tech (CLEAR), even though WKU @ NMSU
  * kicks earlier. Week 6 pins Iowa State @ BYU (CLEAR), even though midweek
- * cards kick earlier. The homepage desk uses FEATURED_SLATE_WEEK (6) and
- * the same Week 6 pin via `selectBoardFeaturedKick`. Never invents a matchup.
+ * cards kick earlier. Week 7 pins Alabama @ Tennessee.
+ * The homepage desk uses FEATURED_SLATE_WEEK (7) and the same Week 7 pin via
+ * `selectBoardFeaturedKick`. Never invents a matchup.
  */
 export function selectWeekScopedFeatured<
   T extends Pick<ScheduleGame, "status" | "homeSlug" | "awaySlug"> & { isFcs?: boolean },
@@ -194,6 +213,9 @@ export function selectWeekScopedFeatured<
   }
   if (week === 6) {
     return slate.find((g) => !g.isFcs && g.status !== "final" && isIowaStateAtByu(g)) ?? null;
+  }
+  if (week === 7) {
+    return slate.find((g) => !g.isFcs && g.status !== "final" && isAlabamaAtTennessee(g)) ?? null;
   }
   return null;
 }

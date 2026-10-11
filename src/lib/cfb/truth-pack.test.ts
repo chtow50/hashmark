@@ -42,6 +42,12 @@ import {
   week5TapePack,
   week5Top25Pack,
   week5Top25Tape,
+  week6BoardFlags,
+  week6SeasonTape,
+  week6Tape,
+  week6TapePack,
+  week6Top25Pack,
+  week6Top25Tape,
 } from "./truth-pack.ts";
 import { SIM_FULL_FILE, sim10kFull, simFullTeamBySlug } from "./sim-full.server.ts";
 
@@ -304,7 +310,8 @@ test("Week 3 Top 25 closer cut is 5/21 HX · 20/21 SU", () => {
   const src = readFileSync(join(root, "src/lib/cfb/truth-pack.ts"), "utf8");
   assert.match(src, /function week3Tape\(\)/);
   const home = readFileSync(join(root, "src/routes/index.tsx"), "utf8");
-  assert.match(home, /week5Tape\(\)/);
+  assert.match(home, /week6Tape\(\)/);
+  assert.doesNotMatch(home, /week5Tape\(\)/);
   assert.doesNotMatch(home, /week4Tape\(\)/);
   assert.doesNotMatch(home, /week3Tape\(\)/);
   assert.doesNotMatch(home, /week2Tape\(\)/);
@@ -521,4 +528,47 @@ test("sim_10k top win_title and make_field stay separate cells", () => {
     byTitle.map((t) => t.slug),
     byMake.map((t) => t.slug),
   );
+});
+
+
+test("Week 6 tape is 33/56 SU and 27/56 closer (no closer FLAG) on the HX 2026.7 pregame board", () => {
+  const tape = week6Tape();
+  assert.equal(tape.n, 56);
+  assert.equal(tape.su, "33/56");
+  assert.equal(tape.su_pct, 58.9);
+  assert.equal(tape.hx_closer, "27/56");
+  assert.equal(tape.hx_closer_pct, 48.2);
+  assert.equal(tape.closer_flag, false);
+  assert.equal(tape.vegas_closer, "28/56");
+  assert.equal(week6TapePack.meta.closer_ties, 1);
+  assert.equal(tape.mae_hx, 12.74);
+  assert.equal(tape.mae_vegas, 11.5);
+  assert.equal(tape.brier, 0.232);
+  assert.equal(week6TapePack.games.length, 56);
+  assert.equal(week6TapePack.games.filter((g) => g.su_hit).length, 33);
+  assert.equal(week6TapePack.games.filter((g) => g.closer === "hx").length, 27);
+  assert.equal(week6TapePack.games.filter((g) => g.closer === "vegas").length, 28);
+  assert.equal(week6TapePack.su_misses.length, 23);
+  assert.equal(week6BoardFlags().filter((f) => f.result === "HIT").length, 4);
+  assert.equal(week6BoardFlags().filter((f) => f.result === "MISS").length, 9);
+  const season = week6SeasonTape();
+  assert.equal(season.label, "W1–W6");
+  assert.equal(season.su, "236/314");
+  assert.equal(season.hx_closer, "130/314");
+  const top = week6Top25Tape();
+  assert.equal(top.n, 15);
+  assert.equal(top.hx_closer, "9/15");
+  assert.equal(top.su, "8/15");
+  assert.equal(week6Top25Pack.games.length, 15);
+  // Late stragglers are in the ledger with ESPN finals.
+  const bois = week6TapePack.games.find((g) => g.home_slug === "fresno-state" && g.away_slug === "boise-state");
+  assert.equal(bois?.score_away, 38);
+  assert.equal(bois?.score_home, 31);
+  const asu = week6TapePack.games.find((g) => g.home_slug === "arizona-state" && g.away_slug === "hawaii");
+  assert.equal(asu?.score_home, 30);
+  assert.equal(asu?.score_away, 12);
+  const home = readFileSync(join(root, "src/routes/index.tsx"), "utf8");
+  assert.match(home, /weekLabel="Week 6 tape"/);
+  assert.doesNotMatch(home, /The board is posted/);
+  assert.doesNotMatch(JSON.stringify(week6TapePack), /win_title/);
 });

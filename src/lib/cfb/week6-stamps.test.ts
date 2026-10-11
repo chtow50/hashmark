@@ -113,8 +113,8 @@ describe("Week 6 FBS–FBS Research kick/TV/Vegas stamp", () => {
     assert.equal(WEEK6_FEATURED.homeSlug, "byu");
     assert.equal(WEEK6_FEATURED.awaySlug, "iowa-state");
     assert.equal(WEEK5_FEATURED.homeSlug, "virginia-tech");
-    assert.equal(BOARD_WEEK, 6);
-    assert.equal(FEATURED_SLATE_WEEK, 6);
+    assert.equal(BOARD_WEEK, 7);
+    assert.equal(FEATURED_SLATE_WEEK, 7);
   });
 
   it("stamps every sourced field from vegas_details, and leaves HOLD blanks null", () => {
@@ -374,8 +374,8 @@ describe("Week 6 Oct 5 Vegas CLEAR refresh", () => {
     }
     assert.equal(WEEK6_FEATURED.homeSlug, "byu");
     assert.equal(WEEK6_FEATURED.awaySlug, "iowa-state");
-    assert.equal(BOARD_WEEK, 6);
-    assert.equal(FEATURED_SLATE_WEEK, 6);
+    assert.equal(BOARD_WEEK, 7);
+    assert.equal(FEATURED_SLATE_WEEK, 7);
   });
 
   it("maps vegas_details onto the home-favored board spread for every CLEAR+HOLD update", () => {
@@ -918,6 +918,37 @@ describe("Week 6 Saturday FINALs (0055, 42 FBS–FBS cards)", () => {
   });
 
   it("keeps 0043/0048 kick + Vegas on all stamped cards in the stamp gate", () => {
+    const sqlByEspn = parseSqlStampsForWeek(readMigrationsSql(root), 6);
+    for (const [espn] of expected) {
+      const row = sqlByEspn.get(espn);
+      assert.ok(row, `missing stamp-gate row for ${espn}`);
+      assert.equal(row.hasKick, true, `${espn} kick`);
+    }
+  });
+});
+
+describe("Week 6 late Saturday FINALs (0056, BOIS@FRES + HAW@ASU)", () => {
+  const lateSql = readFileSync(join(root, "migrations/0056_week6_late_finals.sql"), "utf8");
+  const expected = [
+    ["401856808", "arizona-state", "hawaii", 30, 12, "Hawaiʻi @ Arizona State — Arizona State 30, Hawaiʻi 12"],
+    ["401860901", "fresno-state", "boise-state", 31, 38, "Boise State @ Fresno State — Boise State 38, Fresno State 31 (road win)"],
+  ] as const;
+
+  it("stamps scores+status only, with the exact home/away orientation", () => {
+    assert.equal((lateSql.match(/update games/g) ?? []).length, 2);
+    assert.equal((lateSql.match(/g\.week = 6/g) ?? []).length, 2);
+    for (const [espn, hSlug, aSlug, hs, as, label] of expected) {
+      assert.ok(lateSql.includes(`-- ${label}`), label);
+      assert.ok(lateSql.includes(`home_score = ${hs},\n    away_score = ${as}\n`), `${espn} scores`);
+      assert.ok(lateSql.includes(`and h.slug = '${hSlug}' and a.slug = '${aSlug}';`), `${espn} orientation`);
+      assert.match(lateSql, new RegExp(`Source event ${espn}`));
+    }
+    assert.doesNotMatch(lateSql, /kickoff_at|vegas_spread|vegas_total|\btv\s*=|hx_rating|win_title|make_field/);
+    const header = lateSql.split(/update games/i)[0] ?? "";
+    assert.doesNotMatch(header, /\b401\d{6,}\b/);
+  });
+
+  it("keeps 0043/0048 kick + Vegas on both cards in the stamp gate", () => {
     const sqlByEspn = parseSqlStampsForWeek(readMigrationsSql(root), 6);
     for (const [espn] of expected) {
       const row = sqlByEspn.get(espn);
