@@ -393,8 +393,8 @@ describe("Week 1 FCS backfill (fcs_backfill_week1_all_finals_clear_2026-10-09)",
       'finalHome("oregon", 3, "2026-09-18", "Portland State", 84, 0)',
     ]);
     assert.equal(fcsStubsForWeek(2).length, payload.games.length);
-    // 87 after #84, + 36 records-audit finals (TTU is replace-not-add).
-    assert.equal(FCS_STUB_GAMES.length, 123);
+    // 87 after #84, + 36 records-audit finals (TTU is replace-not-add), + 2 Week 6 FINALs.
+    assert.equal(FCS_STUB_GAMES.length, 125);
     // Buffalo Week 4 (Robert Morris) and Jacksonville State Week 0 (NDSU) landed in the records audit.
     assert.deepEqual(fcsStubsForTeam("buffalo").map((s) => s.week), [1, 4]);
     assert.deepEqual(fcsStubsForTeam("jacksonville-state").map((s) => s.week), [0, 1]);
@@ -451,7 +451,7 @@ describe("Records audit vs ESPN (records_audit_vs_espn_2026-10-09)", () => {
     0: block("const WEEK0_FCS_STUBS", "const WEEK1_FCS_STUBS"),
     3: block("const WEEK3_FCS_STUBS", "const WEEK4_FCS_STUBS"),
     4: block("const WEEK4_FCS_STUBS", "const WEEK5_FCS_STUBS"),
-    5: block("const WEEK5_FCS_STUBS", "export const FCS_STUB_GAMES"),
+    5: block("const WEEK5_FCS_STUBS", "const WEEK6_FCS_STUBS"),
   };
 
   it("spec is 36 CLEAR / 0 HOLD gap games + TTU fix, counts W0 2 / W3 16 / W4 14 / W5 4", () => {
@@ -646,5 +646,24 @@ describe("scheduled() fixture (unused in data since #84)", () => {
     assert.equal(buildRemainingSchedule("ohio-state", [], [fin]).length, 0);
     // No live data uses scheduled(): every current stub outside Week 2 JSON is FINAL.
     assert.equal(FCS_STUB_GAMES.filter((x) => x.status === "scheduled").length, 0);
+  });
+});
+
+describe("Week 6 FCS FINALs (BGSU/Sacramento State, UNLV/North Dakota State)", () => {
+  it("adds both as home FINALs with ESPN scores", () => {
+    const w6 = fcsStubsForWeek(6);
+    assert.equal(w6.length, 2);
+    const bg = fcsStubsForTeam("bowling-green").find((s) => s.week === 6);
+    assert.ok(bg);
+    assert.equal(bg.opponentLabel, "Sacramento State");
+    assert.equal(bg.home, true);
+    assert.equal(bg.homeScore, 38);
+    assert.equal(bg.awayScore, 10);
+    const unlv = fcsStubsForTeam("unlv").find((s) => s.week === 6);
+    assert.ok(unlv);
+    assert.equal(unlv.opponentLabel, "North Dakota State");
+    assert.equal(unlv.home, true);
+    assert.equal(unlv.homeScore, 13);
+    assert.equal(unlv.awayScore, 7);
   });
 });
