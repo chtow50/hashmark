@@ -74,3 +74,25 @@ describe("Week 7 FBS–FBS kick / TV / Vegas (0057)", () => {
     assert.match(sql, /kickoff_at = timestamptz '2026-10-17 14:30:00-05'/);
   });
 });
+
+describe("Week 7 Tuesday FINALs (0058, DEL@MTSU + FIU@JXST)", () => {
+  const tueSql = readFileSync(join(root, "migrations/0058_week7_tue_finals.sql"), "utf8");
+  const expected = [
+    ["401871067", "middle-tennessee", "delaware", 33, 30, "Delaware @ Middle Tennessee — Middle Tennessee 33, Delaware 30"],
+    ["401871053", "jacksonville-state", "fiu", 27, 24, "Florida International @ Jacksonville State — Jacksonville State 27, FIU 24"],
+  ] as const;
+
+  it("stamps scores+status only, with the exact home/away orientation", () => {
+    assert.equal((tueSql.match(/update games/g) ?? []).length, 2);
+    assert.equal((tueSql.match(/g\.week = 7/g) ?? []).length, 2);
+    for (const [espn, hSlug, aSlug, hs, as, label] of expected) {
+      assert.ok(tueSql.includes(`-- ${label}`), label);
+      assert.ok(tueSql.includes(`home_score = ${hs},\n    away_score = ${as}\n`), `${espn} scores`);
+      assert.ok(tueSql.includes(`and h.slug = '${hSlug}' and a.slug = '${aSlug}';`), `${espn} orientation`);
+      assert.match(tueSql, new RegExp(`Source event ${espn}`));
+    }
+    assert.doesNotMatch(tueSql, /kickoff_at|vegas_spread|vegas_total|\btv\s*=|hx_rating|win_title|make_field/);
+    const header = tueSql.split(/update games/i)[0] ?? "";
+    assert.doesNotMatch(header, /\b401\d{6,}\b/);
+  });
+});
