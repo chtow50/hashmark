@@ -96,3 +96,25 @@ describe("Week 7 Tuesday FINALs (0058, DEL@MTSU + FIU@JXST)", () => {
     assert.doesNotMatch(header, /\b401\d{6,}\b/);
   });
 });
+
+describe("Week 7 Wednesday FINALs (0059, KENN@MOST + WKU@SHSU)", () => {
+  const wedSql = readFileSync(join(root, "migrations/0059_week7_wed_finals.sql"), "utf8");
+  const expected = [
+    ["401871054", "missouri-state", "kennesaw-state", 24, 21, "Kennesaw State @ Missouri State — Missouri State 24, Kennesaw State 21"],
+    ["401871068", "sam-houston", "western-kentucky", 3, 16, "Western Kentucky @ Sam Houston — Western Kentucky 16, Sam Houston 3"],
+  ] as const;
+
+  it("stamps scores+status only, with the exact home/away orientation", () => {
+    assert.equal((wedSql.match(/update games/g) ?? []).length, 2);
+    assert.equal((wedSql.match(/g\.week = 7/g) ?? []).length, 2);
+    for (const [espn, hSlug, aSlug, hs, as, label] of expected) {
+      assert.ok(wedSql.includes(`-- ${label}`), label);
+      assert.ok(wedSql.includes(`home_score = ${hs},\n    away_score = ${as}\n`), `${espn} scores`);
+      assert.ok(wedSql.includes(`and h.slug = '${hSlug}' and a.slug = '${aSlug}';`), `${espn} orientation`);
+      assert.match(wedSql, new RegExp(`Source event ${espn}`));
+    }
+    assert.doesNotMatch(wedSql, /kickoff_at|vegas_spread|vegas_total|\btv\s*=|hx_rating|win_title|make_field/);
+    const header = wedSql.split(/update games/i)[0] ?? "";
+    assert.doesNotMatch(header, /\b401\d{6,}\b/);
+  });
+});
