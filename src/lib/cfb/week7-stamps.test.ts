@@ -118,3 +118,26 @@ describe("Week 7 Wednesday FINALs (0059, KENN@MOST + WKU@SHSU)", () => {
     assert.doesNotMatch(header, /\b401\d{6,}\b/);
   });
 });
+
+describe("Week 7 Thursday FINALs (0060, ECU@UAB + GASO@ODU + CSU@TXST)", () => {
+  const thuSql = readFileSync(join(root, "migrations/0060_week7_thu_finals.sql"), "utf8");
+  const expected = [
+    ["401862800", "uab", "east-carolina", 30, 17, "East Carolina @ UAB — UAB 30, East Carolina 17 (OT)"],
+    ["401869950", "old-dominion", "georgia-southern", 15, 23, "Georgia Southern @ Old Dominion — Georgia Southern 23, Old Dominion 15 (road win)"],
+    ["401860923", "texas-state", "colorado-state", 66, 27, "Colorado State @ Texas State — Texas State 66, Colorado State 27"],
+  ] as const;
+
+  it("stamps scores+status only, with the exact home/away orientation", () => {
+    assert.equal((thuSql.match(/update games/g) ?? []).length, 3);
+    assert.equal((thuSql.match(/g\.week = 7/g) ?? []).length, 3);
+    for (const [espn, hSlug, aSlug, hs, as, label] of expected) {
+      assert.ok(thuSql.includes(`-- ${label}`), label);
+      assert.ok(thuSql.includes(`home_score = ${hs},\n    away_score = ${as}\n`), `${espn} scores`);
+      assert.ok(thuSql.includes(`and h.slug = '${hSlug}' and a.slug = '${aSlug}';`), `${espn} orientation`);
+      assert.match(thuSql, new RegExp(`Source event ${espn}`));
+    }
+    assert.doesNotMatch(thuSql, /kickoff_at|vegas_spread|vegas_total|\btv\s*=|hx_rating|win_title|make_field/);
+    const header = thuSql.split(/update games/i)[0] ?? "";
+    assert.doesNotMatch(header, /\b401\d{6,}\b/);
+  });
+});
