@@ -141,3 +141,26 @@ describe("Week 7 Thursday FINALs (0060, ECU@UAB + GASO@ODU + CSU@TXST)", () => {
     assert.doesNotMatch(header, /\b401\d{6,}\b/);
   });
 });
+
+describe("Week 7 Friday FINALs (0061, MEM@TULN + WASH@PUR + APP@CCU)", () => {
+  const friSql = readFileSync(join(root, "migrations/0061_week7_fri_finals.sql"), "utf8");
+  const expected = [
+    ["401862801", "tulane", "memphis", 31, 17, "Memphis @ Tulane — Tulane 31, Memphis 17"],
+    ["401858493", "purdue", "washington", 26, 38, "Washington @ Purdue — Washington 38, Purdue 26 (road win)"],
+    ["401869844", "coastal-carolina", "app-state", 32, 35, "App State @ Coastal Carolina — App State 35, Coastal Carolina 32 (road win)"],
+  ] as const;
+
+  it("stamps scores+status only, with the exact home/away orientation", () => {
+    assert.equal((friSql.match(/update games/g) ?? []).length, 3);
+    assert.equal((friSql.match(/g\.week = 7/g) ?? []).length, 3);
+    for (const [espn, hSlug, aSlug, hs, as, label] of expected) {
+      assert.ok(friSql.includes(`-- ${label}`), label);
+      assert.ok(friSql.includes(`home_score = ${hs},\n    away_score = ${as}\n`), `${espn} scores`);
+      assert.ok(friSql.includes(`and h.slug = '${hSlug}' and a.slug = '${aSlug}';`), `${espn} orientation`);
+      assert.match(friSql, new RegExp(`Source event ${espn}`));
+    }
+    assert.doesNotMatch(friSql, /kickoff_at|vegas_spread|vegas_total|\btv\s*=|hx_rating|win_title|make_field/);
+    const header = friSql.split(/update games/i)[0] ?? "";
+    assert.doesNotMatch(header, /\b401\d{6,}\b/);
+  });
+});
