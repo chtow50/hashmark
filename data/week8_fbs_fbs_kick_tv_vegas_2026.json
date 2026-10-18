@@ -1,0 +1,1844 @@
+{
+ "meta": {
+  "title": "Week 8 2026 FBS–FBS kick / TV / Vegas (Sunday Board + Tape ship)",
+  "week": 8,
+  "as_of": "2026-10-18 10:30 CT",
+  "sources": [
+   "https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?week=8&groups=80&dates=2026&limit=300 (kick, TV, DraftKings odds)",
+   "https://www.cbssports.com/college-football/odds/ (kick ET cross-check, independent odds listing)",
+   "https://clemsontigers.com/sports/football/schedule (Virginia Tech @ Clemson 7:00 PM EDT, ESPN)",
+   "https://arizonawildcats.com/news/2026/10/18/football-game-time-and-tv-coverage-announced-for-arizona-vs-iowa-state (4:30 p.m. MST, ESPN2)",
+   "https://uhcougars.com/sports/football/schedule (Houston @ Utah: TBA)"
+  ],
+  "policy": "Kick = ESPN America/Chicago civil time when CBS Sports agrees (ET−1h) or the home school's official site confirms it. TV = ESPN broadcast. Vegas only when ESPN DraftKings spread AND total equal the CBS Sports listing on both sides exactly; otherwise blank. No invented kick, TV, or Vegas.",
+  "n_games": 54,
+  "n_with_vegas": 7,
+  "n_blank_vegas": 47,
+  "n_blank_tv": 7,
+  "n_tbd_kick": 6,
+  "excluded_fcs": [
+   "401866447 Sacramento State @ Ball State",
+   "401864527 North Dakota State @ New Mexico"
+  ]
+ },
+ "games": [
+  {
+   "espn_event_id": "401871055",
+   "matchup": "Middle Tennessee @ Florida International",
+   "away_short": "MTSU",
+   "home_short": "FIU",
+   "away": "Middle Tennessee",
+   "home": "Florida International",
+   "home_slug": "fiu",
+   "away_slug": "middle-tennessee",
+   "kick_ct": "2026-10-20 18:00",
+   "tv": "CBSSN",
+   "vegas_details": null,
+   "vegas_spread": null,
+   "over_under": null,
+   "board_vegas_spread": null,
+   "espn_draftkings": "FIU -10.5",
+   "espn_ou": 45.5,
+   "cbs_lines": [
+    [
+     10.5
+    ],
+    [
+     -9.5
+    ],
+    [
+     45.5
+    ],
+    [
+     45.5
+    ]
+   ],
+   "kick_source": "ESPN = CBS Sports (ET−1h)",
+   "clear_or_hold": "HOLD",
+   "hold_reasons": [
+    "vegas: ESPN DraftKings and CBS Sports do not match exactly (or no line)"
+   ],
+   "neutral": false,
+   "venue": "Pitbull Stadium",
+   "db_location": "Pitbull Stadium"
+  },
+  {
+   "espn_event_id": "401871069",
+   "matchup": "Missouri State @ Delaware",
+   "away_short": "MOST",
+   "home_short": "DEL",
+   "away": "Missouri State",
+   "home": "Delaware",
+   "home_slug": "delaware",
+   "away_slug": "missouri-state",
+   "kick_ct": "2026-10-20 18:00",
+   "tv": "ESPNU",
+   "vegas_details": null,
+   "vegas_spread": null,
+   "over_under": null,
+   "board_vegas_spread": null,
+   "espn_draftkings": "DEL -3",
+   "espn_ou": 52.5,
+   "cbs_lines": [
+    [
+     3.5
+    ],
+    [
+     -3.0
+    ],
+    [
+     51.5
+    ],
+    [
+     52.5
+    ]
+   ],
+   "kick_source": "ESPN = CBS Sports (ET−1h)",
+   "clear_or_hold": "HOLD",
+   "hold_reasons": [
+    "vegas: ESPN DraftKings and CBS Sports do not match exactly (or no line)"
+   ],
+   "neutral": false,
+   "venue": "Delaware Stadium",
+   "db_location": "Delaware Stadium"
+  },
+  {
+   "espn_event_id": "401871092",
+   "matchup": "South Alabama @ Marshall",
+   "away_short": "USA",
+   "home_short": "MRSH",
+   "away": "South Alabama",
+   "home": "Marshall",
+   "home_slug": "marshall",
+   "away_slug": "south-alabama",
+   "kick_ct": "2026-10-20 18:30",
+   "tv": "ESPN2",
+   "vegas_details": null,
+   "vegas_spread": null,
+   "over_under": null,
+   "board_vegas_spread": null,
+   "espn_draftkings": "USA -3.5",
+   "espn_ou": 62.5,
+   "cbs_lines": [
+    [
+     -2.5
+    ],
+    [
+     3.5
+    ],
+    [
+     62.5
+    ],
+    [
+     62.5
+    ]
+   ],
+   "kick_source": "ESPN = CBS Sports (ET−1h)",
+   "clear_or_hold": "HOLD",
+   "hold_reasons": [
+    "vegas: ESPN DraftKings and CBS Sports do not match exactly (or no line)"
+   ],
+   "neutral": false,
+   "venue": "Joan C. Edwards Stadium",
+   "db_location": "Joan C. Edwards Stadium"
+  },
+  {
+   "espn_event_id": "401871070",
+   "matchup": "New Mexico State @ Sam Houston",
+   "away_short": "NMSU",
+   "home_short": "SHSU",
+   "away": "New Mexico State",
+   "home": "Sam Houston",
+   "home_slug": "sam-houston",
+   "away_slug": "new-mexico-state",
+   "kick_ct": "2026-10-21 19:00",
+   "tv": "ESPN2",
+   "vegas_details": null,
+   "vegas_spread": null,
+   "over_under": null,
+   "board_vegas_spread": null,
+   "espn_draftkings": "NMSU -2.5",
+   "espn_ou": 46.5,
+   "cbs_lines": [
+    [
+     -2.5
+    ],
+    [
+     2.5
+    ],
+    [
+     45.5
+    ],
+    [
+     46.5
+    ]
+   ],
+   "kick_source": "ESPN = CBS Sports (ET−1h)",
+   "clear_or_hold": "HOLD",
+   "hold_reasons": [
+    "vegas: ESPN DraftKings and CBS Sports do not match exactly (or no line)"
+   ],
+   "neutral": false,
+   "venue": "Elliott T. Bowers Stadium",
+   "db_location": "Elliott T. Bowers Stadium"
+  },
+  {
+   "espn_event_id": "401869845",
+   "matchup": "James Madison @ App State",
+   "away_short": "JMU",
+   "home_short": "APP",
+   "away": "James Madison",
+   "home": "App State",
+   "home_slug": "app-state",
+   "away_slug": "james-madison",
+   "kick_ct": "2026-10-22 18:00",
+   "tv": "ESPNU",
+   "vegas_details": null,
+   "vegas_spread": null,
+   "over_under": null,
+   "board_vegas_spread": null,
+   "espn_draftkings": "JMU -10.5",
+   "espn_ou": 57.5,
+   "cbs_lines": [
+    [
+     -9.5
+    ],
+    [
+     10.5
+    ],
+    [
+     56.5
+    ],
+    [
+     57.5
+    ]
+   ],
+   "kick_source": "ESPN = CBS Sports (ET−1h)",
+   "clear_or_hold": "HOLD",
+   "hold_reasons": [
+    "vegas: ESPN DraftKings and CBS Sports do not match exactly (or no line)"
+   ],
+   "neutral": false,
+   "venue": "Kidd Brewer Stadium",
+   "db_location": "Kidd Brewer Stadium"
+  },
+  {
+   "espn_event_id": "401871056",
+   "matchup": "Liberty @ Kennesaw State",
+   "away_short": "LIB",
+   "home_short": "KENN",
+   "away": "Liberty",
+   "home": "Kennesaw State",
+   "home_slug": "kennesaw-state",
+   "away_slug": "liberty",
+   "kick_ct": "2026-10-22 18:00",
+   "tv": "CBSSN",
+   "vegas_details": null,
+   "vegas_spread": null,
+   "over_under": null,
+   "board_vegas_spread": null,
+   "espn_draftkings": "LIB -10.5",
+   "espn_ou": 47.5,
+   "cbs_lines": [
+    [
+     -10.5
+    ],
+    [
+     10.5
+    ],
+    [
+     47.5
+    ],
+    [
+     48.5
+    ]
+   ],
+   "kick_source": "ESPN = CBS Sports (ET−1h)",
+   "clear_or_hold": "HOLD",
+   "hold_reasons": [
+    "vegas: ESPN DraftKings and CBS Sports do not match exactly (or no line)"
+   ],
+   "neutral": false,
+   "venue": "Walens Family Field at Fifth Third Stadium",
+   "db_location": "Fifth Third Stadium"
+  },
+  {
+   "espn_event_id": "401862807",
+   "matchup": "East Carolina @ Memphis",
+   "away_short": "ECU",
+   "home_short": "MEM",
+   "away": "East Carolina",
+   "home": "Memphis",
+   "home_slug": "memphis",
+   "away_slug": "east-carolina",
+   "kick_ct": "2026-10-22 18:30",
+   "tv": "ESPN2",
+   "vegas_details": "MEM -9.5",
+   "vegas_spread": -9.5,
+   "over_under": 53.5,
+   "board_vegas_spread": 9.5,
+   "espn_draftkings": "MEM -9.5",
+   "espn_ou": 53.5,
+   "cbs_lines": [
+    [
+     9.5
+    ],
+    [
+     -9.5
+    ],
+    [
+     53.5
+    ],
+    [
+     53.5
+    ]
+   ],
+   "kick_source": "ESPN = CBS Sports (ET−1h)",
+   "clear_or_hold": "CLEAR",
+   "hold_reasons": [],
+   "neutral": false,
+   "venue": "Simmons Bank Liberty Stadium",
+   "db_location": "Simmons Bank Liberty Stadium"
+  },
+  {
+   "espn_event_id": "401858271",
+   "matchup": "Duke @ Virginia",
+   "away_short": "DUKE",
+   "home_short": "UVA",
+   "away": "Duke",
+   "home": "Virginia",
+   "home_slug": "virginia",
+   "away_slug": "duke",
+   "kick_ct": "2026-10-23 18:00",
+   "tv": "ESPN",
+   "vegas_details": null,
+   "vegas_spread": null,
+   "over_under": null,
+   "board_vegas_spread": null,
+   "espn_draftkings": "UVA -2.5",
+   "espn_ou": 47.5,
+   "cbs_lines": [
+    [
+     2.5
+    ],
+    [
+     -2.5
+    ],
+    [
+     46.5
+    ],
+    [
+     47.5
+    ]
+   ],
+   "kick_source": "ESPN = CBS Sports (ET−1h)",
+   "clear_or_hold": "HOLD",
+   "hold_reasons": [
+    "vegas: ESPN DraftKings and CBS Sports do not match exactly (or no line)"
+   ],
+   "neutral": false,
+   "venue": "Scott Stadium",
+   "db_location": "Scott Stadium"
+  },
+  {
+   "espn_event_id": "401861965",
+   "matchup": "Massachusetts @ UConn",
+   "away_short": "MASS",
+   "home_short": "CONN",
+   "away": "Massachusetts",
+   "home": "UConn",
+   "home_slug": "uconn",
+   "away_slug": "massachusetts",
+   "kick_ct": "2026-10-23 18:00",
+   "tv": "CBSSN",
+   "vegas_details": "CONN -16.5",
+   "vegas_spread": -16.5,
+   "over_under": 47.5,
+   "board_vegas_spread": 16.5,
+   "espn_draftkings": "CONN -16.5",
+   "espn_ou": 47.5,
+   "cbs_lines": [
+    [
+     16.5
+    ],
+    [
+     -16.5
+    ],
+    [
+     47.5
+    ],
+    [
+     47.5
+    ]
+   ],
+   "kick_source": "ESPN = CBS Sports (ET−1h)",
+   "clear_or_hold": "CLEAR",
+   "hold_reasons": [],
+   "neutral": false,
+   "venue": "Pratt & Whitney Stadium",
+   "db_location": "Pratt & Whitney Stadium"
+  },
+  {
+   "espn_event_id": "401862808",
+   "matchup": "Army @ Tulsa",
+   "away_short": "ARMY",
+   "home_short": "TLSA",
+   "away": "Army",
+   "home": "Tulsa",
+   "home_slug": "tulsa",
+   "away_slug": "army",
+   "kick_ct": "2026-10-23 19:30",
+   "tv": "ESPN2",
+   "vegas_details": null,
+   "vegas_spread": null,
+   "over_under": null,
+   "board_vegas_spread": null,
+   "espn_draftkings": "TLSA -1.5",
+   "espn_ou": 52.5,
+   "cbs_lines": [
+    [
+     1.5
+    ],
+    [
+     -1.5
+    ],
+    [
+     52.5
+    ],
+    [
+     54.5
+    ]
+   ],
+   "kick_source": "ESPN = CBS Sports (ET−1h)",
+   "clear_or_hold": "HOLD",
+   "hold_reasons": [
+    "vegas: ESPN DraftKings and CBS Sports do not match exactly (or no line)"
+   ],
+   "neutral": false,
+   "venue": "H. A. Chapman Stadium",
+   "db_location": "Chapman Stadium"
+  },
+  {
+   "espn_event_id": "401864525",
+   "matchup": "Air Force @ Wyoming",
+   "away_short": "AFA",
+   "home_short": "WYO",
+   "away": "Air Force",
+   "home": "Wyoming",
+   "home_slug": "wyoming",
+   "away_slug": "air-force",
+   "kick_ct": "2026-10-23 20:00",
+   "tv": "CW",
+   "vegas_details": null,
+   "vegas_spread": null,
+   "over_under": null,
+   "board_vegas_spread": null,
+   "espn_draftkings": "AF -7",
+   "espn_ou": 43.5,
+   "cbs_lines": [
+    [
+     -6.5
+    ],
+    [
+     7.0
+    ],
+    [
+     43.5
+    ],
+    [
+     44.5
+    ]
+   ],
+   "kick_source": "ESPN = CBS Sports (ET−1h)",
+   "clear_or_hold": "HOLD",
+   "hold_reasons": [
+    "vegas: ESPN DraftKings and CBS Sports do not match exactly (or no line)"
+   ],
+   "neutral": false,
+   "venue": "War Memorial Stadium",
+   "db_location": "War Memorial Stadium"
+  },
+  {
+   "espn_event_id": "401858272",
+   "matchup": "NC State @ Stanford",
+   "away_short": "NCSU",
+   "home_short": "STAN",
+   "away": "NC State",
+   "home": "Stanford",
+   "home_slug": "stanford",
+   "away_slug": "nc-state",
+   "kick_ct": "2026-10-23 21:30",
+   "tv": "ESPN",
+   "vegas_details": null,
+   "vegas_spread": null,
+   "over_under": null,
+   "board_vegas_spread": null,
+   "espn_draftkings": "NCSU -7.5",
+   "espn_ou": 55.5,
+   "cbs_lines": [
+    [
+     -7.5
+    ],
+    [
+     7.5
+    ],
+    [
+     55.5
+    ],
+    [
+     56.5
+    ]
+   ],
+   "kick_source": "ESPN = CBS Sports (ET−1h)",
+   "clear_or_hold": "HOLD",
+   "hold_reasons": [
+    "vegas: ESPN DraftKings and CBS Sports do not match exactly (or no line)"
+   ],
+   "neutral": false,
+   "venue": "Stanford Stadium",
+   "db_location": "Stanford Stadium"
+  },
+  {
+   "espn_event_id": "401856728",
+   "matchup": "LSU @ Auburn",
+   "away_short": "LSU",
+   "home_short": "AUB",
+   "away": "LSU",
+   "home": "Auburn",
+   "home_slug": "auburn",
+   "away_slug": "lsu",
+   "kick_ct": "2026-10-24 11:00",
+   "tv": "ABC",
+   "vegas_details": null,
+   "vegas_spread": null,
+   "over_under": null,
+   "board_vegas_spread": null,
+   "espn_draftkings": "LSU -6.5",
+   "espn_ou": 50.5,
+   "cbs_lines": [
+    [
+     -6.5
+    ],
+    [
+     6.5
+    ],
+    [
+     50.5
+    ],
+    [
+     52.5
+    ]
+   ],
+   "kick_source": "ESPN = CBS Sports (ET−1h)",
+   "clear_or_hold": "HOLD",
+   "hold_reasons": [
+    "vegas: ESPN DraftKings and CBS Sports do not match exactly (or no line)"
+   ],
+   "neutral": false,
+   "venue": "Jordan-Hare Stadium",
+   "db_location": "Jordan-Hare Stadium"
+  },
+  {
+   "espn_event_id": "401856841",
+   "matchup": "West Virginia @ TCU",
+   "away_short": "WVU",
+   "home_short": "TCU",
+   "away": "West Virginia",
+   "home": "TCU",
+   "home_slug": "tcu",
+   "away_slug": "west-virginia",
+   "kick_ct": "2026-10-24 11:00",
+   "tv": "ESPN2",
+   "vegas_details": null,
+   "vegas_spread": null,
+   "over_under": null,
+   "board_vegas_spread": null,
+   "espn_draftkings": null,
+   "espn_ou": null,
+   "cbs_lines": null,
+   "kick_source": "ESPN = CBS Sports (ET−1h)",
+   "clear_or_hold": "HOLD",
+   "hold_reasons": [
+    "vegas: ESPN DraftKings and CBS Sports do not match exactly (or no line)"
+   ],
+   "neutral": false,
+   "venue": "Amon G. Carter Stadium",
+   "db_location": "Amon G. Carter Stadium"
+  },
+  {
+   "espn_event_id": "401858270",
+   "matchup": "California @ SMU",
+   "away_short": "CAL",
+   "home_short": "SMU",
+   "away": "California",
+   "home": "SMU",
+   "home_slug": "smu",
+   "away_slug": "california",
+   "kick_ct": "2026-10-24 11:00",
+   "tv": "CW",
+   "vegas_details": null,
+   "vegas_spread": null,
+   "over_under": null,
+   "board_vegas_spread": null,
+   "espn_draftkings": null,
+   "espn_ou": null,
+   "cbs_lines": null,
+   "kick_source": "ESPN = CBS Sports (ET−1h)",
+   "clear_or_hold": "HOLD",
+   "hold_reasons": [
+    "vegas: ESPN DraftKings and CBS Sports do not match exactly (or no line)"
+   ],
+   "neutral": false,
+   "venue": "Gerald J. Ford Stadium",
+   "db_location": "Gerald J. Ford Stadium"
+  },
+  {
+   "espn_event_id": "401858274",
+   "matchup": "Pittsburgh @ Miami",
+   "away_short": "PITT",
+   "home_short": "MIA",
+   "away": "Pittsburgh",
+   "home": "Miami",
+   "home_slug": "miami",
+   "away_slug": "pittsburgh",
+   "kick_ct": "2026-10-24 11:00",
+   "tv": "ESPN",
+   "vegas_details": null,
+   "vegas_spread": null,
+   "over_under": null,
+   "board_vegas_spread": null,
+   "espn_draftkings": "MIA -23.5",
+   "espn_ou": 51.5,
+   "cbs_lines": [
+    [
+     23.5
+    ],
+    [
+     -22.5
+    ],
+    [
+     51.5
+    ],
+    [
+     52.5
+    ]
+   ],
+   "kick_source": "ESPN = CBS Sports (ET−1h)",
+   "clear_or_hold": "HOLD",
+   "hold_reasons": [
+    "vegas: ESPN DraftKings and CBS Sports do not match exactly (or no line)"
+   ],
+   "neutral": false,
+   "venue": "Hard Rock Stadium",
+   "db_location": "Hard Rock Stadium"
+  },
+  {
+   "espn_event_id": "401858496",
+   "matchup": "Indiana @ Michigan",
+   "away_short": "IU",
+   "home_short": "MICH",
+   "away": "Indiana",
+   "home": "Michigan",
+   "home_slug": "michigan",
+   "away_slug": "indiana",
+   "kick_ct": "2026-10-24 11:00",
+   "tv": "FOX",
+   "vegas_details": null,
+   "vegas_spread": null,
+   "over_under": null,
+   "board_vegas_spread": null,
+   "espn_draftkings": "IU -8.5",
+   "espn_ou": 42.5,
+   "cbs_lines": [
+    [
+     -7.5
+    ],
+    [
+     8.5
+    ],
+    [
+     41.5
+    ],
+    [
+     42.5
+    ]
+   ],
+   "kick_source": "ESPN = CBS Sports (ET−1h)",
+   "clear_or_hold": "HOLD",
+   "hold_reasons": [
+    "vegas: ESPN DraftKings and CBS Sports do not match exactly (or no line)"
+   ],
+   "neutral": false,
+   "venue": "Michigan Stadium",
+   "db_location": "Michigan Stadium"
+  },
+  {
+   "espn_event_id": "401858498",
+   "matchup": "Rutgers @ Northwestern",
+   "away_short": "RUTG",
+   "home_short": "NU",
+   "away": "Rutgers",
+   "home": "Northwestern",
+   "home_slug": "northwestern",
+   "away_slug": "rutgers",
+   "kick_ct": "2026-10-24 11:00",
+   "tv": "Peacock",
+   "vegas_details": null,
+   "vegas_spread": null,
+   "over_under": null,
+   "board_vegas_spread": null,
+   "espn_draftkings": "NU -16.5",
+   "espn_ou": 58.5,
+   "cbs_lines": [
+    [
+     16.5
+    ],
+    [
+     -15.5
+    ],
+    [
+     57.5
+    ],
+    [
+     58.5
+    ]
+   ],
+   "kick_source": "ESPN = CBS Sports (ET−1h)",
+   "clear_or_hold": "HOLD",
+   "hold_reasons": [
+    "vegas: ESPN DraftKings and CBS Sports do not match exactly (or no line)"
+   ],
+   "neutral": false,
+   "venue": "Ryan Field",
+   "db_location": "Ryan Field"
+  },
+  {
+   "espn_event_id": "401862809",
+   "matchup": "Rice @ Florida Atlantic",
+   "away_short": "RICE",
+   "home_short": "FAU",
+   "away": "Rice",
+   "home": "Florida Atlantic",
+   "home_slug": "florida-atlantic",
+   "away_slug": "rice",
+   "kick_ct": "2026-10-24 11:00",
+   "tv": "ESPNU",
+   "vegas_details": null,
+   "vegas_spread": null,
+   "over_under": null,
+   "board_vegas_spread": null,
+   "espn_draftkings": "FAU -10.5",
+   "espn_ou": 58.5,
+   "cbs_lines": [
+    [],
+    [],
+    [],
+    []
+   ],
+   "kick_source": "ESPN = CBS Sports (ET−1h)",
+   "clear_or_hold": "HOLD",
+   "hold_reasons": [
+    "vegas: ESPN DraftKings and CBS Sports do not match exactly (or no line)"
+   ],
+   "neutral": false,
+   "venue": "Flagler Credit Union Stadium",
+   "db_location": "FAU Stadium"
+  },
+  {
+   "espn_event_id": "401866450",
+   "matchup": "Western Michigan @ Toledo",
+   "away_short": "WMU",
+   "home_short": "TOL",
+   "away": "Western Michigan",
+   "home": "Toledo",
+   "home_slug": "toledo",
+   "away_slug": "western-michigan",
+   "kick_ct": "2026-10-24 11:00",
+   "tv": "CBSSN",
+   "vegas_details": null,
+   "vegas_spread": null,
+   "over_under": null,
+   "board_vegas_spread": null,
+   "espn_draftkings": null,
+   "espn_ou": null,
+   "cbs_lines": null,
+   "kick_source": "ESPN = CBS Sports (ET−1h)",
+   "clear_or_hold": "HOLD",
+   "hold_reasons": [
+    "vegas: ESPN DraftKings and CBS Sports do not match exactly (or no line)"
+   ],
+   "neutral": false,
+   "venue": "Glass Bowl",
+   "db_location": "Glass Bowl"
+  },
+  {
+   "espn_event_id": "401866446",
+   "matchup": "Akron @ Kent State",
+   "away_short": "AKR",
+   "home_short": "KENT",
+   "away": "Akron",
+   "home": "Kent State",
+   "home_slug": "kent-state",
+   "away_slug": "akron",
+   "kick_ct": "2026-10-24 12:00",
+   "tv": "ESPN+",
+   "vegas_details": null,
+   "vegas_spread": null,
+   "over_under": null,
+   "board_vegas_spread": null,
+   "espn_draftkings": null,
+   "espn_ou": null,
+   "cbs_lines": null,
+   "kick_source": "ESPN = CBS Sports (ET−1h)",
+   "clear_or_hold": "HOLD",
+   "hold_reasons": [
+    "vegas: ESPN DraftKings and CBS Sports do not match exactly (or no line)"
+   ],
+   "neutral": false,
+   "venue": "Zoeller Field at Dix Stadium",
+   "db_location": "Dix Stadium"
+  },
+  {
+   "espn_event_id": "401866476",
+   "matchup": "Miami (OH) @ Central Michigan",
+   "away_short": "M-OH",
+   "home_short": "CMU",
+   "away": "Miami (OH)",
+   "home": "Central Michigan",
+   "home_slug": "central-michigan",
+   "away_slug": "miami-oh",
+   "kick_ct": "2026-10-24 12:00",
+   "tv": "ESPN+",
+   "vegas_details": null,
+   "vegas_spread": null,
+   "over_under": null,
+   "board_vegas_spread": null,
+   "espn_draftkings": null,
+   "espn_ou": null,
+   "cbs_lines": null,
+   "kick_source": "ESPN = CBS Sports (ET−1h)",
+   "clear_or_hold": "HOLD",
+   "hold_reasons": [
+    "vegas: ESPN DraftKings and CBS Sports do not match exactly (or no line)"
+   ],
+   "neutral": false,
+   "venue": "Kelly/Shorts Stadium",
+   "db_location": "Kelly/Shorts Stadium"
+  },
+  {
+   "espn_event_id": "401858495",
+   "matchup": "Oregon @ Illinois",
+   "away_short": "ORE",
+   "home_short": "ILL",
+   "away": "Oregon",
+   "home": "Illinois",
+   "home_slug": "illinois",
+   "away_slug": "oregon",
+   "kick_ct": "2026-10-24 14:00",
+   "tv": "BTN",
+   "vegas_details": null,
+   "vegas_spread": null,
+   "over_under": null,
+   "board_vegas_spread": null,
+   "espn_draftkings": "ORE -12.5",
+   "espn_ou": 51.5,
+   "cbs_lines": [
+    [],
+    [],
+    [],
+    []
+   ],
+   "kick_source": "ESPN = CBS Sports (ET−1h)",
+   "clear_or_hold": "HOLD",
+   "hold_reasons": [
+    "vegas: ESPN DraftKings and CBS Sports do not match exactly (or no line)"
+   ],
+   "neutral": false,
+   "venue": "Gies Memorial Stadium",
+   "db_location": "Memorial Stadium (Champaign, IL)"
+  },
+  {
+   "espn_event_id": "401856727",
+   "matchup": "Texas A&M @ Alabama",
+   "away_short": "TA&M",
+   "home_short": "ALA",
+   "away": "Texas A&M",
+   "home": "Alabama",
+   "home_slug": "alabama",
+   "away_slug": "texas-am",
+   "kick_ct": "2026-10-24 14:30",
+   "tv": "ABC",
+   "vegas_details": null,
+   "vegas_spread": null,
+   "over_under": null,
+   "board_vegas_spread": null,
+   "espn_draftkings": "ALA -15.5",
+   "espn_ou": 51.5,
+   "cbs_lines": [
+    [
+     15.5
+    ],
+    [
+     -15.5
+    ],
+    [
+     50.5
+    ],
+    [
+     51.5
+    ]
+   ],
+   "kick_source": "ESPN = CBS Sports (ET−1h)",
+   "clear_or_hold": "HOLD",
+   "hold_reasons": [
+    "vegas: ESPN DraftKings and CBS Sports do not match exactly (or no line)"
+   ],
+   "neutral": false,
+   "venue": "Bryant-Denny Stadium",
+   "db_location": "Bryant-Denny Stadium"
+  },
+  {
+   "espn_event_id": "401856730",
+   "matchup": "Oklahoma @ Mississippi State",
+   "away_short": "OU",
+   "home_short": "MSST",
+   "away": "Oklahoma",
+   "home": "Mississippi State",
+   "home_slug": "mississippi-state",
+   "away_slug": "oklahoma",
+   "kick_ct": "2026-10-24 14:30",
+   "tv": "SEC Network",
+   "vegas_details": null,
+   "vegas_spread": null,
+   "over_under": null,
+   "board_vegas_spread": null,
+   "espn_draftkings": null,
+   "espn_ou": null,
+   "cbs_lines": null,
+   "kick_source": "ESPN = CBS Sports (ET−1h)",
+   "clear_or_hold": "HOLD",
+   "hold_reasons": [
+    "vegas: ESPN DraftKings and CBS Sports do not match exactly (or no line)"
+   ],
+   "neutral": false,
+   "venue": "Davis Wade Stadium",
+   "db_location": "Davis Wade Stadium"
+  },
+  {
+   "espn_event_id": "401856731",
+   "matchup": "Tennessee @ South Carolina",
+   "away_short": "TENN",
+   "home_short": "SC",
+   "away": "Tennessee",
+   "home": "South Carolina",
+   "home_slug": "south-carolina",
+   "away_slug": "tennessee",
+   "kick_ct": "2026-10-24 14:30",
+   "tv": "ESPN",
+   "vegas_details": null,
+   "vegas_spread": null,
+   "over_under": null,
+   "board_vegas_spread": null,
+   "espn_draftkings": "TENN -2.5",
+   "espn_ou": 50.5,
+   "cbs_lines": [
+    [
+     -1.5
+    ],
+    [
+     2.5
+    ],
+    [
+     49.5
+    ],
+    [
+     50.5
+    ]
+   ],
+   "kick_source": "ESPN = CBS Sports (ET−1h)",
+   "clear_or_hold": "HOLD",
+   "hold_reasons": [
+    "vegas: ESPN DraftKings and CBS Sports do not match exactly (or no line)"
+   ],
+   "neutral": false,
+   "venue": "Williams-Brice Stadium",
+   "db_location": "Williams-Brice Stadium"
+  },
+  {
+   "espn_event_id": "401858273",
+   "matchup": "Boston College @ Georgia Tech",
+   "away_short": "BC",
+   "home_short": "GT",
+   "away": "Boston College",
+   "home": "Georgia Tech",
+   "home_slug": "georgia-tech",
+   "away_slug": "boston-college",
+   "kick_ct": "2026-10-24 14:30",
+   "tv": "ACC Network",
+   "vegas_details": null,
+   "vegas_spread": null,
+   "over_under": null,
+   "board_vegas_spread": null,
+   "espn_draftkings": null,
+   "espn_ou": null,
+   "cbs_lines": null,
+   "kick_source": "ESPN = CBS Sports (ET−1h)",
+   "clear_or_hold": "HOLD",
+   "hold_reasons": [
+    "vegas: ESPN DraftKings and CBS Sports do not match exactly (or no line)"
+   ],
+   "neutral": false,
+   "venue": "Bobby Dodd Stadium",
+   "db_location": "Bobby Dodd Stadium"
+  },
+  {
+   "espn_event_id": "401858497",
+   "matchup": "Iowa @ Minnesota",
+   "away_short": "IOWA",
+   "home_short": "MINN",
+   "away": "Iowa",
+   "home": "Minnesota",
+   "home_slug": "minnesota",
+   "away_slug": "iowa",
+   "kick_ct": "2026-10-24 14:30",
+   "tv": "FS1",
+   "vegas_details": "IOWA -5.5",
+   "vegas_spread": 5.5,
+   "over_under": 41.5,
+   "board_vegas_spread": -5.5,
+   "espn_draftkings": "IOWA -5.5",
+   "espn_ou": 41.5,
+   "cbs_lines": [
+    [
+     -5.5
+    ],
+    [
+     5.5
+    ],
+    [
+     41.5
+    ],
+    [
+     41.5
+    ]
+   ],
+   "kick_source": "ESPN = CBS Sports (ET−1h)",
+   "clear_or_hold": "CLEAR",
+   "hold_reasons": [],
+   "neutral": false,
+   "venue": "Huntington Bank Stadium",
+   "db_location": "Huntington Bank Stadium"
+  },
+  {
+   "espn_event_id": "401858499",
+   "matchup": "Michigan State @ UCLA",
+   "away_short": "MSU",
+   "home_short": "UCLA",
+   "away": "Michigan State",
+   "home": "UCLA",
+   "home_slug": "ucla",
+   "away_slug": "michigan-state",
+   "kick_ct": "2026-10-24 14:30",
+   "tv": null,
+   "vegas_details": "UCLA -13.5",
+   "vegas_spread": -13.5,
+   "over_under": 47.5,
+   "board_vegas_spread": 13.5,
+   "espn_draftkings": "UCLA -13.5",
+   "espn_ou": 47.5,
+   "cbs_lines": [
+    [
+     13.5
+    ],
+    [
+     -13.5
+    ],
+    [
+     47.5
+    ],
+    [
+     47.5
+    ]
+   ],
+   "kick_source": "ESPN = CBS Sports (ET−1h)",
+   "clear_or_hold": "HOLD",
+   "hold_reasons": [
+    "tv blank on ESPN"
+   ],
+   "neutral": false,
+   "venue": "Rose Bowl",
+   "db_location": "Rose Bowl"
+  },
+  {
+   "espn_event_id": "401862810",
+   "matchup": "North Texas @ Navy",
+   "away_short": "UNT",
+   "home_short": "NAVY",
+   "away": "North Texas",
+   "home": "Navy",
+   "home_slug": "navy",
+   "away_slug": "north-texas",
+   "kick_ct": "2026-10-24 14:30",
+   "tv": "CBSSN",
+   "vegas_details": null,
+   "vegas_spread": null,
+   "over_under": null,
+   "board_vegas_spread": null,
+   "espn_draftkings": null,
+   "espn_ou": null,
+   "cbs_lines": null,
+   "kick_source": "ESPN = CBS Sports (ET−1h)",
+   "clear_or_hold": "HOLD",
+   "hold_reasons": [
+    "vegas: ESPN DraftKings and CBS Sports do not match exactly (or no line)"
+   ],
+   "neutral": false,
+   "venue": "Navy-Marine Corps Memorial Stadium",
+   "db_location": "Navy-Marine Corps Memorial Stadium"
+  },
+  {
+   "espn_event_id": "401864526",
+   "matchup": "Hawaiʻi @ Northern Illinois",
+   "away_short": "HAW",
+   "home_short": "NIU",
+   "away": "Hawaiʻi",
+   "home": "Northern Illinois",
+   "home_slug": "northern-illinois",
+   "away_slug": "hawaii",
+   "kick_ct": "2026-10-24 14:30",
+   "tv": "MW+",
+   "vegas_details": null,
+   "vegas_spread": null,
+   "over_under": null,
+   "board_vegas_spread": null,
+   "espn_draftkings": null,
+   "espn_ou": null,
+   "cbs_lines": null,
+   "kick_source": "ESPN = CBS Sports (ET−1h)",
+   "clear_or_hold": "HOLD",
+   "hold_reasons": [
+    "vegas: ESPN DraftKings and CBS Sports do not match exactly (or no line)"
+   ],
+   "neutral": false,
+   "venue": "Huskie Stadium",
+   "db_location": "Huskie Stadium"
+  },
+  {
+   "espn_event_id": "401866448",
+   "matchup": "Bowling Green @ Buffalo",
+   "away_short": "BGSU",
+   "home_short": "BUFF",
+   "away": "Bowling Green",
+   "home": "Buffalo",
+   "home_slug": "buffalo",
+   "away_slug": "bowling-green",
+   "kick_ct": "2026-10-24 14:30",
+   "tv": "ESPN+",
+   "vegas_details": null,
+   "vegas_spread": null,
+   "over_under": null,
+   "board_vegas_spread": null,
+   "espn_draftkings": null,
+   "espn_ou": null,
+   "cbs_lines": null,
+   "kick_source": "ESPN = CBS Sports (ET−1h)",
+   "clear_or_hold": "HOLD",
+   "hold_reasons": [
+    "vegas: ESPN DraftKings and CBS Sports do not match exactly (or no line)"
+   ],
+   "neutral": false,
+   "venue": "Broadview Stadium",
+   "db_location": "UB Stadium"
+  },
+  {
+   "espn_event_id": "401866449",
+   "matchup": "Eastern Michigan @ Ohio",
+   "away_short": "EMU",
+   "home_short": "OHIO",
+   "away": "Eastern Michigan",
+   "home": "Ohio",
+   "home_slug": "ohio",
+   "away_slug": "eastern-michigan",
+   "kick_ct": "2026-10-24 15:00",
+   "tv": "ESPNU",
+   "vegas_details": null,
+   "vegas_spread": null,
+   "over_under": null,
+   "board_vegas_spread": null,
+   "espn_draftkings": null,
+   "espn_ou": null,
+   "cbs_lines": null,
+   "kick_source": "ESPN = CBS Sports (ET−1h)",
+   "clear_or_hold": "HOLD",
+   "hold_reasons": [
+    "vegas: ESPN DraftKings and CBS Sports do not match exactly (or no line)"
+   ],
+   "neutral": false,
+   "venue": "Peden Stadium",
+   "db_location": "Peden Stadium"
+  },
+  {
+   "espn_event_id": "401871094",
+   "matchup": "UL Monroe @ Troy",
+   "away_short": "ULM",
+   "home_short": "TROY",
+   "away": "UL Monroe",
+   "home": "Troy",
+   "home_slug": "troy",
+   "away_slug": "ul-monroe",
+   "kick_ct": "2026-10-24 15:00",
+   "tv": "ESPN+",
+   "vegas_details": null,
+   "vegas_spread": null,
+   "over_under": null,
+   "board_vegas_spread": null,
+   "espn_draftkings": null,
+   "espn_ou": null,
+   "cbs_lines": null,
+   "kick_source": "ESPN = CBS Sports (ET−1h)",
+   "clear_or_hold": "HOLD",
+   "hold_reasons": [
+    "vegas: ESPN DraftKings and CBS Sports do not match exactly (or no line)"
+   ],
+   "neutral": false,
+   "venue": "Veterans Memorial Stadium (AL)",
+   "db_location": "Veterans Memorial Stadium (AL)"
+  },
+  {
+   "espn_event_id": "401864528",
+   "matchup": "San José State @ Nevada",
+   "away_short": "SJSU",
+   "home_short": "NEV",
+   "away": "San José State",
+   "home": "Nevada",
+   "home_slug": "nevada",
+   "away_slug": "san-jose-state",
+   "kick_ct": "2026-10-24 16:00",
+   "tv": "MW+",
+   "vegas_details": null,
+   "vegas_spread": null,
+   "over_under": null,
+   "board_vegas_spread": null,
+   "espn_draftkings": null,
+   "espn_ou": null,
+   "cbs_lines": null,
+   "kick_source": "ESPN = CBS Sports (ET−1h)",
+   "clear_or_hold": "HOLD",
+   "hold_reasons": [
+    "vegas: ESPN DraftKings and CBS Sports do not match exactly (or no line)"
+   ],
+   "neutral": false,
+   "venue": "Mackay Stadium",
+   "db_location": "Mackay Stadium"
+  },
+  {
+   "espn_event_id": "401869967",
+   "matchup": "Louisiana @ Southern Miss",
+   "away_short": "UL",
+   "home_short": "USM",
+   "away": "Louisiana",
+   "home": "Southern Miss",
+   "home_slug": "southern-miss",
+   "away_slug": "louisiana",
+   "kick_ct": "2026-10-24 16:00",
+   "tv": "ESPN+",
+   "vegas_details": null,
+   "vegas_spread": null,
+   "over_under": null,
+   "board_vegas_spread": null,
+   "espn_draftkings": null,
+   "espn_ou": null,
+   "cbs_lines": null,
+   "kick_source": "ESPN = CBS Sports (ET−1h)",
+   "clear_or_hold": "HOLD",
+   "hold_reasons": [
+    "vegas: ESPN DraftKings and CBS Sports do not match exactly (or no line)"
+   ],
+   "neutral": false,
+   "venue": "M. M. Roberts Stadium",
+   "db_location": "M. M. Roberts Stadium"
+  },
+  {
+   "espn_event_id": "401871093",
+   "matchup": "Old Dominion @ Louisiana Tech",
+   "away_short": "ODU",
+   "home_short": "LT",
+   "away": "Old Dominion",
+   "home": "Louisiana Tech",
+   "home_slug": "louisiana-tech",
+   "away_slug": "old-dominion",
+   "kick_ct": "2026-10-24 16:00",
+   "tv": "ESPN+",
+   "vegas_details": null,
+   "vegas_spread": null,
+   "over_under": null,
+   "board_vegas_spread": null,
+   "espn_draftkings": null,
+   "espn_ou": null,
+   "cbs_lines": null,
+   "kick_source": "ESPN = CBS Sports (ET−1h)",
+   "clear_or_hold": "HOLD",
+   "hold_reasons": [
+    "vegas: ESPN DraftKings and CBS Sports do not match exactly (or no line)"
+   ],
+   "neutral": false,
+   "venue": "Joe Aillet Stadium",
+   "db_location": "Joe Aillet Stadium"
+  },
+  {
+   "espn_event_id": "401860907",
+   "matchup": "Boise State @ Washington State",
+   "away_short": "BOIS",
+   "home_short": "WSU",
+   "away": "Boise State",
+   "home": "Washington State",
+   "home_slug": "washington-state",
+   "away_slug": "boise-state",
+   "kick_ct": "2026-10-24 17:00",
+   "tv": "USA Net",
+   "vegas_details": null,
+   "vegas_spread": null,
+   "over_under": null,
+   "board_vegas_spread": null,
+   "espn_draftkings": null,
+   "espn_ou": null,
+   "cbs_lines": null,
+   "kick_source": "ESPN = CBS Sports (ET−1h)",
+   "clear_or_hold": "HOLD",
+   "hold_reasons": [
+    "vegas: ESPN DraftKings and CBS Sports do not match exactly (or no line)"
+   ],
+   "neutral": false,
+   "venue": "Martin Stadium",
+   "db_location": "Gesa Field"
+  },
+  {
+   "espn_event_id": "401860905",
+   "matchup": "San Diego State @ Colorado State",
+   "away_short": "SDSU",
+   "home_short": "CSU",
+   "away": "San Diego State",
+   "home": "Colorado State",
+   "home_slug": "colorado-state",
+   "away_slug": "san-diego-state",
+   "kick_ct": "2026-10-24 17:30",
+   "tv": "CW",
+   "vegas_details": null,
+   "vegas_spread": null,
+   "over_under": null,
+   "board_vegas_spread": null,
+   "espn_draftkings": null,
+   "espn_ou": null,
+   "cbs_lines": null,
+   "kick_source": "ESPN = CBS Sports (ET−1h)",
+   "clear_or_hold": "HOLD",
+   "hold_reasons": [
+    "vegas: ESPN DraftKings and CBS Sports do not match exactly (or no line)"
+   ],
+   "neutral": false,
+   "venue": "Canvas Stadium",
+   "db_location": "Canvas Stadium"
+  },
+  {
+   "espn_event_id": "401858276",
+   "matchup": "Virginia Tech @ Clemson",
+   "away_short": "VT",
+   "home_short": "CLEM",
+   "away": "Virginia Tech",
+   "home": "Clemson",
+   "home_slug": "clemson",
+   "away_slug": "virginia-tech",
+   "kick_ct": "2026-10-24 18:00",
+   "tv": "ESPN",
+   "vegas_details": "VT -1.5",
+   "vegas_spread": 1.5,
+   "over_under": 49.5,
+   "board_vegas_spread": -1.5,
+   "espn_draftkings": "VT -1.5",
+   "espn_ou": 49.5,
+   "cbs_lines": [
+    [
+     -1.5
+    ],
+    [
+     1.5
+    ],
+    [
+     49.5
+    ],
+    [
+     49.5
+    ]
+   ],
+   "kick_source": "ESPN + clemsontigers.com schedule: Sat Oct 24 7:00 PM EDT, ESPN (= ESPN 18:00 CT); CBS odds board shows 12:00pm ET",
+   "clear_or_hold": "CLEAR",
+   "hold_reasons": [],
+   "neutral": false,
+   "venue": "Memorial Stadium (Clemson, SC)",
+   "db_location": "Memorial Stadium (Clemson, SC)"
+  },
+  {
+   "espn_event_id": "401869935",
+   "matchup": "Georgia State @ Arkansas State",
+   "away_short": "GAST",
+   "home_short": "ARST",
+   "away": "Georgia State",
+   "home": "Arkansas State",
+   "home_slug": "arkansas-state",
+   "away_slug": "georgia-state",
+   "kick_ct": "2026-10-24 18:00",
+   "tv": "ESPN+",
+   "vegas_details": null,
+   "vegas_spread": null,
+   "over_under": null,
+   "board_vegas_spread": null,
+   "espn_draftkings": null,
+   "espn_ou": null,
+   "cbs_lines": null,
+   "kick_source": "ESPN = CBS Sports (ET−1h)",
+   "clear_or_hold": "HOLD",
+   "hold_reasons": [
+    "vegas: ESPN DraftKings and CBS Sports do not match exactly (or no line)"
+   ],
+   "neutral": false,
+   "venue": "Centennial Bank Stadium",
+   "db_location": "Centennial Bank Stadium"
+  },
+  {
+   "espn_event_id": "401856729",
+   "matchup": "Vanderbilt @ Kentucky",
+   "away_short": "VAN",
+   "home_short": "UK",
+   "away": "Vanderbilt",
+   "home": "Kentucky",
+   "home_slug": "kentucky",
+   "away_slug": "vanderbilt",
+   "kick_ct": "2026-10-24 18:30",
+   "tv": "SEC Network",
+   "vegas_details": "UK -11.5",
+   "vegas_spread": -11.5,
+   "over_under": 51.5,
+   "board_vegas_spread": 11.5,
+   "espn_draftkings": "UK -11.5",
+   "espn_ou": 51.5,
+   "cbs_lines": [
+    [
+     11.5
+    ],
+    [
+     -11.5
+    ],
+    [
+     51.5
+    ],
+    [
+     51.5
+    ]
+   ],
+   "kick_source": "ESPN = CBS Sports (ET−1h)",
+   "clear_or_hold": "CLEAR",
+   "hold_reasons": [],
+   "neutral": false,
+   "venue": "Kroger Field",
+   "db_location": "Kroger Field"
+  },
+  {
+   "espn_event_id": "401856732",
+   "matchup": "Ole Miss @ Texas",
+   "away_short": "MISS",
+   "home_short": "TEX",
+   "away": "Ole Miss",
+   "home": "Texas",
+   "home_slug": "texas",
+   "away_slug": "ole-miss",
+   "kick_ct": "2026-10-24 18:30",
+   "tv": "ABC",
+   "vegas_details": null,
+   "vegas_spread": null,
+   "over_under": null,
+   "board_vegas_spread": null,
+   "espn_draftkings": "TEX -3",
+   "espn_ou": 53.5,
+   "cbs_lines": [
+    [
+     3.5
+    ],
+    [
+     -3.0
+    ],
+    [
+     52.5
+    ],
+    [
+     53.5
+    ]
+   ],
+   "kick_source": "ESPN = CBS Sports (ET−1h)",
+   "clear_or_hold": "HOLD",
+   "hold_reasons": [
+    "vegas: ESPN DraftKings and CBS Sports do not match exactly (or no line)"
+   ],
+   "neutral": false,
+   "venue": "DKR-Texas Memorial Stadium",
+   "db_location": "DKR-Texas Memorial Stadium"
+  },
+  {
+   "espn_event_id": "401856838",
+   "matchup": "Iowa State @ Arizona",
+   "away_short": "ISU",
+   "home_short": "ARIZ",
+   "away": "Iowa State",
+   "home": "Arizona",
+   "home_slug": "arizona",
+   "away_slug": "iowa-state",
+   "kick_ct": "2026-10-24 18:30",
+   "tv": "ESPN2",
+   "vegas_details": "ARIZ -10",
+   "vegas_spread": -10.0,
+   "over_under": 50.5,
+   "board_vegas_spread": 10.0,
+   "espn_draftkings": "ARIZ -10",
+   "espn_ou": 50.5,
+   "cbs_lines": [
+    [
+     10.0
+    ],
+    [
+     -10.0
+    ],
+    [
+     50.5
+    ],
+    [
+     50.5
+    ]
+   ],
+   "kick_source": "ESPN + arizonawildcats.com 2026-10-18 release: Sat Oct 24 4:30 p.m. MST, ESPN2 (= ESPN 18:30 CT); CBS odds board shows 3:00pm ET",
+   "clear_or_hold": "CLEAR",
+   "hold_reasons": [],
+   "neutral": false,
+   "venue": "Casino Del Sol Stadium",
+   "db_location": "Arizona Stadium"
+  },
+  {
+   "espn_event_id": "401858275",
+   "matchup": "Syracuse @ North Carolina",
+   "away_short": "SYR",
+   "home_short": "UNC",
+   "away": "Syracuse",
+   "home": "North Carolina",
+   "home_slug": "north-carolina",
+   "away_slug": "syracuse",
+   "kick_ct": "2026-10-24 18:30",
+   "tv": "ACC Network",
+   "vegas_details": null,
+   "vegas_spread": null,
+   "over_under": null,
+   "board_vegas_spread": null,
+   "espn_draftkings": null,
+   "espn_ou": null,
+   "cbs_lines": null,
+   "kick_source": "ESPN = CBS Sports (ET−1h)",
+   "clear_or_hold": "HOLD",
+   "hold_reasons": [
+    "vegas: ESPN DraftKings and CBS Sports do not match exactly (or no line)"
+   ],
+   "neutral": false,
+   "venue": "Kenan Stadium",
+   "db_location": "Kenan Stadium"
+  },
+  {
+   "espn_event_id": "401858500",
+   "matchup": "USC @ Wisconsin",
+   "away_short": "USC",
+   "home_short": "WIS",
+   "away": "USC",
+   "home": "Wisconsin",
+   "home_slug": "wisconsin",
+   "away_slug": "usc",
+   "kick_ct": "2026-10-24 18:30",
+   "tv": "NBC",
+   "vegas_details": null,
+   "vegas_spread": null,
+   "over_under": null,
+   "board_vegas_spread": null,
+   "espn_draftkings": "USC -2.5",
+   "espn_ou": 49.5,
+   "cbs_lines": [
+    [
+     -2.5
+    ],
+    [
+     2.5
+    ],
+    [
+     48.5
+    ],
+    [
+     49.5
+    ]
+   ],
+   "kick_source": "ESPN = CBS Sports (ET−1h)",
+   "clear_or_hold": "HOLD",
+   "hold_reasons": [
+    "vegas: ESPN DraftKings and CBS Sports do not match exactly (or no line)"
+   ],
+   "neutral": false,
+   "venue": "Camp Randall Stadium",
+   "db_location": "Camp Randall Stadium"
+  },
+  {
+   "espn_event_id": "401860906",
+   "matchup": "Utah State @ Texas State",
+   "away_short": "USU",
+   "home_short": "TXST",
+   "away": "Utah State",
+   "home": "Texas State",
+   "home_slug": "texas-state",
+   "away_slug": "utah-state",
+   "kick_ct": "2026-10-24 18:30",
+   "tv": "CBSSN",
+   "vegas_details": null,
+   "vegas_spread": null,
+   "over_under": null,
+   "board_vegas_spread": null,
+   "espn_draftkings": null,
+   "espn_ou": null,
+   "cbs_lines": null,
+   "kick_source": "ESPN = CBS Sports (ET−1h)",
+   "clear_or_hold": "HOLD",
+   "hold_reasons": [
+    "vegas: ESPN DraftKings and CBS Sports do not match exactly (or no line)"
+   ],
+   "neutral": false,
+   "venue": "UFCU Stadium",
+   "db_location": "Bobcat Stadium (TX)"
+  },
+  {
+   "espn_event_id": "401862811",
+   "matchup": "UTSA @ Tulane",
+   "away_short": "UTSA",
+   "home_short": "TULN",
+   "away": "UTSA",
+   "home": "Tulane",
+   "home_slug": "tulane",
+   "away_slug": "utsa",
+   "kick_ct": "2026-10-24 19:00",
+   "tv": "ESPNU",
+   "vegas_details": null,
+   "vegas_spread": null,
+   "over_under": null,
+   "board_vegas_spread": null,
+   "espn_draftkings": null,
+   "espn_ou": null,
+   "cbs_lines": null,
+   "kick_source": "ESPN = CBS Sports (ET−1h)",
+   "clear_or_hold": "HOLD",
+   "hold_reasons": [
+    "vegas: ESPN DraftKings and CBS Sports do not match exactly (or no line)"
+   ],
+   "neutral": false,
+   "venue": "Yulman Stadium",
+   "db_location": "Yulman Stadium"
+  },
+  {
+   "espn_event_id": "401856834",
+   "matchup": "Baylor @ Kansas",
+   "away_short": "BAY",
+   "home_short": "KU",
+   "away": "Baylor",
+   "home": "Kansas",
+   "home_slug": "kansas",
+   "away_slug": "baylor",
+   "kick_ct": null,
+   "tv": null,
+   "vegas_details": null,
+   "vegas_spread": null,
+   "over_under": null,
+   "board_vegas_spread": null,
+   "espn_draftkings": null,
+   "espn_ou": null,
+   "cbs_lines": null,
+   "kick_source": null,
+   "clear_or_hold": "HOLD",
+   "hold_reasons": [
+    "kick: TBD on ESPN (timeValid false); CBS placeholder Sat Oct 24, 1:00pm ET",
+    "vegas: ESPN DraftKings and CBS Sports do not match exactly (or no line)"
+   ],
+   "neutral": false,
+   "venue": "David Booth Kansas Memorial Stadium",
+   "db_location": "Memorial Stadium"
+  },
+  {
+   "espn_event_id": "401856835",
+   "matchup": "BYU @ UCF",
+   "away_short": "BYU",
+   "home_short": "UCF",
+   "away": "BYU",
+   "home": "UCF",
+   "home_slug": "ucf",
+   "away_slug": "byu",
+   "kick_ct": null,
+   "tv": null,
+   "vegas_details": null,
+   "vegas_spread": null,
+   "over_under": null,
+   "board_vegas_spread": null,
+   "espn_draftkings": "BYU -7.5",
+   "espn_ou": 45.5,
+   "cbs_lines": [
+    [
+     -6.5
+    ],
+    [
+     7.5
+    ],
+    [
+     45.5
+    ],
+    [
+     46.5
+    ]
+   ],
+   "kick_source": null,
+   "clear_or_hold": "HOLD",
+   "hold_reasons": [
+    "kick: TBD on ESPN (timeValid false); CBS placeholder Sat Oct 24, 12:00pm ET",
+    "vegas: ESPN DraftKings and CBS Sports do not match exactly (or no line)"
+   ],
+   "neutral": false,
+   "venue": "Acrisure Bounce House",
+   "db_location": "FBC Mortgage Stadium"
+  },
+  {
+   "espn_event_id": "401856836",
+   "matchup": "Colorado @ Oklahoma State",
+   "away_short": "COLO",
+   "home_short": "OKST",
+   "away": "Colorado",
+   "home": "Oklahoma State",
+   "home_slug": "oklahoma-state",
+   "away_slug": "colorado",
+   "kick_ct": null,
+   "tv": null,
+   "vegas_details": null,
+   "vegas_spread": null,
+   "over_under": null,
+   "board_vegas_spread": null,
+   "espn_draftkings": null,
+   "espn_ou": null,
+   "cbs_lines": null,
+   "kick_source": null,
+   "clear_or_hold": "HOLD",
+   "hold_reasons": [
+    "kick: TBD on ESPN (timeValid false); CBS placeholder Sat Oct 24, 1:00pm ET",
+    "vegas: ESPN DraftKings and CBS Sports do not match exactly (or no line)"
+   ],
+   "neutral": false,
+   "venue": "Boone Pickens Stadium",
+   "db_location": "Boone Pickens Stadium"
+  },
+  {
+   "espn_event_id": "401856837",
+   "matchup": "Houston @ Utah",
+   "away_short": "HOU",
+   "home_short": "UTAH",
+   "away": "Houston",
+   "home": "Utah",
+   "home_slug": "utah",
+   "away_slug": "houston",
+   "kick_ct": null,
+   "tv": null,
+   "vegas_details": null,
+   "vegas_spread": null,
+   "over_under": null,
+   "board_vegas_spread": null,
+   "espn_draftkings": null,
+   "espn_ou": null,
+   "cbs_lines": null,
+   "kick_source": null,
+   "clear_or_hold": "HOLD",
+   "hold_reasons": [
+    "kick: ESPN 21:15 CT vs CBS 2:00pm ET; uhcougars.com TBA",
+    "vegas: ESPN DraftKings and CBS Sports do not match exactly (or no line)"
+   ],
+   "neutral": false,
+   "venue": "Rice-Eccles Stadium",
+   "db_location": "Rice-Eccles Stadium"
+  },
+  {
+   "espn_event_id": "401856839",
+   "matchup": "Kansas State @ Arizona State",
+   "away_short": "KSU",
+   "home_short": "ASU",
+   "away": "Kansas State",
+   "home": "Arizona State",
+   "home_slug": "arizona-state",
+   "away_slug": "kansas-state",
+   "kick_ct": null,
+   "tv": null,
+   "vegas_details": null,
+   "vegas_spread": null,
+   "over_under": null,
+   "board_vegas_spread": null,
+   "espn_draftkings": "KSU -3",
+   "espn_ou": 56.5,
+   "cbs_lines": [
+    [],
+    [],
+    [],
+    []
+   ],
+   "kick_source": null,
+   "clear_or_hold": "HOLD",
+   "hold_reasons": [
+    "kick: ESPN 14:45 CT vs CBS 3:00pm ET; no official confirmation",
+    "vegas: ESPN DraftKings and CBS Sports do not match exactly (or no line)"
+   ],
+   "neutral": false,
+   "venue": "Mountain America Stadium",
+   "db_location": "Mountain America Stadium"
+  },
+  {
+   "espn_event_id": "401856840",
+   "matchup": "Texas Tech @ Cincinnati",
+   "away_short": "TTU",
+   "home_short": "CIN",
+   "away": "Texas Tech",
+   "home": "Cincinnati",
+   "home_slug": "cincinnati",
+   "away_slug": "texas-tech",
+   "kick_ct": null,
+   "tv": null,
+   "vegas_details": null,
+   "vegas_spread": null,
+   "over_under": null,
+   "board_vegas_spread": null,
+   "espn_draftkings": "TTU -11.5",
+   "espn_ou": 56.5,
+   "cbs_lines": [
+    [
+     -11.5
+    ],
+    [
+     11.5
+    ],
+    [
+     54.5
+    ],
+    [
+     56.5
+    ]
+   ],
+   "kick_source": null,
+   "clear_or_hold": "HOLD",
+   "hold_reasons": [
+    "kick: TBD on ESPN (timeValid false); CBS placeholder Sat Oct 24, 12:00pm ET",
+    "vegas: ESPN DraftKings and CBS Sports do not match exactly (or no line)"
+   ],
+   "neutral": false,
+   "venue": "Nippert Stadium",
+   "db_location": "Nippert Stadium"
+  }
+ ]
+}
