@@ -322,6 +322,20 @@ const WEEK6_FCS_STUBS: FcsStubGame[] = [
   finalHome("unlv", 6, "2026-10-10", "North Dakota State", 13, 7),
 ];
 
+/** Week 7 FBS vs FCS finals — ESPN game pages, STATUS_FINAL (nightly stamp 2026-10-18). */
+const WEEK7_FCS_STUBS: FcsStubGame[] = [
+  // Charleston Southern @ Clemson — Clemson 37, Charleston Southern 0 (ESPN 401858261).
+  finalHome("clemson", 7, "2026-10-17", "Charleston Southern", 37, 0),
+  // The Citadel @ Texas A&M — Texas A&M 41, The Citadel 0 (ESPN 401856725).
+  finalHome("texas-am", 7, "2026-10-17", "The Citadel", 41, 0),
+  // Nevada @ North Dakota State — North Dakota State 31, Nevada 17 (ESPN 401864520).
+  finalAway("nevada", 7, "2026-10-17", "North Dakota State", 17, 31),
+  // Elon @ Stanford — Stanford 34, Elon 7 (ESPN 401858262).
+  finalHome("stanford", 7, "2026-10-17", "Elon", 34, 7),
+  // Ohio @ Sacramento State — Ohio 48, Sacramento State 7 (ESPN 401866445).
+  finalAway("ohio", 7, "2026-10-17", "Sacramento State", 48, 7),
+];
+
 /** FBS vs FCS rows dropped from the 136-team games table (W–L stubs + Week 2 Vegas-only JSON). */
 export const FCS_STUB_GAMES: FcsStubGame[] = [
   ...WEEK0_FCS_STUBS,
@@ -331,6 +345,7 @@ export const FCS_STUB_GAMES: FcsStubGame[] = [
   ...WEEK4_FCS_STUBS,
   ...WEEK5_FCS_STUBS,
   ...WEEK6_FCS_STUBS,
+  ...WEEK7_FCS_STUBS,
 ];
 
 export function fcsStubIsFinal(stub: FcsStubGame): boolean {
