@@ -61,6 +61,7 @@ export function AccountabilityCard({
   weekLabel = "Week 4 tape",
   storySlug = "week-4-tape",
   scheduleWeek,
+  closerScope = "slate",
   dek = "Full slate closer is a FLAG. Top 25 closer 8/18 is a FLAG. HX not retuned.",
   flagsKicker = "Board flags · HX not retuned",
 }: {
@@ -73,6 +74,8 @@ export function AccountabilityCard({
   storySlug?: string;
   /** When set, the header link goes to that week's FINALs on /schedule instead of a story. */
   scheduleWeek?: number;
+  /** Closer tile scope label when not FLAGged (e.g. "Vegas-lined" when only some cards had a stamped close). */
+  closerScope?: string;
   dek?: string;
   flagsKicker?: string;
 }) {
@@ -114,7 +117,7 @@ export function AccountabilityCard({
               tape.closer_flag ? "text-warn" : "text-up",
             )}
           >
-            {tape.closer_flag ? "Closer · FLAG" : "Closer · slate"}
+            {tape.closer_flag ? "Closer · FLAG" : `Closer · ${closerScope}`}
           </div>
           <div className="mt-1 font-display text-2xl tabular leading-none text-fg sm:text-3xl">
             {tape.hx_closer}

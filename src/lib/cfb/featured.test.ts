@@ -11,6 +11,7 @@ import {
   WEEK5_FEATURED,
   WEEK6_FEATURED,
   WEEK7_FEATURED,
+  WEEK8_FEATURED,
   featuredBook,
   featuredSlateWeek,
   favoriteLine,
@@ -189,24 +190,25 @@ const beforeThursday = Date.parse("2026-09-01T22:00:00.000Z");
 const afterGtKick = Date.parse("2026-09-04T00:01:00.000Z");
 const fridayAfternoon = Date.parse("2026-09-04T18:00:00.000Z");
 
-test("board chrome is Week 7; featured slate is the Week 7 pin", () => {
-  assert.equal(BOARD_WEEK, 7);
-  assert.equal(FEATURED_SLATE_WEEK, 7);
+test("board chrome is Week 8; featured slate is the Week 8 pin", () => {
+  assert.equal(BOARD_WEEK, 8);
+  assert.equal(FEATURED_SLATE_WEEK, 8);
   assert.equal(MODEL.version, "2026.7");
-  assert.equal(MODEL.week, 7);
-  assert.equal(MODEL.weekLabel, "Week 7 board");
+  assert.equal(MODEL.week, 8);
+  assert.equal(MODEL.weekLabel, "Week 8 board");
 });
 
-test("AP chrome is the last stamped Week 6 poll (Oct. 4) under the Week 7 HX board", () => {
-  assert.equal(AP_STAMP.week, 6);
-  assert.equal(AP_STAMP.asOf, "Oct. 4");
-  assert.equal(AP_STAMP.label, "Week 6 AP");
-  assert.equal(AP_STAMP.columnHint, "W6 stamp");
-  assert.equal(BOARD_WEEK, 7);
-  assert.match(AP_STAMP.vsHx, /Week 6, Oct\. 4/);
-  assert.match(AP_STAMP.lede, /HX is Week 7/);
-  assert.match(AP_STAMP.lede, /last stamped poll \(Week 6/);
-  assert.match(AP_STAMP.lede, /Oct\. 4/);
+test("AP chrome is the last stamped Week 7 poll (Oct. 11) under the Week 8 HX board", () => {
+  assert.equal(AP_STAMP.week, 7);
+  assert.equal(AP_STAMP.asOf, "Oct. 11");
+  assert.equal(AP_STAMP.label, "Week 7 AP");
+  assert.equal(AP_STAMP.columnHint, "W7 stamp");
+  assert.equal(BOARD_WEEK, 8);
+  assert.match(AP_STAMP.vsHx, /Week 7, Oct\. 11/);
+  assert.match(AP_STAMP.lede, /HX is Week 8/);
+  assert.match(AP_STAMP.lede, /last stamped poll \(Week 7/);
+  assert.match(AP_STAMP.lede, /Oct\. 11/);
+  assert.doesNotMatch(AP_STAMP.lede, /Oct\. 4/);
   assert.doesNotMatch(AP_STAMP.lede, /Sept\. 27/);
 });
 
@@ -601,8 +603,8 @@ test("FCS Vegas-only rows are never featured (no invented HX)", () => {
 });
 
 test("Week 5 schedule pin is Pittsburgh @ Virginia Tech; home slate week is 6", () => {
-  assert.equal(BOARD_WEEK, 7);
-  assert.equal(FEATURED_SLATE_WEEK, 7);
+  assert.equal(BOARD_WEEK, 8);
+  assert.equal(FEATURED_SLATE_WEEK, 8);
   assert.equal(WEEK5_FEATURED.homeSlug, "virginia-tech");
   assert.equal(WEEK5_FEATURED.awaySlug, "pittsburgh");
   const wku = game({
@@ -643,8 +645,8 @@ test("Week 5 schedule pin is Pittsburgh @ Virginia Tech; home slate week is 6", 
 });
 
 test("Week 6 schedule pin is Iowa State @ BYU; featured slate week is 6", () => {
-  assert.equal(BOARD_WEEK, 7);
-  assert.equal(FEATURED_SLATE_WEEK, 7);
+  assert.equal(BOARD_WEEK, 8);
+  assert.equal(FEATURED_SLATE_WEEK, 8);
   assert.equal(WEEK6_FEATURED.homeSlug, "byu");
   assert.equal(WEEK6_FEATURED.awaySlug, "iowa-state");
   const usm = game({
@@ -716,12 +718,12 @@ test("home board featured for Week 6 prefers Iowa State @ BYU over Southern Miss
   const earliest = selectFeaturedKick([usm, byu], now);
   assert.equal(earliest?.homeSlug, "troy");
   assert.equal(earliest?.awaySlug, "southern-miss");
-  // Historical Week 6 pin (the home desk is Week 7 now).
+  // Historical Week 6 pin (the home desk is Week 8 now).
   const pinned = selectWeekScopedFeatured(6, [usm, byu]);
   assert.equal(pinned?.homeSlug, "byu");
   assert.equal(pinned?.awaySlug, "iowa-state");
   assert.equal(pinned?.tv, "ESPN");
-  // A Week 6 slate has no Week 7 pin, so the board falls back to the earliest upcoming kick.
+  // A Week 6 slate has no Week 8 pin, so the board falls back to the earliest upcoming kick.
   const fallback = selectBoardFeaturedKick([usm, byu], now);
   assert.equal(fallback?.homeSlug, "troy");
   assert.equal(fallback?.awaySlug, "southern-miss");
@@ -755,12 +757,54 @@ test("home board featured for Week 7 prefers Alabama @ Tennessee over the Tuesda
   });
   const now = Date.parse("2026-10-11T16:00:00.000Z");
   assert.equal(selectFeaturedKick([del, tenn], now)?.homeSlug, "middle-tennessee");
-  const board = selectBoardFeaturedKick([del, tenn], now);
-  assert.equal(board?.homeSlug, "tennessee");
-  assert.equal(board?.awaySlug, "alabama");
-  assert.equal(board?.tv, "ABC");
-  assert.equal(selectWeekScopedFeatured(7, [del, tenn])?.homeSlug, "tennessee");
-  assert.equal(favoriteLine("Tennessee", "Alabama", board?.vegasSpread ?? 0), "Alabama −6.5");
+  // Historical Week 7 pin (the home desk is Week 8 now).
+  const pinned = selectWeekScopedFeatured(7, [del, tenn]);
+  assert.equal(pinned?.homeSlug, "tennessee");
+  assert.equal(pinned?.awaySlug, "alabama");
+  assert.equal(pinned?.tv, "ABC");
+  assert.equal(favoriteLine("Tennessee", "Alabama", pinned?.vegasSpread ?? 0), "Alabama −6.5");
+  // A Week 7 slate has no Week 8 pin, so the board falls back to the earliest upcoming kick.
+  assert.equal(selectBoardFeaturedKick([del, tenn], now)?.homeSlug, "middle-tennessee");
   const tennFinal = game({ ...tenn, status: "final", homeScore: 1, awayScore: 0 });
-  assert.equal(selectBoardFeaturedKick([del, tennFinal], now)?.homeSlug, "middle-tennessee");
+  assert.equal(selectWeekScopedFeatured(7, [del, tennFinal]), null);
+});
+
+test("home board featured for Week 8 prefers Ole Miss @ Texas over the Tuesday opener", () => {
+  const fiu = game({
+    id: 601,
+    week: 8,
+    homeSlug: "fiu",
+    awaySlug: "middle-tennessee",
+    kickoffDate: "2026-10-20",
+    kickoffAt: "2026-10-20T23:00:00.000Z",
+    tv: "CBSSN",
+    vegasSpread: null,
+    vegasTotal: null,
+  });
+  const tex = game({
+    id: 602,
+    week: 8,
+    homeSlug: WEEK8_FEATURED.homeSlug,
+    awaySlug: WEEK8_FEATURED.awaySlug,
+    homeShort: "Texas",
+    awayShort: "Ole Miss",
+    kickoffDate: "2026-10-24",
+    kickoffAt: "2026-10-24T23:30:00.000Z",
+    tv: "ABC",
+    vegasSpread: null,
+    vegasTotal: null,
+    location: "Darrell K Royal-Texas Memorial Stadium",
+  });
+  const now = Date.parse("2026-10-18T16:00:00.000Z");
+  assert.equal(selectFeaturedKick([fiu, tex], now)?.homeSlug, "fiu");
+  const board = selectBoardFeaturedKick([fiu, tex], now);
+  assert.equal(board?.homeSlug, "texas");
+  assert.equal(board?.awaySlug, "ole-miss");
+  assert.equal(board?.tv, "ABC");
+  // Vegas stays blank: ESPN DraftKings and CBS Sports did not match exactly.
+  assert.equal(board?.vegasSpread, null);
+  assert.equal(board?.vegasTotal, null);
+  assert.equal(selectWeekScopedFeatured(8, [fiu, tex])?.homeSlug, "texas");
+  const texFinal = game({ ...tex, status: "final", homeScore: 1, awayScore: 0 });
+  assert.equal(selectBoardFeaturedKick([fiu, texFinal], now)?.homeSlug, "fiu");
 });

@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { readdirSync, readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { describe, it } from "node:test";
@@ -260,5 +260,42 @@ describe("Week 7 FBS vs FCS FINALs (WEEK7_FCS_STUBS)", () => {
       ["stanford", true, "Elon", 34, 7, "final"],
       ["ohio", false, "Sacramento State", 7, 48, "final"],
     ]);
+  });
+});
+
+describe("Week 7 late Saturday FINAL (0063, NEB@ORE)", () => {
+  const lateSql = readFileSync(join(root, "migrations/0063_week7_late_finals.sql"), "utf8");
+  const expected = [
+    ["401858492", "oregon", "nebraska", 17, 14, "Nebraska @ Oregon — Oregon 17, Nebraska 14"],
+  ] as const;
+
+  it("stamps scores+status only, with the exact home/away orientation", () => {
+    assert.equal((lateSql.match(/update games/g) ?? []).length, 1);
+    assert.equal((lateSql.match(/g\.week = 7/g) ?? []).length, 1);
+    for (const [espn, hSlug, aSlug, hs, as, label] of expected) {
+      assert.ok(lateSql.includes(`-- ${label}`), label);
+      assert.ok(lateSql.includes(`home_score = ${hs},\n    away_score = ${as}\n`), `${espn} scores`);
+      assert.ok(lateSql.includes(`and h.slug = '${hSlug}' and a.slug = '${aSlug}';`), `${espn} orientation`);
+      assert.match(lateSql, new RegExp(`Source event ${espn}`));
+    }
+    assert.doesNotMatch(lateSql, /kickoff_at|vegas_spread|vegas_total|\btv\s*=|hx_rating|win_title|make_field/);
+    const header = lateSql.split(/update games/i)[0] ?? "";
+    assert.doesNotMatch(header, /\b401\d{6,}\b/);
+  });
+
+  it("every Week 7 FBS–FBS card in the 0057 pack has a FINAL stamp (57/57)", () => {
+    const all = ["0058", "0059", "0060", "0061", "0062", "0063"]
+      .map((n) => {
+        const f = readdirSync(join(root, "migrations")).find((x) => x.startsWith(`${n}_`));
+        assert.ok(f, n);
+        return readFileSync(join(root, "migrations", f), "utf8");
+      })
+      .join("\n");
+    for (const g of pack.games) {
+      assert.ok(
+        all.includes(`and h.slug = '${g.home_slug}' and a.slug = '${g.away_slug}';`),
+        `${g.away_slug} @ ${g.home_slug} FINAL`,
+      );
+    }
   });
 });

@@ -306,15 +306,15 @@ describe("prebuilt deploy artifacts", () => {
     assert.doesNotMatch(text, /The board is posted/);
   });
 
-  it("includes Week 3 O/D + HX 2026.5 stamp (live chrome is Week 6)", () => {
+  it("includes Week 3 O/D + HX 2026.5 stamp (live chrome is Week 8)", () => {
     const text = corpus();
     assert.match(text, /0034_week3_od_hx_ship/);
     assert.match(text, /HX 2026\.5/);
     assert.match(text, /Week 6 board/);
-    assert.match(text, /HX is Week 6/);
-    assert.match(text, /not a Week 5 ballot/);
+    assert.match(text, /HX is Week 8/);
+    assert.match(text, /last stamped poll \(Week 7, Oct\. 11\)/);
     assert.match(text, /Week 6 AP/);
-    assert.match(text, /W6 stamp/);
+    assert.match(text, /W7 stamp/);
     assert.match(text, /7\.8978/);
     assert.match(text, /0\.0711/);
     assert.match(text, /week3_od_hx_ship_2026/);
@@ -370,7 +370,7 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /8\/18/);
     assert.match(text, /Soft-cal FLAG/);
     assert.match(text, /homepage desk uses FEATURED_SLATE_WEEK/);
-    assert.match(text, /HX is Week 7/);
+    assert.match(text, /HX is Week 8/);
   });
 
   it("includes Week 4 Friday stories, Liberty FINAL, Iowa FCS, and Week 4 AP in committed output", () => {
@@ -385,14 +385,14 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /\('ole-miss', 4\)/);
     assert.match(text, /\('texas-am', 23\)/);
     assert.match(text, /\('houston', 25\)/);
-    assert.match(text, /week6_hx_vs_ap_gaps_2026/);
+    assert.match(text, /week7_hx_vs_ap_gaps_2026/);
     assert.match(text, /week-4-texas-am-lsu/);
     assert.match(text, /week-4-ole-miss-florida/);
     assert.match(text, /week-4-clemson-cal/);
     assert.match(text, /week-4-missouri-mississippi-state/);
     assert.match(text, /Northern Iowa/);
-    assert.match(text, /W6 stamp/);
-    assert.match(text, /not a Week 5 ballot/);
+    assert.match(text, /W7 stamp/);
+    assert.match(text, /last stamped poll \(Week 7, Oct\. 11\)/);
     assert.doesNotMatch(text, /Virginia AP 25/);
   });
 
@@ -412,7 +412,7 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /\('florida', 8\)/);
     assert.match(text, /\('mississippi-state', 16\)/);
     assert.match(text, /\('missouri', 25\)/);
-    assert.match(text, /week6_hx_vs_ap_gaps_2026/);
+    assert.match(text, /week7_hx_vs_ap_gaps_2026/);
     assert.match(text, /week-5-florida-missouri/);
     assert.match(text, /week-5-miami-clemson/);
     assert.match(text, /week-5-alabama-mississippi-state/);
@@ -420,10 +420,10 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /week-5-louisville-nc-state/);
     assert.match(text, /week-5-wku-nmsu-final/);
     assert.match(text, /Portland State/);
-    assert.match(text, /W6 stamp/);
+    assert.match(text, /W7 stamp/);
     assert.match(text, /Week 6 board/);
-    assert.match(text, /HX is Week 6/);
-    assert.match(text, /not a Week 5 ballot/);
+    assert.match(text, /HX is Week 8/);
+    assert.match(text, /last stamped poll \(Week 7, Oct\. 11\)/);
     assert.doesNotMatch(text, /Texas A&M AP 23/);
   });
 
@@ -437,10 +437,10 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /\('iowa', 20\)/);
     assert.match(text, /\('byu', 8\)/);
     assert.match(text, /\('pittsburgh', 25\)/);
-    assert.match(text, /week6_hx_vs_ap_gaps_2026/);
+    assert.match(text, /week7_hx_vs_ap_gaps_2026/);
     assert.match(text, /Week 6 AP/);
-    assert.match(text, /W6 stamp/);
-    assert.match(text, /not a Week 5 ballot/);
+    assert.match(text, /W7 stamp/);
+    assert.match(text, /last stamped poll \(Week 7, Oct\. 11\)/);
     assert.match(text, /0053_week6_ku_utah_vegas/);
     assert.match(text, /then 15\.5 else -15\.5 end/);
     assert.match(text, /vegas_total = 51\.5/);
@@ -465,7 +465,7 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /home_score = 27/);
     assert.match(text, /away_score = 13/);
     assert.match(text, /h\.slug = 'pittsburgh' and a\.slug = 'syracuse'/);
-    assert.match(text, /week6_hx_vs_ap_gaps_2026/);
+    assert.match(text, /week7_hx_vs_ap_gaps_2026/);
     assert.match(text, /week-4-texas-am-lsu/);
     assert.match(text, /week-3-houston-texas-tech/);
     assert.match(text, /week-3-lsu-ole-miss/);
@@ -733,6 +733,26 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /finalAway\("ohio", 7, "2026-10-17", "Sacramento State", 48, 7\)/);
     // Friday FINALs (0061) stay in the bundle untouched.
     assert.match(text, /Memphis @ Tulane — Tulane 31, Memphis 17/);
+  });
+
+  it("includes the Week 8 board, Week 7 tape, 0063 NEB@ORE FINAL, 0064 Week 8 kicks, and 0065 Week 7 AP in committed output", () => {
+    const text = corpus();
+    assert.match(text, /0063_week7_late_finals/);
+    assert.match(text, /Nebraska @ Oregon — Oregon 17, Nebraska 14/);
+    assert.match(text, /and h\.slug = 'oregon' and a\.slug = 'nebraska';/);
+    assert.match(text, /0064_week8_kick_tv_vegas/);
+    assert.match(text, /kickoff_at = timestamptz '2026-10-24 18:30:00-05'/);
+    assert.match(text, /0065_week7_ap_top25/);
+    assert.match(text, /\('kentucky', 15\)/);
+    assert.match(text, /\('northwestern', 25\)/);
+    assert.match(text, /week7_tape_2026/);
+    assert.match(text, /34\/57/);
+    assert.match(text, /Week 7 tape/);
+    assert.match(text, /Week 8 board/);
+    assert.match(text, /Week 7 AP/);
+    assert.match(text, /W7 stamp/);
+    assert.match(text, /Soft-cal FLAG/);
+    assert.doesNotMatch(text, /The board is posted/);
   });
 
   it("pins serverless function runtime to nodejs22.x (Vercel blocked new nodejs20.x after 2026-10-01)", () => {
