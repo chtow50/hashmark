@@ -1,6 +1,6 @@
 import { t as MODEL } from "./chicago-DCg_MqYO.mjs";
 import { _ as Outlet, g as useChildMatches, w as require_jsx_runtime, x as Link } from "../_libs/@tanstack/react-router+[...].mjs";
-import { J as Panel, U as EDGE, q as PageHead } from "./router-CI0j6FKQ.mjs";
+import { J as Panel, U as EDGE, q as PageHead } from "./router-CfuEBFTv.mjs";
 //#region node_modules/.nitro/vite/services/ssr/assets/edge-I8-aTh98.js
 var import_jsx_runtime = require_jsx_runtime();
 function EdgeLayout() {

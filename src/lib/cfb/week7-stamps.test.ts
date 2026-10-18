@@ -3,6 +3,8 @@ import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { describe, it } from "node:test";
+import { parseSqlStampsForWeek, readMigrationsSql } from "./fcs-fbs-stamp-gate.ts";
+import { fcsStubsForWeek } from "./fcs-stubs.ts";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "../../..");
 const pack = JSON.parse(
@@ -162,5 +164,101 @@ describe("Week 7 Friday FINALs (0061, MEM@TULN + WASH@PUR + APP@CCU)", () => {
     assert.doesNotMatch(friSql, /kickoff_at|vegas_spread|vegas_total|\btv\s*=|hx_rating|win_title|make_field/);
     const header = friSql.split(/update games/i)[0] ?? "";
     assert.doesNotMatch(header, /\b401\d{6,}\b/);
+  });
+});
+
+describe("Week 7 Saturday FINALs (0062, 46 FBS–FBS cards)", () => {
+  const satSql = readFileSync(join(root, "migrations/0062_week7_sat_finals.sql"), "utf8");
+  // [espn, home slug, away slug, home score, away score, label]
+  const expected = [
+    ["401856833", "colorado", "utah", 24, 27, "Utah @ Colorado — Utah 27, Colorado 24 (road win)"],
+    ["401864521", "hawaii", "new-mexico", 10, 21, "New Mexico @ Hawaiʻi — New Mexico 21, Hawaiʻi 10 (road win)"],
+    ["401856719", "georgia", "auburn", 24, 27, "Auburn @ Georgia — Auburn 27, Georgia 24 (road win)"],
+    ["401856809", "byu", "notre-dame", 28, 24, "Notre Dame @ BYU — BYU 28, Notre Dame 24"],
+    ["401858263", "miami", "florida-state", 43, 35, "Florida State @ Miami — Miami 43, Florida State 35 (2OT)"],
+    ["401858488", "indiana", "ohio-state", 15, 19, "Ohio State @ Indiana — Ohio State 19, Indiana 15 (road win)"],
+    ["401856723", "tennessee", "alabama", 26, 10, "Alabama @ Tennessee — Tennessee 26, Alabama 10"],
+    ["401856724", "texas", "florida", 24, 27, "Florida @ Texas — Florida 27, Texas 24 (road win)"],
+    ["401856721", "ole-miss", "missouri", 31, 3, "Missouri @ Ole Miss — Ole Miss 31, Missouri 3"],
+    ["401856828", "texas-tech", "arizona-state", 53, 25, "Arizona State @ Texas Tech — Texas Tech 53, Arizona State 25"],
+    ["401858494", "ucla", "wisconsin", 17, 7, "Wisconsin @ UCLA — UCLA 17, Wisconsin 7"],
+    ["401856722", "oklahoma", "kentucky", 13, 21, "Kentucky @ Oklahoma — Kentucky 21, Oklahoma 13 (road win)"],
+    ["401856720", "lsu", "mississippi-state", 31, 0, "Mississippi State @ LSU — LSU 31, Mississippi State 0"],
+    ["401856831", "houston", "oklahoma-state", 35, 32, "Oklahoma State @ Houston — Houston 35, Oklahoma State 32"],
+    ["401858269", "california", "wake-forest", 7, 41, "Wake Forest @ California — Wake Forest 41, California 7 (road win)"],
+    ["401858268", "smu", "virginia", 23, 13, "Virginia @ SMU — SMU 23, Virginia 13"],
+    ["401858491", "michigan-state", "northwestern", 21, 24, "Northwestern @ Michigan State — Northwestern 24, Michigan State 21 (road win)"],
+    ["401856829", "west-virginia", "cincinnati", 45, 42, "Cincinnati @ West Virginia — West Virginia 45, Cincinnati 42"],
+    ["401856830", "kansas-state", "kansas", 35, 24, "Kansas @ Kansas State — Kansas State 35, Kansas 24"],
+    ["401858267", "boston-college", "pittsburgh", 27, 21, "Pittsburgh @ Boston College — Boston College 27, Pittsburgh 21"],
+    ["401862802", "army", "florida-atlantic", 56, 24, "Florida Atlantic @ Army — Army 56, Florida Atlantic 24"],
+    ["401866441", "bowling-green", "ball-state", 31, 32, "Ball State @ Bowling Green — Ball State 32, Bowling Green 31 (OT, road win)"],
+    ["401869957", "james-madison", "georgia-state", 49, 22, "Georgia State @ James Madison — James Madison 49, Georgia State 22"],
+    ["401858489", "maryland", "rutgers", 30, 37, "Rutgers @ Maryland — Rutgers 37, Maryland 30 (road win)"],
+    ["401862803", "temple", "charlotte", 31, 38, "Charlotte @ Temple — Charlotte 38, Temple 31 (road win)"],
+    ["401866442", "buffalo", "massachusetts", 25, 18, "Massachusetts @ Buffalo — Buffalo 25, Massachusetts 18 (OT)"],
+    ["401866443", "central-michigan", "western-michigan", 14, 21, "Western Michigan @ Central Michigan — Western Michigan 21, Central Michigan 14 (road win)"],
+    ["401858264", "virginia-tech", "georgia-tech", 34, 24, "Georgia Tech @ Virginia Tech — Virginia Tech 34, Georgia Tech 24"],
+    ["401858266", "duke", "north-carolina", 20, 24, "North Carolina @ Duke — North Carolina 24, Duke 20 (road win)"],
+    ["401858490", "michigan", "penn-state", 21, 18, "Penn State @ Michigan — Michigan 21, Penn State 18"],
+    ["401864522", "wyoming", "northern-illinois", 41, 23, "Northern Illinois @ Wyoming — Wyoming 41, Northern Illinois 23"],
+    ["401864524", "air-force", "unlv", 41, 31, "UNLV @ Air Force — Air Force 41, UNLV 31"],
+    ["401866444", "eastern-michigan", "toledo", 14, 34, "Toledo @ Eastern Michigan — Toledo 34, Eastern Michigan 14 (road win)"],
+    ["401866478", "miami-oh", "akron", 34, 14, "Akron @ Miami (OH) — Miami (OH) 34, Akron 14"],
+    ["401862805", "rice", "tulsa", 17, 38, "Tulsa @ Rice — Tulsa 38, Rice 17 (road win)"],
+    ["401869966", "louisiana", "troy", 33, 6, "Troy @ Louisiana — Louisiana 33, Troy 6"],
+    ["401860903", "oregon-state", "washington-state", 48, 30, "Washington State @ Oregon State — Oregon State 48, Washington State 30"],
+    ["401856726", "vanderbilt", "arkansas", 21, 31, "Arkansas @ Vanderbilt — Arkansas 31, Vanderbilt 21 (road win)"],
+    ["401856832", "baylor", "tcu", 6, 17, "TCU @ Baylor — TCU 17, Baylor 6 (road win)"],
+    ["401862806", "usf", "kent-state", 29, 2, "Kent State @ South Florida — South Florida 29, Kent State 2"],
+    ["401869934", "southern-miss", "arkansas-state", 13, 23, "Arkansas State @ Southern Miss — Arkansas State 23, Southern Miss 13 (road win)"],
+    ["401858265", "syracuse", "louisville", 26, 34, "Louisville @ Syracuse — Louisville 34, Syracuse 26 (road win)"],
+    ["401862804", "utsa", "navy", 38, 34, "Navy @ UTSA — UTSA 38, Navy 34"],
+    ["401871091", "ul-monroe", "louisiana-tech", 0, 24, "Louisiana Tech @ UL Monroe — Louisiana Tech 24, UL Monroe 0 (road win)"],
+    ["401864523", "utep", "san-jose-state", 11, 24, "San José State @ UTEP — San José State 24, UTEP 11 (road win)"],
+    ["401860904", "san-diego-state", "fresno-state", 26, 23, "Fresno State @ San Diego State — San Diego State 26, Fresno State 23"],
+  ] as const;
+
+  it("stamps scores+status only, with the exact home/away orientation", () => {
+    assert.equal(expected.length, 46);
+    assert.equal((satSql.match(/update games/g) ?? []).length, 46);
+    assert.equal((satSql.match(/g\.week = 7/g) ?? []).length, 46);
+    assert.equal((satSql.match(/status = 'final'/g) ?? []).length, 46);
+    for (const [espn, hSlug, aSlug, hs, as, label] of expected) {
+      assert.ok(satSql.includes(`-- ${label}`), label);
+      assert.ok(satSql.includes(`home_score = ${hs},\n    away_score = ${as}\n`), `${espn} scores`);
+      assert.ok(satSql.includes(`and h.slug = '${hSlug}' and a.slug = '${aSlug}';`), `${espn} orientation`);
+      assert.ok(!satSql.includes(`h.slug = '${aSlug}' and a.slug = '${hSlug}'`), `${espn} reversed`);
+      assert.match(satSql, new RegExp(`Source event ${espn}`));
+    }
+    assert.doesNotMatch(satSql, /kickoff_at|vegas_spread|vegas_total|\btv\s*=|hx_rating|win_title|make_field/);
+    const header = satSql.split(/update games/i)[0] ?? "";
+    assert.doesNotMatch(header, /\b401\d{6,}\b/);
+  });
+
+  it("leaves the in-progress Nebraska @ Oregon card unstamped", () => {
+    assert.doesNotMatch(satSql, /h\.slug = 'oregon' and a\.slug = 'nebraska'/);
+  });
+
+  it("keeps 0057 kick on all stamped cards in the stamp gate", () => {
+    const sqlByEspn = parseSqlStampsForWeek(readMigrationsSql(root), 7);
+    for (const [espn] of expected) {
+      const row = sqlByEspn.get(espn);
+      assert.ok(row, `missing stamp-gate row for ${espn}`);
+      assert.equal(row.hasKick, true, `${espn} kick`);
+    }
+  });
+});
+
+describe("Week 7 FBS vs FCS FINALs (WEEK7_FCS_STUBS)", () => {
+  it("has the five ESPN STATUS_FINAL results with venue orientation", () => {
+    const got = fcsStubsForWeek(7).map((g) => [g.teamSlug, g.home, g.opponentLabel, g.homeScore, g.awayScore, g.status]);
+    assert.deepEqual(got, [
+      ["clemson", true, "Charleston Southern", 37, 0, "final"],
+      ["texas-am", true, "The Citadel", 41, 0, "final"],
+      ["nevada", false, "North Dakota State", 31, 17, "final"],
+      ["stanford", true, "Elon", 34, 7, "final"],
+      ["ohio", false, "Sacramento State", 7, 48, "final"],
+    ]);
   });
 });
