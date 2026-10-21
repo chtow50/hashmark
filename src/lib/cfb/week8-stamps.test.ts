@@ -133,3 +133,26 @@ describe("Week 7 AP Top 25 stamp (0065, Oct. 11)", () => {
     assert.equal(AP_STAMP.columnHint, "W7 stamp");
   });
 });
+
+describe("Week 8 Tuesday FINALs (0066, MTSU@FIU + MOST@DEL + USA@MRSH)", () => {
+  const tueSql = readFileSync(join(root, "migrations/0066_week8_tue_finals.sql"), "utf8");
+  const expected = [
+    ["401871055", "fiu", "middle-tennessee", 23, 26, "Middle Tennessee @ FIU — Middle Tennessee 26, FIU 23"],
+    ["401871069", "delaware", "missouri-state", 61, 38, "Missouri State @ Delaware — Delaware 61, Missouri State 38"],
+    ["401871092", "marshall", "south-alabama", 20, 13, "South Alabama @ Marshall — Marshall 20, South Alabama 13"],
+  ] as const;
+
+  it("stamps scores+status only, with the exact home/away orientation", () => {
+    assert.equal((tueSql.match(/update games/g) ?? []).length, 3);
+    assert.equal((tueSql.match(/g\.week = 8/g) ?? []).length, 3);
+    for (const [espn, hSlug, aSlug, hs, as, label] of expected) {
+      assert.ok(tueSql.includes(`-- ${label}`), label);
+      assert.ok(tueSql.includes(`home_score = ${hs},\n    away_score = ${as}\n`), `${espn} scores`);
+      assert.ok(tueSql.includes(`and h.slug = '${hSlug}' and a.slug = '${aSlug}';`), `${espn} orientation`);
+      assert.match(tueSql, new RegExp(`Source event ${espn}`));
+    }
+    assert.doesNotMatch(tueSql, /kickoff_at|vegas_spread|vegas_total|\btv\s*=|hx_rating|win_title|make_field/);
+    const header = tueSql.split(/update games/i)[0] ?? "";
+    assert.doesNotMatch(header, /\b401\d{6,}\b/);
+  });
+});
