@@ -156,3 +156,19 @@ describe("Week 8 Tuesday FINALs (0066, MTSU@FIU + MOST@DEL + USA@MRSH)", () => {
     assert.doesNotMatch(header, /\b401\d{6,}\b/);
   });
 });
+
+describe("Week 8 Wednesday FINAL (0067, NMSU@SHSU)", () => {
+  const wedSql = readFileSync(join(root, "migrations/0067_week8_wed_finals.sql"), "utf8");
+
+  it("stamps scores+status only, with the exact home/away orientation", () => {
+    assert.equal((wedSql.match(/update games/g) ?? []).length, 1);
+    assert.equal((wedSql.match(/g\.week = 8/g) ?? []).length, 1);
+    assert.ok(wedSql.includes("-- New Mexico State @ Sam Houston — New Mexico State 30, Sam Houston 24"));
+    assert.ok(wedSql.includes("home_score = 24,\n    away_score = 30\n"));
+    assert.ok(wedSql.includes("and h.slug = 'sam-houston' and a.slug = 'new-mexico-state';"));
+    assert.match(wedSql, /Source event 401871070/);
+    assert.doesNotMatch(wedSql, /kickoff_at|vegas_spread|vegas_total|\btv\s*=|hx_rating|win_title|make_field/);
+    const header = wedSql.split(/update games/i)[0] ?? "";
+    assert.doesNotMatch(header, /\b401\d{6,}\b/);
+  });
+});
