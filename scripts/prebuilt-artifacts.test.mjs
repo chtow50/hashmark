@@ -773,6 +773,15 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /and h\.slug = 'sam-houston' and a\.slug = 'new-mexico-state';/);
   });
 
+  it("includes Week 8 Thursday FINALs (0068) with exact home/away orientation in committed output", () => {
+    const text = corpus();
+    assert.match(text, /0068_week8_thu_finals/);
+    assert.match(text, /James Madison @ App State — James Madison 31, App State 34/);
+    assert.match(text, /and h\.slug = 'app-state' and a\.slug = 'james-madison';/);
+    assert.match(text, /and h\.slug = 'kennesaw-state' and a\.slug = 'liberty';/);
+    assert.match(text, /and h\.slug = 'memphis' and a\.slug = 'east-carolina';/);
+  });
+
   it("pins serverless function runtime to nodejs22.x (Vercel blocked new nodejs20.x after 2026-10-01)", () => {
     const cfgPath = join(OUT, "functions/__server.func/.vc-config.json");
     assert.ok(existsSync(cfgPath), "missing .vc-config.json");

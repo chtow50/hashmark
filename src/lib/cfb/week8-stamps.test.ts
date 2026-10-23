@@ -172,3 +172,25 @@ describe("Week 8 Wednesday FINAL (0067, NMSU@SHSU)", () => {
     assert.doesNotMatch(header, /\b401\d{6,}\b/);
   });
 });
+
+describe("Week 8 Thursday FINALs (0068, JMU@APP + LIB@KENN + ECU@MEM)", () => {
+  const thuSql = readFileSync(join(root, "migrations/0068_week8_thu_finals.sql"), "utf8");
+
+  it("stamps scores+status only, with the exact home/away orientation", () => {
+    assert.equal((thuSql.match(/update games/g) ?? []).length, 3);
+    assert.equal((thuSql.match(/g\.week = 8/g) ?? []).length, 3);
+    assert.ok(thuSql.includes("-- James Madison @ App State — James Madison 31, App State 34 (OT)"));
+    assert.ok(thuSql.includes("home_score = 34,\n    away_score = 31\n"));
+    assert.ok(thuSql.includes("and h.slug = 'app-state' and a.slug = 'james-madison';"));
+    assert.ok(thuSql.includes("-- Liberty @ Kennesaw State — Liberty 34, Kennesaw State 6"));
+    assert.ok(thuSql.includes("home_score = 6,\n    away_score = 34\n"));
+    assert.ok(thuSql.includes("and h.slug = 'kennesaw-state' and a.slug = 'liberty';"));
+    assert.ok(thuSql.includes("-- East Carolina @ Memphis — East Carolina 34, Memphis 41 (OT)"));
+    assert.ok(thuSql.includes("home_score = 41,\n    away_score = 34\n"));
+    assert.ok(thuSql.includes("and h.slug = 'memphis' and a.slug = 'east-carolina';"));
+    assert.match(thuSql, /Source events 401869845, 401871056, 401862807/);
+    assert.doesNotMatch(thuSql, /kickoff_at|vegas_spread|vegas_total|\btv\s*=|hx_rating|win_title|make_field/);
+    const header = thuSql.split(/update games/i)[0] ?? "";
+    assert.doesNotMatch(header, /\b401\d{6,}\b/);
+  });
+});
