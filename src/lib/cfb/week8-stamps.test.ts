@@ -194,3 +194,31 @@ describe("Week 8 Thursday FINALs (0068, JMU@APP + LIB@KENN + ECU@MEM)", () => {
     assert.doesNotMatch(header, /\b401\d{6,}\b/);
   });
 });
+
+describe("Week 8 Friday FINALs (0069, DUKE@UVA + MASS@CONN + ARMY@TLSA + AFA@WYO + NCSU@STAN)", () => {
+  const friSql = readFileSync(join(root, "migrations/0069_week8_fri_finals.sql"), "utf8");
+
+  it("stamps scores+status only, with the exact home/away orientation", () => {
+    assert.equal((friSql.match(/update games/g) ?? []).length, 5);
+    assert.equal((friSql.match(/g\.week = 8/g) ?? []).length, 5);
+    assert.ok(friSql.includes("-- Duke @ Virginia — Duke 19, Virginia 16"));
+    assert.ok(friSql.includes("home_score = 16,\n    away_score = 19\n"));
+    assert.ok(friSql.includes("and h.slug = 'virginia' and a.slug = 'duke';"));
+    assert.ok(friSql.includes("-- Massachusetts @ UConn — Massachusetts 16, UConn 35"));
+    assert.ok(friSql.includes("home_score = 35,\n    away_score = 16\n"));
+    assert.ok(friSql.includes("and h.slug = 'uconn' and a.slug = 'massachusetts';"));
+    assert.ok(friSql.includes("-- Army @ Tulsa — Army 38, Tulsa 35"));
+    assert.ok(friSql.includes("home_score = 35,\n    away_score = 38\n"));
+    assert.ok(friSql.includes("and h.slug = 'tulsa' and a.slug = 'army';"));
+    assert.ok(friSql.includes("-- Air Force @ Wyoming — Air Force 14, Wyoming 28"));
+    assert.ok(friSql.includes("home_score = 28,\n    away_score = 14\n"));
+    assert.ok(friSql.includes("and h.slug = 'wyoming' and a.slug = 'air-force';"));
+    assert.ok(friSql.includes("-- NC State @ Stanford — NC State 28, Stanford 31"));
+    assert.ok(friSql.includes("home_score = 31,\n    away_score = 28\n"));
+    assert.ok(friSql.includes("and h.slug = 'stanford' and a.slug = 'nc-state';"));
+    assert.match(friSql, /Source events 401858271, 401861965, 401862808, 401864525, 401858272/);
+    assert.doesNotMatch(friSql, /kickoff_at|vegas_spread|vegas_total|\btv\s*=|hx_rating|win_title|make_field/);
+    const header = friSql.split(/update games/i)[0] ?? "";
+    assert.doesNotMatch(header, /\b401\d{6,}\b/);
+  });
+});
