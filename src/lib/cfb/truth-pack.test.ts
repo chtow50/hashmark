@@ -54,19 +54,25 @@ import {
   week7TapePack,
   week7Top25Pack,
   week7Top25Tape,
+  week8BoardFlags,
+  week8SeasonTape,
+  week8Tape,
+  week8TapePack,
+  week8Top25Pack,
+  week8Top25Tape,
 } from "./truth-pack.ts";
 import { SIM_FULL_FILE, sim10kFull, simFullTeamBySlug } from "./sim-full.server.ts";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "../../..");
 
-test("gaps JSON flags the Week 7 ballot desks vs live HX 2026.7", () => {
+test("gaps JSON flags the Week 8 ballot desks vs live HX 2026.7", () => {
   const expected: Record<string, { ap: number; hx: number; delta: number }> = {
-    Kentucky: { ap: 15, hx: 64, delta: -49 },
-    "Wake Forest": { ap: 21, hx: 71, delta: -50 },
-    Northwestern: { ap: 25, hx: 36, delta: -11 },
-    Houston: { ap: 20, hx: 38, delta: -18 },
-    Iowa: { ap: 17, hx: 23, delta: -6 },
-    BYU: { ap: 8, hx: 17, delta: -9 },
+    Kentucky: { ap: 12, hx: 64, delta: -52 },
+    "Wake Forest": { ap: 17, hx: 71, delta: -54 },
+    Northwestern: { ap: 24, hx: 36, delta: -12 },
+    Houston: { ap: 14, hx: 38, delta: -24 },
+    Iowa: { ap: 15, hx: 23, delta: -8 },
+    BYU: { ap: 2, hx: 17, delta: -15 },
   };
   for (const name of DISAGREE_HIGHLIGHT_NAMES) {
     const g = gapByName(name);
@@ -76,41 +82,39 @@ test("gaps JSON flags the Week 7 ballot desks vs live HX 2026.7", () => {
     assert.equal(g.delta, expected[name].delta, `${name} delta`);
     assert.equal(g.delta, g.ap - g.hx, `${name} delta must be ap − hx`);
   }
-  assert.equal(gapByName("Oklahoma State")?.delta, -71);
-  assert.equal(gapByName("Oklahoma State")?.ap, 18);
-  assert.equal(gapByName("Mississippi State")?.delta, -50);
-  assert.equal(gapByName("Mississippi State")?.hx, 66);
-  assert.equal(gapByName("Mississippi State")?.ap, 16);
-  // Dropouts (Oregon, Florida, Pittsburgh) have no gap row; Georgia is AP 1 = HX 1.
+  assert.equal(gapByName("UCLA")?.delta, -36);
+  assert.equal(gapByName("UCLA")?.ap, 9);
+  assert.equal(gapByName("Boise State")?.delta, -26);
+  assert.equal(gapByName("Boise State")?.hx, 47);
+  assert.equal(gapByName("Florida")?.ap, 20);
+  assert.equal(gapByName("Arizona")?.ap, 25);
+  // Dropouts (Mississippi State, Oklahoma State) have no gap row; LSU is AP 18 = HX 18.
+  assert.equal(gapByName("Mississippi State"), undefined);
+  assert.equal(gapByName("Oklahoma State"), undefined);
   assert.equal(gapByName("Oregon"), undefined);
-  assert.equal(gapByName("Florida"), undefined);
-  assert.equal(gapByName("Pittsburgh"), undefined);
-  assert.equal(gapByName("Georgia"), undefined);
-  assert.equal(gapByName("Missouri"), undefined);
-  assert.equal(hxApGaps.poll_week, 7);
+  assert.equal(gapByName("LSU"), undefined);
+  assert.equal(hxApGaps.poll_week, 8);
   assert.match(hxApGaps.source_hx, /week5_od_hx_ship_2026/);
   assert.match(hxApGaps.hx_board ?? "", /2026\.7/);
-  assert.match(hxApGaps.source_ap, /week7_ap/i);
-  assert.doesNotMatch(hxApGaps.source_ap, /week6_ap/i);
+  assert.match(hxApGaps.source_ap, /week8_ap/i);
+  assert.doesNotMatch(hxApGaps.source_ap, /week7_ap/i);
   assert.doesNotMatch(hxApGaps.source_ap, /preseason/i);
   const src = readFileSync(join(root, "src/lib/cfb/truth-pack.ts"), "utf8");
-  assert.match(src, /import gapsRaw from "\.\.\/\.\.\/\.\.\/data\/week7_hx_vs_ap_gaps_2026\.json"/);
-  assert.doesNotMatch(src, /import gapsRaw from "\.\.\/\.\.\/\.\.\/data\/week6_hx_vs_ap_gaps_2026\.json"/);
-  assert.match(src, /import week7ApRaw from "\.\.\/\.\.\/\.\.\/data\/week7_ap_top25_2026\.json"/);
+  assert.match(src, /import gapsRaw from "\.\.\/\.\.\/\.\.\/data\/week8_hx_vs_ap_gaps_2026\.json"/);
+  assert.doesNotMatch(src, /import gapsRaw from "\.\.\/\.\.\/\.\.\/data\/week7_hx_vs_ap_gaps_2026\.json"/);
+  assert.match(src, /import week8ApRaw from "\.\.\/\.\.\/\.\.\/data\/week8_ap_top25_2026\.json"/);
 });
 
-test("Week 7 ballot ranks on the disagreement card — not the Week 6 stamp", () => {
-  // Week 6 → Week 7: UCLA 21→12, MSU 17→16, IOWA 20→17, HOU 22→20, LSU 10→22; KY/WAKE/NU debut; ORE/FLA/PITT out.
-  assert.equal(gapByName("UCLA")?.ap, 12);
-  assert.equal(gapByName("Iowa")?.ap, 17);
-  assert.equal(gapByName("Houston")?.ap, 20);
-  assert.equal(gapByName("LSU")?.ap, 22);
-  assert.equal(gapByName("Mississippi State")?.ap, 16);
-  assert.equal(gapByName("Kentucky")?.ap, 15);
-  assert.equal(gapByName("Wake Forest")?.ap, 21);
-  assert.equal(gapByName("Northwestern")?.ap, 25);
-  assert.notEqual(gapByName("UCLA")?.ap, 21);
-  assert.notEqual(gapByName("Iowa")?.ap, 20);
+test("Week 8 ballot ranks on the disagreement card — not the Week 7 stamp", () => {
+  // Week 7 → Week 8: MIA 3→1, BYU 8→2, UCLA 12→9, KY 15→12, HOU 20→14, TEX 7→19; FLA/ARIZ in; MSU/OKST out.
+  assert.equal(gapByName("BYU")?.ap, 2);
+  assert.equal(gapByName("UCLA")?.ap, 9);
+  assert.equal(gapByName("Kentucky")?.ap, 12);
+  assert.equal(gapByName("Houston")?.ap, 14);
+  assert.equal(gapByName("Texas")?.ap, 19);
+  assert.equal(gapByName("Miami")?.ap, 1);
+  assert.notEqual(gapByName("UCLA")?.ap, 12);
+  assert.notEqual(gapByName("Iowa")?.ap, 17);
   for (const [name, rank] of [
     ["Oregon", 4],
     ["Texas A&M", 6],
@@ -118,7 +122,6 @@ test("Week 7 ballot ranks on the disagreement card — not the Week 6 stamp", ()
     ["Penn State", 15],
     ["Oklahoma", 16],
     ["Clemson", 22],
-    ["Florida", 24],
     ["Washington", 25],
   ] as const) {
     assert.equal(
@@ -127,25 +130,25 @@ test("Week 7 ballot ranks on the disagreement card — not the Week 6 stamp", ()
       name,
     );
   }
+  assert.equal(hxApGaps.hx_not_in_ap.some((t) => t.name === "Florida"), false);
   assert.equal(
-    hxApGaps.ap_not_in_hx25.some((t) => t.name === "Kentucky" && t.ap === 15 && t.hx_rank === 64),
+    hxApGaps.ap_not_in_hx25.some((t) => t.name === "Arizona" && t.ap === 25 && t.hx_rank === 30),
     true,
   );
-  assert.equal(hxApGaps.ap_not_in_hx25.some((t) => t.name === "Pittsburgh"), false);
+  assert.equal(hxApGaps.ap_not_in_hx25.some((t) => t.name === "Mississippi State"), false);
 });
 
-test("recompute from Week 7 AP + HX 2026.7 ship matches gaps file", () => {
-  const ap = JSON.parse(readFileSync(join(root, "data/week7_ap_top25_2026.json"), "utf8"));
-  assert.equal(ap.poll_week, 7);
-  assert.equal(ap.as_of, "2026-10-11");
+test("recompute from Week 8 AP + HX 2026.7 ship matches gaps file", () => {
+  const ap = JSON.parse(readFileSync(join(root, "data/week8_ap_top25_2026.json"), "utf8"));
+  assert.equal(ap.poll_week, 8);
+  assert.equal(ap.as_of, "2026-10-18");
   assert.equal(ap.teams.length, 25);
   assert.deepEqual(
     ap.teams.map((t: { slug: string }) => t.slug),
     [
-      "georgia", "notre-dame", "miami", "ohio-state", "indiana", "alabama", "texas", "byu",
-      "ole-miss", "texas-tech", "utah", "ucla", "missouri", "tennessee", "kentucky",
-      "mississippi-state", "iowa", "oklahoma-state", "usc", "houston", "wake-forest", "lsu",
-      "boise-state", "smu", "northwestern",
+      "miami", "byu", "ohio-state", "notre-dame", "georgia", "indiana", "ole-miss", "texas-tech",
+      "ucla", "utah", "tennessee", "kentucky", "alabama", "houston", "iowa", "usc", "wake-forest",
+      "lsu", "texas", "florida", "boise-state", "missouri", "smu", "northwestern", "arizona",
     ],
   );
   const ship = JSON.parse(readFileSync(join(root, "data/week5_od_hx_ship_2026.json"), "utf8"));
@@ -164,10 +167,10 @@ test("recompute from Week 7 AP + HX 2026.7 ship matches gaps file", () => {
     assert.equal(fromRe.delta, fromFile.delta, `${fromFile.name} delta`);
   }
   assert.equal(recomputed.find((g) => g.name === "Oregon"), undefined);
-  assert.equal(recomputed.find((g) => g.name === "Georgia")?.delta, 0);
+  assert.equal(recomputed.find((g) => g.name === "LSU")?.delta, 0);
 });
 
-test("board card leads with the Week 7 flags, then remaining JSON gaps", () => {
+test("board card leads with the Week 8 flags, then remaining JSON gaps", () => {
   const rows = boardDisagreementRows([
     { slug: "kentucky", name: "Kentucky", shortName: "Kentucky", colorPrimary: "#0033a0" },
     { slug: "wake-forest", name: "Wake Forest", shortName: "Wake", colorPrimary: "#9e7e38" },
@@ -182,13 +185,12 @@ test("board card leads with the Week 7 flags, then remaining JSON gaps", () => {
   );
   assert.ok(rows.slice(0, DISAGREE_HIGHLIGHT_NAMES.length).every((r) => r.highlight));
   const rest = rows.slice(DISAGREE_HIGHLIGHT_NAMES.length);
-  assert.deepEqual(rest.slice(0, 2).map((r) => r.name), ["Oklahoma State", "Mississippi State"]);
-  const miss = rows.find((r) => r.name === "Mississippi State");
-  assert.equal(miss?.slug, "mississippi-state");
-  assert.equal(miss?.ap, 16);
-  assert.equal(miss?.hx, 66);
+  assert.deepEqual(rest.slice(0, 2).map((r) => r.name), ["UCLA", "Boise State"]);
+  const ucla = rows.find((r) => r.name === "UCLA");
+  assert.equal(ucla?.ap, 9);
+  assert.equal(ucla?.hx, 45);
   assert.equal(rows.find((r) => r.name === "Wake Forest")?.slug, "wake-forest");
-  assert.equal(rows.find((r) => r.name === "Missouri"), undefined);
+  assert.equal(rows.find((r) => r.name === "Mississippi State"), undefined);
   assert.equal(rows.find((r) => r.name === "Oregon"), undefined);
 });
 
@@ -319,7 +321,8 @@ test("Week 3 Top 25 closer cut is 5/21 HX · 20/21 SU", () => {
   const src = readFileSync(join(root, "src/lib/cfb/truth-pack.ts"), "utf8");
   assert.match(src, /function week3Tape\(\)/);
   const home = readFileSync(join(root, "src/routes/index.tsx"), "utf8");
-  assert.match(home, /week7Tape\(\)/);
+  assert.match(home, /week8Tape\(\)/);
+  assert.doesNotMatch(home, /week7Tape\(\)/);
   assert.doesNotMatch(home, /week6Tape\(\)/);
   assert.doesNotMatch(home, /week5Tape\(\)/);
   assert.doesNotMatch(home, /week4Tape\(\)/);
@@ -578,7 +581,7 @@ test("Week 6 tape is 33/56 SU and 27/56 closer (no closer FLAG) on the HX 2026.7
   assert.equal(asu?.score_home, 30);
   assert.equal(asu?.score_away, 12);
   const home = readFileSync(join(root, "src/routes/index.tsx"), "utf8");
-  assert.match(home, /weekLabel="Week 7 tape"/);
+  assert.match(home, /weekLabel="Week 8 tape"/);
   assert.doesNotMatch(home, /The board is posted/);
   assert.doesNotMatch(JSON.stringify(week6TapePack), /win_title/);
 });
@@ -626,10 +629,62 @@ test("Week 7 tape is 34/57 SU; closer 3/6 on the Vegas-lined cards (HX 2026.7 pr
   assert.equal(ore?.score_home, 17);
   assert.equal(ore?.score_away, 14);
   const home = readFileSync(join(root, "src/routes/index.tsx"), "utf8");
-  assert.match(home, /weekLabel="Week 7 tape"/);
-  assert.match(home, /scheduleWeek=\{7\}/);
+  assert.match(home, /weekLabel="Week 8 tape"/);
+  assert.match(home, /scheduleWeek=\{8\}/);
   assert.match(home, /closerScope="Vegas-lined"/);
   assert.doesNotMatch(home, /The board is posted/);
   assert.doesNotMatch(JSON.stringify(week7TapePack), /win_title/);
   assert.doesNotMatch(JSON.stringify(week7Top25Pack), /win_title/);
+});
+
+test("Week 8 tape is 31/54 SU; closer 3/7 on the Vegas-lined cards FLAGs (HX 2026.7 pregame board)", () => {
+  const tape = week8Tape();
+  assert.equal(tape.n, 54);
+  assert.equal(tape.su, "31/54");
+  assert.equal(tape.su_pct, 57.4);
+  assert.equal(tape.hx_closer, "3/7");
+  assert.equal(tape.hx_closer_pct, 42.9);
+  // Same <45% rule as every week: 3/7 is under it, so the closer tile FLAGs.
+  assert.equal(tape.closer_flag, true);
+  assert.equal(tape.vegas_closer, "4/7");
+  assert.equal(tape.hx_ats, "4/7");
+  assert.equal(tape.mae_hx, 12.99);
+  assert.equal(tape.mae_vegas, 7.43);
+  assert.equal(tape.brier, 0.26);
+  const m = week8TapePack.meta;
+  assert.equal(m.closer_n, 7);
+  assert.equal(m.closer_ties, 0);
+  assert.equal(m.hx_closer_of_slate, "3/54");
+  assert.equal(week8TapePack.games.length, 54);
+  assert.equal(week8TapePack.games.filter((g) => g.su_hit).length, 31);
+  assert.equal(week8TapePack.games.filter((g) => g.closer === "hx").length, 3);
+  assert.equal(week8TapePack.games.filter((g) => g.closer === "vegas").length, 4);
+  assert.equal(week8TapePack.games.filter((g) => g.closer === "tie").length, 0);
+  assert.equal(week8TapePack.games.filter((g) => g.closer == null).length, 47);
+  // Closer cards are exactly the seven 0064 Vegas cards.
+  assert.equal(week8TapePack.games.filter((g) => g.vegas_details != null).length, 7);
+  assert.equal(week8TapePack.su_misses.length, 23);
+  assert.equal(week8BoardFlags().filter((f) => f.result === "HIT").length, 0);
+  assert.equal(week8BoardFlags().filter((f) => f.result === "MISS").length, 2);
+  const season = week8SeasonTape();
+  assert.equal(season.label, "W1–W8");
+  assert.equal(season.su, "301/425");
+  assert.equal(season.hx_closer, "136/327");
+  const top = week8Top25Tape();
+  assert.equal(top.n, 15);
+  assert.equal(top.su, "7/15");
+  assert.equal(top.hx_closer, "1/2");
+  assert.equal(top.vegas_closer, "1/2");
+  assert.equal(week8Top25Pack.games.length, 15);
+  // Houston @ Utah straggler is in the ledger with the ESPN final (0071).
+  const utah = week8TapePack.games.find((g) => g.home_slug === "utah" && g.away_slug === "houston");
+  assert.equal(utah?.score_home, 21);
+  assert.equal(utah?.score_away, 13);
+  const home = readFileSync(join(root, "src/routes/index.tsx"), "utf8");
+  assert.match(home, /weekLabel="Week 8 tape"/);
+  assert.match(home, /scheduleWeek=\{8\}/);
+  assert.match(home, /closerScope="Vegas-lined"/);
+  assert.doesNotMatch(home, /The board is posted/);
+  assert.doesNotMatch(JSON.stringify(week8TapePack), /win_title/);
+  assert.doesNotMatch(JSON.stringify(week8Top25Pack), /win_title/);
 });
