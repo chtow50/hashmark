@@ -336,6 +336,13 @@ const WEEK7_FCS_STUBS: FcsStubGame[] = [
   finalAway("ohio", 7, "2026-10-17", "Sacramento State", 48, 7),
 ];
 
+const WEEK8_FCS_STUBS: FcsStubGame[] = [
+  // Sacramento State @ Ball State — Ball State 34, Sacramento State 17 (ESPN 401866447).
+  finalHome("ball-state", 8, "2026-10-24", "Sacramento State", 34, 17),
+  // North Dakota State @ New Mexico — New Mexico 21, North Dakota State 16 (ESPN 401864527).
+  finalHome("new-mexico", 8, "2026-10-24", "North Dakota State", 21, 16),
+];
+
 /** FBS vs FCS rows dropped from the 136-team games table (W–L stubs + Week 2 Vegas-only JSON). */
 export const FCS_STUB_GAMES: FcsStubGame[] = [
   ...WEEK0_FCS_STUBS,
@@ -346,6 +353,7 @@ export const FCS_STUB_GAMES: FcsStubGame[] = [
   ...WEEK5_FCS_STUBS,
   ...WEEK6_FCS_STUBS,
   ...WEEK7_FCS_STUBS,
+  ...WEEK8_FCS_STUBS,
 ];
 
 export function fcsStubIsFinal(stub: FcsStubGame): boolean {
