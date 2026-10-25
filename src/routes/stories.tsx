@@ -48,15 +48,15 @@ function StoriesPage() {
       <p className="mb-8 font-mono text-[11px] uppercase tracking-[0.16em] text-faint">
         <Link
           to="/schedule"
-          search={{ w: 8 }}
+          search={{ w: 9 }}
           className="text-fg underline decoration-border underline-offset-4 hover:text-accent"
         >
-          Week 8 schedule
+          Week 9 schedule
         </Link>
         <span className="mx-2" aria-hidden>
           ·
         </span>
-        HX 2026.7 · Week 8 board · Week 7 tape SU 34/57 · closer 3/6 (Vegas-lined) · Soft-cal FLAG
+        HX 2026.7 · Week 9 board · Week 8 tape SU 31/54 · closer 3/7 (Vegas-lined) · Soft-cal FLAG
       </p>
 
       {lead ? (

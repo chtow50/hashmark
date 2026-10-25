@@ -4,33 +4,33 @@ import type { ScheduleGame } from "./types";
  * Board chrome week (Rankings / home PageHead). Ranking *rows* stay
  * `season = 2026 AND week = 0` — that is what queries read.
  */
-export const BOARD_WEEK = 8;
+export const BOARD_WEEK = 9;
 
 /**
  * Last stamped AP ballot on the live board.
- * HX chrome is Week 8. AP is the last stamped poll (Week 7, Oct. 11) —
- * ESPN rankings API, NCAA.com cross-check 25/25; the post-Week 7 ballot was
- * not out at the Sunday 2026-10-18 ship. Source: data/week7_ap_top25_2026.json
- * (migration 0065).
+ * HX chrome is Week 9. AP is the last stamped poll (Week 8, Oct. 18) —
+ * ESPN rankings API, NCAA.com cross-check 25/25 ranks; the post-Week 8 ballot was
+ * not out at the Sunday 2026-10-25 ship. Source: data/week8_ap_top25_2026.json
+ * (migration 0073).
  */
 export const AP_STAMP = {
-  week: 7,
-  asOf: "Oct. 11",
-  label: "Week 7 AP",
-  columnHint: "W7 stamp",
-  vsHx: "last stamped AP (Week 7, Oct. 11)",
-  lede: "HX is Week 8. AP is the last stamped poll (Week 7, Oct. 11).",
+  week: 8,
+  asOf: "Oct. 18",
+  label: "Week 8 AP",
+  columnHint: "W8 stamp",
+  vsHx: "last stamped AP (Week 8, Oct. 18)",
+  lede: "HX is Week 9. AP is the last stamped poll (Week 8, Oct. 18).",
 } as const;
 
 /**
- * Featured kick reads the HASHMARK Week 8 slate (`/schedule?w=8`).
- * Board chrome is Week 8. Live ratings are HX 2026.7. The Week 7 tape
+ * Featured kick reads the HASHMARK Week 9 slate (`/schedule?w=9`).
+ * Board chrome is Week 9. Live ratings are HX 2026.7. The Week 8 tape
  * grades the HX 2026.7 pregame board. Make the 12 is the HX 2026.7
  * 10k table (make-field only on free chrome). Home desk aligns to the
- * Week 8 pin (Ole Miss @ Texas), matching `/schedule?w=8` featured —
+ * Week 9 pin (Ohio State @ USC), matching `/schedule?w=9` featured —
  * not the earliest kick. FCS rows are never featured. Never invent Vegas.
  */
-export const FEATURED_SLATE_WEEK = 8;
+export const FEATURED_SLATE_WEEK = 9;
 
 /** Thursday night flag: Colorado at Georgia Tech, Bobby Dodd. */
 export const WEEK1_FLAG = {
@@ -109,11 +109,24 @@ export const WEEK7_FEATURED = {
  * slate with a CLEAR kick + TV: HX #8 @ #5; AP #9 @ #7).
  * Sat 2026-10-24 18:30 CT · ABC (ESPN = CBS Sports ET; migration 0064).
  * Vegas blank: ESPN DraftKings and CBS Sports did not match exactly.
- * Home desk FEATURED_SLATE_WEEK is 8.
+ * Historical pin (FINAL).
  */
 export const WEEK8_FEATURED = {
   homeSlug: "texas",
   awaySlug: "ole-miss",
+} as const;
+
+/**
+ * Saturday NBC: Ohio State at USC, LA Memorial Coliseum. Schedule-page pin for
+ * `/schedule?w=9` and the home desk featured card (best combined HX 2026.7 rank
+ * on the Week 9 slate with a CLEAR kick + TV: HX #2 @ #21; AP #3 @ #16).
+ * Sat 2026-10-31 18:30 CT · NBC (ESPN = CBS Sports ET; migration 0072).
+ * Vegas blank: no exact ESPN DraftKings = CBS Sports match.
+ * Home desk FEATURED_SLATE_WEEK is 9.
+ */
+export const WEEK9_FEATURED = {
+  homeSlug: "usc",
+  awaySlug: "ohio-state",
 } as const;
 
 
@@ -176,8 +189,8 @@ export function selectFeaturedKick<
 }
 
 /**
- * Board featured for the live featured slate (Week 8).
- * Prefers the Week 8 pin (Ole Miss @ Texas) via
+ * Board featured for the live featured slate (Week 9).
+ * Prefers the Week 9 pin (Ohio State @ USC) via
  * `selectWeekScopedFeatured(FEATURED_SLATE_WEEK, …)`. Falls back to the
  * earliest upcoming kick only when the pin is missing or FINAL.
  * Week 2–5 Research pins stay historical helpers. Never a FINAL. Never
@@ -215,12 +228,19 @@ export function isOleMissAtTexas(
   return g.homeSlug === WEEK8_FEATURED.homeSlug && g.awaySlug === WEEK8_FEATURED.awaySlug;
 }
 
+export function isOhioStateAtUsc(
+  g: Pick<ScheduleGame, "homeSlug" | "awaySlug">,
+): boolean {
+  return g.homeSlug === WEEK9_FEATURED.homeSlug && g.awaySlug === WEEK9_FEATURED.awaySlug;
+}
+
 /**
  * Featured card scoped to the schedule week being viewed.
  * Week 5 pins Pittsburgh @ Virginia Tech (CLEAR), even though WKU @ NMSU
  * kicks earlier. Week 6 pins Iowa State @ BYU (CLEAR), even though midweek
  * cards kick earlier. Week 7 pins Alabama @ Tennessee. Week 8 pins Ole Miss @ Texas.
- * The homepage desk uses FEATURED_SLATE_WEEK (8) and the same Week 8 pin via
+ * Week 9 pins Ohio State @ USC.
+ * The homepage desk uses FEATURED_SLATE_WEEK (9) and the same Week 9 pin via
  * `selectBoardFeaturedKick`. Never invents a matchup.
  */
 export function selectWeekScopedFeatured<
@@ -239,6 +259,9 @@ export function selectWeekScopedFeatured<
   }
   if (week === 8) {
     return slate.find((g) => !g.isFcs && g.status !== "final" && isOleMissAtTexas(g)) ?? null;
+  }
+  if (week === 9) {
+    return slate.find((g) => !g.isFcs && g.status !== "final" && isOhioStateAtUsc(g)) ?? null;
   }
   return null;
 }

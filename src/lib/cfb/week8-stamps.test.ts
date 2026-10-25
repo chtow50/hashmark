@@ -83,9 +83,9 @@ describe("Week 8 FBS–FBS kick / TV / Vegas (0064)", () => {
     }
   });
 
-  it("pins the featured Ole Miss @ Texas card: Sat 18:30 CT · ABC · Vegas blank", () => {
-    assert.equal(BOARD_WEEK, 8);
-    assert.equal(FEATURED_SLATE_WEEK, 8);
+  it("kept the historical Week 8 featured Ole Miss @ Texas card: Sat 18:30 CT · ABC · Vegas blank", () => {
+    assert.equal(BOARD_WEEK, 9);
+    assert.equal(FEATURED_SLATE_WEEK, 9);
     assert.equal(WEEK8_FEATURED.homeSlug, "texas");
     assert.equal(WEEK8_FEATURED.awaySlug, "ole-miss");
     const g = pack.games.find((r) => r.home_slug === "texas" && r.away_slug === "ole-miss");
@@ -128,10 +128,10 @@ describe("Week 7 AP Top 25 stamp (0065, Oct. 11)", () => {
     }
   });
 
-  it("drives the AP chrome", () => {
-    assert.equal(AP_STAMP.week, 7);
-    assert.equal(AP_STAMP.label, "Week 7 AP");
-    assert.equal(AP_STAMP.columnHint, "W7 stamp");
+  it("was superseded on the chrome by the Week 8 stamp (0073)", () => {
+    assert.equal(AP_STAMP.week, 8);
+    assert.equal(AP_STAMP.label, "Week 8 AP");
+    assert.equal(AP_STAMP.columnHint, "W8 stamp");
   });
 });
 
