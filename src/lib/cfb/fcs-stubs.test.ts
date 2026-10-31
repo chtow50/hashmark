@@ -394,7 +394,7 @@ describe("Week 1 FCS backfill (fcs_backfill_week1_all_finals_clear_2026-10-09)",
     ]);
     assert.equal(fcsStubsForWeek(2).length, payload.games.length);
     // 87 after #84, + 36 records-audit finals (TTU is replace-not-add), + 2 Week 6 FINALs, + 5 Week 7 FINALs, + 2 Week 8 FINALs.
-    assert.equal(FCS_STUB_GAMES.length, 132);
+    assert.equal(FCS_STUB_GAMES.length, 133);
     // Buffalo Week 4 (Robert Morris) and Jacksonville State Week 0 (NDSU) landed in the records audit.
     assert.deepEqual(fcsStubsForTeam("buffalo").map((s) => s.week), [1, 4]);
     assert.deepEqual(fcsStubsForTeam("jacksonville-state").map((s) => s.week), [0, 1]);

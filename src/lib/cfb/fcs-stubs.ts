@@ -343,6 +343,11 @@ const WEEK8_FCS_STUBS: FcsStubGame[] = [
   finalHome("new-mexico", 8, "2026-10-24", "North Dakota State", 21, 16),
 ];
 
+const WEEK9_FCS_STUBS: FcsStubGame[] = [
+  // Kent State @ Sacramento State — Sacramento State 31, Kent State 10 (ESPN 401866451).
+  finalAway("kent-state", 9, "2026-10-30", "Sacramento State", 10, 31),
+];
+
 /** FBS vs FCS rows dropped from the 136-team games table (W–L stubs + Week 2 Vegas-only JSON). */
 export const FCS_STUB_GAMES: FcsStubGame[] = [
   ...WEEK0_FCS_STUBS,
@@ -354,6 +359,7 @@ export const FCS_STUB_GAMES: FcsStubGame[] = [
   ...WEEK6_FCS_STUBS,
   ...WEEK7_FCS_STUBS,
   ...WEEK8_FCS_STUBS,
+  ...WEEK9_FCS_STUBS,
 ];
 
 export function fcsStubIsFinal(stub: FcsStubGame): boolean {
