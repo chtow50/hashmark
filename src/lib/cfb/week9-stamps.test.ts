@@ -3,6 +3,7 @@ import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { describe, it } from "node:test";
+import { fcsStubsForWeek } from "./fcs-stubs.ts";
 import { AP_STAMP, BOARD_WEEK, FEATURED_SLATE_WEEK, WEEK9_FEATURED } from "./featured.ts";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "../../..");
@@ -194,5 +195,32 @@ describe("Week 9 Thursday FINALs (0076, FAU@UNT + TROY@JMU)", () => {
     assert.doesNotMatch(thuSql, /kickoff_at|vegas_spread|vegas_total|\btv\s*=|hx_rating|win_title|make_field/);
     const header = thuSql.split(/update games/i)[0] ?? "";
     assert.doesNotMatch(header, /\b401\d{6,}\b/);
+  });
+});
+
+describe("Week 9 Friday FINALs (0077, TULN@CLT + BAY@UCF; KENT@SAC stub)", () => {
+  const friSql = readFileSync(join(root, "migrations/0077_week9_fri_finals.sql"), "utf8");
+  const expected = [
+    ["401862813", "charlotte", "tulane", 31, 38, "Tulane @ Charlotte — Tulane 38, Charlotte 31"],
+    ["401856844", "ucf", "baylor", 9, 41, "Baylor @ UCF — Baylor 41, UCF 9"],
+  ] as const;
+
+  it("stamps scores+status only, with the exact home/away orientation", () => {
+    assert.equal((friSql.match(/update games/g) ?? []).length, 2);
+    assert.equal((friSql.match(/g\.week = 9/g) ?? []).length, 2);
+    for (const [espn, hSlug, aSlug, hs, as, label] of expected) {
+      assert.ok(friSql.includes(`-- ${label}`), label);
+      assert.ok(friSql.includes(`home_score = ${hs},\n    away_score = ${as}\n`), `${espn} scores`);
+      assert.ok(friSql.includes(`and h.slug = '${hSlug}' and a.slug = '${aSlug}';`), `${espn} orientation`);
+      assert.match(friSql, new RegExp(`Source event ${espn}`));
+    }
+    assert.doesNotMatch(friSql, /kickoff_at|vegas_spread|vegas_total|\btv\s*=|hx_rating|win_title|make_field/);
+    const header = friSql.split(/update games/i)[0] ?? "";
+    assert.doesNotMatch(header, /\b401\d{6,}\b/);
+  });
+
+  it("adds Kent State @ Sacramento State as a Week 9 FCS FINAL stub", () => {
+    const got = fcsStubsForWeek(9).map((g) => [g.teamSlug, g.home, g.opponentLabel, g.homeScore, g.awayScore, g.status]);
+    assert.deepEqual(got, [["kent-state", false, "Sacramento State", 31, 10, "final"]]);
   });
 });
