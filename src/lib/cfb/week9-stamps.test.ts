@@ -298,3 +298,26 @@ describe("Week 9 Saturday FINALs (0078, 43 FBS games; UTEP@NDSU stub)", () => {
     ]);
   });
 });
+
+describe("Week 9 Saturday late FINALs (0079, TXST@BSU, NIU@UNLV, ORST@FRES)", () => {
+  const lateSql = readFileSync(join(root, "migrations/0079_week9_sat_late_finals.sql"), "utf8");
+  const expected = [
+    ["401860908", "boise-state", "texas-state", 46, 45, "Texas State @ Boise State — Texas State 45, Boise State 46"],
+    ["401864530", "unlv", "northern-illinois", 31, 24, "Northern Illinois @ UNLV — Northern Illinois 24, UNLV 31"],
+    ["401860924", "fresno-state", "oregon-state", 38, 22, "Oregon State @ Fresno State — Oregon State 22, Fresno State 38"],
+  ] as const;
+
+  it("stamps scores+status only, with the exact home/away orientation", () => {
+    assert.equal((lateSql.match(/update games/g) ?? []).length, 3);
+    assert.equal((lateSql.match(/g\.week = 9/g) ?? []).length, 3);
+    for (const [espn, hSlug, aSlug, hs, as, label] of expected) {
+      assert.ok(lateSql.includes(`-- ${label}`), label);
+      assert.ok(lateSql.includes(`home_score = ${hs},\n    away_score = ${as}\n`), `${espn} scores`);
+      assert.ok(lateSql.includes(`and h.slug = '${hSlug}' and a.slug = '${aSlug}';`), `${espn} orientation`);
+      assert.match(lateSql, new RegExp(`Source event ${espn}`));
+    }
+    assert.doesNotMatch(lateSql, /kickoff_at|vegas_spread|vegas_total|\btv\s*=|hx_rating|win_title|make_field/);
+    const header = lateSql.split(/update games/i)[0] ?? "";
+    assert.doesNotMatch(header, /\b401\d{6,}\b/);
+  });
+});
