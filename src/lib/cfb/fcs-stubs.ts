@@ -346,6 +346,8 @@ const WEEK8_FCS_STUBS: FcsStubGame[] = [
 const WEEK9_FCS_STUBS: FcsStubGame[] = [
   // Kent State @ Sacramento State — Sacramento State 31, Kent State 10 (ESPN 401866451).
   finalAway("kent-state", 9, "2026-10-30", "Sacramento State", 10, 31),
+  // UTEP @ North Dakota State — North Dakota State 31, UTEP 7 (ESPN 401864531).
+  finalAway("utep", 9, "2026-10-31", "North Dakota State", 7, 31),
 ];
 
 /** FBS vs FCS rows dropped from the 136-team games table (W–L stubs + Week 2 Vegas-only JSON). */

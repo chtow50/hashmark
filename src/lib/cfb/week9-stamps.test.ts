@@ -220,7 +220,81 @@ describe("Week 9 Friday FINALs (0077, TULN@CLT + BAY@UCF; KENT@SAC stub)", () =>
   });
 
   it("adds Kent State @ Sacramento State as a Week 9 FCS FINAL stub", () => {
-    const got = fcsStubsForWeek(9).map((g) => [g.teamSlug, g.home, g.opponentLabel, g.homeScore, g.awayScore, g.status]);
+    const got = fcsStubsForWeek(9).filter((g) => g.teamSlug === "kent-state").map((g) => [g.teamSlug, g.home, g.opponentLabel, g.homeScore, g.awayScore, g.status]);
     assert.deepEqual(got, [["kent-state", false, "Sacramento State", 31, 10, "final"]]);
+  });
+});
+
+describe("Week 9 Saturday FINALs (0078, 43 FBS games; UTEP@NDSU stub)", () => {
+  const satSql = readFileSync(join(root, "migrations/0078_week9_sat_finals.sql"), "utf8");
+  const expected = [
+    ["401856842", "texas-tech", "arizona", 34, 26, "Arizona @ Texas Tech — Arizona 26, Texas Tech 34"],
+    ["401858277", "nc-state", "california", 31, 10, "California @ NC State — California 10, NC State 31"],
+    ["401858278", "syracuse", "smu", 30, 27, "SMU @ Syracuse — SMU 27, Syracuse 30"],
+    ["401858279", "duke", "boston-college", 47, 2, "Boston College @ Duke — Boston College 2, Duke 47"],
+    ["401858502", "iowa", "wisconsin", 30, 0, "Wisconsin @ Iowa — Wisconsin 0, Iowa 30"],
+    ["401858503", "maryland", "illinois", 17, 20, "Illinois @ Maryland — Illinois 20, Maryland 17"],
+    ["401859185", "navy", "notre-dame", 13, 35, "Notre Dame @ Navy — Notre Dame 35, Navy 13"],
+    ["401862816", "usf", "uab", 30, 10, "UAB @ South Florida — UAB 10, South Florida 30"],
+    ["401866452", "western-michigan", "bowling-green", 23, 10, "Bowling Green @ Western Michigan — Bowling Green 10, Western Michigan 23"],
+    ["401858507", "rutgers", "michigan", 21, 28, "Michigan @ Rutgers — Michigan 28, Rutgers 21"],
+    ["401856735", "ole-miss", "auburn", 45, 15, "Auburn @ Ole Miss — Auburn 15, Ole Miss 45"],
+    ["401871096", "old-dominion", "marshall", 23, 36, "Marshall @ Old Dominion — Marshall 36, Old Dominion 23"],
+    ["401856846", "colorado", "kansas-state", 27, 24, "Kansas State @ Colorado — Kansas State 24, Colorado 27"],
+    ["401869944", "georgia-state", "coastal-carolina", 20, 31, "Coastal Carolina @ Georgia State — Coastal Carolina 31, Georgia State 20"],
+    ["401861966", "air-force", "uconn", 35, 26, "UConn @ Air Force — UConn 26, Air Force 35"],
+    ["401862815", "east-carolina", "temple", 17, 9, "Temple @ East Carolina — Temple 9, East Carolina 17"],
+    ["401871097", "south-alabama", "louisiana-tech", 20, 35, "Louisiana Tech @ South Alabama — Louisiana Tech 35, South Alabama 20"],
+    ["401858283", "louisville", "stanford", 52, 24, "Stanford @ Louisville — Stanford 24, Louisville 52"],
+    ["401856734", "georgia", "florida", 27, 8, "Florida @ Georgia — Florida 8, Georgia 27"],
+    ["401856843", "byu", "arizona-state", 27, 20, "Arizona State @ BYU — Arizona State 20, BYU 27"],
+    ["401856845", "tcu", "kansas", 22, 16, "Kansas @ TCU — Kansas 16, TCU 22"],
+    ["401858501", "indiana", "minnesota", 23, 16, "Minnesota @ Indiana — Minnesota 16, Indiana 23"],
+    ["401858505", "oregon", "northwestern", 34, 26, "Northwestern @ Oregon — Northwestern 26, Oregon 34"],
+    ["401860910", "utah-state", "colorado-state", 31, 14, "Colorado State @ Utah State — Colorado State 14, Utah State 31"],
+    ["401871059", "liberty", "fiu", 49, 10, "Florida International @ Liberty — Florida International 10, Liberty 49"],
+    ["401871095", "ul-monroe", "southern-miss", 21, 35, "Southern Miss @ UL Monroe — Southern Miss 35, UL Monroe 21"],
+    ["401856848", "cincinnati", "utah", 25, 49, "Utah @ Cincinnati — Utah 49, Cincinnati 25"],
+    ["401858284", "wake-forest", "virginia", 51, 7, "Virginia @ Wake Forest — Virginia 7, Wake Forest 51"],
+    ["401864529", "san-jose-state", "new-mexico", 16, 21, "New Mexico @ San José State — New Mexico 21, San José State 16"],
+    ["401856736", "oklahoma", "south-carolina", 25, 42, "South Carolina @ Oklahoma — South Carolina 42, Oklahoma 25"],
+    ["401858506", "penn-state", "purdue", 31, 17, "Purdue @ Penn State — Purdue 17, Penn State 31"],
+    ["401858508", "ucla", "nevada", 27, 0, "Nevada @ UCLA — Nevada 0, UCLA 27"],
+    ["401869846", "georgia-southern", "app-state", 19, 3, "App State @ Georgia Southern — App State 3, Georgia Southern 19"],
+    ["401856847", "iowa-state", "oklahoma-state", 51, 49, "Oklahoma State @ Iowa State — Oklahoma State 49, Iowa State 51"],
+    ["401858280", "florida-state", "clemson", 24, 36, "Clemson @ Florida State — Clemson 36, Florida State 24"],
+    ["401860909", "san-diego-state", "washington-state", 26, 20, "Washington State @ San Diego State — Washington State 20, San Diego State 26"],
+    ["401856737", "texas", "mississippi-state", 31, 3, "Mississippi State @ Texas — Mississippi State 3, Texas 31"],
+    ["401858281", "pittsburgh", "georgia-tech", 34, 11, "Georgia Tech @ Pittsburgh — Georgia Tech 11, Pittsburgh 34"],
+    ["401858282", "north-carolina", "miami", 35, 38, "Miami @ North Carolina — Miami 38, North Carolina 35"],
+    ["401858509", "usc", "ohio-state", 30, 18, "Ohio State @ USC — Ohio State 18, USC 30"],
+    ["401856733", "arkansas", "missouri", 10, 34, "Missouri @ Arkansas — Missouri 34, Arkansas 10"],
+    ["401858504", "nebraska", "washington", 10, 17, "Washington @ Nebraska — Washington 17, Nebraska 10"],
+    ["401862814", "memphis", "army", 49, 22, "Army @ Memphis — Army 22, Memphis 49"],
+  ] as const;
+
+  it("stamps scores+status only, with the exact home/away orientation", () => {
+    assert.equal((satSql.match(/update games/g) ?? []).length, 43);
+    assert.equal((satSql.match(/g\.week = 9/g) ?? []).length, 43);
+    for (const [espn, hSlug, aSlug, hs, as, label] of expected) {
+      assert.ok(satSql.includes(`-- ${label}`), label);
+      assert.ok(satSql.includes(`home_score = ${hs},\n    away_score = ${as}\n`), `${espn} scores`);
+      assert.ok(satSql.includes(`and h.slug = '${hSlug}' and a.slug = '${aSlug}';`), `${espn} orientation`);
+      assert.match(satSql, new RegExp(`Source event ${espn}`));
+    }
+    for (const [home, away] of [["boise-state", "texas-state"], ["unlv", "northern-illinois"], ["fresno-state", "oregon-state"]]) {
+      assert.ok(!satSql.includes(`and h.slug = '${home}' and a.slug = '${away}';`), `${away} @ ${home} still in progress`);
+    }
+    assert.doesNotMatch(satSql, /kickoff_at|vegas_spread|vegas_total|\btv\s*=|hx_rating|win_title|make_field/);
+    const header = satSql.split(/update games/i)[0] ?? "";
+    assert.doesNotMatch(header, /\b401\d{6,}\b/);
+  });
+
+  it("adds UTEP @ North Dakota State as a Week 9 FCS FINAL stub", () => {
+    const got = fcsStubsForWeek(9).map((g) => [g.teamSlug, g.home, g.opponentLabel, g.homeScore, g.awayScore, g.status]);
+    assert.deepEqual(got, [
+      ["kent-state", false, "Sacramento State", 31, 10, "final"],
+      ["utep", false, "North Dakota State", 31, 7, "final"],
+    ]);
   });
 });
