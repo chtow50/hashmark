@@ -866,6 +866,15 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /and h\.slug = 'fresno-state' and a\.slug = 'oregon-state';/);
   });
 
+  it("includes Week 10 Tuesday FINALs (0082) with exact home/away orientation in committed output", () => {
+    const text = corpus();
+    assert.match(text, /0082_week10_tue_finals/);
+    assert.match(text, /Ohio @ Akron — Ohio 28, Akron 20/);
+    assert.match(text, /Buffalo @ Miami \(OH\) — Buffalo 34, Miami \(OH\) 31/);
+    assert.match(text, /and h\.slug = 'akron' and a\.slug = 'ohio';/);
+    assert.match(text, /and h\.slug = 'miami-oh' and a\.slug = 'buffalo';/);
+  });
+
   it("keeps PGLite wasm sidecars next to the server bundle", () => {
     const libs = join(OUT, "functions/__server.func/_libs");
     for (const name of ["pglite.wasm", "initdb.wasm", "pglite.data"]) {
