@@ -350,6 +350,11 @@ const WEEK9_FCS_STUBS: FcsStubGame[] = [
   finalAway("utep", 9, "2026-10-31", "North Dakota State", 7, 31),
 ];
 
+const WEEK10_FCS_STUBS: FcsStubGame[] = [
+  // Toledo @ Sacramento State — Toledo 20, Sacramento State 17 (ESPN 401866457).
+  finalAway("toledo", 10, "2026-11-04", "Sacramento State", 20, 17),
+];
+
 /** FBS vs FCS rows dropped from the 136-team games table (W–L stubs + Week 2 Vegas-only JSON). */
 export const FCS_STUB_GAMES: FcsStubGame[] = [
   ...WEEK0_FCS_STUBS,
@@ -362,6 +367,7 @@ export const FCS_STUB_GAMES: FcsStubGame[] = [
   ...WEEK7_FCS_STUBS,
   ...WEEK8_FCS_STUBS,
   ...WEEK9_FCS_STUBS,
+  ...WEEK10_FCS_STUBS,
 ];
 
 export function fcsStubIsFinal(stub: FcsStubGame): boolean {
