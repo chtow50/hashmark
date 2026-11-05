@@ -3,6 +3,7 @@ import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { describe, it } from "node:test";
+import { fcsStubsForWeek } from "./fcs-stubs.ts";
 import { AP_STAMP, BOARD_WEEK, FEATURED_SLATE_WEEK, WEEK10_FEATURED } from "./featured.ts";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "../../..");
@@ -154,5 +155,32 @@ describe("Week 10 Tuesday FINALs (0082, OHIO@AKR + BUFF@M-OH)", () => {
     assert.doesNotMatch(tueSql, /kickoff_at|vegas_spread|vegas_total|\btv\s*=|hx_rating|win_title|make_field/);
     const header = tueSql.split(/update games/i)[0] ?? "";
     assert.doesNotMatch(header, /\b401\d{6,}\b/);
+  });
+});
+
+describe("Week 10 Wednesday FINALs (0083, BALL@MASS + CMU@EMU; TOL@SAC stub)", () => {
+  const wedSql = readFileSync(join(root, "migrations/0083_week10_wed_finals.sql"), "utf8");
+  const expected = [
+    ["401866455", "massachusetts", "ball-state", 31, 30, "Ball State @ Massachusetts — Massachusetts 31, Ball State 30"],
+    ["401866456", "eastern-michigan", "central-michigan", 7, 35, "Central Michigan vs Eastern Michigan (neutral, Ford Field) — Central Michigan 35, Eastern Michigan 7"],
+  ] as const;
+
+  it("stamps scores+status only, with the exact home/away orientation", () => {
+    assert.equal((wedSql.match(/update games/g) ?? []).length, 2);
+    assert.equal((wedSql.match(/g\.week = 10/g) ?? []).length, 2);
+    for (const [espn, hSlug, aSlug, hs, as, label] of expected) {
+      assert.ok(wedSql.includes(`-- ${label}`), label);
+      assert.ok(wedSql.includes(`home_score = ${hs},\n    away_score = ${as}\n`), `${espn} scores`);
+      assert.ok(wedSql.includes(`and h.slug = '${hSlug}' and a.slug = '${aSlug}';`), `${espn} orientation`);
+      assert.match(wedSql, new RegExp(`Source event ${espn}`));
+    }
+    assert.doesNotMatch(wedSql, /kickoff_at|vegas_spread|vegas_total|\btv\s*=|hx_rating|win_title|make_field/);
+    const header = wedSql.split(/update games/i)[0] ?? "";
+    assert.doesNotMatch(header, /\b401\d{6,}\b/);
+  });
+
+  it("adds Toledo @ Sacramento State as a Week 10 FCS FINAL stub", () => {
+    const got = fcsStubsForWeek(10).map((g) => [g.teamSlug, g.home, g.opponentLabel, g.homeScore, g.awayScore, g.status]);
+    assert.deepEqual(got, [["toledo", false, "Sacramento State", 17, 20, "final"]]);
   });
 });

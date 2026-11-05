@@ -1,6 +1,6 @@
 import { t as MODEL } from "./chicago-iJSJmK07.mjs";
 import { w as require_jsx_runtime, x as Link } from "../_libs/@tanstack/react-router+[...].mjs";
-import { J as Panel, q as PageHead } from "./router-CTN9h0cH.mjs";
+import { J as Panel, q as PageHead } from "./router-CG0pQZqr.mjs";
 //#region node_modules/.nitro/vite/services/ssr/assets/model-DGZarob-.js
 var import_jsx_runtime = require_jsx_runtime();
 var WEIGHTS = [
