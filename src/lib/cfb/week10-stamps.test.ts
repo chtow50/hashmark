@@ -184,3 +184,25 @@ describe("Week 10 Wednesday FINALs (0083, BALL@MASS + CMU@EMU; TOL@SAC stub)", (
     assert.deepEqual(got, [["toledo", false, "Sacramento State", 17, 20, "final"]]);
   });
 });
+
+describe("Week 10 Thursday FINALs (0084, UTSA@FAU + JMU@USM)", () => {
+  const thuSql = readFileSync(join(root, "migrations/0084_week10_thu_finals.sql"), "utf8");
+  const expected = [
+    ["401862817", "florida-atlantic", "utsa", 60, 29, "UTSA @ Florida Atlantic — Florida Atlantic 60, UTSA 29"],
+    ["401869964", "southern-miss", "james-madison", 23, 54, "James Madison @ Southern Miss — James Madison 54, Southern Miss 23"],
+  ] as const;
+
+  it("stamps scores+status only, with the exact home/away orientation", () => {
+    assert.equal((thuSql.match(/update games/g) ?? []).length, 2);
+    assert.equal((thuSql.match(/g\.week = 10/g) ?? []).length, 2);
+    for (const [espn, hSlug, aSlug, hs, as, label] of expected) {
+      assert.ok(thuSql.includes(`-- ${label}`), label);
+      assert.ok(thuSql.includes(`home_score = ${hs},\n    away_score = ${as}\n`), `${espn} scores`);
+      assert.ok(thuSql.includes(`and h.slug = '${hSlug}' and a.slug = '${aSlug}';`), `${espn} orientation`);
+      assert.match(thuSql, new RegExp(`Source event ${espn}`));
+    }
+    assert.doesNotMatch(thuSql, /kickoff_at|vegas_spread|vegas_total|\btv\s*=|hx_rating|win_title|make_field/);
+    const header = thuSql.split(/update games/i)[0] ?? "";
+    assert.doesNotMatch(header, /\b401\d{6,}\b/);
+  });
+});
