@@ -353,6 +353,8 @@ const WEEK9_FCS_STUBS: FcsStubGame[] = [
 const WEEK10_FCS_STUBS: FcsStubGame[] = [
   // Toledo @ Sacramento State — Toledo 20, Sacramento State 17 (ESPN 401866457).
   finalAway("toledo", 10, "2026-11-04", "Sacramento State", 20, 17),
+  // Merrimack @ Wake Forest — Wake Forest 77, Merrimack 0 (ESPN 401858290).
+  finalHome("wake-forest", 10, "2026-11-07", "Merrimack", 77, 0),
 ];
 
 /** FBS vs FCS rows dropped from the 136-team games table (W–L stubs + Week 2 Vegas-only JSON). */
