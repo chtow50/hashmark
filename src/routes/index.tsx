@@ -22,10 +22,10 @@ import { make12FreeFromSim } from "@/lib/cfb/season-sim";
 import {
   boardDisagreementRows,
   SIM_10K_HX_STAMP,
-  week9BoardFlags,
-  week9SeasonTape,
-  week9Tape,
-  week9Top25Tape,
+  week10BoardFlags,
+  week10SeasonTape,
+  week10Tape,
+  week10Top25Tape,
 } from "@/lib/cfb/truth-pack";
 import type { Prediction, ScheduleGame } from "@/lib/cfb/types";
 import { apLabel, fmtNum, fmtPct } from "@/lib/utils";
@@ -64,10 +64,10 @@ function Home() {
     : null;
 
   const disagreements = boardDisagreementRows(teams).slice(0, 8);
-  const tape = week9Tape();
-  const top25 = week9Top25Tape();
-  const season = week9SeasonTape();
-  const flags = week9BoardFlags();
+  const tape = week10Tape();
+  const top25 = week10Top25Tape();
+  const season = week10SeasonTape();
+  const flags = week10BoardFlags();
   const oneMake = one ? make12FreeFromSim(one.slug, one) : null;
 
   const recLeaders = [...teams].sort((a, b) => a.recRank - b.recRank).slice(0, 5);
@@ -153,10 +153,10 @@ function Home() {
         top25={top25}
         season={season}
         flags={flags}
-        weekLabel="Week 9 tape"
-        scheduleWeek={9}
+        weekLabel="Week 10 tape"
+        scheduleWeek={10}
         closerScope="Vegas-lined"
-        dek="SU 44/54 is the bounce. Closer 3/6 is graded only on the 6 cards with a stamped Vegas close — small sample, not under 45%, so no closer FLAG. Soft-cal FLAG stays. HX not retuned."
+        dek="SU 36/61 is under 70% — SU FLAG. Closer 3/5 is graded only on the 5 cards with a stamped Vegas close — small sample, not under 45%, so no closer FLAG. Soft-cal FLAG stays. HX not retuned."
       />
 
       <Panel>

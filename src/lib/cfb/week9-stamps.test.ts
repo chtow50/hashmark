@@ -80,8 +80,8 @@ describe("Week 9 FBS–FBS kick / TV / Vegas (0072)", () => {
   });
 
   it("kept the historical Week 9 featured Ohio State @ USC card: Sat 18:30 CT · NBC · Vegas blank", () => {
-    assert.equal(BOARD_WEEK, 10);
-    assert.equal(FEATURED_SLATE_WEEK, 10);
+    assert.equal(BOARD_WEEK, 11);
+    assert.equal(FEATURED_SLATE_WEEK, 11);
     assert.equal(WEEK9_FEATURED.homeSlug, "usc");
     assert.equal(WEEK9_FEATURED.awaySlug, "ohio-state");
     const g = pack.games.find((r) => r.home_slug === "usc" && r.away_slug === "ohio-state");
@@ -124,11 +124,11 @@ describe("Week 8 AP Top 25 stamp (0073, Oct. 18)", () => {
     }
   });
 
-  it("was superseded on the chrome by the Week 9 stamp (0081)", () => {
-    assert.equal(AP_STAMP.week, 9);
-    assert.equal(AP_STAMP.asOf, "Oct. 25");
-    assert.equal(AP_STAMP.label, "Week 9 AP");
-    assert.equal(AP_STAMP.columnHint, "W9 stamp");
+  it("was superseded on the chrome by the Week 10 stamp (0088)", () => {
+    assert.equal(AP_STAMP.week, 10);
+    assert.equal(AP_STAMP.asOf, "Nov. 1");
+    assert.equal(AP_STAMP.label, "Week 10 AP");
+    assert.equal(AP_STAMP.columnHint, "W10 stamp");
   });
 });
 

@@ -4,33 +4,33 @@ import type { ScheduleGame } from "./types";
  * Board chrome week (Rankings / home PageHead). Ranking *rows* stay
  * `season = 2026 AND week = 0` — that is what queries read.
  */
-export const BOARD_WEEK = 10;
+export const BOARD_WEEK = 11;
 
 /**
  * Last stamped AP ballot on the live board.
- * HX chrome is Week 10. AP is the last stamped poll (Week 9, Oct. 25) —
- * ESPN rankings API, NCAA.com cross-check 25/25 ranks + points (Boise State and
- * Northwestern tied at No. 20); the post-Week 9 ballot was not out at the Sunday
- * 2026-11-01 ship. Source: data/week9_ap_top25_2026.json (migration 0081).
+ * HX chrome is Week 11. AP is the last stamped poll (Week 10, Nov. 1) —
+ * ESPN rankings API, NCAA.com cross-check 25/25 ranks + points (no ties; through
+ * games Oct. 31). The post-Week 10 / Nov. 8 ballot was not out at the Sunday
+ * 2026-11-08 ship. Source: data/week10_ap_top25_2026.json (migration 0088).
  */
 export const AP_STAMP = {
-  week: 9,
-  asOf: "Oct. 25",
-  label: "Week 9 AP",
-  columnHint: "W9 stamp",
-  vsHx: "last stamped AP (Week 9, Oct. 25)",
-  lede: "HX is Week 10. AP is the last stamped poll (Week 9, Oct. 25).",
+  week: 10,
+  asOf: "Nov. 1",
+  label: "Week 10 AP",
+  columnHint: "W10 stamp",
+  vsHx: "last stamped AP (Week 10, Nov. 1)",
+  lede: "HX is Week 11. AP is the last stamped poll (Week 10, Nov. 1).",
 } as const;
 
 /**
- * Featured kick reads the HASHMARK Week 10 slate (`/schedule?w=10`).
- * Board chrome is Week 10. Live ratings are HX 2026.7. The Week 9 tape
+ * Featured kick reads the HASHMARK Week 11 slate (`/schedule?w=11`).
+ * Board chrome is Week 11. Live ratings are HX 2026.7. The Week 10 tape
  * grades the HX 2026.7 pregame board. Make the 12 is the HX 2026.7
  * 10k table (make-field only on free chrome). Home desk aligns to the
- * Week 10 pin (Oregon @ Ohio State), matching `/schedule?w=10` featured —
+ * Week 11 pin (Michigan @ Oregon), matching `/schedule?w=11` featured —
  * not the earliest kick. FCS rows are never featured. Never invent Vegas.
  */
-export const FEATURED_SLATE_WEEK = 10;
+export const FEATURED_SLATE_WEEK = 11;
 
 /** Thursday night flag: Colorado at Georgia Tech, Bobby Dodd. */
 export const WEEK1_FLAG = {
@@ -136,11 +136,25 @@ export const WEEK9_FEATURED = {
  * Sat 2026-11-07 14:30 CT · CBS (ESPN = CBS Sports ET; migration 0080).
  * Vegas blank: ESPN DraftKings (OSU −10.5, 45.5) and CBS Sports (−9.5, 46.5/47.5)
  * did not match exactly.
- * Home desk FEATURED_SLATE_WEEK is 10.
+ * Historical pin (FINAL). Home desk FEATURED_SLATE_WEEK is 11.
  */
 export const WEEK10_FEATURED = {
   homeSlug: "ohio-state",
   awaySlug: "oregon",
+} as const;
+
+/**
+ * Saturday FS1: Michigan at Oregon, Autzen Stadium. Schedule-page pin for
+ * `/schedule?w=11` and the home desk featured card (best combined HX 2026.7 rank
+ * on the Week 11 slate with a CLEAR kick + TV: HX #12 @ #4; AP NR @ NR).
+ * Sat 2026-11-14 14:30 CT · FS1 (ESPN = CBS Sports ET; migration 0087).
+ * Vegas blank: ESPN DraftKings (ORE −10.5, 41.5) and CBS Sports (o40.5 / u41.5)
+ * did not match exactly on the total.
+ * Home desk FEATURED_SLATE_WEEK is 11.
+ */
+export const WEEK11_FEATURED = {
+  homeSlug: "oregon",
+  awaySlug: "michigan",
 } as const;
 
 
@@ -203,8 +217,8 @@ export function selectFeaturedKick<
 }
 
 /**
- * Board featured for the live featured slate (Week 10).
- * Prefers the Week 10 pin (Oregon @ Ohio State) via
+ * Board featured for the live featured slate (Week 11).
+ * Prefers the Week 11 pin (Michigan @ Oregon) via
  * `selectWeekScopedFeatured(FEATURED_SLATE_WEEK, …)`. Falls back to the
  * earliest upcoming kick only when the pin is missing or FINAL.
  * Week 2–5 Research pins stay historical helpers. Never a FINAL. Never
@@ -254,13 +268,20 @@ export function isOregonAtOhioState(
   return g.homeSlug === WEEK10_FEATURED.homeSlug && g.awaySlug === WEEK10_FEATURED.awaySlug;
 }
 
+export function isMichiganAtOregon(
+  g: Pick<ScheduleGame, "homeSlug" | "awaySlug">,
+): boolean {
+  return g.homeSlug === WEEK11_FEATURED.homeSlug && g.awaySlug === WEEK11_FEATURED.awaySlug;
+}
+
 /**
  * Featured card scoped to the schedule week being viewed.
  * Week 5 pins Pittsburgh @ Virginia Tech (CLEAR), even though WKU @ NMSU
  * kicks earlier. Week 6 pins Iowa State @ BYU (CLEAR), even though midweek
  * cards kick earlier. Week 7 pins Alabama @ Tennessee. Week 8 pins Ole Miss @ Texas.
  * Week 9 pins Ohio State @ USC. Week 10 pins Oregon @ Ohio State.
- * The homepage desk uses FEATURED_SLATE_WEEK (10) and the same Week 10 pin via
+ * Week 11 pins Michigan @ Oregon.
+ * The homepage desk uses FEATURED_SLATE_WEEK (11) and the same Week 11 pin via
  * `selectBoardFeaturedKick`. Never invents a matchup.
  */
 export function selectWeekScopedFeatured<
@@ -285,6 +306,9 @@ export function selectWeekScopedFeatured<
   }
   if (week === 10) {
     return slate.find((g) => !g.isFcs && g.status !== "final" && isOregonAtOhioState(g)) ?? null;
+  }
+  if (week === 11) {
+    return slate.find((g) => !g.isFcs && g.status !== "final" && isMichiganAtOregon(g)) ?? null;
   }
   return null;
 }

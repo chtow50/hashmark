@@ -1,0 +1,189 @@
+import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
+import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
+import { describe, it } from "node:test";
+import { AP_STAMP, BOARD_WEEK, FEATURED_SLATE_WEEK, WEEK11_FEATURED } from "./featured.ts";
+
+const root = join(dirname(fileURLToPath(import.meta.url)), "../../..");
+
+const pack = JSON.parse(
+  readFileSync(join(root, "data/week11_fbs_fbs_kick_tv_vegas_2026.json"), "utf8"),
+) as {
+  meta: { n_games: number; n_with_vegas: number; n_blank_vegas: number; n_blank_tv: number; n_tbd_kick: number; excluded_fcs: string[] };
+  games: Array<{
+    espn_event_id: string;
+    home_slug: string;
+    away_slug: string;
+    kick_ct: string | null;
+    tv: string | null;
+    vegas_details: string | null;
+    board_vegas_spread: number | null;
+    over_under: number | null;
+  }>;
+};
+const sql = readFileSync(join(root, "migrations/0087_week11_kick_tv_vegas.sql"), "utf8");
+const blockFor = (home: string, away: string) =>
+  sql.split("\n\n").find((b) => b.includes(`h.slug = '${home}' and a.slug = '${away}'`));
+
+describe("Week 11 FBS–FBS kick / TV / Vegas (0087)", () => {
+  it("covers 65 games, 28 Vegas (ESPN DraftKings = CBS Sports), 14 held kicks, CST offsets", () => {
+    assert.equal(pack.meta.n_games, 65);
+    assert.equal(pack.games.length, 65);
+    assert.equal(pack.meta.n_with_vegas, 28);
+    assert.equal(pack.meta.n_blank_vegas, 37);
+    assert.equal(pack.meta.n_tbd_kick, 14);
+    assert.equal(pack.meta.n_blank_tv, 17);
+    assert.equal(pack.meta.excluded_fcs.length, 2);
+    assert.match(pack.meta.excluded_fcs[0] ?? "", /401866462/);
+    assert.match(pack.meta.excluded_fcs[1] ?? "", /401864537/);
+    assert.equal(pack.games.filter((g) => g.vegas_details != null).length, 28);
+    assert.equal((sql.match(/update games/g) ?? []).length, 65);
+    assert.equal((sql.match(/g\.week = 11;/g) ?? []).length, 65);
+    assert.equal((sql.match(/kickoff_at = /g) ?? []).length, 51);
+    // DST ended Nov 1: every Week 11 kick is CST (UTC−6).
+    assert.equal((sql.match(/:00-06'/g) ?? []).length, 51);
+    assert.doesNotMatch(sql, /:00-05'/);
+    assert.doesNotMatch(sql, /home_score|away_score|status\s*=|hx_rating|win_title|make_field/);
+  });
+
+  it("leaves the TBD / ESPN timeValid=false kicks blank (no invented kick or TV)", () => {
+    for (const [home, away] of [
+      ["ucf", "arizona-state"],
+      ["byu", "baylor"],
+      ["iowa-state", "cincinnati"],
+      ["west-virginia", "kansas"],
+      ["tcu", "kansas-state"],
+      ["oklahoma-state", "texas-tech"],
+      ["arizona", "utah"],
+      ["georgia", "missouri"],
+      ["kentucky", "florida"],
+      ["lsu", "texas"],
+      ["oklahoma", "ole-miss"],
+      ["texas-am", "tennessee"],
+      ["north-carolina", "louisville"],
+      ["virginia-tech", "stanford"],
+    ] as const) {
+      const g = pack.games.find((r) => r.home_slug === home && r.away_slug === away);
+      assert.ok(g, `${away} @ ${home}`);
+      assert.equal(g.kick_ct, null);
+      assert.equal(g.tv, null);
+      const block = blockFor(home, away);
+      assert.ok(block, `${away} @ ${home} block`);
+      assert.doesNotMatch(block, /kickoff_at|tv =/);
+    }
+  });
+
+  it("stores the 28 two-source Vegas lines (positive = home favored)", () => {
+    for (const [home, away, spread, total] of [
+      ["ohio-state", "northwestern", 10.5, 47.5],
+      ["vanderbilt", "alabama", -19.5, 54.5],
+      ["charlotte", "east-carolina", -11.5, 45.5],
+      ["temple", "uab", 2.5, 51.5],
+      ["coastal-carolina", "arkansas-state", 1.5, 50.5],
+      ["rice", "tulane", 1.5, 46.5],
+      ["sam-houston", "kennesaw-state", -7.5, 44.5],
+      ["missouri-state", "new-mexico-state", 1.5, 50.5],
+      ["virginia", "california", 12.5, 47.5],
+      ["northern-illinois", "nevada", -10.5, 46.5],
+      ["georgia-state", "georgia-southern", -5.5, 55.5],
+      ["western-kentucky", "jacksonville-state", -6, 52.5],
+      ["liberty", "middle-tennessee", 20.5, 54.5],
+      ["louisiana-tech", "southern-miss", 18.5, 54.5],
+      ["marshall", "app-state", -2.5, 53.5],
+      ["penn-state", "minnesota", 7.5, 43.5],
+      ["south-alabama", "troy", 3, 56.5],
+      ["iowa", "purdue", 16.5, 45.5],
+      ["utep", "wyoming", -10, 43.5],
+      ["ucf", "arizona-state", 2.5, 52.5],
+      ["byu", "baylor", 7, 48.5],
+      ["iowa-state", "cincinnati", 1.5, 60.5],
+      ["west-virginia", "kansas", 2.5, 64.5],
+      ["tcu", "kansas-state", 9.5, 45.5],
+      ["oklahoma-state", "texas-tech", 2.5, 70.5],
+      ["arizona", "utah", -2.5, 53.5],
+      ["kentucky", "florida", 2.5, 53.5],
+      ["lsu", "texas", 3.5, 45.5],
+    ] as const) {
+      const g = pack.games.find((r) => r.home_slug === home && r.away_slug === away);
+      assert.ok(g, `${away} @ ${home}`);
+      assert.equal(g.board_vegas_spread, spread);
+      assert.equal(g.over_under, total);
+      const block = blockFor(home, away);
+      assert.ok(block, `${away} @ ${home} block`);
+      assert.match(block, new RegExp(`vegas_spread = ${spread}\\b`));
+      assert.match(block, new RegExp(`vegas_total = ${total}\\b`));
+    }
+  });
+
+  it("keeps Friday cards on Friday (Illinois @ UCLA Fri 20:00 CT FOX)", () => {
+    const g = pack.games.find((r) => r.home_slug === "ucla" && r.away_slug === "illinois");
+    assert.equal(g?.kick_ct, "2026-11-13 20:00");
+    assert.equal(g?.tv, "FOX");
+    const block = blockFor("ucla", "illinois");
+    assert.ok(block);
+    assert.match(block, /Fri 2026-11-13 20:00 CT/);
+    assert.match(block, /kickoff_at = timestamptz '2026-11-13 20:00:00-06'/);
+    assert.match(block, /tv = 'FOX'/);
+    assert.doesNotMatch(block, /Saturday|Sat /);
+  });
+
+  it("pins the Week 11 featured Michigan @ Oregon card: Sat 14:30 CT · FS1 · Vegas blank", () => {
+    assert.equal(BOARD_WEEK, 11);
+    assert.equal(FEATURED_SLATE_WEEK, 11);
+    assert.equal(WEEK11_FEATURED.homeSlug, "oregon");
+    assert.equal(WEEK11_FEATURED.awaySlug, "michigan");
+    const g = pack.games.find((r) => r.home_slug === "oregon" && r.away_slug === "michigan");
+    assert.equal(g?.espn_event_id, "401858523");
+    assert.equal(g?.kick_ct, "2026-11-14 14:30");
+    assert.equal(g?.tv, "FS1");
+    assert.equal(g?.vegas_details, null);
+    const block = blockFor("oregon", "michigan");
+    assert.ok(block);
+    assert.match(block, /kickoff_at = timestamptz '2026-11-14 14:30:00-06'/);
+    assert.match(block, /tv = 'FS1'/);
+    assert.match(block, /vegas_spread = null/);
+  });
+});
+
+describe("Week 10 AP Top 25 stamp (0088, Nov. 1)", () => {
+  const apSql = readFileSync(join(root, "migrations/0088_week10_ap_top25.sql"), "utf8");
+  const ap = JSON.parse(readFileSync(join(root, "data/week10_ap_top25_2026.json"), "utf8"));
+
+  it("clears then sets 25 AP ranks on week 0 rows only (no ties)", () => {
+    assert.match(apSql, /update rankings set ap_rank = null where season = 2026 and week = 0;/);
+    assert.equal((apSql.match(/^\s+\('[a-z-]+', \d+\)/gm) ?? []).length, 25);
+    assert.match(apSql, /\('miami', 1\)/);
+    assert.match(apSql, /\('georgia', 2\)/);
+    assert.match(apSql, /\('utah', 3\)/);
+    assert.match(apSql, /\('ohio-state', 11\)/);
+    assert.match(apSql, /\('iowa', 21\)/);
+    assert.match(apSql, /\('new-mexico', 22\)/);
+    assert.match(apSql, /\('south-carolina', 23\)/);
+    assert.match(apSql, /\('florida', 25\)/);
+    assert.doesNotMatch(apSql, /\('smu',|\('northwestern',|\('oklahoma-state',|\('wisconsin',/);
+    const body = apSql
+      .split("\n")
+      .filter((l) => !l.startsWith("--"))
+      .join("\n");
+    assert.doesNotMatch(body, /hx_|make_field|win_title|truncate|games/i);
+    assert.equal(ap.poll_week, 10);
+    assert.equal(ap.as_of, "2026-11-01");
+    assert.deepEqual(
+      ap.dropped.map((d: { slug: string }) => d.slug),
+      ["smu", "northwestern", "oklahoma-state", "wisconsin"],
+    );
+    for (const t of ap.teams as { slug: string; rank: number }[]) {
+      assert.match(apSql, new RegExp(`\\('${t.slug}', ${t.rank}\\)`));
+    }
+  });
+
+  it("is the live AP chrome (Week 11 HX board, last stamped Week 10 poll)", () => {
+    assert.equal(AP_STAMP.week, 10);
+    assert.equal(AP_STAMP.asOf, "Nov. 1");
+    assert.equal(AP_STAMP.label, "Week 10 AP");
+    assert.equal(AP_STAMP.columnHint, "W10 stamp");
+    assert.equal(BOARD_WEEK, 11);
+    assert.equal(FEATURED_SLATE_WEEK, 11);
+  });
+});
