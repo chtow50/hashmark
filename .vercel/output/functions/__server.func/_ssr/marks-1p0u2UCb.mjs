@@ -1,6 +1,6 @@
 import { w as require_jsx_runtime, x as Link } from "../_libs/@tanstack/react-router+[...].mjs";
 import { n as TeamLogo, r as hasTeamLogo } from "./team-logo-CFd8O_hO.mjs";
-import { Q as deltaVsAp, Z as cn, et as fmtNum } from "./router-CG0pQZqr.mjs";
+import { Q as deltaVsAp, Z as cn, et as fmtNum } from "./router-D8DO6wDD.mjs";
 //#region node_modules/.nitro/vite/services/ssr/assets/marks-1p0u2UCb.js
 var import_jsx_runtime = require_jsx_runtime();
 function TeamSwatch({ color, className }) {
