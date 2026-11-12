@@ -1,7 +1,7 @@
 import { t as MODEL } from "./chicago-zol-D_NW.mjs";
 import { w as require_jsx_runtime, x as Link } from "../_libs/@tanstack/react-router+[...].mjs";
 import { r as DeskChip } from "./marks-iXpCsaaM.mjs";
-import { J as Panel, U as EDGE, Z as cn, q as PageHead } from "./router-o_eitdjL.mjs";
+import { J as Panel, U as EDGE, Z as cn, q as PageHead } from "./router-D01jDNw3.mjs";
 //#region node_modules/.nitro/vite/services/ssr/assets/edge.board-fJmsiqGf.js
 var import_jsx_runtime = require_jsx_runtime();
 var hx_edge_confidence_schema_2026_default = {

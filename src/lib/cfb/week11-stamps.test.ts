@@ -4,6 +4,7 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { describe, it } from "node:test";
 import { AP_STAMP, BOARD_WEEK, FEATURED_SLATE_WEEK, WEEK11_FEATURED } from "./featured.ts";
+import { fcsStubsForWeek } from "./fcs-stubs.ts";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "../../..");
 
@@ -208,5 +209,32 @@ describe("Week 11 Tuesday FINALs (0089, WMU@AKR + KENT@BGSU + OHIO@M-OH)", () =>
     assert.doesNotMatch(tueSql, /kickoff_at|vegas_spread|vegas_total|\btv\s*=|hx_rating|win_title|make_field/);
     const header = tueSql.split(/update games/i)[0] ?? "";
     assert.doesNotMatch(header, /\b401\d{6,}\b/);
+  });
+});
+
+describe("Week 11 Wednesday FINALs (0090, BUFF@BALL + MASS@TOL; SAC@CMU stub)", () => {
+  const wedSql = readFileSync(join(root, "migrations/0090_week11_wed_finals.sql"), "utf8");
+  const expected = [
+    ["401866461", "ball-state", "buffalo", 7, 28, "Buffalo @ Ball State — Buffalo 28, Ball State 7"],
+    ["401866463", "toledo", "massachusetts", 24, 0, "Massachusetts @ Toledo — Toledo 24, Massachusetts 0"],
+  ] as const;
+
+  it("stamps scores+status only, with the exact home/away orientation", () => {
+    assert.equal((wedSql.match(/update games/g) ?? []).length, 2);
+    assert.equal((wedSql.match(/g\.week = 11/g) ?? []).length, 2);
+    for (const [espn, hSlug, aSlug, hs, as, label] of expected) {
+      assert.ok(wedSql.includes(`-- ${label}`), label);
+      assert.ok(wedSql.includes(`home_score = ${hs},\n    away_score = ${as}\n`), `${espn} scores`);
+      assert.ok(wedSql.includes(`and h.slug = '${hSlug}' and a.slug = '${aSlug}';`), `${espn} orientation`);
+      assert.match(wedSql, new RegExp(`Source event ${espn}`));
+    }
+    assert.doesNotMatch(wedSql, /kickoff_at|vegas_spread|vegas_total|\btv\s*=|hx_rating|win_title|make_field/);
+    const header = wedSql.split(/update games/i)[0] ?? "";
+    assert.doesNotMatch(header, /\b401\d{6,}\b/);
+  });
+
+  it("adds Sacramento State @ Central Michigan as a Week 11 FCS FINAL stub", () => {
+    const got = fcsStubsForWeek(11).map((g) => [g.teamSlug, g.home, g.opponentLabel, g.homeScore, g.awayScore, g.status]);
+    assert.deepEqual(got, [["central-michigan", true, "Sacramento State", 28, 7, "final"]]);
   });
 });
