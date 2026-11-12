@@ -357,6 +357,11 @@ const WEEK10_FCS_STUBS: FcsStubGame[] = [
   finalHome("wake-forest", 10, "2026-11-07", "Merrimack", 77, 0),
 ];
 
+const WEEK11_FCS_STUBS: FcsStubGame[] = [
+  // Sacramento State @ Central Michigan — Central Michigan 28, Sacramento State 7 (ESPN 401866462).
+  finalHome("central-michigan", 11, "2026-11-11", "Sacramento State", 28, 7),
+];
+
 /** FBS vs FCS rows dropped from the 136-team games table (W–L stubs + Week 2 Vegas-only JSON). */
 export const FCS_STUB_GAMES: FcsStubGame[] = [
   ...WEEK0_FCS_STUBS,
@@ -370,6 +375,7 @@ export const FCS_STUB_GAMES: FcsStubGame[] = [
   ...WEEK8_FCS_STUBS,
   ...WEEK9_FCS_STUBS,
   ...WEEK10_FCS_STUBS,
+  ...WEEK11_FCS_STUBS,
 ];
 
 export function fcsStubIsFinal(stub: FcsStubGame): boolean {
