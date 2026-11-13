@@ -16,6 +16,8 @@ export type SeoInput = {
   description: string;
   /** Set for pages that should not be indexed. */
   noindex?: boolean;
+  /** Per-page share card (path under public/, e.g. /og/teams/ohio-state.jpg). Falls back to /og.jpg. */
+  image?: string;
 };
 
 export function canonicalUrl(path: string): string {
@@ -23,7 +25,7 @@ export function canonicalUrl(path: string): string {
   return clean === "/" ? `${SITE_URL}/` : `${SITE_URL}${clean.replace(/\/+$/, "")}`;
 }
 
-export function seo({ path, title, description, noindex }: SeoInput) {
+export function seo({ path, title, description, noindex, image }: SeoInput) {
   const url = canonicalUrl(path);
   return {
     meta: [
@@ -35,6 +37,12 @@ export function seo({ path, title, description, noindex }: SeoInput) {
       { property: "og:url", content: url },
       { name: "twitter:title", content: title },
       { name: "twitter:description", content: description },
+      ...(image
+        ? [
+            { property: "og:image", content: `${SITE_URL}${image}` },
+            { name: "twitter:image", content: `${SITE_URL}${image}` },
+          ]
+        : []),
     ],
     links: [{ rel: "canonical", href: url }],
   };

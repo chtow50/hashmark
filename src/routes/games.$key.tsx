@@ -5,6 +5,7 @@ import { formatKickCt, formatKickDayTitle } from "@/lib/cfb/chicago";
 import { favoriteLine } from "@/lib/cfb/featured";
 import { getGamePage, type BoxSide, type GamePage } from "@/lib/cfb/game-queries";
 import { seo } from "@/lib/seo";
+import OG_CARDS from "@/lib/og/cards.json";
 import { cn, fmtPct } from "@/lib/utils";
 
 type Page = Exclude<GamePage, { redirect: string }>;
@@ -22,6 +23,7 @@ export const Route = createFileRoute("/games/$key")({
     const final = g && g.homeScore != null && g.awayScore != null && g.status === "final";
     return seo({
       path: `/games/${params.key}`,
+      image: g && OG_CARDS.games.includes(g.key) ? `/og/games/${g.key}.jpg` : undefined,
       title: g
         ? `${g.away.shortName} ${final ? g.awayScore : ""} at ${g.home.shortName} ${final ? g.homeScore : ""} · ${final ? "box score, EPA, HX grade" : "HX line"} · HASHMARK`.replace(/\s+/g, " ")
         : "Game · HASHMARK",

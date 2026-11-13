@@ -1,5 +1,6 @@
 {
   "title": "HASHMARK",
   "type": "website",
-  "card": "custom"
+  "card": "custom",
+  "pageShareMeta": true
 }

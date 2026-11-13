@@ -15,6 +15,7 @@ var grokOgIdentity = { "site": {
 	"title": "HASHMARK",
 	"type": "website",
 	"card": "custom",
+	"pageShareMeta": true,
 	"image": "/og.jpg"
 } };
 //#endregion
@@ -267,6 +268,35 @@ function grokOgHeadTags({ host = "", appName = DEFAULT_APP_NAME, site = {}, docu
 	}
 	return tags;
 }
+/**
+* Share metas the page itself rendered (key → raw, already-escaped content). Used only when
+* site.json sets `pageShareMeta: true`: then a page's own og/twitter tags win and the
+* site-wide card fills whatever the page left out.
+*/
+function collectShareMetaTags(html) {
+	const found = /* @__PURE__ */ new Map();
+	for (const tag of String(html).match(/<meta\b[^>]*>/gi) ?? []) {
+		const key = tag.match(/\b(?:property|name)\s*=\s*["']([^"']+)["']/i)?.[1]?.toLowerCase();
+		const content = tag.match(/\bcontent\s*=\s*(?:"([^"]*)"|'([^']*)')/i);
+		if (key && content && SHARE_META_KEYS.has(key)) found.set(key, content[1] ?? content[2]);
+	}
+	return found;
+}
+function shareMetaTag(key, rawContent) {
+	return `<meta ${key.startsWith("twitter:") ? "name" : "property"}="${key}" content="${rawContent}">`;
+}
+/** Site-wide tags with page-provided values swapped in, plus page keys the site set lacks. */
+function mergePageShareMeta(siteTags, pageMeta) {
+	const seen = /* @__PURE__ */ new Set();
+	const out = siteTags.map((tag) => {
+		const key = tag.match(/\b(?:property|name)="([^"]+)"/)?.[1]?.toLowerCase();
+		if (!key) return tag;
+		seen.add(key);
+		return pageMeta.has(key) ? shareMetaTag(key, pageMeta.get(key)) : tag;
+	});
+	for (const [key, value] of pageMeta) if (!seen.has(key)) out.push(shareMetaTag(key, value));
+	return out;
+}
 function stripShareMetaTags(html) {
 	return String(html).replace(/<meta\b[^>]*>/gi, (tag) => {
 		const attrs = [...tag.matchAll(/\b(?:property|name)\s*=\s*["']([^"']+)["']/gi)];
@@ -301,19 +331,21 @@ function injectGrokPwaHead(html, ctx = {}) {
 	const { site, projectId, creator, creatorId, host, cwd } = normalizeHeadContext(ctx);
 	const documentTitle = titleFromDocument(html);
 	const appName = resolveOgTitle(site, ctx.appName ?? "Grok App", host, documentTitle);
+	const pageMeta = site.pageShareMeta === true ? collectShareMetaTags(html) : null;
 	let next = stripShareMetaTags(html);
 	const missing = grokPwaHeadTags(appName).filter(([key]) => {
 		if (key === "manifest") return !next.includes("href=\"/__grok/manifest.webmanifest\"");
 		if (key === "apple-touch-icon") return !next.includes("href=\"/__grok/icon-180.png\"");
 		return !next.includes(`name="${key}"`);
 	}).map(([, tag]) => tag);
-	next = insertAfterHeadOpen(next, grokOgHeadTags({
+	const siteTags = grokOgHeadTags({
 		host,
 		appName,
 		site,
 		documentTitle,
 		cwd
-	}).join(""));
+	});
+	next = insertAfterHeadOpen(next, (pageMeta && pageMeta.size > 0 ? mergePageShareMeta(siteTags, pageMeta) : siteTags).join(""));
 	if (!next.includes("/grok-app-builder/extensions.js")) missing.push(...grokExtensionsHeadTags(projectId));
 	else if (projectId && !next.includes("name=\"grok-project-id\"")) missing.push(`<meta name="grok-project-id" content="${escapeHtml(projectId)}">`);
 	if (projectId && !next.includes("property=\"grok:app_id\"") && !next.includes("property='grok:app_id'")) missing.push(`<meta property="grok:app_id" content="${escapeHtml(projectId)}">`);

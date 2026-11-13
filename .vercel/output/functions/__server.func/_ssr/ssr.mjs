@@ -104,7 +104,7 @@ var HEADERS = { TSS_SHELL: "X-TSS_SHELL" };
 * the dev styles URL for route-scoped CSS collection.
 */
 async function getStartManifest(matchedRoutes) {
-	const { tsrStartManifest } = await import("../_tanstack-start-manifest_v-DvdGPGzE.mjs");
+	const { tsrStartManifest } = await import("../_tanstack-start-manifest_v-BQdZZlbc.mjs");
 	const startManifest = tsrStartManifest();
 	let routes = startManifest.routes;
 	routes[rootRouteId];
@@ -126,63 +126,63 @@ async function getStartManifest(matchedRoutes) {
 var manifest = {
 	"15966f3ae068c05fe480bee351a575db8156272dddcf0f8d17efa1eb37487af2": {
 		functionName: "getMatchupEdges_createServerFn_handler",
-		importer: () => import("./stats-queries-ClzaRPI0.mjs")
+		importer: () => import("./stats-queries-COB2h62O.mjs")
 	},
 	"1bcb5614a4b0c0e964e8cd896b3f3adeb70bf0346ddda783d7bc1ff58e3f503e": {
 		functionName: "getStatsTab_createServerFn_handler",
-		importer: () => import("./stats-queries-ClzaRPI0.mjs")
+		importer: () => import("./stats-queries-COB2h62O.mjs")
 	},
 	"212fff7d2072b94c01d35d756a6846efbcca652fa93e6206b5e625d8fd64ecc1": {
 		functionName: "listTeams_createServerFn_handler",
-		importer: () => import("./queries-guQeYQPq.mjs")
+		importer: () => import("./queries-C9VpAKYy.mjs")
 	},
 	"245d4daa33d1f4543fb00eb58f19731eeb1b55fa11f6b5859d8efe1c0915d423": {
 		functionName: "listGames_createServerFn_handler",
-		importer: () => import("./queries-guQeYQPq.mjs")
+		importer: () => import("./queries-C9VpAKYy.mjs")
 	},
 	"7bd9c5bd2dac37273cb6e205f595eb0bc550bfd9c6ffff5b5b31dcf74c2250bb": {
 		functionName: "getTeam_createServerFn_handler",
-		importer: () => import("./queries-guQeYQPq.mjs")
+		importer: () => import("./queries-C9VpAKYy.mjs")
 	},
 	"8fc30d569d06734d70bec6e4323a3edfbaefd8eb191dde667d76927e807531ee": {
 		functionName: "getSorBoard_createServerFn_handler",
-		importer: () => import("./sor-queries-sYUZD35V.mjs")
+		importer: () => import("./sor-queries-OCOThHz6.mjs")
 	},
 	"9ad172d35fd2eca98874454de1af972b7e747ffcef39b3001b6739144dfe4457": {
 		functionName: "listSchedule_createServerFn_handler",
-		importer: () => import("./queries-guQeYQPq.mjs")
+		importer: () => import("./queries-C9VpAKYy.mjs")
 	},
 	"9e7264d9dac7ca986bcb4f134e9bd2a0a4dbce110f243ebdee63580e3b08ec00": {
 		functionName: "listStates_createServerFn_handler",
-		importer: () => import("./queries-guQeYQPq.mjs")
+		importer: () => import("./queries-C9VpAKYy.mjs")
 	},
 	"a86900331928441127b7b8d77aaf20878746d66deb7c81c2cb47f2c898494144": {
 		functionName: "listScheduleWeek_createServerFn_handler",
-		importer: () => import("./queries-guQeYQPq.mjs")
+		importer: () => import("./queries-C9VpAKYy.mjs")
 	},
 	"abbcd1d8320134b5980dcde52a6634c25897891df0c2e0b703446b41a255ccf9": {
 		functionName: "getGamePage_createServerFn_handler",
-		importer: () => import("./game-queries-Bhdt26_b.mjs")
+		importer: () => import("./game-queries-Bc23L3Kx.mjs")
 	},
 	"bab9328854859b702258836ae2f74acf39b2bd6bc01cd038d2facb244149f301": {
 		functionName: "getStateDetail_createServerFn_handler",
-		importer: () => import("./queries-guQeYQPq.mjs")
+		importer: () => import("./queries-C9VpAKYy.mjs")
 	},
 	"e848cc7c6a78d9034685b108649e3e18d710ecbbe452bcc72388a9cb1e28bc5d": {
 		functionName: "getMatchup_createServerFn_handler",
-		importer: () => import("./queries-guQeYQPq.mjs")
+		importer: () => import("./queries-C9VpAKYy.mjs")
 	},
 	"eefaa67313e68bdbcc1c8f6789d44047383841a9720a2e2ed8b4294d8674c7ca": {
 		functionName: "listRecruiting_createServerFn_handler",
-		importer: () => import("./queries-guQeYQPq.mjs")
+		importer: () => import("./queries-C9VpAKYy.mjs")
 	},
 	"f10099cdbad71a91021c2c6930a843871be7cb7eba78087d6bf15e538a9f257b": {
 		functionName: "getAccuracy_createServerFn_handler",
-		importer: () => import("./accuracy-queries-CX8vhJcG.mjs")
+		importer: () => import("./accuracy-queries-Bj2HaF42.mjs")
 	},
 	"f39ad56d3d347de0a6b25c8e8ad2766460a4dc12615fb1f0df56124407037068": {
 		functionName: "getTeamAdvanced_createServerFn_handler",
-		importer: () => import("./stats-queries-ClzaRPI0.mjs")
+		importer: () => import("./stats-queries-COB2h62O.mjs")
 	},
 	"f55452d4f3f77cab0f95a24b56e8bed8434a482e94fed743291a342313100904": {
 		functionName: "getHxHistory_createServerFn_handler",
@@ -1591,7 +1591,7 @@ var getBaseManifest = getProdBaseManifest;
 var createEarlyHintsForRequest = createEarlyHintsCollector;
 async function loadEntries() {
 	const [routerEntry, startEntry, pluginAdapters] = await Promise.all([
-		import("./router-v5UZ3BkC.mjs").then((n) => n.t),
+		import("./router-BmrF8v9E.mjs").then((n) => n.t),
 		import("./start-5Z2QO8AU.mjs"),
 		import("./empty-plugin-adapters-D9UWiqvJ.mjs")
 	]);

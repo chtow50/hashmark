@@ -2,7 +2,9 @@
 /**
  * Build-time sitemap: public/sitemap.xml (Vite copies public/ into .vercel/output/static).
  * Pages are listed here; stories come from src/lib/cfb/stories.ts and teams from the
- * current HX refit board (data/hx_refit_2026.json, all 136 FBS). Edge is paused — no /edge URLs.
+ * current HX refit board (data/hx_refit_2026.json, all 138 FBS), and FINAL game pages from
+ * data/game_keys_2026.json (written just before this by scripts/generate-game-keys.mjs).
+ * Edge is paused — no /edge URLs.
  *
  *   node scripts/generate-sitemap.mjs          # write
  *   node scripts/generate-sitemap.mjs --check  # exit 1 if the committed file is stale
@@ -46,7 +48,8 @@ export function sitemapPaths() {
   const board = JSON.parse(readFileSync(join(ROOT, "data/hx_refit_2026.json"), "utf8")).board;
   const teams = [...board].sort((a, b) => a.rank - b.rank).map((t) => `/teams/${t.slug}`);
   const stories = STORIES.map((s) => `/stories/${s.slug}`);
-  return [...STATIC_PATHS, ...stories, ...teams];
+  const games = JSON.parse(readFileSync(join(ROOT, "data/game_keys_2026.json"), "utf8")).keys.map((k) => `/games/${k}`);
+  return [...STATIC_PATHS, ...stories, ...teams, ...games];
 }
 
 export function buildSitemap(paths = sitemapPaths()) {

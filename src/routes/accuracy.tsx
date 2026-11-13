@@ -21,6 +21,7 @@ export const Route = createFileRoute("/accuracy")({
   head: () =>
     seo({
       path: "/accuracy",
+      image: "/og/accuracy.jpg",
       title: "HX accuracy · every FINAL against its pregame line · HASHMARK",
       description:
         "Every 2026 FINAL graded against the frozen pregame HX line and win probability: straight-up picks, average miss, Brier score, weekly and season rollups, and the same games against the Vegas close.",
