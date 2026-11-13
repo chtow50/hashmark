@@ -7,6 +7,8 @@ import { RosterList } from "@/components/roster-duel";
 import { Make12Panel, RemainingScheduleSection, SeasonScheduleSection } from "@/components/season-sim";
 import { TALENT_UNITS } from "@/lib/cfb/positions";
 import { getTeam } from "@/lib/cfb/queries";
+import { getTeamAdvanced } from "@/lib/cfb/stats-queries";
+import { AdvancedStatsPanel } from "@/components/advanced-stats-panel";
 import { formatSeasonRecord } from "@/lib/cfb/season-record";
 import { COMPOSITE_SOURCE, ratedStarCount, visibleClassAvg } from "@/lib/cfb/recruiting";
 import { modelShare, MODEL } from "@/lib/cfb/model";
@@ -15,9 +17,12 @@ import { apLabel, fmtHeight, fmtNum, fmtPct } from "@/lib/utils";
 
 export const Route = createFileRoute("/teams/$slug")({
   loader: async ({ params }) => {
-    const data = await getTeam({ data: { slug: params.slug } });
+    const [data, advanced] = await Promise.all([
+      getTeam({ data: { slug: params.slug } }),
+      getTeamAdvanced({ data: { slug: params.slug } }),
+    ]);
     if (!data) throw notFound();
-    return data;
+    return { ...data, advanced };
   },
   component: TeamPage,
   head: ({ loaderData, params }) =>
@@ -31,7 +36,7 @@ export const Route = createFileRoute("/teams/$slug")({
 });
 
 function TeamPage() {
-  const { team, players, games, classes } = Route.useLoaderData();
+  const { team, players, games, classes, advanced } = Route.useLoaderData();
   const share = modelShare(team);
   // Free team page: make-field only; win_title is never published on free surfaces.
   const make12 = make12FreeFromSim(team.slug, team);
@@ -75,6 +80,8 @@ function TeamPage() {
       <SeasonScheduleSection rows={season} />
 
       <HxResultsPanel teamSlug={team.slug} games={games} />
+
+      {advanced ? <AdvancedStatsPanel data={advanced} teamSlug={team.slug} /> : null}
 
       {team.hasProfile === false ? (
         <NewcomerPanel />
