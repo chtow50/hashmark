@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { RisersFallersCard } from "@/components/hx-results";
 import { ArrowRight } from "lucide-react";
 import { PageHead, Panel } from "@/components/shell";
 import { Button } from "@/components/ui/button";
@@ -145,6 +146,8 @@ function Home() {
           ) : null}
 
           <DisagreementCard rows={disagreements} />
+
+          <RisersFallersCard teams={teams} />
         </div>
       </div>
 

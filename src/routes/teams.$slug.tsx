@@ -1,4 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { HxResultsPanel } from "@/components/hx-results";
 import { PageHead, Panel } from "@/components/shell";
 import { DeltaChip, MixBar, RankMove, Stat, TeamMark } from "@/components/marks";
 import { RosterList } from "@/components/roster-duel";
@@ -66,6 +67,8 @@ function TeamPage() {
       <RemainingScheduleSection rows={remaining} teamShortName={team.shortName} />
 
       <SeasonScheduleSection rows={season} />
+
+      <HxResultsPanel teamSlug={team.slug} games={games} />
 
       <div className="mb-6 grid gap-6 lg:grid-cols-2">
         <Panel>
