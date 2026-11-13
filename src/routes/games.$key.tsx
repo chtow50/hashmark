@@ -159,7 +159,7 @@ function GamePageView() {
             {hxFavP != null ? <div className="text-xs text-muted">{fmtPct(hxFavP * 100, 1)} to win</div> : null}
           </div>
           <div>
-            <div className="text-[11px] uppercase tracking-[0.12em] text-muted">Vegas close</div>
+            <div className="text-[11px] uppercase tracking-[0.12em] text-muted">Vegas line</div>
             <div className="mt-1 tabular">{vegasLine ?? "Not on file"}</div>
             {g.vegasTotal != null ? <div className="text-xs text-muted">O/U {g.vegasTotal.toFixed(1)}</div> : null}
           </div>

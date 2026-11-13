@@ -171,7 +171,11 @@ const GLOSSARY = [
   },
   {
     term: "Closer / SU",
-    def: "Straight-up (SU) is who HX picked to win. Closer is whether the HASHMARK spread was nearer the final margin than the Vegas close, graded only on games with a stamped close. The weekly tape on the board carries the current counts.",
+    def: "Straight-up (SU) is who HX picked to win. Closer is whether the HASHMARK spread was nearer the final margin than the stamped Vegas line, graded only on games with a line on file. The weekly tape on the board carries the current counts.",
+  },
+  {
+    term: "Vegas line",
+    def: "The DraftKings/Bovada spread stamped before kickoff (two-source rule), usually during game week. It is a pregame market number and can differ from the final closing line.",
   },
   {
     term: "Vegas-only",
@@ -260,7 +264,7 @@ function InSeasonPanel() {
             results, the same games come in at {backtest.calibration_slope.hx_2026_8_w2_11}.
           </p>
           <p>
-            Soft-cal FLAG stays. On Vegas-lined games in Weeks 2–11 the close still beats both boards
+            Soft-cal FLAG stays. On Vegas-lined games in Weeks 2–11 the stamped Vegas line still beats both boards
             (MAE {fmt(backtest.vegas_lined_w2_11.mae_vegas)} vs {fmt(backtest.vegas_lined_w2_11.mae_hx_2026_8_walkforward)} refit
             and {fmt(backtest.vegas_lined_w2_11.mae_shipped)} as shipped, n = {backtest.vegas_lined_w2_11.n}).
           </p>

@@ -616,7 +616,7 @@ function StatCard({
         </Link>
         <div className="shrink-0 rounded-md px-2 py-1 text-right" style={cellTint(sp)}>
           <div className="font-display text-xl leading-none tabular">{fmtStat(sortMetric, r.v[sortMetric.k])}</div>
-          <div className="mt-0.5 text-[10px] uppercase tracking-wide text-muted">{sortMetric.s}</div>
+          <div className="mt-0.5 text-[10px] uppercase tracking-wide text-fg/80">{sortMetric.s}</div>
         </div>
         <CompareToggle name={r.name} picked={picked} full={full} onToggle={onToggle} />
       </div>
@@ -624,7 +624,7 @@ function StatCard({
         <dl className="mt-2 grid grid-cols-4 gap-1 pl-10 text-xs">
           {rest.slice(0, 8).map((m) => (
             <div key={m.k} className="min-w-0 rounded px-1.5 py-1" style={cellTint(pct.get(m.k)?.get(r.id))}>
-              <dt className="truncate text-[10px] uppercase tracking-wide text-muted">{m.s}</dt>
+              <dt className="truncate text-[10px] uppercase tracking-wide text-fg/80">{m.s}</dt>
               <dd className="tabular text-fg/90">{fmtStat(m, r.v[m.k])}</dd>
             </div>
           ))}

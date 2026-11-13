@@ -111,7 +111,7 @@ function SchedulePage() {
       <PageHead
         kicker={`Week ${week} · The slate`}
         title={`Week ${week} slate`}
-        lede="HASHMARK spread and win% from HX. FCS opponents are unrated — Vegas close only, no invented HASHMARK spread. FINAL is locked on the tape. Sorted by kick, America/Chicago."
+        lede="HASHMARK spread and win% from HX. FCS opponents are unrated — Vegas line only, no invented HASHMARK spread. FINAL is locked on the tape. Sorted by kick, America/Chicago."
       />
 
       <div className="mb-5 flex gap-2 overflow-x-auto pb-1" role="tablist" aria-label="Schedule filter">
