@@ -70,6 +70,7 @@ export const Route = createFileRoute("/matchup")({
   head: () =>
     seo({
       path: "/matchup",
+      image: "/og/matchup.jpg",
       title: "Matchup engine · HX spread and win probability · HASHMARK",
       description: "Pick any two FBS teams for an HX spread and win probability, home or neutral.",
     }),

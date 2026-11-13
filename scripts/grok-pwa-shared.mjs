@@ -375,6 +375,39 @@ export function grokOgHeadTags({
   return tags;
 }
 
+/**
+ * Share metas the page itself rendered (key → raw, already-escaped content). Used only when
+ * site.json sets `pageShareMeta: true`: then a page's own og/twitter tags win and the
+ * site-wide card fills whatever the page left out.
+ */
+export function collectShareMetaTags(html) {
+  const found = new Map();
+  for (const tag of String(html).match(/<meta\b[^>]*>/gi) ?? []) {
+    const key = tag.match(/\b(?:property|name)\s*=\s*["']([^"']+)["']/i)?.[1]?.toLowerCase();
+    const content = tag.match(/\bcontent\s*=\s*(?:"([^"]*)"|'([^']*)')/i);
+    if (key && content && SHARE_META_KEYS.has(key)) found.set(key, content[1] ?? content[2]);
+  }
+  return found;
+}
+
+function shareMetaTag(key, rawContent) {
+  const attr = key.startsWith("twitter:") ? "name" : "property";
+  return `<meta ${attr}="${key}" content="${rawContent}">`;
+}
+
+/** Site-wide tags with page-provided values swapped in, plus page keys the site set lacks. */
+export function mergePageShareMeta(siteTags, pageMeta) {
+  const seen = new Set();
+  const out = siteTags.map((tag) => {
+    const key = tag.match(/\b(?:property|name)="([^"]+)"/)?.[1]?.toLowerCase();
+    if (!key) return tag;
+    seen.add(key);
+    return pageMeta.has(key) ? shareMetaTag(key, pageMeta.get(key)) : tag;
+  });
+  for (const [key, value] of pageMeta) if (!seen.has(key)) out.push(shareMetaTag(key, value));
+  return out;
+}
+
 export function stripShareMetaTags(html) {
   return String(html).replace(/<meta\b[^>]*>/gi, (tag) => {
     const attrs = [...tag.matchAll(/\b(?:property|name)\s*=\s*["']([^"']+)["']/gi)];
@@ -432,6 +465,7 @@ export function injectGrokPwaHead(html, ctx = {}) {
     host,
     documentTitle,
   );
+  const pageMeta = site.pageShareMeta === true ? collectShareMetaTags(html) : null;
   let next = stripShareMetaTags(html);
 
   const missing = grokPwaHeadTags(appName)
@@ -442,9 +476,10 @@ export function injectGrokPwaHead(html, ctx = {}) {
     })
     .map(([, tag]) => tag);
 
+  const siteTags = grokOgHeadTags({ host, appName, site, documentTitle, cwd });
   next = insertAfterHeadOpen(
     next,
-    grokOgHeadTags({ host, appName, site, documentTitle, cwd }).join(""),
+    (pageMeta && pageMeta.size > 0 ? mergePageShareMeta(siteTags, pageMeta) : siteTags).join(""),
   );
 
   if (!next.includes("/grok-app-builder/extensions.js")) {

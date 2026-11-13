@@ -1,5 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { seo } from "@/lib/seo";
+import OG_CARDS from "@/lib/og/cards.json";
 import { HxResultsPanel } from "@/components/hx-results";
 import { PageHead, Panel } from "@/components/shell";
 import { PinButton } from "@/components/pin";
@@ -36,6 +37,7 @@ export const Route = createFileRoute("/teams/$slug")({
   head: ({ loaderData, params }) =>
     seo({
       path: `/teams/${params.slug}`,
+      image: OG_CARDS.teams.includes(params.slug) ? `/og/teams/${params.slug}.jpg` : undefined,
       title: loaderData ? `${loaderData.team.name} ${loaderData.team.mascot} · HX rating, schedule, stats · HASHMARK` : "Team · HASHMARK",
       description: loaderData
         ? `${loaderData.team.name}: HX rank #${loaderData.team.hxRank}, record, schedule with HX spreads, playoff make-field odds, and HX vs results.`
