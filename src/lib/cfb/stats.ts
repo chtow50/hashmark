@@ -218,3 +218,82 @@ export type StatsMeta = {
 
 /** Team-page advanced block: the CFBD metrics with FBS rank. */
 export const TEAM_ADVANCED_KEYS = ["nepa", "epa", "oepa", "sr", "osr", "xpl", "oxpl", "ly", "oly", "hav", "ohav"] as const;
+
+/** Column sets shown in the table (the first is the default). Metrics can appear in several sets. */
+export type ColumnSet = { key: string; label: string; cols: string[] };
+const groupCols = (tab: StatTab, g: string) => METRICS[tab].filter((x) => x.g === g).map((x) => x.k);
+const allCols = (tab: StatTab) => METRICS[tab].map((x) => x.k);
+export const COLUMN_SETS: Record<StatTab, ColumnSet[]> = {
+  teams: [
+    { key: "overview", label: "Overview", cols: ["nepa", "epa", "oepa", "sr", "osr", "pd", "ppg", "oppg", "ypp", "oypp", "tom", "hav"] },
+    { key: "epa", label: "EPA & efficiency", cols: groupCols("teams", G_EPA) },
+    { key: "offense", label: "Offense box", cols: groupCols("teams", G_OFF) },
+    { key: "defense", label: "Defense box", cols: groupCols("teams", G_DEF) },
+    { key: "rates", label: "Rates", cols: groupCols("teams", G_RATE) },
+  ],
+  qb: [
+    { key: "all", label: "All columns", cols: allCols("qb") },
+    { key: "epa", label: "EPA & usage", cols: groupCols("qb", G_EPA) },
+    { key: "box", label: "Box", cols: groupCols("qb", G_BOX) },
+    { key: "eff", label: "Efficiency", cols: groupCols("qb", G_EFF) },
+  ],
+  rush: [
+    { key: "all", label: "All columns", cols: allCols("rush") },
+    { key: "epa", label: "EPA & usage", cols: groupCols("rush", G_EPA) },
+    { key: "box", label: "Box", cols: groupCols("rush", G_BOX) },
+    { key: "eff", label: "Efficiency", cols: groupCols("rush", G_EFF) },
+  ],
+  rec: [
+    { key: "all", label: "All columns", cols: allCols("rec") },
+    { key: "epa", label: "EPA & usage", cols: groupCols("rec", G_EPA) },
+    { key: "box", label: "Box", cols: groupCols("rec", G_BOX) },
+    { key: "eff", label: "Efficiency", cols: groupCols("rec", G_EFF) },
+  ],
+};
+export const columnSet = (tab: StatTab, key: string | undefined): ColumnSet =>
+  COLUMN_SETS[tab].find((s) => s.key === key) ?? COLUMN_SETS[tab][0];
+
+/** One-click starting points: a column set plus a sort. */
+export type QuickView = { label: string; group: string; sort: string };
+export const QUICK_VIEWS: Record<StatTab, QuickView[]> = {
+  teams: [
+    { label: "Best overall", group: "overview", sort: "nepa" },
+    { label: "Best offenses", group: "epa", sort: "epa" },
+    { label: "Best defenses", group: "epa", sort: "oepa" },
+    { label: "Most explosive", group: "epa", sort: "xpl" },
+    { label: "Havoc defenses", group: "epa", sort: "hav" },
+    { label: "Turnover margin", group: "overview", sort: "tom" },
+  ],
+  qb: [
+    { label: "Most efficient", group: "all", sort: "epa" },
+    { label: "Most total EPA", group: "all", sort: "tepa" },
+    { label: "Passing yards", group: "all", sort: "yds" },
+    { label: "NCAA efficiency", group: "all", sort: "eff" },
+  ],
+  rush: [
+    { label: "Most efficient", group: "all", sort: "epa" },
+    { label: "Rushing yards", group: "all", sort: "yds" },
+    { label: "Yards per carry", group: "all", sort: "ypc" },
+    { label: "Workload", group: "all", sort: "use" },
+  ],
+  rec: [
+    { label: "Most efficient", group: "all", sort: "epa" },
+    { label: "Receiving yards", group: "all", sort: "yds" },
+    { label: "Target share", group: "all", sort: "use" },
+    { label: "Yards per catch", group: "all", sort: "ypr" },
+  ],
+};
+
+/**
+ * Percentile (0–100, 100 = best) of every row for one metric inside a pool, keyed by row id.
+ * Used to shade table cells; same tie rule as `standing`.
+ */
+export function percentileMap(rows: StatRow[], mt: Metric): Map<string, number> {
+  const vals = rows.map((r) => r.v[mt.k]);
+  const out = new Map<string, number>();
+  for (const r of rows) {
+    const s = standing(mt, r.v[mt.k], vals);
+    if (s && s.n > 1) out.set(r.id, s.p);
+  }
+  return out;
+}
