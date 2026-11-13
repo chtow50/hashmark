@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, it } from "node:test";
-import { deriveValues, METRICS, metricOf, sortRows, standing, STAT_TABS, TEAM_ADVANCED_KEYS, type StatRow } from "./stats.ts";
+import { deriveValues, isQualified, QUALIFY, METRICS, metricOf, sortRows, standing, STAT_TABS, TEAM_ADVANCED_KEYS, type StatRow } from "./stats.ts";
 import { statRows, teamAdvanced } from "./stats.server.ts";
 
 const root = join(import.meta.dirname, "../../..");
@@ -159,5 +159,22 @@ describe("matchup unit edges", () => {
     assert.equal(edgeCall({ offP: 55, defP: 50 }), "even");
     assert.equal(edgeCall({ offP: null, defP: 50 }), null);
     assert.equal(matchupEdges("georgia", "not-a-team"), null);
+  });
+});
+
+describe("player pools", () => {
+  it("files carry everyone at the floor; the per-team-game qualifier is a subset", () => {
+    const teams = JSON.parse(readFileSync(join(root, "data/stats_2026.json"), "utf8")).teams.map((t: { slug: string }) => ({
+      slug: t.slug, name: t.slug, conference: "", colorPrimary: "#888888",
+    }));
+    for (const tab of ["qb", "rush", "rec"] as const) {
+      const q = QUALIFY[tab]!;
+      const rows = statRows(tab, teams);
+      assert.ok(rows.every((r) => (r.vol ?? 0) >= q.floor && (r.teamG ?? 0) > 0), tab);
+      const qual = rows.filter((r) => isQualified(tab, r));
+      assert.ok(qual.length > 0 && qual.length < rows.length, tab);
+      assert.ok(qual.every((r) => r.vol! >= q.perGame * r.teamG!), tab);
+    }
+    assert.equal(isQualified("def", {}), true);
   });
 });

@@ -10,6 +10,8 @@ export const statsMeta = (): StatsMeta => data.meta;
 
 export function statRows(tab: StatTab, teams: TeamInfo[]): StatRow[] {
   const bySlug = new Map(teams.map((t) => [t.slug, t]));
+  const teamGames = new Map(data.teams.map((t) => [String(t.slug), Number(t.g ?? 0)]));
+  const volKey = tab === "rec" ? "rec" : tab === "qb" || tab === "rush" ? "att" : null;
   return data[tab].map((r, i) => {
     const slug = String(r.slug);
     const t = bySlug.get(slug);
@@ -23,6 +25,7 @@ export function statRows(tab: StatTab, teams: TeamInfo[]): StatRow[] {
       pos: tab === "teams" ? "" : String(r.pos ?? ""),
       g: Number(r.g ?? 0),
       wl: tab === "teams" ? `${r.w}–${r.l}` : "",
+      ...(volKey ? { vol: Number(r[volKey] ?? 0), teamG: teamGames.get(slug) ?? 0 } : {}),
       v: deriveValues(tab, r),
     };
   });

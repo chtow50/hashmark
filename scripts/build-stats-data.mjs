@@ -159,7 +159,13 @@ export function buildStats({ box, cfbdDir }) {
       advanced_through: meta.last_completed_kickoff_utc,
       adjustment:
         "Team EPA/play, success rate, explosiveness, and line yards are opponent-adjusted: ridge fit of offense + opposing defense + home field over FBS–FBS games (1 pseudo-game toward average). Havoc and player PPA are raw season values.",
-      pools: { qb: "100+ pass attempts", rush: "100+ carries", rec: "30+ receptions", def: "40+ tackles, 4+ sacks, 3+ INT, or 8+ TFL" },
+      // Files carry everyone at the floor; /stats defaults to the per-team-game qualifier (src/lib/cfb/stats.ts QUALIFY).
+      pools: {
+        qb: "50+ pass attempts (qualified: 10 per team game)",
+        rush: "40+ carries (qualified: 6 per team game)",
+        rec: "15+ receptions (qualified: 2.5 per team game)",
+        def: "40+ tackles, 4+ sacks, 3+ INT, or 8+ TFL",
+      },
       matched_advanced: { qb: `${matched(qb)}/${qb.length}`, rush: `${matched(rush)}/${rush.length}`, rec: `${matched(rec)}/${rec.length}` },
     },
     teams,
