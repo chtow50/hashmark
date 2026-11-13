@@ -1,6 +1,7 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { Menu, Search, X } from "lucide-react";
 import { useMemo, useState, type ReactNode } from "react";
+import { PinnedChip } from "@/components/pin";
 import { TeamFinder } from "@/components/team-finder";
 import { Button } from "@/components/ui/button";
 import { CONFS, type ConfFilter } from "@/lib/cfb/conferences";
@@ -77,6 +78,7 @@ export function AppShell({ children }: { children: ReactNode }) {
             <span className="hidden font-mono text-[11px] uppercase tracking-[0.16em] text-faint xl:inline">
               {MODEL.weekLabel}
             </span>
+            <PinnedChip />
             <TeamFinder />
             <Button
               variant="ghost"
@@ -153,10 +155,12 @@ export function PageHead({
   kicker,
   title,
   lede,
+  action,
 }: {
   kicker?: string;
   title: string;
   lede?: string;
+  action?: ReactNode;
 }) {
   return (
     <header className="mb-8 max-w-2xl enter">
@@ -167,6 +171,7 @@ export function PageHead({
       ) : null}
       <h1 className="font-display text-4xl tracking-wide text-fg sm:text-5xl">{title}</h1>
       {lede ? <p className="mt-3 text-base leading-relaxed text-muted">{lede}</p> : null}
+      {action ? <div className="mt-4">{action}</div> : null}
     </header>
   );
 }

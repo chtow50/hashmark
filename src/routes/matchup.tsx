@@ -5,8 +5,13 @@ import { PageHead, Panel, TeamSelect } from "@/components/shell";
 import { CompareRow, DeskChip, Stat, TeamMark, WinBar } from "@/components/marks";
 import { RosterDuel } from "@/components/roster-duel";
 import { formatKickCt } from "@/lib/cfb/chicago";
-import { favoriteLine, isNotableSpreadGap } from "@/lib/cfb/featured";
-import { getMatchup, listTeams } from "@/lib/cfb/queries";
+import {
+  FEATURED_SLATE_WEEK,
+  favoriteLine,
+  isNotableSpreadGap,
+  selectBoardFeaturedKick,
+} from "@/lib/cfb/featured";
+import { getMatchup, listScheduleWeek, listTeams } from "@/lib/cfb/queries";
 import { RESTAMP_PERIODS, restamp, type RestampPeriod } from "@/lib/cfb/restamp";
 import { isWinnerFlip, matchupChips } from "@/lib/cfb/schedule-flags";
 import { fmtNum, fmtPct } from "@/lib/utils";
@@ -21,27 +26,41 @@ function parseNeutral(v: unknown): boolean | undefined {
 
 export const Route = createFileRoute("/matchup")({
   validateSearch: (s: Record<string, unknown>): Search => ({
-    home: typeof s.home === "string" ? s.home : "texas",
-    away: typeof s.away === "string" ? s.away : "ohio-state",
+    ...(typeof s.home === "string" ? { home: s.home } : {}),
+    ...(typeof s.away === "string" ? { away: s.away } : {}),
     ...(parseNeutral(s.neutral) !== undefined ? { neutral: parseNeutral(s.neutral) } : {}),
   }),
   loaderDeps: ({ search }) => ({
-    home: search.home ?? "texas",
-    away: search.away ?? "ohio-state",
+    home: search.home,
+    away: search.away,
     neutral: search.neutral,
   }),
   loader: async ({ deps }) => {
+    // No pair in the URL: open on this week's featured game (same pick as the board).
+    let home = deps.home;
+    let away = deps.away;
+    let featured = false;
+    if (!home || !away) {
+      const slate = await listScheduleWeek({ data: { week: FEATURED_SLATE_WEEK } });
+      const pick = selectBoardFeaturedKick(
+        slate.filter((g) => !g.isFcs),
+        Date.now(),
+      );
+      home = home ?? pick?.homeSlug ?? "texas";
+      away = away ?? pick?.awaySlug ?? "ohio-state";
+      featured = Boolean(pick && !deps.home && !deps.away);
+    }
     const [teams, match] = await Promise.all([
       listTeams(),
       getMatchup({
         data: {
-          home: deps.home,
-          away: deps.away,
+          home,
+          away,
           ...(deps.neutral !== undefined ? { neutral: deps.neutral } : {}),
         },
       }),
     ]);
-    return { teams, match };
+    return { teams, match, homeSlug: home, awaySlug: away, featured };
   },
   component: MatchupPage,
   head: () =>
@@ -53,11 +72,8 @@ export const Route = createFileRoute("/matchup")({
 });
 
 function MatchupPage() {
-  const { teams, match } = Route.useLoaderData();
-  const search = Route.useSearch();
+  const { teams, match, homeSlug, awaySlug, featured } = Route.useLoaderData();
   const navigate = useNavigate({ from: "/matchup" });
-  const homeSlug = search.home ?? "texas";
-  const awaySlug = search.away ?? "ohio-state";
   const appliedNeutral = match.appliedNeutral ?? false;
   const pairKey = `${homeSlug}|${awaySlug}|${appliedNeutral}`;
 
@@ -139,6 +155,12 @@ function MatchupPage() {
         title="Head to head"
         lede="Type a school or pick from the list. HX seeds an Elo rating (1500 + 55 × composite). Home-field is 60 Elo points unless Neutral site is on (Dublin, CFP, etc.). Win probability and spread come from that gap."
       />
+
+      {featured ? (
+        <p className="mb-4 text-sm text-muted">
+          Opening on this week&apos;s featured game. Pick any two teams to change it.
+        </p>
+      ) : null}
 
       <div className="mb-6 grid gap-4 sm:grid-cols-[1fr_auto_1fr] sm:items-start">
         <TeamSelect

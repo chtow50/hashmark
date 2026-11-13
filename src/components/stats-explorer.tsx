@@ -1,4 +1,4 @@
-import { X } from "lucide-react";
+import { Download, X } from "lucide-react";
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { Panel } from "@/components/shell";
 import { TeamMark } from "@/components/marks";
@@ -6,6 +6,7 @@ import { teamLogoSrc } from "@/lib/cfb/team-logos";
 import {
   COLUMN_SETS,
   METRICS,
+  TAB_LABEL,
   columnSet,
   fmtStat,
   metricOf,
@@ -15,6 +16,8 @@ import {
   type StatRow,
   type StatTab,
 } from "@/lib/cfb/stats";
+import { downloadSvgPng } from "@/lib/download";
+import { placeLabels, textW, type Box } from "@/lib/cfb/chart-labels";
 import { cn } from "@/lib/utils";
 
 const label = (tab: StatTab, r: StatRow) => (tab === "teams" ? r.name : `${r.name} (${r.team})`);
@@ -97,10 +100,13 @@ const SCATTER_DEFAULTS: Record<StatTab, [string, string]> = {
   qb: ["use", "epa"],
   rush: ["att", "epa"],
   rec: ["use", "epa"],
+  def: ["tfl", "pbu"],
 };
 
 /** SVG scatter: any two metrics, better is always up/right, average lines, compared rows labeled. */
-export function StatsScatter({ tab, rows, picks }: { tab: StatTab; rows: StatRow[]; picks: string[] }) {
+export function StatsScatter({ tab, rows, picks, asOf, scope }: { tab: StatTab; rows: StatRow[]; picks: string[]; asOf: string; scope: string }) {
+  const svgRef = useRef<SVGSVGElement>(null);
+  const [saving, setSaving] = useState(false);
   const [xk, setX] = useState(SCATTER_DEFAULTS[tab][0]);
   const [yk, setY] = useState(SCATTER_DEFAULTS[tab][1]);
   const [hover, setHover] = useState<StatRow | null>(null);
@@ -136,16 +142,50 @@ export function StatsScatter({ tab, rows, picks }: { tab: StatTab; rows: StatRow
   const logos = tab === "teams";
   const picked = pts.filter((r) => picks.includes(r.id));
   const tip = hover ? { x: sx(hover.v[xk] as number), y: sy(hover.v[yk] as number) } : null;
+  // Fixed text the pick labels must not cover: quadrant notes and axis titles.
+  const reserved: Box[] = [
+    { x: W - PR - 4 - 96, y: PT, w: 96, h: 16 },
+    { x: PL + 4, y: H - PB - 18, w: 96, h: 16 },
+    { x: PL, y: 0, w: textW(`↑ ${ym.l}`, 12), h: PT },
+  ];
+  const labels = placeLabels(
+    picked.map((r) => ({ id: r.id, text: r.name, cx: sx(r.v[xk] as number), cy: sy(r.v[yk] as number) })),
+    reserved,
+    { x0: PL, x1: W - PR, y0: PT, y1: H - PB },
+  );
+  async function savePng() {
+    if (!svgRef.current) return;
+    setSaving(true);
+    try {
+      await downloadSvgPng(svgRef.current, `hashmark-${tab}-${xk}-vs-${yk}.png`, {
+        title: `${ym.l} vs ${xm.l} · ${TAB_LABEL[tab]} · ${scope}`,
+        footer: `2026 through ${asOf} · box: cfbstats · EPA: CFBD · up/right = better`,
+      });
+    } finally {
+      setSaving(false);
+    }
+  }
   return (
     <Panel>
-      <h2 className="font-display text-lg">Chart builder</h2>
+      <div className="flex items-start justify-between gap-3">
+        <h2 className="font-display text-lg">Chart builder</h2>
+        <button
+          type="button"
+          onClick={savePng}
+          disabled={saving || pts.length === 0}
+          className="inline-flex h-10 shrink-0 items-center gap-1.5 rounded-lg bg-raised px-3 text-sm text-fg hover:bg-border disabled:opacity-50"
+        >
+          <Download className="h-4 w-4" aria-hidden />
+          {saving ? "Saving…" : "PNG"}
+        </button>
+      </div>
       <p className="mb-3 text-xs text-muted">Pick any two stats. Axes are oriented so up and to the right is always better; dashed lines are the average in view. Rows in Compare are labeled.</p>
       <div className="mb-3 flex flex-col gap-3 sm:flex-row">
         <MetricSelect id="sc-x" labelText="Across (x)" tab={tab} value={xk} onChange={setX} />
         <MetricSelect id="sc-y" labelText="Up (y)" tab={tab} value={yk} onChange={setY} />
       </div>
       <div className="relative" ref={box}>
-        <svg viewBox={`0 0 ${W} ${H}`} width={W} height={H} className="block h-auto w-full select-none" role="img" aria-label={`${ym.l} against ${xm.l}`} onMouseLeave={() => setHover(null)}>
+        <svg ref={svgRef} viewBox={`0 0 ${W} ${H}`} width={W} height={H} className="block h-auto w-full select-none" role="img" aria-label={`${ym.l} against ${xm.l}`} onMouseLeave={() => setHover(null)}>
           {ticks(x0, x1).map((t) => (
             <g key={`x${t}`}>
               <line x1={sx(t)} x2={sx(t)} y1={PT} y2={H - PB} stroke="var(--color-line)" />
@@ -179,18 +219,17 @@ export function StatsScatter({ tab, rows, picks }: { tab: StatTab; rows: StatRow
               </g>
             );
           })}
-          {picked.map((r) => {
-            const cx = sx(r.v[xk] as number), cy = sy(r.v[yk] as number);
-            const right = cx < W - 120;
-            return (
-              <g key={`l-${r.id}`} pointerEvents="none">
-                <circle cx={cx} cy={cy} r={13} fill="none" stroke="var(--color-fg)" strokeWidth="1.5" />
-                <text x={right ? cx + 16 : cx - 16} y={cy + 4} textAnchor={right ? "start" : "end"} fill="var(--color-fg)" fontSize="12" fontWeight="600" paintOrder="stroke" stroke="var(--color-surface)" strokeWidth="3">
-                  {r.name}
-                </text>
-              </g>
-            );
-          })}
+          {labels.map((l) => (
+            <g key={`l-${l.id}`} pointerEvents="none">
+              <circle cx={l.cx} cy={l.cy} r={13} fill="none" stroke="var(--color-fg)" strokeWidth="1.5" />
+              {l.moved ? (
+                <line x1={l.cx} y1={l.cy} x2={l.anchor === "start" ? l.x - 2 : l.x + 2} y2={l.y - 4} stroke="var(--color-muted)" strokeWidth="1" />
+              ) : null}
+              <text x={l.x} y={l.y} textAnchor={l.anchor} fill="var(--color-fg)" fontSize="12" fontWeight="600" paintOrder="stroke" stroke="var(--color-surface)" strokeWidth="3">
+                {l.text}
+              </text>
+            </g>
+          ))}
           <text x={W - PR} y={H - 6} textAnchor="end" fill="var(--color-fg)" fontSize="12">{xm.l} →</text>
           <text x={PL} y={PT - 4} fill="var(--color-fg)" fontSize="12">↑ {ym.l}</text>
         </svg>

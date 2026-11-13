@@ -3,7 +3,7 @@ import statsRaw from "../../../data/stats_2026.json" with { type: "json" };
 import { deriveValues, METRICS, TEAM_ADVANCED_KEYS, standing, type StatRow, type StatsMeta, type StatTab } from "./stats.ts";
 
 type TeamInfo = { slug: string; name: string; conference: string; colorPrimary: string };
-type RawFile = { meta: StatsMeta; teams: Record<string, unknown>[]; qb: Record<string, unknown>[]; rush: Record<string, unknown>[]; rec: Record<string, unknown>[] };
+type RawFile = { meta: StatsMeta; teams: Record<string, unknown>[]; qb: Record<string, unknown>[]; rush: Record<string, unknown>[]; rec: Record<string, unknown>[]; def: Record<string, unknown>[] };
 const data = statsRaw as unknown as RawFile;
 
 export const statsMeta = (): StatsMeta => data.meta;

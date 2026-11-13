@@ -18,6 +18,7 @@ import {
   isNotableSpreadGap,
   selectBoardFeaturedKick,
 } from "@/lib/cfb/featured";
+import { PinnedTeamCard } from "@/components/pinned-team-card";
 import { listGames, listScheduleWeek, listTeams } from "@/lib/cfb/queries";
 import { formatSeasonRecord } from "@/lib/cfb/season-record";
 import { MODEL, predictMatchup } from "@/lib/cfb/model";
@@ -46,7 +47,7 @@ export const Route = createFileRoute("/")({
       slate.filter((g) => !g.isFcs),
       Date.now(),
     );
-    return { teams, games: notable.length ? notable : games.slice(0, 12), featured };
+    return { teams, games: notable.length ? notable : games.slice(0, 12), featured, slate };
   },
   component: Home,
   head: () =>
@@ -59,7 +60,7 @@ export const Route = createFileRoute("/")({
 });
 
 function Home() {
-  const { teams, games, featured } = Route.useLoaderData();
+  const { teams, games, featured, slate } = Route.useLoaderData();
   const top = teams.slice(0, 25);
   const one = teams[0];
   const featurePred = featured
@@ -87,6 +88,8 @@ function Home() {
         title={`Week ${BOARD_WEEK} board`}
         lede={`HASHMARK runs a single rating — HX. It starts from recruiting talent, last year’s SP+/Elo/SRS, four-year win trend, returning production, and portal net, then is refit every week from this season’s results. Full 138 FBS. ${AP_STAMP.lede}`}
       />
+
+      <PinnedTeamCard teams={teams} slate={slate} week={FEATURED_SLATE_WEEK} />
 
       {one ? (
         <Panel className="enter">

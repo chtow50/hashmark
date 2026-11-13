@@ -10,6 +10,7 @@ import { TALENT_UNITS } from "@/lib/cfb/positions";
 import { SIZE_GROUPS, sizeLensFor, sizeSortLabel, type SizeGroupKey, type SizeSortKey } from "@/lib/cfb/size-groups";
 import { hasPortalMix, hasPortalSlice } from "@/lib/cfb/talent-slices";
 import { listTeams } from "@/lib/cfb/queries";
+import { ShowMore } from "@/components/show-more";
 import { cn, fmtHeight, fmtNum, fmtPct } from "@/lib/utils";
 import type { TeamSummary } from "@/lib/cfb/types";
 
@@ -348,10 +349,14 @@ function CompositeBoard({
         Ranking by {LENSES.find((l) => l.key === lens)?.label ?? "composite"}. Offensive line lives on Size — measurables, not this sort.
       </p>
 
-      <div className="space-y-3 sm:hidden">
-        {ranked.map((t, i) => (
-          <TalentCard key={t.slug} team={t} place={i + 1} lens={lens} />
-        ))}
+      <div className="sm:hidden">
+        <ShowMore
+          items={ranked}
+          noun="teams"
+          resetKey={lens}
+          className="space-y-3"
+          render={(t, i) => <TalentCard key={t.slug} team={t} place={i + 1} lens={lens} />}
+        />
       </div>
 
       <Panel className="hidden overflow-hidden p-0 sm:block sm:p-0">
@@ -581,8 +586,13 @@ function SizeBoard({
         Sorted by {sizeSortLabel(sizeLens)}.
       </p>
 
-      <div className="space-y-3 sm:hidden">
-        {ranked.map((t, i) => (
+      <div className="sm:hidden">
+        <ShowMore
+          items={ranked}
+          noun="teams"
+          resetKey={sizeLens}
+          className="space-y-3"
+          render={(t, i) => (
           <Link
             key={t.slug}
             to="/teams/$slug"
@@ -605,7 +615,8 @@ function SizeBoard({
               ))}
             </div>
           </Link>
-        ))}
+          )}
+        />
       </div>
 
       <Panel className="hidden overflow-hidden p-0 sm:block sm:p-0">

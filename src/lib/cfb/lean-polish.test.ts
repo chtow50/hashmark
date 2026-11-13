@@ -62,7 +62,8 @@ describe("LEAN polish gates", () => {
   it("rankings mobile stacks cards so AP, rating, and Make 12 stay unclipped", () => {
     const src = read("src/routes/rankings.tsx");
     assert.match(src, /function RankingCard/);
-    assert.match(src, /space-y-3 sm:hidden/);
+    // Phone cards: stacked (space-y-3) inside the sm:hidden list, top 25 then "Show all" (ShowMore).
+    assert.match(src, /space-y-3 sm:hidden|className="sm:hidden">\s*<ShowMore[\s\S]{0,200}className="space-y-3"/);
     assert.match(src, /hidden overflow-hidden p-0 sm:block/);
     assert.match(src, /AP · \{AP_STAMP\.columnHint\}/);
     assert.match(src, /DeltaChip hxRank=\{team\.hxRank\} apRank=\{team\.apRank\}/);

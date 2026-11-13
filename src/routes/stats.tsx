@@ -1,6 +1,6 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { Check, Plus, Search as SearchIcon } from "lucide-react";
-import { useMemo, useState } from "react";
+import { Check, Download, Plus, Search as SearchIcon } from "lucide-react";
+import { useMemo, useRef, useState } from "react";
 import { PageHead, Panel } from "@/components/shell";
 import { TeamMark } from "@/components/marks";
 import { StatsCompare, StatsLeaders, StatsScatter, cellTint } from "@/components/stats-explorer";
@@ -24,13 +24,15 @@ import {
 } from "@/lib/cfb/stats";
 import { getStatsTab } from "@/lib/cfb/stats-queries";
 import { seo } from "@/lib/seo";
+import { downloadCsv } from "@/lib/download";
 import { cn } from "@/lib/utils";
 
 type Dir = "worst";
 type Search = { tab?: StatTab; conf?: ConfFilter; group?: string; sort?: string; dir?: Dir };
 
-const DEFAULT_SORT: Record<StatTab, string> = { teams: "nepa", qb: "epa", rush: "yds", rec: "yds" };
+const DEFAULT_SORT: Record<StatTab, string> = { teams: "nepa", qb: "epa", rush: "yds", rec: "yds", def: "hp" };
 const PAGE = 25;
+const NOUN: Record<StatTab, string> = { teams: "teams", qb: "QBs", rush: "rushers", rec: "receivers", def: "defenders" };
 
 /** Link search with defaults dropped, matching validateSearch (no redirect on crawl). */
 function statsSearch(tab: StatTab, conf: ConfFilter, group?: string, sort?: string, dir?: Dir): Search {
@@ -74,6 +76,7 @@ const DEFAULT_PICKS: Record<StatTab, string[]> = {
   qb: ["Marcel Reed", "Gunner Stockton", "Arch Manning", "Julian Sayin"],
   rush: [],
   rec: ["Jeremiah Smith"],
+  def: [],
 };
 
 function defaultPicks(tab: StatTab, rows: StatRow[]): string[] {
@@ -108,8 +111,24 @@ function StatsPage() {
   const q = query.trim().toLowerCase();
   const matches = q ? sorted.filter((r) => r.name.toLowerCase().includes(q) || r.team.toLowerCase().includes(q)) : sorted;
   const shown = q || showAll ? matches : matches.slice(0, PAGE);
-  const noun = tab === "teams" ? "teams" : tab === "qb" ? "QBs" : tab === "rush" ? "rushers" : "receivers";
-  const poolLabel = tab === "teams" ? `${pool.length} teams` : `${pool.length} ${noun} (${meta.pools[tab]})`;
+  const noun = NOUN[tab];
+  const poolDef = tab === "teams" ? null : (meta.pools as Record<string, string | undefined>)[tab];
+  const poolLabel = tab === "teams" ? `${pool.length} teams` : `${pool.length} ${noun}${poolDef ? ` (${poolDef})` : ""}`;
+  const headRef = useRef<HTMLDivElement>(null);
+  // Fixed layout so the sticky header strip and the body share column widths exactly.
+  const tableWidth = `max(100%, ${2 + 14 + 4 + cols.length * 6.5 + 3}rem)`;
+  function exportCsv() {
+    const all = METRICS[tab];
+    const header = ["rank", tab === "teams" ? "team" : "player", ...(tab === "teams" ? ["conference", "w_l"] : ["team", "pos", "conference", "g"]), ...all.map((m) => m.l)];
+    const body = matches.map((r) => [
+      r.v[sortMetric.k] == null ? "" : rankOf.get(r.id),
+      r.name,
+      ...(tab === "teams" ? [r.conference, r.wl] : [r.team, r.pos, r.conference, r.g]),
+      ...all.map((m) => (r.v[m.k] == null ? "" : Number((r.v[m.k] as number).toFixed(m.d)))),
+    ]);
+    const scope = conf === "All" ? "fbs" : conf.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+    downloadCsv(`hashmark-stats-${tab}-${scope}-${meta.as_of}.csv`, header, body);
+  }
 
   return (
     <div>
@@ -121,7 +140,7 @@ function StatsPage() {
 
       {/* Toolbar: board, conference, search. */}
       <div className="mb-3 flex flex-col gap-3 lg:flex-row lg:items-center">
-        <div className="inline-flex shrink-0 rounded-xl bg-raised p-1" role="tablist" aria-label="Stat board">
+        <div className="flex max-w-full shrink-0 overflow-x-auto rounded-xl bg-raised p-1 lg:inline-flex" role="tablist" aria-label="Stat board">
           {STAT_TABS.map((t) => (
             <Link
               key={t}
@@ -130,7 +149,7 @@ function StatsPage() {
               role="tab"
               aria-selected={tab === t}
               className={cn(
-                "inline-flex h-10 flex-1 items-center justify-center rounded-lg px-4 text-sm font-medium transition-colors sm:flex-none",
+                "inline-flex h-10 flex-1 items-center justify-center whitespace-nowrap rounded-lg px-3 text-sm font-medium transition-colors sm:flex-none sm:px-4",
                 tab === t ? "bg-fg text-bg" : "text-muted hover:text-fg",
               )}
             >
@@ -207,104 +226,152 @@ function StatsPage() {
 
       <SortedBy metric={sortMetric} dir={dir} poolLabel={poolLabel} conf={conf} />
 
-      <Panel className="overflow-hidden p-0 sm:p-0">
-        <div className={cn("overflow-auto", showAll && !q && "max-h-[80vh]")}>
-          <table className="w-full border-separate border-spacing-0 text-sm">
-            <thead className="sticky top-0 z-20">
-              <tr className="text-[11px] uppercase tracking-[0.08em] text-muted">
-                <th className="sticky left-0 z-30 w-8 border-b border-border bg-surface px-2 py-3 text-right font-medium">#</th>
-                <th className="sticky left-8 z-30 border-b border-r border-border bg-surface px-3 py-3 text-left font-medium">
-                  {tab === "teams" ? "Team" : "Player"}
-                </th>
-                <th className="whitespace-nowrap border-b border-border bg-surface px-3 py-3 text-right font-medium">{tab === "teams" ? "W–L" : "G"}</th>
-                {cols.map((m, i) => (
-                  <HeaderCell key={m.k} m={m} tab={tab} conf={conf} group={set.key} active={sortMetric.k === m.k} dir={dir} alignRight={i >= cols.length - 3} />
-                ))}
-                <th className="border-b border-border bg-surface px-2 py-3 text-center font-medium">
-                  <span className="sr-only">Compare</span>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {shown.map((r) => {
-                const picked = picks.includes(r.id);
-                return (
-                  <tr key={r.id} className={cn("group", picked && "[&>td]:bg-raised")}>
-                    <td className="sticky left-0 z-10 w-8 border-b border-line bg-surface px-2 py-2 text-right tabular text-faint group-hover:bg-raised">
-                      {r.v[sortMetric.k] == null ? "—" : rankOf.get(r.id)}
-                    </td>
-                    <td className="sticky left-8 z-10 max-w-[8.5rem] border-b border-r border-line bg-surface px-3 py-2 group-hover:bg-raised sm:max-w-none">
-                      <Link to="/teams/$slug" params={{ slug: r.slug }} className="flex min-h-10 items-center gap-2">
-                        <TeamMark slug={r.slug} color={r.color} />
-                        <span className="min-w-0">
-                          <span className="block truncate font-medium sm:whitespace-nowrap">{r.name}</span>
-                          <span className={cn("truncate text-xs text-muted sm:block sm:whitespace-nowrap", tab === "teams" ? "hidden" : "block")}>
-                            {tab === "teams" ? r.conference : r.team}
+      <Panel className="p-0 sm:p-0">
+        {/* Phones: one card per row. */}
+        <ol className="divide-y divide-line sm:hidden">
+          {shown.map((r) => (
+            <StatCard
+              key={r.id}
+              r={r}
+              tab={tab}
+              rank={r.v[sortMetric.k] == null ? null : (rankOf.get(r.id) ?? null)}
+              sortMetric={sortMetric}
+              cols={cols}
+              pct={pct}
+              picked={picks.includes(r.id)}
+              full={picks.length >= 4}
+              onToggle={() => togglePick(r.id)}
+            />
+          ))}
+          {shown.length === 0 ? (
+            <li className="px-4 py-10 text-center text-muted">
+              No {noun} match “{query}”{conf !== "All" ? ` in ${conf}` : ""}.
+            </li>
+          ) : null}
+        </ol>
+
+        {/* Tablet and up: table. The column header is a separate sticky strip under the site header,
+            kept in step with the table's sideways scroll, so it stays in view down the whole page. */}
+        <div className="hidden sm:block">
+          <div
+            ref={headRef}
+            className="sticky top-16 z-20 rounded-t-xl bg-surface [overflow-x:clip]"
+            style={{ ["--sx" as string]: "0px" }}
+          >
+            <table className="table-fixed border-separate border-spacing-0 text-sm [transform:translateX(calc(-1*var(--sx)))]" style={{ width: tableWidth }}>
+              <TableCols n={cols.length} />
+              <thead>
+                <tr className="text-[11px] uppercase tracking-[0.08em] text-muted">
+                  <th className="sticky left-0 z-30 border-b border-border bg-surface px-2 py-3 text-right font-medium [transform:translateX(var(--sx))]">#</th>
+                  <th className="sticky left-8 z-30 border-b border-r border-border bg-surface px-3 py-3 text-left font-medium [transform:translateX(var(--sx))]">
+                    {tab === "teams" ? "Team" : "Player"}
+                  </th>
+                  <th className="whitespace-nowrap border-b border-border bg-surface px-3 py-3 text-right font-medium">{tab === "teams" ? "W–L" : "G"}</th>
+                  {cols.map((m, i) => (
+                    <HeaderCell key={m.k} m={m} tab={tab} conf={conf} group={set.key} active={sortMetric.k === m.k} dir={dir} alignRight={i >= cols.length - 3} />
+                  ))}
+                  <th className="border-b border-border bg-surface px-2 py-3 text-center font-medium">
+                    <span className="sr-only">Compare</span>
+                  </th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+          <div
+            className="overflow-x-auto"
+            onScroll={(e) => headRef.current?.style.setProperty("--sx", `${e.currentTarget.scrollLeft}px`)}
+          >
+            <table className="table-fixed border-separate border-spacing-0 text-sm" style={{ width: tableWidth }}>
+              <TableCols n={cols.length} />
+              <thead className="sr-only">
+                <tr>
+                  <th>Rank</th>
+                  <th>{tab === "teams" ? "Team" : "Player"}</th>
+                  <th>{tab === "teams" ? "W–L" : "G"}</th>
+                  {cols.map((m) => (
+                    <th key={m.k}>{m.l}</th>
+                  ))}
+                  <th>Compare</th>
+                </tr>
+              </thead>
+              <tbody>
+                {shown.map((r) => {
+                  const picked = picks.includes(r.id);
+                  return (
+                    <tr key={r.id} className={cn("group", picked && "[&>td]:bg-raised")}>
+                      <td className="sticky left-0 z-10 border-b border-line bg-surface px-2 py-2 text-right tabular text-faint group-hover:bg-raised">
+                        {r.v[sortMetric.k] == null ? "—" : rankOf.get(r.id)}
+                      </td>
+                      <td className="sticky left-8 z-10 border-b border-r border-line bg-surface px-3 py-2 group-hover:bg-raised">
+                        <Link to="/teams/$slug" params={{ slug: r.slug }} className="flex min-h-10 items-center gap-2">
+                          <TeamMark slug={r.slug} color={r.color} />
+                          <span className="min-w-0">
+                            <span className="block truncate font-medium">{r.name}</span>
+                            <span className="block truncate text-xs text-muted">
+                              {tab === "teams" ? r.conference : `${r.pos ? `${r.pos} · ` : ""}${r.team}`}
+                            </span>
                           </span>
-                        </span>
-                      </Link>
-                    </td>
-                    <td className="whitespace-nowrap border-b border-line px-3 py-2 text-right tabular text-muted">{tab === "teams" ? r.wl : r.g}</td>
-                    {cols.map((m) => {
-                      const p = pct.get(m.k)?.get(r.id);
-                      return (
-                        <td
-                          key={m.k}
-                          className={cn(
-                            "whitespace-nowrap border-b border-line px-3 py-2 text-right tabular",
-                            sortMetric.k === m.k ? "font-semibold text-fg" : "text-fg/85",
-                          )}
-                          style={cellTint(p)}
-                          title={p == null ? undefined : `${m.l}: P${Math.round(p)} in ${conf === "All" ? "FBS" : conf}`}
-                        >
-                          {fmtStat(m, r.v[m.k])}
-                        </td>
-                      );
-                    })}
-                    <td className="border-b border-line px-1 py-1 text-center">
-                      <button
-                        type="button"
-                        onClick={() => togglePick(r.id)}
-                        disabled={!picked && picks.length >= 4}
-                        aria-pressed={picked}
-                        aria-label={picked ? `Remove ${r.name} from compare` : `Add ${r.name} to compare`}
-                        title={picked ? "In compare (click to remove)" : picks.length >= 4 ? "Compare is full (4)" : "Add to compare"}
-                        className={cn(
-                          "inline-flex h-9 w-9 items-center justify-center rounded-lg transition-colors disabled:opacity-30",
-                          picked ? "bg-accent text-accent-fg" : "text-muted hover:bg-raised hover:text-fg",
-                        )}
-                      >
-                        {picked ? <Check className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
-                      </button>
+                        </Link>
+                      </td>
+                      <td className="whitespace-nowrap border-b border-line px-3 py-2 text-right tabular text-muted">{tab === "teams" ? r.wl : r.g}</td>
+                      {cols.map((m) => {
+                        const p = pct.get(m.k)?.get(r.id);
+                        return (
+                          <td
+                            key={m.k}
+                            className={cn(
+                              "whitespace-nowrap border-b border-line px-3 py-2 text-right tabular",
+                              sortMetric.k === m.k ? "font-semibold text-fg" : "text-fg/85",
+                            )}
+                            style={cellTint(p)}
+                            title={p == null ? undefined : `${m.l}: P${Math.round(p)} in ${conf === "All" ? "FBS" : conf}`}
+                          >
+                            {fmtStat(m, r.v[m.k])}
+                          </td>
+                        );
+                      })}
+                      <td className="border-b border-line px-1 py-1 text-center">
+                        <CompareToggle name={r.name} picked={picked} full={picks.length >= 4} onToggle={() => togglePick(r.id)} />
+                      </td>
+                    </tr>
+                  );
+                })}
+                {shown.length === 0 ? (
+                  <tr>
+                    <td colSpan={cols.length + 4} className="px-4 py-10 text-center text-muted">
+                      No {noun} match “{query}”{conf !== "All" ? ` in ${conf}` : ""}.
                     </td>
                   </tr>
-                );
-              })}
-              {shown.length === 0 ? (
-                <tr>
-                  <td colSpan={cols.length + 4} className="px-4 py-10 text-center text-muted">
-                    No {noun} match “{query}”{conf !== "All" ? ` in ${conf}` : ""}.
-                  </td>
-                </tr>
-              ) : null}
-            </tbody>
-          </table>
+                ) : null}
+              </tbody>
+            </table>
+          </div>
         </div>
         <div className="flex flex-wrap items-center justify-between gap-3 border-t border-border px-4 py-3 text-xs text-muted">
           <ShadeLegend />
-          {!q && matches.length > PAGE ? (
+          <div className="flex flex-wrap items-center gap-2">
             <button
               type="button"
-              onClick={() => setShowAll(!showAll)}
-              className="inline-flex h-10 items-center rounded-lg bg-raised px-4 text-sm text-fg hover:bg-border"
+              onClick={exportCsv}
+              className="inline-flex h-10 items-center gap-1.5 rounded-lg bg-raised px-3 text-sm text-fg hover:bg-border"
             >
-              {showAll ? `Show top ${PAGE}` : `Show all ${matches.length} ${noun}`}
+              <Download className="h-4 w-4" aria-hidden />
+              CSV
             </button>
-          ) : (
-            <span>
-              {matches.length} {noun}
-            </span>
-          )}
+            {!q && matches.length > PAGE ? (
+              <button
+                type="button"
+                onClick={() => setShowAll(!showAll)}
+                className="inline-flex h-10 items-center rounded-lg bg-raised px-4 text-sm text-fg hover:bg-border"
+              >
+                {showAll ? `Show top ${PAGE}` : `Show all ${matches.length} ${noun}`}
+              </button>
+            ) : (
+              <span>
+                {matches.length} {noun}
+              </span>
+            )}
+          </div>
         </div>
       </Panel>
 
@@ -314,7 +381,7 @@ function StatsPage() {
 
       <div className="mt-6 grid gap-6 lg:grid-cols-5">
         <div className="lg:col-span-3">
-          <StatsScatter key={`sc-${tab}`} tab={tab} rows={pool} picks={picks} />
+          <StatsScatter key={`sc-${tab}`} tab={tab} rows={pool} picks={picks} asOf={meta.as_of} scope={conf === "All" ? "FBS" : conf} />
         </div>
         <div className="lg:col-span-2">
           <StatsLeaders tab={tab} rows={pool} metric={sortMetric} />
@@ -436,5 +503,96 @@ function ShadeLegend() {
         <span className="h-3 w-5 rounded-sm" style={cellTint(95)} /> better
       </span>
     </span>
+  );
+}
+
+/** Column widths shared by the sticky header strip and the body table. */
+function TableCols({ n }: { n: number }) {
+  return (
+    <colgroup>
+      <col style={{ width: "2rem" }} />
+      <col style={{ width: "14rem" }} />
+      <col style={{ width: "4rem" }} />
+      {Array.from({ length: n }, (_, i) => (
+        <col key={i} style={{ width: "6.5rem" }} />
+      ))}
+      <col style={{ width: "3rem" }} />
+    </colgroup>
+  );
+}
+
+function CompareToggle({ name, picked, full, onToggle }: { name: string; picked: boolean; full: boolean; onToggle: () => void }) {
+  return (
+    <button
+      type="button"
+      onClick={onToggle}
+      disabled={!picked && full}
+      aria-pressed={picked}
+      aria-label={picked ? `Remove ${name} from compare` : `Add ${name} to compare`}
+      title={picked ? "In compare (click to remove)" : full ? "Compare is full (4)" : "Add to compare"}
+      className={cn(
+        "inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg transition-colors disabled:opacity-30",
+        picked ? "bg-accent text-accent-fg" : "text-muted hover:bg-raised hover:text-fg",
+      )}
+    >
+      {picked ? <Check className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
+    </button>
+  );
+}
+
+/** Phone row: the sorted stat up top, the rest of the column set as a shaded grid. */
+function StatCard({
+  r,
+  tab,
+  rank,
+  sortMetric,
+  cols,
+  pct,
+  picked,
+  full,
+  onToggle,
+}: {
+  r: StatRow;
+  tab: StatTab;
+  rank: number | null;
+  sortMetric: Metric;
+  cols: Metric[];
+  pct: Map<string, Map<string, number>>;
+  picked: boolean;
+  full: boolean;
+  onToggle: () => void;
+}) {
+  const rest = cols.filter((m) => m.k !== sortMetric.k);
+  const sp = pct.get(sortMetric.k)?.get(r.id);
+  return (
+    <li className={cn("px-4 py-3", picked && "bg-raised")}>
+      <div className="flex items-center gap-3">
+        <span className="w-7 shrink-0 text-right tabular text-sm text-faint">{rank ?? "—"}</span>
+        <Link to="/teams/$slug" params={{ slug: r.slug }} className="flex min-h-10 min-w-0 flex-1 items-center gap-2">
+          <TeamMark slug={r.slug} color={r.color} />
+          <span className="min-w-0">
+            <span className="block truncate font-medium">{r.name}</span>
+            <span className="block truncate text-xs text-muted">
+              {tab === "teams" ? `${r.conference} · ${r.wl}` : `${r.pos ? `${r.pos} · ` : ""}${r.team} · ${r.g} G`}
+            </span>
+          </span>
+        </Link>
+        <div className="shrink-0 rounded-md px-2 py-1 text-right" style={cellTint(sp)}>
+          <div className="font-display text-xl leading-none tabular">{fmtStat(sortMetric, r.v[sortMetric.k])}</div>
+          <div className="mt-0.5 text-[10px] uppercase tracking-wide text-muted">{sortMetric.s}</div>
+        </div>
+        <CompareToggle name={r.name} picked={picked} full={full} onToggle={onToggle} />
+      </div>
+      {rest.length ? (
+        <dl className="mt-2 grid grid-cols-4 gap-1 pl-10 text-xs">
+          {rest.slice(0, 8).map((m) => (
+            <div key={m.k} className="min-w-0 rounded px-1.5 py-1" style={cellTint(pct.get(m.k)?.get(r.id))}>
+              <dt className="truncate text-[10px] uppercase tracking-wide text-muted">{m.s}</dt>
+              <dd className="tabular text-fg/90">{fmtStat(m, r.v[m.k])}</dd>
+            </div>
+          ))}
+        </dl>
+      ) : null}
+    </li>
   );
 }

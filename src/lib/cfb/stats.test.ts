@@ -69,3 +69,48 @@ describe("stats math", () => {
     assert.equal(teamAdvanced("not-a-team"), null);
   });
 });
+
+describe("defense board", () => {
+  it("has a cfbstats defense pool on board teams with box-only numbers", () => {
+    const set = new Set(board.map((t) => t.slug));
+    assert.ok(file.def.length > 300, `def rows ${file.def.length}`);
+    for (const p of file.def) {
+      assert.ok(set.has(p.slug), `def ${p.name} ${p.slug}`);
+      assert.ok(p.tot >= 40 || p.sk >= 4 || p.int >= 3 || p.tfl >= 8, `pool rule ${p.name}`);
+      assert.ok(p.solo + p.ast === p.tot, `solo+ast=tot ${p.name}`);
+      assert.ok(p.sk <= p.tfl + 0.001 || p.tfl === 0, `sacks inside TFL ${p.name}`);
+      assert.doesNotMatch(p.name, /\bESPN\b/);
+    }
+  });
+  it("derives havoc plays without double-counting sacks", () => {
+    const v = deriveValues("def", { g: 10, tot: 50, tfl: 8, sk: 5, int: 2, pbu: 6, ff: 1 });
+    assert.equal(v.hp, 17);
+    assert.equal(v.hpg, 1.7);
+    assert.equal(v.tpg, 5);
+  });
+});
+
+describe("chart labels and CSV", () => {
+  it("keeps close labels apart and inside the plot", async () => {
+    const { placeLabels, textW } = await import("./chart-labels.ts");
+    const pts = [
+      { id: "a", text: "Marcel Reed", cx: 300, cy: 200 },
+      { id: "b", text: "Arch Manning", cx: 304, cy: 203 },
+      { id: "c", text: "Gunner Stockton", cx: 298, cy: 198 },
+    ];
+    const out = placeLabels(pts, [], { x0: 50, x1: 600, y0: 20, y1: 400 });
+    const boxes = out.map((l) => {
+      const w = textW(l.text);
+      return { x: l.anchor === "start" ? l.x : l.x - w, y: l.y - 11, w, h: 14 };
+    });
+    for (let i = 0; i < boxes.length; i++)
+      for (let j = i + 1; j < boxes.length; j++) {
+        const a = boxes[i], b = boxes[j];
+        assert.ok(!(a.x < b.x + b.w && b.x < a.x + a.w && a.y < b.y + b.h && b.y < a.y + a.h), `${out[i].id} overlaps ${out[j].id}`);
+      }
+  });
+  it("quotes CSV cells that need it", async () => {
+    const { toCsv } = await import("../download.ts");
+    assert.equal(toCsv(["a", "b"], [["x,y", 'say "hi"'], [null, 3]]), 'a,b\n"x,y","say ""hi"""\n,3\n');
+  });
+});

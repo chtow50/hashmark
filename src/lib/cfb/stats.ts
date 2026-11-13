@@ -3,9 +3,9 @@
  * Rows come from data/stats_2026.json via the getStatsTab server function (stats.server.ts).
  * Box counting stats: cfbstats.com. Advanced: CollegeFootballData (CFBD) play-by-play.
  */
-export const STAT_TABS = ["teams", "qb", "rush", "rec"] as const;
+export const STAT_TABS = ["teams", "qb", "rush", "rec", "def"] as const;
 export type StatTab = (typeof STAT_TABS)[number];
-export const TAB_LABEL: Record<StatTab, string> = { teams: "Teams", qb: "QBs", rush: "Rushers", rec: "Receivers" };
+export const TAB_LABEL: Record<StatTab, string> = { teams: "Teams", qb: "QBs", rush: "Rushers", rec: "Receivers", def: "Defenders" };
 export const parseTab = (v: unknown): StatTab => (STAT_TABS.includes(v as StatTab) ? (v as StatTab) : "teams");
 
 /** Where a number comes from: shown next to every definition. */
@@ -43,6 +43,8 @@ export const G_RATE = "Rates";
 export const G_EPA = "EPA (CFBD)";
 export const G_BOX = "Box";
 export const G_EFF = "Efficiency";
+export const G_TKL = "Tackles";
+export const G_PLAYS = "Plays on the ball";
 
 export const METRICS: Record<StatTab, Metric[]> = {
   teams: [
@@ -122,6 +124,19 @@ export const METRICS: Record<StatTab, Metric[]> = {
     m("ypg", "Receiving yards per game", "Yds/G", true, 1, G_EFF, "derived", "Receiving yards / games played."),
     m("tdr", "TD per 100 catches", "TD/100", true, 2, G_EFF, "derived", "Receiving TDs per 100 receptions."),
   ],
+  def: [
+    m("tot", "Total tackles", "Tkl", true, 0, G_TKL, "box", "Solo plus assisted tackles."),
+    m("solo", "Solo tackles", "Solo", true, 0, G_TKL, "box", "Tackles made alone."),
+    m("tpg", "Tackles per game", "Tkl/G", true, 1, G_TKL, "derived", "Total tackles / games played."),
+    m("tfl", "Tackles for loss", "TFL", true, 1, G_PLAYS, "box", "Tackles behind the line of scrimmage, sacks included. Half credit for shared stops."),
+    m("sk", "Sacks", "Sacks", true, 1, G_PLAYS, "box", "Quarterback sacks. Half credit for shared sacks."),
+    m("qbh", "QB hurries", "Hurries", true, 0, G_PLAYS, "box", "Pressures that hurried the throw, as charted in the official box."),
+    m("int", "Interceptions", "INT", true, 0, G_PLAYS, "box", "Passes intercepted."),
+    m("pbu", "Passes broken up", "PBU", true, 0, G_PLAYS, "box", "Passes defended without an interception."),
+    m("ff", "Forced fumbles", "FF", true, 0, G_PLAYS, "box", "Fumbles forced."),
+    m("hp", "Havoc plays", "Havoc", true, 1, G_PLAYS, "derived", "TFL + INT + PBU + forced fumbles. Sacks are already inside TFL, so they are not counted twice."),
+    m("hpg", "Havoc plays per game", "Havoc/G", true, 2, G_PLAYS, "derived", "Havoc plays / games played."),
+  ],
 };
 
 export const GROUPS: Record<StatTab, string[]> = {
@@ -129,6 +144,7 @@ export const GROUPS: Record<StatTab, string[]> = {
   qb: [G_EPA, G_BOX, G_EFF],
   rush: [G_EPA, G_BOX, G_EFF],
   rec: [G_EPA, G_BOX, G_EFF],
+  def: [G_TKL, G_PLAYS],
 };
 
 export const metricOf = (tab: StatTab, k: string): Metric | undefined => METRICS[tab].find((x) => x.k === k);
@@ -168,6 +184,11 @@ export function deriveValues(tab: StatTab, r: Raw): Record<string, number | null
     const rec = n(r.rec) ?? 0, yds = n(r.yds) ?? 0, td = n(r.td) ?? 0;
     if (rec > 0) Object.assign(v, { ypr: yds / rec, tdr: (100 * td) / rec });
     v.ypg = g > 0 ? yds / g : null;
+  } else if (tab === "def") {
+    const tot = n(r.tot), tfl = n(r.tfl) ?? 0, it = n(r.int) ?? 0, pbu = n(r.pbu) ?? 0, ff = n(r.ff) ?? 0;
+    v.tpg = g > 0 && tot != null ? tot / g : null;
+    v.hp = tfl + it + pbu + ff;
+    v.hpg = g > 0 ? v.hp / g : null;
   }
   return v;
 }
@@ -212,7 +233,7 @@ export type StatsMeta = {
   advanced_source: string;
   advanced_through: string;
   adjustment: string;
-  pools: Record<"qb" | "rush" | "rec", string>;
+  pools: Record<"qb" | "rush" | "rec", string> & { def?: string };
   matched_advanced: Record<"qb" | "rush" | "rec", string>;
 };
 
@@ -249,6 +270,11 @@ export const COLUMN_SETS: Record<StatTab, ColumnSet[]> = {
     { key: "box", label: "Box", cols: groupCols("rec", G_BOX) },
     { key: "eff", label: "Efficiency", cols: groupCols("rec", G_EFF) },
   ],
+  def: [
+    { key: "all", label: "All columns", cols: allCols("def") },
+    { key: "tackles", label: "Tackles", cols: groupCols("def", G_TKL) },
+    { key: "plays", label: "Plays on the ball", cols: groupCols("def", G_PLAYS) },
+  ],
 };
 export const columnSet = (tab: StatTab, key: string | undefined): ColumnSet =>
   COLUMN_SETS[tab].find((s) => s.key === key) ?? COLUMN_SETS[tab][0];
@@ -281,6 +307,13 @@ export const QUICK_VIEWS: Record<StatTab, QuickView[]> = {
     { label: "Receiving yards", group: "all", sort: "yds" },
     { label: "Target share", group: "all", sort: "use" },
     { label: "Yards per catch", group: "all", sort: "ypr" },
+  ],
+  def: [
+    { label: "Havoc plays", group: "all", sort: "hp" },
+    { label: "Sacks", group: "all", sort: "sk" },
+    { label: "Tackles for loss", group: "all", sort: "tfl" },
+    { label: "Tackles", group: "all", sort: "tot" },
+    { label: "Interceptions", group: "all", sort: "int" },
   ],
 };
 
