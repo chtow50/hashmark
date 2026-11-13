@@ -4,6 +4,7 @@ import { join } from "node:path";
 import { describe, it } from "node:test";
 import {
   SIM_FREE_PATH,
+  SIM_FULL_PATH,
   SCENARIO_FREE_PATH,
   buildScenarioFree,
   buildSimFree,
@@ -41,12 +42,16 @@ describe("free sim exports (win_title is Edge Pack only)", () => {
     assert.deepEqual(sc.baseline.a, { make_field: 1, proj_wins: 3, conf_title: 4 });
   });
 
-  it("Georgia make-field stays 86.51 in the free export", () => {
+  it("free export mirrors the full sim's make-field and meta, without win_title", () => {
     const free = JSON.parse(readFileSync(join(ROOT, SIM_FREE_PATH), "utf8"));
+    const full = JSON.parse(readFileSync(join(ROOT, SIM_FULL_PATH), "utf8"));
     const g = free.teams.find((t) => t.slug === "georgia");
-    assert.equal(g.make_field, 86.51);
-    assert.equal(free.meta.hx_stamp, "HX 2026.7");
-    assert.equal(free.meta.as_of, "2026-10-05");
-    assert.equal(free.meta.source, "sim_10k_2026_hx2026_7.json");
+    const gf = full.teams.find((t) => t.slug === "georgia");
+    assert.equal(g.make_field, gf.make_field);
+    assert.equal(g.win_title, undefined);
+    assert.equal(free.meta.hx_stamp, full.meta.hx_stamp);
+    assert.match(free.meta.hx_stamp, /^HX 2026\.(8|9|\d{2})$/);
+    assert.equal(free.meta.as_of, full.meta.as_of);
+    assert.equal(free.meta.source, SIM_FULL_PATH.replace(/^data\//, ""));
   });
 });

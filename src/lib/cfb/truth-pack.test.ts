@@ -489,43 +489,32 @@ test("movers_by_abs_dhx are O/D terms", () => {
   assert.equal(movers[0]?.name, "Rutgers");
 });
 
-test("truth-pack loads the HX 2026.7 10k pack, not the 2026.3, 2026.4, or 2026.6 file", () => {
+test("truth-pack loads the current-HX 10k free export, never the full sim", () => {
   const src = readFileSync(join(root, "src/lib/cfb/truth-pack.ts"), "utf8");
-  assert.match(src, /sim_10k_2026_hx2026_7\.json/);
   // Client-bundled truth-pack reads the free export; the full sim (win_title) is server-only.
-  assert.match(src, /from "\.\.\/\.\.\/\.\.\/data\/sim_free_hx2026_7\.json"/);
-  assert.doesNotMatch(src, /from "\.\.\/\.\.\/\.\.\/data\/sim_10k_2026_hx2026_7\.json"/);
+  assert.match(src, /from "\.\.\/\.\.\/\.\.\/data\/sim_free_hx2026_8\.json"/);
+  assert.doesNotMatch(src, /from "\.\.\/\.\.\/\.\.\/data\/sim_10k_2026[^"]*\.json"/);
   assert.equal(sim10k.meta.source, SIM_FULL_FILE);
   assert.equal(sim10k.meta.as_of, sim10kFull.meta.as_of);
-  assert.doesNotMatch(src, /from "\.\.\/\.\.\/\.\.\/data\/sim_10k_2026\.json"/);
-  assert.doesNotMatch(src, /from "\.\.\/\.\.\/\.\.\/data\/sim_10k_2026_hx2026_4\.json"/);
-  assert.doesNotMatch(src, /from "\.\.\/\.\.\/\.\.\/data\/sim_10k_2026_hx2026_6\.json"/);
   assert.equal(sim10k.meta.n_sims, 10000);
-  assert.equal(sim10k.meta.seed, 20260913);
-  assert.equal(sim10k.meta.hx_stamp, "HX 2026.7");
+  assert.equal(sim10k.meta.hx_stamp, sim10kFull.meta.hx_stamp);
+  assert.match(sim10k.meta.hx_stamp ?? "", /^HX 2026\.8$/);
   assert.equal(sim10k.teams.length, 136);
 });
 
-test("sim_10k Georgia is 86.51 / 24.29 on HX 2026.7 as_of 2026-10-05", () => {
+test("sim_10k Georgia make-field and title are separate cells; free row has no title", () => {
   const free = simTeamBySlug("georgia");
   assert.ok(free);
-  assert.equal(free.make_field, 86.51);
   assert.equal("win_title" in free, false, "free export carries no win_title");
   const g = simFullTeamBySlug("georgia");
   assert.ok(g);
-  assert.equal(g.make_field, 86.51);
-  assert.equal(g.win_title, 24.29);
-  assert.equal(g.hx_board, 7.8964);
-  assert.equal(Number(g.make_field.toFixed(1)), 86.5);
-  assert.equal(Number(g.win_title.toFixed(1)), 24.3);
+  assert.equal(free.make_field, g.make_field);
   assert.notEqual(g.make_field, g.win_title);
-  assert.equal(SIM_10K_AS_OF, "2026-10-05");
-  assert.match(SIM_10K_NOTE, /HX 2026\.7 · 10k draws/);
-  assert.match(SIM_10K_NOTE, /2026-10-05/);
-  assert.doesNotMatch(SIM_10K_NOTE, /HX 2026\.6 ·/);
-  assert.doesNotMatch(SIM_10K_NOTE, /HX 2026\.4/);
-  assert.doesNotMatch(SIM_10K_NOTE, /pre-Δ/);
-  assert.doesNotMatch(SIM_10K_NOTE, /not a post-2026\.3 re-sim/);
+  assert.ok(g.win_title < g.make_field, "title odds can never exceed make-field odds");
+  assert.equal(SIM_10K_AS_OF, sim10kFull.meta.as_of);
+  assert.match(SIM_10K_NOTE, /HX 2026\.8 · 10k draws/);
+  assert.match(SIM_10K_NOTE, new RegExp(sim10kFull.meta.as_of));
+  assert.doesNotMatch(SIM_10K_NOTE, /HX 2026\.7 ·/);
 });
 
 test("free sim export mirrors the full sim make-field cells and drops win_title", () => {
@@ -538,37 +527,16 @@ test("free sim export mirrors the full sim make-field cells and drops win_title"
     assert.equal(free.conf_title, full.conf_title, full.slug);
     assert.equal("win_title" in free, false, full.slug);
   }
-  const raw = readFileSync(join(root, "data/sim_free_hx2026_7.json"), "utf8");
+  const raw = readFileSync(join(root, "data/sim_free_hx2026_8.json"), "utf8");
   assert.doesNotMatch(raw, /win_title/);
 });
 
-test("sim_10k top win_title and make_field stay separate cells", () => {
-  const byTitle = [...sim10kFull.teams].sort((a, b) => b.win_title - a.win_title).slice(0, 5);
-  const byMake = [...sim10k.teams].sort((a, b) => b.make_field - a.make_field).slice(0, 5);
-  assert.deepEqual(
-    byTitle.map((t) => [t.name, t.win_title]),
-    [
-      ["Georgia", 24.29],
-      ["Notre Dame", 17.81],
-      ["Ohio State", 16.34],
-      ["Texas Tech", 9.07],
-      ["Oregon", 7.55],
-    ],
-  );
-  assert.deepEqual(
-    byMake.map((t) => [t.name, t.make_field]),
-    [
-      ["Notre Dame", 94.36],
-      ["Texas Tech", 91.73],
-      ["Miami", 90.43],
-      ["Georgia", 86.51],
-      ["Ohio State", 69.94],
-    ],
-  );
-  assert.notDeepEqual(
-    byTitle.map((t) => t.slug),
-    byMake.map((t) => t.slug),
-  );
+test("sim_10k: 12 make-field slots and one title per draw; every title is inside make-field", () => {
+  const mf = sim10kFull.teams.reduce((a, t) => a + t.make_field, 0);
+  const wt = sim10kFull.teams.reduce((a, t) => a + t.win_title, 0);
+  assert.ok(Math.abs(mf - 1200) < 0.5, `make_field sums to ${mf}`);
+  assert.ok(Math.abs(wt - 100) < 0.5, `win_title sums to ${wt}`);
+  for (const t of sim10kFull.teams) assert.ok(t.win_title <= t.make_field, t.slug);
 });
 
 

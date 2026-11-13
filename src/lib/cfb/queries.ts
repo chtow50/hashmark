@@ -8,6 +8,9 @@ import { kickoffCivilYmd } from "./chicago";
 import { fcsScheduleGamesForDate, mergeFcsScheduleGames, sortScheduleGames } from "./fcs-stubs";
 import { compositeClassAvg } from "./recruiting";
 import { SEASON_RECORD_JOIN } from "./season-record";
+import simFree from "../../../data/sim_free_hx2026_8.json" with { type: "json" };
+
+const SIM_PROJ_WINS = new Map<string, number>(simFree.teams.map((t) => [t.slug, t.proj_wins]));
 import type {
   GameRow,
   GameStatus,
@@ -167,7 +170,8 @@ function mapTeam(row: TeamDb): TeamSummary {
     defenseRating: Number(row.defense_rating),
     specialRating: Number(row.special_rating),
     sosRating: Number(row.sos_rating),
-    projectedWins: Number(row.projected_wins),
+    // Current-HX 10k sim (regular season + conference title game); preseason column only as fallback.
+    projectedWins: SIM_PROJ_WINS.get(row.slug) ?? Number(row.projected_wins),
     returningProduction: Number(row.returning_production),
     playoffOdds: Number(row.playoff_odds),
     priorScore: Number(row.prior_score),

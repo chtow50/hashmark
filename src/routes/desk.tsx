@@ -19,7 +19,7 @@ export const Route = createFileRoute("/desk")({
 const GLOSSARY = [
   {
     term: "HX",
-    def: "The HASHMARK Index. One number for every FBS team, built from recruiting talent, last year’s SP+/Elo/SRS, four-year win trend, returning production, and portal net. Georgia opened 2026 near +7.9. A replacement-level Group of Five team sits near 0.",
+    def: "The HASHMARK Index. One number for every FBS team, built from a preseason prior (recruiting talent, last year’s SP+/Elo/SRS, four-year win trend, returning production, portal net) and refit every week from this season’s results. Georgia opened 2026 near +7.9. A replacement-level Group of Five team sits near 0.",
   },
   {
     term: "Make 12",

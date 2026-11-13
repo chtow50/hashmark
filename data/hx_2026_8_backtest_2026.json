@@ -1,0 +1,208 @@
+{
+ "meta": {
+  "source": "HASHMARK review 2026-11-12 (/workspace/hashmark-review, scripts backtest.mjs). Stamped FBS–FBS FINALs from repo migrations through 0090 (Week 0 stored as Week 1). Shipped = the HX board that was live each week (HX 2026.7 and earlier). HX 2026.8 walk-forward = Bayesian blend refit using only FINALs before each week, knobs also chosen only from earlier weeks.",
+  "as_of": "2026-11-12",
+  "as_of_tz": "America/Chicago"
+ },
+ "weeks": [
+  {
+   "week": 1,
+   "shipped": {
+    "n": 49,
+    "su": 40,
+    "mae": 14.823,
+    "brier": 0.142
+   },
+   "hx_2026_8_walkforward": {
+    "n": 49,
+    "su": 40,
+    "mae": 14.823,
+    "brier": 0.142
+   }
+  },
+  {
+   "week": 2,
+   "shipped": {
+    "n": 47,
+    "su": 37,
+    "mae": 12.196,
+    "brier": 0.147
+   },
+   "hx_2026_8_walkforward": {
+    "n": 47,
+    "su": 39,
+    "mae": 11.325,
+    "brier": 0.14
+   }
+  },
+  {
+   "week": 3,
+   "shipped": {
+    "n": 56,
+    "su": 49,
+    "mae": 10.025,
+    "brier": 0.119
+   },
+   "hx_2026_8_walkforward": {
+    "n": 56,
+    "su": 45,
+    "mae": 10.355,
+    "brier": 0.127
+   }
+  },
+  {
+   "week": 4,
+   "shipped": {
+    "n": 57,
+    "su": 42,
+    "mae": 12.789,
+    "brier": 0.181
+   },
+   "hx_2026_8_walkforward": {
+    "n": 57,
+    "su": 44,
+    "mae": 12.27,
+    "brier": 0.177
+   }
+  },
+  {
+   "week": 5,
+   "shipped": {
+    "n": 55,
+    "su": 39,
+    "mae": 14.865,
+    "brier": 0.195
+   },
+   "hx_2026_8_walkforward": {
+    "n": 55,
+    "su": 40,
+    "mae": 13.486,
+    "brier": 0.171
+   }
+  },
+  {
+   "week": 6,
+   "shipped": {
+    "n": 56,
+    "su": 33,
+    "mae": 12.742,
+    "brier": 0.232
+   },
+   "hx_2026_8_walkforward": {
+    "n": 56,
+    "su": 36,
+    "mae": 12.219,
+    "brier": 0.221
+   }
+  },
+  {
+   "week": 7,
+   "shipped": {
+    "n": 57,
+    "su": 34,
+    "mae": 12.685,
+    "brier": 0.234
+   },
+   "hx_2026_8_walkforward": {
+    "n": 57,
+    "su": 36,
+    "mae": 11.717,
+    "brier": 0.227
+   }
+  },
+  {
+   "week": 8,
+   "shipped": {
+    "n": 54,
+    "su": 31,
+    "mae": 12.989,
+    "brier": 0.26
+   },
+   "hx_2026_8_walkforward": {
+    "n": 54,
+    "su": 31,
+    "mae": 11.271,
+    "brier": 0.25
+   }
+  },
+  {
+   "week": 9,
+   "shipped": {
+    "n": 54,
+    "su": 44,
+    "mae": 12.371,
+    "brier": 0.153
+   },
+   "hx_2026_8_walkforward": {
+    "n": 54,
+    "su": 40,
+    "mae": 12.985,
+    "brier": 0.17
+   }
+  },
+  {
+   "week": 10,
+   "shipped": {
+    "n": 61,
+    "su": 36,
+    "mae": 15.955,
+    "brier": 0.266
+   },
+   "hx_2026_8_walkforward": {
+    "n": 61,
+    "su": 37,
+    "mae": 13.313,
+    "brier": 0.223
+   }
+  }
+ ],
+ "totals_w2_11": {
+  "n": 502,
+  "shipped": {
+   "n": 502,
+   "su": 349,
+   "mae": 13.036,
+   "brier": 0.199
+  },
+  "hx_2026_8_walkforward": {
+   "n": 502,
+   "su": 352,
+   "mae": 12.103,
+   "brier": 0.19
+  }
+ },
+ "totals_w6_11": {
+  "n": 287,
+  "shipped": {
+   "n": 287,
+   "su": 182,
+   "mae": 13.46,
+   "brier": 0.228
+  },
+  "hx_2026_8_walkforward": {
+   "n": 287,
+   "su": 184,
+   "mae": 12.273,
+   "brier": 0.217
+  }
+ },
+ "vegas_lined_w2_11": {
+  "n": 295,
+  "mae_vegas": 11.269,
+  "mae_shipped": 12.846,
+  "mae_hx_2026_8_walkforward": 12.227
+ },
+ "paired_w2_11": {
+  "n": 502,
+  "mean_mae_improvement": 0.934,
+  "se": 0.286,
+  "t": 3.26,
+  "games_better": 281,
+  "games_worse": 221
+ },
+ "calibration_slope": {
+  "preseason_w1_5": 0.893,
+  "preseason_w6_11": 0.552,
+  "hx_2026_8_w2_11": 0.908
+ }
+}

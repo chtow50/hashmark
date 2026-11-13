@@ -20,7 +20,7 @@ import { formatSeasonRecord } from "@/lib/cfb/season-record";
 import { MODEL, predictMatchup } from "@/lib/cfb/model";
 import { make12FreeFromSim } from "@/lib/cfb/season-sim";
 import {
-  boardDisagreementRows,
+  liveDisagreementRows,
   SIM_10K_HX_STAMP,
   week10BoardFlags,
   week10SeasonTape,
@@ -63,7 +63,7 @@ function Home() {
       )
     : null;
 
-  const disagreements = boardDisagreementRows(teams).slice(0, 8);
+  const disagreements = liveDisagreementRows(teams).slice(0, 8);
   const tape = week10Tape();
   const top25 = week10Top25Tape();
   const season = week10SeasonTape();
@@ -78,7 +78,7 @@ function Home() {
       <PageHead
         kicker={`Week ${BOARD_WEEK} · HX ${MODEL.version}`}
         title={`Week ${BOARD_WEEK} board`}
-        lede={`HASHMARK runs a single rating — HX — from recruiting talent, last year’s SP+/Elo/SRS, four-year win trend, returning production, and portal net. Full 136 FBS. ${AP_STAMP.lede}`}
+        lede={`HASHMARK runs a single rating — HX. It starts from recruiting talent, last year’s SP+/Elo/SRS, four-year win trend, returning production, and portal net, then is refit every week from this season’s results. Full 136 FBS. ${AP_STAMP.lede}`}
       />
 
       {one ? (

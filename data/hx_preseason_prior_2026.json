@@ -1,0 +1,689 @@
+{
+ "meta": {
+  "season": 2026,
+  "source": "Preseason HX board as stamped by migrations 0003_seed.sql + 0005_c20_coach_change.sql (before the first O/D ship, 0021). Frozen prior for the HX 2026.8 in-season refit.",
+  "n_teams": 136
+ },
+ "teams": [
+  {
+   "slug": "air-force",
+   "hx": -6.457,
+   "rank": 135
+  },
+  {
+   "slug": "akron",
+   "hx": -3.541,
+   "rank": 116
+  },
+  {
+   "slug": "alabama",
+   "hx": 5.343,
+   "rank": 9
+  },
+  {
+   "slug": "app-state",
+   "hx": -2.237,
+   "rank": 103
+  },
+  {
+   "slug": "arizona",
+   "hx": 2.368,
+   "rank": 29
+  },
+  {
+   "slug": "arizona-state",
+   "hx": 1.569,
+   "rank": 42
+  },
+  {
+   "slug": "arkansas",
+   "hx": 0.613,
+   "rank": 60
+  },
+  {
+   "slug": "arkansas-state",
+   "hx": -1.518,
+   "rank": 93
+  },
+  {
+   "slug": "army",
+   "hx": -4.382,
+   "rank": 123
+  },
+  {
+   "slug": "auburn",
+   "hx": 2.243,
+   "rank": 32
+  },
+  {
+   "slug": "ball-state",
+   "hx": -5.422,
+   "rank": 131
+  },
+  {
+   "slug": "baylor",
+   "hx": 0.96,
+   "rank": 52
+  },
+  {
+   "slug": "boise-state",
+   "hx": 1.319,
+   "rank": 47
+  },
+  {
+   "slug": "boston-college",
+   "hx": -2.346,
+   "rank": 104
+  },
+  {
+   "slug": "bowling-green",
+   "hx": -4.357,
+   "rank": 122
+  },
+  {
+   "slug": "buffalo",
+   "hx": -3.35,
+   "rank": 113
+  },
+  {
+   "slug": "byu",
+   "hx": 4.064,
+   "rank": 18
+  },
+  {
+   "slug": "california",
+   "hx": 0.615,
+   "rank": 59
+  },
+  {
+   "slug": "central-michigan",
+   "hx": -3.321,
+   "rank": 112
+  },
+  {
+   "slug": "charlotte",
+   "hx": -5.772,
+   "rank": 133
+  },
+  {
+   "slug": "cincinnati",
+   "hx": -0.985,
+   "rank": 83
+  },
+  {
+   "slug": "clemson",
+   "hx": 3.895,
+   "rank": 21
+  },
+  {
+   "slug": "coastal-carolina",
+   "hx": -2.009,
+   "rank": 99
+  },
+  {
+   "slug": "colorado",
+   "hx": -0.432,
+   "rank": 73
+  },
+  {
+   "slug": "colorado-state",
+   "hx": -3.359,
+   "rank": 114
+  },
+  {
+   "slug": "delaware",
+   "hx": -2.638,
+   "rank": 105
+  },
+  {
+   "slug": "duke",
+   "hx": 1.494,
+   "rank": 44
+  },
+  {
+   "slug": "east-carolina",
+   "hx": -0.441,
+   "rank": 74
+  },
+  {
+   "slug": "eastern-michigan",
+   "hx": -2.747,
+   "rank": 107
+  },
+  {
+   "slug": "fiu",
+   "hx": -3.077,
+   "rank": 109
+  },
+  {
+   "slug": "florida",
+   "hx": 3.506,
+   "rank": 24
+  },
+  {
+   "slug": "florida-atlantic",
+   "hx": -3.103,
+   "rank": 110
+  },
+  {
+   "slug": "florida-state",
+   "hx": 0.33,
+   "rank": 63
+  },
+  {
+   "slug": "fresno-state",
+   "hx": 0.25,
+   "rank": 64
+  },
+  {
+   "slug": "georgia",
+   "hx": 7.888,
+   "rank": 1
+  },
+  {
+   "slug": "georgia-southern",
+   "hx": -1.891,
+   "rank": 97
+  },
+  {
+   "slug": "georgia-state",
+   "hx": -4.454,
+   "rank": 124
+  },
+  {
+   "slug": "georgia-tech",
+   "hx": 1.672,
+   "rank": 39
+  },
+  {
+   "slug": "hawaii",
+   "hx": -0.898,
+   "rank": 80
+  },
+  {
+   "slug": "houston",
+   "hx": 1.642,
+   "rank": 40
+  },
+  {
+   "slug": "illinois",
+   "hx": 1.677,
+   "rank": 38
+  },
+  {
+   "slug": "indiana",
+   "hx": 4.999,
+   "rank": 11
+  },
+  {
+   "slug": "iowa",
+   "hx": 3.763,
+   "rank": 23
+  },
+  {
+   "slug": "iowa-state",
+   "hx": 0.836,
+   "rank": 54
+  },
+  {
+   "slug": "jacksonville-state",
+   "hx": -0.911,
+   "rank": 81
+  },
+  {
+   "slug": "james-madison",
+   "hx": 1.574,
+   "rank": 41
+  },
+  {
+   "slug": "kansas",
+   "hx": 0.75,
+   "rank": 57
+  },
+  {
+   "slug": "kansas-state",
+   "hx": 2.356,
+   "rank": 30
+  },
+  {
+   "slug": "kennesaw-state",
+   "hx": -3.933,
+   "rank": 119
+  },
+  {
+   "slug": "kent-state",
+   "hx": -5.891,
+   "rank": 134
+  },
+  {
+   "slug": "kentucky",
+   "hx": 0.248,
+   "rank": 65
+  },
+  {
+   "slug": "liberty",
+   "hx": -0.638,
+   "rank": 75
+  },
+  {
+   "slug": "louisiana",
+   "hx": -1.084,
+   "rank": 84
+  },
+  {
+   "slug": "louisiana-tech",
+   "hx": -2.101,
+   "rank": 101
+  },
+  {
+   "slug": "louisville",
+   "hx": 2.979,
+   "rank": 26
+  },
+  {
+   "slug": "lsu",
+   "hx": 4.022,
+   "rank": 20
+  },
+  {
+   "slug": "marshall",
+   "hx": 0.228,
+   "rank": 67
+  },
+  {
+   "slug": "maryland",
+   "hx": -0.266,
+   "rank": 72
+  },
+  {
+   "slug": "massachusetts",
+   "hx": -8.99,
+   "rank": 136
+  },
+  {
+   "slug": "memphis",
+   "hx": 1.089,
+   "rank": 50
+  },
+  {
+   "slug": "miami",
+   "hx": 5.226,
+   "rank": 10
+  },
+  {
+   "slug": "miami-oh",
+   "hx": -0.98,
+   "rank": 82
+  },
+  {
+   "slug": "michigan",
+   "hx": 4.891,
+   "rank": 12
+  },
+  {
+   "slug": "michigan-state",
+   "hx": -1.849,
+   "rank": 95
+  },
+  {
+   "slug": "middle-tennessee",
+   "hx": -4.824,
+   "rank": 126
+  },
+  {
+   "slug": "minnesota",
+   "hx": 1.928,
+   "rank": 35
+  },
+  {
+   "slug": "mississippi-state",
+   "hx": 0.118,
+   "rank": 69
+  },
+  {
+   "slug": "missouri",
+   "hx": 4.319,
+   "rank": 14
+  },
+  {
+   "slug": "missouri-state",
+   "hx": -2.744,
+   "rank": 106
+  },
+  {
+   "slug": "navy",
+   "hx": -5.018,
+   "rank": 129
+  },
+  {
+   "slug": "nc-state",
+   "hx": 2.151,
+   "rank": 33
+  },
+  {
+   "slug": "nebraska",
+   "hx": 1.989,
+   "rank": 34
+  },
+  {
+   "slug": "nevada",
+   "hx": -5.408,
+   "rank": 130
+  },
+  {
+   "slug": "new-mexico",
+   "hx": -2,
+   "rank": 98
+  },
+  {
+   "slug": "new-mexico-state",
+   "hx": -4.776,
+   "rank": 125
+  },
+  {
+   "slug": "north-carolina",
+   "hx": -1.095,
+   "rank": 85
+  },
+  {
+   "slug": "north-texas",
+   "hx": -2.224,
+   "rank": 102
+  },
+  {
+   "slug": "northern-illinois",
+   "hx": -4.854,
+   "rank": 127
+  },
+  {
+   "slug": "northwestern",
+   "hx": 1.758,
+   "rank": 36
+  },
+  {
+   "slug": "notre-dame",
+   "hx": 7.086,
+   "rank": 3
+  },
+  {
+   "slug": "ohio",
+   "hx": 0.234,
+   "rank": 66
+  },
+  {
+   "slug": "ohio-state",
+   "hx": 7.846,
+   "rank": 2
+  },
+  {
+   "slug": "oklahoma",
+   "hx": 4.173,
+   "rank": 16
+  },
+  {
+   "slug": "oklahoma-state",
+   "hx": -1.255,
+   "rank": 90
+  },
+  {
+   "slug": "old-dominion",
+   "hx": -1.31,
+   "rank": 91
+  },
+  {
+   "slug": "ole-miss",
+   "hx": 5.492,
+   "rank": 8
+  },
+  {
+   "slug": "oregon",
+   "hx": 6.97,
+   "rank": 4
+  },
+  {
+   "slug": "oregon-state",
+   "hx": -1.148,
+   "rank": 88
+  },
+  {
+   "slug": "penn-state",
+   "hx": 4.393,
+   "rank": 13
+  },
+  {
+   "slug": "pittsburgh",
+   "hx": 0.896,
+   "rank": 53
+  },
+  {
+   "slug": "purdue",
+   "hx": -1.521,
+   "rank": 94
+  },
+  {
+   "slug": "rice",
+   "hx": -3.668,
+   "rank": 117
+  },
+  {
+   "slug": "rutgers",
+   "hx": -0.041,
+   "rank": 70
+  },
+  {
+   "slug": "sam-houston",
+   "hx": -4.285,
+   "rank": 120
+  },
+  {
+   "slug": "san-diego-state",
+   "hx": 0.828,
+   "rank": 55
+  },
+  {
+   "slug": "san-jose-state",
+   "hx": -4.306,
+   "rank": 121
+  },
+  {
+   "slug": "smu",
+   "hx": 4.035,
+   "rank": 19
+  },
+  {
+   "slug": "south-alabama",
+   "hx": -2.815,
+   "rank": 108
+  },
+  {
+   "slug": "south-carolina",
+   "hx": 2.896,
+   "rank": 27
+  },
+  {
+   "slug": "southern-miss",
+   "hx": -0.648,
+   "rank": 76
+  },
+  {
+   "slug": "stanford",
+   "hx": -0.759,
+   "rank": 79
+  },
+  {
+   "slug": "syracuse",
+   "hx": -1.37,
+   "rank": 92
+  },
+  {
+   "slug": "tcu",
+   "hx": 2.245,
+   "rank": 31
+  },
+  {
+   "slug": "temple",
+   "hx": -3.367,
+   "rank": 115
+  },
+  {
+   "slug": "tennessee",
+   "hx": 4.073,
+   "rank": 17
+  },
+  {
+   "slug": "texas",
+   "hx": 6.382,
+   "rank": 5
+  },
+  {
+   "slug": "texas-am",
+   "hx": 6.201,
+   "rank": 6
+  },
+  {
+   "slug": "texas-state",
+   "hx": 0.734,
+   "rank": 58
+  },
+  {
+   "slug": "texas-tech",
+   "hx": 5.917,
+   "rank": 7
+  },
+  {
+   "slug": "toledo",
+   "hx": 1.494,
+   "rank": 43
+  },
+  {
+   "slug": "troy",
+   "hx": -1.108,
+   "rank": 86
+  },
+  {
+   "slug": "tulane",
+   "hx": -1.144,
+   "rank": 87
+  },
+  {
+   "slug": "tulsa",
+   "hx": -3.174,
+   "rank": 111
+  },
+  {
+   "slug": "uab",
+   "hx": -2.099,
+   "rank": 100
+  },
+  {
+   "slug": "ucf",
+   "hx": -0.719,
+   "rank": 78
+  },
+  {
+   "slug": "ucla",
+   "hx": 1.268,
+   "rank": 48
+  },
+  {
+   "slug": "uconn",
+   "hx": -1.867,
+   "rank": 96
+  },
+  {
+   "slug": "ul-monroe",
+   "hx": -4.951,
+   "rank": 128
+  },
+  {
+   "slug": "unlv",
+   "hx": 1.753,
+   "rank": 37
+  },
+  {
+   "slug": "usc",
+   "hx": 3.876,
+   "rank": 22
+  },
+  {
+   "slug": "usf",
+   "hx": 0.187,
+   "rank": 68
+  },
+  {
+   "slug": "utah",
+   "hx": 4.245,
+   "rank": 15
+  },
+  {
+   "slug": "utah-state",
+   "hx": -0.683,
+   "rank": 77
+  },
+  {
+   "slug": "utep",
+   "hx": -5.512,
+   "rank": 132
+  },
+  {
+   "slug": "utsa",
+   "hx": 1.362,
+   "rank": 46
+  },
+  {
+   "slug": "vanderbilt",
+   "hx": 2.472,
+   "rank": 28
+  },
+  {
+   "slug": "virginia",
+   "hx": 1.431,
+   "rank": 45
+  },
+  {
+   "slug": "virginia-tech",
+   "hx": 1.156,
+   "rank": 49
+  },
+  {
+   "slug": "wake-forest",
+   "hx": -0.261,
+   "rank": 71
+  },
+  {
+   "slug": "washington",
+   "hx": 3.352,
+   "rank": 25
+  },
+  {
+   "slug": "washington-state",
+   "hx": 0.782,
+   "rank": 56
+  },
+  {
+   "slug": "west-virginia",
+   "hx": -1.21,
+   "rank": 89
+  },
+  {
+   "slug": "western-kentucky",
+   "hx": 0.347,
+   "rank": 62
+  },
+  {
+   "slug": "western-michigan",
+   "hx": 0.468,
+   "rank": 61
+  },
+  {
+   "slug": "wisconsin",
+   "hx": 1.05,
+   "rank": 51
+  },
+  {
+   "slug": "wyoming",
+   "hx": -3.759,
+   "rank": 118
+  }
+ ]
+}
