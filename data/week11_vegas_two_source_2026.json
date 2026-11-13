@@ -1,0 +1,253 @@
+{
+ "meta": {
+  "week": 11,
+  "as_of": "2026-11-12",
+  "pulled_ct": "2026-11-12 18:07 CT (CFBD lines) + ESPN pickcenter check at ship",
+  "rule": "Chase-approved two-source rule: stamp the spread only when DraftKings and Bovada (CFBD lines feed) match exactly AND the live ESPN DraftKings spread still equals it. Total only when DraftKings == Bovada == live ESPN DraftKings total. Otherwise null. Unplayed Week 11 FBS\u2013FBS cards with no Vegas only.",
+  "convention": "vegas_spread positive = home favored"
+ },
+ "games": [
+  {
+   "espn_event_id": "401862824",
+   "home": "usf",
+   "away": "memphis",
+   "dk": 4.5,
+   "bovada": 4.5,
+   "espn_dk": "MEM -4.5",
+   "stamped": true,
+   "vegas_spread": -4.5,
+   "vegas_total": null
+  },
+  {
+   "espn_event_id": "401869969",
+   "home": "ul-monroe",
+   "away": "louisiana",
+   "dk": 10.5,
+   "bovada": 10.5,
+   "espn_dk": "UL -10.5",
+   "stamped": true,
+   "vegas_spread": -10.5,
+   "vegas_total": 47.5
+  },
+  {
+   "espn_event_id": "401858293",
+   "home": "pittsburgh",
+   "away": "florida-state",
+   "dk": -3.5,
+   "bovada": -3.5,
+   "espn_dk": "PITT -3.5",
+   "stamped": true,
+   "vegas_spread": 3.5,
+   "vegas_total": null
+  },
+  {
+   "espn_event_id": "401858526",
+   "home": "ucla",
+   "away": "illinois",
+   "dk": -10,
+   "bovada": -10,
+   "espn_dk": "UCLA -10",
+   "stamped": true,
+   "vegas_spread": 10,
+   "vegas_total": null
+  },
+  {
+   "espn_event_id": "401856860",
+   "home": "colorado",
+   "away": "houston",
+   "dk": 9.5,
+   "bovada": 9.5,
+   "espn_dk": "HOU -9.5",
+   "stamped": true,
+   "vegas_spread": -9.5,
+   "vegas_total": null
+  },
+  {
+   "espn_event_id": "401861967",
+   "home": "uconn",
+   "away": "james-madison",
+   "dk": 4,
+   "bovada": 4,
+   "espn_dk": "JMU -4",
+   "stamped": true,
+   "vegas_spread": -4,
+   "vegas_total": null
+  },
+  {
+   "espn_event_id": "401858300",
+   "home": "nc-state",
+   "away": "syracuse",
+   "dk": 3,
+   "bovada": 3,
+   "espn_dk": "SYR -3",
+   "stamped": true,
+   "vegas_spread": -3,
+   "vegas_total": 53.5
+  },
+  {
+   "espn_event_id": "401858296",
+   "home": "miami",
+   "away": "duke",
+   "dk": -13.5,
+   "bovada": -13.5,
+   "espn_dk": "MIA -13.5",
+   "stamped": true,
+   "vegas_spread": 13.5,
+   "vegas_total": 54.5
+  },
+  {
+   "espn_event_id": "401856886",
+   "home": "mississippi-state",
+   "away": "auburn",
+   "dk": 2.5,
+   "bovada": 2.5,
+   "espn_dk": "AUB -2.5",
+   "stamped": true,
+   "vegas_spread": -2.5,
+   "vegas_total": 50.5
+  },
+  {
+   "espn_event_id": "401858297",
+   "home": "clemson",
+   "away": "georgia-tech",
+   "dk": -14,
+   "bovada": -14,
+   "espn_dk": "CLEM -14",
+   "stamped": true,
+   "vegas_spread": 14,
+   "vegas_total": 48.5
+  },
+  {
+   "espn_event_id": "401858518",
+   "home": "indiana",
+   "away": "usc",
+   "dk": -8.5,
+   "bovada": -8.5,
+   "espn_dk": "IU -8.5",
+   "stamped": true,
+   "vegas_spread": 8.5,
+   "vegas_total": 50.5
+  },
+  {
+   "espn_event_id": "401858523",
+   "home": "oregon",
+   "away": "michigan",
+   "dk": -10.5,
+   "bovada": -10.5,
+   "espn_dk": "ORE -10.5",
+   "stamped": true,
+   "vegas_spread": 10.5,
+   "vegas_total": null
+  },
+  {
+   "espn_event_id": "401858521",
+   "home": "michigan-state",
+   "away": "washington",
+   "dk": 3.5,
+   "bovada": 3.5,
+   "espn_dk": "WASH -3.5",
+   "stamped": true,
+   "vegas_spread": -3.5,
+   "vegas_total": null
+  },
+  {
+   "espn_event_id": "401860914",
+   "home": "boise-state",
+   "away": "oregon-state",
+   "dk": -14.5,
+   "bovada": -14.5,
+   "espn_dk": "BOIS -14.5",
+   "stamped": true,
+   "vegas_spread": 14.5,
+   "vegas_total": null
+  },
+  {
+   "espn_event_id": "401864538",
+   "home": "air-force",
+   "away": "san-jose-state",
+   "dk": -12.5,
+   "bovada": -12.5,
+   "espn_dk": "AF -12.5",
+   "stamped": true,
+   "vegas_spread": 12.5,
+   "vegas_total": 47.5
+  },
+  {
+   "espn_event_id": "401864539",
+   "home": "new-mexico",
+   "away": "unlv",
+   "dk": -14.5,
+   "bovada": -14.5,
+   "espn_dk": "UNM -14.5",
+   "stamped": true,
+   "vegas_spread": 14.5,
+   "vegas_total": 46.5
+  },
+  {
+   "espn_event_id": "401856882",
+   "home": "arkansas",
+   "away": "south-carolina",
+   "dk": 7,
+   "bovada": 7,
+   "espn_dk": "SC -7.5",
+   "stamped": false,
+   "vegas_spread": null,
+   "vegas_total": null
+  },
+  {
+   "espn_event_id": "401862827",
+   "home": "utsa",
+   "away": "north-texas",
+   "dk": 2.5,
+   "bovada": 2.5,
+   "espn_dk": "UNT -2.5",
+   "stamped": true,
+   "vegas_spread": -2.5,
+   "vegas_total": null
+  },
+  {
+   "espn_event_id": "401864537",
+   "home": "hawaii",
+   "away": "north-dakota-state",
+   "dk": 6.5,
+   "bovada": 6.5,
+   "espn_dk": "NDSU -6.5",
+   "stamped": true,
+   "vegas_spread": -6.5,
+   "vegas_total": 38.5
+  },
+  {
+   "espn_event_id": "401858298",
+   "home": "north-carolina",
+   "away": "louisville",
+   "dk": 3.5,
+   "bovada": 3.5,
+   "espn_dk": "LOU -3.5",
+   "stamped": true,
+   "vegas_spread": -3.5,
+   "vegas_total": 59.5
+  },
+  {
+   "espn_event_id": "401856888",
+   "home": "texas-am",
+   "away": "tennessee",
+   "dk": 2.5,
+   "bovada": 2.5,
+   "espn_dk": "TENN -2.5",
+   "stamped": true,
+   "vegas_spread": -2.5,
+   "vegas_total": 43.5
+  },
+  {
+   "espn_event_id": "401856883",
+   "home": "georgia",
+   "away": "missouri",
+   "dk": -16.5,
+   "bovada": -16.5,
+   "espn_dk": "UGA -16.5",
+   "stamped": true,
+   "vegas_spread": 16.5,
+   "vegas_total": 47.5
+  }
+ ]
+}

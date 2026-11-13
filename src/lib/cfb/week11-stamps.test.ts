@@ -269,3 +269,26 @@ describe("Week 11 AP (Nov. 8) + CFP committee (Nov. 10) stamp (0092)", () => {
     assert.equal(CFP_STAMP.release, "2026-11-10");
   });
 });
+
+describe("Week 11 Vegas two-source fill (0095)", () => {
+  const sql = readFileSync(join(root, "migrations/0095_week11_vegas_two_source.sql"), "utf8");
+  const pack = JSON.parse(readFileSync(join(root, "data/week11_vegas_two_source_2026.json"), "utf8")) as {
+    games: { home: string; away: string; dk: number; bovada: number; stamped: boolean; vegas_spread: number | null; vegas_total: number | null }[];
+  };
+
+  it("stamps a spread only where DraftKings and Bovada match exactly, home-positive, nulls only", () => {
+    const stamped = pack.games.filter((g) => g.stamped);
+    assert.equal(stamped.length, 21);
+    assert.equal((sql.match(/^update games g$/gm) ?? []).length, 21);
+    for (const g of stamped) {
+      assert.equal(g.dk, g.bovada, `${g.away}@${g.home}`);
+      // CFBD lines are the home team's line (negative = home favored); the board stores positive = home favored.
+      assert.equal(g.vegas_spread, -g.dk, `${g.away}@${g.home}`);
+      assert.ok(sql.includes(`and h.slug = '${g.home}' and a.slug = '${g.away}'`), `${g.away}@${g.home}`);
+    }
+    assert.equal((sql.match(/and g\.vegas_spread is null and g\.status <> 'final'/g) ?? []).length, 21);
+    assert.doesNotMatch(sql, /kickoff_at|home_score|hx_rating|lock_home_hx/);
+    // The stamp gate keys blocks by event digits; none sit above a week predicate here.
+    assert.doesNotMatch(sql, /ESPN \d{6,}/);
+  });
+});
