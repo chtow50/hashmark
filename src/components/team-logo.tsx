@@ -27,7 +27,8 @@ export function TeamLogo({
       loading="lazy"
       decoding="async"
       className={cn("inline-block shrink-0 object-contain", className)}
-      style={{ width: size, height: size }}
+      // Thin light halo so dark marks (Texas A&M, Wake Forest, Iowa...) stay visible on the dark desk.
+      style={{ width: size, height: size, filter: "drop-shadow(0 0 0.75px rgba(242,241,236,0.6))" }}
       onError={() => setHidden(true)}
     />
   );

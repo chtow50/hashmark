@@ -1,21 +1,45 @@
 @import "tailwindcss";
 
+/*
+ * Metric-matched fallbacks: while Google Fonts load (display=swap), text renders in a local face
+ * sized to the web font's width, so lines don't re-wrap and the page doesn't jump (CLS).
+ * Measured in Chrome: IBM Plex Sans ≈ Arial width (0.999); Barlow Condensed 600 ≈ 0.735 × Arial Bold;
+ * IBM Plex Mono ≈ Liberation/Courier width.
+ */
+@font-face {
+  font-family: "Plex Sans Fallback";
+  src: local("Arial"), local("Helvetica"), local("Liberation Sans");
+  size-adjust: 100%;
+  ascent-override: 102.5%;
+  descent-override: 27.5%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "Barlow Fallback";
+  src: local("Arial Bold"), local("Arial-BoldMT"), local("Helvetica Bold"), local("Liberation Sans Bold");
+  font-weight: 600 700;
+  size-adjust: 73.5%;
+  ascent-override: 136%;
+  descent-override: 27%;
+  line-gap-override: 0%;
+}
+
 @theme {
-  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Barlow Condensed", "Arial Narrow", sans-serif;
-  --font-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  --font-sans: "IBM Plex Sans", "Plex Sans Fallback", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Barlow Condensed", "Barlow Fallback", "Arial Narrow", sans-serif;
+  --font-mono: "IBM Plex Mono", "Courier New", "Liberation Mono", ui-monospace, Menlo, monospace;
 
   --color-bg: #09090b;
   --color-surface: #121214;
   --color-raised: #1a1a1e;
   --color-inset: #0e0e10;
   --color-fg: #f2f1ec;
-  --color-muted: #8c8c86;
-  --color-faint: #5c5c58;
+  --color-muted: #a3a29b;
+  --color-faint: #7f7e78;
   --color-accent: #c5ccd4;
   --color-accent-fg: #09090b;
   --color-border: #26262b;
-  --color-line: #1c1c20;
+  --color-line: #232328;
   --color-up: #8fbf9f;
   --color-down: #c98989;
   --color-warn: #c4a574;
