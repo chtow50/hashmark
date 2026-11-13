@@ -196,7 +196,7 @@ const fridayAfternoon = Date.parse("2026-09-04T18:00:00.000Z");
 test("board chrome is Week 11; featured slate is the Week 11 pin", () => {
   assert.equal(BOARD_WEEK, 11);
   assert.equal(FEATURED_SLATE_WEEK, 11);
-  assert.equal(MODEL.version, "2026.7");
+  assert.equal(MODEL.version, "2026.8");
   assert.equal(MODEL.week, 11);
   assert.equal(MODEL.weekLabel, "Week 11 board");
 });

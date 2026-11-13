@@ -1,17 +1,21 @@
 import type { Prediction, TeamSummary } from "./types";
 
 /**
- * HASHMARK Index — the user's validated model (HX 2026.7 · Week 11 board chrome; ratings unchanged since the Week 5 units + ΔHX ship).
+ * HASHMARK Index — HX 2026.8 (Week 11 board chrome).
+ * Preseason prior = the composite below (data/hx_preseason_prior_2026.json).
+ * In season, HX is refit weekly by scripts/hx-refit.mjs (Bayesian blend of the
+ * preseason prior, worth λ = 2 games, with opponent-adjusted capped margins of
+ * stamped FBS–FBS FINALs, cap ±28). The old ΔHX = (ΔO+ΔD)/55 step is retired.
  * Weights from power_rankings.py DEFAULT_WEIGHTS, walk-forward Top 25
  * balanced ≈ 0.646. Talent and prior_rating carry the real signal.
  * Matchup math is the Elo mapping from matchup.py (70.8% SU, 2019–2025).
  * Spread is a quadratic on Elo gap, fit on 2019–2023 FBS MOV (holdout 2024–2025).
  * Quadratic / talent / z* weights / team-HFA / weather / QB tenure SOS — unchanged.
- * Make the 12 free board is HX 2026.7 10k draws (make-field only on free chrome; win_title pack/paid).
+ * Make the 12 free board is the current-HX 10k draws (scripts/hx-sim-10k.mjs; make-field only on free chrome; win_title never on free surfaces).
  */
 export const MODEL = {
   name: "HX Rating",
-  version: "2026.7",
+  version: "2026.8",
   season: 2026,
   week: 11,
   weekLabel: "Week 11 board",
@@ -24,6 +28,8 @@ export const MODEL = {
   /** Quadratic MOV map: spread = a·d + b·d·|d| */
   spreadA: 0.050835,
   spreadB: 4.5795e-5,
+  /** In-season refit knobs (scripts/hx-refit-core.mjs HX_REFIT). */
+  refit: { lambda: 2, marginCap: 28 },
   weights: {
     talent: 1.5,
     prior: 1.5,

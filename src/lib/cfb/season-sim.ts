@@ -128,7 +128,7 @@ export function make12FreeView(odds: Make12Odds): Make12Odds {
 
 /**
  * Free board / rankings / free team page Make 12 — reads the free sim export
- * (data/sim_free_hx2026_7.json), which has no win_title at all, so nothing
+ * (data/sim_free_hx2026_8.json), which has no win_title at all, so nothing
  * title-shaped can reach the client bundle. The full sim with win_title is
  * server/test only: ./sim-full.server.ts (make12FromSimFull).
  */

@@ -77,7 +77,7 @@ function RankingsPage() {
       <PageHead
         kicker={`Week ${BOARD_WEEK} · HX ${MODEL.version}`}
         title="Power rankings"
-        lede={`Every FBS program, ranked by HX. Talent is listed two-deep composite, not class rank — TWO·DEEP / 247. Talent and prior-year SP+/Elo/SRS carry the real signal. Make 12 is make-field, not title odds; projected wins are Elo vs the 2026 slate. ${AP_STAMP.lede}`}
+        lede={`Every FBS program, ranked by HX — refit weekly from this season’s results. Talent is listed two-deep composite, not class rank — TWO·DEEP / 247. Make 12 is make-field, not title odds; projected wins come from the same 10k draws (FINALs locked, remaining slate plus a conference title game). ${AP_STAMP.lede}`}
       />
 
       <ConfPills

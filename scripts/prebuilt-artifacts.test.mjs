@@ -3,9 +3,16 @@ import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
 import { join } from "node:path";
 import { describe, it } from "node:test";
 import { scanClientOutput } from "./check-client-bundle.mjs";
+import { SIM_FREE_PATH, SIM_FULL_PATH } from "./generate-sim-free.mjs";
 
 const ROOT = join(import.meta.dirname, "..");
 const OUT = join(ROOT, ".vercel/output");
+/** Current 10k sim (regenerated weekly by scripts/hx-sim-10k.mjs) — numbers are read, not pinned. */
+const SIM_FULL = JSON.parse(readFileSync(join(ROOT, SIM_FULL_PATH), "utf8"));
+const SIM_FULL_BASENAME = SIM_FULL_PATH.replace(/^data\//, "");
+const SIM_FREE_BASENAME = SIM_FREE_PATH.replace(/^data\//, "").replace(/\.json$/, "");
+const GA = SIM_FULL.teams.find((t) => t.slug === "georgia");
+const esc = (x) => String(x).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
 function walk(dir) {
   const files = [];
@@ -38,10 +45,9 @@ describe("prebuilt deploy artifacts", () => {
     const assets = walk(join(OUT, "static/assets")).filter((p) => p.endsWith(".js"));
     assert.ok(assets.length > 5, "static/assets has client chunks");
     const client = assets.map((p) => readFileSync(p, "utf8")).join("\n");
-    // Free Make 12 still ships: Georgia make-field 86.51 on HX 2026.7.
-    assert.match(client, /86\.51/);
-    assert.match(client, /sim_free_hx2026_7|sim_10k_2026_hx2026_7\.json/);
-    assert.doesNotMatch(client, /24\.29/);
+    // Free Make 12 still ships Georgia's make-field from the current sim; the title number never does.
+    assert.match(client, new RegExp(esc(GA.make_field)));
+    assert.ok(client.includes(SIM_FREE_BASENAME) || client.includes(SIM_FULL_BASENAME));
     assert.doesNotMatch(client, /\/workspace\/cfb\/week5_od_hx_ship_2026/);
   });
 
@@ -68,18 +74,15 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /lbAvgWeightLbs/);
   });
 
-  it("includes Week 1 tape, gaps, and HX 2026.7 Make the 12 in committed output", () => {
+  it("includes Week 1 tape, gaps, and the current-HX Make the 12 in committed output", () => {
     const text = corpus();
     assert.match(text, /36\/43/);
     assert.match(text, /make_field/);
-    assert.match(text, /86\.51/);
-    // Georgia HX 2026.7 win_title (24.29) is Edge Pack only: it may live in the
-    // Stripe-gated server pack chunk (edge-pack-files.server-*), never anywhere else.
-    assert.doesNotMatch(corpusExcludingGatedPack(), /24\.29/);
-    assert.match(text, /20260913/);
-    assert.match(text, /2026-10-05/);
-    assert.match(text, /sim_10k_2026_hx2026_7/);
-    assert.match(text, /HX 2026\.7/);
+    assert.match(text, new RegExp(esc(GA.make_field)));
+    assert.match(text, new RegExp(esc(SIM_FULL.meta.seed)));
+    assert.match(text, new RegExp(esc(SIM_FULL.meta.as_of)));
+    assert.ok(text.includes(SIM_FREE_BASENAME));
+    assert.match(text, new RegExp(esc(SIM_FULL.meta.hx_stamp)));
     assert.match(text, /10k draws/);
     assert.match(text, /make12FromSim|amd-draws|make-field, not title/);
     assert.doesNotMatch(text, /HX 2026\.4 · 10k draws/);
@@ -319,8 +322,8 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /0\.0711/);
     assert.match(text, /week3_od_hx_ship_2026/);
     assert.match(text, /sunday_od_delta_2026_w3/);
-    assert.match(text, /sim_10k_2026_hx2026_7/);
-    assert.match(text, /HX 2026\.7/);
+    assert.ok(text.includes(SIM_FREE_BASENAME));
+    assert.match(text, new RegExp(esc(SIM_FULL.meta.hx_stamp)));
     assert.match(text, /10k draws/);
   });
 

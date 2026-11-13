@@ -15,7 +15,7 @@ import {
   make12PanelLede,
   make12TitleLabel,
 } from "./season-sim.ts";
-import { make12FromSimFull } from "./sim-full.server.ts";
+import { make12FromSimFull, sim10kFull, simFullTeamBySlug } from "./sim-full.server.ts";
 import type { ScheduleGame } from "./types.ts";
 
 function scheduleFixture(
@@ -51,20 +51,18 @@ function scheduleFixture(
   };
 }
 
-test("make12FromSimFull (server-only) loads Georgia HX 2026.7 draws — make-field is not title", () => {
+test("make12FromSimFull (server-only) loads Georgia's current-HX draws — make-field is not title", () => {
   const odds = make12FromSimFull("georgia", { playoffOdds: 98.4 });
+  const ga = simFullTeamBySlug("georgia")!;
   assert.equal(odds.makeFieldSource, "amd-draws");
   assert.equal(odds.winTitleSource, "amd-draws");
   assert.ok(odds.makeField != null);
   assert.ok(odds.winTitle != null);
-  assert.equal(odds.makeField, 86.51);
-  assert.equal(odds.winTitle, 24.29);
-  assert.equal(Number(odds.makeField.toFixed(1)), 86.5);
-  assert.equal(Number(odds.winTitle.toFixed(1)), 24.3);
+  assert.equal(odds.makeField, ga.make_field);
+  assert.equal(odds.winTitle, ga.win_title);
   assert.notEqual(odds.makeField, odds.winTitle);
-  assert.notEqual(Number(odds.makeField.toFixed(0)), 98);
-  assert.match(make12FieldLabel(odds.makeFieldSource) ?? "", /HX 2026\.7 · 10k draws/);
-  assert.match(make12FieldLabel(odds.makeFieldSource) ?? "", /2026-10-05/);
+  assert.match(make12FieldLabel(odds.makeFieldSource) ?? "", new RegExp(`${(sim10kFull.meta.hx_stamp ?? "").replace(".", "\\.")} · 10k draws`));
+  assert.match(make12FieldLabel(odds.makeFieldSource) ?? "", new RegExp(sim10kFull.meta.as_of));
   assert.match(make12FieldLabel(odds.makeFieldSource) ?? "", /not title/);
   assert.doesNotMatch(make12FieldLabel(odds.makeFieldSource) ?? "", /HX 2026\.6 ·/);
   assert.doesNotMatch(make12FieldLabel(odds.makeFieldSource) ?? "", /HX 2026\.4/);
@@ -72,7 +70,7 @@ test("make12FromSimFull (server-only) loads Georgia HX 2026.7 draws — make-fie
   assert.doesNotMatch(make12TitleLabel(odds.winTitleSource) ?? "", /not a post-2026\.3 re-sim/);
   assert.doesNotMatch(make12TitleLabel(odds.winTitleSource) ?? "", /pre-Δ/);
   assert.match(make12PanelLede(odds.makeFieldSource), /not a national title/);
-  assert.match(make12PanelLede(odds.makeFieldSource), /HX 2026\.7 · 10k draws/);
+  assert.match(make12PanelLede(odds.makeFieldSource), /HX 2026\.8 · 10k draws/);
   assert.doesNotMatch(make12PanelLede(odds.makeFieldSource), /HX 2026\.6 ·/);
   assert.doesNotMatch(make12PanelLede(odds.makeFieldSource), /HX 2026\.4/);
   assert.doesNotMatch(make12PanelLede(odds.makeFieldSource), /pre-Δ/);
@@ -91,12 +89,13 @@ test("rankings Make 12 column reads make12FreeFromSim makeField, not playoffOdds
 
 test("free Make 12 keeps Georgia make-field public and drops win_title (Edge Pack only)", () => {
   const free = make12FreeFromSim("georgia", { playoffOdds: 98.4 });
-  assert.equal(free.makeField, 86.51);
+  const ga = simFullTeamBySlug("georgia")!;
+  assert.equal(free.makeField, ga.make_field);
   assert.equal(free.makeFieldSource, "amd-draws");
   assert.equal(free.winTitle, null);
   assert.equal(free.winTitleSource, "pack-only");
   assert.match(make12TitleLabel(free.winTitleSource) ?? "", /Edge Pack only/);
-  assert.doesNotMatch(JSON.stringify(free), /24\.29|24\.3/);
+  assert.doesNotMatch(JSON.stringify(free), new RegExp(String(ga.win_title).replace(".", "\\.")));
   // Free row (no title field) maps straight to pack-only — the client never reads a title.
   const row = make12FromSimRow({ make_field: 86.51 });
   assert.equal(row.makeField, 86.51);
