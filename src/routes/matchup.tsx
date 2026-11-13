@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { seo } from "@/lib/seo";
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { PageHead, Panel, TeamSelect } from "@/components/shell";
+import { ShareImageButton } from "@/components/share-button";
 import { CompareRow, DeskChip, Stat, TeamMark, WinBar } from "@/components/marks";
 import { RosterDuel } from "@/components/roster-duel";
 import { UnitEdges } from "@/components/unit-edges";
@@ -264,6 +265,30 @@ function MatchupPage() {
                 homePct={winPct ?? prediction.homeWinPct}
                 homeName={home.shortName}
                 awayName={away.shortName}
+              />
+            </div>
+            <div className="mt-4 flex justify-end">
+              <ShareImageButton
+                card={() => {
+                  const fav = prediction.spread >= 0 ? home : away;
+                  const pFav = prediction.spread >= 0 ? prediction.homeWinPct : 1 - prediction.homeWinPct;
+                  return {
+                    kicker: `HX matchup · ${appliedNeutral ? "neutral site" : `at ${home.shortName}`}`,
+                    title: `${away.shortName} at ${home.shortName}`,
+                    subtitle: game?.kickoffAt
+                      ? `${new Date(game.kickoffAt).toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric", timeZone: "America/Chicago" })} · ${formatKickCt(game.kickoffAt)}${game.tv ? ` · ${game.tv}` : ""}`
+                      : undefined,
+                    stats: [
+                      { label: "HX line", value: Math.abs(prediction.spread) < 0.05 ? "Pick'em" : `${fav.shortName} −${fmtNum(Math.abs(prediction.spread), 1)}` },
+                      { label: "Win %", value: `${fav.shortName} ${fmtPct(pFav * 100, 1)}` },
+                      { label: "HX score", value: prediction.homeScore >= prediction.awayScore ? `${home.shortName} ${prediction.homeScore}–${prediction.awayScore}` : `${away.shortName} ${prediction.awayScore}–${prediction.homeScore}` },
+                      ...(vegasLine ? [{ label: "Vegas", value: vegasLine }] : []),
+                    ],
+                    accent: fav.colorPrimary,
+                    footer: "Pregame HX matchup engine: Elo = 1500 + 55 × HX, 60 pts home field.",
+                    filename: `hashmark-${away.slug}-at-${home.slug}.png`,
+                  };
+                }}
               />
             </div>
             <RestampBar

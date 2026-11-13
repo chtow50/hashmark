@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Check, X } from "lucide-react";
 import { PageHead, Panel } from "@/components/shell";
+import { ShareImageButton } from "@/components/share-button";
 import type { AccGame } from "@/lib/cfb/accuracy";
 import { getAccuracy } from "@/lib/cfb/accuracy-queries";
 import { favoriteLine } from "@/lib/cfb/featured";
@@ -45,6 +46,23 @@ function AccuracyPage() {
         kicker="2026 season · frozen pregame numbers only"
         title="Accuracy"
         lede="Every FINAL against the HX line and win probability that were live before kickoff. The pregame number is frozen when a game is stamped and never rewritten by a later board. Games with no frozen number are marked n/a, not backfilled."
+        action={
+          <ShareImageButton
+            card={() => ({
+              kicker: "HX accuracy · 2026 season",
+              title: "Frozen pregame HX vs results",
+              subtitle: `${season.graded} of ${season.games} FINALs graded · ${season.na} n/a (no frozen number)`,
+              stats: [
+                { label: "Winners picked", value: season.suPct == null ? "n/a" : `${season.suPct.toFixed(1)}%` },
+                { label: "Avg miss", value: season.mae == null ? "n/a" : `${season.mae.toFixed(1)} pts` },
+                { label: "Brier", value: f(season.brier, 3) },
+                { label: "Vegas close miss", value: season.maeVegasLined == null ? "n/a" : `${season.maeVegasLined.toFixed(1)} pts` },
+              ],
+              footer: `Vegas close on the ${season.lined} lined games; HX missed ${f(season.maeHxLined)} on the same games.`,
+              filename: "hashmark-accuracy-2026.png",
+            })}
+          />
+        }
       />
 
       <div className="mb-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
