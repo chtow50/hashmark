@@ -4,7 +4,8 @@
  *
  *   node scripts/build-stats-data.mjs --cfbstats <cfb_stats_2026_page_data.json> --cfbd <cfbd out/2026 dir>
  *
- * Box counting stats: cfbstats.com (official NCAA box, per-team pages). Advanced: CollegeFootballData
+ * Box counting stats: cfbstats.com (official NCAA box, per-team pages; defense from the tackle, TFL,
+ * sack, interception, and misc-defense pages). Advanced: CollegeFootballData
  * (CFBD) PPA/EPA, success rate, explosiveness, line yards, havoc, player PPA and usage. Team EPA,
  * success rate, explosiveness, and line yards are opponent-adjusted (ridge over FBS–FBS games, done
  * upstream in the CFBD pull). No API key is read or written here: inputs are already-pulled files.
@@ -136,6 +137,18 @@ export function buildStats({ box, cfbdDir }) {
       epa: r(p?.ppa_avg_pass, 3), tepa: r(p?.ppa_tot_pass, 1), use: r(p?.usage_pass == null ? null : p.usage_pass * 100, 1),
     };
   });
+  // Defense: box only (cfbstats tackle, TFL, sack, interception, misc-defense pages). No CFBD fields.
+  const D = box.D_cols ? cols(box.D_cols) : null;
+  const def = D
+    ? box.D.map((row) => {
+        const slug = slugOf(row[D.team]);
+        if (!slug) throw new Error(`no slug for cfbstats team ${row[D.team]}`);
+        return {
+          name: row[D.name], slug, pos: row[D.pos], g: row[D.g], solo: row[D.solo], ast: row[D.ast], tot: row[D.tot],
+          tfl: row[D.tfl], sk: row[D.sacks], int: row[D.int], pbu: row[D.pbu], qbh: row[D.qbh], ff: row[D.ff],
+        };
+      })
+    : [];
   const matched = (rows) => rows.filter((x) => x.epa != null).length;
   const meta = JSON.parse(readFileSync(join(cfbdDir, "meta.json"), "utf8"));
   return {
@@ -146,13 +159,14 @@ export function buildStats({ box, cfbdDir }) {
       advanced_through: meta.last_completed_kickoff_utc,
       adjustment:
         "Team EPA/play, success rate, explosiveness, and line yards are opponent-adjusted: ridge fit of offense + opposing defense + home field over FBS–FBS games (1 pseudo-game toward average). Havoc and player PPA are raw season values.",
-      pools: { qb: "100+ pass attempts", rush: "100+ carries", rec: "30+ receptions" },
+      pools: { qb: "100+ pass attempts", rush: "100+ carries", rec: "30+ receptions", def: "40+ tackles, 4+ sacks, 3+ INT, or 8+ TFL" },
       matched_advanced: { qb: `${matched(qb)}/${qb.length}`, rush: `${matched(rush)}/${rush.length}`, rec: `${matched(rec)}/${rec.length}` },
     },
     teams,
     qb,
     rush,
     rec,
+    def,
   };
 }
 

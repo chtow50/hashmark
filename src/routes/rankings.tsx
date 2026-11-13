@@ -9,6 +9,7 @@ import { MODEL } from "@/lib/cfb/model";
 import { listTeams } from "@/lib/cfb/queries";
 import { formatSeasonRecord } from "@/lib/cfb/season-record";
 import { make12FreeFromSim } from "@/lib/cfb/season-sim";
+import { ShowMore } from "@/components/show-more";
 import { cn, fmtNum, fmtPct } from "@/lib/utils";
 import type { TeamSummary } from "@/lib/cfb/types";
 
@@ -116,13 +117,15 @@ function RankingsPage() {
         ))}
       </div>
 
-      <ul className="space-y-3 sm:hidden">
-        {filtered.map((t) => (
-          <li key={t.slug}>
-            <RankingCard team={t} />
-          </li>
-        ))}
-      </ul>
+      <div className="sm:hidden">
+        <ShowMore
+          items={filtered}
+          noun="teams"
+          resetKey={`${conf}|${sort}|${dir}`}
+          className="space-y-3"
+          render={(t) => <RankingCard key={t.slug} team={t} />}
+        />
+      </div>
 
       <Panel className="hidden overflow-hidden p-0 sm:block sm:p-0">
         <div className="overflow-x-auto">

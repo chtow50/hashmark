@@ -28,6 +28,7 @@ export const STATIC_PATHS = [
   "/stats?tab=qb",
   "/stats?tab=rush",
   "/stats?tab=rec",
+  "/stats?tab=def",
   "/model",
   "/talent?board=size",
   "/recruiting?year=2023",

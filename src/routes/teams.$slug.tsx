@@ -2,6 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { seo } from "@/lib/seo";
 import { HxResultsPanel } from "@/components/hx-results";
 import { PageHead, Panel } from "@/components/shell";
+import { PinButton } from "@/components/pin";
 import { MixBar, RankMove, Stat, TeamMark } from "@/components/marks";
 import { RosterList } from "@/components/roster-duel";
 import { RemainingScheduleSection, SeasonScheduleSection } from "@/components/season-sim";
@@ -49,6 +50,7 @@ function TeamPage() {
         kicker={`${team.conference} · ${team.city}, ${team.state}`}
         title={team.name}
         lede={`${team.mascot} · ${formatSeasonRecord(team.seasonWins, team.seasonLosses)} · 2025: ${team.lastFinish}`}
+        action={<PinButton slug={team.slug} name={team.shortName} />}
       />
 
       <Panel className="mb-4">
