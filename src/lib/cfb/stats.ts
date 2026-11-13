@@ -330,3 +330,51 @@ export function percentileMap(rows: StatRow[], mt: Metric): Map<string, number> 
   }
   return out;
 }
+
+/**
+ * Matchup unit-vs-unit pairings: one offense stat against the matching defense stat.
+ * Each side is placed as an FBS percentile (100 = best offense, or best defense), so the two
+ * numbers share a scale. The edge is the gap; under EDGE_EVEN points it reads "even".
+ * Stats only: the HX line stays the prediction.
+ */
+export const UNIT_PAIRS = [
+  { key: "epa", label: "EPA per play", off: "epa", def: "oepa" },
+  { key: "sr", label: "Success rate", off: "sr", def: "osr" },
+  { key: "xpl", label: "Explosiveness", off: "xpl", def: "oxpl" },
+  { key: "ly", label: "Line yards (run blocking)", off: "ly", def: "oly" },
+  { key: "ypc", label: "Rushing (yards per carry)", off: "ypc", def: "oypc" },
+  { key: "ypp", label: "Yards per play", off: "ypp", def: "oypp" },
+  { key: "c3", label: "3rd down", off: "c3", def: "oc3" },
+  { key: "hav", label: "Havoc (offense allowed vs defense made)", off: "ohav", def: "hav" },
+] as const;
+export const EDGE_EVEN = 10;
+
+export type UnitEdge = {
+  key: string;
+  label: string;
+  offK: string;
+  defK: string;
+  offVal: number | null;
+  defVal: number | null;
+  /** FBS percentile of the offense on its stat (100 = best). */
+  offP: number | null;
+  /** FBS percentile of the defense on its stat (100 = best). */
+  defP: number | null;
+};
+
+/** Pairs for one offense (team a) against one defense (team b). Pure. */
+export function unitEdges(a: Record<string, number | null>, b: Record<string, number | null>, all: Record<string, number | null>[]): UnitEdge[] {
+  return UNIT_PAIRS.map((pr) => {
+    const om = metricOf("teams", pr.off)!;
+    const dm = metricOf("teams", pr.def)!;
+    const os = standing(om, a[pr.off] ?? null, all.map((v) => v[pr.off] ?? null));
+    const ds = standing(dm, b[pr.def] ?? null, all.map((v) => v[pr.def] ?? null));
+    return { key: pr.key, label: pr.label, offK: pr.off, defK: pr.def, offVal: a[pr.off] ?? null, defVal: b[pr.def] ?? null, offP: os?.p ?? null, defP: ds?.p ?? null };
+  });
+}
+
+export function edgeCall(e: Pick<UnitEdge, "offP" | "defP">): "offense" | "defense" | "even" | null {
+  if (e.offP == null || e.defP == null) return null;
+  const d = e.offP - e.defP;
+  return Math.abs(d) < EDGE_EVEN ? "even" : d > 0 ? "offense" : "defense";
+}

@@ -22,3 +22,11 @@ export const getTeamAdvanced = createServerFn({ method: "GET" })
     const { teamAdvanced } = await import("./stats.server");
     return teamAdvanced(data.slug);
   });
+
+/** Matchup unit-vs-unit edges from the committed stats file, or null when a team has no row. */
+export const getMatchupEdges = createServerFn({ method: "GET" })
+  .validator(z.object({ home: z.string().min(1), away: z.string().min(1) }))
+  .handler(async ({ data }) => {
+    const { matchupEdges } = await import("./stats.server");
+    return matchupEdges(data.home, data.away);
+  });

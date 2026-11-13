@@ -138,3 +138,26 @@ describe("conference races data", () => {
     }
   });
 });
+
+describe("matchup unit edges", () => {
+  it("puts offense and defense on one scale (100 = best) and calls edges at 10+ points", async () => {
+    const { unitEdges, edgeCall, UNIT_PAIRS } = await import("./stats.ts");
+    const { matchupEdges } = await import("./stats.server.ts");
+    const e = matchupEdges("georgia", "alabama");
+    assert.ok(e);
+    assert.equal(e!.homeOff.length, UNIT_PAIRS.length);
+    for (const r of [...e!.homeOff, ...e!.awayOff]) {
+      if (r.offP != null) assert.ok(r.offP >= 0 && r.offP <= 100);
+      if (r.defP != null) assert.ok(r.defP >= 0 && r.defP <= 100);
+    }
+    // Best offense vs worst defense on EPA reads as an offense edge; lower-is-better handled.
+    const all = [{ epa: 0.3, oepa: -0.2 }, { epa: -0.1, oepa: 0.25 }, { epa: 0.0, oepa: 0.0 }];
+    const [epa] = unitEdges(all[0], all[1], all);
+    assert.equal(epa.offP, 100);
+    assert.equal(epa.defP, 0);
+    assert.equal(edgeCall(epa), "offense");
+    assert.equal(edgeCall({ offP: 55, defP: 50 }), "even");
+    assert.equal(edgeCall({ offP: null, defP: 50 }), null);
+    assert.equal(matchupEdges("georgia", "not-a-team"), null);
+  });
+});

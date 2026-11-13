@@ -1,6 +1,6 @@
 /** Server only: reads data/stats_2026.json. Imported dynamically from server-function handlers. */
 import statsRaw from "../../../data/stats_2026.json" with { type: "json" };
-import { deriveValues, METRICS, TEAM_ADVANCED_KEYS, standing, type StatRow, type StatsMeta, type StatTab } from "./stats.ts";
+import { deriveValues, METRICS, TEAM_ADVANCED_KEYS, standing, unitEdges, type StatRow, type StatsMeta, type StatTab, type UnitEdge } from "./stats.ts";
 
 type TeamInfo = { slug: string; name: string; conference: string; colorPrimary: string };
 type RawFile = { meta: StatsMeta; teams: Record<string, unknown>[]; qb: Record<string, unknown>[]; rush: Record<string, unknown>[]; rec: Record<string, unknown>[]; def: Record<string, unknown>[] };
@@ -48,4 +48,22 @@ export function teamAdvanced(slug: string): TeamAdvanced {
       return { k, value: mine[k], rank: s?.rank ?? null, n: s?.n ?? 0 };
     }),
   };
+}
+
+export type MatchupEdges = {
+  asOf: string;
+  advancedThrough: string;
+  /** Home offense vs away defense, and away offense vs home defense. */
+  homeOff: UnitEdge[];
+  awayOff: UnitEdge[];
+} | null;
+
+export function matchupEdges(home: string, away: string): MatchupEdges {
+  const h = data.teams.find((t) => t.slug === home);
+  const a = data.teams.find((t) => t.slug === away);
+  if (!h || !a) return null;
+  const all = data.teams.map((t) => deriveValues("teams", t));
+  const hv = deriveValues("teams", h);
+  const av = deriveValues("teams", a);
+  return { asOf: data.meta.as_of, advancedThrough: data.meta.advanced_through, homeOff: unitEdges(hv, av, all), awayOff: unitEdges(av, hv, all) };
 }
