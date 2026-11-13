@@ -8,7 +8,7 @@
  * Cards hold only numbers that never change once written:
  *  - teams: logo, name, mascot, conference (no HX number, so the Sunday refit cannot stale it)
  *  - games: FINAL score + the frozen pregame HX line (lock_home_hx/lock_away_hx via gradeGame)
- *    + stamped Vegas close. Only FINALs are carded.
+ *    + stamped Vegas line. Only FINALs are carded.
  *  - /accuracy and /matchup: static explainer cards.
  * Data: committed migrations replayed into in-memory PGLite (same as scripts/generate-game-keys.mjs).
  */
@@ -101,7 +101,7 @@ function gameCard(g) {
   const hx = gr.graded
     ? `HX pregame: <b style="color:#fafafa">${esc(line(h.short, a.short, gr.hxSpread))}</b> · ${gr.suHit === true ? '<span style="color:#4ade80">picked the winner</span>' : gr.suHit === false ? '<span style="color:#f87171">missed the winner</span>' : "pick'em"}`
     : "HX pregame: not graded (no frozen pregame line)";
-  const vegas = g.vegas == null ? "" : ` · Vegas close: ${esc(line(h.short, a.short, Number(g.vegas)))}`;
+  const vegas = g.vegas == null ? "" : ` · Vegas line: ${esc(line(h.short, a.short, Number(g.vegas)))}`;
   return shell(hex(Number(g.hs) > Number(g.as) ? h.color : a.color), `
 <div class="kick" style="position:absolute;left:0;right:0;top:118px;text-align:center;color:#f59e0b">Final · ${esc(fmtDate(g.d))}${g.neutral ? " · neutral site" : ""}</div>
 <div style="position:absolute;left:0;right:0;top:160px;display:flex;justify-content:center;align-items:flex-start;gap:40px">
@@ -130,7 +130,7 @@ async function shot(html, file) {
 const only = process.argv.slice(2);
 const want = (k) => only.length === 0 || only.includes(k);
 if (want("static")) {
-  await shot(staticCard("Accuracy", "Every FINAL graded against its frozen pregame HX line and win probability, beside the Vegas close.", "HX report card"), join(OUT, "accuracy.jpg"));
+  await shot(staticCard("Accuracy", "Every FINAL graded against its frozen pregame HX line and win probability, beside the stamped Vegas line.", "HX report card"), join(OUT, "accuracy.jpg"));
   await shot(staticCard("Matchup", "Any two FBS teams: HX line and win %, plus unit-vs-unit edges from the advanced stats.", "Head to head"), join(OUT, "matchup.jpg"));
 }
 const cards = { teams: [], games: [] };

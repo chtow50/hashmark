@@ -472,7 +472,7 @@ function Th({
         type="button"
         onClick={onClick}
         className={cn(
-          "min-h-9 text-left uppercase tracking-[0.12em]",
+          "min-h-9 min-w-9 text-left uppercase tracking-[0.12em]",
           active ? "text-fg" : "text-faint hover:text-muted",
         )}
       >

@@ -274,7 +274,7 @@ export function SeasonScheduleSection({
       <div className="mb-4">
         <h2 className="font-display text-2xl tracking-wide">Season schedule</h2>
         <p className="mt-1 text-sm text-muted">
-          Full FBS slate — HASHMARK line and Vegas close when stamped; FINAL when locked.
+          Full FBS slate — HASHMARK line and the Vegas line when stamped; FINAL when locked.
         </p>
       </div>
       <ul className="divide-y divide-line">

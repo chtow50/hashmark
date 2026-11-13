@@ -24,7 +24,7 @@ export const Route = createFileRoute("/accuracy")({
       image: "/og/accuracy.jpg",
       title: "HX accuracy · every FINAL against its pregame line · HASHMARK",
       description:
-        "Every 2026 FINAL graded against the frozen pregame HX line and win probability: straight-up picks, average miss, Brier score, weekly and season rollups, and the same games against the Vegas close.",
+        "Every 2026 FINAL graded against the frozen pregame HX line and win probability: straight-up picks, average miss, Brier score, weekly and season rollups, and the same games against the stamped Vegas line.",
     }),
 });
 
@@ -58,9 +58,9 @@ function AccuracyPage() {
                 { label: "Winners picked", value: season.suPct == null ? "n/a" : `${season.suPct.toFixed(1)}%` },
                 { label: "Avg miss", value: season.mae == null ? "n/a" : `${season.mae.toFixed(1)} pts` },
                 { label: "Brier", value: f(season.brier, 3) },
-                { label: "Vegas close miss", value: season.maeVegasLined == null ? "n/a" : `${season.maeVegasLined.toFixed(1)} pts` },
+                { label: "Vegas line miss", value: season.maeVegasLined == null ? "n/a" : `${season.maeVegasLined.toFixed(1)} pts` },
               ],
-              footer: `Vegas close on the ${season.lined} lined games; HX missed ${f(season.maeHxLined)} on the same games.`,
+              footer: `Stamped pregame Vegas line on the ${season.lined} lined games; HX missed ${f(season.maeHxLined)} on the same games.`,
               filename: "hashmark-accuracy-2026.png",
             })}
           />
@@ -75,9 +75,9 @@ function AccuracyPage() {
       </div>
 
       <Panel className="mb-6">
-        <h2 className="font-display text-lg">Against the Vegas close</h2>
+        <h2 className="font-display text-lg">Against the Vegas line</h2>
         <p className="mt-1 text-sm leading-relaxed text-muted">
-          On the {season.lined} graded games that also have a Vegas line on file, HX missed by {f(season.maeHxLined)} points on average and the close missed by {f(season.maeVegasLined)}.{" "}
+          On the {season.lined} graded games that also have a Vegas line on file, HX missed by {f(season.maeHxLined)} points on average and the stamped Vegas line missed by {f(season.maeVegasLined)}.{" "}
           {season.maeHxLined != null && season.maeVegasLined != null && season.maeVegasLined < season.maeHxLined
             ? "The market is still better. That is the Soft-cal FLAG, and it stays up."
             : null}{" "}
