@@ -6,6 +6,9 @@ import { TeamMark } from "@/components/marks";
 import { StatsCompare, StatsLeaders, StatsScatter, cellTint } from "@/components/stats-explorer";
 import { CONFS, inConf, parseConf, type ConfFilter } from "@/lib/cfb/conferences";
 import {
+  QUALIFY,
+  isQualified,
+  qualifierText,
   COLUMN_SETS,
   METRICS,
   QUICK_VIEWS,
@@ -98,12 +101,16 @@ function StatsPage() {
   const dir = search.dir === "worst" ? "worst" : "best";
   const [query, setQuery] = useState("");
   const [showAll, setShowAll] = useState(false);
+  const [allPlayers, setAllPlayers] = useState(false);
+  const qual = QUALIFY[tab];
+  const eligible = useMemo(() => (qual && !allPlayers ? rows.filter((r) => isQualified(tab, r)) : rows), [rows, tab, qual, allPlayers]);
   const [picksByTab, setPicksByTab] = useState<Partial<Record<StatTab, string[]>>>({});
-  const picks = picksByTab[tab] ?? defaultPicks(tab, rows);
+  const picks = picksByTab[tab] ?? defaultPicks(tab, eligible);
   const setPicks = (next: string[]) => setPicksByTab((p) => ({ ...p, [tab]: next.slice(0, 4) }));
   const togglePick = (id: string) => setPicks(picks.includes(id) ? picks.filter((p) => p !== id) : [...picks, id]);
 
-  const pool = useMemo(() => rows.filter((r) => inConf(r.conference, conf)), [rows, conf]);
+  // Ranks, percentiles, and shading are all computed inside this pool (qualifier + conference).
+  const pool = useMemo(() => eligible.filter((r) => inConf(r.conference, conf)), [eligible, conf]);
   const sorted = useMemo(() => sortRows(pool, sortMetric, dir), [pool, sortMetric, dir]);
   const rankOf = useMemo(() => new Map(sortRows(pool, sortMetric).map((r, i) => [r.id, i + 1])), [pool, sortMetric]);
   const cols = set.cols.map((k) => metricOf(tab, k)!).filter(Boolean);
@@ -112,7 +119,7 @@ function StatsPage() {
   const matches = q ? sorted.filter((r) => r.name.toLowerCase().includes(q) || r.team.toLowerCase().includes(q)) : sorted;
   const shown = q || showAll ? matches : matches.slice(0, PAGE);
   const noun = NOUN[tab];
-  const poolDef = tab === "teams" ? null : (meta.pools as Record<string, string | undefined>)[tab];
+  const poolDef = tab === "teams" ? null : (qualifierText(tab, allPlayers) ?? (meta.pools as Record<string, string | undefined>)[tab]);
   const poolLabel = tab === "teams" ? `${pool.length} teams` : `${pool.length} ${noun}${poolDef ? ` (${poolDef})` : ""}`;
   const headRef = useRef<HTMLDivElement>(null);
   // Fixed layout so the sticky header strip and the body share column widths exactly.
@@ -223,6 +230,36 @@ function StatsPage() {
           </Link>
         ))}
       </div>
+
+      {qual ? (
+        <div className="mb-3 flex flex-wrap items-center gap-x-3 gap-y-2">
+          <div role="group" aria-label="Player pool" className="inline-flex rounded-lg bg-inset p-1">
+            {([false, true] as const).map((all) => (
+              <button
+                key={String(all)}
+                type="button"
+                aria-pressed={allPlayers === all}
+                onClick={() => {
+                  setAllPlayers(all);
+                  setPicksByTab((p) => ({ ...p, [tab]: undefined }));
+                }}
+                className={cn(
+                  "min-h-9 rounded-md px-3 text-sm transition-colors",
+                  allPlayers === all ? "bg-raised text-fg" : "text-muted hover:text-fg",
+                )}
+              >
+                {all ? `All ${qual.floor}+` : "Qualified"}
+              </button>
+            ))}
+          </div>
+          <p className="text-xs text-muted">
+            {allPlayers
+              ? `Everyone with ${qual.floor}+ ${qual.unit}. Small samples included.`
+              : `Qualified = at least ${qual.perGame} ${qual.unit} per team game (${qual.unit} ≥ ${qual.perGame} × games the team has played).`}{" "}
+            Ranks and shading are within the players shown.
+          </p>
+        </div>
+      ) : null}
 
       <SortedBy metric={sortMetric} dir={dir} poolLabel={poolLabel} conf={conf} />
 

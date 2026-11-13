@@ -161,6 +161,10 @@ export type StatRow = {
   g: number;
   /** Teams: W–L. Players: "". */
   wl: string;
+  /** Players: qualifying volume (QB attempts, carries, receptions). */
+  vol?: number;
+  /** Players: games the player's team has played (the qualifier's denominator). */
+  teamG?: number;
   v: Record<string, number | null>;
 };
 
@@ -225,6 +229,30 @@ export function sortRows(rows: StatRow[], mt: Metric, dir: "best" | "worst" = "b
     if (y == null) return -1;
     return sign * (x - y) || a.name.localeCompare(b.name);
   });
+}
+
+/**
+ * Leaderboard qualifiers, NCAA style: volume per team game. The data file carries everyone at
+ * `floor`; /stats shows qualified players by default and `floor` when "Show all" is on.
+ * Defense keeps its fixed pool (no per-game qualifier).
+ */
+export const QUALIFY: Partial<Record<StatTab, { perGame: number; floor: number; unit: string }>> = {
+  qb: { perGame: 10, floor: 50, unit: "pass attempts" },
+  rush: { perGame: 6, floor: 40, unit: "carries" },
+  rec: { perGame: 2.5, floor: 15, unit: "receptions" },
+};
+
+export function isQualified(tab: StatTab, r: Pick<StatRow, "vol" | "teamG">): boolean {
+  const q = QUALIFY[tab];
+  if (!q) return true;
+  return (r.vol ?? 0) >= q.perGame * (r.teamG ?? 0);
+}
+
+/** Cutoff line shown on the page. */
+export function qualifierText(tab: StatTab, all: boolean): string | null {
+  const q = QUALIFY[tab];
+  if (!q) return null;
+  return all ? `${q.floor}+ ${q.unit}` : `qualified: ${q.perGame}+ ${q.unit} per team game`;
 }
 
 export type StatsMeta = {
