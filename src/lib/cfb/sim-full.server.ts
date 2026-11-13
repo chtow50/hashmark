@@ -1,14 +1,13 @@
 /**
  * Server / test only: the full current-HX 10k sim, including win_title.
  *
- * win_title is Edge Pack / paid only. Do NOT import this module from any route,
+ * win_title is never published on the site. Do NOT import this module from any route,
  * component, or client-reachable lib — anything a route imports is bundled into
  * the public static/assets/*.js (that is how live index-BW9FktUn.js shipped ~150
  * win_title values before this split). Client code reads the generated free export
  * via ./truth-pack.ts (data/sim_free_hx2026_8.json) instead.
  *
- * Paid buyers get title odds from the Edge Pack files (data/edge-packs/current/),
- * served by src/lib/edge-pack-files.server.ts after Stripe verification.
+ * Title odds are not published anywhere on the site; this file is for tests and tooling.
  */
 import simFullRaw from "../../../data/sim_10k_2026_hx2026_8.json" with { type: "json" };
 import { make12FromSimRow, type Make12Odds } from "./season-sim.ts";

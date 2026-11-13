@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { describe, it } from "node:test";
 import { fileURLToPath } from "node:url";
@@ -11,20 +11,21 @@ function read(rel: string) {
 }
 
 describe("LEAN polish gates", () => {
-  it("Edge is paused: /edge sells nothing and points to the free board", () => {
-    const src = read("src/routes/edge.tsx");
-    assert.match(src, /Edge is paused\./);
-    assert.doesNotMatch(src, /EDGE\.weekPrice|kind="week"|kind="month"|Monthly|\/mo\b/);
-    assert.doesNotMatch(src, /sure thing|print money|can't miss/i);
+  it("Edge is gone: /edge and /edge/* 301 to the board; no Edge code left", () => {
+    assert.match(read("src/routes/edge.tsx"), /redirect\(\{ to: "\/", statusCode: 301 \}\)/);
+    assert.match(read("src/routes/edge.$.tsx"), /redirect\(\{ to: "\/", statusCode: 301 \}\)/);
+    for (const gone of ["src/lib/edge.ts", "src/lib/scenario-sim.ts", "src/routes/api/edge.pack.ts", "src/components/edge-board.tsx"]) {
+      assert.equal(existsSync(join(root, gone)), false, gone);
+    }
   });
 
-  it("States loads pipeline in the route loader instead of a stuck spinner", () => {
-    const src = read("src/routes/states.tsx");
+  it("States is the By state tab on /recruiting, loaded in the route loader", () => {
+    const src = read("src/routes/recruiting.tsx");
     assert.match(src, /loaderDeps/);
     assert.match(src, /getStateDetail/);
-    assert.match(src, /No pipeline on the desk/);
-    assert.doesNotMatch(src, /Loading pipeline/);
+    assert.match(read("src/components/states-tab.tsx"), /No pipeline on the desk/);
     assert.doesNotMatch(src, /useEffect/);
+    assert.match(read("src/routes/states.tsx"), /to: "\/recruiting", search: \{ tab: "states", code \}/);
   });
 
   it("Home leads with the HX board and carries no Edge strip (Edge paused)", () => {
@@ -42,10 +43,10 @@ describe("LEAN polish gates", () => {
     assert.match(src, /Top 25 · HX or last stamped AP/);
   });
 
-  it("sitemap lists /desk and the tapes, and no /edge URLs (Edge is paused)", () => {
+  it("sitemap lists the tapes and no /edge, /desk or /states URLs", () => {
     const xml = read("public/sitemap.xml");
     assert.doesNotMatch(xml, /hashmarkcfb\.com\/edge/);
-    assert.match(xml, /https:\/\/hashmarkcfb\.com\/desk</);
+    assert.doesNotMatch(xml, /hashmarkcfb\.com\/(desk|states|logos)</);
     assert.match(xml, /https:\/\/hashmarkcfb\.com\/stories\/week-5-tape</);
     assert.match(xml, /https:\/\/hashmarkcfb\.com\/stories\/week-4-tape</);
     assert.match(xml, /https:\/\/hashmarkcfb\.com\/stories\/week-3-tape</);

@@ -216,7 +216,6 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /WEEK5_FEATURED/);
     assert.match(text, /selectWeekScopedFeatured/);
     assert.match(text, /Week 5 board/);
-    assert.match(text, /Week 6 board/);
     assert.match(text, /401858245/);
   });
 
@@ -313,7 +312,6 @@ describe("prebuilt deploy artifacts", () => {
     const text = corpus();
     assert.match(text, /0034_week3_od_hx_ship/);
     assert.match(text, /HX 2026\.5/);
-    assert.match(text, /Week 6 board/);
     assert.match(text, /HX is Week 11/);
     assert.match(text, /last stamped poll \(Week 10, Nov\. 1\)/);
     assert.match(text, /Week 6 AP/);
@@ -346,13 +344,12 @@ describe("prebuilt deploy artifacts", () => {
     const text = corpus();
     assert.match(text, /0040_week4_od_hx_ship/);
     assert.match(text, /HX 2026\.6/);
-    assert.match(text, /Week 6 board/);
     assert.match(text, /7\.8964/);
     assert.match(text, /UCLA \+0\.071/);
     assert.match(text, /week4_od_hx_ship_2026/);
     assert.match(text, /sunday_od_delta_2026_w4/);
     assert.match(text, /Soft-cal FLAG/);
-    assert.match(text, /sim_10k_2026_hx2026_7/);
+    assert.match(text, /sim_10k_2026_hx2026_\d/);
     assert.match(text, /HX 2026\.7/);
     assert.match(text, /10k draws/);
     assert.doesNotMatch(text, /unit O\/D pulse is live|pulse chrome/i);
@@ -424,7 +421,6 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /week-5-wku-nmsu-final/);
     assert.match(text, /Portland State/);
     assert.match(text, /W10 stamp/);
-    assert.match(text, /Week 6 board/);
     assert.match(text, /HX is Week 11/);
     assert.match(text, /last stamped poll \(Week 10, Nov\. 1\)/);
     assert.doesNotMatch(text, /Texas A&M AP 23/);
@@ -474,44 +470,18 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /week-3-lsu-ole-miss/);
     assert.match(text, /Vegas has Texas Tech/);
     assert.match(text, /Week 5 board/);
-    assert.match(text, /Week 6 board/);
   });
 
-  it("ships /edge as a paused page with zero paid CTAs (Edge pause step 2)", () => {
-    const text = corpus();
-    assert.match(text, /HX Edge Pack/);
-    assert.match(text, /Edge is paused\./);
-    assert.match(text, /createFileRoute\("\/edge"\)|path:"\/edge"|id:"\/edge"|to:"\/edge"/);
-    assert.doesNotMatch(text, /\$5 Week sample/);
-    assert.doesNotMatch(text, /\$15\/mo|15\/mo/);
-    assert.doesNotMatch(text, /buy\.stripe\.com/);
-    assert.doesNotMatch(text, /VITE_EDGE_CHECKOUT/);
-    assert.doesNotMatch(text, /#checkout-pending/);
-    // Gated Week 6 pack no longer carries the monthly tier.
-    assert.doesNotMatch(text, /monthly_price|monthly \$15/);
-  });
-
-  it("includes gated /edge/unlock + pack download on the server", () => {
-    const server = walk(join(OUT, "functions"))
-      .filter((p) => /\.mjs$/.test(p))
+  it("Edge is deleted: no Stripe, no pack download, no Edge pages on server or client", () => {
+    const all = walk(OUT)
+      .filter((p) => /\.(m?js|json)$/.test(p))
       .map((p) => readFileSync(p, "utf8"))
       .join("\n");
-    assert.match(server, /\/edge\/unlock/);
-    assert.match(server, /\/api\/edge\/pack/);
-    assert.match(server, /STRIPE_SECRET_KEY/);
-    assert.doesNotMatch(server, /VITE_STRIPE_SECRET_KEY/);
-    assert.match(server, /hello@hashmarkcfb\.com/);
-    assert.match(server, /hx_edge_confidence_schema_2026/);
-    assert.match(server, /hx_edge_pack_week6_sample_2026/);
-    // Week 6 rebuild (as_of 2026-10-07, HX 2026.7, 55 cards) is the gated current pack.
-    const packChunks = walk(join(OUT, "functions")).filter((p) => GATED_PACK_CHUNK_RE.test(p));
-    assert.equal(packChunks.length, 1, "exactly one gated edge-pack-files chunk");
-    const pack = readFileSync(packChunks[0], "utf8");
-    assert.match(pack, /\\?"as_of\\?": \\?"2026-10-07/);
-    assert.match(pack, /\\?"confidence_card_n\\?": 55,/);
-    assert.match(pack, /HX 2026\.7/);
-    assert.match(pack, /24\.29/);
-    assert.doesNotMatch(pack, /correction_note/);
+    assert.doesNotMatch(all, /STRIPE_SECRET_KEY|buy\.stripe\.com|VITE_EDGE_CHECKOUT/);
+    assert.doesNotMatch(all, /\/api\/edge\/pack/);
+    assert.doesNotMatch(all, /hx_edge_pack_week6_sample_2026|hx_edge_confidence_schema_2026/);
+    assert.doesNotMatch(all, /Edge is paused\./);
+    assert.equal(walk(join(OUT, "functions")).filter((p) => GATED_PACK_CHUNK_RE.test(p)).length, 0);
   });
 
   it("does not dump the current Edge Pack onto public client assets", () => {

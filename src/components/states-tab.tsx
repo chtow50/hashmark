@@ -1,0 +1,171 @@
+import { Link } from "@tanstack/react-router";
+import { Panel } from "@/components/shell";
+import { StateMosaic } from "@/components/state-mosaic";
+import { TeamSwatch } from "@/components/marks";
+import type { getStateDetail, listStates } from "@/lib/cfb/queries";
+import { fmtNum } from "@/lib/utils";
+import type { StateCommit } from "@/lib/cfb/types";
+
+type StatesData = Awaited<ReturnType<typeof listStates>>;
+type StateDetail = Awaited<ReturnType<typeof getStateDetail>>;
+
+export function parseStateCode(value: unknown): string {
+  if (typeof value === "string" && /^[A-Za-z]{2}$/.test(value)) return value.toUpperCase();
+  return "TX";
+}
+
+/** "By state" tab on /recruiting (formerly /states): pipelines by recruit hometown. */
+export function StatesTab({
+  states,
+  detail,
+  code,
+  onSelect,
+}: {
+  states: StatesData;
+  detail: StateDetail;
+  code: string;
+  onSelect: (code: string) => void;
+}) {
+  return (
+    <div>
+      <Panel className="mb-6">
+        <StateMosaic states={states} selected={code} onSelect={onSelect} />
+        <p className="mt-3 text-xs text-faint">Heat is talent index — volume, five-stars, and average composite rating of HASHMARK-tracked recruits.</p>
+      </Panel>
+
+      <div className="grid gap-6 lg:grid-cols-2">
+        <Panel>
+          <h2 className="font-display text-2xl tracking-wide">
+            {detail.state?.name ?? code}
+          </h2>
+          {detail.state ? (
+            <dl className="mt-4 grid grid-cols-2 gap-4 text-sm">
+              <div>
+                <dt className="text-[11px] uppercase tracking-[0.14em] text-faint">Recruits</dt>
+                <dd className="mt-1 font-display text-2xl tabular">{detail.state.recruits}</dd>
+              </div>
+              <div>
+                <dt className="text-[11px] uppercase tracking-[0.14em] text-faint">Five-stars</dt>
+                <dd className="mt-1 font-display text-2xl tabular">{detail.state.fiveStars}</dd>
+              </div>
+              <div>
+                <dt className="text-[11px] uppercase tracking-[0.14em] text-faint">Avg rating</dt>
+                <dd className="mt-1 font-display text-2xl tabular">{fmtNum(detail.state.avgRating, 1)}</dd>
+              </div>
+              <div>
+                <dt className="text-[11px] uppercase tracking-[0.14em] text-faint">FBS teams</dt>
+                <dd className="mt-1 font-display text-2xl tabular">{detail.state.teamCount}</dd>
+              </div>
+            </dl>
+          ) : (
+            <p className="mt-3 text-sm text-muted">No pipeline on the desk for this state.</p>
+          )}
+
+          {detail.teams.length > 0 ? (
+            <div className="mt-6">
+              <h3 className="text-[11px] uppercase tracking-[0.14em] text-faint">Programs in state</h3>
+              <ul className="mt-2">
+                {detail.teams.map((t) => (
+                  <li key={t.slug}>
+                    <Link
+                      to="/teams/$slug"
+                      params={{ slug: t.slug }}
+                      className="flex min-h-11 items-center gap-2.5"
+                    >
+                      <TeamSwatch color={t.color_primary} />
+                      <span className="font-medium">{t.name}</span>
+                      <span className="text-xs text-muted">
+                        HX #{t.hx_rank} · {t.city}
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : detail.state ? (
+            <p className="mt-6 text-sm text-muted">No FBS programs in {detail.state.name}.</p>
+          ) : null}
+        </Panel>
+
+        <Panel>
+          <h2 className="font-display text-2xl tracking-wide">Who signed them</h2>
+          <p className="mt-1 mb-4 text-sm text-muted">Tracked starters whose hometown is {code}.</p>
+          {detail.commits.length > 0 ? (
+            <CommitList commits={detail.commits} />
+          ) : (
+            <p className="text-sm text-muted">No tracked starters from {code} on the desk.</p>
+          )}
+        </Panel>
+      </div>
+
+      {states.length === 0 ? (
+        <Panel className="mt-6">
+          <p className="font-display text-2xl tracking-wide">Pipeline empty</p>
+          <p className="mt-2 text-sm leading-relaxed text-muted">
+            State rows did not load. The mosaic and table stay blank until the desk has pipeline data.
+          </p>
+        </Panel>
+      ) : (
+        <Panel className="mt-6 overflow-hidden p-0 sm:p-0">
+          <div className="overflow-x-auto">
+            <table className="w-full min-w-[560px] text-left text-sm">
+              <thead>
+                <tr className="border-b border-line text-[11px] uppercase tracking-[0.12em] text-faint">
+                  <th className="px-4 py-3 font-medium">State</th>
+                  <th className="px-3 py-3 font-medium">Region</th>
+                  <th className="px-3 py-3 font-medium">Recruits</th>
+                  <th className="px-3 py-3 font-medium">5-st</th>
+                  <th className="px-3 py-3 font-medium">Avg</th>
+                  <th className="px-3 py-3 font-medium">Index</th>
+                </tr>
+              </thead>
+              <tbody>
+                {states.map((s) => (
+                  <tr
+                    key={s.code}
+                    className="cursor-pointer border-b border-line last:border-0 hover:bg-raised/60"
+                    onClick={() => onSelect(s.code)}
+                  >
+                    <td className="px-4 py-3">
+                      <button type="button" className="min-h-11 text-left font-medium">
+                        {s.name} <span className="text-faint">{s.code}</span>
+                      </button>
+                    </td>
+                    <td className="px-3 py-3 text-muted">{s.region}</td>
+                    <td className="px-3 py-3 tabular">{s.recruits}</td>
+                    <td className="px-3 py-3 tabular">{s.fiveStars}</td>
+                    <td className="px-3 py-3 tabular">{fmtNum(s.avgRating, 1)}</td>
+                    <td className="px-3 py-3 tabular">{fmtNum(s.talentIndex, 1)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </Panel>
+      )}
+    </div>
+  );
+}
+
+function CommitList({ commits }: { commits: StateCommit[] }) {
+  return (
+    <ul>
+      {commits.map((c) => (
+        <li key={c.teamSlug} className="flex items-center justify-between gap-3 border-b border-line py-2.5 last:border-0">
+          <Link
+            to="/teams/$slug"
+            params={{ slug: c.teamSlug }}
+            className="flex min-h-11 items-center gap-2.5"
+          >
+            <TeamSwatch color={c.colorPrimary} />
+            <span>
+              <span className="block font-medium">{c.teamName}</span>
+              <span className="block text-xs text-muted">{c.conference}</span>
+            </span>
+          </Link>
+          <span className="tabular text-sm">{c.commits}</span>
+        </li>
+      ))}
+    </ul>
+  );
+}

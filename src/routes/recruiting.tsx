@@ -3,7 +3,9 @@ import { useMemo, useState } from "react";
 import { ConfPills, PageHead, Panel } from "@/components/shell";
 import { RankMove, RankNum, RankSpark, TeamMark } from "@/components/marks";
 import { inConf, parseConf, type ConfFilter } from "@/lib/cfb/conferences";
-import { listRecruiting } from "@/lib/cfb/queries";
+import { getStateDetail, listRecruiting, listStates } from "@/lib/cfb/queries";
+import { parseStateCode, StatesTab } from "@/components/states-tab";
+import { seo } from "@/lib/seo";
 import {
   COMPOSITE_SOURCE,
   compareAvgSort,
@@ -16,26 +18,98 @@ import type { RecruitingClass } from "@/lib/cfb/types";
 
 const YEARS = [2023, 2024, 2025, 2026] as const;
 
-type Search = { year?: number; board?: "class" | "cycle"; conf?: ConfFilter };
+type Search = {
+  year?: number;
+  board?: "class" | "cycle";
+  conf?: ConfFilter;
+  tab?: "states";
+  code?: string;
+};
 type SortKey = "compositeRank" | "commits" | "avgRating" | "points" | "delta";
 
 export const Route = createFileRoute("/recruiting")({
   validateSearch: (s: Record<string, unknown>): Search => {
     const y = Number(s.year);
     const year = YEARS.includes(y as (typeof YEARS)[number]) ? y : 2026;
+    if (s.tab === "states") return { tab: "states", code: parseStateCode(s.code) };
     return {
       year,
       board: s.board === "cycle" ? "cycle" : "class",
       conf: parseConf(s.conf),
     };
   },
-  loader: () => listRecruiting(),
-  component: RecruitingPage,
-  head: () => ({ meta: [{ title: "Composite Recruiting · HASHMARK" }] }),
+  loaderDeps: ({ search }) => ({
+    tab: search.tab === "states" ? ("states" as const) : undefined,
+    code: parseStateCode(search.code),
+  }),
+  loader: async ({ deps }) => {
+    if (deps.tab === "states") {
+      const [states, detail] = await Promise.all([listStates(), getStateDetail({ data: { code: deps.code } })]);
+      return { rows: [], states: { states, detail, code: deps.code } };
+    }
+    return { rows: await listRecruiting(), states: null };
+  },
+  component: RecruitingRoute,
+  head: () =>
+    seo({
+      path: "/recruiting",
+      title: "Composite Recruiting · Classes, cycle and pipelines by state · HASHMARK",
+      description:
+        "247Sports Composite recruiting classes for every FBS program, 2023–2026, the four-year cycle board, and recruiting pipelines by state.",
+    }),
 });
 
-function RecruitingPage() {
-  const rows = Route.useLoaderData();
+function RecruitingTabs({ active }: { active: "classes" | "states" }) {
+  const base = "inline-flex h-10 items-center rounded-full px-4 text-sm";
+  return (
+    <div className="mb-6 flex gap-2" role="tablist">
+      <Link
+        to="/recruiting"
+        role="tab"
+        aria-selected={active === "classes"}
+        className={cn(base, active === "classes" ? "bg-accent text-accent-fg" : "bg-raised text-muted hover:text-fg")}
+      >
+        Classes
+      </Link>
+      <Link
+        to="/recruiting"
+        search={{ tab: "states" }}
+        role="tab"
+        aria-selected={active === "states"}
+        className={cn(base, active === "states" ? "bg-accent text-accent-fg" : "bg-raised text-muted hover:text-fg")}
+      >
+        By state
+      </Link>
+    </div>
+  );
+}
+
+function RecruitingRoute() {
+  const data = Route.useLoaderData();
+  const navigate = Route.useNavigate();
+  if (data.states) {
+    const st = data.states;
+    return (
+      <div>
+        <PageHead
+          kicker="Pipelines"
+          title="Recruiting by state"
+          lede="Where the 2026 class comes from, which FBS programs live there, and who is harvesting the state."
+        />
+        <RecruitingTabs active="states" />
+        <StatesTab
+          states={st.states}
+          detail={st.detail}
+          code={st.code}
+          onSelect={(code) => navigate({ search: { tab: "states", code } })}
+        />
+      </div>
+    );
+  }
+  return <RecruitingPage rows={data.rows} />;
+}
+
+function RecruitingPage({ rows }: { rows: RecruitingClass[] }) {
   const year = Route.useSearch().year ?? 2026;
   const board = Route.useSearch().board ?? "class";
   const conf = Route.useSearch().conf ?? "All";
@@ -89,6 +163,8 @@ function RecruitingPage() {
         title={board === "cycle" ? "Four-year cycle" : `Class of ${year}`}
         lede="Incoming high-school classes only. Class avg is the mean of rated 247 Composite decimals (×100) — unrated (NA) commits are dropped from the average, never from points. Points are 247 Composite. Frozen with the Week 0 board. This is not roster talent — transfers sit on the talent board."
       />
+
+      <RecruitingTabs active="classes" />
 
       <div className="mb-6 grid grid-cols-2 gap-2 sm:grid-cols-5">
         {YEARS.map((y) => {

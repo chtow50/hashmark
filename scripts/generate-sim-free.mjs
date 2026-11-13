@@ -1,14 +1,12 @@
 #!/usr/bin/env node
 /**
- * Free-tier sim exports — win_title is Edge Pack / paid only.
+ * Free sim export — win_title is never published.
  *
- * Client code must never import the full AMD sim (data/sim_10k_2026_hx2026_8.json)
- * or the full Scenario Sim golden response: both carry win_title, and anything a
- * route imports is bundled into the public static/assets/*.js.
+ * Client code must never import the full sim (data/sim_10k_2026_hx2026_8.json): it
+ * carries win_title, and anything a route imports is bundled into static/assets/*.js.
  *
  * This script derives the free exports the client is allowed to import:
  *   data/sim_free_hx2026_8.json                    ← sim_10k_2026_hx2026_8.json
- *   data/scenario_sim_golden_response_free.json    ← scenario_sim_golden_response.json
  *
  * Kept fields only (allow-list, not a deny-list) — numbers are copied verbatim,
  * never re-rounded. Runs before `vite build`; `--check` exits 1 when a committed
@@ -22,10 +20,8 @@ const ROOT = join(import.meta.dirname, "..");
 
 export const SIM_FULL_PATH = "data/sim_10k_2026_hx2026_8.json";
 export const SIM_FREE_PATH = "data/sim_free_hx2026_8.json";
-export const SCENARIO_FULL_PATH = "data/scenario_sim_golden_response.json";
-export const SCENARIO_FREE_PATH = "data/scenario_sim_golden_response_free.json";
 
-/** Fields the free board / free team page / Scenario Sim preview already show. */
+/** Fields the board and team pages show. */
 export const SIM_FREE_TEAM_FIELDS = [
   "name",
   "slug",
@@ -42,7 +38,6 @@ export const SIM_FREE_META_FIELDS = [
   "hx_stamp",
   "hx_policy",
 ];
-export const SCENARIO_FREE_METRIC_FIELDS = ["make_field", "proj_wins", "conf_title"];
 
 function pick(obj, keys) {
   const out = {};
@@ -62,23 +57,6 @@ export function buildSimFree(full) {
   };
 }
 
-function freeMetricsMap(map) {
-  const out = {};
-  for (const [slug, m] of Object.entries(map ?? {})) {
-    out[slug] = pick(m, SCENARIO_FREE_METRIC_FIELDS);
-  }
-  return out;
-}
-
-export function buildScenarioFree(full) {
-  return {
-    ...full,
-    baseline: freeMetricsMap(full.baseline),
-    scenario: freeMetricsMap(full.scenario),
-    delta: freeMetricsMap(full.delta),
-  };
-}
-
 function readJson(rel) {
   return JSON.parse(readFileSync(join(ROOT, rel), "utf8"));
 }
@@ -90,10 +68,6 @@ function serialize(obj) {
 export function freeExports() {
   return [
     { path: SIM_FREE_PATH, body: serialize(buildSimFree(readJson(SIM_FULL_PATH))) },
-    {
-      path: SCENARIO_FREE_PATH,
-      body: serialize(buildScenarioFree(readJson(SCENARIO_FULL_PATH))),
-    },
   ];
 }
 

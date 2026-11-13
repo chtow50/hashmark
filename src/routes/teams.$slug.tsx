@@ -1,4 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { seo } from "@/lib/seo";
 import { HxResultsPanel } from "@/components/hx-results";
 import { PageHead, Panel } from "@/components/shell";
 import { DeltaChip, MixBar, RankMove, Stat, TeamMark } from "@/components/marks";
@@ -19,9 +20,14 @@ export const Route = createFileRoute("/teams/$slug")({
     return data;
   },
   component: TeamPage,
-  head: ({ loaderData }) => ({
-    meta: [{ title: loaderData ? `${loaderData.team.name} · HASHMARK` : "Team · HASHMARK" }],
-  }),
+  head: ({ loaderData, params }) =>
+    seo({
+      path: `/teams/${params.slug}`,
+      title: loaderData ? `${loaderData.team.name} ${loaderData.team.mascot} · HX rating, schedule, stats · HASHMARK` : "Team · HASHMARK",
+      description: loaderData
+        ? `${loaderData.team.name}: HX rank #${loaderData.team.hxRank}, record, schedule with HX spreads, playoff make-field odds, and HX vs results.`
+        : "HASHMARK team page.",
+    }),
 });
 
 function TeamPage() {

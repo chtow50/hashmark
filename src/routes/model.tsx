@@ -1,12 +1,19 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHead, Panel } from "@/components/shell";
+import { seo } from "@/lib/seo";
 import { MODEL } from "@/lib/cfb/model";
 import backtest from "../../data/hx_2026_8_backtest_2026.json" with { type: "json" };
 import refit from "../../data/hx_refit_2026.json" with { type: "json" };
 
 export const Route = createFileRoute("/model")({
   component: ModelPage,
-  head: () => ({ meta: [{ title: "The Model · HASHMARK" }] }),
+  head: () =>
+    seo({
+      path: "/model",
+      title: "How HX is built · The Model · HASHMARK",
+      description:
+        "How HASHMARK's single college football rating, HX, is built: preseason prior, weekly in-season refit from FINALs, the matchup engine, measured accountability, and the glossary.",
+    }),
 });
 
 const WEIGHTS = [
@@ -121,7 +128,77 @@ spread  = 0.050835 × d
           </p>
         </div>
       </Panel>
+
+      <DeskSection />
     </div>
+  );
+}
+
+const GLOSSARY = [
+  {
+    term: "HX",
+    def: "The HASHMARK Index. One number for every FBS team, built from a preseason prior (recruiting talent, last year’s SP+/Elo/SRS, four-year win trend, returning production, portal net) and refit every week from this season’s results. A replacement-level Group of Five team sits near 0.",
+  },
+  {
+    term: "Make 12",
+    def: "Chance a team makes the 12-team College Football Playoff field, from 10,000 season simulations seeded by HX. Not a national-title odds number.",
+  },
+  {
+    term: "Closer / SU",
+    def: "Straight-up (SU) is who HX picked to win. Closer is whether the HASHMARK spread was nearer the final margin than the Vegas close, graded only on games with a stamped close. The weekly tape on the board carries the current counts.",
+  },
+  {
+    term: "Vegas-only",
+    def: "An FCS opponent is outside the HX board. HASHMARK will not invent a spread. The row shows the market number only.",
+  },
+  {
+    term: "Talent vs size",
+    def: "Roster talent is a two-deep composite (high-school plus portal). OL mass is a separate size board. Size is not talent and is not an HX term.",
+  },
+] as const;
+
+/** Formerly /desk: what the site is, what it is not, and the glossary. */
+function DeskSection() {
+  return (
+    <section id="desk" className="mt-6 scroll-mt-24 space-y-6">
+      <div className="grid gap-6 lg:grid-cols-2">
+        <Panel>
+          <h2 className="font-display text-2xl tracking-wide">What this is</h2>
+          <p className="mt-3 text-sm leading-relaxed text-muted">
+            HASHMARK is a public college football ratings desk. One rating, every FBS team. The board,
+            slate, matchup engine, stats, recruiting classes, and roster talent are here every week of the
+            season so you can see why a number moved — or why it did not. The model is scored in public on
+            the weekly tape.
+          </p>
+        </Panel>
+        <Panel>
+          <h2 className="font-display text-2xl tracking-wide">What this is not</h2>
+          <ul className="mt-3 space-y-2 text-sm leading-relaxed text-muted">
+            <li>Not a sportsbook. HASHMARK never takes a wager.</li>
+            <li>Not a live in-game feed.</li>
+            <li>Not an FCS rating. Those games are Vegas-only.</li>
+            <li>Not the AP poll. Gaps versus AP are a feature of the board, not a bug.</li>
+          </ul>
+          <p className="mt-4 text-sm text-muted">
+            Questions or corrections:{" "}
+            <a href="mailto:hello@hashmarkcfb.com" className="text-fg hover:underline">
+              hello@hashmarkcfb.com
+            </a>
+          </p>
+        </Panel>
+      </div>
+      <Panel>
+        <h2 className="font-display text-2xl tracking-wide">Glossary</h2>
+        <dl className="mt-4 divide-y divide-line">
+          {GLOSSARY.map((row) => (
+            <div key={row.term} className="grid gap-2 py-4 sm:grid-cols-[8rem_1fr] sm:gap-6">
+              <dt className="font-mono text-xs uppercase tracking-[0.14em] text-faint">{row.term}</dt>
+              <dd className="text-sm leading-relaxed text-muted">{row.def}</dd>
+            </div>
+          ))}
+        </dl>
+      </Panel>
+    </section>
   );
 }
 

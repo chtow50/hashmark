@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { seo } from "@/lib/seo";
 import { useMemo, useState, type ReactNode } from "react";
 import { ConfPills, PageHead, Panel } from "@/components/shell";
 import { DeltaChip, RankNum, TeamMark } from "@/components/marks";
@@ -20,7 +21,13 @@ export const Route = createFileRoute("/rankings")({
   },
   loader: () => listTeams(),
   component: RankingsPage,
-  head: () => ({ meta: [{ title: "HX Rankings · HASHMARK" }] }),
+  head: () =>
+    seo({
+      path: "/rankings",
+      title: "HX Rankings · all FBS teams · HASHMARK",
+      description:
+        "Every FBS team ranked by HX, refit weekly from results, with AP and CFP ranks, offense/defense, projected wins and playoff make-field odds.",
+    }),
 });
 
 type SortKey =

@@ -1,11 +1,17 @@
 import { createFileRoute, Link, Outlet, useChildMatches } from "@tanstack/react-router";
+import { seo } from "@/lib/seo";
 import { PageHead, Panel } from "@/components/shell";
 import { listStories, WEEK0_SLATE, type SlateHx } from "@/lib/cfb/stories";
 
 export const Route = createFileRoute("/stories")({
   loader: () => listStories(),
   component: StoriesPage,
-  head: () => ({ meta: [{ title: "Stories · HASHMARK" }] }),
+  head: () =>
+    seo({
+      path: "/stories",
+      title: "Stories · HASHMARK",
+      description: "HASHMARK game notes and weekly tapes from the 2026 college football season.",
+    }),
 });
 
 function hxLabel(side: SlateHx) {
