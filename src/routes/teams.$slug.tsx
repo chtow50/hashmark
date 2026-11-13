@@ -3,6 +3,7 @@ import { seo } from "@/lib/seo";
 import { HxResultsPanel } from "@/components/hx-results";
 import { PageHead, Panel } from "@/components/shell";
 import { PinButton } from "@/components/pin";
+import { confRaceFor, fmtOdds, parseRaceConf } from "@/lib/cfb/conf-races";
 import { MixBar, RankMove, Stat, TeamMark } from "@/components/marks";
 import { RosterList } from "@/components/roster-duel";
 import { RemainingScheduleSection, SeasonScheduleSection } from "@/components/season-sim";
@@ -41,6 +42,7 @@ function TeamPage() {
   const share = modelShare(team);
   // Free team page: make-field only; win_title is never published on free surfaces.
   const make12 = make12FreeFromSim(team.slug, team);
+  const race = confRaceFor(team.slug);
   const remaining = buildRemainingSchedule(team.slug, games);
   const season = buildSeasonSchedule(team.slug, games);
 
@@ -73,6 +75,24 @@ function TeamPage() {
             />
           </div>
         </div>
+        {race && race.conf_title != null && parseRaceConf(team.conference) ? (
+          <p className="mt-4 border-t border-line pt-3 text-sm text-muted">
+            {team.conference} race:{" "}
+            {race.make_ccg != null ? (
+              <>
+                <span className="tabular text-fg">{fmtOdds(race.make_ccg)}</span> to reach the title game,{" "}
+              </>
+            ) : null}
+            <span className="tabular text-fg">{fmtOdds(race.conf_title)}</span> to win the league.{" "}
+            <Link
+              to="/conferences"
+              search={team.conference === "SEC" ? {} : { conf: parseRaceConf(team.conference) }}
+              className="underline underline-offset-4 hover:text-fg"
+            >
+              Full race
+            </Link>
+          </p>
+        ) : null}
       </Panel>
 
       <nav

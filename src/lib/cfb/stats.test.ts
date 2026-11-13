@@ -114,3 +114,27 @@ describe("chart labels and CSV", () => {
     assert.equal(toCsv(["a", "b"], [["x,y", 'say "hi"'], [null, 3]]), 'a,b\n"x,y","say ""hi"""\n,3\n');
   });
 });
+
+describe("conference races data", () => {
+  const races = JSON.parse(readFileSync(join(root, "data/conf_races_2026.json"), "utf8"));
+  const sim = JSON.parse(readFileSync(join(root, "data/sim_10k_2026_hx2026_8.json"), "utf8"));
+  it("never carries national title odds", () => {
+    assert.doesNotMatch(JSON.stringify(races), /win_title/);
+  });
+  it("uses the same draws as the 10k sim (conf_title identical) and sums per league", () => {
+    const simBy = new Map(sim.teams.map((t: { slug: string; conf_title: number }) => [t.slug, t.conf_title]));
+    const sums = new Map<string, { ccg: number; title: number }>();
+    for (const t of races.teams) {
+      if (t.conference !== "Independent") assert.equal(t.conf_title, simBy.get(t.slug), t.slug);
+      const s = sums.get(t.conference) ?? { ccg: 0, title: 0 };
+      s.ccg += t.make_ccg ?? 0;
+      s.title += t.conf_title ?? 0;
+      sums.set(t.conference, s);
+    }
+    for (const [c, s] of sums) {
+      if (c === "Independent") continue;
+      assert.ok(Math.abs(s.title - 100) < 0.05, `${c} title ${s.title}`);
+      if (c !== "Pac-12") assert.ok(Math.abs(s.ccg - 200) < 0.05, `${c} ccg ${s.ccg}`);
+    }
+  });
+});
