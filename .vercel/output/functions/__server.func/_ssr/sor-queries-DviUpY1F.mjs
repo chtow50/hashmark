@@ -1,9 +1,9 @@
 import { i as toElo, t as MODEL } from "./model-C--_NYY0.mjs";
 import { t as createServerFn } from "./ssr.mjs";
 import { t as createServerRpc } from "./createServerRpc-A6pJPYTF.mjs";
-import { t as getSql } from "./db-CvLYD4PV.mjs";
+import { t as getSql } from "./db-DGWBLejr.mjs";
 import { r as fcsStubIsFinal, t as FCS_STUB_GAMES } from "./fcs-stubs-BauL-2kD.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/sor-queries-BPV3ysNm.js
+//#region node_modules/.nitro/vite/services/ssr/assets/sor-queries-DviUpY1F.js
 /**
 * Strength of Record (SOR) and strength of schedule (SOS), from current HX and the actual
 * schedule. Pure; the server function feeds it games, FCS stubs, and the board.

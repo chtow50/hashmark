@@ -1,10 +1,10 @@
 import { t as createServerFn } from "./ssr.mjs";
 import { a as hashmarkWeekFromRow } from "./queries-Dk--NEHa.mjs";
 import { t as createServerRpc } from "./createServerRpc-A6pJPYTF.mjs";
-import { t as getSql } from "./db-CvLYD4PV.mjs";
+import { t as getSql } from "./db-DGWBLejr.mjs";
 import { n as rollup, t as gradeGame } from "./accuracy-CSXu7Sam.mjs";
 import { r as fcsStubIsFinal, t as FCS_STUB_GAMES } from "./fcs-stubs-BauL-2kD.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/accuracy-queries-B5c0ATs_.js
+//#region node_modules/.nitro/vite/services/ssr/assets/accuracy-queries-KR7h0LWK.js
 var getAccuracy_createServerFn_handler = createServerRpc({
 	id: "f10099cdbad71a91021c2c6930a843871be7cb7eba78087d6bf15e538a9f257b",
 	name: "getAccuracy",
