@@ -3,12 +3,12 @@ import { seo } from "@/lib/seo";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useMemo } from "react";
 import { ConfPills, PageHead, Panel } from "@/components/shell";
-import { DeskChip, TeamMark } from "@/components/marks";
+import { DeskChip, LineStat, TeamMark } from "@/components/marks";
 import { Button } from "@/components/ui/button";
 import { formatKickCt, formatKickDayTitle, todayChicago } from "@/lib/cfb/chicago";
 import { type ConfFilter, parseConf } from "@/lib/cfb/conferences";
 import { defaultWeek } from "@/lib/cfb/default-week";
-import { favoriteLine, featuredBook, formatVegas, selectWeekScopedFeatured } from "@/lib/cfb/featured";
+import { favoriteLine, featuredBook, selectWeekScopedFeatured, vegasParts } from "@/lib/cfb/featured";
 import { predictMatchup } from "@/lib/cfb/model";
 import { HASHMARK_MAX_WEEK, listScheduleWeek, listTeams } from "@/lib/cfb/queries";
 import {
@@ -231,16 +231,12 @@ function WeekScopedFeatured({ game: g }: { game: ScheduleGame }) {
         {g.tv ? ` · ${g.tv}` : ""}
       </p>
       <div className="mt-4 grid grid-cols-2 gap-3">
-        <div>
-          <div className="text-[11px] uppercase tracking-[0.14em] text-faint">HASHMARK</div>
-          <div className="mt-1 font-display text-xl tabular leading-none">{hxLine}</div>
-        </div>
-        <div>
-          <div className="text-[11px] uppercase tracking-[0.14em] text-faint">Vegas</div>
-          <div className="mt-1 font-display text-xl tabular leading-none">
-            {book && bookLine ? `${bookLine} · O/U ${book.total}` : "—"}
-          </div>
-        </div>
+        <LineStat label="HASHMARK" value={hxLine} />
+        <LineStat
+          label={book?.label ?? "Vegas"}
+          value={book && bookLine ? bookLine : null}
+          sub={book && book.total !== "—" ? `O/U ${book.total}` : book ? "Total not posted" : null}
+        />
       </div>
       <Button asChild variant="outline" size="sm" className="mt-4">
         <Link
@@ -313,9 +309,11 @@ function ScheduleRow({ game: g }: { game: ScheduleGame }) {
               {g.neutral ? "Neutral site" : null}
               {g.neutral && g.location ? " · " : null}
               {g.location}
-              {g.status === "final" && g.homeScore != null && g.awayScore != null
-                ? ` · ${g.awayShort} ${g.awayScore}–${g.homeScore} ${g.homeShort}`
-                : null}
+            </p>
+            <p className="mt-0.5 font-mono text-xs tabular text-muted sm:hidden">
+              {formatKickDayTitle(g.kickoffAt, g.kickoffDate)}
+              {g.kickoffAt ? ` · ${formatKickCt(g.kickoffAt)}` : ""}
+              {g.tv ? ` · ${g.tv}` : ""}
             </p>
             {flip && hxLine ? (
               <p className="mt-1 text-sm text-warn">
@@ -323,7 +321,7 @@ function ScheduleRow({ game: g }: { game: ScheduleGame }) {
               </p>
             ) : null}
           </div>
-          <p className="shrink-0 text-right font-mono text-sm tabular text-muted">
+          <p className="hidden shrink-0 text-right font-mono text-sm tabular text-muted sm:block">
             {formatKickDayTitle(g.kickoffAt, g.kickoffDate)}
             <br />
             {formatKickCt(g.kickoffAt)}
@@ -331,28 +329,22 @@ function ScheduleRow({ game: g }: { game: ScheduleGame }) {
           </p>
         </div>
 
-        <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
-          <StatBlock
+        <div className="mt-3 grid grid-cols-2 gap-3 sm:mt-4 sm:grid-cols-3">
+          <LineStat
             label="HASHMARK"
-            value={
-              vegasOnly
-                ? "—"
-                : hxLine && hxWin != null
-                  ? `${hxLine} · ${fmtPct(hxWin * 100, 1)}`
-                  : "—"
-            }
+            value={hxLine && hxWin != null ? hxLine : null}
+            sub={hxLine && hxWin != null ? `${fmtPct(hxWin * 100, 1)} to win` : null}
+            empty={vegasOnly ? "FCS opponent · unrated" : unrated ? "No pregame HX" : "Not rated"}
           />
-          <StatBlock
-            label="Vegas"
-            value={formatVegas(vegasLine, g.vegasTotal)}
-          />
+          <LineStat label="Vegas" {...vegasParts(vegasLine, g.vegasTotal)} />
           {g.status === "final" && g.homeScore != null && g.awayScore != null ? (
-            <StatBlock
+            <LineStat
               label="FINAL"
               value={`${g.awayShort} ${g.awayScore}–${g.homeScore} ${g.homeShort}`}
+              className="col-span-2 sm:col-span-1"
             />
           ) : (
-            <StatBlock
+            <LineStat
               label="Kick"
               value={g.tv ? `${formatKickCt(g.kickoffAt)} · ${g.tv}` : formatKickCt(g.kickoffAt)}
               className="hidden sm:block"
@@ -393,19 +385,3 @@ function ScheduleRow({ game: g }: { game: ScheduleGame }) {
   );
 }
 
-function StatBlock({
-  label,
-  value,
-  className,
-}: {
-  label: string;
-  value: string;
-  className?: string;
-}) {
-  return (
-    <div className={className}>
-      <div className="text-[11px] uppercase tracking-[0.14em] text-faint">{label}</div>
-      <div className="mt-1 font-display text-xl tabular leading-none text-fg sm:text-2xl">{value}</div>
-    </div>
-  );
-}

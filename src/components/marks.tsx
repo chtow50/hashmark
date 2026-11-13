@@ -301,3 +301,36 @@ export function WinBar({
     </div>
   );
 }
+
+/**
+ * One labeled line/number cell (HASHMARK, Vegas, FINAL). A missing value renders as a quiet
+ * phrase ("No line posted") instead of a bare dash that reads like a failed load.
+ */
+export function LineStat({
+  label,
+  value,
+  sub,
+  empty = "No line posted",
+  className,
+}: {
+  label: string;
+  value: string | null;
+  sub?: string | null;
+  empty?: string;
+  className?: string;
+}) {
+  return (
+    <div className={cn("min-w-0", className)}>
+      <div className="text-[11px] uppercase tracking-[0.14em] text-faint">{label}</div>
+      {value ? (
+        <>
+          <div className="mt-1 font-display text-lg tabular leading-tight text-fg sm:text-2xl sm:leading-none">{value}</div>
+          {sub ? <div className="mt-0.5 text-xs tabular text-muted sm:mt-1">{sub}</div> : null}
+        </>
+      ) : (
+        <div className="mt-1.5 text-sm text-muted">{empty}</div>
+      )}
+    </div>
+  );
+}
+

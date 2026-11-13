@@ -12,13 +12,17 @@ const ROWS: (string | null)[][] = [
   [null, null, null, "TX", null, null, null, "FL", null, "AK", "HI"],
 ];
 
-function tone(index: number, max: number) {
-  const t = max <= 0 ? 0 : index / max;
-  if (t < 0.08) return "bg-raised text-faint";
-  if (t < 0.25) return "bg-heat-1 text-muted";
-  if (t < 0.5) return "bg-heat-2 text-muted";
-  if (t < 0.75) return "bg-heat-3 text-fg";
-  return "bg-accent text-accent-fg";
+const TONES = ["bg-raised text-faint", "bg-heat-1 text-muted", "bg-heat-2 text-muted", "bg-heat-3 text-fg", "bg-accent text-accent-fg"];
+
+/**
+ * Quintile by rank among states with any tracked talent (index > 0). Scaling by the max put most
+ * states in the top band, so the map carried little information.
+ */
+function toneFor(index: number, sorted: number[]) {
+  if (index <= 0 || sorted.length === 0) return TONES[0];
+  const below = sorted.filter((v) => v < index).length;
+  const q = Math.min(3, Math.floor((below / sorted.length) * 4));
+  return TONES[q + 1];
 }
 
 export function StateMosaic({
@@ -31,7 +35,7 @@ export function StateMosaic({
   onSelect: (code: string) => void;
 }) {
   const byCode = new Map(states.map((s) => [s.code, s]));
-  const max = Math.max(...states.map((s) => s.talentIndex), 1);
+  const sorted = states.map((s) => s.talentIndex).filter((v) => v > 0).sort((a, b) => a - b);
 
   return (
     <div className="overflow-x-auto">
@@ -51,7 +55,7 @@ export function StateMosaic({
                 title={st ? `${st.name} · talent ${st.talentIndex}` : code}
                 className={cn(
                   "aspect-square rounded-md text-[10px] font-medium tabular transition-[box-shadow,transform] duration-150 sm:text-xs",
-                  tone(st?.talentIndex ?? 0, max),
+                  toneFor(st?.talentIndex ?? 0, sorted),
                   active && "ring-2 ring-fg ring-offset-1 ring-offset-bg",
                 )}
               >
@@ -60,6 +64,15 @@ export function StateMosaic({
             );
           }),
         )}
+      </div>
+      <div className="mt-3 flex items-center gap-2 text-xs text-muted" aria-hidden>
+        <span>Less talent</span>
+        {TONES.slice(1).map((t) => (
+          <span key={t} className={cn("h-3 w-6 rounded-sm", t.split(" ")[0])} />
+        ))}
+        <span>More (quartiles of states)</span>
+        <span className={cn("ml-2 h-3 w-6 rounded-sm", TONES[0].split(" ")[0])} />
+        <span>None tracked</span>
       </div>
     </div>
   );

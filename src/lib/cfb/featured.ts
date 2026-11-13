@@ -373,6 +373,13 @@ export function formatVegas(line: string | null, total: number | null): string {
   return `${line} · O/U ${total.toFixed(1)}`;
 }
 
+/** Vegas cell parts: favorite line as the value, total underneath; null when nothing is stamped. */
+export function vegasParts(line: string | null, total: number | null): { value: string | null; sub: string | null } {
+  if (line) return { value: line, sub: total != null ? `O/U ${total.toFixed(1)}` : null };
+  if (total != null) return { value: `O/U ${total.toFixed(1)}`, sub: null };
+  return { value: null, sub: null };
+}
+
 /** Same-favorite gap vs the current book. Null when sides disagree or no book. */
 export function spreadGap(hxSpread: number, bookSpread: number): number | null {
   if (Math.abs(hxSpread) < 0.05 || Math.abs(bookSpread) < 0.05) return null;
