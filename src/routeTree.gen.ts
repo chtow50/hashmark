@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ConferencesRouteImport } from './routes/conferences'
 import { Route as DeskRouteImport } from './routes/desk'
 import { Route as EdgeRouteImport } from './routes/edge'
 import { Route as LogosRouteImport } from './routes/logos'
@@ -29,6 +30,11 @@ import { Route as TeamsSlugRouteImport } from './routes/teams.$slug'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConferencesRoute = ConferencesRouteImport.update({
+  id: '/conferences',
+  path: '/conferences',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DeskRoute = DeskRouteImport.update({
@@ -109,6 +115,7 @@ const TeamsSlugRoute = TeamsSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/conferences': typeof ConferencesRoute
   '/desk': typeof DeskRoute
   '/edge': typeof EdgeRouteWithChildren
   '/logos': typeof LogosRoute
@@ -127,6 +134,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/conferences': typeof ConferencesRoute
   '/desk': typeof DeskRoute
   '/edge': typeof EdgeRouteWithChildren
   '/logos': typeof LogosRoute
@@ -146,6 +154,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/conferences': typeof ConferencesRoute
   '/desk': typeof DeskRoute
   '/edge': typeof EdgeRouteWithChildren
   '/logos': typeof LogosRoute
@@ -166,6 +175,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/conferences'
     | '/desk'
     | '/edge'
     | '/logos'
@@ -184,6 +194,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/conferences'
     | '/desk'
     | '/edge'
     | '/logos'
@@ -202,6 +213,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/conferences'
     | '/desk'
     | '/edge'
     | '/logos'
@@ -221,6 +233,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ConferencesRoute: typeof ConferencesRoute
   DeskRoute: typeof DeskRoute
   EdgeRoute: typeof EdgeRouteWithChildren
   LogosRoute: typeof LogosRoute
@@ -244,6 +257,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/conferences': {
+      id: '/conferences'
+      path: '/conferences'
+      fullPath: '/conferences'
+      preLoaderRoute: typeof ConferencesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/desk': {
@@ -366,6 +386,7 @@ const EdgeRouteWithChildren = EdgeRoute._addFileChildren(EdgeRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ConferencesRoute: ConferencesRoute,
   DeskRoute: DeskRoute,
   EdgeRoute: EdgeRouteWithChildren,
   LogosRoute: LogosRoute,

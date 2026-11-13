@@ -151,8 +151,10 @@ export function simulate({ hx, teams, locked, remaining }, { nSims = N_SIMS, see
   const regular = remaining.filter((g) => g.week < 15);
   const post = remaining.filter((g) => g.week >= 15);
 
-  const mf = {}, wt = {}, ct = {}, sw = {};
-  for (const s of slugs) { mf[s] = 0; wt[s] = 0; ct[s] = 0; sw[s] = 0; }
+  // ccg = reached the conference title game; scw/scl = simulated conference W/L (regular season).
+  // These counters read the draws but never consume the RNG, so every other number is unchanged.
+  const mf = {}, wt = {}, ct = {}, sw = {}, ccg = {}, scw = {}, scl = {};
+  for (const s of slugs) { mf[s] = 0; wt[s] = 0; ct[s] = 0; sw[s] = 0; ccg[s] = 0; scw[s] = 0; scl[s] = 0; }
 
   const play = (rec, g) => {
     if (g.fcs) {
@@ -183,6 +185,7 @@ export function simulate({ hx, teams, locked, remaining }, { nSims = N_SIMS, see
         return 0;
       });
       const a = ranked[0][0], b = ranked[1][0];
+      ccg[a]++; ccg[b]++;
       const winner = rand() < pGame(a, b, true) ? a : b;
       rec.w[winner]++; rec.l[winner === a ? b : a]++;
       champ[winner] = true;
@@ -199,6 +202,7 @@ export function simulate({ hx, teams, locked, remaining }, { nSims = N_SIMS, see
         champ[aWins ? a : b] = true;
       }
     }
+    for (const t of slugs) { scw[t] += rec.cw[t]; scl[t] += rec.cl[t]; }
     for (const g of post) play(rec, { ...g, countConf: false });
     for (const t of slugs) { sw[t] += rec.w[t]; if (champ[t]) ct[t]++; }
 
@@ -218,7 +222,12 @@ export function simulate({ hx, teams, locked, remaining }, { nSims = N_SIMS, see
     wt[champion]++;
   }
   const pct = (x) => Math.round((10000 * x) / nSims) / 100;
-  return Object.fromEntries(slugs.map((t) => [t, { make_field: pct(mf[t]), win_title: pct(wt[t]), conf_title: pct(ct[t]), proj_wins: Math.round((1000 * sw[t]) / nSims) / 1000 }]));
+  const avg = (x) => Math.round((1000 * x) / nSims) / 1000;
+  return Object.fromEntries(slugs.map((t) => [t, {
+    make_field: pct(mf[t]), win_title: pct(wt[t]), conf_title: pct(ct[t]), proj_wins: avg(sw[t]),
+    make_ccg: CCG_CONFS.has(conf[t]) ? pct(ccg[t]) : null,
+    conf_w_now: base.cw[t], conf_l_now: base.cl[t], proj_conf_w: avg(scw[t]), proj_conf_l: avg(scl[t]),
+  }]));
 }
 
 function chicagoYmd(d = new Date()) {

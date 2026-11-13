@@ -13,6 +13,7 @@ const NAV = [
   { to: "/schedule", label: "Schedule" },
   { to: "/rankings", label: "Rankings" },
   { to: "/stats", label: "Stats" },
+  { to: "/conferences", label: "Races" },
   { to: "/matchup", label: "Matchup" },
   { to: "/recruiting", label: "Recruiting" },
   { to: "/talent", label: "Talent" },
