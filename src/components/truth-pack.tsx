@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Panel } from "@/components/shell";
 import { TeamLink } from "@/components/marks";
-import { AP_STAMP, BOARD_WEEK } from "@/lib/cfb/featured";
+import { AP_STAMP } from "@/lib/cfb/featured";
 import {
   odTermLabel,
   type BoardGapRow,
@@ -18,7 +18,7 @@ export function DisagreementCard({ rows }: { rows: BoardGapRow[] }) {
     <Panel>
       <h2 className="font-display text-2xl tracking-wide">Where HX disagrees</h2>
       <p className="mt-1 mb-4 text-sm text-muted">
-        Largest gaps versus {AP_STAMP.vsHx} — HX is Week {BOARD_WEEK}. Not the preseason ballot.
+        Largest gaps versus {AP_STAMP.vsHx}, against the current HX board (refit weekly).
       </p>
       <ul>
         {rows.map((row) => (
@@ -39,7 +39,9 @@ export function DisagreementCard({ rows }: { rows: BoardGapRow[] }) {
                   row.delta > 0 ? "text-up" : row.delta < 0 ? "text-down" : "text-muted",
                 )}
               >
-                {row.delta > 0 ? `HX +${row.delta}` : `HX ${row.delta}`}
+                {row.delta === 0
+                  ? "Even"
+                  : `${Math.abs(row.delta)} ${Math.abs(row.delta) === 1 ? "spot" : "spots"} ${row.delta > 0 ? "higher" : "lower"} on HX`}
               </div>
               <div className="text-[11px] tabular text-faint">
                 AP {row.ap} · HX {row.hx}
@@ -152,7 +154,10 @@ export function AccountabilityCard({
         </div>
       </div>
       <p className="mt-4 text-sm text-muted">
-        Slate MAE HX {fmtNum(tape.mae_hx, 2)} / Vegas {fmtNum(tape.mae_vegas, 2)}. ATS {tape.hx_ats}.
+        {tape.lined
+          ? `MAE on the ${tape.lined.n} Vegas-lined cards: HX ${fmtNum(tape.lined.mae_hx, 2)} / Vegas ${fmtNum(tape.lined.mae_vegas, 2)}. Full-slate HX MAE ${fmtNum(tape.mae_hx, 2)} (n=${tape.n}).`
+          : `Slate MAE HX ${fmtNum(tape.mae_hx, 2)} / Vegas ${fmtNum(tape.mae_vegas, 2)}.`}{" "}
+        ATS {tape.hx_ats}.
         Vegas closer {tape.vegas_closer}.
         {top25.mae_hx != null && top25.mae_vegas != null
           ? ` Top 25 MAE HX ${fmtNum(top25.mae_hx, 2)} / Vegas ${fmtNum(top25.mae_vegas, 2)}.`

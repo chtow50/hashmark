@@ -4,7 +4,7 @@ import { useMemo, useState, type ReactNode } from "react";
 import { ConfPills, PageHead, Panel } from "@/components/shell";
 import { DeltaChip, RankNum, TeamMark } from "@/components/marks";
 import { inConf, parseConf, type ConfFilter } from "@/lib/cfb/conferences";
-import { BOARD_WEEK, AP_STAMP } from "@/lib/cfb/featured";
+import { BOARD_WEEK, AP_STAMP, CFP_STAMP } from "@/lib/cfb/featured";
 import { MODEL } from "@/lib/cfb/model";
 import { listTeams } from "@/lib/cfb/queries";
 import { formatSeasonRecord } from "@/lib/cfb/season-record";
@@ -34,6 +34,7 @@ type SortKey =
   | "hxRank"
   | "hxRating"
   | "apRank"
+  | "cfpRank"
   | "projectedWins"
   | "makeField"
   | "talentScore"
@@ -43,6 +44,7 @@ const MOBILE_SORTS: { key: SortKey; label: string }[] = [
   { key: "hxRank", label: "HX" },
   { key: "hxRating", label: "Rating" },
   { key: "apRank", label: "AP" },
+  { key: "cfpRank", label: "CFP" },
   { key: "makeField", label: "Make 12" },
 ];
 
@@ -143,6 +145,12 @@ function RankingsPage() {
                     {AP_STAMP.columnHint}
                   </span>
                 </Th>
+                <Th onClick={() => toggle("cfpRank")} active={sort === "cfpRank"} className="border-b border-line">
+                  <span className="block">CFP</span>
+                  <span className="mt-0.5 block text-[10px] font-normal normal-case tracking-[0.08em] text-faint">
+                    {CFP_STAMP.columnHint}
+                  </span>
+                </Th>
                 <Th onClick={() => toggle("hxRating")} active={sort === "hxRating"} className="border-b border-line">
                   Rating
                 </Th>
@@ -186,6 +194,7 @@ function RankingsPage() {
                     <div className="tabular">{t.apRank ?? "NR"}</div>
                     <DeltaChip hxRank={t.hxRank} apRank={t.apRank} />
                   </td>
+                  <td className="border-b border-line px-3 py-3 tabular">{t.cfpRank ?? <span className="text-faint">—</span>}</td>
                   <td className="border-b border-line px-3 py-3 tabular">{fmtNum(t.hxRating, 2)}</td>
                   <td className="hidden border-b border-line px-3 py-3 tabular text-muted md:table-cell">
                     {fmtNum(t.offenseRating, 1)} / {fmtNum(t.defenseRating, 1)}
@@ -228,7 +237,7 @@ function RankingCard({ team }: { team: TeamSummary }) {
           <div className="mt-1 text-[11px] uppercase tracking-[0.12em] text-faint">Rating</div>
         </div>
       </div>
-      <div className="mt-3 grid grid-cols-2 gap-3 border-t border-line pt-3">
+      <div className="mt-3 grid grid-cols-3 gap-3 border-t border-line pt-3">
         <div className="min-w-0">
           <div className="text-[11px] uppercase tracking-[0.12em] text-faint">
             AP · {AP_STAMP.columnHint}
@@ -237,6 +246,10 @@ function RankingCard({ team }: { team: TeamSummary }) {
             <span className="tabular text-fg">{team.apRank ?? "NR"}</span>
             <DeltaChip hxRank={team.hxRank} apRank={team.apRank} />
           </div>
+        </div>
+        <div className="min-w-0">
+          <div className="text-[11px] uppercase tracking-[0.12em] text-faint">CFP</div>
+          <div className="mt-1 tabular text-fg">{team.cfpRank ?? "—"}</div>
         </div>
         <div className="min-w-0 text-right">
           <div className="text-[11px] uppercase tracking-[0.12em] text-faint">Make 12</div>
@@ -249,6 +262,7 @@ function RankingCard({ team }: { team: TeamSummary }) {
 
 function value(t: TeamSummary, key: SortKey) {
   if (key === "apRank") return t.apRank ?? 99;
+  if (key === "cfpRank") return t.cfpRank ?? 99;
   if (key === "makeField") return make12FreeFromSim(t.slug, t).makeField ?? t.playoffOdds;
   return t[key];
 }

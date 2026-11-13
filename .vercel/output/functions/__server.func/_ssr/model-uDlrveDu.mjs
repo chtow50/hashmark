@@ -1,6 +1,6 @@
 import { t as MODEL } from "./chicago-ce7grsdn.mjs";
 import { w as require_jsx_runtime, x as Link } from "../_libs/@tanstack/react-router+[...].mjs";
-import { F as PageHead, I as Panel } from "./router-D6uNm0-7.mjs";
+import { I as PageHead, L as Panel } from "./router-e5L3vxAw.mjs";
 import { t as hx_refit_2026_default } from "./hx_refit_2026-CMY9_nt0.mjs";
 //#region node_modules/.nitro/vite/services/ssr/assets/model-uDlrveDu.js
 var import_jsx_runtime = require_jsx_runtime();

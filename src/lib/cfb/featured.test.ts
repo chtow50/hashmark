@@ -201,16 +201,16 @@ test("board chrome is Week 11; featured slate is the Week 11 pin", () => {
   assert.equal(MODEL.weekLabel, "Week 11 board");
 });
 
-test("AP chrome is the last stamped Week 10 poll (Nov. 1) under the Week 11 HX board", () => {
-  assert.equal(AP_STAMP.week, 10);
-  assert.equal(AP_STAMP.asOf, "Nov. 1");
-  assert.equal(AP_STAMP.label, "Week 10 AP");
-  assert.equal(AP_STAMP.columnHint, "W10 stamp");
+test("AP chrome is the last stamped Week 11 poll (Nov. 8); CFP is the Nov. 10 committee ranking", () => {
+  assert.equal(AP_STAMP.week, 11);
+  assert.equal(AP_STAMP.asOf, "Nov. 8");
+  assert.equal(AP_STAMP.label, "Week 11 AP");
+  assert.equal(AP_STAMP.columnHint, "W11 stamp");
   assert.equal(BOARD_WEEK, 11);
-  assert.match(AP_STAMP.vsHx, /Week 10, Nov\. 1/);
-  assert.match(AP_STAMP.lede, /HX is Week 11/);
-  assert.match(AP_STAMP.lede, /last stamped poll \(Week 10/);
-  assert.match(AP_STAMP.lede, /Nov\. 1/);
+  assert.match(AP_STAMP.vsHx, /Week 11, Nov\. 8/);
+  assert.doesNotMatch(AP_STAMP.lede, /HX is Week/);
+  assert.match(AP_STAMP.lede, /last stamped poll \(Week 11, Nov\. 8\)/);
+  assert.match(AP_STAMP.lede, /CFP is the committee ranking of Nov\. 10/);
   assert.doesNotMatch(AP_STAMP.lede, /Oct\. 25/);
   assert.doesNotMatch(AP_STAMP.lede, /Oct\. 18/);
   assert.doesNotMatch(AP_STAMP.lede, /Oct\. 11/);

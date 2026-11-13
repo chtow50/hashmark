@@ -124,11 +124,11 @@ describe("Week 8 AP Top 25 stamp (0073, Oct. 18)", () => {
     }
   });
 
-  it("was superseded on the chrome by the Week 10 stamp (0088)", () => {
-    assert.equal(AP_STAMP.week, 10);
-    assert.equal(AP_STAMP.asOf, "Nov. 1");
-    assert.equal(AP_STAMP.label, "Week 10 AP");
-    assert.equal(AP_STAMP.columnHint, "W10 stamp");
+  it("was superseded on the chrome by the Week 11 stamp (0092)", () => {
+    assert.equal(AP_STAMP.week, 11);
+    assert.equal(AP_STAMP.asOf, "Nov. 8");
+    assert.equal(AP_STAMP.label, "Week 11 AP");
+    assert.equal(AP_STAMP.columnHint, "W11 stamp");
   });
 });
 

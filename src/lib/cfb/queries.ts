@@ -40,6 +40,7 @@ type TeamDb = {
   hx_rank: number;
   hx_rating: number;
   ap_rank: number | null;
+  cfp_rank: number | null;
   offense_rating: number;
   defense_rating: number;
   special_rating: number;
@@ -102,7 +103,7 @@ const TEAM_SELECT = `
   t.color_primary, t.color_secondary, t.last_wins, t.last_losses, t.last_finish,
   coalesce(wl.season_wins, 0) as season_wins,
   coalesce(wl.season_losses, 0) as season_losses,
-  r.hx_rank, r.hx_rating, r.ap_rank, r.offense_rating, r.defense_rating,
+  r.hx_rank, r.hx_rating, r.ap_rank, r.cfp_rank, r.offense_rating, r.defense_rating,
   r.special_rating, r.sos_rating, r.projected_wins, r.returning_production,
   r.playoff_odds, r.prior_score, r.talent_score,
   r.z_talent, r.z_retention, r.z_trend, r.z_portal, r.z_prior,
@@ -166,6 +167,7 @@ function mapTeam(row: TeamDb): TeamSummary {
     hxRank: row.hx_rank,
     hxRating: Number(row.hx_rating),
     apRank: row.ap_rank,
+    cfpRank: row.cfp_rank ?? null,
     offenseRating: Number(row.offense_rating),
     defenseRating: Number(row.defense_rating),
     specialRating: Number(row.special_rating),

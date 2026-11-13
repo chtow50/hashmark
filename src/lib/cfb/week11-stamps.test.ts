@@ -3,7 +3,7 @@ import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { describe, it } from "node:test";
-import { AP_STAMP, BOARD_WEEK, FEATURED_SLATE_WEEK, WEEK11_FEATURED } from "./featured.ts";
+import { AP_STAMP, BOARD_WEEK, CFP_STAMP, FEATURED_SLATE_WEEK, WEEK11_FEATURED } from "./featured.ts";
 import { fcsStubsForWeek } from "./fcs-stubs.ts";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "../../..");
@@ -179,11 +179,11 @@ describe("Week 10 AP Top 25 stamp (0088, Nov. 1)", () => {
     }
   });
 
-  it("is the live AP chrome (Week 11 HX board, last stamped Week 10 poll)", () => {
-    assert.equal(AP_STAMP.week, 10);
-    assert.equal(AP_STAMP.asOf, "Nov. 1");
-    assert.equal(AP_STAMP.label, "Week 10 AP");
-    assert.equal(AP_STAMP.columnHint, "W10 stamp");
+  it("was superseded on the chrome by the Week 11 stamp (0092)", () => {
+    assert.equal(AP_STAMP.week, 11);
+    assert.equal(AP_STAMP.asOf, "Nov. 8");
+    assert.equal(AP_STAMP.label, "Week 11 AP");
+    assert.equal(AP_STAMP.columnHint, "W11 stamp");
     assert.equal(BOARD_WEEK, 11);
     assert.equal(FEATURED_SLATE_WEEK, 11);
   });
@@ -236,5 +236,35 @@ describe("Week 11 Wednesday FINALs (0090, BUFF@BALL + MASS@TOL; SAC@CMU stub)", 
   it("adds Sacramento State @ Central Michigan as a Week 11 FCS FINAL stub", () => {
     const got = fcsStubsForWeek(11).map((g) => [g.teamSlug, g.home, g.opponentLabel, g.homeScore, g.awayScore, g.status]);
     assert.deepEqual(got, [["central-michigan", true, "Sacramento State", 28, 7, "final"]]);
+  });
+});
+
+describe("Week 11 AP (Nov. 8) + CFP committee (Nov. 10) stamp (0092)", () => {
+  const sql = readFileSync(join(root, "migrations/0092_week11_ap_cfp_rankings.sql"), "utf8");
+  const ap = JSON.parse(readFileSync(join(root, "data/week11_ap_top25_2026.json"), "utf8"));
+  const cfp = JSON.parse(readFileSync(join(root, "data/cfp_rankings_2026_11_10.json"), "utf8"));
+
+  it("clears then sets 25 AP and 25 CFP ranks on week 0 rows only", () => {
+    assert.match(sql, /alter table rankings add column if not exists cfp_rank int;/);
+    assert.match(sql, /update rankings set ap_rank = null where season = 2026 and week = 0;/);
+    assert.match(sql, /update rankings set cfp_rank = null where season = 2026 and week = 0;/);
+    assert.equal((sql.match(/^\s+\('[a-z-]+', \d+\)/gm) ?? []).length, 50);
+    assert.equal(ap.poll_week, 11);
+    assert.equal(ap.as_of, "2026-11-08");
+    assert.equal(cfp.release, "2026-11-10");
+    assert.equal(ap.teams.length, 25);
+    assert.equal(cfp.teams.length, 25);
+    assert.equal(ap.teams[0].slug, "georgia");
+    assert.equal(cfp.teams[0].slug, "georgia");
+    assert.equal(cfp.teams[2].slug, "alabama");
+    assert.deepEqual(ap.dropped.map((d: { slug: string }) => d.slug), ["missouri", "florida"]);
+    const body = sql.split("\n").filter((l) => !l.startsWith("--")).join("\n");
+    assert.doesNotMatch(body, /hx_|make_field|win_title|truncate|games/i);
+  });
+
+  it("is the live chrome", () => {
+    assert.equal(AP_STAMP.week, 11);
+    assert.equal(AP_STAMP.asOf, "Nov. 8");
+    assert.equal(CFP_STAMP.release, "2026-11-10");
   });
 });
