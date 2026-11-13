@@ -3,6 +3,7 @@ import { seo } from "@/lib/seo";
 import { HxResultsPanel } from "@/components/hx-results";
 import { PageHead, Panel } from "@/components/shell";
 import { PinButton } from "@/components/pin";
+import { ShareImageButton } from "@/components/share-button";
 import { confRaceFor, fmtOdds, parseRaceConf } from "@/lib/cfb/conf-races";
 import { MixBar, RankMove, Stat, TeamMark } from "@/components/marks";
 import { RosterList } from "@/components/roster-duel";
@@ -42,6 +43,10 @@ export const Route = createFileRoute("/teams/$slug")({
     }),
 });
 
+function fmtSigned(v: number) {
+  return `${v < 0 ? "−" : ""}${Math.abs(v).toFixed(2)}`;
+}
+
 function TeamPage() {
   const { team, players, games, classes, advanced, sor, hxHistory } = Route.useLoaderData();
   const share = modelShare(team);
@@ -57,7 +62,36 @@ function TeamPage() {
         kicker={`${team.conference} · ${team.city}, ${team.state}`}
         title={team.name}
         lede={`${team.mascot} · ${formatSeasonRecord(team.seasonWins, team.seasonLosses)} · 2025: ${team.lastFinish}`}
-        action={<PinButton slug={team.slug} name={team.shortName} />}
+        action={
+          <div className="flex flex-wrap gap-2">
+            <PinButton slug={team.slug} name={team.shortName} />
+            <ShareImageButton
+              card={() => ({
+                kicker: `${team.conference} · HX board`,
+                title: `${team.name} ${team.mascot}`,
+                subtitle: formatSeasonRecord(team.seasonWins, team.seasonLosses),
+                stats: [
+                  { label: "HX rank", value: `No. ${team.hxRank}` },
+                  { label: "HX", value: fmtSigned(team.hxRating) },
+                  { label: "Proj W", value: fmtNum(team.projectedWins, 1) },
+                  { label: "Make 12", value: make12.makeField == null ? "—" : fmtPct(make12.makeField, 1) },
+                ],
+                line:
+                  hxHistory && hxHistory.points.length > 1
+                    ? {
+                        values: hxHistory.points.map((p) => p.hx),
+                        caption: "HX entering each week",
+                        startLabel: `Wk ${hxHistory.points[0].week} (pre) · No. ${hxHistory.points[0].rank}`,
+                        endLabel: `Now · No. ${hxHistory.points.at(-1)!.rank}`,
+                      }
+                    : undefined,
+                accent: team.colorPrimary,
+                footer: "Make 12 = odds of making the playoff field (10k HX sims), not title odds.",
+                filename: `hashmark-${team.slug}.png`,
+              })}
+            />
+          </div>
+        }
       />
 
       <Panel className="mb-4">

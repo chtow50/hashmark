@@ -148,6 +148,32 @@ var Download = createLucideIcon("download", [
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
+var ImageDown = createLucideIcon("image-down", [
+	["path", {
+		d: "M10.3 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10l-3.1-3.1a2 2 0 0 0-2.814.014L6 21",
+		key: "9csbqa"
+	}],
+	["path", {
+		d: "m14 19 3 3v-5.5",
+		key: "9ldu5r"
+	}],
+	["path", {
+		d: "m17 22 3-3",
+		key: "1nkfve"
+	}],
+	["circle", {
+		cx: "9",
+		cy: "9",
+		r: "2",
+		key: "af1f0g"
+	}]
+]);
+/**
+* @license lucide-react v0.510.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
 var Menu = createLucideIcon("menu", [
 	["path", {
 		d: "M4 12h16",
@@ -234,4 +260,4 @@ var X = createLucideIcon("x", [["path", {
 	key: "d8bk6v"
 }]]);
 //#endregion
-export { Plus as a, ChevronRight as c, ArrowRight as d, Search as i, ChevronLeft as l, TriangleAlert as n, Menu as o, Star as r, Download as s, X as t, Check as u };
+export { Plus as a, Download as c, Check as d, ArrowRight as f, Search as i, ChevronRight as l, TriangleAlert as n, Menu as o, Star as r, ImageDown as s, X as t, ChevronLeft as u };
