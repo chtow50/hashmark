@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 import { PageHead, Panel } from "@/components/shell";
 import { Button } from "@/components/ui/button";
 import { AccountabilityCard, DisagreementCard } from "@/components/truth-pack";
-import { DeltaChip, RankNum, Stat, TeamLink, TeamMark, WinBar } from "@/components/marks";
+import { DeltaChip, LineStat, RankNum, Stat, TeamLink, TeamMark, WinBar } from "@/components/marks";
 import { formatKickCt, formatKickDayTitle } from "@/lib/cfb/chicago";
 import {
   AP_STAMP,
@@ -281,18 +281,12 @@ function FeaturedKick({ featured, pred }: { featured: ScheduleGame; pred: Predic
         />
       </div>
       <div className="mt-5 grid grid-cols-2 gap-3">
-        <div>
-          <div className="text-[11px] uppercase tracking-[0.14em] text-faint">HASHMARK</div>
-          <div className="mt-1 font-display text-xl tabular leading-none text-fg sm:text-2xl">
-            {hxLine} / {fmtPct(hxWin * 100, 1)}
-          </div>
-        </div>
-        <div>
-          <div className="text-[11px] uppercase tracking-[0.14em] text-faint">{book?.label ?? "Vegas"}</div>
-          <div className="mt-1 font-display text-xl tabular leading-none text-fg sm:text-2xl">
-            {book && bookLine ? `${bookLine} · ${book.total}` : "—"}
-          </div>
-        </div>
+        <LineStat label="HASHMARK" value={hxLine} sub={`${fmtPct(hxWin * 100, 1)} to win`} />
+        <LineStat
+          label={book?.label ?? "Vegas"}
+          value={book && bookLine ? bookLine : null}
+          sub={book && book.total !== "—" ? `O/U ${book.total}` : book ? "Total not posted" : null}
+        />
       </div>
       {notableGap && bookLine ? (
         <p className="mt-4 text-sm text-warn">

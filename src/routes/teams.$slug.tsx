@@ -2,9 +2,9 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { seo } from "@/lib/seo";
 import { HxResultsPanel } from "@/components/hx-results";
 import { PageHead, Panel } from "@/components/shell";
-import { DeltaChip, MixBar, RankMove, Stat, TeamMark } from "@/components/marks";
+import { MixBar, RankMove, Stat, TeamMark } from "@/components/marks";
 import { RosterList } from "@/components/roster-duel";
-import { Make12Panel, RemainingScheduleSection, SeasonScheduleSection } from "@/components/season-sim";
+import { RemainingScheduleSection, SeasonScheduleSection } from "@/components/season-sim";
 import { TALENT_UNITS } from "@/lib/cfb/positions";
 import { getTeam } from "@/lib/cfb/queries";
 import { getTeamAdvanced } from "@/lib/cfb/stats-queries";
@@ -51,38 +51,70 @@ function TeamPage() {
         lede={`${team.mascot} · ${formatSeasonRecord(team.seasonWins, team.seasonLosses)} · 2025: ${team.lastFinish}`}
       />
 
-      <Panel className="mb-6">
+      <Panel className="mb-4">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div className="flex items-center gap-3">
             <TeamMark slug={team.slug} color={team.colorPrimary} swatchClassName="h-12 w-1.5" logoSize={32} />
             <div>
               <div className="font-display text-5xl tabular leading-none">{team.hxRank}</div>
-              <div className="mt-1 text-sm text-muted">HX rank</div>
+              <div className="mt-1 text-sm text-muted">HX rank of 138</div>
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-6 sm:grid-cols-3">
+          <div className="grid grid-cols-2 gap-x-6 gap-y-4 sm:grid-cols-4">
             <Stat label="HX" value={fmtNum(team.hxRating, 2)} />
             <Stat label="AP" value={apLabel(team.apRank)} hint={apHint(team.hxRank, team.apRank)} />
-            <Stat label="Proj W" value={fmtNum(team.projectedWins, 1)} />
+            <Stat label="Proj W" value={fmtNum(team.projectedWins, 1)} hint="10k-draw mean" />
+            <Stat
+              label="Make 12"
+              value={make12.makeField == null ? "—" : fmtPct(make12.makeField, 1)}
+              hint="Make the field, not title odds"
+            />
           </div>
         </div>
-        <div className="mt-2">
-          <DeltaChip hxRank={team.hxRank} apRank={team.apRank} />
-        </div>
       </Panel>
 
-      <Panel className="mb-6">
-        <Make12Panel odds={make12} tier="free" />
-      </Panel>
+      <nav
+        aria-label="On this page"
+        className="sticky top-14 z-30 -mx-4 mb-6 flex gap-1 overflow-x-auto border-b border-line bg-bg/92 px-4 py-2 backdrop-blur-md sm:top-16 sm:mx-0 sm:rounded-xl sm:border sm:px-2"
+      >
+        {(
+          [
+            ["upcoming", "Upcoming"],
+            ...(advanced ? [["advanced", "Advanced stats"]] : []),
+            ["results", "HX vs results"],
+            ["season", "Season"],
+            ["roster", team.hasProfile === false ? "About" : "Roster & rating"],
+          ] as [string, string][]
+        ).map(([id, label]) => (
+          <a
+            key={id}
+            href={`#${id}`}
+            className="inline-flex h-9 shrink-0 items-center rounded-lg px-3 text-sm text-muted transition-colors hover:bg-raised hover:text-fg"
+          >
+            {label}
+          </a>
+        ))}
+      </nav>
 
-      <RemainingScheduleSection rows={remaining} teamShortName={team.shortName} />
+      <section id="upcoming" className="scroll-mt-32">
+        <RemainingScheduleSection rows={remaining} teamShortName={team.shortName} />
+      </section>
 
-      <SeasonScheduleSection rows={season} />
+      {advanced ? (
+        <section id="advanced" className="scroll-mt-32">
+          <AdvancedStatsPanel data={advanced} teamSlug={team.slug} />
+        </section>
+      ) : null}
 
-      <HxResultsPanel teamSlug={team.slug} games={games} />
+      <section id="results" className="scroll-mt-32">
+        <HxResultsPanel teamSlug={team.slug} games={games} />
+      </section>
 
-      {advanced ? <AdvancedStatsPanel data={advanced} teamSlug={team.slug} /> : null}
+      <section id="season" className="scroll-mt-32">
+        <SeasonScheduleSection rows={season} />
+      </section>
 
+      <div id="roster" className="scroll-mt-32" />
       {team.hasProfile === false ? (
         <NewcomerPanel />
       ) : (

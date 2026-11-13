@@ -1,8 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { Panel } from "@/components/shell";
-import { DeskChip, TeamMark } from "@/components/marks";
+import { DeskChip, LineStat, TeamMark } from "@/components/marks";
 import { formatKickCt } from "@/lib/cfb/chicago";
-import { favoriteLine, formatVegas } from "@/lib/cfb/featured";
+import { favoriteLine, vegasParts } from "@/lib/cfb/featured";
 import { predictMatchup } from "@/lib/cfb/model";
 import { isWinnerFlip, matchupChips } from "@/lib/cfb/schedule-flags";
 import {
@@ -43,23 +43,6 @@ function OddsCell({
         {value}
       </div>
       {sourceNote ? <div className="mt-1.5 text-xs text-muted">{sourceNote}</div> : null}
-    </div>
-  );
-}
-
-function StatBlock({
-  label,
-  value,
-  className,
-}: {
-  label: string;
-  value: string;
-  className?: string;
-}) {
-  return (
-    <div className={className}>
-      <div className="text-[11px] uppercase tracking-[0.14em] text-faint">{label}</div>
-      <div className="mt-1 font-display text-xl tabular leading-none text-fg sm:text-2xl">{value}</div>
     </div>
   );
 }
@@ -146,17 +129,17 @@ function TeamHubScheduleRow({ row }: { row: TeamScheduleRow }) {
 
       {g && pred && hxLine && hxWin != null ? (
         <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
-          <StatBlock label="HASHMARK" value={`${hxLine} · ${fmtPct(hxWin * 100, 1)}`} />
-          <StatBlock label="Vegas" value={formatVegas(vegasLine, g.vegasTotal)} />
+          <LineStat label="HASHMARK" value={hxLine} sub={`${fmtPct(hxWin * 100, 1)} to win`} />
+          <LineStat label="Vegas" {...vegasParts(vegasLine, g.vegasTotal)} />
           {isFinal && finalScore ? (
-            <StatBlock label="FINAL" value={finalScore} />
+            <LineStat label="FINAL" value={finalScore} className="col-span-2 sm:col-span-1" />
           ) : null}
         </div>
       ) : vegasOnly || g?.hxUnrated ? (
         <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
-          <StatBlock label="HASHMARK" value={g?.hxUnrated ? "No pregame HX" : "—"} />
-          <StatBlock label="Vegas" value={formatVegas(vegasLine, null)} />
-          {g?.hxUnrated && isFinal && finalScore ? <StatBlock label="FINAL" value={finalScore} /> : null}
+          <LineStat label="HASHMARK" value={null} empty={g?.hxUnrated ? "No pregame HX" : "FCS opponent · unrated"} />
+          <LineStat label="Vegas" {...vegasParts(vegasLine, null)} />
+          {g?.hxUnrated && isFinal && finalScore ? <LineStat label="FINAL" value={finalScore} className="col-span-2 sm:col-span-1" /> : null}
         </div>
       ) : null}
     </>

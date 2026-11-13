@@ -75,6 +75,7 @@ export function TalentSliceChart({ teams }: { teams: TeamSummary[] }) {
   const ymax = Math.min(100, Math.ceil(Math.max(...values) + 1));
 
   return (
+    <div>
     <div className="h-72">
       <ResponsiveContainer width="100%" height="100%">
         <BarChart data={chart} margin={{ top: 8, right: 8, left: 0, bottom: 8 }}>
@@ -111,6 +112,8 @@ export function TalentSliceChart({ teams }: { teams: TeamSummary[] }) {
           <Bar dataKey="portal" name="portal" fill="var(--color-faint)" radius={[4, 4, 0, 0]} />
         </BarChart>
       </ResponsiveContainer>
+    </div>
+    <p className="mt-1 text-xs text-muted">Top 10 by composite. The axis starts at {ymin}, not 0, so small gaps look larger than they are.</p>
     </div>
   );
 }

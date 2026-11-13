@@ -148,24 +148,24 @@ function MatchupPage() {
           teams={teams}
           onChange={(slug) => setPair({ home: slug })}
         />
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-row gap-2 sm:flex-col">
           <span className="mb-0 hidden text-[11px] uppercase tracking-[0.14em] text-transparent sm:block" aria-hidden>
             Home
           </span>
           <button
             type="button"
-            className="h-12 w-full rounded-lg bg-raised px-4 text-sm text-muted hover:text-fg sm:w-auto"
+            className="h-12 flex-1 rounded-lg bg-raised px-4 text-sm text-muted hover:text-fg sm:w-auto sm:flex-none"
             onClick={() => setPair({ home: awaySlug, away: homeSlug })}
           >
-            Swap
+            ⇄ Swap home/away
           </button>
           <button
             type="button"
             aria-pressed={appliedNeutral}
             className={
               appliedNeutral
-                ? "h-12 w-full rounded-lg bg-accent px-4 text-sm text-accent-fg sm:w-auto"
-                : "h-12 w-full rounded-lg bg-raised px-4 text-sm text-muted hover:text-fg sm:w-auto"
+                ? "h-12 flex-1 rounded-lg bg-accent px-4 text-sm text-accent-fg sm:w-auto sm:flex-none"
+                : "h-12 flex-1 rounded-lg bg-raised px-4 text-sm text-muted hover:text-fg sm:w-auto sm:flex-none"
             }
             onClick={() => setPair({ neutral: !appliedNeutral })}
           >
@@ -261,7 +261,7 @@ function MatchupPage() {
               <Stat label="HX edge" value={prediction.edge > 0 ? `+${fmtNum(prediction.edge, 2)}` : fmtNum(prediction.edge, 2)} hint={appliedNeutral ? "Neutral site · HFA off" : "Includes home field"} />
             </Panel>
             <Panel>
-              <Stat label="Home win" value={fmtPct(prediction.homeWinPct * 100, 1)} />
+              <Stat label="Pregame home win" value={fmtPct(prediction.homeWinPct * 100, 1)} hint="HX before any restamp" />
             </Panel>
             <Panel>
               <Stat
