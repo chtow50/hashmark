@@ -11,10 +11,10 @@ const NAV = [
   { to: "/", label: "Board" },
   { to: "/schedule", label: "Schedule" },
   { to: "/rankings", label: "Rankings" },
+  { to: "/stats", label: "Stats" },
   { to: "/matchup", label: "Matchup" },
   { to: "/recruiting", label: "Recruiting" },
   { to: "/talent", label: "Talent" },
-  { to: "/stats", label: "Stats" },
   { to: "/model", label: "The Model" },
 ] as const;
 
@@ -59,6 +59,7 @@ export function AppShell({ children }: { children: ReactNode }) {
                 <Link
                   key={item.to}
                   to={item.to}
+                  aria-current={active ? "page" : undefined}
                   className={cn(
                     "relative flex h-11 items-center px-3 text-sm tracking-wide transition-colors duration-150",
                     active ? "text-fg" : "text-muted hover:text-fg",
@@ -93,16 +94,24 @@ export function AppShell({ children }: { children: ReactNode }) {
         {open ? (
           <nav id="mobile-nav" className="border-t border-line px-4 py-3 lg:hidden">
             <div className="flex flex-col">
-              {NAV.map((item) => (
-                <Link
-                  key={item.to}
-                  to={item.to}
-                  onClick={() => setOpen(false)}
-                  className="flex h-12 items-center border-b border-line text-base text-fg last:border-0"
-                >
-                  {item.label}
-                </Link>
-              ))}
+              {NAV.map((item) => {
+                const active = item.to === "/" ? pathname === "/" : pathname === item.to || pathname.startsWith(`${item.to}/`);
+                return (
+                  <Link
+                    key={item.to}
+                    to={item.to}
+                    onClick={() => setOpen(false)}
+                    aria-current={active ? "page" : undefined}
+                    className={cn(
+                      "flex h-12 items-center justify-between border-b border-line text-base last:border-0",
+                      active ? "text-fg" : "text-muted",
+                    )}
+                  >
+                    {item.label}
+                    {active ? <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden /> : null}
+                  </Link>
+                );
+              })}
             </div>
           </nav>
         ) : null}
@@ -381,7 +390,7 @@ export function ConfPills({
   searchFor: (conf: ConfFilter) => Record<string, unknown>;
 }) {
   return (
-    <div className="mb-5 flex gap-2 overflow-x-auto pb-1" role="tablist" aria-label="Conference">
+    <div className="-mx-4 mb-5 flex gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0" role="tablist" aria-label="Conference">
       {CONFS.map((c) => (
         <Link
           key={c}
@@ -390,7 +399,7 @@ export function ConfPills({
           role="tab"
           aria-selected={value === c}
           className={cn(
-            "inline-flex h-11 shrink-0 items-center rounded-full px-4 text-sm transition-colors duration-150",
+            "inline-flex h-11 shrink-0 items-center rounded-full px-4 text-sm transition-colors duration-150 sm:h-9 sm:px-3.5",
             value === c ? "bg-accent text-accent-fg" : "bg-raised text-muted hover:text-fg",
           )}
         >

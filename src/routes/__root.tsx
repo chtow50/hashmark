@@ -58,13 +58,24 @@ function NotFound() {
     <div className="py-16">
       <p className="font-mono text-xs uppercase tracking-[0.18em] text-faint">404</p>
       <h1 className="mt-2 font-display text-4xl tracking-wide">Off the board</h1>
-      <p className="mt-3 max-w-md text-muted">That page is not in the HASHMARK set.</p>
-      <Link
-        to="/"
-        className="mt-6 inline-flex h-11 items-center rounded-md bg-accent px-4 text-sm font-medium text-accent-fg"
-      >
-        Back to the board
-      </Link>
+      <p className="mt-3 max-w-md text-muted">That page is not in the HASHMARK set. Use the search icon above to find any FBS team, or jump to a section:</p>
+      <div className="mt-6 flex flex-wrap gap-2">
+        <Link to="/" className="inline-flex h-11 items-center rounded-md bg-accent px-4 text-sm font-medium text-accent-fg">
+          Back to the board
+        </Link>
+        {(
+          [
+            ["/schedule", "Schedule"],
+            ["/rankings", "Rankings"],
+            ["/stats", "Stats"],
+            ["/matchup", "Matchup"],
+          ] as const
+        ).map(([to, label]) => (
+          <Link key={to} to={to} className="inline-flex h-11 items-center rounded-md bg-raised px-4 text-sm text-fg hover:bg-border">
+            {label}
+          </Link>
+        ))}
+      </div>
     </div>
   );
 }
