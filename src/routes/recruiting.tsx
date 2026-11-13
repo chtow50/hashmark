@@ -31,7 +31,10 @@ export const Route = createFileRoute("/recruiting")({
   validateSearch: (s: Record<string, unknown>): Search => {
     const y = Number(s.year);
     const year = YEARS.includes(y as (typeof YEARS)[number]) ? y : 2026;
-    if (s.tab === "states") return { tab: "states", code: parseStateCode(s.code) };
+    if (s.tab === "states") {
+      const code = parseStateCode(s.code);
+      return { tab: "states", code: code === "TX" ? undefined : code };
+    }
     // Defaults are dropped (undefined) so /recruiting never 307s to a param-stuffed URL on crawl.
     const conf = parseConf(s.conf);
     return {
@@ -103,7 +106,7 @@ function RecruitingRoute() {
           states={st.states}
           detail={st.detail}
           code={st.code}
-          onSelect={(code) => navigate({ search: { tab: "states", code } })}
+          onSelect={(code) => navigate({ search: { tab: "states", code: code === "TX" ? undefined : code } })}
         />
       </div>
     );
