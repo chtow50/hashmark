@@ -1,4 +1,4 @@
-import { pendingMigrations } from "../../scripts/migration-plan.mjs";
+import { migrationName, pendingMigrations } from "../../scripts/migration-plan.mjs";
 
 /** Which database backend is active. */
 export type DbSource = "neon" | "pglite";
@@ -105,20 +105,87 @@ function createNeonSql(): Promise<Sql> {
   return globalRef.__pgSqlPromise__;
 }
 
+/**
+ * The build (scripts/build-db-snapshot.mjs) leaves a gzip PGLite data dir next to the
+ * server function, with a sidecar listing the migrations baked into it. Use it only
+ * when that list is an exact prefix of the migrations bundled here (same names and
+ * text); migrate() below then applies just the newer tail. Otherwise (dev, missing
+ * file, an edited migration, any error) return null and the caller replays every
+ * migration as before, so the database is identical either way.
+ */
+async function loadPgliteSnapshot(): Promise<{ data: Blob; startParams: string[] } | null> {
+  try {
+    const [{ existsSync, readFileSync }, { dirname, join }, { fileURLToPath }, shared] = await Promise.all([
+      import("node:fs"),
+      import("node:path"),
+      import("node:url"),
+      import("../../scripts/db-snapshot-shared.mjs"),
+    ]);
+    let here = process.cwd();
+    try {
+      here = dirname(fileURLToPath(import.meta.url));
+    } catch {
+      /* keep cwd */
+    }
+    const dirs = [process.cwd(), here, join(here, ".."), join(here, "../..")];
+    const dir = dirs.find((d) => existsSync(join(d, shared.SNAPSHOT_META)) && existsSync(join(d, shared.SNAPSHOT_FILE)));
+    if (!dir) return null;
+    const meta: unknown = JSON.parse(readFileSync(join(dir, shared.SNAPSHOT_META), "utf8"));
+    const bundled = shared.migrationManifest(
+      Object.entries(MIGRATION_SQL).map(([path, sql]) => [migrationName(path), sql] as [string, string]),
+    );
+    const tail = shared.snapshotTail(meta, bundled);
+    if (tail === null) {
+      console.log("[db] snapshot is not a prefix of the bundled migrations; replaying all");
+      return null;
+    }
+    if (tail > 0) console.log(`[db] snapshot + ${tail} newer migration(s) to apply`);
+    return { data: new Blob([readFileSync(join(dir, shared.SNAPSHOT_FILE))]), startParams: shared.SNAPSHOT_START_PARAMS };
+  } catch (err) {
+    console.error("[db] snapshot check failed, replaying migrations:", err);
+    return null;
+  }
+}
+
+/** migrations/*.sql, inlined by the bundler (no runtime fs). */
+const MIGRATION_SQL = import.meta.glob("/migrations/*.sql", {
+  query: "?raw",
+  import: "default",
+  eager: true,
+}) as Record<string, string>;
+
 async function createPgliteSql(): Promise<Sql> {
   // Embedded Postgres, imported on demand so it never loads on the Neon path.
   // One in-memory instance per process, shared across HMR module instances, so
   // data survives source edits (it resets on dev-server restart).
   globalRef.__pgliteInstance__ ??= (async () => {
     const { PGlite } = await import("@electric-sql/pglite");
-    const pg = new PGlite({
-      parsers: {
-        [OID_INT8]: Number,
-        [OID_DATE]: identity,
-        [OID_INTERVAL]: identity,
-      },
-    });
-    await pg.waitReady;
+    const parsers = {
+      [OID_INT8]: Number,
+      [OID_DATE]: identity,
+      [OID_INTERVAL]: identity,
+    };
+    const t0 = Date.now();
+    const snapshot = await loadPgliteSnapshot();
+    let pg: import("@electric-sql/pglite").PGlite;
+    if (snapshot) {
+      try {
+        pg = new PGlite({
+          parsers,
+          loadDataDir: snapshot.data,
+          startParams: [...PGlite.defaultStartParams, ...snapshot.startParams],
+        });
+        await pg.waitReady;
+        console.log(`[db] PGLite from prebuilt snapshot in ${Date.now() - t0} ms`);
+      } catch (err) {
+        console.error("[db] snapshot load failed, replaying migrations:", err);
+        pg = new PGlite({ parsers });
+        await pg.waitReady;
+      }
+    } else {
+      pg = new PGlite({ parsers });
+      await pg.waitReady;
+    }
     await pg.exec(
       "create table if not exists _migrations (name text primary key, applied_at timestamptz not null default now())",
     );
@@ -137,11 +204,7 @@ async function createPgliteSql(): Promise<Sql> {
   // passes serialized on a global chain so concurrent callers never
   // double-apply.
   const migrate = async (): Promise<void> => {
-    const migrations = import.meta.glob("/migrations/*.sql", {
-      query: "?raw",
-      import: "default",
-      eager: true,
-    }) as Record<string, string>;
+    const migrations = MIGRATION_SQL;
     // New files in migrations/ are picked up here on HMR (0040 HX 2026.6).
     const doneRows = await pg.query<{ name: string }>(
       "select name from _migrations",
