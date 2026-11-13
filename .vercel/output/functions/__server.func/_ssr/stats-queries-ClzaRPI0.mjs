@@ -1,8 +1,8 @@
 import { t as createServerFn } from "./ssr.mjs";
-import { a as object, o as string, t as _enum } from "../_libs/zod.mjs";
-import { o as STAT_TABS } from "./stats-Btq-9QFw.mjs";
 import { t as createServerRpc } from "./createServerRpc-A6pJPYTF.mjs";
 import { t as getSql } from "./db-Dxzb89Ja.mjs";
+import { a as object, o as string, t as _enum } from "../_libs/zod.mjs";
+import { o as STAT_TABS } from "./stats-Btq-9QFw.mjs";
 //#region node_modules/.nitro/vite/services/ssr/assets/stats-queries-ClzaRPI0.js
 /** One /stats tab: rows joined to team name, conference, and color. Data file stays server-side. */
 var getStatsTab_createServerFn_handler = createServerRpc({

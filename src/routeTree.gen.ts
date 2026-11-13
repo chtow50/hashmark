@@ -26,6 +26,7 @@ import { Route as StoriesRouteImport } from './routes/stories'
 import { Route as StrengthRouteImport } from './routes/strength'
 import { Route as TalentRouteImport } from './routes/talent'
 import { Route as EdgeSplatRouteImport } from './routes/edge.$'
+import { Route as GamesKeyRouteImport } from './routes/games.$key'
 import { Route as StoriesSlugRouteImport } from './routes/stories_.$slug'
 import { Route as TeamsSlugRouteImport } from './routes/teams.$slug'
 
@@ -114,6 +115,11 @@ const EdgeSplatRoute = EdgeSplatRouteImport.update({
   path: '/$',
   getParentRoute: () => EdgeRoute,
 } as any)
+const GamesKeyRoute = GamesKeyRouteImport.update({
+  id: '/games/$key',
+  path: '/games/$key',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const StoriesSlugRoute = StoriesSlugRouteImport.update({
   id: '/stories_/$slug',
   path: '/stories/$slug',
@@ -143,6 +149,7 @@ export interface FileRoutesByFullPath {
   '/strength': typeof StrengthRoute
   '/talent': typeof TalentRoute
   '/edge/$': typeof EdgeSplatRoute
+  '/games/$key': typeof GamesKeyRoute
   '/stories/$slug': typeof StoriesSlugRoute
   '/teams/$slug': typeof TeamsSlugRoute
 }
@@ -164,6 +171,7 @@ export interface FileRoutesByTo {
   '/strength': typeof StrengthRoute
   '/talent': typeof TalentRoute
   '/edge/$': typeof EdgeSplatRoute
+  '/games/$key': typeof GamesKeyRoute
   '/stories/$slug': typeof StoriesSlugRoute
   '/teams/$slug': typeof TeamsSlugRoute
 }
@@ -186,6 +194,7 @@ export interface FileRoutesById {
   '/strength': typeof StrengthRoute
   '/talent': typeof TalentRoute
   '/edge/$': typeof EdgeSplatRoute
+  '/games/$key': typeof GamesKeyRoute
   '/stories_/$slug': typeof StoriesSlugRoute
   '/teams/$slug': typeof TeamsSlugRoute
 }
@@ -209,6 +218,7 @@ export interface FileRouteTypes {
     | '/strength'
     | '/talent'
     | '/edge/$'
+    | '/games/$key'
     | '/stories/$slug'
     | '/teams/$slug'
   fileRoutesByTo: FileRoutesByTo
@@ -230,6 +240,7 @@ export interface FileRouteTypes {
     | '/strength'
     | '/talent'
     | '/edge/$'
+    | '/games/$key'
     | '/stories/$slug'
     | '/teams/$slug'
   id:
@@ -251,6 +262,7 @@ export interface FileRouteTypes {
     | '/strength'
     | '/talent'
     | '/edge/$'
+    | '/games/$key'
     | '/stories_/$slug'
     | '/teams/$slug'
   fileRoutesById: FileRoutesById
@@ -272,6 +284,7 @@ export interface RootRouteChildren {
   StoriesRoute: typeof StoriesRoute
   StrengthRoute: typeof StrengthRoute
   TalentRoute: typeof TalentRoute
+  GamesKeyRoute: typeof GamesKeyRoute
   StoriesSlugRoute: typeof StoriesSlugRoute
   TeamsSlugRoute: typeof TeamsSlugRoute
 }
@@ -397,6 +410,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EdgeSplatRouteImport
       parentRoute: typeof EdgeRoute
     }
+    '/games/$key': {
+      id: '/games/$key'
+      path: '/games/$key'
+      fullPath: '/games/$key'
+      preLoaderRoute: typeof GamesKeyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/stories_/$slug': {
       id: '/stories_/$slug'
       path: '/stories/$slug'
@@ -441,6 +461,7 @@ const rootRouteChildren: RootRouteChildren = {
   StoriesRoute: StoriesRoute,
   StrengthRoute: StrengthRoute,
   TalentRoute: TalentRoute,
+  GamesKeyRoute: GamesKeyRoute,
   StoriesSlugRoute: StoriesSlugRoute,
   TeamsSlugRoute: TeamsSlugRoute,
 }

@@ -1,3 +1,4 @@
+import { gameKey } from "@/lib/cfb/game-key";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { seo } from "@/lib/seo";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -368,19 +369,30 @@ function ScheduleRow({ game: g }: { game: ScheduleGame }) {
     );
   }
 
+  const isFinal = g.status === "final" && g.homeScore != null && g.awayScore != null;
   return (
     <li>
-      <Link
-        to="/matchup"
-        search={{
-          home: g.homeSlug,
-          away: g.awaySlug,
-          ...(g.neutral ? { neutral: true } : {}),
-        }}
-        className="block px-4 py-4 transition-colors duration-150 hover:bg-raised sm:px-5"
-      >
-        {inner}
-      </Link>
+      {isFinal ? (
+        <Link
+          to="/games/$key"
+          params={{ key: gameKey(g.kickoffDate, g.awaySlug, g.homeSlug) }}
+          className="block px-4 py-4 transition-colors duration-150 hover:bg-raised sm:px-5"
+        >
+          {inner}
+        </Link>
+      ) : (
+        <Link
+          to="/matchup"
+          search={{
+            home: g.homeSlug,
+            away: g.awaySlug,
+            ...(g.neutral ? { neutral: true } : {}),
+          }}
+          className="block px-4 py-4 transition-colors duration-150 hover:bg-raised sm:px-5"
+        >
+          {inner}
+        </Link>
+      )}
     </li>
   );
 }

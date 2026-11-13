@@ -6,6 +6,7 @@ import type { AccGame } from "@/lib/cfb/accuracy";
 import { getAccuracy } from "@/lib/cfb/accuracy-queries";
 import { favoriteLine } from "@/lib/cfb/featured";
 import { seo } from "@/lib/seo";
+import { gameKey } from "@/lib/cfb/game-key";
 import { cn } from "@/lib/utils";
 
 type Search = { week?: number };
@@ -188,7 +189,17 @@ function GameRow({ g }: { g: AccGame }) {
           <span className="text-faint">{g.neutral ? " vs " : " at "}</span>
           <span className={cn(winnerHome && "font-semibold text-fg")}>{g.homeShort} {g.homeScore}</span>
         </div>
-        <div className="text-xs text-muted">{g.kickoffDate}</div>
+        <div className="text-xs text-muted">
+          {g.kickoffDate}
+          {g.naReason !== "fcs" ? (
+            <>
+              {" · "}
+              <Link to="/games/$key" params={{ key: gameKey(g.kickoffDate, g.away, g.home) }} className="underline underline-offset-4 hover:text-fg">
+                Box score
+              </Link>
+            </>
+          ) : null}
+        </div>
       </div>
       <div className="flex items-center gap-4 text-sm sm:justify-end">
         {g.graded ? (

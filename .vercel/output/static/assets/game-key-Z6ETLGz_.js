@@ -1,0 +1,1 @@
+function e(e,t,n){return`${e.slice(0,10)}-${t}-at-${n}`}export{e as t};
