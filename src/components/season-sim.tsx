@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { gameKey } from "@/lib/cfb/game-key";
 import { Panel } from "@/components/shell";
 import { DeskChip, LineStat, TeamMark } from "@/components/marks";
 import { formatKickCt } from "@/lib/cfb/chicago";
@@ -148,17 +149,27 @@ function TeamHubScheduleRow({ row }: { row: TeamScheduleRow }) {
   if (g) {
     return (
       <li className="py-3.5">
-        <Link
-          to="/matchup"
-          search={{
-            home: g.homeSlug,
-            away: g.awaySlug,
-            ...(g.neutral ? { neutral: true } : {}),
-          }}
-          className="-mx-1 block rounded-md px-1 transition-colors duration-150 hover:bg-raised"
-        >
-          {inner}
-        </Link>
+        {isFinal ? (
+          <Link
+            to="/games/$key"
+            params={{ key: gameKey(row.kickoffDate, g.awaySlug, g.homeSlug) }}
+            className="-mx-1 block rounded-md px-1 transition-colors duration-150 hover:bg-raised"
+          >
+            {inner}
+          </Link>
+        ) : (
+          <Link
+            to="/matchup"
+            search={{
+              home: g.homeSlug,
+              away: g.awaySlug,
+              ...(g.neutral ? { neutral: true } : {}),
+            }}
+            className="-mx-1 block rounded-md px-1 transition-colors duration-150 hover:bg-raised"
+          >
+            {inner}
+          </Link>
+        )}
         {row.opponentSlug ? (
           <Link
             to="/teams/$slug"
