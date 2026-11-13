@@ -1,0 +1,1 @@
+import{I as e}from"./shell-5J0-uJOY.js";var t=e(`check`,[[`path`,{d:`M20 6 9 17l-5-5`,key:`1gmf2c`}]]);export{t};

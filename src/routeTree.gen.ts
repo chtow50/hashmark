@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AccuracyRouteImport } from './routes/accuracy'
 import { Route as ConferencesRouteImport } from './routes/conferences'
 import { Route as DeskRouteImport } from './routes/desk'
 import { Route as EdgeRouteImport } from './routes/edge'
@@ -31,6 +32,11 @@ import { Route as TeamsSlugRouteImport } from './routes/teams.$slug'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AccuracyRoute = AccuracyRouteImport.update({
+  id: '/accuracy',
+  path: '/accuracy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ConferencesRoute = ConferencesRouteImport.update({
@@ -121,6 +127,7 @@ const TeamsSlugRoute = TeamsSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/accuracy': typeof AccuracyRoute
   '/conferences': typeof ConferencesRoute
   '/desk': typeof DeskRoute
   '/edge': typeof EdgeRouteWithChildren
@@ -141,6 +148,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/accuracy': typeof AccuracyRoute
   '/conferences': typeof ConferencesRoute
   '/desk': typeof DeskRoute
   '/edge': typeof EdgeRouteWithChildren
@@ -162,6 +170,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/accuracy': typeof AccuracyRoute
   '/conferences': typeof ConferencesRoute
   '/desk': typeof DeskRoute
   '/edge': typeof EdgeRouteWithChildren
@@ -184,6 +193,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/accuracy'
     | '/conferences'
     | '/desk'
     | '/edge'
@@ -204,6 +214,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/accuracy'
     | '/conferences'
     | '/desk'
     | '/edge'
@@ -224,6 +235,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/accuracy'
     | '/conferences'
     | '/desk'
     | '/edge'
@@ -245,6 +257,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AccuracyRoute: typeof AccuracyRoute
   ConferencesRoute: typeof ConferencesRoute
   DeskRoute: typeof DeskRoute
   EdgeRoute: typeof EdgeRouteWithChildren
@@ -270,6 +283,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/accuracy': {
+      id: '/accuracy'
+      path: '/accuracy'
+      fullPath: '/accuracy'
+      preLoaderRoute: typeof AccuracyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/conferences': {
@@ -406,6 +426,7 @@ const EdgeRouteWithChildren = EdgeRoute._addFileChildren(EdgeRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AccuracyRoute: AccuracyRoute,
   ConferencesRoute: ConferencesRoute,
   DeskRoute: DeskRoute,
   EdgeRoute: EdgeRouteWithChildren,
