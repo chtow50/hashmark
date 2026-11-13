@@ -524,28 +524,18 @@ describe("prebuilt deploy artifacts", () => {
     assert.doesNotMatch(client, /hx_edge_pack_week6_sample_2026/);
     assert.doesNotMatch(client, /hx_edge_pack_week5_sample_2026/);
     assert.doesNotMatch(client, /hx_edge_pack_week3_sample_thickened_2026/);
-    assert.match(client, /\/edge\/unlock|edge\/unlock/);
-    assert.match(client, /hx_edge_confidence_schema_2026|hx_edge_card_confidence/);
+    // Edge is paused: /edge/unlock, /edge/board, /edge/sim redirect to /edge; no paid copy ships.
+    assert.doesNotMatch(client, /Post-purchase HX Edge Pack unlock|Paid checkout required|Paid is ranked cards/);
   });
 
-  it("includes Scenario Sim preview route and Edge Board v1 without live-interactive marketing", () => {
+  it("Edge leftovers are gone: no Edge Pack nav, no paid Edge pages, no locked Win title cell", () => {
     const text = corpus();
-    assert.match(text, /Scenario Sim \(preview \/ offline\)/);
-    assert.match(text, /\/edge\/sim/);
-    assert.match(text, /\/edge\/board/);
-    assert.match(text, /demo fixture — CLI not wired/);
-    assert.match(text, /Monte Carlo ± noise on 10k draws; not a lock/);
-    assert.match(text, /401856700/);
-    assert.match(text, /52\.4/);
-    assert.match(text, /hx_edge_card_confidence/);
-    assert.match(text, /card\.demo_label|EXAMPLE \/ schema demo/);
-    assert.match(text, /"small":\[0,3\]|"small": \[0, 3\]/);
-    assert.match(text, /"medium":\[3,7\]|"medium": \[3, 7\]/);
-    assert.match(text, /"large":\[7,99\]|"large": \[7, 99\]/);
-    assert.match(text, /≥ 7 pts|>= 7 pts/);
-    assert.doesNotMatch(text, /large \|HX−Vegas\| \(≥ 4 pts\)/);
+    assert.doesNotMatch(text, /Scenario Sim \(preview \/ offline\)/);
+    assert.doesNotMatch(text, /Not this week’s paid pack/);
+    assert.doesNotMatch(text, /Paid is ranked cards/);
+    assert.doesNotMatch(text, /Win title · Edge Pack only|Edge Pack only · make-field stays free/);
+    assert.doesNotMatch(text, />Edge Pack<\/|label: "Edge Pack"/);
     assert.doesNotMatch(text, /live interactive sim/i);
-    assert.doesNotMatch(text, /Open Scenario Sim \(preview\)/);
     assert.doesNotMatch(text, /waitlist/i);
   });
 

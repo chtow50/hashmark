@@ -63,7 +63,7 @@ export function AccountabilityCard({
   scheduleWeek,
   closerScope = "slate",
   dek = "Full slate closer is a FLAG. Top 25 closer 8/18 is a FLAG. HX not retuned.",
-  flagsKicker = "Board flags · HX not retuned",
+  flagsKicker = "Board flags · pregame board",
 }: {
   tape: Week2Tape;
   top25: Week2Top25Tape;

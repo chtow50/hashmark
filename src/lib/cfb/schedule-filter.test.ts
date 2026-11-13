@@ -1,6 +1,13 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { filterScheduleGames, parseScheduleView, top25SlugSet } from "./schedule-filter.ts";
+import {
+  filterScheduleGames,
+  parseScheduleView,
+  parseScheduleWeek,
+  SCHEDULE_MAX_WEEK,
+  top25SlugSet,
+} from "./schedule-filter.ts";
+import { readFileSync } from "node:fs";
 import type { ScheduleGame, TeamSummary } from "./types.ts";
 
 function team(slug: string, hxRank: number, apRank: number | null, conference = "SEC"): TeamSummary {
@@ -179,5 +186,29 @@ describe("schedule-filter", () => {
     const top = filterScheduleGames([miamiFcs, troyFcs], teams, "top25", "All");
     assert.equal(top.length, 1);
     assert.equal(top[0].homeSlug, "miami");
+  });
+});
+
+describe("parseScheduleWeek", () => {
+  it("keeps in-range integer weeks from numbers and strings", () => {
+    assert.equal(parseScheduleWeek(11), 11);
+    assert.equal(parseScheduleWeek("11"), 11);
+    assert.equal(parseScheduleWeek(0), 0);
+  });
+  it("clamps out-of-range integers instead of erroring (?w=99, ?w=-1)", () => {
+    assert.equal(parseScheduleWeek(99), SCHEDULE_MAX_WEEK);
+    assert.equal(parseScheduleWeek("99"), SCHEDULE_MAX_WEEK);
+    assert.equal(parseScheduleWeek(-1), 0);
+  });
+  it("returns undefined for junk so the loader falls back to the current week (?w=abc)", () => {
+    for (const v of ["abc", "1.5", 1.5, "", " ", null, undefined, {}, [], NaN, Infinity]) {
+      assert.equal(parseScheduleWeek(v), undefined, String(v));
+    }
+  });
+  it("stays in sync with the server function's week bound", () => {
+    const src = readFileSync(new URL("./queries.ts", import.meta.url), "utf8");
+    const m = src.match(/export const HASHMARK_MAX_WEEK = (\d+);/);
+    assert.ok(m, "HASHMARK_MAX_WEEK not found in queries.ts");
+    assert.equal(SCHEDULE_MAX_WEEK, Number(m[1]));
   });
 });

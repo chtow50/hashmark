@@ -115,29 +115,6 @@ var ChevronRight = createLucideIcon("chevron-right", [["path", {
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var Download = createLucideIcon("download", [
-	["path", {
-		d: "M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4",
-		key: "ih7n3h"
-	}],
-	["polyline", {
-		points: "7 10 12 15 17 10",
-		key: "2ggqvy"
-	}],
-	["line", {
-		x1: "12",
-		x2: "12",
-		y1: "15",
-		y2: "3",
-		key: "1vk2je"
-	}]
-]);
-/**
-* @license lucide-react v0.510.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/
 var Menu = createLucideIcon("menu", [
 	["path", {
 		d: "M4 12h16",
@@ -152,29 +129,6 @@ var Menu = createLucideIcon("menu", [
 		key: "1o0s65"
 	}]
 ]);
-/**
-* @license lucide-react v0.510.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/
-var Minus = createLucideIcon("minus", [["path", {
-	d: "M5 12h14",
-	key: "1ays0h"
-}]]);
-/**
-* @license lucide-react v0.510.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/
-var Plus = createLucideIcon("plus", [["path", {
-	d: "M5 12h14",
-	key: "1ays0h"
-}], ["path", {
-	d: "M12 5v14",
-	key: "s699le"
-}]]);
 /**
 * @license lucide-react v0.510.0 - ISC
 *
@@ -224,4 +178,4 @@ var X = createLucideIcon("x", [["path", {
 	key: "d8bk6v"
 }]]);
 //#endregion
-export { Minus as a, ChevronRight as c, Plus as i, ChevronLeft as l, TriangleAlert as n, Menu as o, Search as r, Download as s, X as t, ArrowRight as u };
+export { ChevronRight as a, Menu as i, TriangleAlert as n, ChevronLeft as o, Search as r, ArrowRight as s, X as t };

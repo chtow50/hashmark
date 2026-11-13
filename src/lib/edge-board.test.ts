@@ -97,7 +97,9 @@ test("Edge Board UI documents schema and does not dump the paid pack or lock bad
   assert.match(board, /Never a lock/);
   assert.match(board, /EDGE_SIZE_BANDS/);
   assert.match(board, /notable_gap/);
-  assert.match(route, /large ≥ 7/);
+  // /edge/board now permanently redirects to the paused /edge page.
+  assert.match(route, /redirect\(\{ to: "\/edge", statusCode: 301 \}\)/);
+  assert.doesNotMatch(route, /Paid|paid pack|EdgeBoardView/);
   assert.match(lib, /small" \| "medium" \| "large"/);
   assert.doesNotMatch(board, /LOCKS|guaranteed ROI|sure thing|print money/i);
   assert.doesNotMatch(board, /SAMPLE_5|pack_body_paste/);

@@ -197,7 +197,7 @@ export function make12FieldLabel(source: Make12Source): string | undefined {
 
 export function make12TitleLabel(source: Make12Source): string | undefined {
   if (source === "pending") return "Awaiting AMD draws";
-  if (source === "pack-only") return "Edge Pack only · make-field stays free";
+  if (source === "pack-only") return "Not published on free surfaces · make-field stays free";
   return SIM_10K_NOTE;
 }
 

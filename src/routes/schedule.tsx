@@ -13,6 +13,7 @@ import { HASHMARK_MAX_WEEK, listScheduleWeek, listTeams } from "@/lib/cfb/querie
 import {
   filterScheduleGames,
   parseScheduleView,
+  parseScheduleWeek,
   type ScheduleView,
 } from "@/lib/cfb/schedule-filter";
 import { isVegasOnlyFcs } from "@/lib/cfb/fcs-stubs";
@@ -29,9 +30,7 @@ const VIEW_OPTIONS: { key: ScheduleView; label: string }[] = [
 ];
 
 function parseWeek(v: unknown): number | undefined {
-  const n = typeof v === "number" ? v : typeof v === "string" ? Number(v) : NaN;
-  if (!Number.isInteger(n) || n < 0 || n > HASHMARK_MAX_WEEK) return undefined;
-  return n;
+  return parseScheduleWeek(v, HASHMARK_MAX_WEEK);
 }
 
 function searchForView(view: ScheduleView, conf: ConfFilter, week: number) {
@@ -54,7 +53,8 @@ export const Route = createFileRoute("/schedule")({
   },
   loaderDeps: ({ search }) => ({ w: search.w, view: search.view, conf: search.conf }),
   loader: async ({ deps }) => {
-    const week = deps.w ?? defaultWeek(todayChicago());
+    // deps carry the raw ?w= too (validated search is merged over raw), so re-parse here.
+    const week = parseWeek(deps.w) ?? defaultWeek(todayChicago());
     const view = parseScheduleView(deps.view);
     const conf = parseConf(deps.conf);
     const [games, teams] = await Promise.all([

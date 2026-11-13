@@ -17,7 +17,6 @@ const NAV = [
   { to: "/talent", label: "Talent" },
   { to: "/states", label: "States" },
   { to: "/model", label: "The Model" },
-  { to: "/edge", label: "Edge Pack" },
 ] as const;
 
 export function HashLogo({ className }: { className?: string }) {
@@ -52,7 +51,7 @@ export function AppShell({ children }: { children: ReactNode }) {
         <div className="mx-auto flex h-14 max-w-6xl items-center justify-between gap-4 px-4 sm:h-16 sm:px-6">
           <HashLogo />
           <nav className="hidden items-center gap-1 lg:flex">
-            {NAV.filter((item) => item.to !== "/edge").map((item) => {
+            {NAV.map((item) => {
               const active =
                 item.to === "/"
                   ? pathname === "/"
@@ -139,7 +138,6 @@ export function AppShell({ children }: { children: ReactNode }) {
             <Link to="/talent" className="hover:text-fg">Talent</Link>
             <Link to="/states" className="hover:text-fg">States</Link>
             <Link to="/model" className="hover:text-fg">The Model</Link>
-            <Link to="/edge" className="hover:text-fg">Edge Pack</Link>
             <Link to="/desk" className="hover:text-fg">The Desk</Link>
           </nav>
           <p className="text-xs leading-relaxed text-faint">

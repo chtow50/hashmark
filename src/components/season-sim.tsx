@@ -13,7 +13,6 @@ import {
   type Make12Odds,
   type TeamScheduleRow,
 } from "@/lib/cfb/season-sim";
-import { EDGE } from "@/lib/edge";
 import { cn, fmtPct } from "@/lib/utils";
 
 function OddsCell({
@@ -192,25 +191,10 @@ function TeamHubScheduleRow({ row }: { row: TeamScheduleRow }) {
   return <li className="py-3.5">{inner}</li>;
 }
 
-/** Locked Win title cell on free surfaces — no number, points at Edge Pack. */
-function PackOnlyCell({ label, sourceNote }: { label: string; sourceNote?: string }) {
-  return (
-    <div className="rounded-md border border-dashed border-line bg-raised/40 px-4 py-3">
-      <div className="text-[11px] uppercase tracking-[0.14em] text-faint">{label}</div>
-      <div className="mt-1 font-display text-2xl leading-none text-muted sm:text-3xl">
-        <Link to="/edge" className="hover:text-accent">
-          {EDGE.shortName}
-        </Link>
-      </div>
-      {sourceNote ? <div className="mt-1.5 text-xs text-muted">{sourceNote}</div> : null}
-    </div>
-  );
-}
-
 /**
  * Make 12 panel — make-field and win-title are separate cells (never title-only).
- * Free tier (default): make-field public, win_title is Edge Pack / paid only — the
- * number is never rendered on free surfaces even if a caller passes it in.
+ * Free tier (default): make-field only. win_title is not published on free surfaces —
+ * no number and no locked cell, even if a caller passes it in.
  */
 export function Make12Panel({
   odds,
@@ -231,16 +215,14 @@ export function Make12Panel({
         <h2 className="font-display text-2xl tracking-wide">Make 12</h2>
         <p className="mt-1 text-sm text-muted">{make12PanelLede(view.makeFieldSource)}</p>
       </div>
-      <div className="grid gap-3 sm:grid-cols-2">
+      <div className={cn("grid gap-3", view.winTitleSource === "pack-only" ? "" : "sm:grid-cols-2")}>
         <OddsCell
           label="Make field"
           value={makeFieldPending ? "—" : fmtPct(view.makeField!, 1)}
           sourceNote={make12FieldLabel(view.makeFieldSource)}
           pending={makeFieldPending}
         />
-        {view.winTitleSource === "pack-only" ? (
-          <PackOnlyCell label="Win title" sourceNote={make12TitleLabel(view.winTitleSource)} />
-        ) : (
+        {view.winTitleSource === "pack-only" ? null : (
           <OddsCell
             label="Win title"
             value={winTitlePending ? "—" : fmtPct(view.winTitle!, 1)}
