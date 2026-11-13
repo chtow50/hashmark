@@ -87,14 +87,14 @@ test("rankings Make 12 column reads make12FreeFromSim makeField, not playoffOdds
   assert.doesNotMatch(src, /fmtPct\(t\.playoffOdds/);
 });
 
-test("free Make 12 keeps Georgia make-field public and drops win_title (Edge Pack only)", () => {
+test("free Make 12 keeps Georgia make-field public and drops win_title (not on free surfaces)", () => {
   const free = make12FreeFromSim("georgia", { playoffOdds: 98.4 });
   const ga = simFullTeamBySlug("georgia")!;
   assert.equal(free.makeField, ga.make_field);
   assert.equal(free.makeFieldSource, "amd-draws");
   assert.equal(free.winTitle, null);
   assert.equal(free.winTitleSource, "pack-only");
-  assert.match(make12TitleLabel(free.winTitleSource) ?? "", /Edge Pack only/);
+  assert.match(make12TitleLabel(free.winTitleSource) ?? "", /Not published on free surfaces/);
   assert.doesNotMatch(JSON.stringify(free), new RegExp(String(ga.win_title).replace(".", "\\.")));
   // Free row (no title field) maps straight to pack-only — the client never reads a title.
   const row = make12FromSimRow({ make_field: 86.51 });

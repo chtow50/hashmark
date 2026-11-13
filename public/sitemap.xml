@@ -1,31 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://hashmarkcfb.com</loc></url>
-  <url><loc>https://hashmarkcfb.com/edge</loc></url>
-  <url><loc>https://hashmarkcfb.com/edge/board</loc></url>
-  <url><loc>https://hashmarkcfb.com/desk</loc></url>
   <url><loc>https://hashmarkcfb.com/schedule</loc></url>
   <url><loc>https://hashmarkcfb.com/stories</loc></url>
-  <url><loc>https://hashmarkcfb.com/stories/week-5-tape</loc></url>
-  <url><loc>https://hashmarkcfb.com/stories/week-4-tape</loc></url>
-  <url><loc>https://hashmarkcfb.com/stories/week-3-tape</loc></url>
-  <url><loc>https://hashmarkcfb.com/stories/week-3-houston-texas-tech</loc></url>
-  <url><loc>https://hashmarkcfb.com/stories/week-3-lsu-ole-miss</loc></url>
-  <url><loc>https://hashmarkcfb.com/stories/week-3-unc-clemson</loc></url>
-  <url><loc>https://hashmarkcfb.com/stories/week-3-usc-rutgers</loc></url>
-  <url><loc>https://hashmarkcfb.com/stories/week-3-indiana-wku</loc></url>
   <url><loc>https://hashmarkcfb.com/rankings</loc></url>
   <url><loc>https://hashmarkcfb.com/matchup</loc></url>
   <url><loc>https://hashmarkcfb.com/recruiting</loc></url>
   <url><loc>https://hashmarkcfb.com/talent</loc></url>
   <url><loc>https://hashmarkcfb.com/states</loc></url>
   <url><loc>https://hashmarkcfb.com/model</loc></url>
+  <url><loc>https://hashmarkcfb.com/desk</loc></url>
   <url><loc>https://hashmarkcfb.com/talent?board=size</loc></url>
   <url><loc>https://hashmarkcfb.com/recruiting?year=2023</loc></url>
   <url><loc>https://hashmarkcfb.com/recruiting?year=2024</loc></url>
   <url><loc>https://hashmarkcfb.com/recruiting?year=2025</loc></url>
   <url><loc>https://hashmarkcfb.com/recruiting?year=2026</loc></url>
+  <url><loc>https://hashmarkcfb.com/stories/week-6-georgia-alabama</loc></url>
+  <url><loc>https://hashmarkcfb.com/stories/week-6-ucla-oregon</loc></url>
+  <url><loc>https://hashmarkcfb.com/stories/week-6-texas-am-missouri</loc></url>
+  <url><loc>https://hashmarkcfb.com/stories/week-6-iowa-washington</loc></url>
+  <url><loc>https://hashmarkcfb.com/stories/week-6-ranked-chill-gaps</loc></url>
+  <url><loc>https://hashmarkcfb.com/stories/week-6-midweek-tape</loc></url>
+  <url><loc>https://hashmarkcfb.com/stories/week-5-tape</loc></url>
+  <url><loc>https://hashmarkcfb.com/stories/week-5-florida-missouri</loc></url>
+  <url><loc>https://hashmarkcfb.com/stories/week-5-miami-clemson</loc></url>
+  <url><loc>https://hashmarkcfb.com/stories/week-5-alabama-mississippi-state</loc></url>
+  <url><loc>https://hashmarkcfb.com/stories/week-5-ohio-state-iowa</loc></url>
+  <url><loc>https://hashmarkcfb.com/stories/week-5-louisville-nc-state</loc></url>
+  <url><loc>https://hashmarkcfb.com/stories/week-5-wku-nmsu-final</loc></url>
+  <url><loc>https://hashmarkcfb.com/stories/week-4-tape</loc></url>
+  <url><loc>https://hashmarkcfb.com/stories/week-4-texas-am-lsu</loc></url>
+  <url><loc>https://hashmarkcfb.com/stories/week-4-ole-miss-florida</loc></url>
+  <url><loc>https://hashmarkcfb.com/stories/week-4-texas-tennessee</loc></url>
+  <url><loc>https://hashmarkcfb.com/stories/week-4-oregon-usc</loc></url>
+  <url><loc>https://hashmarkcfb.com/stories/week-4-clemson-cal</loc></url>
+  <url><loc>https://hashmarkcfb.com/stories/week-4-missouri-mississippi-state</loc></url>
+  <url><loc>https://hashmarkcfb.com/stories/week-3-tape</loc></url>
+  <url><loc>https://hashmarkcfb.com/stories/week-3-houston-texas-tech</loc></url>
+  <url><loc>https://hashmarkcfb.com/stories/week-3-lsu-ole-miss</loc></url>
+  <url><loc>https://hashmarkcfb.com/stories/week-3-unc-clemson</loc></url>
+  <url><loc>https://hashmarkcfb.com/stories/week-3-usc-rutgers</loc></url>
+  <url><loc>https://hashmarkcfb.com/stories/week-3-indiana-wku</loc></url>
   <url><loc>https://hashmarkcfb.com/stories/week-2-tape</loc></url>
+  <url><loc>https://hashmarkcfb.com/stories/week-1-tape</loc></url>
   <url><loc>https://hashmarkcfb.com/stories/week-1-lsu-clemson-gap</loc></url>
   <url><loc>https://hashmarkcfb.com/stories/week-1-georgia-hx-one</loc></url>
   <url><loc>https://hashmarkcfb.com/stories/week-1-miami-stanford-gap</loc></url>
@@ -41,139 +58,139 @@
   <url><loc>https://hashmarkcfb.com/stories/ap-preseason-frozen</loc></url>
   <url><loc>https://hashmarkcfb.com/stories/hawaii-at-stanford</loc></url>
   <url><loc>https://hashmarkcfb.com/teams/georgia</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/ohio-state</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/notre-dame</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/oregon</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/ole-miss</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/texas</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/texas-am</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/texas-tech</loc></url>
   <url><loc>https://hashmarkcfb.com/teams/alabama</loc></url>
   <url><loc>https://hashmarkcfb.com/teams/miami</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/indiana</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/michigan</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/penn-state</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/missouri</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/utah</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/oklahoma</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/tennessee</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/byu</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/smu</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/notre-dame</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/texas</loc></url>
   <url><loc>https://hashmarkcfb.com/teams/lsu</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/clemson</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/usc</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/iowa</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/washington</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/louisville</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/south-carolina</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/vanderbilt</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/arizona</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/kansas-state</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/tcu</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/auburn</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/nc-state</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/florida</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/nebraska</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/minnesota</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/northwestern</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/unlv</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/illinois</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/georgia-tech</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/houston</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/james-madison</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/arizona-state</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/toledo</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/duke</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/virginia</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/usf</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/utsa</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/boise-state</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/tennessee</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/utah</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/ohio-state</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/ole-miss</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/oregon</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/indiana</loc></url>
   <url><loc>https://hashmarkcfb.com/teams/ucla</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/memphis</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/wisconsin</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/baylor</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/pittsburgh</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/iowa-state</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/san-diego-state</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/washington-state</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/kansas</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/texas-state</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/california</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/arkansas</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/tulane</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/north-texas</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/western-michigan</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/western-kentucky</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/florida-state</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/fresno-state</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/kentucky</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/ohio</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/marshall</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/mississippi-state</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/rutgers</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/missouri</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/boise-state</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/south-carolina</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/texas-tech</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/byu</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/iowa</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/louisville</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/texas-am</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/houston</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/arizona</loc></url>
   <url><loc>https://hashmarkcfb.com/teams/wake-forest</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/maryland</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/uconn</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/colorado</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/east-carolina</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/usc</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/kentucky</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/northwestern</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/florida</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/oklahoma-state</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/oklahoma</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/baylor</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/nebraska</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/duke</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/smu</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/penn-state</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/wisconsin</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/clemson</loc></url>
   <url><loc>https://hashmarkcfb.com/teams/liberty</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/southern-miss</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/utah-state</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/virginia-tech</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/ucf</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/hawaii</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/jacksonville-state</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/miami-oh</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/cincinnati</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/louisiana</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/auburn</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/james-madison</loc></url>
   <url><loc>https://hashmarkcfb.com/teams/north-carolina</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/troy</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/west-virginia</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/old-dominion</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/syracuse</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/arkansas-state</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/purdue</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/michigan-state</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/georgia-southern</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/washington</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/tcu</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/illinois</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/texas-state</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/mississippi-state</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/michigan</loc></url>
   <url><loc>https://hashmarkcfb.com/teams/new-mexico</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/coastal-carolina</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/uab</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/florida-state</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/pittsburgh</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/memphis</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/virginia-tech</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/iowa-state</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/arkansas</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/fresno-state</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/ucf</loc></url>
   <url><loc>https://hashmarkcfb.com/teams/louisiana-tech</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/app-state</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/boston-college</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/stanford</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/delaware</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/missouri-state</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/eastern-michigan</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/north-texas</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/minnesota</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/cincinnati</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/western-michigan</loc></url>
   <url><loc>https://hashmarkcfb.com/teams/oregon-state</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/south-alabama</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/fiu</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/florida-atlantic</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/vanderbilt</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/utsa</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/virginia</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/west-virginia</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/michigan-state</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/kansas</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/purdue</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/arizona-state</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/utah-state</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/kansas-state</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/toledo</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/georgia-southern</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/usf</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/syracuse</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/jacksonville-state</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/louisiana</loc></url>
   <url><loc>https://hashmarkcfb.com/teams/tulsa</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/central-michigan</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/nc-state</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/maryland</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/boston-college</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/colorado</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/unlv</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/east-carolina</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/florida-atlantic</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/stanford</loc></url>
   <url><loc>https://hashmarkcfb.com/teams/buffalo</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/san-diego-state</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/army</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/uconn</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/georgia-state</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/california</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/ohio</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/georgia-tech</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/delaware</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/air-force</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/central-michigan</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/miami-oh</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/south-alabama</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/wyoming</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/washington-state</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/fiu</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/rutgers</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/marshall</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/navy</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/tulane</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/troy</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/uab</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/coastal-carolina</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/arkansas-state</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/nevada</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/app-state</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/san-jose-state</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/western-kentucky</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/kennesaw-state</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/hawaii</loc></url>
   <url><loc>https://hashmarkcfb.com/teams/colorado-state</loc></url>
   <url><loc>https://hashmarkcfb.com/teams/temple</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/akron</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/rice</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/wyoming</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/kennesaw-state</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/oklahoma-state</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/sam-houston</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/san-jose-state</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/bowling-green</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/army</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/georgia-state</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/new-mexico-state</loc></url>
   <url><loc>https://hashmarkcfb.com/teams/middle-tennessee</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/northern-illinois</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/ul-monroe</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/navy</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/nevada</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/ball-state</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/utep</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/charlotte</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/missouri-state</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/rice</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/old-dominion</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/bowling-green</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/southern-miss</loc></url>
   <url><loc>https://hashmarkcfb.com/teams/kent-state</loc></url>
-  <url><loc>https://hashmarkcfb.com/teams/air-force</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/new-mexico-state</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/eastern-michigan</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/ball-state</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/charlotte</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/ul-monroe</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/sam-houston</loc></url>
   <url><loc>https://hashmarkcfb.com/teams/massachusetts</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/northern-illinois</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/akron</loc></url>
+  <url><loc>https://hashmarkcfb.com/teams/utep</loc></url>
 </urlset>

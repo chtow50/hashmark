@@ -26,7 +26,7 @@ export const Route = createFileRoute("/teams/$slug")({
 function TeamPage() {
   const { team, players, games, classes } = Route.useLoaderData();
   const share = modelShare(team);
-  // Free team page: make-field public; win_title is Edge Pack / paid only.
+  // Free team page: make-field only; win_title is never published on free surfaces.
   const make12 = make12FreeFromSim(team.slug, team);
   const remaining = buildRemainingSchedule(team.slug, games);
   const season = buildSeasonSchedule(team.slug, games);
@@ -36,7 +36,7 @@ function TeamPage() {
       <PageHead
         kicker={`${team.conference} · ${team.city}, ${team.state}`}
         title={team.name}
-        lede={`${team.mascot} · ${formatSeasonRecord(team.seasonWins, team.seasonLosses)} · ${team.lastFinish}`}
+        lede={`${team.mascot} · ${formatSeasonRecord(team.seasonWins, team.seasonLosses)} · 2025: ${team.lastFinish}`}
       />
 
       <Panel className="mb-6">

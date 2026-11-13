@@ -9,6 +9,25 @@ export function parseScheduleView(value: unknown): ScheduleView {
   return "all";
 }
 
+/** Last schedule week the site serves (bowls/CFP live elsewhere). Mirrors HASHMARK_MAX_WEEK in queries.ts. */
+export const SCHEDULE_MAX_WEEK = 13;
+
+/**
+ * ?w= parser for /schedule. Integer weeks clamp into 0..max (w=99 → 13, w=-1 → 0);
+ * anything else (abc, 1.5, empty) is undefined so the caller falls back to the current week.
+ * The router merges raw search params into deps, so the loader must run this too.
+ */
+export function parseScheduleWeek(value: unknown, max = SCHEDULE_MAX_WEEK): number | undefined {
+  const n =
+    typeof value === "number"
+      ? value
+      : typeof value === "string" && value.trim() !== ""
+        ? Number(value)
+        : Number.NaN;
+  if (!Number.isInteger(n)) return undefined;
+  return Math.min(max, Math.max(0, n));
+}
+
 /** HX top 25 plus AP ballot teams (ap_rank ≤ 25). */
 export function top25SlugSet(teams: TeamSummary[]): Set<string> {
   const slugs = new Set<string>();

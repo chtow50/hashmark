@@ -259,9 +259,9 @@ test("/edge marketing does not promo Scenario Sim; tool is preview/offline only"
   assert.doesNotMatch(preview, /EDGE\.weekLabel|EdgeBuyButton/);
   assert.match(preview, /Edge is paused/);
   assert.doesNotMatch(preview, /\$9 Week sample|\$29\/mo|\$15\/mo|monthLabel|kind="month"/);
-  assert.match(sim, /preview \/ offline/);
-  assert.match(sim, /Not this week’s paid pack|Not this week's paid pack/);
-  assert.doesNotMatch(sim, /live interactive sim/i);
+  // /edge/sim now permanently redirects to the paused /edge page — no paid wording.
+  assert.match(sim, /redirect\(\{ to: "\/edge", statusCode: 301 \}\)/);
+  assert.doesNotMatch(sim, /paid|live interactive sim/i);
   assert.doesNotMatch(sim, /waitlist|password|Customer Portal/i);
   assert.match(SCENARIO_SIM_DEMO_LABEL, /demo fixture/);
 });
