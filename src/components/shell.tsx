@@ -10,12 +10,10 @@ import { cn } from "@/lib/utils";
 const NAV = [
   { to: "/", label: "Board" },
   { to: "/schedule", label: "Schedule" },
-  { to: "/stories", label: "Stories" },
   { to: "/rankings", label: "Rankings" },
   { to: "/matchup", label: "Matchup" },
   { to: "/recruiting", label: "Recruiting" },
   { to: "/talent", label: "Talent" },
-  { to: "/states", label: "States" },
   { to: "/model", label: "The Model" },
 ] as const;
 
@@ -104,13 +102,6 @@ export function AppShell({ children }: { children: ReactNode }) {
                   {item.label}
                 </Link>
               ))}
-              <Link
-                to="/desk"
-                onClick={() => setOpen(false)}
-                className="flex h-12 items-center text-base text-muted"
-              >
-                The Desk
-              </Link>
             </div>
           </nav>
         ) : null}
@@ -136,9 +127,7 @@ export function AppShell({ children }: { children: ReactNode }) {
             <Link to="/matchup" className="hover:text-fg">Matchup</Link>
             <Link to="/recruiting" className="hover:text-fg">Recruiting</Link>
             <Link to="/talent" className="hover:text-fg">Talent</Link>
-            <Link to="/states" className="hover:text-fg">States</Link>
             <Link to="/model" className="hover:text-fg">The Model</Link>
-            <Link to="/desk" className="hover:text-fg">The Desk</Link>
           </nav>
           <p className="text-xs leading-relaxed text-faint">
             Research desk. Not a sportsbook. HASHMARK does not take wagers or list a street line.

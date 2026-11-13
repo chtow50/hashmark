@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { seo } from "@/lib/seo";
 import { Fragment, useMemo, useState } from "react";
 import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import { ConfPills, PageHead, Panel, TeamSelect } from "@/components/shell";
@@ -35,7 +36,12 @@ export const Route = createFileRoute("/talent")({
   }),
   loader: () => listTeams(),
   component: TalentPage,
-  head: () => ({ meta: [{ title: "Roster Talent · HASHMARK" }] }),
+  head: () =>
+    seo({
+      path: "/talent",
+      title: "Roster talent · two-deep composite and size · HASHMARK",
+      description: "Two-deep roster talent for every FBS team (247 composite, transfers included) and the measurables size board.",
+    }),
 });
 
 function TalentPage() {

@@ -28,7 +28,6 @@ export const Route = createRootRoute({
           "College football ratings desk. One number: HX. Full 136 FBS.",
       },
       { property: "og:image", content: "https://hashmarkcfb.com/og.jpg" },
-      { property: "og:url", content: "https://hashmarkcfb.com" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "HASHMARK · College football ratings desk" },
@@ -39,7 +38,6 @@ export const Route = createRootRoute({
       { name: "twitter:image", content: "https://hashmarkcfb.com/og.jpg" },
     ],
     links: [
-      { rel: "canonical", href: "https://hashmarkcfb.com/" },
       { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
       { rel: "apple-touch-icon", href: "/favicon.svg" },
       { rel: "stylesheet", href: appCss },

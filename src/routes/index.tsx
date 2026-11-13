@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { seo } from "@/lib/seo";
 import { RisersFallersCard } from "@/components/hx-results";
 import { ArrowRight } from "lucide-react";
 import { PageHead, Panel } from "@/components/shell";
@@ -47,9 +48,13 @@ export const Route = createFileRoute("/")({
     return { teams, games: notable.length ? notable : games.slice(0, 12), featured };
   },
   component: Home,
-  head: () => ({
-    meta: [{ title: `HASHMARK · Week ${BOARD_WEEK} board` }],
-  }),
+  head: () =>
+    seo({
+      path: "/",
+      title: `HASHMARK · Week ${BOARD_WEEK} college football board · HX ratings`,
+      description:
+        "One college football rating, every FBS team: the HX board, this week's slate with HX spreads and win odds, playoff make-field odds, and the weekly accountability tape.",
+    }),
 });
 
 function Home() {

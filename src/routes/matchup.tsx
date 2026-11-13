@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { seo } from "@/lib/seo";
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { PageHead, Panel, TeamSelect } from "@/components/shell";
 import { CompareRow, DeskChip, Stat, TeamMark, WinBar } from "@/components/marks";
@@ -43,7 +44,12 @@ export const Route = createFileRoute("/matchup")({
     return { teams, match };
   },
   component: MatchupPage,
-  head: () => ({ meta: [{ title: "Matchup · HASHMARK" }] }),
+  head: () =>
+    seo({
+      path: "/matchup",
+      title: "Matchup engine · HX spread and win probability · HASHMARK",
+      description: "Pick any two FBS teams for an HX spread and win probability, home or neutral.",
+    }),
 });
 
 function MatchupPage() {

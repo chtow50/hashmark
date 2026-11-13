@@ -3,9 +3,8 @@
  * Build assertion: the public client output must not carry win_title.
  *
  * Everything under .vercel/output/static/ is served publicly (Vercel static).
- * win_title is Edge Pack / paid only — it may exist in the server function bundle
- * (functions/__server.func, not publicly served; the Edge Pack files are read there
- * after Stripe verification) but never in static/.
+ * win_title is never published — it may exist in the server function bundle
+ * (functions/__server.func, not publicly served; test/tooling only) but never in static/.
  *
  * Usage: node scripts/check-client-bundle.mjs [staticDir]
  * Exits 1 and lists offending files when any match is found.

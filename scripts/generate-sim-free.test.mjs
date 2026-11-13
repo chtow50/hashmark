@@ -5,15 +5,13 @@ import { describe, it } from "node:test";
 import {
   SIM_FREE_PATH,
   SIM_FULL_PATH,
-  SCENARIO_FREE_PATH,
-  buildScenarioFree,
   buildSimFree,
   freeExports,
 } from "./generate-sim-free.mjs";
 
 const ROOT = join(import.meta.dirname, "..");
 
-describe("free sim exports (win_title is Edge Pack only)", () => {
+describe("free sim exports (win_title is never published)", () => {
   it("committed free exports match the generator (not stale)", () => {
     for (const { path, body } of freeExports()) {
       assert.equal(readFileSync(join(ROOT, path), "utf8"), body, `${path} is stale`);
@@ -21,7 +19,7 @@ describe("free sim exports (win_title is Edge Pack only)", () => {
   });
 
   it("free exports carry no win_title", () => {
-    for (const path of [SIM_FREE_PATH, SCENARIO_FREE_PATH]) {
+    for (const path of [SIM_FREE_PATH]) {
       assert.doesNotMatch(readFileSync(join(ROOT, path), "utf8"), /win_title/, path);
     }
   });
@@ -33,13 +31,6 @@ describe("free sim exports (win_title is Edge Pack only)", () => {
     });
     assert.deepEqual(sim.teams[0], { name: "A", slug: "a", conference: "C", make_field: 1, proj_wins: 3, conf_title: 4 });
     assert.equal("secret" in sim.meta, false);
-    const sc = buildScenarioFree({
-      ok: true,
-      baseline: { a: { make_field: 1, win_title: 2, proj_wins: 3, conf_title: 4 } },
-      scenario: {},
-      delta: {},
-    });
-    assert.deepEqual(sc.baseline.a, { make_field: 1, proj_wins: 3, conf_title: 4 });
   });
 
   it("free export mirrors the full sim's make-field and meta, without win_title", () => {

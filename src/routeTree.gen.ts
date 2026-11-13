@@ -21,12 +21,9 @@ import { Route as ScheduleRouteImport } from './routes/schedule'
 import { Route as StatesRouteImport } from './routes/states'
 import { Route as StoriesRouteImport } from './routes/stories'
 import { Route as TalentRouteImport } from './routes/talent'
-import { Route as EdgeBoardRouteImport } from './routes/edge.board'
-import { Route as EdgeUnlockRouteImport } from './routes/edge.unlock'
-import { Route as EdgeSimRouteImport } from './routes/edge_.sim'
-import { Route as StoriesSlugRouteImport } from './routes/stories.$slug'
+import { Route as EdgeSplatRouteImport } from './routes/edge.$'
+import { Route as StoriesSlugRouteImport } from './routes/stories_.$slug'
 import { Route as TeamsSlugRouteImport } from './routes/teams.$slug'
-import { Route as ApiEdgePackRouteImport } from './routes/api/edge.pack'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -88,34 +85,19 @@ const TalentRoute = TalentRouteImport.update({
   path: '/talent',
   getParentRoute: () => rootRouteImport,
 } as any)
-const EdgeBoardRoute = EdgeBoardRouteImport.update({
-  id: '/board',
-  path: '/board',
+const EdgeSplatRoute = EdgeSplatRouteImport.update({
+  id: '/$',
+  path: '/$',
   getParentRoute: () => EdgeRoute,
-} as any)
-const EdgeUnlockRoute = EdgeUnlockRouteImport.update({
-  id: '/unlock',
-  path: '/unlock',
-  getParentRoute: () => EdgeRoute,
-} as any)
-const EdgeSimRoute = EdgeSimRouteImport.update({
-  id: '/edge_/sim',
-  path: '/edge/sim',
-  getParentRoute: () => rootRouteImport,
 } as any)
 const StoriesSlugRoute = StoriesSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => StoriesRoute,
+  id: '/stories_/$slug',
+  path: '/stories/$slug',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const TeamsSlugRoute = TeamsSlugRouteImport.update({
   id: '/teams/$slug',
   path: '/teams/$slug',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiEdgePackRoute = ApiEdgePackRouteImport.update({
-  id: '/api/edge/pack',
-  path: '/api/edge/pack',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -130,14 +112,11 @@ export interface FileRoutesByFullPath {
   '/recruiting': typeof RecruitingRoute
   '/schedule': typeof ScheduleRoute
   '/states': typeof StatesRoute
-  '/stories': typeof StoriesRouteWithChildren
+  '/stories': typeof StoriesRoute
   '/talent': typeof TalentRoute
-  '/edge/board': typeof EdgeBoardRoute
-  '/edge/unlock': typeof EdgeUnlockRoute
-  '/edge/sim': typeof EdgeSimRoute
+  '/edge/$': typeof EdgeSplatRoute
   '/stories/$slug': typeof StoriesSlugRoute
   '/teams/$slug': typeof TeamsSlugRoute
-  '/api/edge/pack': typeof ApiEdgePackRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -150,14 +129,11 @@ export interface FileRoutesByTo {
   '/recruiting': typeof RecruitingRoute
   '/schedule': typeof ScheduleRoute
   '/states': typeof StatesRoute
-  '/stories': typeof StoriesRouteWithChildren
+  '/stories': typeof StoriesRoute
   '/talent': typeof TalentRoute
-  '/edge/board': typeof EdgeBoardRoute
-  '/edge/unlock': typeof EdgeUnlockRoute
-  '/edge/sim': typeof EdgeSimRoute
+  '/edge/$': typeof EdgeSplatRoute
   '/stories/$slug': typeof StoriesSlugRoute
   '/teams/$slug': typeof TeamsSlugRoute
-  '/api/edge/pack': typeof ApiEdgePackRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -171,14 +147,11 @@ export interface FileRoutesById {
   '/recruiting': typeof RecruitingRoute
   '/schedule': typeof ScheduleRoute
   '/states': typeof StatesRoute
-  '/stories': typeof StoriesRouteWithChildren
+  '/stories': typeof StoriesRoute
   '/talent': typeof TalentRoute
-  '/edge/board': typeof EdgeBoardRoute
-  '/edge/unlock': typeof EdgeUnlockRoute
-  '/edge_/sim': typeof EdgeSimRoute
-  '/stories/$slug': typeof StoriesSlugRoute
+  '/edge/$': typeof EdgeSplatRoute
+  '/stories_/$slug': typeof StoriesSlugRoute
   '/teams/$slug': typeof TeamsSlugRoute
-  '/api/edge/pack': typeof ApiEdgePackRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -195,12 +168,9 @@ export interface FileRouteTypes {
     | '/states'
     | '/stories'
     | '/talent'
-    | '/edge/board'
-    | '/edge/unlock'
-    | '/edge/sim'
+    | '/edge/$'
     | '/stories/$slug'
     | '/teams/$slug'
-    | '/api/edge/pack'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -215,12 +185,9 @@ export interface FileRouteTypes {
     | '/states'
     | '/stories'
     | '/talent'
-    | '/edge/board'
-    | '/edge/unlock'
-    | '/edge/sim'
+    | '/edge/$'
     | '/stories/$slug'
     | '/teams/$slug'
-    | '/api/edge/pack'
   id:
     | '__root__'
     | '/'
@@ -235,12 +202,9 @@ export interface FileRouteTypes {
     | '/states'
     | '/stories'
     | '/talent'
-    | '/edge/board'
-    | '/edge/unlock'
-    | '/edge_/sim'
-    | '/stories/$slug'
+    | '/edge/$'
+    | '/stories_/$slug'
     | '/teams/$slug'
-    | '/api/edge/pack'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -254,11 +218,10 @@ export interface RootRouteChildren {
   RecruitingRoute: typeof RecruitingRoute
   ScheduleRoute: typeof ScheduleRoute
   StatesRoute: typeof StatesRoute
-  StoriesRoute: typeof StoriesRouteWithChildren
+  StoriesRoute: typeof StoriesRoute
   TalentRoute: typeof TalentRoute
-  EdgeSimRoute: typeof EdgeSimRoute
+  StoriesSlugRoute: typeof StoriesSlugRoute
   TeamsSlugRoute: typeof TeamsSlugRoute
-  ApiEdgePackRoute: typeof ApiEdgePackRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -347,33 +310,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TalentRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/edge/board': {
-      id: '/edge/board'
-      path: '/board'
-      fullPath: '/edge/board'
-      preLoaderRoute: typeof EdgeBoardRouteImport
+    '/edge/$': {
+      id: '/edge/$'
+      path: '/$'
+      fullPath: '/edge/$'
+      preLoaderRoute: typeof EdgeSplatRouteImport
       parentRoute: typeof EdgeRoute
     }
-    '/edge/unlock': {
-      id: '/edge/unlock'
-      path: '/unlock'
-      fullPath: '/edge/unlock'
-      preLoaderRoute: typeof EdgeUnlockRouteImport
-      parentRoute: typeof EdgeRoute
-    }
-    '/edge_/sim': {
-      id: '/edge_/sim'
-      path: '/edge/sim'
-      fullPath: '/edge/sim'
-      preLoaderRoute: typeof EdgeSimRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/stories/$slug': {
-      id: '/stories/$slug'
-      path: '/$slug'
+    '/stories_/$slug': {
+      id: '/stories_/$slug'
+      path: '/stories/$slug'
       fullPath: '/stories/$slug'
       preLoaderRoute: typeof StoriesSlugRouteImport
-      parentRoute: typeof StoriesRoute
+      parentRoute: typeof rootRouteImport
     }
     '/teams/$slug': {
       id: '/teams/$slug'
@@ -382,38 +331,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TeamsSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/edge/pack': {
-      id: '/api/edge/pack'
-      path: '/api/edge/pack'
-      fullPath: '/api/edge/pack'
-      preLoaderRoute: typeof ApiEdgePackRouteImport
-      parentRoute: typeof rootRouteImport
-    }
   }
 }
 
 interface EdgeRouteChildren {
-  EdgeBoardRoute: typeof EdgeBoardRoute
-  EdgeUnlockRoute: typeof EdgeUnlockRoute
+  EdgeSplatRoute: typeof EdgeSplatRoute
 }
 
 const EdgeRouteChildren: EdgeRouteChildren = {
-  EdgeBoardRoute: EdgeBoardRoute,
-  EdgeUnlockRoute: EdgeUnlockRoute,
+  EdgeSplatRoute: EdgeSplatRoute,
 }
 
 const EdgeRouteWithChildren = EdgeRoute._addFileChildren(EdgeRouteChildren)
-
-interface StoriesRouteChildren {
-  StoriesSlugRoute: typeof StoriesSlugRoute
-}
-
-const StoriesRouteChildren: StoriesRouteChildren = {
-  StoriesSlugRoute: StoriesSlugRoute,
-}
-
-const StoriesRouteWithChildren =
-  StoriesRoute._addFileChildren(StoriesRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
@@ -426,11 +355,10 @@ const rootRouteChildren: RootRouteChildren = {
   RecruitingRoute: RecruitingRoute,
   ScheduleRoute: ScheduleRoute,
   StatesRoute: StatesRoute,
-  StoriesRoute: StoriesRouteWithChildren,
+  StoriesRoute: StoriesRoute,
   TalentRoute: TalentRoute,
-  EdgeSimRoute: EdgeSimRoute,
+  StoriesSlugRoute: StoriesSlugRoute,
   TeamsSlugRoute: TeamsSlugRoute,
-  ApiEdgePackRoute: ApiEdgePackRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

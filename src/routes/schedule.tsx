@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { seo } from "@/lib/seo";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useMemo } from "react";
 import { ConfPills, PageHead, Panel } from "@/components/shell";
@@ -65,7 +66,12 @@ export const Route = createFileRoute("/schedule")({
     return { week, games, filtered, teams, view, conf };
   },
   component: SchedulePage,
-  head: () => ({ meta: [{ title: "Schedule · HASHMARK" }] }),
+  head: () =>
+    seo({
+      path: "/schedule",
+      title: "College football schedule · HX spreads, win odds, Vegas · HASHMARK",
+      description: "Every FBS game by week with the HX spread and win probability, the Vegas line where sourced, and FINALs.",
+    }),
 });
 
 function SchedulePage() {
