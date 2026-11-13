@@ -182,7 +182,7 @@ function Home() {
               <Link
                 key={y}
                 to="/recruiting"
-                search={{ year: y, board: "class" }}
+                search={{ year: y === 2026 ? undefined : y }}
                 className="inline-flex h-9 items-center rounded-full bg-raised px-3 text-sm text-muted hover:text-fg"
               >
                 {y}
@@ -217,7 +217,7 @@ function Home() {
             <h2 className="font-display text-2xl tracking-wide">Roster talent composite</h2>
             <p className="mt-1 text-sm text-muted">Listed two-deep, transfers included. Not OL mass.</p>
           </div>
-          <Link to="/talent" search={{ board: "composite" }} className="text-sm text-muted hover:text-fg">
+          <Link to="/talent" search={{}} className="text-sm text-muted hover:text-fg">
             Full board
           </Link>
         </div>

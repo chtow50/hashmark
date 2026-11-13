@@ -32,10 +32,12 @@ export const Route = createFileRoute("/recruiting")({
     const y = Number(s.year);
     const year = YEARS.includes(y as (typeof YEARS)[number]) ? y : 2026;
     if (s.tab === "states") return { tab: "states", code: parseStateCode(s.code) };
+    // Defaults are dropped (undefined) so /recruiting never 307s to a param-stuffed URL on crawl.
+    const conf = parseConf(s.conf);
     return {
-      year,
-      board: s.board === "cycle" ? "cycle" : "class",
-      conf: parseConf(s.conf),
+      year: year === 2026 ? undefined : year,
+      board: s.board === "cycle" ? "cycle" : undefined,
+      conf: conf === "All" ? undefined : conf,
     };
   },
   loaderDeps: ({ search }) => ({
@@ -174,7 +176,7 @@ function RecruitingPage({ rows }: { rows: RecruitingClass[] }) {
             <Link
               key={y}
               to="/recruiting"
-              search={{ year: y, board: "class", conf: conf === "All" ? undefined : conf }}
+              search={{ year: y === 2026 ? undefined : y, conf: conf === "All" ? undefined : conf }}
               className={cn(
                 "rounded-xl px-4 py-3 shadow-[var(--shadow-border)] transition-colors duration-150",
                 active ? "bg-accent text-accent-fg" : "bg-surface text-fg hover:bg-raised",
@@ -199,7 +201,7 @@ function RecruitingPage({ rows }: { rows: RecruitingClass[] }) {
         })}
         <Link
           to="/recruiting"
-          search={{ year, board: "cycle", conf: conf === "All" ? undefined : conf }}
+          search={{ year: year === 2026 ? undefined : year, board: "cycle", conf: conf === "All" ? undefined : conf }}
           className={cn(
             "rounded-xl px-4 py-3 shadow-[var(--shadow-border)] transition-colors duration-150",
             board === "cycle" ? "bg-accent text-accent-fg" : "bg-surface text-fg hover:bg-raised",
@@ -229,8 +231,8 @@ function RecruitingPage({ rows }: { rows: RecruitingClass[] }) {
           value={conf}
           to="/recruiting"
           searchFor={(c) => ({
-            year,
-            board,
+            ...(year === 2026 ? {} : { year }),
+            ...(board === "class" ? {} : { board }),
             ...(c === "All" ? {} : { conf: c }),
           })}
         />
@@ -391,7 +393,7 @@ function CycleTable({
                 </td>
                 {YEARS.map((y) => (
                   <td key={y} className="px-3 py-3 tabular">
-                    <Link to="/recruiting" search={{ year: y, board: "class" }} className="hover:text-accent">
+                    <Link to="/recruiting" search={{ year: y === 2026 ? undefined : y }} className="hover:text-accent">
                       {row.byYear[y] ?? "—"}
                     </Link>
                   </td>

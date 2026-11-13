@@ -250,7 +250,7 @@ function TeamPage() {
             </Link>
             <Link
               to="/talent"
-              search={{ board: "composite" }}
+              search={{}}
               className="inline-flex h-11 items-center rounded-md bg-raised px-4 text-sm"
             >
               Talent board
@@ -305,7 +305,7 @@ function TeamPage() {
                 return (
                   <tr key={c.classYear} className="border-b border-line last:border-0">
                     <td className="py-2.5 pr-3">
-                      <Link to="/recruiting" search={{ year: c.classYear, board: "class" }} className="font-medium">
+                      <Link to="/recruiting" search={{ year: c.classYear === 2026 ? undefined : c.classYear }} className="font-medium">
                         {c.classYear}
                       </Link>
                     </td>
