@@ -1,0 +1,421 @@
+import { o as __toESM } from "../_runtime.mjs";
+import { n as gameKey } from "./game-key-MogMlpsX.mjs";
+import { r as predictMatchup } from "./model-C--_NYY0.mjs";
+import { n as require_react } from "../_libs/@radix-ui/react-compose-refs+[...].mjs";
+import { w as require_jsx_runtime, x as Link } from "../_libs/@tanstack/react-router+[...].mjs";
+import { l as ChevronRight, u as ChevronLeft } from "../_libs/lucide-react.mjs";
+import { i as formatKickDayTitle, o as todayChicago, r as formatKickCt } from "./chicago-CEb1x88L.mjs";
+import { G as selectWeekScopedFeatured, H as featuredBook, K as vegasParts, V as favoriteLine, X as PageHead, Y as ConfPills, Z as Panel, _ as LineStat, d as defaultWeek, g as DeskChip, it as fmtPct, q as Button, tt as cn, u as Route$9, w as TeamMark } from "./router-C8l9Ifjn.mjs";
+import { a as isVegasOnlyFcs } from "./fcs-stubs-BauL-2kD.mjs";
+import { n as matchupChips, r as needsRowFinalChip, t as isWinnerFlip } from "./schedule-flags-Cn3M-osX.mjs";
+//#region node_modules/.nitro/vite/services/ssr/assets/schedule-tsdQ5mvn.js
+var import_react = /* @__PURE__ */ __toESM(require_react());
+var import_jsx_runtime = require_jsx_runtime();
+var VIEW_OPTIONS = [
+	{
+		key: "all",
+		label: "All FBS"
+	},
+	{
+		key: "top25",
+		label: "Top 25"
+	},
+	{
+		key: "conf",
+		label: "Conference"
+	}
+];
+function searchForView(view, conf, week) {
+	const base = { w: week === defaultWeek(todayChicago()) ? void 0 : week };
+	if (view !== "all") base.view = view;
+	if (view === "conf" && conf !== "All") base.conf = conf;
+	return base;
+}
+function SchedulePage() {
+	const { week, games, filtered, view, conf } = Route$9.useLoaderData();
+	const prev = week > 0 ? week - 1 : null;
+	const next = week < 13 ? week + 1 : null;
+	const featured = selectWeekScopedFeatured(week, games);
+	const emptyCopy = (0, import_react.useMemo)(() => {
+		if (view === "top25") return {
+			title: "No Top 25 games this week",
+			body: "Nothing on the slate matches a team in the HX or last stamped AP Top 25. Try All FBS or pick another week."
+		};
+		if (view === "conf" && conf !== "All") return {
+			title: `No ${conf} games this week`,
+			body: `Week ${week} has no matchups with a ${conf} team. Try another conference or switch to All FBS.`
+		};
+		if (view === "conf") return {
+			title: "Pick a conference",
+			body: "Choose a conference below to filter the slate."
+		};
+		return {
+			title: "No FBS games on the board",
+			body: "This week has no HASHMARK matchup on the board."
+		};
+	}, [
+		view,
+		conf,
+		week
+	]);
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(PageHead, {
+			kicker: `Week ${week} · The slate`,
+			title: `Week ${week} slate`,
+			lede: "HASHMARK spread and win% from HX. FCS opponents are unrated — Vegas line only, no invented HASHMARK spread. FINAL is locked on the tape. Sorted by kick, America/Chicago."
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "mb-5 flex gap-2 overflow-x-auto pb-1",
+			role: "tablist",
+			"aria-label": "Schedule filter",
+			children: VIEW_OPTIONS.map((opt) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link, {
+				to: "/schedule",
+				search: searchForView(opt.key, conf, week),
+				role: "tab",
+				"aria-selected": view === opt.key,
+				className: cn("inline-flex h-11 shrink-0 items-center rounded-full px-4 text-sm transition-colors duration-150", view === opt.key ? "bg-accent text-accent-fg" : "bg-raised text-muted hover:text-fg"),
+				children: opt.label
+			}, opt.key))
+		}),
+		view === "conf" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ConfPills, {
+			value: conf,
+			to: "/schedule",
+			searchFor: (c) => ({
+				view: "conf",
+				...week !== defaultWeek(todayChicago()) ? { w: week } : {},
+				...c === "All" ? {} : { conf: c }
+			})
+		}) : null,
+		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+			className: "mb-4 text-xs tabular text-faint",
+			children: [
+				filtered.length,
+				" of ",
+				games.length,
+				" games",
+				view === "top25" ? " · Top 25 · HX or last stamped AP" : null,
+				view === "conf" && conf !== "All" ? ` · ${conf}` : null,
+				view === "all" ? " · All FBS" : null
+			]
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "mb-5 flex items-center justify-between gap-3",
+			children: [
+				prev !== null ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
+					asChild: true,
+					variant: "outline",
+					size: "sm",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Link, {
+						to: "/schedule",
+						search: searchForView(view, conf, prev),
+						"aria-label": `Week ${prev}`,
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChevronLeft, { className: "size-4" }),
+							"Week ",
+							prev
+						]
+					})
+				}) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
+					variant: "outline",
+					size: "sm",
+					disabled: true,
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChevronLeft, { className: "size-4" }), "Week 0"]
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+					className: "text-center font-mono text-[11px] uppercase tracking-[0.14em] text-faint",
+					children: [
+						"Week ",
+						week,
+						" · CT"
+					]
+				}),
+				next !== null ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
+					asChild: true,
+					variant: "outline",
+					size: "sm",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Link, {
+						to: "/schedule",
+						search: searchForView(view, conf, next),
+						"aria-label": `Week ${next}`,
+						children: [
+							"Week ",
+							next,
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChevronRight, { className: "size-4" })
+						]
+					})
+				}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {})
+			]
+		}),
+		featured ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(WeekScopedFeatured, { game: featured }) : null,
+		filtered.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Panel, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+			className: "font-display text-2xl tracking-wide",
+			children: emptyCopy.title
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+			className: "mt-2 text-sm leading-relaxed text-muted",
+			children: emptyCopy.body
+		})] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Panel, {
+			className: "overflow-hidden p-0 sm:p-0",
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("ul", {
+				className: "divide-y divide-line",
+				children: filtered.map((g) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ScheduleRow, { game: g }, g.id))
+			})
+		})
+	] });
+}
+function WeekScopedFeatured({ game: g }) {
+	const pred = predictMatchup({
+		hxRating: g.homeHx,
+		offenseRating: g.homeOff,
+		defenseRating: g.homeDef
+	}, {
+		hxRating: g.awayHx,
+		offenseRating: g.awayOff,
+		defenseRating: g.awayDef
+	}, { neutral: g.neutral });
+	const hxLine = favoriteLine(g.homeShort, g.awayShort, pred.spread);
+	const book = featuredBook(g);
+	const bookLine = book ? favoriteLine(g.homeShort, g.awayShort, book.spread) : null;
+	const kick = g.kickoffAt ? formatKickCt(g.kickoffAt) : formatKickDayTitle(null, g.kickoffDate);
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Panel, {
+		className: "mb-5",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+				className: "font-mono text-[11px] uppercase tracking-[0.18em] text-faint",
+				children: [
+					"Week ",
+					g.week,
+					" featured · ",
+					g.location
+				]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "mt-2 flex flex-wrap items-center gap-x-2 gap-y-1",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+						className: "inline-flex items-center gap-2",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(TeamMark, {
+							slug: g.awaySlug,
+							color: g.awayColor
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "font-display text-2xl tracking-wide",
+							children: g.awayName
+						})]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						className: "text-faint",
+						children: "@"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+						className: "inline-flex items-center gap-2",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(TeamMark, {
+							slug: g.homeSlug,
+							color: g.homeColor
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "font-display text-2xl tracking-wide",
+							children: g.homeName
+						})]
+					})
+				]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+				className: "mt-1 text-sm text-muted",
+				children: [
+					formatKickDayTitle(g.kickoffAt, g.kickoffDate),
+					" · ",
+					kick,
+					g.tv ? ` · ${g.tv}` : ""
+				]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "mt-4 grid grid-cols-2 gap-3",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(LineStat, {
+					label: "HASHMARK",
+					value: hxLine
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LineStat, {
+					label: book?.label ?? "Vegas",
+					value: book && bookLine ? bookLine : null,
+					sub: book && book.total !== "—" ? `O/U ${book.total}` : book ? "Total not posted" : null
+				})]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
+				asChild: true,
+				variant: "outline",
+				size: "sm",
+				className: "mt-4",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link, {
+					to: "/matchup",
+					search: {
+						home: g.homeSlug,
+						away: g.awaySlug
+					},
+					children: "Open matchup"
+				})
+			})
+		]
+	});
+}
+function ScheduleRow({ game: g }) {
+	const vegasOnly = isVegasOnlyFcs(g);
+	const unrated = g.hxUnrated === true;
+	const pred = vegasOnly || unrated ? null : predictMatchup({
+		hxRating: g.homeHx,
+		offenseRating: g.homeOff,
+		defenseRating: g.homeDef
+	}, {
+		hxRating: g.awayHx,
+		offenseRating: g.awayOff,
+		defenseRating: g.awayDef
+	}, { neutral: g.neutral });
+	const hxLine = pred ? favoriteLine(g.homeShort, g.awayShort, pred.spread) : null;
+	const hxWin = pred ? pred.spread >= 0 ? pred.homeWinPct : pred.awayWinPct : null;
+	const vegasLine = g.vegasSpread == null ? null : favoriteLine(g.homeShort, g.awayShort, g.vegasSpread);
+	const flip = pred ? isWinnerFlip(pred, g.vegasSpread) : false;
+	const chips = pred ? matchupChips(pred, {
+		neutral: g.neutral,
+		vegasSpread: g.vegasSpread,
+		status: g.status
+	}) : [];
+	const fbsSlug = g.homeSlug.startsWith("fcs-") ? g.awaySlug : g.homeSlug;
+	const inner = /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "flex flex-wrap items-start justify-between gap-3",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "min-w-0",
+			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "flex flex-wrap items-center gap-2",
+					children: [
+						chips.map((chip) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(DeskChip, {
+							tone: chip.tone,
+							children: chip.label
+						}, chip.kind)),
+						vegasOnly ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(DeskChip, {
+							tone: "muted",
+							children: "Vegas-only"
+						}) : null,
+						unrated ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(DeskChip, {
+							tone: "muted",
+							children: "No pregame HX"
+						}) : null,
+						needsRowFinalChip(chips, g.status) ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(DeskChip, {
+							tone: "accent",
+							children: "Final"
+						}) : null,
+						g.headline === "IN_PROGRESS" && g.status !== "final" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(DeskChip, {
+							tone: "accent",
+							children: "In progress"
+						}) : null
+					]
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "mt-2 flex flex-wrap items-center gap-x-2 gap-y-1",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+							className: "inline-flex items-center gap-2",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(TeamMark, {
+								slug: g.awaySlug,
+								color: g.awayColor
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: "font-medium",
+								children: g.awayName
+							})]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "text-faint",
+							children: g.neutral ? "vs" : "@"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+							className: "inline-flex items-center gap-2",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(TeamMark, {
+								slug: g.homeSlug,
+								color: g.homeColor
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: "font-medium",
+								children: g.homeName
+							})]
+						})
+					]
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+					className: "mt-1 text-sm text-muted",
+					children: [
+						g.neutral ? "Neutral site" : null,
+						g.neutral && g.location ? " · " : null,
+						g.location
+					]
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+					className: "mt-0.5 font-mono text-xs tabular text-muted sm:hidden",
+					children: [
+						formatKickDayTitle(g.kickoffAt, g.kickoffDate),
+						g.kickoffAt ? ` · ${formatKickCt(g.kickoffAt)}` : "",
+						g.tv ? ` · ${g.tv}` : ""
+					]
+				}),
+				flip && hxLine ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+					className: "mt-1 text-sm text-warn",
+					children: [
+						"HASHMARK takes ",
+						hxLine,
+						" · Vegas has ",
+						vegasLine ?? "the other side"
+					]
+				}) : null
+			]
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+			className: "hidden shrink-0 text-right font-mono text-sm tabular text-muted sm:block",
+			children: [
+				formatKickDayTitle(g.kickoffAt, g.kickoffDate),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
+				formatKickCt(g.kickoffAt),
+				g.tv ? ` · ${g.tv}` : ""
+			]
+		})]
+	}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "mt-3 grid grid-cols-2 gap-3 sm:mt-4 sm:grid-cols-3",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(LineStat, {
+				label: "HASHMARK",
+				value: hxLine && hxWin != null ? hxLine : null,
+				sub: hxLine && hxWin != null ? `${fmtPct(hxWin * 100, 1)} to win` : null,
+				empty: vegasOnly ? "FCS opponent · unrated" : unrated ? "No pregame HX" : "Not rated"
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(LineStat, {
+				label: "Vegas",
+				...vegasParts(vegasLine, g.vegasTotal)
+			}),
+			g.status === "final" && g.homeScore != null && g.awayScore != null ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LineStat, {
+				label: "FINAL",
+				value: `${g.awayShort} ${g.awayScore}–${g.homeScore} ${g.homeShort}`,
+				className: "col-span-2 sm:col-span-1"
+			}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LineStat, {
+				label: "Kick",
+				value: g.tv ? `${formatKickCt(g.kickoffAt)} · ${g.tv}` : formatKickCt(g.kickoffAt),
+				className: "hidden sm:block"
+			})
+		]
+	})] });
+	if (vegasOnly) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link, {
+		to: "/teams/$slug",
+		params: { slug: fbsSlug },
+		className: "block px-4 py-4 transition-colors duration-150 hover:bg-raised sm:px-5",
+		children: inner
+	}) });
+	const isFinal = g.status === "final" && g.homeScore != null && g.awayScore != null;
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("li", { children: isFinal ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link, {
+		to: "/games/$key",
+		params: { key: gameKey(g.kickoffDate, g.awaySlug, g.homeSlug) },
+		className: "block px-4 py-4 transition-colors duration-150 hover:bg-raised sm:px-5",
+		children: inner
+	}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link, {
+		to: "/matchup",
+		search: {
+			home: g.homeSlug,
+			away: g.awaySlug,
+			...g.neutral ? { neutral: true } : {}
+		},
+		className: "block px-4 py-4 transition-colors duration-150 hover:bg-raised sm:px-5",
+		children: inner
+	}) });
+}
+//#endregion
+export { SchedulePage as component };
