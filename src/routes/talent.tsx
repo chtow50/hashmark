@@ -31,10 +31,11 @@ const LENSES: { key: Lens; label: string }[] = [
 type SizeMetricKind = "weight" | "height";
 
 export const Route = createFileRoute("/talent")({
-  validateSearch: (s: Record<string, unknown>): Search => ({
-    board: s.board === "size" ? "size" : "composite",
-    conf: parseConf(s.conf),
-  }),
+  // Defaults are dropped (undefined) so /talent never 307s to a param-stuffed URL on crawl.
+  validateSearch: (s: Record<string, unknown>): Search => {
+    const conf = parseConf(s.conf);
+    return { board: s.board === "size" ? "size" : undefined, conf: conf === "All" ? undefined : conf };
+  },
   // Talent boards rank sourced two-deep profiles only (2026 newcomers have none yet).
   loader: async () => (await listTeams()).filter((t) => t.hasProfile !== false),
   component: TalentPage,
@@ -82,7 +83,7 @@ function TalentPage() {
       <div className="mb-6 grid grid-cols-2 gap-2">
         <Link
           to="/talent"
-          search={{ board: "composite", conf: conf === "All" ? undefined : conf }}
+          search={{ conf: conf === "All" ? undefined : conf }}
           className={cn(
             "rounded-xl px-4 py-3 shadow-[var(--shadow-border)] transition-colors duration-150",
             board === "composite" ? "bg-accent text-accent-fg" : "bg-surface text-fg hover:bg-raised",
@@ -323,10 +324,7 @@ function CompositeBoard({
       <ConfPills
         value={conf}
         to="/talent"
-        searchFor={(c) => ({
-          board: "composite",
-          ...(c === "All" ? {} : { conf: c }),
-        })}
+        searchFor={(c) => (c === "All" ? {} : { conf: c })}
       />
 
       <div className="mb-5 flex gap-2 overflow-x-auto pb-1">
@@ -471,7 +469,7 @@ function SizeBoard({
           This board is separate from the talent composite — open{" "}
           <Link
             to="/talent"
-            search={{ board: "composite", conf: conf === "All" ? undefined : conf }}
+            search={{ conf: conf === "All" ? undefined : conf }}
             className="text-fg underline decoration-border underline-offset-4"
           >
             Composite

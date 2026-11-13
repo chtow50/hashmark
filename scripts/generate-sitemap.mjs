@@ -39,7 +39,6 @@ export const STATIC_PATHS = [
   "/recruiting?year=2023",
   "/recruiting?year=2024",
   "/recruiting?year=2025",
-  "/recruiting?year=2026",
 ];
 
 const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
