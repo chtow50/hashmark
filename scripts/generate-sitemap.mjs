@@ -30,6 +30,7 @@ export const STATIC_PATHS = [
   "/stats?tab=rec",
   "/stats?tab=def",
   "/conferences",
+  "/strength",
   "/model",
   "/talent?board=size",
   "/recruiting?year=2023",

@@ -111,6 +111,31 @@ spread  = 0.050835 × d
       </div>
 
       <Panel className="mt-6">
+        <section id="sor" className="scroll-mt-24">
+          <h2 className="font-display text-2xl tracking-wide">Strength of record and schedule</h2>
+          <div className="mt-3 space-y-3 text-sm leading-relaxed text-muted">
+            <p>
+              Strength of record (SOR) = actual wins minus the wins a typical top-25 team would expect on the
+              same schedule. The benchmark is whoever is No. 25 on the current HX board. Each played game uses the
+              matchup engine: Elo = {MODEL.eloBase} + {MODEL.eloScale} × HX, {MODEL.homeFieldElo} points home
+              field, none at neutral sites. FCS games use the season sim&apos;s fixed rule (benchmark wins 92%
+              at home, 88% away).
+            </p>
+            <p>
+              Strength of schedule = the average current HX of FBS opponents, split into played and still to
+              play, ranked 1–138 (No. 1 = hardest). FCS opponents have no HX, so they are counted but kept out
+              of the average. Both use current HX and only real FINALs and the real remaining slate; neither
+              changes HX. Full table:{" "}
+              <Link to="/strength" className="underline underline-offset-4 hover:text-fg">
+                strength of record &amp; schedule
+              </Link>
+              .
+            </p>
+          </div>
+        </section>
+      </Panel>
+
+      <Panel className="mt-6">
         <h2 className="font-display text-2xl tracking-wide">2026 notes</h2>
         <div className="mt-4 space-y-4 text-sm leading-relaxed text-muted">
           <p>

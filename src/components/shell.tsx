@@ -392,7 +392,7 @@ export function ConfPills({
   searchFor,
 }: {
   value: ConfFilter;
-  to: "/rankings" | "/recruiting" | "/talent" | "/schedule" | "/stats";
+  to: "/rankings" | "/recruiting" | "/talent" | "/schedule" | "/stats" | "/strength";
   searchFor: (conf: ConfFilter) => Record<string, unknown>;
 }) {
   return (

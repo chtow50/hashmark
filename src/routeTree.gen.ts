@@ -22,6 +22,7 @@ import { Route as ScheduleRouteImport } from './routes/schedule'
 import { Route as StatesRouteImport } from './routes/states'
 import { Route as StatsRouteImport } from './routes/stats'
 import { Route as StoriesRouteImport } from './routes/stories'
+import { Route as StrengthRouteImport } from './routes/strength'
 import { Route as TalentRouteImport } from './routes/talent'
 import { Route as EdgeSplatRouteImport } from './routes/edge.$'
 import { Route as StoriesSlugRouteImport } from './routes/stories_.$slug'
@@ -92,6 +93,11 @@ const StoriesRoute = StoriesRouteImport.update({
   path: '/stories',
   getParentRoute: () => rootRouteImport,
 } as any)
+const StrengthRoute = StrengthRouteImport.update({
+  id: '/strength',
+  path: '/strength',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TalentRoute = TalentRouteImport.update({
   id: '/talent',
   path: '/talent',
@@ -127,6 +133,7 @@ export interface FileRoutesByFullPath {
   '/states': typeof StatesRoute
   '/stats': typeof StatsRoute
   '/stories': typeof StoriesRoute
+  '/strength': typeof StrengthRoute
   '/talent': typeof TalentRoute
   '/edge/$': typeof EdgeSplatRoute
   '/stories/$slug': typeof StoriesSlugRoute
@@ -146,6 +153,7 @@ export interface FileRoutesByTo {
   '/states': typeof StatesRoute
   '/stats': typeof StatsRoute
   '/stories': typeof StoriesRoute
+  '/strength': typeof StrengthRoute
   '/talent': typeof TalentRoute
   '/edge/$': typeof EdgeSplatRoute
   '/stories/$slug': typeof StoriesSlugRoute
@@ -166,6 +174,7 @@ export interface FileRoutesById {
   '/states': typeof StatesRoute
   '/stats': typeof StatsRoute
   '/stories': typeof StoriesRoute
+  '/strength': typeof StrengthRoute
   '/talent': typeof TalentRoute
   '/edge/$': typeof EdgeSplatRoute
   '/stories_/$slug': typeof StoriesSlugRoute
@@ -187,6 +196,7 @@ export interface FileRouteTypes {
     | '/states'
     | '/stats'
     | '/stories'
+    | '/strength'
     | '/talent'
     | '/edge/$'
     | '/stories/$slug'
@@ -206,6 +216,7 @@ export interface FileRouteTypes {
     | '/states'
     | '/stats'
     | '/stories'
+    | '/strength'
     | '/talent'
     | '/edge/$'
     | '/stories/$slug'
@@ -225,6 +236,7 @@ export interface FileRouteTypes {
     | '/states'
     | '/stats'
     | '/stories'
+    | '/strength'
     | '/talent'
     | '/edge/$'
     | '/stories_/$slug'
@@ -245,6 +257,7 @@ export interface RootRouteChildren {
   StatesRoute: typeof StatesRoute
   StatsRoute: typeof StatsRoute
   StoriesRoute: typeof StoriesRoute
+  StrengthRoute: typeof StrengthRoute
   TalentRoute: typeof TalentRoute
   StoriesSlugRoute: typeof StoriesSlugRoute
   TeamsSlugRoute: typeof TeamsSlugRoute
@@ -343,6 +356,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof StoriesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/strength': {
+      id: '/strength'
+      path: '/strength'
+      fullPath: '/strength'
+      preLoaderRoute: typeof StrengthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/talent': {
       id: '/talent'
       path: '/talent'
@@ -398,6 +418,7 @@ const rootRouteChildren: RootRouteChildren = {
   StatesRoute: StatesRoute,
   StatsRoute: StatsRoute,
   StoriesRoute: StoriesRoute,
+  StrengthRoute: StrengthRoute,
   TalentRoute: TalentRoute,
   StoriesSlugRoute: StoriesSlugRoute,
   TeamsSlugRoute: TeamsSlugRoute,
