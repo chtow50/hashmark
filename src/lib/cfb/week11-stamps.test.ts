@@ -240,6 +240,28 @@ describe("Week 11 Wednesday FINALs (0090, BUFF@BALL + MASS@TOL; SAC@CMU stub)", 
   });
 });
 
+describe("Week 11 Thursday FINALs (0097, MEM@USF + LA@ULM)", () => {
+  const thuSql = readFileSync(join(root, "migrations/0097_week11_thu_finals.sql"), "utf8");
+  const expected = [
+    ["401862824", "usf", "memphis", 41, 52, "Memphis @ USF — Memphis 52, USF 41"],
+    ["401869969", "ul-monroe", "louisiana", 21, 42, "Louisiana @ UL Monroe — Louisiana 42, UL Monroe 21"],
+  ] as const;
+
+  it("stamps scores+status only, with the exact home/away orientation", () => {
+    assert.equal((thuSql.match(/update games/g) ?? []).length, 2);
+    assert.equal((thuSql.match(/g\.week = 11/g) ?? []).length, 2);
+    for (const [espn, hSlug, aSlug, hs, as, label] of expected) {
+      assert.ok(thuSql.includes(`-- ${label}`), label);
+      assert.ok(thuSql.includes(`home_score = ${hs},\n    away_score = ${as}\n`), `${espn} scores`);
+      assert.ok(thuSql.includes(`and h.slug = '${hSlug}' and a.slug = '${aSlug}';`), `${espn} orientation`);
+      assert.match(thuSql, new RegExp(`Source event ${espn}`));
+    }
+    assert.doesNotMatch(thuSql, /kickoff_at|vegas_spread|vegas_total|\btv\s*=|hx_rating|win_title|make_field/);
+    const header = thuSql.split(/update games/i)[0] ?? "";
+    assert.doesNotMatch(header, /\b401\d{6,}\b/);
+  });
+});
+
 describe("Week 11 AP (Nov. 8) + CFP committee (Nov. 10) stamp (0092)", () => {
   const sql = readFileSync(join(root, "migrations/0092_week11_ap_cfp_rankings.sql"), "utf8");
   const ap = JSON.parse(readFileSync(join(root, "data/week11_ap_top25_2026.json"), "utf8"));
