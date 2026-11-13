@@ -4,6 +4,8 @@ import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { PageHead, Panel, TeamSelect } from "@/components/shell";
 import { CompareRow, DeskChip, Stat, TeamMark, WinBar } from "@/components/marks";
 import { RosterDuel } from "@/components/roster-duel";
+import { UnitEdges } from "@/components/unit-edges";
+import { getMatchupEdges } from "@/lib/cfb/stats-queries";
 import { formatKickCt } from "@/lib/cfb/chicago";
 import {
   FEATURED_SLATE_WEEK,
@@ -50,7 +52,7 @@ export const Route = createFileRoute("/matchup")({
       away = away ?? pick?.awaySlug ?? "ohio-state";
       featured = Boolean(pick && !deps.home && !deps.away);
     }
-    const [teams, match] = await Promise.all([
+    const [teams, match, edges] = await Promise.all([
       listTeams(),
       getMatchup({
         data: {
@@ -59,8 +61,9 @@ export const Route = createFileRoute("/matchup")({
           ...(deps.neutral !== undefined ? { neutral: deps.neutral } : {}),
         },
       }),
+      getMatchupEdges({ data: { home, away } }),
     ]);
-    return { teams, match, homeSlug: home, awaySlug: away, featured };
+    return { teams, match, edges, homeSlug: home, awaySlug: away, featured };
   },
   component: MatchupPage,
   head: () =>
@@ -72,7 +75,7 @@ export const Route = createFileRoute("/matchup")({
 });
 
 function MatchupPage() {
-  const { teams, match, homeSlug, awaySlug, featured } = Route.useLoaderData();
+  const { teams, match, edges, homeSlug, awaySlug, featured } = Route.useLoaderData();
   const navigate = useNavigate({ from: "/matchup" });
   const appliedNeutral = match.appliedNeutral ?? false;
   const pairKey = `${homeSlug}|${awaySlug}|${appliedNeutral}`;
@@ -293,6 +296,16 @@ function MatchupPage() {
               />
             </Panel>
           </div>
+
+          {edges ? (
+            <UnitEdges
+              home={{ slug: home.slug, short: home.shortName, color: home.colorPrimary }}
+              away={{ slug: away.slug, short: away.shortName, color: away.colorPrimary }}
+              homeOff={edges.homeOff}
+              awayOff={edges.awayOff}
+              asOf={edges.asOf}
+            />
+          ) : null}
 
           <Panel>
             <h2 className="mb-1 font-display text-2xl tracking-wide">Roster talent</h2>
