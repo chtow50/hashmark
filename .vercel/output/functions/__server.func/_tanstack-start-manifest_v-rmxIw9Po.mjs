@@ -1,7 +1,7 @@
-//#region node_modules/.nitro/vite/services/ssr/assets/_tanstack-start-manifest_v-BFuVUk0Z.js
+//#region node_modules/.nitro/vite/services/ssr/assets/_tanstack-start-manifest_v-rmxIw9Po.js
 var tsrStartManifest = () => ({ routes: {
 	__root__: {
-		filePath: "/workspace/hashmark-repo/src/routes/__root.tsx",
+		filePath: "/workspace/hashmark-coldstart/src/routes/__root.tsx",
 		children: [
 			"/",
 			"/accuracy",
@@ -36,7 +36,7 @@ var tsrStartManifest = () => ({ routes: {
 		} }]
 	},
 	"/": {
-		filePath: "/workspace/hashmark-repo/src/routes/index.tsx",
+		filePath: "/workspace/hashmark-coldstart/src/routes/index.tsx",
 		children: void 0,
 		preloads: [
 			"/assets/routes-D2P2gLjZ.js",
@@ -46,7 +46,7 @@ var tsrStartManifest = () => ({ routes: {
 		]
 	},
 	"/accuracy": {
-		filePath: "/workspace/hashmark-repo/src/routes/accuracy.tsx",
+		filePath: "/workspace/hashmark-coldstart/src/routes/accuracy.tsx",
 		children: void 0,
 		preloads: [
 			"/assets/accuracy-RSO7uOS3.js",
@@ -56,12 +56,12 @@ var tsrStartManifest = () => ({ routes: {
 		]
 	},
 	"/conferences": {
-		filePath: "/workspace/hashmark-repo/src/routes/conferences.tsx",
+		filePath: "/workspace/hashmark-coldstart/src/routes/conferences.tsx",
 		children: void 0,
 		preloads: ["/assets/conferences-BiIWLu9o.js"]
 	},
 	"/matchup": {
-		filePath: "/workspace/hashmark-repo/src/routes/matchup.tsx",
+		filePath: "/workspace/hashmark-coldstart/src/routes/matchup.tsx",
 		children: void 0,
 		preloads: [
 			"/assets/matchup-DRKPKnky.js",
@@ -71,12 +71,12 @@ var tsrStartManifest = () => ({ routes: {
 		]
 	},
 	"/model": {
-		filePath: "/workspace/hashmark-repo/src/routes/model.tsx",
+		filePath: "/workspace/hashmark-coldstart/src/routes/model.tsx",
 		children: void 0,
 		preloads: ["/assets/model-CymLoXSl.js", "/assets/hx_refit_2026-lh8_VtTm.js"]
 	},
 	"/rankings": {
-		filePath: "/workspace/hashmark-repo/src/routes/rankings.tsx",
+		filePath: "/workspace/hashmark-coldstart/src/routes/rankings.tsx",
 		children: void 0,
 		preloads: [
 			"/assets/rankings-BUOZ3XoA.js",
@@ -85,12 +85,12 @@ var tsrStartManifest = () => ({ routes: {
 		]
 	},
 	"/recruiting": {
-		filePath: "/workspace/hashmark-repo/src/routes/recruiting.tsx",
+		filePath: "/workspace/hashmark-coldstart/src/routes/recruiting.tsx",
 		children: void 0,
 		preloads: ["/assets/recruiting-DUOYi51o.js", "/assets/recruiting-BkjesnSs.js"]
 	},
 	"/schedule": {
-		filePath: "/workspace/hashmark-repo/src/routes/schedule.tsx",
+		filePath: "/workspace/hashmark-coldstart/src/routes/schedule.tsx",
 		children: void 0,
 		preloads: [
 			"/assets/schedule-CbDGHpUa.js",
@@ -100,22 +100,22 @@ var tsrStartManifest = () => ({ routes: {
 		]
 	},
 	"/stats": {
-		filePath: "/workspace/hashmark-repo/src/routes/stats.tsx",
+		filePath: "/workspace/hashmark-coldstart/src/routes/stats.tsx",
 		children: void 0,
 		preloads: ["/assets/stats-28AuBut8.js", "/assets/check-CxRIWo8Q.js"]
 	},
 	"/stories": {
-		filePath: "/workspace/hashmark-repo/src/routes/stories.tsx",
+		filePath: "/workspace/hashmark-coldstart/src/routes/stories.tsx",
 		children: void 0,
 		preloads: ["/assets/stories-01IXPSWL.js"]
 	},
 	"/strength": {
-		filePath: "/workspace/hashmark-repo/src/routes/strength.tsx",
+		filePath: "/workspace/hashmark-coldstart/src/routes/strength.tsx",
 		children: void 0,
 		preloads: ["/assets/strength-BTdb3ZIG.js", "/assets/show-more-DBxcH3LE.js"]
 	},
 	"/talent": {
-		filePath: "/workspace/hashmark-repo/src/routes/talent.tsx",
+		filePath: "/workspace/hashmark-coldstart/src/routes/talent.tsx",
 		children: void 0,
 		preloads: [
 			"/assets/talent-BiJcvuX8.js",
@@ -124,17 +124,17 @@ var tsrStartManifest = () => ({ routes: {
 		]
 	},
 	"/games/$key": {
-		filePath: "/workspace/hashmark-repo/src/routes/games.$key.tsx",
+		filePath: "/workspace/hashmark-coldstart/src/routes/games.$key.tsx",
 		children: void 0,
 		preloads: ["/assets/games._key-Z7e0NxcL.js"]
 	},
 	"/stories_/$slug": {
-		filePath: "/workspace/hashmark-repo/src/routes/stories_.$slug.tsx",
+		filePath: "/workspace/hashmark-coldstart/src/routes/stories_.$slug.tsx",
 		children: void 0,
 		preloads: ["/assets/stories_._slug-In5qwwCF.js"]
 	},
 	"/teams/$slug": {
-		filePath: "/workspace/hashmark-repo/src/routes/teams.$slug.tsx",
+		filePath: "/workspace/hashmark-coldstart/src/routes/teams.$slug.tsx",
 		children: void 0,
 		preloads: [
 			"/assets/teams._slug-DjNVuTH1.js",

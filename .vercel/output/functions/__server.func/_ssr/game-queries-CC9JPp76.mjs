@@ -3,9 +3,9 @@ import { t as createServerFn } from "./ssr.mjs";
 import { a as object, o as string } from "../_libs/zod.mjs";
 import { a as hashmarkWeekFromRow } from "./queries-Dk--NEHa.mjs";
 import { t as createServerRpc } from "./createServerRpc-A6pJPYTF.mjs";
-import { t as getSql } from "./db-CvLYD4PV.mjs";
+import { t as getSql } from "./db-DGWBLejr.mjs";
 import { t as gradeGame } from "./accuracy-CSXu7Sam.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/game-queries-Dz0BQQq7.js
+//#region node_modules/.nitro/vite/services/ssr/assets/game-queries-CC9JPp76.js
 var DAY = 864e5;
 var near = (a, b) => Math.abs(Date.parse(a) - Date.parse(b)) <= DAY;
 /** One FBS–FBS game from the games table, its frozen pregame HX grade, and the cached CFBD box (FINALs only). */

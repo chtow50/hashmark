@@ -3,13 +3,13 @@ import { t as createServerFn } from "./ssr.mjs";
 import { a as object, i as number, n as boolean, o as string } from "../_libs/zod.mjs";
 import { a as kickoffCivilYmd } from "./chicago-CEb1x88L.mjs";
 import { t as createServerRpc } from "./createServerRpc-A6pJPYTF.mjs";
-import { t as getSql } from "./db-CvLYD4PV.mjs";
+import { t as getSql } from "./db-DGWBLejr.mjs";
 import { n as fcsScheduleGamesForDate, o as mergeFcsScheduleGames, s as sortScheduleGames } from "./fcs-stubs-BauL-2kD.mjs";
 import { l as TALENT_UNITS_JOIN, o as POS_SQL_ARRAY } from "./positions-C0zZnrTX.mjs";
 import { n as SIZE_UNITS_JOIN } from "./size-groups-BYECeJcY.mjs";
 import { r as compositeClassAvg } from "./recruiting-B2tK2ji6.mjs";
 import { r as sim_free_hx2026_8_default, t as SEASON_RECORD_JOIN } from "./sim_free_hx2026_8-RefHl5mu.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/queries-BmeYVk6V.js
+//#region node_modules/.nitro/vite/services/ssr/assets/queries-DAzZJg2A.js
 var SIM_PROJ_WINS = new Map(sim_free_hx2026_8_default.teams.map((t) => [t.slug, t.proj_wins]));
 var TEAM_SELECT = `
   t.id, t.slug, t.name, t.short_name, t.mascot, t.conference, t.city, t.state,
