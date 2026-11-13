@@ -20,6 +20,10 @@ export type TeamSummary = {
   apRank: number | null;
   /** CFP committee rank (top 25) from the last stamped release; null = not ranked. */
   cfpRank?: number | null;
+  /** False for 2026 FBS newcomers with no O/D units (offense/defense are the league mean, display "—"). */
+  unitsRated?: boolean;
+  /** False when no recruiting / roster-profile rows exist (2026 newcomers): talent, class, and size show "—". */
+  hasProfile?: boolean;
   offenseRating: number;
   defenseRating: number;
   specialRating: number;
@@ -134,6 +138,8 @@ export type GameRow = {
   neutral: boolean;
   location: string | null;
   headline: string | null;
+  /** FINAL played before a team joined the HX board (2026 newcomers): no pregame HX line, not graded. */
+  hxUnrated?: boolean;
 };
 
 export type GameStatus = "scheduled" | "final";
@@ -150,7 +156,7 @@ export type ScheduleGame = GameRow & {
   awayScore: number | null;
   status: GameStatus;
   tv: string | null;
-  /** True when the opponent is FCS (not on the HASHMARK 136). */
+  /** True when the opponent is FCS (not on the HASHMARK board). */
   isFcs?: boolean;
   /** When set, HASHMARK spread is blank — Vegas only. */
   hxSpreadPolicy?: HxSpreadPolicy | null;

@@ -3,6 +3,7 @@
  * HX 2026.8 weekly refit (Sunday routine).
  *
  *   node scripts/hx-refit.mjs            # write data/hx_refit_2026.json + a new migrations/NNNN_hx_refit_<date>.sql when the board changed
+ *   node scripts/hx-refit.mjs --tag=x    # second refit on one day: NNNN_hx_refit_<date>_x.sql
  *   node scripts/hx-refit.mjs --check    # exit 1 if the committed JSON is stale vs the stamped FINALs (no writes)
  *
  * Reads only the repo: the frozen preseason prior (data/hx_preseason_prior_2026.json)
@@ -25,6 +26,12 @@ export function loadPrior() {
   return Object.fromEntries(raw.teams.map((t) => [t.slug, t.hx]));
 }
 
+/** Teams added after the preseason board (prior rank null): no preseason rank, so no pre_rank. */
+export function loadNewcomers() {
+  const raw = JSON.parse(readFileSync(join(ROOT, PRIOR_PATH), "utf8"));
+  return new Set(raw.teams.filter((t) => t.rank == null).map((t) => t.slug));
+}
+
 function chicagoYmd(d = new Date()) {
   return new Intl.DateTimeFormat("en-CA", { timeZone: "America/Chicago" }).format(d);
 }
@@ -33,7 +40,8 @@ export function buildRefit(prior, finals) {
   const throughWeek = Math.max(...finals.map((g) => g.week));
   const hx = refitHx(prior, finals);
   const board = rankBoard(hx);
-  const preBoard = rankBoard(prior);
+  const newcomers = loadNewcomers();
+  const preBoard = rankBoard(Object.fromEntries(Object.entries(prior).filter(([slug]) => !newcomers.has(slug))));
   const preRank = Object.fromEntries(preBoard.map((r) => [r.slug, r.rank]));
   const weeks = Array.from({ length: throughWeek + 1 }, (_, i) => i + 1);
   const wf = walkForward(prior, finals, weeks);
@@ -55,7 +63,7 @@ export function buildRefit(prior, finals) {
       hx: r.hx,
       rank: r.rank,
       pre_hx: Math.round(prior[r.slug] * 1e4) / 1e4,
-      pre_rank: preRank[r.slug],
+      pre_rank: preRank[r.slug] ?? null,
     })),
     history: { weeks: wf.weeks, note: "HX entering each week (refit on FINALs from earlier weeks; Week 1 = preseason).", hx: wf.hx },
     grades: wf.grades.map((g) => ({ ...g, live: g.week >= FIRST_LIVE_WEEK })),
@@ -92,7 +100,8 @@ export async function main(argv = process.argv.slice(2)) {
   if (!sameBoard || locks.length) {
     const files = migrationFiles();
     const next = String(Number(files[files.length - 1].slice(0, 4)) + 1).padStart(4, "0");
-    const name = `${next}_hx_refit_${chicagoYmd().replaceAll("-", "_")}.sql`;
+    const tag = argv.find((a) => a.startsWith("--tag="))?.slice(6).replace(/[^a-z0-9]+/gi, "_");
+    const name = `${next}_hx_refit_${chicagoYmd().replaceAll("-", "_")}${tag ? `_${tag}` : ""}.sql`;
     if (files.some((f) => f.endsWith(name.slice(5)))) {
       throw new Error(`[hx-refit] ${name.slice(5)} already exists today — merge or delete it before re-running`);
     }

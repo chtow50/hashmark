@@ -5,6 +5,7 @@ import { fileURLToPath } from "node:url";
 import { describe, it } from "node:test";
 import { fcsStubsForWeek } from "./fcs-stubs.ts";
 import { AP_STAMP, BOARD_WEEK, FEATURED_SLATE_WEEK, WEEK9_FEATURED } from "./featured.ts";
+import { splitNewcomerStubRows } from "./fbs-newcomers-test-helpers.ts";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "../../..");
 
@@ -221,7 +222,7 @@ describe("Week 9 Friday FINALs (0077, TULN@CLT + BAY@UCF; KENT@SAC stub)", () =>
 
   it("adds Kent State @ Sacramento State as a Week 9 FCS FINAL stub", () => {
     const got = fcsStubsForWeek(9).filter((g) => g.teamSlug === "kent-state").map((g) => [g.teamSlug, g.home, g.opponentLabel, g.homeScore, g.awayScore, g.status]);
-    assert.deepEqual(got, [["kent-state", false, "Sacramento State", 31, 10, "final"]]);
+    assert.deepEqual(got, splitNewcomerStubRows([["kent-state", false, "Sacramento State", 31, 10, "final"]] as const));
   });
 });
 
@@ -292,10 +293,10 @@ describe("Week 9 Saturday FINALs (0078, 43 FBS games; UTEP@NDSU stub)", () => {
 
   it("adds UTEP @ North Dakota State as a Week 9 FCS FINAL stub", () => {
     const got = fcsStubsForWeek(9).map((g) => [g.teamSlug, g.home, g.opponentLabel, g.homeScore, g.awayScore, g.status]);
-    assert.deepEqual(got, [
+    assert.deepEqual(got, splitNewcomerStubRows([
       ["kent-state", false, "Sacramento State", 31, 10, "final"],
       ["utep", false, "North Dakota State", 31, 7, "final"],
-    ]);
+    ] as const));
   });
 });
 

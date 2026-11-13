@@ -499,7 +499,7 @@ test("truth-pack loads the current-HX 10k free export, never the full sim", () =
   assert.equal(sim10k.meta.n_sims, 10000);
   assert.equal(sim10k.meta.hx_stamp, sim10kFull.meta.hx_stamp);
   assert.match(sim10k.meta.hx_stamp ?? "", /^HX 2026\.8$/);
-  assert.equal(sim10k.teams.length, 136);
+  assert.equal(sim10k.teams.length, 138); // 136 + 2026 newcomers (0093)
 });
 
 test("sim_10k Georgia make-field and title are separate cells; free row has no title", () => {

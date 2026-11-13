@@ -186,7 +186,7 @@ where g.home_team_id = h.id and g.away_team_id = a.id
   });
 
   it("passes current Week 2: FCS Vegas-only on the board and FBS–FBS kick/Vegas stamped (PR 32)", () => {
-    assert.equal(fcsScheduleGamesForWeek(2).length, 39);
+    assert.equal(fcsScheduleGamesForWeek(2).length, 37); // 39 minus AF–NDSU and FRES–SAC (games since 0093)
     const verdict = auditStampShipGate(root, { includeCodePath: true });
     assert.ok(verdict.weeksChecked.includes(2), `checked weeks: ${verdict.weeksChecked.join(",")}`);
     assert.equal(verdict.ok, true, formatStampGaps(verdict.gaps));

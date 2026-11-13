@@ -78,10 +78,10 @@ describe("tallyFcsStubRecord", () => {
     assert.deepEqual(tallyFcsStubRecord("buffalo"), { seasonWins: 2, seasonLosses: 0 });
   });
 
-  it("counts finalAway road FCS losses (Jax State @ NDSU W0, Wyoming @ NDSU W5)", () => {
-    assert.deepEqual(tallyFcsStubRecord("jacksonville-state"), { seasonWins: 1, seasonLosses: 1 });
-    assert.deepEqual(tallyFcsStubRecord("wyoming"), { seasonWins: 1, seasonLosses: 1 });
-    assert.deepEqual(tallyFcsStubRecord("massachusetts"), { seasonWins: 3, seasonLosses: 0 });
+  it("Jax State @ NDSU W0, Wyoming @ NDSU W5, UMass @ Sac W4 left the stub tally (FBS games since 0093)", () => {
+    assert.deepEqual(tallyFcsStubRecord("jacksonville-state"), { seasonWins: 1, seasonLosses: 0 });
+    assert.deepEqual(tallyFcsStubRecord("wyoming"), { seasonWins: 1, seasonLosses: 0 });
+    assert.deepEqual(tallyFcsStubRecord("massachusetts"), { seasonWins: 2, seasonLosses: 0 });
   });
 
   it("counts Week 3 Northern Iowa @ Iowa FINAL as one FCS win (home 55–0)", () => {
@@ -113,11 +113,11 @@ describe("tallyFcsStubRecord", () => {
   it("counts Week 2 remaining CLEAR FCS FINALs (UNC / WVU / Ball State wins; NIU / Air Force losses)", () => {
     assert.deepEqual(tallyFcsStubRecord("north-carolina"), { seasonWins: 1, seasonLosses: 0 });
     assert.deepEqual(tallyFcsStubRecord("west-virginia"), { seasonWins: 1, seasonLosses: 0 });
-    // Ball State: Week 2 FCS win + Week 8 Sacramento State win.
-    assert.deepEqual(tallyFcsStubRecord("ball-state"), { seasonWins: 2, seasonLosses: 0 });
+    // Ball State: Week 2 FCS win (the Week 8 Sacramento State win is an FBS game since 0093).
+    assert.deepEqual(tallyFcsStubRecord("ball-state"), { seasonWins: 1, seasonLosses: 0 });
     assert.deepEqual(tallyFcsStubRecord("northern-illinois"), { seasonWins: 0, seasonLosses: 1 });
-    // Air Force: Week 2 NDSU loss + Week 1 Duquesne win (Week 1 backfill).
-    assert.deepEqual(tallyFcsStubRecord("air-force"), { seasonWins: 1, seasonLosses: 1 });
+    // Air Force: Week 1 Duquesne win (the Week 2 NDSU loss is an FBS game since 0093).
+    assert.deepEqual(tallyFcsStubRecord("air-force"), { seasonWins: 1, seasonLosses: 0 });
   });
 });
 
@@ -126,8 +126,8 @@ describe("SEASON_RECORD_JOIN", () => {
     assert.match(SEASON_RECORD_JOIN, /'georgia'/);
     assert.match(SEASON_RECORD_JOIN, /'missouri'/);
     assert.match(SEASON_RECORD_JOIN, /'buffalo', 1::int, 0::int/);
-    assert.match(SEASON_RECORD_JOIN, /'jacksonville-state', 0::int, 1::int/);
-    assert.match(SEASON_RECORD_JOIN, /'wyoming', 0::int, 1::int/);
+    assert.doesNotMatch(SEASON_RECORD_JOIN, /'jacksonville-state', 0::int, 1::int/);
+    assert.match(SEASON_RECORD_JOIN, /'north-dakota-state', 1::int, 0::int/);
     assert.match(SEASON_RECORD_JOIN, /'ul-monroe', 0::int, 1::int/);
     assert.match(SEASON_RECORD_JOIN, /'charlotte', 0::int, 1::int/);
     assert.doesNotMatch(SEASON_RECORD_JOIN, /'ohio-state'/);

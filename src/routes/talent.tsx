@@ -34,7 +34,8 @@ export const Route = createFileRoute("/talent")({
     board: s.board === "size" ? "size" : "composite",
     conf: parseConf(s.conf),
   }),
-  loader: () => listTeams(),
+  // Talent boards rank sourced two-deep profiles only (2026 newcomers have none yet).
+  loader: async () => (await listTeams()).filter((t) => t.hasProfile !== false),
   component: TalentPage,
   head: () =>
     seo({

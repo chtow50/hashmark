@@ -100,7 +100,7 @@ function SchedulePage() {
       };
     }
     return {
-      title: "No FBS games on the 136",
+      title: "No FBS games on the board",
       body: "This week has no HASHMARK matchup on the board.",
     };
   }, [view, conf, week]);
@@ -259,7 +259,9 @@ function WeekScopedFeatured({ game: g }: { game: ScheduleGame }) {
 
 function ScheduleRow({ game: g }: { game: ScheduleGame }) {
   const vegasOnly = isVegasOnlyFcs(g);
-  const pred = vegasOnly
+  // FINALs played before a 2026 newcomer joined the board had no pregame HX line.
+  const unrated = g.hxUnrated === true;
+  const pred = vegasOnly || unrated
     ? null
     : predictMatchup(
         { hxRating: g.homeHx, offenseRating: g.homeOff, defenseRating: g.homeDef },
@@ -285,6 +287,9 @@ function ScheduleRow({ game: g }: { game: ScheduleGame }) {
               ))}
               {vegasOnly ? (
                 <DeskChip tone="muted">Vegas-only</DeskChip>
+              ) : null}
+              {unrated ? (
+                <DeskChip tone="muted">No pregame HX</DeskChip>
               ) : null}
               {needsRowFinalChip(chips, g.status) ? (
                 <DeskChip tone="accent">Final</DeskChip>

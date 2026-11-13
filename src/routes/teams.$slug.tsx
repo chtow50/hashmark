@@ -76,6 +76,10 @@ function TeamPage() {
 
       <HxResultsPanel teamSlug={team.slug} games={games} />
 
+      {team.hasProfile === false ? (
+        <NewcomerPanel />
+      ) : (
+        <>
       <div className="mb-6 grid gap-6 lg:grid-cols-2">
         <Panel>
           <h2 className="font-display text-2xl tracking-wide">Why this rating</h2>
@@ -104,7 +108,7 @@ function TeamPage() {
             ))}
           </ul>
           <p className="mt-4 text-xs text-muted">
-            Z-scores vs the 136-team FBS pool. Composite HX = weighted sum.
+            Z-scores vs the preseason FBS pool (136 teams). Composite HX = weighted sum.
           </p>
         </Panel>
         <Panel>
@@ -223,7 +227,25 @@ function TeamPage() {
         </div>
         <RosterList players={players} />
       </Panel>
+        </>
+      )}
     </div>
+  );
+}
+
+/** 2026 FBS newcomers (0093): no preseason profile rows, so no talent, class, size, or two-deep panels. */
+function NewcomerPanel() {
+  return (
+    <Panel className="mb-6">
+      <h2 className="font-display text-2xl tracking-wide">2026 FBS newcomer</h2>
+      <p className="mt-2 max-w-2xl text-sm text-muted">
+        This program moved up from FCS in 2026 and was not on the preseason board. Its HX starts from the
+        newcomer prior (the mean preseason HX of the 2025 newcomers Delaware and Missouri State) and is refit
+        weekly on its FBS results like every other team. Games it played before joining the board show no
+        pregame HX line and are not graded. Talent, recruiting class, size, and two-deep panels return once a
+        sourced profile is stamped.
+      </p>
+    </Panel>
   );
 }
 

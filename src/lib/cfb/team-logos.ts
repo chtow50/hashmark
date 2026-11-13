@@ -1,7 +1,7 @@
 /**
  * Local team logo registry. Assets live in `public/logos/{slug}.png`.
  *
- * Full FBS (136 teams). Expand by adding ESPN ids here and running
+ * Full FBS (138 teams: 136 + 2026 newcomers). Expand by adding ESPN ids here and running
  * `node scripts/fetch-team-logos.mjs`.
  *
  * Source: ESPN CDN (`a.espncdn.com/i/teamlogos/ncaa/500/{id}.png`) — fetched once
@@ -107,6 +107,7 @@ export const TEAM_LOGO_ESPN_IDS: Record<string, number> = {
   "colorado-state": 36,
   "fresno-state": 278,
   "hawaii": 62,
+  "north-dakota-state": 2449,
   "nevada": 2440,
   "new-mexico": 167,
   "san-diego-state": 21,
@@ -144,6 +145,7 @@ export const TEAM_LOGO_ESPN_IDS: Record<string, number> = {
   "northern-illinois": 2459,
   "ohio": 195,
   "toledo": 2649,
+  "sacramento-state": 16,
   "western-michigan": 2711,
 
   // CUSA

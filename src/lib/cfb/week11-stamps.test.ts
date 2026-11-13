@@ -5,6 +5,7 @@ import { fileURLToPath } from "node:url";
 import { describe, it } from "node:test";
 import { AP_STAMP, BOARD_WEEK, CFP_STAMP, FEATURED_SLATE_WEEK, WEEK11_FEATURED } from "./featured.ts";
 import { fcsStubsForWeek } from "./fcs-stubs.ts";
+import { splitNewcomerStubRows } from "./fbs-newcomers-test-helpers.ts";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "../../..");
 
@@ -235,7 +236,7 @@ describe("Week 11 Wednesday FINALs (0090, BUFF@BALL + MASS@TOL; SAC@CMU stub)", 
 
   it("adds Sacramento State @ Central Michigan as a Week 11 FCS FINAL stub", () => {
     const got = fcsStubsForWeek(11).map((g) => [g.teamSlug, g.home, g.opponentLabel, g.homeScore, g.awayScore, g.status]);
-    assert.deepEqual(got, [["central-michigan", true, "Sacramento State", 28, 7, "final"]]);
+    assert.deepEqual(got, splitNewcomerStubRows([["central-michigan", true, "Sacramento State", 28, 7, "final"]] as const));
   });
 });
 

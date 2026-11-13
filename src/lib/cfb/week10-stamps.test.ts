@@ -5,6 +5,7 @@ import { fileURLToPath } from "node:url";
 import { describe, it } from "node:test";
 import { fcsStubsForWeek } from "./fcs-stubs.ts";
 import { AP_STAMP, BOARD_WEEK, FEATURED_SLATE_WEEK, WEEK10_FEATURED } from "./featured.ts";
+import { splitNewcomerStubRows } from "./fbs-newcomers-test-helpers.ts";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "../../..");
 
@@ -183,7 +184,7 @@ describe("Week 10 Wednesday FINALs (0083, BALL@MASS + CMU@EMU; TOL@SAC stub)", (
     const got = fcsStubsForWeek(10)
       .filter((g) => g.teamSlug === "toledo")
       .map((g) => [g.teamSlug, g.home, g.opponentLabel, g.homeScore, g.awayScore, g.status]);
-    assert.deepEqual(got, [["toledo", false, "Sacramento State", 17, 20, "final"]]);
+    assert.deepEqual(got, splitNewcomerStubRows([["toledo", false, "Sacramento State", 17, 20, "final"]] as const));
   });
 });
 
@@ -306,9 +307,9 @@ describe("Week 10 Saturday FINALs (0086, 50 FBS–FBS; MRMK@WAKE stub)", () => {
 
   it("adds Merrimack @ Wake Forest as a Week 10 FCS FINAL stub", () => {
     const got = fcsStubsForWeek(10).map((g) => [g.teamSlug, g.home, g.opponentLabel, g.homeScore, g.awayScore, g.status]);
-    assert.deepEqual(got, [
+    assert.deepEqual(got, splitNewcomerStubRows([
       ["toledo", false, "Sacramento State", 17, 20, "final"],
       ["wake-forest", true, "Merrimack", 77, 0, "final"],
-    ]);
+    ] as const));
   });
 });

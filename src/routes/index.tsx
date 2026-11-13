@@ -85,7 +85,7 @@ function Home() {
       <PageHead
         kicker={`Week ${BOARD_WEEK} · HX ${MODEL.version}`}
         title={`Week ${BOARD_WEEK} board`}
-        lede={`HASHMARK runs a single rating — HX. It starts from recruiting talent, last year’s SP+/Elo/SRS, four-year win trend, returning production, and portal net, then is refit every week from this season’s results. Full 136 FBS. ${AP_STAMP.lede}`}
+        lede={`HASHMARK runs a single rating — HX. It starts from recruiting talent, last year’s SP+/Elo/SRS, four-year win trend, returning production, and portal net, then is refit every week from this season’s results. Full 138 FBS. ${AP_STAMP.lede}`}
       />
 
       {one ? (

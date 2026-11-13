@@ -197,13 +197,13 @@ function RankingsPage() {
                   <td className="border-b border-line px-3 py-3 tabular">{t.cfpRank ?? <span className="text-faint">—</span>}</td>
                   <td className="border-b border-line px-3 py-3 tabular">{fmtNum(t.hxRating, 2)}</td>
                   <td className="hidden border-b border-line px-3 py-3 tabular text-muted md:table-cell">
-                    {fmtNum(t.offenseRating, 1)} / {fmtNum(t.defenseRating, 1)}
+                    {t.unitsRated === false ? "—" : `${fmtNum(t.offenseRating, 1)} / ${fmtNum(t.defenseRating, 1)}`}
                   </td>
                   <td className="hidden border-b border-line px-3 py-3 tabular md:table-cell">{fmtNum(t.projectedWins, 1)}</td>
                   <td className="border-b border-line px-3 py-3 tabular">
                     {make12Pct(t)}
                   </td>
-                  <td className="border-b border-line px-3 py-3 tabular">{fmtNum(t.talentScore, 1)}</td>
+                  <td className="border-b border-line px-3 py-3 tabular">{t.hasProfile === false ? "—" : fmtNum(t.talentScore, 1)}</td>
                 </tr>
               ))}
             </tbody>

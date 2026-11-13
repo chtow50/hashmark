@@ -11,8 +11,8 @@ describe("build-time sitemap", () => {
   it("has no /edge entries (Edge is paused)", () => {
     assert.equal(locs.filter((l) => /\/edge(\/|$|\?)/.test(l)).length, 0);
   });
-  it("lists all 136 FBS team pages and every story", () => {
-    assert.equal(locs.filter((l) => l.includes("/teams/")).length, 136);
+  it("lists all 138 FBS team pages (136 + 2026 newcomers) and every story", () => {
+    assert.equal(locs.filter((l) => l.includes("/teams/")).length, 138);
     for (const s of STORIES) assert.ok(locs.includes(`https://hashmarkcfb.com/stories/${s.slug}`), s.slug);
   });
   it("has unique URLs and escapes nothing unsafe", () => {

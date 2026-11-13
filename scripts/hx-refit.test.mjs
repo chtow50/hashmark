@@ -78,7 +78,7 @@ describe("HX 2026.8 committed board", () => {
     assert.deepEqual(committed.board, refit.board);
     assert.deepEqual(committed.grades, refit.grades);
     assert.equal(committed.meta.n_finals, finals.length);
-    assert.equal(committed.board.length, 136);
+    assert.equal(committed.board.length, 138); // 136 + 2026 newcomers NDSU and Sacramento State (0093)
   });
 
   it("the live rankings rows equal the committed board after replaying every migration", async () => {
@@ -92,14 +92,14 @@ describe("HX 2026.8 committed board", () => {
 
   it("every stamped FINAL carries its pregame HX lock, so refits never move posted lines", async () => {
     const db = await replayMigrations();
-    const r = await db.query("select count(*)::int as n from games where status = 'final' and (lock_home_hx is null or lock_away_hx is null)");
+    const r = await db.query("select count(*)::int as n from games where status = 'final' and not hx_unrated and (lock_home_hx is null or lock_away_hx is null)");
     // Same-day FINALs stamped after the last refit are locked by the next refit run.
     const pending = await db.query("select count(*)::int as n from games where status = 'final'");
     await db.close();
     assert.ok(r.rows[0].n === 0 || r.rows[0].n < pending.rows[0].n / 10, `${r.rows[0].n} FINALs unlocked`);
   });
 
-  it("Week 1 grade is the preseason board; walk-forward weeks 2–11 match the review (MAE 12.023 on 502)", () => {
+  it("Week 1 grade is the preseason board; walk-forward weeks 2–11 MAE 12.063 on 502 (12.023 in the review, before the 2026 newcomers joined the fit)", () => {
     const w1 = refit.grades.find((g) => g.week === 1);
     assert.deepEqual([w1.n, w1.su, w1.mae], [49, 40, 14.823]);
     const w = refit.grades.filter((g) => g.week >= 2 && g.week <= 11);
@@ -107,7 +107,7 @@ describe("HX 2026.8 committed board", () => {
     // Reviewed season to date: 502 games (Week 11 partial when the method was chosen).
     if (n === 502) {
       const mae = w.reduce((a, g) => a + g.mae * g.n, 0) / n;
-      assert.ok(Math.abs(mae - 12.023) < 0.002, `mae ${mae}`);
+      assert.ok(Math.abs(mae - 12.063) < 0.002, `mae ${mae}`);
     }
   });
 
@@ -165,5 +165,36 @@ describe("ΔHX /55 step is retired", () => {
     const src = readFileSync(join(ROOT, "src/lib/cfb/model.ts"), "utf8");
     assert.match(src, new RegExp(`version: "${HX_REFIT.version.replace(".", "\\.")}"`));
     assert.match(src, new RegExp(`refit: \\{ lambda: ${HX_REFIT.lambda}, marginCap: ${HX_REFIT.marginCap} \\}`));
+  });
+});
+
+describe("2026 FBS newcomers (0093): North Dakota State and Sacramento State", () => {
+  it("are on the board with their FBS games: 17 unrated FINALs in the fit, 4 scheduled, no stub duplicates", async () => {
+    const db = await replayMigrations();
+    const teams = (await db.query("select slug, conference from teams where slug in ('north-dakota-state', 'sacramento-state') order by slug")).rows;
+    const games = (await db.query(`
+      select h.slug as home, a.slug as away, g.status, g.hx_unrated, g.lock_home_hx
+      from games g join teams h on h.id = g.home_team_id join teams a on a.id = g.away_team_id
+      where h.slug in ('north-dakota-state', 'sacramento-state') or a.slug in ('north-dakota-state', 'sacramento-state')`)).rows;
+    await db.close();
+    assert.deepEqual(teams, [
+      { slug: "north-dakota-state", conference: "Mountain West" },
+      { slug: "sacramento-state", conference: "MAC" },
+    ]);
+    const finals = games.filter((g) => g.status === "final");
+    assert.equal(finals.length, 17);
+    assert.ok(finals.every((g) => g.hx_unrated && g.lock_home_hx == null), "pre-join FINALs carry no pregame HX");
+    assert.equal(games.filter((g) => g.status === "scheduled" && !g.hx_unrated).length, 4);
+    const { FCS_STUB_GAMES } = await import("../src/lib/cfb/fcs-stubs.ts");
+    assert.equal(FCS_STUB_GAMES.filter((s) => /^(North Dakota State|Sacramento State)/.test(s.opponentLabel)).length, 0);
+    const refitFile = JSON.parse(readFileSync(join(ROOT, REFIT_PATH), "utf8"));
+    for (const slug of ["north-dakota-state", "sacramento-state"]) {
+      const row = refitFile.board.find((r) => r.slug === slug);
+      assert.ok(row && Number.isFinite(row.hx), slug);
+      assert.equal(row.pre_hx, -2.691, `${slug} newcomer prior`);
+      assert.equal(row.pre_rank, null, `${slug} was not on the preseason board`);
+    }
+    // Unrated FINALs are fit but never graded: Week 1 grade stays the preseason board's 49 games.
+    assert.equal(refitFile.grades.find((g) => g.week === 1).n, 49);
   });
 });

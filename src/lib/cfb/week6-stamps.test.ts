@@ -791,7 +791,7 @@ describe("Week 6 Kansas @ Utah Vegas CLEAR (0053)", () => {
         `select h.slug as home, a.slug as away, g.tv, g.vegas_spread::float8 as vegas_spread,
                 g.vegas_total::float8 as vegas_total
          from games g join teams h on h.id = g.home_team_id join teams a on a.id = g.away_team_id
-         where g.week = 6`,
+         where g.week = 6 and not g.hx_unrated`, // 2026 newcomer rows (0093) were FCS stubs when Week 6 shipped
       );
       assert.equal(rows.length, 56);
       const ku = rows.find((r) => r.home === "utah" && r.away === "kansas");
