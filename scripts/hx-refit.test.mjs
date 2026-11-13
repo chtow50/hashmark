@@ -68,10 +68,14 @@ describe("HX 2026.8 committed board", () => {
   let committed;
   before(async () => {
     const db = await replayMigrations();
-    finals = await loadFinals(db);
+    const allFinals = await loadFinals(db);
     await db.close();
-    refit = buildRefit(loadPrior(), finals);
     committed = JSON.parse(readFileSync(join(ROOT, REFIT_PATH), "utf8"));
+    // The refit runs weekly (Sunday). FINALs stamped nightly after its cutoff are
+    // not part of the committed board yet, so check reproducibility only through
+    // the committed cutoff; `node scripts/hx-refit.mjs --check` flags staleness.
+    finals = allFinals.filter((f) => f.kickoffDate <= committed.meta.last_final_date);
+    refit = buildRefit(loadPrior(), finals);
   });
 
   it("data/hx_refit_2026.json matches the stamped FINALs (run node scripts/hx-refit.mjs)", () => {
