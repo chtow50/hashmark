@@ -14,6 +14,7 @@ const NAV = [
   { to: "/matchup", label: "Matchup" },
   { to: "/recruiting", label: "Recruiting" },
   { to: "/talent", label: "Talent" },
+  { to: "/stats", label: "Stats" },
   { to: "/model", label: "The Model" },
 ] as const;
 
@@ -127,6 +128,7 @@ export function AppShell({ children }: { children: ReactNode }) {
             <Link to="/matchup" className="hover:text-fg">Matchup</Link>
             <Link to="/recruiting" className="hover:text-fg">Recruiting</Link>
             <Link to="/talent" className="hover:text-fg">Talent</Link>
+            <Link to="/stats" className="hover:text-fg">Stats</Link>
             <Link to="/model" className="hover:text-fg">The Model</Link>
           </nav>
           <p className="text-xs leading-relaxed text-faint">
@@ -375,7 +377,7 @@ export function ConfPills({
   searchFor,
 }: {
   value: ConfFilter;
-  to: "/rankings" | "/recruiting" | "/talent" | "/schedule";
+  to: "/rankings" | "/recruiting" | "/talent" | "/schedule" | "/stats";
   searchFor: (conf: ConfFilter) => Record<string, unknown>;
 }) {
   return (
