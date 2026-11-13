@@ -83,14 +83,19 @@ export function HxResultsPanel({ teamSlug, games }: { teamSlug: string; games: S
             </p>
           </dl>
         ) : (
-          <p className="text-sm text-muted">No FBS FINALs stamped yet.</p>
+          <p className="text-sm text-muted">
+            {games.some((g) => g.hxUnrated && (g.homeSlug === teamSlug || g.awaySlug === teamSlug))
+              ? "No graded FINALs yet. Games played before this team joined the board had no pregame HX line."
+              : "No FBS FINALs stamped yet."}
+          </p>
         )}
         {traj ? (
           <div>
             <div className="text-[11px] uppercase tracking-[0.14em] text-faint">HX by week</div>
             <Sparkline values={traj.points.map((p) => p.hx)} className="mt-1" />
             <p className="text-xs tabular text-muted">
-              Preseason {fmtNum(traj.preHx, 2)} (#{traj.preRank}) → now {fmtNum(traj.hx, 2)} (#{traj.rank})
+              {traj.preRank == null ? "Newcomer prior" : "Preseason"} {fmtNum(traj.preHx, 2)}
+              {traj.preRank == null ? "" : ` (#${traj.preRank})`} → now {fmtNum(traj.hx, 2)} (#{traj.rank})
             </p>
           </div>
         ) : null}

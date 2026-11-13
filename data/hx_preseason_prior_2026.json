@@ -2,7 +2,8 @@
  "meta": {
   "season": 2026,
   "source": "Preseason HX board as stamped by migrations 0003_seed.sql + 0005_c20_coach_change.sql (before the first O/D ship, 0021). Frozen prior for the HX 2026.8 in-season refit.",
-  "n_teams": 136
+  "n_teams": 138,
+  "newcomers": "north-dakota-state and sacramento-state added 2026-11-12 (migration 0093) at the newcomer prior; the 136 original entries are unchanged."
  },
  "teams": [
   {
@@ -684,6 +685,18 @@
    "slug": "wyoming",
    "hx": -3.759,
    "rank": 118
+  },
+  {
+   "slug": "north-dakota-state",
+   "hx": -2.691,
+   "rank": null,
+   "note": "2026 FBS newcomer (not on the preseason board): mean preseason HX of the 2025 FCS-to-FBS newcomers Delaware and Missouri State."
+  },
+  {
+   "slug": "sacramento-state",
+   "hx": -2.691,
+   "rank": null,
+   "note": "2026 FBS newcomer (not on the preseason board): mean preseason HX of the 2025 FCS-to-FBS newcomers Delaware and Missouri State."
   }
  ]
 }

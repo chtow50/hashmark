@@ -68,7 +68,7 @@ function TeamHubScheduleRow({ row }: { row: TeamScheduleRow }) {
   const g = row.game;
   const vegasOnly = row.isFcs;
   const pred =
-    g && !vegasOnly
+    g && !vegasOnly && !g.hxUnrated
       ? predictMatchup(
           { hxRating: g.homeHx, offenseRating: g.homeOff, defenseRating: g.homeDef },
           { hxRating: g.awayHx, offenseRating: g.awayOff, defenseRating: g.awayDef },
@@ -152,10 +152,11 @@ function TeamHubScheduleRow({ row }: { row: TeamScheduleRow }) {
             <StatBlock label="FINAL" value={finalScore} />
           ) : null}
         </div>
-      ) : vegasOnly ? (
+      ) : vegasOnly || g?.hxUnrated ? (
         <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
-          <StatBlock label="HASHMARK" value="—" />
+          <StatBlock label="HASHMARK" value={g?.hxUnrated ? "No pregame HX" : "—"} />
           <StatBlock label="Vegas" value={formatVegas(vegasLine, null)} />
+          {g?.hxUnrated && isFinal && finalScore ? <StatBlock label="FINAL" value={finalScore} /> : null}
         </div>
       ) : null}
     </>

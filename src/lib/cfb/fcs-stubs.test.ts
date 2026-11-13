@@ -21,6 +21,11 @@ import {
 import { buildRemainingSchedule } from "./season-sim.ts";
 import { tallyFcsStubRecord, tallyFcsStubs } from "./season-record.ts";
 
+import newcomers from "../../../data/fbs_newcomers_2026.json" with { type: "json" };
+const NEWCOMER_OPPONENTS = ["North Dakota State", "Sacramento State"];
+const isNewcomerOpp = (label: string) => NEWCOMER_OPPONENTS.some((n) => label.startsWith(n));
+
+
 const root = join(dirname(fileURLToPath(import.meta.url)), "../../..");
 const payload = JSON.parse(
   readFileSync(join(root, "data/week2_fbs_fcs_spreads_2026.json"), "utf8"),
@@ -49,9 +54,11 @@ describe("Week 2 FBS–FCS JSON ingest", () => {
   it("stamps 39 AMD games, all hx_spread null / vegas_only", () => {
     assert.equal(payload.meta.n_fbs_fcs, 39);
     assert.equal(payload.games.length, 39);
-    assert.equal(WEEK2_FCS_META.n, 39);
-    assert.equal(fcsStubsForWeek(2).length, 39);
-    assert.equal(fcsScheduleGamesForWeek(2).length, 39);
+    // 2026 newcomers (0093): Air Force–NDSU and Fresno State–Sacramento State moved to games.
+    assert.equal(payload.games.filter((x) => isNewcomerOpp(x.fcs_opponent)).length, 2);
+    assert.equal(WEEK2_FCS_META.n, 37);
+    assert.equal(fcsStubsForWeek(2).length, 37);
+    assert.equal(fcsScheduleGamesForWeek(2).length, 37);
     for (const g of payload.games) {
       assert.equal(g.hx_spread, null);
       assert.equal(g.hx_spread_policy, "vegas_only_fcs_unrated");
@@ -187,7 +194,7 @@ describe("Week 2 FBS–FCS JSON ingest", () => {
 
     assert.equal(Object.keys(clearScores).length, 39);
     const finals = fcsStubsForWeek(2).filter(fcsStubIsFinal);
-    assert.equal(finals.length, 39);
+    assert.equal(finals.length, 37); // 39 minus the two newcomer games now in games (0093)
     for (const stub of finals) {
       const expect = stub.espnEventId ? clearScores[stub.espnEventId] : undefined;
       assert.ok(expect, stub.espnEventId ?? "missing espn id");
@@ -351,9 +358,9 @@ describe("Week 1 FCS backfill (fcs_backfill_week1_all_finals_clear_2026-10-09)",
       );
       assert.equal(fcsStubIsFinal(stub), true);
     }
-    // Week 1: the 32 backfilled + the 14 previously stamped finals, nothing else.
-    assert.equal(w1Finals.length, 46);
-    assert.equal(fcsStubsForWeek(1).length, 46);
+    // Week 1: the 32 backfilled + the 14 previously stamped finals + the 2026 newcomers' own FCS games.
+    assert.equal(w1Finals.length, 48);
+    assert.equal(fcsStubsForWeek(1).length, 48);
   });
 
   it("three FBS losses: Bowling Green, Utah State, Charlotte (3OT, score only)", () => {
@@ -371,6 +378,8 @@ describe("Week 1 FCS backfill (fcs_backfill_week1_all_finals_clear_2026-10-09)",
     assert.deepEqual(
       callLines(week1Block, "finalHome").filter((l) => !packCalls.has(l)),
       [
+        'finalHome("north-dakota-state", 1, "2026-09-05", "Fordham", 38, 0)',
+        'finalHome("sacramento-state", 1, "2026-09-05", "Mississippi Valley State", 52, 0)',
         'finalHome("minnesota", 1, "2026-09-03", "Eastern Illinois", 59, 7)',
         'finalHome("missouri", 1, "2026-09-03", "UAPB", 54, 14)',
         'finalHome("utah", 1, "2026-09-03", "Idaho", 66, 14)',
@@ -392,12 +401,13 @@ describe("Week 1 FCS backfill (fcs_backfill_week1_all_finals_clear_2026-10-09)",
       'finalHome("iowa", 3, "2026-09-19", "Northern Iowa", 55, 0)',
       'finalHome("oregon", 3, "2026-09-18", "Portland State", 84, 0)',
     ]);
-    assert.equal(fcsStubsForWeek(2).length, payload.games.length);
-    // 87 after #84, + 36 records-audit finals (TTU is replace-not-add), + 2 Week 6 FINALs, + 5 Week 7 FINALs, + 2 Week 8 FINALs, + 2 Week 9 FINALs, + 2 Week 10 FINALs, + 1 Week 11 FINAL.
-    assert.equal(FCS_STUB_GAMES.length, 137);
-    // Buffalo Week 4 (Robert Morris) and Jacksonville State Week 0 (NDSU) landed in the records audit.
+    assert.equal(fcsStubsForWeek(2).length, payload.games.length - 2);
+    // 87 after #84, + 36 records-audit finals (TTU is replace-not-add), + 2 Week 6 FINALs, + 5 Week 7 FINALs, + 2 Week 8 FINALs, + 2 Week 9 FINALs, + 2 Week 10 FINALs, + 1 Week 11 FINAL = 137;
+    // 0093 moves 16 newcomer games (14 stubs + 2 Week 2 JSON rows) to games and adds their 2 own FCS games.
+    assert.equal(FCS_STUB_GAMES.length, 123);
+    // Buffalo Week 4 (Robert Morris) landed in the records audit; Jacksonville State Week 0 (NDSU) is a games row since 0093.
     assert.deepEqual(fcsStubsForTeam("buffalo").map((s) => s.week), [1, 4]);
-    assert.deepEqual(fcsStubsForTeam("jacksonville-state").map((s) => s.week), [0, 1]);
+    assert.deepEqual(fcsStubsForTeam("jacksonville-state").map((s) => s.week), [1]);
   });
 });
 
@@ -476,7 +486,9 @@ describe("Records audit vs ESPN (records_audit_vs_espn_2026-10-09)", () => {
   });
 
   it("stubs match the spec: exact calls per week array, and each stub's fields", () => {
-    for (const [week, calls] of byWeek) {
+    for (const [week, allCalls] of byWeek) {
+      // Newcomer opponents (NDSU, Sacramento State) moved to games in 0093.
+      const calls = allCalls.filter((c) => !isNewcomerOpp(c.opponent));
       const have = lines(blocks[week]);
       const want = calls.map((c) => c.call);
       if (week === 3) {
@@ -504,43 +516,37 @@ describe("Records audit vs ESPN (records_audit_vs_espn_2026-10-09)", () => {
         );
       }
     }
-    assert.equal(fcsStubsForWeek(0).length, 2);
+    // W0 (JSU–NDSU, EMU–Sac), W4 (Sac–UMass), W5 (NDSU–Wyoming) moved to games in 0093.
+    assert.equal(fcsStubsForWeek(0).length, 0);
     assert.equal(fcsStubsForWeek(3).length, 18);
-    assert.equal(fcsStubsForWeek(4).length, 14);
-    assert.equal(fcsStubsForWeek(5).length, 4);
+    assert.equal(fcsStubsForWeek(4).length, 13);
+    assert.equal(fcsStubsForWeek(5).length, 3);
   });
 
-  it("finalAway sets home:false and maps team score to away, opponent score to home", () => {
+  it("finalAway road gap games were all newcomer hosts; they moved to games intact (0093)", () => {
     const away = allGap.filter(({ c }) => !c.fbs_is_home).map(({ c }) => c.call).sort();
     assert.deepEqual(away, [
       'finalAway("jacksonville-state", 0, "2026-08-29", "North Dakota State", 7, 33)',
       'finalAway("massachusetts", 4, "2026-09-26", "Sacramento State", 35, 6)',
       'finalAway("wyoming", 5, "2026-10-03", "North Dakota State", 0, 28)',
     ]);
-    const jxst = fcsStubsForTeam("jacksonville-state").find((s) => s.week === 0);
-    assert.ok(jxst);
-    assert.equal(jxst.home, false);
-    assert.equal(jxst.homeScore, 33); // NDSU (venue home)
-    assert.equal(jxst.awayScore, 7); // Jax State
-    assert.deepEqual(tallyFcsStubs([jxst]), { seasonWins: 0, seasonLosses: 1 });
-    const umass = fcsStubsForTeam("massachusetts").find((s) => s.week === 4);
-    assert.ok(umass);
-    assert.deepEqual([umass.home, umass.homeScore, umass.awayScore], [false, 6, 35]);
-    assert.deepEqual(tallyFcsStubs([umass]), { seasonWins: 1, seasonLosses: 0 });
-    const wyo = fcsStubsForTeam("wyoming").find((s) => s.week === 5);
-    assert.ok(wyo);
-    assert.deepEqual([wyo.home, wyo.homeScore, wyo.awayScore], [false, 28, 0]);
-    assert.deepEqual(tallyFcsStubs([wyo]), { seasonWins: 0, seasonLosses: 1 });
-    // Board mapping keeps the FBS team on the away side.
-    const row = fcsStubToScheduleGame(wyo);
-    assert.equal(row.awaySlug, "wyoming");
-    assert.equal(row.homeName, "North Dakota State");
-    assert.deepEqual([row.homeScore, row.awayScore, row.status], [28, 0, "final"]);
-    // Records: Jax State 1–1 (W1 EKU W, W0 NDSU L); Wyoming 1–1 (W2 W, W5 NDSU L); UMass 3–0.
-    assert.deepEqual(tallyFcsStubRecord("jacksonville-state"), { seasonWins: 1, seasonLosses: 1 });
-    assert.deepEqual(tallyFcsStubRecord("wyoming"), { seasonWins: 1, seasonLosses: 1 });
-    assert.deepEqual(tallyFcsStubRecord("massachusetts"), { seasonWins: 3, seasonLosses: 0 });
-    // Away FINALs never surface as Remaining schedule rows.
+    const moved = [
+      ["north-dakota-state", "jacksonville-state", 33, 7],
+      ["sacramento-state", "massachusetts", 6, 35],
+      ["north-dakota-state", "wyoming", 28, 0],
+    ] as const;
+    for (const [home, awayTeam, hs, as] of moved) {
+      const row = newcomers.fbs_games.find((x) => x.home === home && x.away === awayTeam);
+      assert.ok(row, `${awayTeam} @ ${home}`);
+      assert.deepEqual([row.home_score, row.away_score, row.status], [hs, as, "final"]);
+      assert.equal(fcsStubsForTeam(awayTeam).some((st) => isNewcomerOpp(st.opponentLabel)), false, awayTeam);
+    }
+    // finalAway still maps team score to away, opponent score to home.
+    const ksu = fcsStubsForTeam("kansas-state")[0];
+    const road = { ...ksu, home: false, homeScore: 10, awayScore: 24 };
+    assert.deepEqual(tallyFcsStubs([road]), { seasonWins: 1, seasonLosses: 0 });
+    const row = fcsStubToScheduleGame(road);
+    assert.equal(row.awaySlug, "kansas-state");
     for (const slug of ["jacksonville-state", "massachusetts", "wyoming"]) {
       assert.equal(buildRemainingSchedule(slug, []).filter((r) => r.isFcs).length, 0, slug);
     }
@@ -600,12 +606,14 @@ describe("Records audit vs ESPN (records_audit_vs_espn_2026-10-09)", () => {
       .filter((f) => f.endsWith(".sql"))
       .map((f) => readFileSync(join(migDir, f), "utf8"))
       .join("\n");
-    for (const { c } of allGap) {
+    // Newcomer games (NDSU, Sacramento State) are games rows since 0093, not stubs.
+    const gap = allGap.filter(({ c }) => !isNewcomerOpp(c.opponent));
+    for (const { c } of gap) {
       assert.ok(!sql.includes(c.espn_id), `${c.espn_id} in migrations`);
     }
     assert.ok(!sql.includes("401856770"));
     // FCS opponents are never team slugs in the 136 (no games row can reference them).
-    for (const { c } of allGap) {
+    for (const { c } of gap) {
       const fcsSlug = c.opponent.toLowerCase().replace(/[^a-z0-9]+/g, "-");
       assert.ok(!new RegExp(`slug = '${fcsSlug}'`).test(sql), fcsSlug);
     }
@@ -613,7 +621,7 @@ describe("Records audit vs ESPN (records_audit_vs_espn_2026-10-09)", () => {
 
   it("schedule board stays Vegas-only Week 2: no W–L stub renders as a /schedule row", () => {
     for (const w of [0, 1, 3, 4, 5, 6]) assert.equal(fcsScheduleGamesForWeek(w).length, 0, `week ${w}`);
-    assert.equal(fcsScheduleGamesForWeek(2).length, 39);
+    assert.equal(fcsScheduleGamesForWeek(2).length, 37);
   });
 });
 
@@ -650,20 +658,13 @@ describe("scheduled() fixture (unused in data since #84)", () => {
 });
 
 describe("Week 6 FCS FINALs (BGSU/Sacramento State, UNLV/North Dakota State)", () => {
-  it("adds both as home FINALs with ESPN scores", () => {
-    const w6 = fcsStubsForWeek(6);
-    assert.equal(w6.length, 2);
-    const bg = fcsStubsForTeam("bowling-green").find((s) => s.week === 6);
+  it("adds both as home FINALs with ESPN scores (moved to games with the 2026 newcomers, 0093)", () => {
+    assert.equal(fcsStubsForWeek(6).length, 0);
+    const bg = newcomers.fbs_games.find((x) => x.home === "bowling-green" && x.away === "sacramento-state");
     assert.ok(bg);
-    assert.equal(bg.opponentLabel, "Sacramento State");
-    assert.equal(bg.home, true);
-    assert.equal(bg.homeScore, 38);
-    assert.equal(bg.awayScore, 10);
-    const unlv = fcsStubsForTeam("unlv").find((s) => s.week === 6);
+    assert.deepEqual([bg.week, bg.home_score, bg.away_score, bg.status], [6, 38, 10, "final"]);
+    const unlv = newcomers.fbs_games.find((x) => x.home === "unlv" && x.away === "north-dakota-state");
     assert.ok(unlv);
-    assert.equal(unlv.opponentLabel, "North Dakota State");
-    assert.equal(unlv.home, true);
-    assert.equal(unlv.homeScore, 13);
-    assert.equal(unlv.awayScore, 7);
+    assert.deepEqual([unlv.week, unlv.home_score, unlv.away_score, unlv.status], [6, 13, 7, "final"]);
   });
 });

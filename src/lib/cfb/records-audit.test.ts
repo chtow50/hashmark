@@ -56,11 +56,11 @@ describe("records: structural W–L (games FINALs + FCS stubs)", () => {
     assert.deepEqual(spec.counts.exceptions_after_all_fixes, []);
   });
 
-  it("every FCS stub and FBS game dated on or before the cutoff is FINAL with scores; records equal games + stubs for 136/136", async () => {
+  it("every FCS stub and FBS game dated on or before the cutoff is FINAL with scores; records equal games + stubs for 138/138", async () => {
     const db = await migratedDb();
     try {
       const teams = (await db.query<{ id: number; slug: string }>(`select id, slug from teams`)).rows;
-      assert.equal(teams.length, 136);
+      assert.equal(teams.length, 138); // 136 + 2026 newcomers (0093)
       const slugs = new Set(teams.map((t) => t.slug));
 
       // 1. FCS stubs
@@ -103,8 +103,11 @@ describe("records: structural W–L (games FINALs + FCS stubs)", () => {
         `select t.slug, coalesce(wl.season_wins, 0)::int as w, coalesce(wl.season_losses, 0)::int as l
          from teams t ${SEASON_RECORD_JOIN}`,
       );
-      assert.equal(rows.length, 136);
+      assert.equal(rows.length, 138);
       const site = new Map(rows.map((r) => [r.slug, formatSeasonRecord(r.w, r.l)]));
+      // ESPN overall records on 2026-11-12 for the newcomers.
+      assert.equal(site.get("north-dakota-state"), "7–2");
+      assert.equal(site.get("sacramento-state"), "2–9");
       const tallyGames = games.map((g) => ({
         status: g.status,
         homeTeamId: g.home_team_id,

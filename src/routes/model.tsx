@@ -114,9 +114,10 @@ spread  = 0.050835 × d
         <h2 className="font-display text-2xl tracking-wide">2026 notes</h2>
         <div className="mt-4 space-y-4 text-sm leading-relaxed text-muted">
           <p>
-            The board is the full 136-team FBS set from the HASHMARK database — recruiting, portal,
-            returning production, SP+/Elo/SRS, and 2026 rosters. Two-deeps are the listed TWO·DEEP
-            charts for all 136 programs (thetwodeep.com, refreshed 2026-09-07).
+            The board is the full 138-team FBS set: the 136 preseason programs (recruiting, portal,
+            returning production, SP+/Elo/SRS, and 2026 rosters) plus 2026 newcomers North Dakota State and
+            Sacramento State, which start from a newcomer prior and are refit on results. Two-deeps are the
+            listed TWO·DEEP charts for the 136 preseason programs (thetwodeep.com, refreshed 2026-09-07).
           </p>
           <p>
             Offensive-line mass is on the talent Size board as a measurable. It is not a term in

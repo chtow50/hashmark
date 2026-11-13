@@ -592,14 +592,16 @@ describe("prebuilt deploy artifacts", () => {
     ].map((c) => c.call);
     assert.equal(calls.length, 36);
     for (const call of calls) {
-      assert.ok(text.includes(call), `missing ${call}`);
+      // Newcomer opponents (NDSU, Sacramento State) are FBS games since 0093, not stubs.
+      if (/"(North Dakota State|Sacramento State)"/.test(call)) assert.ok(!text.includes(call), `stale ${call}`);
+      else assert.ok(text.includes(call), `missing ${call}`);
     }
     const ttu = groups.WEEK1_ttu_fix.calls[0];
     assert.ok(text.includes(ttu.with), `missing ${ttu.with}`);
     assert.ok(!text.includes(ttu.replace), `stale ${ttu.replace}`);
     assert.match(text, /finalHome\("kansas-state", 1, "2026-09-05", "Nicholls", 71, 3\)/);
-    assert.match(text, /function finalAway\(/);
-    assert.match(text, /finalAway\("jacksonville-state", 0, "2026-08-29", "North Dakota State", 7, 33\)/);
+    // finalAway has no callers since 0093 (every road FCS host was a 2026 newcomer), so rollup drops it.
+    assert.doesNotMatch(text, /finalAway\("jacksonville-state", 0, "2026-08-29", "North Dakota State", 7, 33\)/); // moved to games with the 2026 newcomers (0093)
   });
 
   it("includes Week 6 Friday FINALs (0054) with exact home/away orientation in committed output", () => {
@@ -628,8 +630,8 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /and h\.slug = 'alabama' and a\.slug = 'georgia';/);
     assert.match(text, /and h\.slug = 'oklahoma' and a\.slug = 'texas';/);
     assert.match(text, /and h\.slug = 'kentucky' and a\.slug = 'lsu';/);
-    assert.match(text, /finalHome\("bowling-green", 6, "2026-10-10", "Sacramento State", 38, 10\)/);
-    assert.match(text, /finalHome\("unlv", 6, "2026-10-10", "North Dakota State", 13, 7\)/);
+    assert.doesNotMatch(text, /finalHome\("bowling-green", 6, "2026-10-10", "Sacramento State", 38, 10\)/); // moved to games with the 2026 newcomers (0093)
+    assert.doesNotMatch(text, /finalHome\("unlv", 6, "2026-10-10", "North Dakota State", 13, 7\)/); // moved to games with the 2026 newcomers (0093)
     // Friday FINALs (0054) stay in the bundle untouched.
     assert.match(text, /Iowa State @ BYU — BYU 24, Iowa State 10/);
   });
@@ -693,7 +695,7 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /and h\.slug = 'indiana' and a\.slug = 'ohio-state';/);
     assert.match(text, /and h\.slug = 'miami' and a\.slug = 'florida-state';/);
     assert.match(text, /finalHome\("clemson", 7, "2026-10-17", "Charleston Southern", 37, 0\)/);
-    assert.match(text, /finalAway\("ohio", 7, "2026-10-17", "Sacramento State", 48, 7\)/);
+    assert.doesNotMatch(text, /finalAway\("ohio", 7, "2026-10-17", "Sacramento State", 48, 7\)/); // moved to games with the 2026 newcomers (0093)
     // Friday FINALs (0061) stay in the bundle untouched.
     assert.match(text, /Memphis @ Tulane — Tulane 31, Memphis 17/);
   });
@@ -759,8 +761,8 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /and h\.slug = 'northwestern' and a\.slug = 'rutgers';/);
     assert.match(text, /and h\.slug = 'kansas' and a\.slug = 'baylor';/);
     assert.match(text, /and h\.slug = 'oklahoma-state' and a\.slug = 'colorado';/);
-    assert.match(text, /finalHome\("ball-state", 8, "2026-10-24", "Sacramento State", 34, 17\)/);
-    assert.match(text, /finalHome\("new-mexico", 8, "2026-10-24", "North Dakota State", 21, 16\)/);
+    assert.doesNotMatch(text, /finalHome\("ball-state", 8, "2026-10-24", "Sacramento State", 34, 17\)/); // moved to games with the 2026 newcomers (0093)
+    assert.doesNotMatch(text, /finalHome\("new-mexico", 8, "2026-10-24", "North Dakota State", 21, 16\)/); // moved to games with the 2026 newcomers (0093)
   });
 
   it("pins serverless function runtime to nodejs22.x (Vercel blocked new nodejs20.x after 2026-10-01)", () => {
@@ -818,7 +820,7 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /and h\.slug = 'syracuse' and a\.slug = 'smu';/);
     assert.match(text, /and h\.slug = 'nebraska' and a\.slug = 'washington';/);
     assert.match(text, /and h\.slug = 'memphis' and a\.slug = 'army';/);
-    assert.match(text, /finalAway\("utep", 9, "2026-10-31", "North Dakota State", 7, 31\)/);
+    assert.doesNotMatch(text, /finalAway\("utep", 9, "2026-10-31", "North Dakota State", 7, 31\)/); // moved to games with the 2026 newcomers (0093)
   });
 
   it("includes Week 9 Saturday late FINALs (0079) with exact home/away orientation in committed output", () => {

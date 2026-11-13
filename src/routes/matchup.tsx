@@ -278,6 +278,13 @@ function MatchupPage() {
               Two-deep composite, transfers included. Unit slices sit under that. OL mass is size, not the ranking.
             </p>
             <CompareRow label="HX rating" a={home.hxRating} b={away.hxRating} max={10} format={(n) => fmtNum(n, 2)} aTeam={homeTeam} bTeam={awayTeam} />
+            {home.hasProfile === false || away.hasProfile === false ? (
+              <p className="mt-3 text-sm text-muted">
+                No sourced talent, class, or size profile for {home.hasProfile === false ? home.shortName : away.shortName} yet
+                (2026 FBS newcomer), so the roster comparison is off for this matchup.
+              </p>
+            ) : (
+              <>
             <CompareRow label="Talent composite" a={home.talentScore} b={away.talentScore} max={100} format={(n) => fmtNum(n, 1)} aTeam={homeTeam} bTeam={awayTeam} />
             <CompareRow label="HS two-deep" a={home.hsTalent} b={away.hsTalent} max={100} format={(n) => fmtNum(n, 1)} aTeam={homeTeam} bTeam={awayTeam} />
             <CompareRow label="Portal two-deep" a={home.portalTalent} b={away.portalTalent} max={100} format={(n) => fmtNum(n, 1)} aTeam={homeTeam} bTeam={awayTeam} />
@@ -304,6 +311,8 @@ function MatchupPage() {
               aTeam={homeTeam}
               bTeam={awayTeam}
             />
+              </>
+            )}
           </Panel>
 
           <Panel>

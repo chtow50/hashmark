@@ -5,6 +5,7 @@ import { fileURLToPath } from "node:url";
 import { describe, it } from "node:test";
 import { parseSqlStampsForWeek, readMigrationsSql } from "./fcs-fbs-stamp-gate.ts";
 import { fcsStubsForWeek } from "./fcs-stubs.ts";
+import { splitNewcomerStubRows } from "./fbs-newcomers-test-helpers.ts";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "../../..");
 const pack = JSON.parse(
@@ -253,13 +254,13 @@ describe("Week 7 Saturday FINALs (0062, 46 FBS–FBS cards)", () => {
 describe("Week 7 FBS vs FCS FINALs (WEEK7_FCS_STUBS)", () => {
   it("has the five ESPN STATUS_FINAL results with venue orientation", () => {
     const got = fcsStubsForWeek(7).map((g) => [g.teamSlug, g.home, g.opponentLabel, g.homeScore, g.awayScore, g.status]);
-    assert.deepEqual(got, [
+    assert.deepEqual(got, splitNewcomerStubRows([
       ["clemson", true, "Charleston Southern", 37, 0, "final"],
       ["texas-am", true, "The Citadel", 41, 0, "final"],
       ["nevada", false, "North Dakota State", 31, 17, "final"],
       ["stanford", true, "Elon", 34, 7, "final"],
       ["ohio", false, "Sacramento State", 7, 48, "final"],
-    ]);
+    ] as const));
   });
 });
 

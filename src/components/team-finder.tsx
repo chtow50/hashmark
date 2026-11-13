@@ -160,7 +160,7 @@ export function TeamFinder() {
             </div>
             <ul className="max-h-[50vh] overflow-y-auto py-1">
               {!teams ? (
-                <li className="px-4 py-3 text-sm text-muted">Loading the 136…</li>
+                <li className="px-4 py-3 text-sm text-muted">Loading the 138…</li>
               ) : hits.length === 0 ? (
                 <li className="px-4 py-3 text-sm text-muted">No team matches.</li>
               ) : (

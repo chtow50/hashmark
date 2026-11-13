@@ -8,7 +8,7 @@ import refitRaw from "../../../data/hx_refit_2026.json" with { type: "json" };
 import { predictMatchup } from "./model.ts";
 import type { ScheduleGame } from "./types.ts";
 
-type RefitBoardRow = { slug: string; hx: number; rank: number; pre_hx: number; pre_rank: number };
+type RefitBoardRow = { slug: string; hx: number; rank: number; pre_hx: number; pre_rank: number | null };
 type RefitFile = {
   meta: { hx_stamp: string; through_week: number };
   board: RefitBoardRow[];
@@ -50,7 +50,7 @@ export type HxResultsSummary = {
 export function hxVsResults(teamSlug: string, games: ScheduleGame[]): HxResultRow[] {
   const rows: HxResultRow[] = [];
   for (const g of games) {
-    if (g.isFcs || g.status !== "final" || g.homeScore == null || g.awayScore == null) continue;
+    if (g.isFcs || g.hxUnrated || g.status !== "final" || g.homeScore == null || g.awayScore == null) continue;
     const home = g.homeSlug === teamSlug;
     if (!home && g.awaySlug !== teamSlug) continue;
     const pred = predictMatchup(
@@ -93,7 +93,8 @@ export type HxTrajectory = {
   /** HX entering each week (Week 1 = preseason prior), from the refit file. */
   points: { week: number; hx: number }[];
   preHx: number;
-  preRank: number;
+  /** Null for 2026 newcomers (not on the preseason board; preHx is the newcomer prior). */
+  preRank: number | null;
   hx: number;
   rank: number;
 };
@@ -115,14 +116,14 @@ export type RankMover = { slug: string; preRank: number; rank: number; delta: nu
 
 /** Biggest HX rank moves since the preseason board (delta = preRank − rank; positive = rose). */
 export function risersFallers(limit = 6): { risers: RankMover[]; fallers: RankMover[] } {
-  const all: RankMover[] = refit.board.map((r) => ({
+  const all: RankMover[] = refit.board.flatMap((r) => (r.pre_rank == null ? [] : [{
     slug: r.slug,
     preRank: r.pre_rank,
     rank: r.rank,
     delta: r.pre_rank - r.rank,
     preHx: r.pre_hx,
     hx: r.hx,
-  }));
+  }]));
   const risers = all
     .filter((m) => m.delta > 0)
     .sort((a, b) => b.delta - a.delta || a.rank - b.rank)

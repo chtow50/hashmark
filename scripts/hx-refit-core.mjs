@@ -141,7 +141,7 @@ export function walkForward(prior, games, weeks, opts = {}) {
   for (const w of weeks) {
     const board = refitHx(prior, games.filter((g) => g.week < w), opts);
     for (const s of Object.keys(hx)) hx[s].push(Math.round(board[s] * 1e3) / 1e3);
-    const wk = games.filter((g) => g.week === w);
+    const wk = games.filter((g) => g.week === w && !g.hxUnrated); // no pregame HX existed for unrated FINALs
     if (wk.length) grades.push({ week: w, ...gradeGames(wk.map((g) => ({ g, ...predictGame(board, g) }))) });
   }
   return { weeks, hx, grades };

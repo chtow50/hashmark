@@ -96,6 +96,8 @@ type TeamDb = {
   z_portal: number;
   z_prior: number;
   two_deep_source: "listed" | "projected";
+  units_rated: boolean;
+  has_profile: boolean;
 };
 
 const TEAM_SELECT = `
@@ -103,9 +105,15 @@ const TEAM_SELECT = `
   t.color_primary, t.color_secondary, t.last_wins, t.last_losses, t.last_finish,
   coalesce(wl.season_wins, 0) as season_wins,
   coalesce(wl.season_losses, 0) as season_losses,
-  r.hx_rank, r.hx_rating, r.ap_rank, r.cfp_rank, r.offense_rating, r.defense_rating,
-  r.special_rating, r.sos_rating, r.projected_wins, r.returning_production,
-  r.playoff_odds, r.prior_score, r.talent_score,
+  r.hx_rank, r.hx_rating, r.ap_rank, r.cfp_rank,
+  -- 2026 newcomers (0093) have no O/D units: league mean keeps the total model neutral; units_rated drives "—".
+  coalesce(r.offense_rating, (select avg(offense_rating) from rankings where season = 2026 and week = 0)) as offense_rating,
+  coalesce(r.defense_rating, (select avg(defense_rating) from rankings where season = 2026 and week = 0)) as defense_rating,
+  (r.offense_rating is not null) as units_rated,
+  (p.team_id is not null) as has_profile,
+  coalesce(r.special_rating, 0) as special_rating, coalesce(r.sos_rating, 0) as sos_rating,
+  coalesce(r.projected_wins, 0) as projected_wins, coalesce(r.returning_production, 0) as returning_production,
+  coalesce(r.playoff_odds, 0) as playoff_odds, coalesce(r.prior_score, 0) as prior_score, coalesce(r.talent_score, 0) as talent_score,
   r.z_talent, r.z_retention, r.z_trend, r.z_portal, r.z_prior,
   rec.composite_rank as rec_rank, rec.commits, rec.avg_rating as rec_avg,
   rec.points as rec_points, rec.five_stars, rec.four_stars, rec.three_stars,
@@ -140,8 +148,8 @@ const TEAM_SELECT = `
 const TEAM_FROM = `
   from teams t
   join rankings r on r.team_id = t.id and r.season = 2026 and r.week = 0
-  join recruiting rec on rec.team_id = t.id and rec.class_year = 2026
-  join roster_profile p on p.team_id = t.id
+  left join recruiting rec on rec.team_id = t.id and rec.class_year = 2026
+  left join roster_profile p on p.team_id = t.id
   ${TALENT_UNITS_JOIN}
   ${SIZE_UNITS_JOIN}
   ${SEASON_RECORD_JOIN}
@@ -168,6 +176,8 @@ function mapTeam(row: TeamDb): TeamSummary {
     hxRating: Number(row.hx_rating),
     apRank: row.ap_rank,
     cfpRank: row.cfp_rank ?? null,
+    unitsRated: row.units_rated !== false,
+    hasProfile: row.has_profile !== false,
     offenseRating: Number(row.offense_rating),
     defenseRating: Number(row.defense_rating),
     specialRating: Number(row.special_rating),
@@ -285,10 +295,10 @@ export const getTeam = createServerFn({ method: "GET" })
               ht.name as "homeName", at.name as "awayName",
               ht.short_name as "homeShort", at.short_name as "awayShort",
               ht.color_primary as "homeColor", at.color_primary as "awayColor",
-              coalesce(g.lock_home_hx, hr.hx_rating) as "homeHx", coalesce(g.lock_away_hx, ar.hx_rating) as "awayHx",
+              coalesce(g.lock_home_hx, hr.hx_rating) as "homeHx", coalesce(g.lock_away_hx, ar.hx_rating) as "awayHx", g.hx_unrated as "hxUnrated",
               hr.hx_rank as "homeRank", ar.hx_rank as "awayRank",
-              hr.offense_rating as "homeOff", ar.offense_rating as "awayOff",
-              hr.defense_rating as "homeDef", ar.defense_rating as "awayDef",
+              coalesce(hr.offense_rating, (select avg(offense_rating) from rankings where season = 2026 and week = 0)) as "homeOff", coalesce(ar.offense_rating, (select avg(offense_rating) from rankings where season = 2026 and week = 0)) as "awayOff",
+              coalesce(hr.defense_rating, (select avg(defense_rating) from rankings where season = 2026 and week = 0)) as "homeDef", coalesce(ar.defense_rating, (select avg(defense_rating) from rankings where season = 2026 and week = 0)) as "awayDef",
               g.neutral, g.location, g.headline,
               g.kickoff_at as "kickoffAt",
               g.vegas_spread as "vegasSpread",
@@ -382,6 +392,7 @@ function numGame(g: GameRow): GameRow {
     homeDef: Number(g.homeDef),
     awayDef: Number(g.awayDef),
     neutral: Boolean(g.neutral),
+    hxUnrated: g.hxUnrated === true,
   };
 }
 
@@ -393,10 +404,10 @@ export const listGames = createServerFn({ method: "GET" }).handler(async () => {
             ht.name as "homeName", at.name as "awayName",
             ht.short_name as "homeShort", at.short_name as "awayShort",
             ht.color_primary as "homeColor", at.color_primary as "awayColor",
-            coalesce(g.lock_home_hx, hr.hx_rating) as "homeHx", coalesce(g.lock_away_hx, ar.hx_rating) as "awayHx",
+            coalesce(g.lock_home_hx, hr.hx_rating) as "homeHx", coalesce(g.lock_away_hx, ar.hx_rating) as "awayHx", g.hx_unrated as "hxUnrated",
             hr.hx_rank as "homeRank", ar.hx_rank as "awayRank",
-            hr.offense_rating as "homeOff", ar.offense_rating as "awayOff",
-            hr.defense_rating as "homeDef", ar.defense_rating as "awayDef",
+            coalesce(hr.offense_rating, (select avg(offense_rating) from rankings where season = 2026 and week = 0)) as "homeOff", coalesce(ar.offense_rating, (select avg(offense_rating) from rankings where season = 2026 and week = 0)) as "awayOff",
+            coalesce(hr.defense_rating, (select avg(defense_rating) from rankings where season = 2026 and week = 0)) as "homeDef", coalesce(ar.defense_rating, (select avg(defense_rating) from rankings where season = 2026 and week = 0)) as "awayDef",
             g.neutral, g.location, g.headline
      from games g
      join teams ht on ht.id = g.home_team_id
@@ -456,10 +467,10 @@ export const listSchedule = createServerFn({ method: "GET" })
               ht.name as "homeName", at.name as "awayName",
               ht.short_name as "homeShort", at.short_name as "awayShort",
               ht.color_primary as "homeColor", at.color_primary as "awayColor",
-              coalesce(g.lock_home_hx, hr.hx_rating) as "homeHx", coalesce(g.lock_away_hx, ar.hx_rating) as "awayHx",
+              coalesce(g.lock_home_hx, hr.hx_rating) as "homeHx", coalesce(g.lock_away_hx, ar.hx_rating) as "awayHx", g.hx_unrated as "hxUnrated",
               hr.hx_rank as "homeRank", ar.hx_rank as "awayRank",
-              hr.offense_rating as "homeOff", ar.offense_rating as "awayOff",
-              hr.defense_rating as "homeDef", ar.defense_rating as "awayDef",
+              coalesce(hr.offense_rating, (select avg(offense_rating) from rankings where season = 2026 and week = 0)) as "homeOff", coalesce(ar.offense_rating, (select avg(offense_rating) from rankings where season = 2026 and week = 0)) as "awayOff",
+              coalesce(hr.defense_rating, (select avg(defense_rating) from rankings where season = 2026 and week = 0)) as "homeDef", coalesce(ar.defense_rating, (select avg(defense_rating) from rankings where season = 2026 and week = 0)) as "awayDef",
               g.neutral, g.location, g.headline,
               g.kickoff_at as "kickoffAt",
               g.vegas_spread as "vegasSpread",
@@ -502,10 +513,10 @@ export const listScheduleWeek = createServerFn({ method: "GET" })
               ht.name as "homeName", at.name as "awayName",
               ht.short_name as "homeShort", at.short_name as "awayShort",
               ht.color_primary as "homeColor", at.color_primary as "awayColor",
-              coalesce(g.lock_home_hx, hr.hx_rating) as "homeHx", coalesce(g.lock_away_hx, ar.hx_rating) as "awayHx",
+              coalesce(g.lock_home_hx, hr.hx_rating) as "homeHx", coalesce(g.lock_away_hx, ar.hx_rating) as "awayHx", g.hx_unrated as "hxUnrated",
               hr.hx_rank as "homeRank", ar.hx_rank as "awayRank",
-              hr.offense_rating as "homeOff", ar.offense_rating as "awayOff",
-              hr.defense_rating as "homeDef", ar.defense_rating as "awayDef",
+              coalesce(hr.offense_rating, (select avg(offense_rating) from rankings where season = 2026 and week = 0)) as "homeOff", coalesce(ar.offense_rating, (select avg(offense_rating) from rankings where season = 2026 and week = 0)) as "awayOff",
+              coalesce(hr.defense_rating, (select avg(defense_rating) from rankings where season = 2026 and week = 0)) as "homeDef", coalesce(ar.defense_rating, (select avg(defense_rating) from rankings where season = 2026 and week = 0)) as "awayDef",
               g.neutral, g.location, g.headline,
               g.kickoff_at as "kickoffAt",
               g.vegas_spread as "vegasSpread",
@@ -560,10 +571,10 @@ async function fetchMatchupGame(sql: Awaited<ReturnType<typeof getSql>>, homeSlu
             ht.name as "homeName", at.name as "awayName",
             ht.short_name as "homeShort", at.short_name as "awayShort",
             ht.color_primary as "homeColor", at.color_primary as "awayColor",
-            coalesce(g.lock_home_hx, hr.hx_rating) as "homeHx", coalesce(g.lock_away_hx, ar.hx_rating) as "awayHx",
+            coalesce(g.lock_home_hx, hr.hx_rating) as "homeHx", coalesce(g.lock_away_hx, ar.hx_rating) as "awayHx", g.hx_unrated as "hxUnrated",
             hr.hx_rank as "homeRank", ar.hx_rank as "awayRank",
-            hr.offense_rating as "homeOff", ar.offense_rating as "awayOff",
-            hr.defense_rating as "homeDef", ar.defense_rating as "awayDef",
+            coalesce(hr.offense_rating, (select avg(offense_rating) from rankings where season = 2026 and week = 0)) as "homeOff", coalesce(ar.offense_rating, (select avg(offense_rating) from rankings where season = 2026 and week = 0)) as "awayOff",
+            coalesce(hr.defense_rating, (select avg(defense_rating) from rankings where season = 2026 and week = 0)) as "homeDef", coalesce(ar.defense_rating, (select avg(defense_rating) from rankings where season = 2026 and week = 0)) as "awayDef",
             g.neutral, g.location, g.headline,
             g.kickoff_at as "kickoffAt",
             g.vegas_spread as "vegasSpread",

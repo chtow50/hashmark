@@ -1,5 +1,5 @@
 /**
- * FBS vs FCS rows dropped from the 136-team games table.
+ * FBS vs FCS rows dropped from the 138-team games table.
  *
  * Week 1: W–L stubs (FINAL only when Research stamped a score).
  * Week 2: JSON ingest of AMD `data/week2_fbs_fcs_spreads_2026.json` —
@@ -204,11 +204,12 @@ function week2StubFromJson(g: Week2FcsJsonGame): FcsStubGame {
  * (data/records_audit_vs_espn_2026-10-09.json change_spec, all CLEAR).
  */
 const WEEK0_FCS_STUBS: FcsStubGame[] = [
-  finalHome("eastern-michigan", 0, "2026-08-29", "Sacramento State", 28, 17),
-  finalAway("jacksonville-state", 0, "2026-08-29", "North Dakota State", 7, 33),
 ];
 
 const WEEK1_FCS_STUBS: FcsStubGame[] = [
+  // 2026 FBS newcomers' own FCS games (data/fbs_newcomers_2026.json, ESPN 401864499 / 401866411).
+  finalHome("north-dakota-state", 1, "2026-09-05", "Fordham", 38, 0),
+  finalHome("sacramento-state", 1, "2026-09-05", "Mississippi Valley State", 52, 0),
   finalHome("buffalo", 1, "2026-09-03", "UAlbany", 21, 17),
   finalHome("delaware", 1, "2026-09-03", "Merrimack", 42, 7),
   finalHome("kennesaw-state", 1, "2026-09-03", "West Georgia", 47, 0),
@@ -257,7 +258,16 @@ const WEEK1_FCS_STUBS: FcsStubGame[] = [
   finalHome("virginia-tech", 1, "2026-09-05", "VMI", 73, 3),
 ];
 
-const WEEK2_FCS_STUBS: FcsStubGame[] = WEEK2_FCS.games.map(week2StubFromJson);
+/**
+ * 2026 FBS newcomers (0093). They were FCS opponents when the Week 2 pack shipped; their
+ * games with FBS teams now live in `games` (data/fbs_newcomers_2026.json), so they are not stubs.
+ */
+export const FBS_NEWCOMER_LABELS = ["North Dakota State", "Sacramento State"] as const;
+const isNewcomerLabel = (label: string) => FBS_NEWCOMER_LABELS.some((n) => label.startsWith(n));
+
+const WEEK2_FCS_STUBS: FcsStubGame[] = WEEK2_FCS.games
+  .filter((g) => !isNewcomerLabel(g.fcs_opponent))
+  .map(week2StubFromJson);
 
 /**
  * Week 3 W–L only. Northern Iowa is FCS — not a `games` row and not a
@@ -297,7 +307,6 @@ const WEEK4_FCS_STUBS: FcsStubGame[] = [
   finalHome("fiu", 4, "2026-09-26", "LIU", 20, 3),
   finalHome("florida-state", 4, "2026-09-26", "Central Arkansas", 34, 7),
   finalHome("marshall", 4, "2026-09-26", "Gardner-Webb", 36, 35),
-  finalAway("massachusetts", 4, "2026-09-26", "Sacramento State", 35, 6),
   finalHome("north-texas", 4, "2026-09-26", "Houston Christian", 63, 14),
   finalHome("ohio", 4, "2026-09-26", "Stonehill", 35, 7),
   finalHome("pittsburgh", 4, "2026-09-26", "Bucknell", 59, 0),
@@ -311,15 +320,10 @@ const WEEK5_FCS_STUBS: FcsStubGame[] = [
   finalHome("florida-atlantic", 5, "2026-10-03", "Texas Southern", 66, 10),
   finalHome("lsu", 5, "2026-10-03", "McNeese", 63, 14),
   finalHome("uab", 5, "2026-10-03", "Samford", 33, 14),
-  finalAway("wyoming", 5, "2026-10-03", "North Dakota State", 0, 28),
 ];
 
 /** Week 6 FBS vs FCS finals — ESPN game pages, STATUS_FINAL (nightly stamp 2026-10-11). */
 const WEEK6_FCS_STUBS: FcsStubGame[] = [
-  // Sacramento State @ Bowling Green — Bowling Green 38, Sacramento State 10 (ESPN 401866436).
-  finalHome("bowling-green", 6, "2026-10-10", "Sacramento State", 38, 10),
-  // North Dakota State @ UNLV — UNLV 13, North Dakota State 7 (ESPN 401864518).
-  finalHome("unlv", 6, "2026-10-10", "North Dakota State", 13, 7),
 ];
 
 /** Week 7 FBS vs FCS finals — ESPN game pages, STATUS_FINAL (nightly stamp 2026-10-18). */
@@ -328,41 +332,25 @@ const WEEK7_FCS_STUBS: FcsStubGame[] = [
   finalHome("clemson", 7, "2026-10-17", "Charleston Southern", 37, 0),
   // The Citadel @ Texas A&M — Texas A&M 41, The Citadel 0 (ESPN 401856725).
   finalHome("texas-am", 7, "2026-10-17", "The Citadel", 41, 0),
-  // Nevada @ North Dakota State — North Dakota State 31, Nevada 17 (ESPN 401864520).
-  finalAway("nevada", 7, "2026-10-17", "North Dakota State", 17, 31),
   // Elon @ Stanford — Stanford 34, Elon 7 (ESPN 401858262).
   finalHome("stanford", 7, "2026-10-17", "Elon", 34, 7),
-  // Ohio @ Sacramento State — Ohio 48, Sacramento State 7 (ESPN 401866445).
-  finalAway("ohio", 7, "2026-10-17", "Sacramento State", 48, 7),
 ];
 
 const WEEK8_FCS_STUBS: FcsStubGame[] = [
-  // Sacramento State @ Ball State — Ball State 34, Sacramento State 17 (ESPN 401866447).
-  finalHome("ball-state", 8, "2026-10-24", "Sacramento State", 34, 17),
-  // North Dakota State @ New Mexico — New Mexico 21, North Dakota State 16 (ESPN 401864527).
-  finalHome("new-mexico", 8, "2026-10-24", "North Dakota State", 21, 16),
 ];
 
 const WEEK9_FCS_STUBS: FcsStubGame[] = [
-  // Kent State @ Sacramento State — Sacramento State 31, Kent State 10 (ESPN 401866451).
-  finalAway("kent-state", 9, "2026-10-30", "Sacramento State", 10, 31),
-  // UTEP @ North Dakota State — North Dakota State 31, UTEP 7 (ESPN 401864531).
-  finalAway("utep", 9, "2026-10-31", "North Dakota State", 7, 31),
 ];
 
 const WEEK10_FCS_STUBS: FcsStubGame[] = [
-  // Toledo @ Sacramento State — Toledo 20, Sacramento State 17 (ESPN 401866457).
-  finalAway("toledo", 10, "2026-11-04", "Sacramento State", 20, 17),
   // Merrimack @ Wake Forest — Wake Forest 77, Merrimack 0 (ESPN 401858290).
   finalHome("wake-forest", 10, "2026-11-07", "Merrimack", 77, 0),
 ];
 
 const WEEK11_FCS_STUBS: FcsStubGame[] = [
-  // Sacramento State @ Central Michigan — Central Michigan 28, Sacramento State 7 (ESPN 401866462).
-  finalHome("central-michigan", 11, "2026-11-11", "Sacramento State", 28, 7),
 ];
 
-/** FBS vs FCS rows dropped from the 136-team games table (W–L stubs + Week 2 Vegas-only JSON). */
+/** FBS vs FCS rows dropped from the 138-team games table (W–L stubs + Week 2 Vegas-only JSON). */
 export const FCS_STUB_GAMES: FcsStubGame[] = [
   ...WEEK0_FCS_STUBS,
   ...WEEK1_FCS_STUBS,
@@ -482,6 +470,6 @@ export function sortScheduleGames(games: ScheduleGame[]): ScheduleGame[] {
 
 export const WEEK2_FCS_META = {
   asOf: "2026-09-10",
-  n: WEEK2_FCS.games.length,
+  n: WEEK2_FCS_STUBS.length,
   policy: "vegas_only_fcs_unrated" as const,
 };

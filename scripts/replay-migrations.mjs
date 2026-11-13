@@ -28,7 +28,7 @@ export async function replayMigrations({ until } = {}) {
 export async function loadFinals(db) {
   const r = await db.query(`
     select g.id, g.week, g.kickoff_date::text as kickoff_date, h.slug as home, a.slug as away,
-           g.neutral, g.home_score, g.away_score, g.vegas_spread
+           g.neutral, g.home_score, g.away_score, g.vegas_spread, g.hx_unrated
     from games g
     join teams h on h.id = g.home_team_id
     join teams a on a.id = g.away_team_id
@@ -44,6 +44,8 @@ export async function loadFinals(db) {
     homeScore: x.home_score,
     awayScore: x.away_score,
     vegasSpread: x.vegas_spread,
+    // Played before a team joined the board (2026 newcomers): fit, but never graded or locked.
+    hxUnrated: x.hx_unrated === true,
   }));
 }
 
@@ -90,6 +92,7 @@ export async function replayWithPregameLocks() {
     join teams h on h.id = g.home_team_id join teams a on a.id = g.away_team_id
     where g.status = 'final' and g.home_score is not null and g.away_score is not null
       and (g.lock_home_hx is null or g.lock_away_hx is null)
+      and not g.hx_unrated
     order by g.week, h.slug`);
   const locks = unlocked.rows.map((g) => boardAtStamp.get(`${g.week}|${g.home}|${g.away}`));
   return { db, locks };

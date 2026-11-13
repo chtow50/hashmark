@@ -5,6 +5,7 @@ import { fileURLToPath } from "node:url";
 import { describe, it } from "node:test";
 import { fcsStubsForWeek } from "./fcs-stubs.ts";
 import { AP_STAMP, BOARD_WEEK, FEATURED_SLATE_WEEK, WEEK8_FEATURED } from "./featured.ts";
+import { splitNewcomerStubRows } from "./fbs-newcomers-test-helpers.ts";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "../../..");
 const pack = JSON.parse(
@@ -287,9 +288,9 @@ describe("Week 8 Saturday FINALs (0070, 41 FBS games) + Week 8 FCS stubs", () =>
 
   it("adds the two Week 8 FCS FINALs as stubs", () => {
     const got = fcsStubsForWeek(8).map((g) => [g.teamSlug, g.home, g.opponentLabel, g.homeScore, g.awayScore, g.status]);
-    assert.deepEqual(got, [
+    assert.deepEqual(got, splitNewcomerStubRows([
       ["ball-state", true, "Sacramento State", 34, 17, "final"],
       ["new-mexico", true, "North Dakota State", 21, 16, "final"],
-    ]);
+    ] as const));
   });
 });
