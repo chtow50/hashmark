@@ -104,7 +104,7 @@ var HEADERS = { TSS_SHELL: "X-TSS_SHELL" };
 * the dev styles URL for route-scoped CSS collection.
 */
 async function getStartManifest(matchedRoutes) {
-	const { tsrStartManifest } = await import("../_tanstack-start-manifest_v-Db86W7s7.mjs");
+	const { tsrStartManifest } = await import("../_tanstack-start-manifest_v-Dx95X3IH.mjs");
 	const startManifest = tsrStartManifest();
 	let routes = startManifest.routes;
 	routes[rootRouteId];
@@ -126,7 +126,7 @@ async function getStartManifest(matchedRoutes) {
 var manifest = {
 	"1bcb5614a4b0c0e964e8cd896b3f3adeb70bf0346ddda783d7bc1ff58e3f503e": {
 		functionName: "getStatsTab_createServerFn_handler",
-		importer: () => import("./stats-queries-DD3KaeSQ.mjs")
+		importer: () => import("./stats-queries-BDIBSB5h.mjs")
 	},
 	"212fff7d2072b94c01d35d756a6846efbcca652fa93e6206b5e625d8fd64ecc1": {
 		functionName: "listTeams_createServerFn_handler",
@@ -166,7 +166,7 @@ var manifest = {
 	},
 	"f39ad56d3d347de0a6b25c8e8ad2766460a4dc12615fb1f0df56124407037068": {
 		functionName: "getTeamAdvanced_createServerFn_handler",
-		importer: () => import("./stats-queries-DD3KaeSQ.mjs")
+		importer: () => import("./stats-queries-BDIBSB5h.mjs")
 	}
 };
 async function getServerFnById(id, access) {
@@ -1571,7 +1571,7 @@ var getBaseManifest = getProdBaseManifest;
 var createEarlyHintsForRequest = createEarlyHintsCollector;
 async function loadEntries() {
 	const [routerEntry, startEntry, pluginAdapters] = await Promise.all([
-		import("./router-Y0lm6cxu.mjs").then((n) => n.t),
+		import("./router-BJ-BF5JA.mjs").then((n) => n.t),
 		import("./start-5Z2QO8AU.mjs"),
 		import("./empty-plugin-adapters-D9UWiqvJ.mjs")
 	]);
