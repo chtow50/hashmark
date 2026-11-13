@@ -1,0 +1,162 @@
+{
+  "product": "CFP committee rankings stamp",
+  "poll": "CFP",
+  "season": 2026,
+  "release": "2026-11-10",
+  "as_of_label": "CFP rankings · Nov. 10",
+  "source": "https://site.api.espn.com/apis/site/v2/sports/football/college-football/rankings (Playoff Committee Rankings, 2026-11-10)",
+  "source_secondary": "https://www.ncaa.com/rankings/football/fbs/college-football-playoff (through games Nov. 7) — 25/25 ranks and records match ESPN",
+  "scope": "Committee top 25 only. Not a HASHMARK number; HX is the only rating.",
+  "teams": [
+    {
+      "rank": 1,
+      "school": "Georgia",
+      "slug": "georgia",
+      "record": "8-1"
+    },
+    {
+      "rank": 2,
+      "school": "Utah",
+      "slug": "utah",
+      "record": "9-0"
+    },
+    {
+      "rank": 3,
+      "school": "Alabama",
+      "slug": "alabama",
+      "record": "7-2"
+    },
+    {
+      "rank": 4,
+      "school": "UCLA",
+      "slug": "ucla",
+      "record": "9-0"
+    },
+    {
+      "rank": 5,
+      "school": "Notre Dame",
+      "slug": "notre-dame",
+      "record": "8-1"
+    },
+    {
+      "rank": 6,
+      "school": "Texas",
+      "slug": "texas",
+      "record": "7-2"
+    },
+    {
+      "rank": 7,
+      "school": "Miami",
+      "slug": "miami",
+      "record": "8-1"
+    },
+    {
+      "rank": 8,
+      "school": "Tennessee",
+      "slug": "tennessee",
+      "record": "7-2"
+    },
+    {
+      "rank": 9,
+      "school": "Indiana",
+      "slug": "indiana",
+      "record": "8-1"
+    },
+    {
+      "rank": 10,
+      "school": "BYU",
+      "slug": "byu",
+      "record": "7-2"
+    },
+    {
+      "rank": 11,
+      "school": "Kentucky",
+      "slug": "kentucky",
+      "record": "7-2"
+    },
+    {
+      "rank": 12,
+      "school": "Texas Tech",
+      "slug": "texas-tech",
+      "record": "8-1"
+    },
+    {
+      "rank": 13,
+      "school": "Wake Forest",
+      "slug": "wake-forest",
+      "record": "8-1"
+    },
+    {
+      "rank": 14,
+      "school": "Houston",
+      "slug": "houston",
+      "record": "7-2"
+    },
+    {
+      "rank": 15,
+      "school": "Iowa",
+      "slug": "iowa",
+      "record": "7-2"
+    },
+    {
+      "rank": 16,
+      "school": "Oregon",
+      "slug": "oregon",
+      "record": "6-3"
+    },
+    {
+      "rank": 17,
+      "school": "South Carolina",
+      "slug": "south-carolina",
+      "record": "6-3"
+    },
+    {
+      "rank": 18,
+      "school": "USC",
+      "slug": "usc",
+      "record": "7-2"
+    },
+    {
+      "rank": 19,
+      "school": "Ole Miss",
+      "slug": "ole-miss",
+      "record": "6-3"
+    },
+    {
+      "rank": 20,
+      "school": "Ohio State",
+      "slug": "ohio-state",
+      "record": "6-3"
+    },
+    {
+      "rank": 21,
+      "school": "LSU",
+      "slug": "lsu",
+      "record": "6-3"
+    },
+    {
+      "rank": 22,
+      "school": "Missouri",
+      "slug": "missouri",
+      "record": "6-3"
+    },
+    {
+      "rank": 23,
+      "school": "Arizona",
+      "slug": "arizona",
+      "record": "7-2"
+    },
+    {
+      "rank": 24,
+      "school": "Boise State",
+      "slug": "boise-state",
+      "record": "8-1"
+    },
+    {
+      "rank": 25,
+      "school": "Oklahoma State",
+      "slug": "oklahoma-state",
+      "record": "6-3"
+    }
+  ]
+}

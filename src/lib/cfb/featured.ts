@@ -7,19 +7,29 @@ import type { ScheduleGame } from "./types";
 export const BOARD_WEEK = 11;
 
 /**
- * Last stamped AP ballot on the live board.
- * HX chrome is Week 11. AP is the last stamped poll (Week 10, Nov. 1) —
- * ESPN rankings API, NCAA.com cross-check 25/25 ranks + points (no ties; through
- * games Oct. 31). The post-Week 10 / Nov. 8 ballot was not out at the Sunday
- * 2026-11-08 ship. Source: data/week10_ap_top25_2026.json (migration 0088).
+ * Last stamped AP ballot on the live board: Week 11 AP (Nov. 8), ESPN rankings API with
+ * an NCAA.com cross-check (25/25 ranks, records, points; no ties; through games Nov. 7).
+ * Source: data/week11_ap_top25_2026.json (migration 0092).
  */
 export const AP_STAMP = {
-  week: 10,
-  asOf: "Nov. 1",
-  label: "Week 10 AP",
-  columnHint: "W10 stamp",
-  vsHx: "last stamped AP (Week 10, Nov. 1)",
-  lede: "HX is Week 11. AP is the last stamped poll (Week 10, Nov. 1).",
+  week: 11,
+  asOf: "Nov. 8",
+  label: "Week 11 AP",
+  columnHint: "W11 stamp",
+  vsHx: "the last stamped AP poll (Week 11, Nov. 8)",
+  lede: "AP is the last stamped poll (Week 11, Nov. 8). CFP is the committee ranking of Nov. 10.",
+} as const;
+
+/**
+ * Last stamped CFP committee ranking (top 25), ESPN rankings API with an NCAA.com
+ * cross-check (25/25 ranks and records). Source: data/cfp_rankings_2026_11_10.json (0092).
+ * The committee's number, not HASHMARK's — HX stays the only rating.
+ */
+export const CFP_STAMP = {
+  release: "2026-11-10",
+  asOf: "Nov. 10",
+  label: "CFP rankings · Nov. 10",
+  columnHint: "Committee · Nov. 10",
 } as const;
 
 /**

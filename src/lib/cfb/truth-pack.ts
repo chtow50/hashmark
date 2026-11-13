@@ -132,7 +132,46 @@ export type Week2Tape = {
   mae_vegas: number;
   brier: number;
   source: string;
+  /**
+   * HX MAE on the same Vegas-lined cards the Vegas MAE uses (matched denominators).
+   * Computed from the tape's published HX lines (0.1 pt) and FINAL scores.
+   */
+  lined?: { n: number; mae_hx: number; mae_vegas: number };
 };
+
+/** Tape game row fields needed to grade the HX line (published 0.1-pt display). */
+export type TapeLineGame = {
+  home: string;
+  away: string;
+  hx_spread_display: string | null;
+  score_home: number | null;
+  score_away: number | null;
+  closer: string | null;
+};
+
+/** "Iowa -2.3" → home-perspective HX margin (positive = home favored). Null if unparsable. */
+export function hxHomeMarginFromDisplay(g: Pick<TapeLineGame, "home" | "away" | "hx_spread_display">): number | null {
+  const m = g.hx_spread_display?.match(/^(.*\S)\s+-(\d+(?:\.\d+)?)$/);
+  if (!m) return null;
+  const pts = Number(m[2]);
+  if (m[1] === g.home) return pts;
+  if (m[1] === g.away) return -pts;
+  return null;
+}
+
+/** HX MAE over the cards that carry a Vegas close (closer graded), from published lines. */
+export function hxMaeOnLinedCards(games: TapeLineGame[]): { n: number; mae_hx: number } | null {
+  let n = 0;
+  let ae = 0;
+  for (const g of games) {
+    if (g.closer == null || g.score_home == null || g.score_away == null) continue;
+    const hx = hxHomeMarginFromDisplay(g);
+    if (hx == null) return null;
+    n++;
+    ae += Math.abs(hx - (g.score_home - g.score_away));
+  }
+  return n ? { n, mae_hx: Math.round((ae / n) * 100) / 100 } : null;
+}
 
 export type Week2SeasonTape = {
   label: string;
@@ -1273,6 +1312,10 @@ export function week10Tape(): Week2Tape {
     mae_hx: m.mae_hx,
     mae_vegas: m.mae_vegas,
     brier: m.brier,
+    lined: (() => {
+      const l = hxMaeOnLinedCards(week10TapePack.games as unknown as TapeLineGame[]);
+      return l && l.n === m.closer_n ? { ...l, mae_vegas: m.mae_vegas } : undefined;
+    })(),
     source: `week10_tape_2026 · FBS–FBS n=${m.n_games} · closer on ${m.closer_n} Vegas-lined cards · HX 2026.7 pregame · ESPN FINALs`,
   };
 }

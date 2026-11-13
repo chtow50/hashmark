@@ -18,6 +18,8 @@ export type TeamSummary = {
   hxRank: number;
   hxRating: number;
   apRank: number | null;
+  /** CFP committee rank (top 25) from the last stamped release; null = not ranked. */
+  cfpRank?: number | null;
   offenseRating: number;
   defenseRating: number;
   specialRating: number;

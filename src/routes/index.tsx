@@ -9,6 +9,7 @@ import { DeltaChip, RankNum, Stat, TeamLink, TeamMark, WinBar } from "@/componen
 import { formatKickCt, formatKickDayTitle } from "@/lib/cfb/chicago";
 import {
   AP_STAMP,
+  CFP_STAMP,
   BOARD_WEEK,
   FEATURED_SLATE_WEEK,
   favoriteLine,
@@ -29,7 +30,7 @@ import {
   week10Tape,
   week10Top25Tape,
 } from "@/lib/cfb/truth-pack";
-import type { Prediction, ScheduleGame } from "@/lib/cfb/types";
+import type { Prediction, ScheduleGame, TeamSummary } from "@/lib/cfb/types";
 import { apLabel, fmtNum, fmtPct } from "@/lib/utils";
 
 export const Route = createFileRoute("/")({
@@ -155,6 +156,8 @@ function Home() {
           <RisersFallersCard teams={teams} />
         </div>
       </div>
+
+      <CfpBlock teams={teams} />
 
       <AccountabilityCard
         tape={tape}
@@ -310,6 +313,54 @@ function FeaturedKick({ featured, pred }: { featured: ScheduleGame; pred: Predic
           <ArrowRight className="size-4" />
         </Link>
       </Button>
+    </Panel>
+  );
+}
+
+/** CFP committee top 12 (last stamped release) next to HX rank and make-field. Committee's number, not HASHMARK's. */
+function CfpBlock({ teams }: { teams: TeamSummary[] }) {
+  const ranked = teams
+    .filter((t) => t.cfpRank != null && t.cfpRank <= 12)
+    .sort((a, b) => (a.cfpRank ?? 99) - (b.cfpRank ?? 99));
+  if (ranked.length === 0) return null;
+  return (
+    <Panel>
+      <div className="mb-4 flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
+        <h2 className="font-display text-2xl tracking-wide">CFP committee top 12</h2>
+        <Link to="/rankings" className="text-sm text-muted hover:text-fg">
+          All CFP ranks on the board
+        </Link>
+      </div>
+      <p className="mb-4 text-sm text-muted">
+        {CFP_STAMP.label} (committee top 25; ESPN, NCAA.com cross-check). The committee&rsquo;s order, shown beside HX rank and
+        HASHMARK make-field odds. Not a projected bracket.
+      </p>
+      <div className="overflow-x-auto">
+        <table className="w-full min-w-[420px] text-sm tabular">
+          <thead>
+            <tr className="border-b border-line text-left text-[11px] uppercase tracking-[0.14em] text-faint">
+              <th className="py-2 pr-3 font-normal">CFP</th>
+              <th className="py-2 pr-3 font-normal">Team</th>
+              <th className="py-2 pr-3 text-right font-normal">Record</th>
+              <th className="py-2 pr-3 text-right font-normal">HX</th>
+              <th className="py-2 text-right font-normal">Make 12</th>
+            </tr>
+          </thead>
+          <tbody>
+            {ranked.map((t) => (
+              <tr key={t.slug} className="border-b border-line last:border-0">
+                <td className="py-2 pr-3 text-muted">{t.cfpRank}</td>
+                <td className="py-2 pr-3">
+                  <TeamLink slug={t.slug} name={t.shortName} color={t.colorPrimary} />
+                </td>
+                <td className="py-2 pr-3 text-right text-muted">{formatSeasonRecord(t.seasonWins, t.seasonLosses)}</td>
+                <td className="py-2 pr-3 text-right">#{t.hxRank}</td>
+                <td className="py-2 text-right">{fmtPct(make12FreeFromSim(t.slug, t).makeField ?? 0, 1)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </Panel>
   );
 }

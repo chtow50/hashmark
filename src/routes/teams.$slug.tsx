@@ -240,5 +240,7 @@ function apHint(rank: number, ap: number | null) {
   if (ap == null) return "Unranked in AP";
   const d = ap - rank;
   if (d === 0) return "Even with AP";
-  return d > 0 ? `HX ${d} spots higher` : `AP ${-d} spots higher`;
+  const n = Math.abs(d);
+  const spots = n === 1 ? "spot" : "spots";
+  return d > 0 ? `HX ${n} ${spots} higher` : `AP ${n} ${spots} higher`;
 }

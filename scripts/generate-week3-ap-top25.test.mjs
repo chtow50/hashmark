@@ -79,19 +79,19 @@ test("0030 SQL spot-check: clear-then-set, week 0, no HX/O/D/games touch, Washin
   assert.equal(sql, regenerated);
 });
 
-test("home / rankings / disagreement chrome is Week 11 HX on the last stamped Week 10 AP, not leftover Week 9 / Oct. 25", () => {
+test("home / rankings / disagreement chrome is on the last stamped Week 11 AP (Nov. 8), not leftover older polls", () => {
   const featured = readFileSync(join(root, "src/lib/cfb/featured.ts"), "utf8");
   const home = readFileSync(join(root, "src/routes/index.tsx"), "utf8");
   const rankings = readFileSync(join(root, "src/routes/rankings.tsx"), "utf8");
   const card = readFileSync(join(root, "src/components/truth-pack.tsx"), "utf8");
 
   assert.match(featured, /BOARD_WEEK = 11/);
-  assert.match(featured, /week: 10/);
-  assert.match(featured, /asOf: "Nov\. 1"/);
-  assert.match(featured, /label: "Week 10 AP"/);
-  assert.match(featured, /columnHint: "W10 stamp"/);
-  assert.match(featured, /HX is Week 11/);
-  assert.match(featured, /last stamped poll \(Week 10/);
+  assert.match(featured, /week: 11/);
+  assert.match(featured, /asOf: "Nov\. 8"/);
+  assert.match(featured, /label: "Week 11 AP"/);
+  assert.match(featured, /columnHint: "W11 stamp"/);
+  assert.doesNotMatch(featured, /HX is Week/);
+  assert.match(featured, /last stamped poll \(Week 11/);
   assert.doesNotMatch(featured, /Week 9 AP/);
   assert.doesNotMatch(featured, /W9 stamp/);
   assert.doesNotMatch(featured, /Week 8 AP/);
