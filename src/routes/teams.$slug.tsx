@@ -11,6 +11,8 @@ import { TALENT_UNITS } from "@/lib/cfb/positions";
 import { getTeam } from "@/lib/cfb/queries";
 import { getTeamAdvanced } from "@/lib/cfb/stats-queries";
 import { getSorBoard } from "@/lib/cfb/sor-queries";
+import { getHxHistory } from "@/lib/cfb/hx-history-queries";
+import { HxSparkline } from "@/components/hx-sparkline";
 import { AdvancedStatsPanel } from "@/components/advanced-stats-panel";
 import { formatSeasonRecord } from "@/lib/cfb/season-record";
 import { COMPOSITE_SOURCE, ratedStarCount, visibleClassAvg } from "@/lib/cfb/recruiting";
@@ -20,13 +22,14 @@ import { apLabel, cn, fmtHeight, fmtNum, fmtPct } from "@/lib/utils";
 
 export const Route = createFileRoute("/teams/$slug")({
   loader: async ({ params }) => {
-    const [data, advanced, sor] = await Promise.all([
+    const [data, advanced, sor, hxHistory] = await Promise.all([
       getTeam({ data: { slug: params.slug } }),
       getTeamAdvanced({ data: { slug: params.slug } }),
       getSorBoard(),
+      getHxHistory({ data: { slug: params.slug } }),
     ]);
     if (!data) throw notFound();
-    return { ...data, advanced, sor: sor.rows.find((r) => r.slug === params.slug) ?? null };
+    return { ...data, advanced, hxHistory, sor: sor.rows.find((r) => r.slug === params.slug) ?? null };
   },
   component: TeamPage,
   head: ({ loaderData, params }) =>
@@ -40,7 +43,7 @@ export const Route = createFileRoute("/teams/$slug")({
 });
 
 function TeamPage() {
-  const { team, players, games, classes, advanced, sor } = Route.useLoaderData();
+  const { team, players, games, classes, advanced, sor, hxHistory } = Route.useLoaderData();
   const share = modelShare(team);
   // Free team page: make-field only; win_title is never published on free surfaces.
   const make12 = make12FreeFromSim(team.slug, team);
@@ -77,6 +80,11 @@ function TeamPage() {
             />
           </div>
         </div>
+        {hxHistory ? (
+          <div className="mt-4 border-t border-line pt-3">
+            <HxSparkline history={hxHistory} color={team.colorPrimary} />
+          </div>
+        ) : null}
         {sor ? (
           <p className="mt-4 border-t border-line pt-3 text-sm text-muted">
             Strength of record <span className="tabular text-fg">No. {sor.sorRank}</span> ({sor.sor > 0 ? "+" : sor.sor < 0 ? "−" : ""}
