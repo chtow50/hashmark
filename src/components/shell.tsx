@@ -141,6 +141,9 @@ export function AppShell({ children }: { children: ReactNode }) {
             <Link to="/recruiting" className="hover:text-fg">Recruiting</Link>
             <Link to="/talent" className="hover:text-fg">Talent</Link>
             <Link to="/stats" className="hover:text-fg">Stats</Link>
+            <Link to="/conferences" className="hover:text-fg">Conference races</Link>
+            <Link to="/strength" className="hover:text-fg">Strength of record</Link>
+            <Link to="/accuracy" className="hover:text-fg">Accuracy</Link>
             <Link to="/model" className="hover:text-fg">The Model</Link>
           </nav>
           <p className="text-xs leading-relaxed text-faint">
