@@ -262,6 +262,29 @@ describe("Week 11 Thursday FINALs (0097, MEM@USF + LA@ULM)", () => {
   });
 });
 
+describe("Week 11 Friday FINALs (0098, FSU@PITT + ILL@UCLA + HOU@COLO)", () => {
+  const friSql = readFileSync(join(root, "migrations/0098_week11_fri_finals.sql"), "utf8");
+  const expected = [
+    ["401858293", "pittsburgh", "florida-state", 10, 16, "Florida State @ Pittsburgh — Florida State 16, Pittsburgh 10"],
+    ["401858526", "ucla", "illinois", 22, 14, "Illinois @ UCLA — UCLA 22, Illinois 14"],
+    ["401856860", "colorado", "houston", 42, 32, "Houston @ Colorado — Colorado 42, Houston 32"],
+  ] as const;
+
+  it("stamps scores+status only, with the exact home/away orientation", () => {
+    assert.equal((friSql.match(/update games/g) ?? []).length, 3);
+    assert.equal((friSql.match(/g\.week = 11/g) ?? []).length, 3);
+    for (const [espn, hSlug, aSlug, hs, as, label] of expected) {
+      assert.ok(friSql.includes(`-- ${label}`), label);
+      assert.ok(friSql.includes(`home_score = ${hs},\n    away_score = ${as}\n`), `${espn} scores`);
+      assert.ok(friSql.includes(`and h.slug = '${hSlug}' and a.slug = '${aSlug}';`), `${espn} orientation`);
+      assert.match(friSql, new RegExp(`Source event ${espn}`));
+    }
+    assert.doesNotMatch(friSql, /kickoff_at|vegas_spread|vegas_total|\btv\s*=|hx_rating|win_title|make_field/);
+    const header = friSql.split(/update games/i)[0] ?? "";
+    assert.doesNotMatch(header, /\b401\d{6,}\b/);
+  });
+});
+
 describe("Week 11 AP (Nov. 8) + CFP committee (Nov. 10) stamp (0092)", () => {
   const sql = readFileSync(join(root, "migrations/0092_week11_ap_cfp_rankings.sql"), "utf8");
   const ap = JSON.parse(readFileSync(join(root, "data/week11_ap_top25_2026.json"), "utf8"));
