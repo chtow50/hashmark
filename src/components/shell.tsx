@@ -135,7 +135,7 @@ export function AppShell({ children }: { children: ReactNode }) {
           <nav className="flex flex-wrap gap-x-4 gap-y-2">
             <Link to="/" className="hover:text-fg">Board</Link>
             <Link to="/schedule" className="hover:text-fg">Schedule</Link>
-            <Link to="/stories" className="hover:text-fg">Stories</Link>
+            <Link to="/stories" className="hover:text-fg">Story archive</Link>
             <Link to="/rankings" className="hover:text-fg">Rankings</Link>
             <Link to="/matchup" className="hover:text-fg">Matchup</Link>
             <Link to="/recruiting" className="hover:text-fg">Recruiting</Link>

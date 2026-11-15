@@ -95,12 +95,15 @@ export function buildDesk(args: {
   rows: StatRow[];
   keyOf: (r: StatRow) => string;
   teamShort: (slug: string | null, name: string) => string;
+  /** Display name for a team slug (database name, e.g. Hawaiʻi with the ʻokina); FCS opponents keep the source name. */
+  teamName: (slug: string | null, name: string) => string;
   gameKeyOf: (g: DeskGame, slug: string) => string | null;
 }): QbDesk {
-  const { file, entry, row, raw, rows, keyOf, teamShort, gameKeyOf } = args;
+  const { file, entry, row, raw, rows, keyOf, teamShort, teamName, gameKeyOf } = args;
   const qualified = rows.filter((r) => isQualified("qb", r));
   const games: DeskGameOut[] = entry.games.map((g) => ({
     ...g,
+    opp_name: teamName(g.opp, g.opp_name),
     result: g.pf > g.pa ? "W" : g.pf < g.pa ? "L" : "T",
     gameKey: gameKeyOf(g, row.slug),
     oppShort: teamShort(g.opp, g.opp_name),

@@ -16,7 +16,7 @@ export const Route = createRootRoute({
       {
         name: "description",
         content:
-          "HASHMARK is a college football intelligence desk: HX power rankings, composite recruiting, roster talent, and head-to-head matchup modeling.",
+          "HASHMARK is a college football intelligence desk: HX power rankings, a stats explorer with the QB Desk, composite recruiting, roster talent, and head-to-head matchup modeling.",
       },
       { name: "theme-color", content: "#09090b" },
       { name: "robots", content: "index,follow" },
@@ -97,11 +97,6 @@ function Root() {
               url: "https://hashmarkcfb.com",
               description:
                 "College football ratings desk. One number: HX. Full 138 FBS.",
-              potentialAction: {
-                "@type": "SearchAction",
-                target: "https://hashmarkcfb.com/teams/{search_term_string}",
-                "query-input": "required name=search_term_string",
-              },
             }),
           }}
         />
