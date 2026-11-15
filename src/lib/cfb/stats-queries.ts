@@ -30,3 +30,15 @@ export const getMatchupEdges = createServerFn({ method: "GET" })
     const { matchupEdges } = await import("./stats.server");
     return matchupEdges(data.home, data.away);
   });
+
+/** HASHMARK QB Desk for one QB (key = name + team slug); unknown keys fall back to the default QB. */
+export const getQbDesk = createServerFn({ method: "GET" })
+  .validator(z.object({ qb: z.string().max(120).optional() }))
+  .handler(async ({ data }) => {
+    const sql = await getSql();
+    const teams = await sql.query<{ slug: string; name: string; shortName: string; conference: string; colorPrimary: string }>(
+      `select slug, name, short_name as "shortName", conference, color_primary as "colorPrimary" from teams`,
+    );
+    const { qbDesk } = await import("./qb-desk.server");
+    return qbDesk(data.qb, teams);
+  });

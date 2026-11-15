@@ -1,6 +1,7 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { Check, Download, Plus, Search as SearchIcon } from "lucide-react";
 import { useMemo, useRef, useState } from "react";
+import { QbDesk } from "@/components/qb-desk";
 import { PageHead, Panel } from "@/components/shell";
 import { TeamMark } from "@/components/marks";
 import { StatsCompare, StatsLeaders, StatsScatter, cellTint } from "@/components/stats-explorer";
@@ -25,26 +26,28 @@ import {
   type StatRow,
   type StatTab,
 } from "@/lib/cfb/stats";
-import { getStatsTab } from "@/lib/cfb/stats-queries";
+import { getQbDesk, getStatsTab } from "@/lib/cfb/stats-queries";
 import { seo } from "@/lib/seo";
 import { downloadCsv } from "@/lib/download";
 import { cn } from "@/lib/utils";
 
 type Dir = "worst";
-type Search = { tab?: StatTab; conf?: ConfFilter; group?: string; sort?: string; dir?: Dir };
+type Search = { tab?: StatTab; conf?: ConfFilter; group?: string; sort?: string; dir?: Dir; qb?: string };
+const QB_KEY = /^[a-z0-9-]{3,120}$/;
 
 const DEFAULT_SORT: Record<StatTab, string> = { teams: "nepa", qb: "epa", rush: "yds", rec: "yds", def: "hp" };
 const PAGE = 25;
 const NOUN: Record<StatTab, string> = { teams: "teams", qb: "QBs", rush: "rushers", rec: "receivers", def: "defenders" };
 
 /** Link search with defaults dropped, matching validateSearch (no redirect on crawl). */
-function statsSearch(tab: StatTab, conf: ConfFilter, group?: string, sort?: string, dir?: Dir): Search {
+function statsSearch(tab: StatTab, conf: ConfFilter, group?: string, sort?: string, dir?: Dir, qb?: string): Search {
   return {
     tab: tab === "teams" ? undefined : tab,
     conf: conf === "All" ? undefined : conf,
     group: group && group !== COLUMN_SETS[tab][0].key ? group : undefined,
     sort: sort && sort !== DEFAULT_SORT[tab] ? sort : undefined,
     dir: dir === "worst" ? "worst" : undefined,
+    qb: tab === "qb" && qb ? qb : undefined,
   };
 }
 
@@ -60,10 +63,17 @@ export const Route = createFileRoute("/stats")({
       group,
       sort: metricOf(tab, String(s.sort)) ? String(s.sort) : undefined,
       dir: s.dir === "worst" ? "worst" : undefined,
+      qb: tab === "qb" && typeof s.qb === "string" && QB_KEY.test(s.qb) ? s.qb : undefined,
     };
   },
-  loaderDeps: ({ search }) => ({ tab: search.tab ?? "teams" }),
-  loader: ({ deps }) => getStatsTab({ data: { tab: deps.tab } }),
+  loaderDeps: ({ search }) => ({ tab: search.tab ?? "teams", qb: search.qb }),
+  loader: async ({ deps }) => {
+    const [stats, desk] = await Promise.all([
+      getStatsTab({ data: { tab: deps.tab } }),
+      deps.tab === "qb" ? getQbDesk({ data: { qb: deps.qb } }) : Promise.resolve(null),
+    ]);
+    return { ...stats, desk };
+  },
   component: StatsPage,
   head: () =>
     seo({
@@ -91,7 +101,8 @@ function defaultPicks(tab: StatTab, rows: StatRow[]): string[] {
 }
 
 function StatsPage() {
-  const { meta, rows } = Route.useLoaderData();
+  const { meta, rows, desk } = Route.useLoaderData();
+  const [deskPending, setDeskPending] = useState(false);
   const search = Route.useSearch();
   const navigate = useNavigate({ from: "/stats" });
   const tab = search.tab ?? "teams";
@@ -169,7 +180,7 @@ function StatsPage() {
             <span className="sr-only">Conference</span>
             <select
               value={conf}
-              onChange={(e) => navigate({ search: statsSearch(tab, parseConf(e.target.value), set.key, sortMetric.k, search.dir) })}
+              onChange={(e) => navigate({ search: statsSearch(tab, parseConf(e.target.value), set.key, sortMetric.k, search.dir, search.qb), resetScroll: false })}
               className="h-12 w-full rounded-xl bg-raised px-3 text-sm text-fg"
             >
               {CONFS.map((c) => (
@@ -193,6 +204,17 @@ function StatsPage() {
         </div>
       </div>
 
+      {tab === "qb" && desk ? (
+        <QbDesk
+          desk={desk}
+          pending={deskPending}
+          onPick={(key) => {
+            setDeskPending(true);
+            void navigate({ search: { ...search, qb: key }, resetScroll: false }).finally(() => setDeskPending(false));
+          }}
+        />
+      ) : null}
+
       {/* Quick views + column sets. */}
       <div className="-mx-4 mb-2 flex items-center gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:px-0">
         <span className="mr-1 shrink-0 text-xs text-muted">Quick views</span>
@@ -202,7 +224,8 @@ function StatsPage() {
             <Link
               key={v.label}
               to="/stats"
-              search={statsSearch(tab, conf, v.group, v.sort)}
+              search={statsSearch(tab, conf, v.group, v.sort, undefined, search.qb)}
+              resetScroll={false}
               className={cn(
                 "inline-flex h-9 shrink-0 items-center whitespace-nowrap rounded-full border px-3 text-xs transition-colors",
                 active ? "border-accent bg-accent text-accent-fg" : "border-border text-muted hover:border-faint hover:text-fg",
@@ -218,7 +241,8 @@ function StatsPage() {
           <Link
             key={c.key}
             to="/stats"
-            search={statsSearch(tab, conf, c.key, c.cols.includes(sortMetric.k) ? sortMetric.k : c.cols[0], search.dir)}
+            search={statsSearch(tab, conf, c.key, c.cols.includes(sortMetric.k) ? sortMetric.k : c.cols[0], search.dir, search.qb)}
+            resetScroll={false}
             role="tab"
             aria-selected={set.key === c.key}
             className={cn(
@@ -305,7 +329,7 @@ function StatsPage() {
                   </th>
                   <th className="whitespace-nowrap border-b border-border bg-surface px-3 py-3 text-right font-medium">{tab === "teams" ? "W–L" : "G"}</th>
                   {cols.map((m, i) => (
-                    <HeaderCell key={m.k} m={m} tab={tab} conf={conf} group={set.key} active={sortMetric.k === m.k} dir={dir} alignRight={i >= cols.length - 3} />
+                    <HeaderCell key={m.k} m={m} tab={tab} conf={conf} group={set.key} active={sortMetric.k === m.k} dir={dir} alignRight={i >= cols.length - 3} qb={search.qb} />
                   ))}
                   <th className="border-b border-border bg-surface px-2 py-3 text-center font-medium">
                     <span className="sr-only">Compare</span>
@@ -480,6 +504,7 @@ function HeaderCell({
   active,
   dir,
   alignRight,
+  qb,
 }: {
   m: Metric;
   tab: StatTab;
@@ -488,6 +513,7 @@ function HeaderCell({
   active: boolean;
   dir: "best" | "worst";
   alignRight: boolean;
+  qb?: string;
 }) {
   // Click a column to sort best-first; click the active column again to flip.
   const nextDir: Dir | undefined = active && dir === "best" ? "worst" : undefined;
@@ -498,7 +524,8 @@ function HeaderCell({
     >
       <Link
         to="/stats"
-        search={statsSearch(tab, conf, group, m.k, nextDir)}
+        search={statsSearch(tab, conf, group, m.k, nextDir, qb)}
+        resetScroll={false}
         className={cn(
           "inline-flex min-h-8 items-center gap-1 whitespace-nowrap underline decoration-dotted decoration-faint underline-offset-4 hover:text-fg",
           active && "text-fg decoration-fg",
