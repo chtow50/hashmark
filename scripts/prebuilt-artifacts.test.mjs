@@ -899,8 +899,6 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /\('northwestern', 20\)/);
     assert.match(text, /\('wisconsin', 25\)/);
     assert.match(text, /week9_tape_2026/);
-    assert.match(text, /44\/54/);
-    assert.match(text, /Week 9 tape/);
     assert.match(text, /Week 9 AP/);
     assert.match(text, /W10 stamp/);
     assert.match(text, /week10_hx_vs_ap_gaps_2026/);
@@ -918,13 +916,26 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /\('utah', 3\)/);
     assert.match(text, /\('florida', 25\)/);
     assert.match(text, /week10_tape_2026/);
-    assert.match(text, /36\/61/);
     assert.match(text, /Week 10 tape/);
-    assert.match(text, /Week 11 board/);
     assert.match(text, /Week 10 AP/);
     assert.match(text, /W10 stamp/);
     assert.match(text, /week10_hx_vs_ap_gaps_2026/);
     assert.match(text, /Soft-cal FLAG/);
     assert.doesNotMatch(text, /The board is posted/);
   });
+  // BEGIN week12-board-test
+  it("includes the Week 12 board, Week 11 tape, 0101 Week 12 kicks, and the 0100 Sunday sweep in committed output", () => {
+    const text = corpus();
+    assert.match(text, /0100_week11_sun_finals/);
+    assert.match(text, /0101_week12_kick_tv/);
+    assert.match(text, /kickoff_at = timestamptz '2026-11-21 14:30:00-06'/);
+    assert.match(text, /kickoff_at = timestamptz '2026-11-15 12:00:00-06'/);
+    assert.match(text, /week11_tape_2026/);
+    assert.match(text, /43\/65/);
+    assert.match(text, /Week 11 tape/);
+    assert.match(text, /Week 12 board/);
+    assert.match(text, /Soft-cal FLAG/);
+    assert.doesNotMatch(text, /The board is posted/);
+  });
+  // END week12-board-test
 });

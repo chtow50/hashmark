@@ -85,7 +85,7 @@ test("home / rankings / disagreement chrome is on the last stamped Week 11 AP (N
   const rankings = readFileSync(join(root, "src/routes/rankings.tsx"), "utf8");
   const card = readFileSync(join(root, "src/components/truth-pack.tsx"), "utf8");
 
-  assert.match(featured, /BOARD_WEEK = 11/);
+  assert.match(featured, /BOARD_WEEK = 12/);
   assert.match(featured, /week: 11/);
   assert.match(featured, /asOf: "Nov\. 8"/);
   assert.match(featured, /label: "Week 11 AP"/);

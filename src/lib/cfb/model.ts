@@ -1,7 +1,7 @@
 import type { Prediction, TeamSummary } from "./types";
 
 /**
- * HASHMARK Index — HX 2026.8 (Week 11 board chrome).
+ * HASHMARK Index — HX 2026.8 (Week 12 board chrome).
  * Preseason prior = the composite below (data/hx_preseason_prior_2026.json).
  * In season, HX is refit weekly by scripts/hx-refit.mjs (Bayesian blend of the
  * preseason prior, worth λ = 2 games, with opponent-adjusted capped margins of
@@ -17,8 +17,8 @@ export const MODEL = {
   name: "HX Rating",
   version: "2026.8",
   season: 2026,
-  week: 11,
-  weekLabel: "Week 11 board",
+  week: 12,
+  weekLabel: "Week 12 board",
   eloBase: 1500,
   eloScale: 55,
   homeFieldElo: 60,
