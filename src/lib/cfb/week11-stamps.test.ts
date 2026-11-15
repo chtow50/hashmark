@@ -337,3 +337,77 @@ describe("Week 11 Vegas two-source fill (0095)", () => {
     assert.doesNotMatch(sql, /ESPN \d{6,}/);
   });
 });
+
+describe("Week 11 Saturday FINALs (0099, 54 games)", () => {
+  const satSql = readFileSync(join(root, "migrations/0099_week11_sat_finals.sql"), "utf8");
+  const games: [string, string, string, number, number][] = [
+    ["401856864", "arizona", "utah", 39, 40],
+    ["401856883", "georgia", "missouri", 48, 21],
+    ["401856889", "vanderbilt", "alabama", 6, 21],
+    ["401858294", "notre-dame", "boston-college", 41, 7],
+    ["401856885", "lsu", "texas", 21, 22],
+    ["401858296", "miami", "duke", 36, 25],
+    ["401856888", "texas-am", "tennessee", 7, 22],
+    ["401858518", "indiana", "usc", 27, 13],
+    ["401856858", "byu", "baylor", 28, 7],
+    ["401856884", "kentucky", "florida", 14, 21],
+    ["401856863", "oklahoma-state", "texas-tech", 27, 52],
+    ["401858301", "smu", "wake-forest", 7, 49],
+    ["401858519", "iowa", "purdue", 28, 7],
+    ["401858523", "oregon", "michigan", 31, 7],
+    ["401856882", "arkansas", "south-carolina", 34, 6],
+    ["401858522", "ohio-state", "northwestern", 28, 19],
+    ["401860914", "boise-state", "oregon-state", 46, 41],
+    ["401856859", "iowa-state", "cincinnati", 41, 13],
+    ["401858300", "nc-state", "syracuse", 31, 34],
+    ["401858520", "maryland", "wisconsin", 24, 21],
+    ["401861967", "uconn", "james-madison", 46, 22],
+    ["401858297", "clemson", "georgia-tech", 6, 20],
+    ["401858525", "rutgers", "nebraska", 0, 31],
+    ["401862825", "charlotte", "east-carolina", 16, 17],
+    ["401862829", "temple", "uab", 10, 36],
+    ["401869937", "coastal-carolina", "arkansas-state", 28, 21],
+    ["401856862", "tcu", "kansas-state", 20, 10],
+    ["401870769", "sam-houston", "kennesaw-state", 7, 26],
+    ["401870796", "missouri-state", "new-mexico-state", 27, 21],
+    ["401871060", "delaware", "fiu", 24, 16],
+    ["401856861", "west-virginia", "kansas", 14, 37],
+    ["401858295", "virginia", "california", 36, 7],
+    ["401864536", "northern-illinois", "nevada", 7, 28],
+    ["401869952", "georgia-state", "georgia-southern", 17, 34],
+    ["401870752", "western-kentucky", "jacksonville-state", 34, 24],
+    ["401871061", "liberty", "middle-tennessee", 28, 23],
+    ["401860916", "texas-state", "fresno-state", 37, 35],
+    ["401856886", "mississippi-state", "auburn", 9, 41],
+    ["401862828", "rice", "tulane", 17, 20],
+    ["401871099", "louisiana-tech", "southern-miss", 63, 31],
+    ["401856857", "ucf", "arizona-state", 13, 26],
+    ["401858521", "michigan-state", "washington", 14, 21],
+    ["401869928", "marshall", "app-state", 16, 20],
+    ["401858298", "north-carolina", "louisville", 14, 16],
+    ["401858524", "penn-state", "minnesota", 42, 14],
+    ["401864538", "air-force", "san-jose-state", 24, 3],
+    ["401871100", "south-alabama", "troy", 27, 14],
+    ["401862826", "tulsa", "florida-atlantic", 38, 21],
+    ["401858299", "virginia-tech", "stanford", 22, 40],
+    ["401864539", "new-mexico", "unlv", 17, 21],
+    ["401862827", "utsa", "north-texas", 35, 16],
+    ["401860915", "san-diego-state", "utah-state", 30, 13],
+    ["401864540", "utep", "wyoming", 15, 27],
+    ["401860917", "washington-state", "colorado-state", 73, 7],
+  ];
+
+  it("stamps each FINAL with exact orientation, scores only", () => {
+    assert.equal((satSql.match(/update games/g) ?? []).length, games.length);
+    assert.equal((satSql.match(/g\.week = 11/g) ?? []).length, games.length);
+    for (const [espn, hSlug, aSlug, hs, as] of games) {
+      assert.ok(satSql.includes(`home_score = ${hs},\n    away_score = ${as}\n  `.replace(/\n  $/, "\n")), `${espn} scores`);
+      assert.ok(satSql.includes(`and h.slug = '${hSlug}' and a.slug = '${aSlug}';`), `${espn} orientation`);
+      assert.match(satSql, new RegExp(`Source event ${espn}`));
+    }
+    assert.doesNotMatch(satSql, /kickoff_at|vegas_spread|vegas_total|\btv\s*=|hx_rating|win_title|make_field/);
+    const header = satSql.split(/update games/i)[0] ?? "";
+    assert.doesNotMatch(header, /\b401\d{6,}\b/);
+    assert.doesNotMatch(satSql, /north-dakota-state|ole-miss/);
+  });
+});
