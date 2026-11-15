@@ -794,45 +794,45 @@ test("Week 10 tape is 36/61 SU; closer 3/5 on the Vegas-lined cards, SU FLAG, no
 });
 
 // BEGIN week11-tape-test (generated from data/week11_tape_2026.json)
-test("Week 11 tape is 43/65 SU; closer 21/49 on the Vegas-lined cards (pregame HX 2026.8 locks)", () => {
+test("Week 11 tape is 43/66 SU; closer 21/50 on the Vegas-lined cards (pregame HX 2026.8 locks)", () => {
   const tape = week11Tape();
-  assert.equal(tape.n, 65);
-  assert.equal(tape.su, "43/65");
-  assert.equal(tape.su_pct, 66.2);
-  assert.equal(tape.hx_closer, "21/49");
-  assert.equal(tape.hx_closer_pct, 42.9);
+  assert.equal(tape.n, 66);
+  assert.equal(tape.su, "43/66");
+  assert.equal(tape.su_pct, 65.2);
+  assert.equal(tape.hx_closer, "21/50");
+  assert.equal(tape.hx_closer_pct, 42.0);
   // Same <45% rule as every week.
   assert.equal(tape.closer_flag, true);
-  assert.equal(tape.vegas_closer, "28/49");
-  assert.equal(tape.hx_ats, "21/48");
-  assert.equal(tape.mae_hx, 14.02);
-  assert.equal(tape.mae_vegas, 11.44);
-  assert.equal(tape.brier, 0.2);
+  assert.equal(tape.vegas_closer, "29/50");
+  assert.equal(tape.hx_ats, "21/49");
+  assert.equal(tape.mae_hx, 13.95);
+  assert.equal(tape.mae_vegas, 11.3);
+  assert.equal(tape.brier, 0.202);
   const m = week11TapePack.meta;
-  assert.equal(m.closer_n, 49);
+  assert.equal(m.closer_n, 50);
   assert.equal(m.closer_ties, 0);
   assert.equal(m.headline_flags.su_below_70, true);
-  assert.equal(week11TapePack.games.length, 65);
+  assert.equal(week11TapePack.games.length, 66);
   assert.equal(week11TapePack.games.filter((g) => g.su_hit).length, 43);
   assert.equal(week11TapePack.games.filter((g) => g.closer === "hx").length, 21);
-  assert.equal(week11TapePack.games.filter((g) => g.closer === "vegas").length, 28);
+  assert.equal(week11TapePack.games.filter((g) => g.closer === "vegas").length, 29);
   assert.equal(week11TapePack.games.filter((g) => g.closer == null).length, 16);
-  assert.equal(week11TapePack.games.filter((g) => g.vegas_details != null).length, 49);
-  assert.equal(week11TapePack.su_misses.length, 22);
+  assert.equal(week11TapePack.games.filter((g) => g.vegas_details != null).length, 50);
+  assert.equal(week11TapePack.su_misses.length, 23);
   assert.equal(week11BoardFlags().filter((f) => f.result === "HIT").length, 1);
-  assert.equal(week11BoardFlags().filter((f) => f.result === "MISS").length, 3);
+  assert.equal(week11BoardFlags().filter((f) => f.result === "MISS").length, 4);
   // Sac State @ CMU (stamped as an FCS-era stub before Sac State joined the board) is unrated, not graded.
   assert.equal(week11TapePack.games.some((g) => g.away_slug === "sacramento-state"), false);
   const season = week11SeasonTape();
   assert.equal(season.label, "W1–W11");
-  assert.equal(season.su, "424/605");
-  assert.equal(season.hx_closer, "163/387");
+  assert.equal(season.su, "424/606");
+  assert.equal(season.hx_closer, "163/388");
   const top = week11Top25Tape();
-  assert.equal(top.n, 19);
-  assert.equal(top.su, "14/19");
-  assert.equal(top.hx_closer, "6/16");
-  assert.equal(top.vegas_closer, "10/16");
-  assert.equal(week11Top25Pack.games.length, 19);
+  assert.equal(top.n, 20);
+  assert.equal(top.su, "14/20");
+  assert.equal(top.hx_closer, "6/17");
+  assert.equal(top.vegas_closer, "11/17");
+  assert.equal(week11Top25Pack.games.length, 20);
   // ESPN finals in the ledger (Tennessee @ Texas A&M; the Saturday straggler NDSU @ Hawaiʻi).
   const tam = week11TapePack.games.find((g) => g.home_slug === "texas-am" && g.away_slug === "tennessee");
   assert.equal(tam?.score_home, 7);
@@ -844,7 +844,7 @@ test("Week 11 tape is 43/65 SU; closer 21/49 on the Vegas-lined cards (pregame H
   assert.match(home, /weekLabel="Week 11 tape"/);
   assert.match(home, /scheduleWeek=\{11\}/);
   assert.match(home, /closerScope="Vegas-lined"/);
-  assert.match(home, /SU 43\/65 is /);
+  assert.match(home, /SU 43\/66 is /);
   assert.doesNotMatch(home, /The board is posted/);
   assert.doesNotMatch(JSON.stringify(week11TapePack), /win_title/);
   assert.doesNotMatch(JSON.stringify(week11Top25Pack), /win_title/);

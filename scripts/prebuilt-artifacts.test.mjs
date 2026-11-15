@@ -931,7 +931,7 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /kickoff_at = timestamptz '2026-11-21 14:30:00-06'/);
     assert.match(text, /kickoff_at = timestamptz '2026-11-15 12:00:00-06'/);
     assert.match(text, /week11_tape_2026/);
-    assert.match(text, /43\/65/);
+    assert.match(text, /43\/66/);
     assert.match(text, /Week 11 tape/);
     assert.match(text, /Week 12 board/);
     assert.match(text, /Soft-cal FLAG/);

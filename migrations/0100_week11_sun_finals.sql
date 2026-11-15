@@ -33,3 +33,14 @@ where g.home_team_id = h.id and g.away_team_id = a.id
   and h.slug = 'oklahoma' and a.slug = 'ole-miss'
   and g.status <> 'final'
   and g.week = 11;
+
+-- Ole Miss @ Oklahoma — Oklahoma 24, Ole Miss 17 (home is oklahoma).
+-- Verified 2026-11-15 ESPN 401856887 STATUS_FINAL (summary + scoreboard agree).
+update games g
+set status = 'final',
+    home_score = 24,
+    away_score = 17
+from teams h, teams a
+where g.home_team_id = h.id and g.away_team_id = a.id
+  and g.week = 11
+  and h.slug = 'oklahoma' and a.slug = 'ole-miss';

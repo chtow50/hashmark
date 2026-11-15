@@ -62,7 +62,7 @@ function StoriesPage() {
         <span className="mx-2" aria-hidden>
           ·
         </span>
-        HX 2026.8 · Week 12 board · Week 11 tape SU 43/65 · closer 21/49 (Vegas-lined) · Soft-cal FLAG
+        HX 2026.8 · Week 12 board · Week 11 tape SU 43/66 · closer 21/50 (Vegas-lined) · Soft-cal FLAG
       </p>
 
       {lead ? (

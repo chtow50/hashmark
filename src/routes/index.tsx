@@ -170,7 +170,7 @@ function Home() {
         weekLabel="Week 11 tape"
         scheduleWeek={11}
         closerScope="Vegas-lined"
-        dek="SU 43/65 is under 70% — SU FLAG. Closer 21/49 is graded on the 49 cards with a stamped Vegas line — under 45%, so closer FLAG. Soft-cal FLAG stays. Graded on the pregame HX 2026.8 locks (the board live when each game was stamped); the weekly refit runs after the tape."
+        dek="SU 43/66 is under 70% — SU FLAG. Closer 21/50 is graded on the 50 cards with a stamped Vegas line — under 45%, so closer FLAG. Soft-cal FLAG stays. Graded on the pregame HX 2026.8 locks (the board live when each game was stamped); the weekly refit runs after the tape."
         flagsKicker="Board flags · pregame HX 2026.8"
       />
 
