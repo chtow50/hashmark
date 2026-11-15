@@ -83,8 +83,8 @@ describe("Week 10 FBS–FBS kick / TV / Vegas (0080)", () => {
   });
 
   it("kept the historical Week 10 featured Oregon @ Ohio State card: Sat 14:30 CT · CBS · Vegas blank", () => {
-    assert.equal(BOARD_WEEK, 11);
-    assert.equal(FEATURED_SLATE_WEEK, 11);
+    assert.equal(BOARD_WEEK, 12);
+    assert.equal(FEATURED_SLATE_WEEK, 12);
     assert.equal(WEEK10_FEATURED.homeSlug, "ohio-state");
     assert.equal(WEEK10_FEATURED.awaySlug, "oregon");
     const g = pack.games.find((r) => r.home_slug === "ohio-state" && r.away_slug === "oregon");

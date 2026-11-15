@@ -1,0 +1,1337 @@
+{
+ "title": "Week 12 2026 FBS–FBS kick / TV (Sunday Board + Tape ship)",
+ "week": 12,
+ "as_of": "2026-11-15 11:35 CT",
+ "sources": [
+  "https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?dates=YYYYMMDD&groups=80&limit=300 (Nov 17-21; kick, TV, DraftKings odds)",
+  "https://api.collegefootballdata.com/lines?year=2026 (DraftKings, Bovada)"
+ ],
+ "policy": "Kick = ESPN America/Chicago civil time when timeValid. TV = ESPN broadcast. Vegas only when two independent books (CFBD DraftKings and Bovada, or ESPN) match exactly; Bovada not posted for Week 12 at stamp time, so every Vegas cell is blank.",
+ "n_games": 66,
+ "n_with_vegas": 0,
+ "n_blank_vegas": 66,
+ "n_blank_tv": 7,
+ "n_tbd_kick": 4,
+ "excluded_fcs": [
+  "401856749 Wofford @ Ole Miss",
+  "401856750 Tennessee Tech @ Mississippi State",
+  "401856746 Chattanooga @ Alabama",
+  "401856747 Samford @ Auburn"
+ ],
+ "games": [
+  {
+   "espn_event_id": "401866465",
+   "home_slug": "western-michigan",
+   "away_slug": "eastern-michigan",
+   "home": "Western Michigan Broncos",
+   "away": "Eastern Michigan Eagles",
+   "kick_ct": "2026-11-17 17:00",
+   "tv": "ESPN2",
+   "venue": "Waldo Stadium",
+   "espn_provider": "DraftKings",
+   "espn_details": "WMU -14.5",
+   "espn_ou": 47.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": -14.5,
+     "ou": 47.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401866464",
+   "home_slug": "ohio",
+   "away_slug": "ball-state",
+   "home": "Ohio Bobcats",
+   "away": "Ball State Cardinals",
+   "kick_ct": "2026-11-17 18:00",
+   "tv": "CBSSN",
+   "venue": "Peden Stadium",
+   "espn_provider": "DraftKings",
+   "espn_details": "OHIO -10",
+   "espn_ou": 49.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": -10,
+     "ou": 49.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401866466",
+   "home_slug": "kent-state",
+   "away_slug": "miami-oh",
+   "home": "Kent State Golden Flashes",
+   "away": "Miami (OH) RedHawks",
+   "kick_ct": "2026-11-17 18:00",
+   "tv": "ESPNU",
+   "venue": "Zoeller Field at Dix Stadium",
+   "espn_provider": "DraftKings",
+   "espn_details": "M-OH -8.5",
+   "espn_ou": 45.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": 8.5,
+     "ou": 45.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401866467",
+   "home_slug": "massachusetts",
+   "away_slug": "akron",
+   "home": "Massachusetts Minutemen",
+   "away": "Akron Zips",
+   "kick_ct": "2026-11-18 18:00",
+   "tv": "CBSSN",
+   "venue": "Warren McGuirk Alumni Stadium",
+   "espn_provider": "DraftKings",
+   "espn_details": "MASS -3",
+   "espn_ou": 48.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": -3,
+     "ou": 48.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401866469",
+   "home_slug": "buffalo",
+   "away_slug": "central-michigan",
+   "home": "Buffalo Bulls",
+   "away": "Central Michigan Chippewas",
+   "kick_ct": "2026-11-18 18:30",
+   "tv": "ESPNU",
+   "venue": "Broadview Stadium",
+   "espn_provider": "DraftKings",
+   "espn_details": "BUF -1.5",
+   "espn_ou": 43.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": -1.5,
+     "ou": 43.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401862830",
+   "home_slug": "temple",
+   "away_slug": "rice",
+   "home": "Temple Owls",
+   "away": "Rice Owls",
+   "kick_ct": "2026-11-19 18:30",
+   "tv": "ESPN",
+   "venue": "Lincoln Financial Field",
+   "espn_provider": "DraftKings",
+   "espn_details": "TEM -4",
+   "espn_ou": 47.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": -4,
+     "ou": 47.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401856869",
+   "home_slug": "ucf",
+   "away_slug": "iowa-state",
+   "home": "UCF Knights",
+   "away": "Iowa State Cyclones",
+   "kick_ct": "2026-11-20 17:00",
+   "tv": "FS1",
+   "venue": "Acrisure Bounce House",
+   "espn_provider": "DraftKings",
+   "espn_details": "UCF -1.5",
+   "espn_ou": 54.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": -1.5,
+     "ou": 54.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401858303",
+   "home_slug": "duke",
+   "away_slug": "clemson",
+   "home": "Duke Blue Devils",
+   "away": "Clemson Tigers",
+   "kick_ct": "2026-11-20 18:30",
+   "tv": "ESPN",
+   "venue": "Wallace Wade Stadium",
+   "espn_provider": "DraftKings",
+   "espn_details": "DUKE -8.5",
+   "espn_ou": 44.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": -8.5,
+     "ou": 44.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401866468",
+   "home_slug": "toledo",
+   "away_slug": "bowling-green",
+   "home": "Toledo Rockets",
+   "away": "Bowling Green Falcons",
+   "kick_ct": "2026-11-20 18:30",
+   "tv": "ESPN2",
+   "venue": "Glass Bowl",
+   "espn_provider": "DraftKings",
+   "espn_details": "TOL -15.5",
+   "espn_ou": 47.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": -15.5,
+     "ou": 47.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401858529",
+   "home_slug": "michigan-state",
+   "away_slug": "oregon",
+   "home": "Michigan State Spartans",
+   "away": "Oregon Ducks",
+   "kick_ct": "2026-11-20 19:00",
+   "tv": "FOX",
+   "venue": "Spartan Stadium",
+   "espn_provider": "DraftKings",
+   "espn_details": "ORE -13.5",
+   "espn_ou": 44.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": 13.5,
+     "ou": 44.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401864545",
+   "home_slug": "air-force",
+   "away_slug": "utep",
+   "home": "Air Force Falcons",
+   "away": "UTEP Miners",
+   "kick_ct": "2026-11-20 19:00",
+   "tv": "CW",
+   "venue": "Falcon Stadium",
+   "espn_provider": "DraftKings",
+   "espn_details": "AF -21.5",
+   "espn_ou": 46.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": -21.5,
+     "ou": 46.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401864542",
+   "home_slug": "wyoming",
+   "away_slug": "new-mexico",
+   "home": "Wyoming Cowboys",
+   "away": "New Mexico Lobos",
+   "kick_ct": "2026-11-20 20:00",
+   "tv": "FS1",
+   "venue": "War Memorial Stadium",
+   "espn_provider": "DraftKings",
+   "espn_details": "UNM -10.5",
+   "espn_ou": 38.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": 10.5,
+     "ou": 38.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401858302",
+   "home_slug": "miami",
+   "away_slug": "virginia-tech",
+   "home": "Miami Hurricanes",
+   "away": "Virginia Tech Hokies",
+   "kick_ct": null,
+   "tv": null,
+   "venue": "Hard Rock Stadium",
+   "espn_provider": "DraftKings",
+   "espn_details": "MIA -19.5",
+   "espn_ou": 60.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": -19.5,
+     "ou": 60.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401858306",
+   "home_slug": "louisville",
+   "away_slug": "pittsburgh",
+   "home": "Louisville Cardinals",
+   "away": "Pittsburgh Panthers",
+   "kick_ct": null,
+   "tv": null,
+   "venue": "L&N Federal Credit Union Stadium",
+   "espn_provider": null,
+   "espn_details": null,
+   "espn_ou": null,
+   "cfbd": {
+    "DraftKings": null,
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401858310",
+   "home_slug": "georgia-tech",
+   "away_slug": "wake-forest",
+   "home": "Georgia Tech Yellow Jackets",
+   "away": "Wake Forest Demon Deacons",
+   "kick_ct": null,
+   "tv": null,
+   "venue": "Bobby Dodd Stadium",
+   "espn_provider": "DraftKings",
+   "espn_details": "WAKE -21",
+   "espn_ou": 56.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": 21,
+     "ou": 56.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401862835",
+   "home_slug": "tulane",
+   "away_slug": "north-texas",
+   "home": "Tulane Green Wave",
+   "away": "North Texas Mean Green",
+   "kick_ct": null,
+   "tv": null,
+   "venue": "Yulman Stadium",
+   "espn_provider": "DraftKings",
+   "espn_details": "UNT -13.5",
+   "espn_ou": 60.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": 13.5,
+     "ou": 60.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401856748",
+   "home_slug": "florida",
+   "away_slug": "vanderbilt",
+   "home": "Florida Gators",
+   "away": "Vanderbilt Commodores",
+   "kick_ct": "2026-11-21 11:00",
+   "tv": null,
+   "venue": "Ben Hill Griffin Stadium",
+   "espn_provider": "DraftKings",
+   "espn_details": "FLA -13.5",
+   "espn_ou": 48.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": -13.5,
+     "ou": 48.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401856752",
+   "home_slug": "oklahoma",
+   "away_slug": "texas-am",
+   "home": "Oklahoma Sooners",
+   "away": "Texas A&M Aggies",
+   "kick_ct": "2026-11-21 11:00",
+   "tv": null,
+   "venue": "Memorial Stadium (Norman, OK)",
+   "espn_provider": null,
+   "espn_details": null,
+   "espn_ou": null,
+   "cfbd": {
+    "DraftKings": {
+     "spread": -2.5,
+     "ou": 51.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401856866",
+   "home_slug": "kansas",
+   "away_slug": "byu",
+   "home": "Kansas Jayhawks",
+   "away": "BYU Cougars",
+   "kick_ct": "2026-11-21 11:00",
+   "tv": "ABC",
+   "venue": "David Booth Kansas Memorial Stadium",
+   "espn_provider": "DraftKings",
+   "espn_details": "BYU -6.5",
+   "espn_ou": 49.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": 6.5,
+     "ou": 49.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401856867",
+   "home_slug": "cincinnati",
+   "away_slug": "colorado",
+   "home": "Cincinnati Bearcats",
+   "away": "Colorado Buffaloes",
+   "kick_ct": "2026-11-21 11:00",
+   "tv": "ESPN+",
+   "venue": "Nippert Stadium",
+   "espn_provider": "DraftKings",
+   "espn_details": "CIN -3",
+   "espn_ou": 59.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": -3,
+     "ou": 59.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401858309",
+   "home_slug": "boston-college",
+   "away_slug": "syracuse",
+   "home": "Boston College Eagles",
+   "away": "Syracuse Orange",
+   "kick_ct": "2026-11-21 11:00",
+   "tv": "ACC Network",
+   "venue": "Alumni Stadium (Chestnut Hill, MA)",
+   "espn_provider": "DraftKings",
+   "espn_details": "SYR -3.5",
+   "espn_ou": 50.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": 3.5,
+     "ou": 50.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401858530",
+   "home_slug": "minnesota",
+   "away_slug": "northwestern",
+   "home": "Minnesota Golden Gophers",
+   "away": "Northwestern Wildcats",
+   "kick_ct": "2026-11-21 11:00",
+   "tv": "FS1",
+   "venue": "Huntington Bank Stadium",
+   "espn_provider": "DraftKings",
+   "espn_details": "NU -3",
+   "espn_ou": 43.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": 3,
+     "ou": 43.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401858531",
+   "home_slug": "nebraska",
+   "away_slug": "ohio-state",
+   "home": "Nebraska Cornhuskers",
+   "away": "Ohio State Buckeyes",
+   "kick_ct": "2026-11-21 11:00",
+   "tv": "FOX",
+   "venue": "Memorial Stadium (Lincoln, NE)",
+   "espn_provider": "DraftKings",
+   "espn_details": "OSU -3.5",
+   "espn_ou": 44.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": 3.5,
+     "ou": 44.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401858533",
+   "home_slug": "purdue",
+   "away_slug": "wisconsin",
+   "home": "Purdue Boilermakers",
+   "away": "Wisconsin Badgers",
+   "kick_ct": "2026-11-21 11:00",
+   "tv": "NBC",
+   "venue": "Ross-Ade Stadium",
+   "espn_provider": "DraftKings",
+   "espn_details": "WIS -6",
+   "espn_ou": 44.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": 6,
+     "ou": 44.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401862831",
+   "home_slug": "army",
+   "away_slug": "east-carolina",
+   "home": "Army Black Knights",
+   "away": "East Carolina Pirates",
+   "kick_ct": "2026-11-21 11:00",
+   "tv": "CBSSN",
+   "venue": "Michie Stadium",
+   "espn_provider": "DraftKings",
+   "espn_details": "ARMY -6",
+   "espn_ou": 42.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": -6,
+     "ou": 42.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401862834",
+   "home_slug": "navy",
+   "away_slug": "memphis",
+   "home": "Navy Midshipmen",
+   "away": "Memphis Tigers",
+   "kick_ct": "2026-11-21 11:00",
+   "tv": null,
+   "venue": "Navy-Marine Corps Memorial Stadium",
+   "espn_provider": "DraftKings",
+   "espn_details": "MEM -3",
+   "espn_ou": 64.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": 3,
+     "ou": 64.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401858305",
+   "home_slug": "virginia",
+   "away_slug": "north-carolina",
+   "home": "Virginia Cavaliers",
+   "away": "North Carolina Tar Heels",
+   "kick_ct": "2026-11-21 11:30",
+   "tv": "CW",
+   "venue": "Scott Stadium",
+   "espn_provider": null,
+   "espn_details": null,
+   "espn_ou": null,
+   "cfbd": {
+    "DraftKings": null,
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401856868",
+   "home_slug": "west-virginia",
+   "away_slug": "houston",
+   "home": "West Virginia Mountaineers",
+   "away": "Houston Cougars",
+   "kick_ct": "2026-11-21 12:00",
+   "tv": "TNT",
+   "venue": "Milan Puskar Stadium",
+   "espn_provider": "DraftKings",
+   "espn_details": "HOU -7",
+   "espn_ou": 71.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": 7,
+     "ou": 71.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401871080",
+   "home_slug": "liberty",
+   "away_slug": "western-kentucky",
+   "home": "Liberty Flames",
+   "away": "Western Kentucky Hilltoppers",
+   "kick_ct": "2026-11-21 12:00",
+   "tv": "ESPN+",
+   "venue": "Williams Stadium (VA)",
+   "espn_provider": "DraftKings",
+   "espn_details": "LIB -14.5",
+   "espn_ou": 52.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": -14.5,
+     "ou": 52.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401862832",
+   "home_slug": "tulsa",
+   "away_slug": "charlotte",
+   "home": "Tulsa Golden Hurricane",
+   "away": "Charlotte 49ers",
+   "kick_ct": "2026-11-21 13:00",
+   "tv": "ESPN+",
+   "venue": "H. A. Chapman Stadium",
+   "espn_provider": "DraftKings",
+   "espn_details": "TLSA -19.5",
+   "espn_ou": 52.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": -19.5,
+     "ou": 52.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401871079",
+   "home_slug": "jacksonville-state",
+   "away_slug": "missouri-state",
+   "home": "Jacksonville State Gamecocks",
+   "away": "Missouri State Bears",
+   "kick_ct": "2026-11-21 13:00",
+   "tv": "ESPN+",
+   "venue": "AmFirst Stadium",
+   "espn_provider": "DraftKings",
+   "espn_details": "JXST -10.5",
+   "espn_ou": 53.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": -10.5,
+     "ou": 53.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401871081",
+   "home_slug": "sam-houston",
+   "away_slug": "middle-tennessee",
+   "home": "Sam Houston Bearkats",
+   "away": "Middle Tennessee Blue Raiders",
+   "kick_ct": "2026-11-21 13:00",
+   "tv": "ESPN+",
+   "venue": "Elliott T. Bowers Stadium",
+   "espn_provider": "DraftKings",
+   "espn_details": "MTSU -5.5",
+   "espn_ou": 49.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": 5.5,
+     "ou": 49.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401858527",
+   "home_slug": "illinois",
+   "away_slug": "iowa",
+   "home": "Illinois Fighting Illini",
+   "away": "Iowa Hawkeyes",
+   "kick_ct": "2026-11-21 13:30",
+   "tv": "BTN",
+   "venue": "Gies Memorial Stadium",
+   "espn_provider": "DraftKings",
+   "espn_details": "IOWA -6.5",
+   "espn_ou": 43.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": 6.5,
+     "ou": 43.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401862833",
+   "home_slug": "florida-atlantic",
+   "away_slug": "usf",
+   "home": "Florida Atlantic Owls",
+   "away": "South Florida Bulls",
+   "kick_ct": "2026-11-21 13:30",
+   "tv": "ESPN+",
+   "venue": "Flagler Credit Union Stadium",
+   "espn_provider": "DraftKings",
+   "espn_details": "USF -1.5",
+   "espn_ou": 68.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": 1.5,
+     "ou": 68.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401869929",
+   "home_slug": "app-state",
+   "away_slug": "ul-monroe",
+   "home": "App State Mountaineers",
+   "away": "UL Monroe Warhawks",
+   "kick_ct": "2026-11-21 13:30",
+   "tv": "ESPN+",
+   "venue": "Kidd Brewer Stadium",
+   "espn_provider": "DraftKings",
+   "espn_details": "APP -14",
+   "espn_ou": 50.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": -14,
+     "ou": 50.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401869946",
+   "home_slug": "louisiana",
+   "away_slug": "coastal-carolina",
+   "home": "Louisiana Ragin' Cajuns",
+   "away": "Coastal Carolina Chanticleers",
+   "kick_ct": "2026-11-21 14:00",
+   "tv": "ESPN+",
+   "venue": "Our Lady of Lourdes Stadium",
+   "espn_provider": "DraftKings",
+   "espn_details": "UL -7.5",
+   "espn_ou": 50.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": -7.5,
+     "ou": 50.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401871077",
+   "home_slug": "new-mexico-state",
+   "away_slug": "delaware",
+   "home": "New Mexico State Aggies",
+   "away": "Delaware Blue Hens",
+   "kick_ct": "2026-11-21 14:00",
+   "tv": "ESPN+",
+   "venue": "Aggie Memorial Stadium",
+   "espn_provider": "DraftKings",
+   "espn_details": "DEL -3.5",
+   "espn_ou": 53.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": 3.5,
+     "ou": 53.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401871078",
+   "home_slug": "kennesaw-state",
+   "away_slug": "fiu",
+   "home": "Kennesaw State Owls",
+   "away": "Florida International Panthers",
+   "kick_ct": "2026-11-21 14:00",
+   "tv": "ESPN+",
+   "venue": "Walens Family Field at Fifth Third Stadium",
+   "espn_provider": "DraftKings",
+   "espn_details": "KENN -3.5",
+   "espn_ou": 43.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": -3.5,
+     "ou": 43.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401856754",
+   "home_slug": "tennessee",
+   "away_slug": "lsu",
+   "home": "Tennessee Volunteers",
+   "away": "LSU Tigers",
+   "kick_ct": "2026-11-21 14:30",
+   "tv": "ABC",
+   "venue": "Neyland Stadium",
+   "espn_provider": "DraftKings",
+   "espn_details": "TENN -1.5",
+   "espn_ou": 46.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": -1.5,
+     "ou": 46.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401856755",
+   "home_slug": "texas",
+   "away_slug": "arkansas",
+   "home": "Texas Longhorns",
+   "away": "Arkansas Razorbacks",
+   "kick_ct": "2026-11-21 14:30",
+   "tv": "ESPN",
+   "venue": "DKR-Texas Memorial Stadium",
+   "espn_provider": "DraftKings",
+   "espn_details": "TEX -19.5",
+   "espn_ou": 46.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": -19.5,
+     "ou": 46.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401856871",
+   "home_slug": "baylor",
+   "away_slug": "texas-tech",
+   "home": "Baylor Bears",
+   "away": "Texas Tech Red Raiders",
+   "kick_ct": "2026-11-21 14:30",
+   "tv": "FOX",
+   "venue": "McLane Stadium",
+   "espn_provider": "DraftKings",
+   "espn_details": "TTU -3",
+   "espn_ou": 58.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": 3.5,
+     "ou": 58.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401858304",
+   "home_slug": "florida-state",
+   "away_slug": "nc-state",
+   "home": "Florida State Seminoles",
+   "away": "NC State Wolfpack",
+   "kick_ct": "2026-11-21 14:30",
+   "tv": "ACC Network",
+   "venue": "Doak Campbell Stadium",
+   "espn_provider": "DraftKings",
+   "espn_details": "FSU -9.5",
+   "espn_ou": 54.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": -9.5,
+     "ou": 54.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401858528",
+   "home_slug": "michigan",
+   "away_slug": "ucla",
+   "home": "Michigan Wolverines",
+   "away": "UCLA Bruins",
+   "kick_ct": "2026-11-21 14:30",
+   "tv": "CBS",
+   "venue": "Michigan Stadium",
+   "espn_provider": "DraftKings",
+   "espn_details": "UCLA -7",
+   "espn_ou": 39.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": 7,
+     "ou": 39.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401858532",
+   "home_slug": "penn-state",
+   "away_slug": "rutgers",
+   "home": "Penn State Nittany Lions",
+   "away": "Rutgers Scarlet Knights",
+   "kick_ct": "2026-11-21 14:30",
+   "tv": "FS1",
+   "venue": "Beaver Stadium",
+   "espn_provider": "DraftKings",
+   "espn_details": "PSU -21.5",
+   "espn_ou": 49.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": -21.5,
+     "ou": 49.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401858535",
+   "home_slug": "washington",
+   "away_slug": "indiana",
+   "home": "Washington Huskies",
+   "away": "Indiana Hoosiers",
+   "kick_ct": "2026-11-21 14:30",
+   "tv": "Peacock",
+   "venue": "Husky Stadium",
+   "espn_provider": "DraftKings",
+   "espn_details": "IU -8.5",
+   "espn_ou": 41.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": 8.5,
+     "ou": 41.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401861968",
+   "home_slug": "uconn",
+   "away_slug": "old-dominion",
+   "home": "UConn Huskies",
+   "away": "Old Dominion Monarchs",
+   "kick_ct": "2026-11-21 14:30",
+   "tv": "CBSSN",
+   "venue": "Pratt & Whitney Stadium",
+   "espn_provider": "DraftKings",
+   "espn_details": "CONN -14.5",
+   "espn_ou": 48.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": -14.5,
+     "ou": 48.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401864543",
+   "home_slug": "north-dakota-state",
+   "away_slug": "northern-illinois",
+   "home": "North Dakota State Bison",
+   "away": "Northern Illinois Huskies",
+   "kick_ct": "2026-11-21 15:00",
+   "tv": "CW",
+   "venue": "Fargodome",
+   "espn_provider": "DraftKings",
+   "espn_details": "NDSU -24.5",
+   "espn_ou": 45.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": -25.5,
+     "ou": 47.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401869953",
+   "home_slug": "troy",
+   "away_slug": "georgia-southern",
+   "home": "Troy Trojans",
+   "away": "Georgia Southern Eagles",
+   "kick_ct": "2026-11-21 15:00",
+   "tv": "ESPN+",
+   "venue": "Veterans Memorial Stadium (AL)",
+   "espn_provider": "DraftKings",
+   "espn_details": "GASO -8.5",
+   "espn_ou": 49.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": 8.5,
+     "ou": 49.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401869958",
+   "home_slug": "marshall",
+   "away_slug": "georgia-state",
+   "home": "Marshall Thundering Herd",
+   "away": "Georgia State Panthers",
+   "kick_ct": "2026-11-21 15:00",
+   "tv": "ESPN+",
+   "venue": "Joan C. Edwards Stadium",
+   "espn_provider": "DraftKings",
+   "espn_details": "GAST -1.5",
+   "espn_ou": 57.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": 1.5,
+     "ou": 57.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401871101",
+   "home_slug": "southern-miss",
+   "away_slug": "south-alabama",
+   "home": "Southern Miss Golden Eagles",
+   "away": "South Alabama Jaguars",
+   "kick_ct": "2026-11-21 15:00",
+   "tv": "ESPN+",
+   "venue": "M. M. Roberts Stadium",
+   "espn_provider": "DraftKings",
+   "espn_details": "USA -5.5",
+   "espn_ou": 62.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": 5.5,
+     "ou": 62.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401860920",
+   "home_slug": "texas-state",
+   "away_slug": "washington-state",
+   "home": "Texas State Bobcats",
+   "away": "Washington State Cougars",
+   "kick_ct": "2026-11-21 17:00",
+   "tv": "USA Net",
+   "venue": "UFCU Stadium",
+   "espn_provider": "DraftKings",
+   "espn_details": "TXST -14",
+   "espn_ou": 60.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": -14,
+     "ou": 60.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401858534",
+   "home_slug": "usc",
+   "away_slug": "maryland",
+   "home": "USC Trojans",
+   "away": "Maryland Terrapins",
+   "kick_ct": "2026-11-21 17:15",
+   "tv": "BTN",
+   "venue": "Los Angeles Memorial Coliseum",
+   "espn_provider": "DraftKings",
+   "espn_details": "USC -16.5",
+   "espn_ou": 56.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": -16.5,
+     "ou": 56.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401856865",
+   "home_slug": "kansas-state",
+   "away_slug": "arizona",
+   "home": "Kansas State Wildcats",
+   "away": "Arizona Wildcats",
+   "kick_ct": "2026-11-21 18:00",
+   "tv": "FS1",
+   "venue": "Bill Snyder Family Stadium",
+   "espn_provider": "DraftKings",
+   "espn_details": "ARIZ -10",
+   "espn_ou": 50.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": 10,
+     "ou": 50.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401864544",
+   "home_slug": "san-jose-state",
+   "away_slug": "unlv",
+   "home": "San José State Spartans",
+   "away": "UNLV Rebels",
+   "kick_ct": "2026-11-21 18:00",
+   "tv": "CBSSN",
+   "venue": "CEFCU Stadium",
+   "espn_provider": "DraftKings",
+   "espn_details": "UNLV -3.5",
+   "espn_ou": 49.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": 3.5,
+     "ou": 49.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401869938",
+   "home_slug": "louisiana-tech",
+   "away_slug": "arkansas-state",
+   "home": "Louisiana Tech Bulldogs",
+   "away": "Arkansas State Red Wolves",
+   "kick_ct": "2026-11-21 18:00",
+   "tv": "ESPN+",
+   "venue": "Joe Aillet Stadium",
+   "espn_provider": "DraftKings",
+   "espn_details": "LT -16.5",
+   "espn_ou": 50.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": -16.5,
+     "ou": 50.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401856751",
+   "home_slug": "missouri",
+   "away_slug": "kentucky",
+   "home": "Missouri Tigers",
+   "away": "Kentucky Wildcats",
+   "kick_ct": "2026-11-21 18:30",
+   "tv": "SEC Network",
+   "venue": "Memorial Stadium",
+   "espn_provider": "DraftKings",
+   "espn_details": "MIZ -5.5",
+   "espn_ou": 48.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": -5.5,
+     "ou": 48.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401856753",
+   "home_slug": "south-carolina",
+   "away_slug": "georgia",
+   "home": "South Carolina Gamecocks",
+   "away": "Georgia Bulldogs",
+   "kick_ct": "2026-11-21 18:30",
+   "tv": "ABC",
+   "venue": "Williams-Brice Stadium",
+   "espn_provider": "DraftKings",
+   "espn_details": "UGA -16.5",
+   "espn_ou": 50.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": 16.5,
+     "ou": 50.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401858307",
+   "home_slug": "notre-dame",
+   "away_slug": "smu",
+   "home": "Notre Dame Fighting Irish",
+   "away": "SMU Mustangs",
+   "kick_ct": "2026-11-21 18:30",
+   "tv": "NBC",
+   "venue": "Notre Dame Stadium",
+   "espn_provider": "DraftKings",
+   "espn_details": "ND -20.5",
+   "espn_ou": 57.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": -20.5,
+     "ou": 57.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401858308",
+   "home_slug": "california",
+   "away_slug": "stanford",
+   "home": "California Golden Bears",
+   "away": "Stanford Cardinal",
+   "kick_ct": "2026-11-21 18:30",
+   "tv": "ACC Network",
+   "venue": "California Memorial Stadium",
+   "espn_provider": "DraftKings",
+   "espn_details": "STAN -2.5",
+   "espn_ou": 54.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": 2.5,
+     "ou": 54.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401860918",
+   "home_slug": "fresno-state",
+   "away_slug": "colorado-state",
+   "home": "Fresno State Bulldogs",
+   "away": "Colorado State Rams",
+   "kick_ct": "2026-11-21 18:30",
+   "tv": "CW",
+   "venue": "Valley Children's Stadium",
+   "espn_provider": "DraftKings",
+   "espn_details": "FRES -19.5",
+   "espn_ou": 61.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": -19.5,
+     "ou": 61.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401862836",
+   "home_slug": "uab",
+   "away_slug": "utsa",
+   "home": "UAB Blazers",
+   "away": "UTSA Roadrunners",
+   "kick_ct": "2026-11-21 19:00",
+   "tv": "ESPNU",
+   "venue": "Protective Stadium",
+   "espn_provider": "DraftKings",
+   "espn_details": "UTSA -6.5",
+   "espn_ou": 53.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": 6.5,
+     "ou": 53.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401856872",
+   "home_slug": "tcu",
+   "away_slug": "utah",
+   "home": "TCU Horned Frogs",
+   "away": "Utah Utes",
+   "kick_ct": "2026-11-21 20:00",
+   "tv": "FOX",
+   "venue": "Amon G. Carter Stadium",
+   "espn_provider": "DraftKings",
+   "espn_details": "UTAH -6.5",
+   "espn_ou": 45.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": 6.5,
+     "ou": 45.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401860925",
+   "home_slug": "boise-state",
+   "away_slug": "san-diego-state",
+   "home": "Boise State Broncos",
+   "away": "San Diego State Aztecs",
+   "kick_ct": "2026-11-21 20:30",
+   "tv": "USA Net",
+   "venue": "Albertsons Stadium",
+   "espn_provider": "DraftKings",
+   "espn_details": "BOIS -17.5",
+   "espn_ou": 62.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": -17.5,
+     "ou": 62.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401856870",
+   "home_slug": "arizona-state",
+   "away_slug": "oklahoma-state",
+   "home": "Arizona State Sun Devils",
+   "away": "Oklahoma State Cowboys",
+   "kick_ct": "2026-11-21 21:15",
+   "tv": "ESPN",
+   "venue": "Mountain America Stadium",
+   "espn_provider": "DraftKings",
+   "espn_details": "OKST -4",
+   "espn_ou": 62.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": 4,
+     "ou": 62.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401860919",
+   "home_slug": "oregon-state",
+   "away_slug": "utah-state",
+   "home": "Oregon State Beavers",
+   "away": "Utah State Aggies",
+   "kick_ct": "2026-11-21 21:30",
+   "tv": "CBSSN",
+   "venue": "Reser Stadium",
+   "espn_provider": "DraftKings",
+   "espn_details": "ORST -10",
+   "espn_ou": 49.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": -10,
+     "ou": 49.5
+    },
+    "Bovada": null
+   }
+  },
+  {
+   "espn_event_id": "401864541",
+   "home_slug": "nevada",
+   "away_slug": "hawaii",
+   "home": "Nevada Wolf Pack",
+   "away": "Hawai'i Rainbow Warriors",
+   "kick_ct": "2026-11-21 21:30",
+   "tv": "FS1",
+   "venue": "Mackay Stadium",
+   "espn_provider": "DraftKings",
+   "espn_details": "NEV -3",
+   "espn_ou": 42.5,
+   "cfbd": {
+    "DraftKings": {
+     "spread": -3,
+     "ou": 42.5
+    },
+    "Bovada": null
+   }
+  }
+ ]
+}

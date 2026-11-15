@@ -4,7 +4,7 @@ import type { ScheduleGame } from "./types";
  * Board chrome week (Rankings / home PageHead). Ranking *rows* stay
  * `season = 2026 AND week = 0` — that is what queries read.
  */
-export const BOARD_WEEK = 11;
+export const BOARD_WEEK = 12;
 
 /**
  * Last stamped AP ballot on the live board: Week 11 AP (Nov. 8), ESPN rankings API with
@@ -33,14 +33,14 @@ export const CFP_STAMP = {
 } as const;
 
 /**
- * Featured kick reads the HASHMARK Week 11 slate (`/schedule?w=11`).
- * Board chrome is Week 11. Live ratings are HX 2026.7. The Week 10 tape
- * grades the HX 2026.7 pregame board. Make the 12 is the HX 2026.7
+ * Featured kick reads the HASHMARK Week 12 slate (`/schedule?w=12`).
+ * Board chrome is Week 12. Live ratings are HX 2026.8 (weekly refit). The Week 11 tape
+ * grades the pregame HX 2026.8 locks. Make the 12 is the HX 2026.8
  * 10k table (make-field only on free chrome). Home desk aligns to the
- * Week 11 pin (Michigan @ Oregon), matching `/schedule?w=11` featured —
+ * Week 12 pin (LSU @ Tennessee), matching `/schedule?w=12` featured —
  * not the earliest kick. FCS rows are never featured. Never invent Vegas.
  */
-export const FEATURED_SLATE_WEEK = 11;
+export const FEATURED_SLATE_WEEK = 12;
 
 /** Thursday night flag: Colorado at Georgia Tech, Bobby Dodd. */
 export const WEEK1_FLAG = {
@@ -160,11 +160,25 @@ export const WEEK10_FEATURED = {
  * Sat 2026-11-14 14:30 CT · FS1 (ESPN = CBS Sports ET; migration 0087).
  * Vegas blank: ESPN DraftKings (ORE −10.5, 41.5) and CBS Sports (o40.5 / u41.5)
  * did not match exactly on the total.
- * Home desk FEATURED_SLATE_WEEK is 11.
+ * Historical pin (FINAL). Home desk FEATURED_SLATE_WEEK is 12.
  */
 export const WEEK11_FEATURED = {
   homeSlug: "oregon",
   awaySlug: "michigan",
+} as const;
+
+/**
+ * Saturday ABC: LSU at Tennessee, Neyland Stadium. Schedule-page pin for
+ * `/schedule?w=12` and the home desk featured card (best combined HX 2026.8 rank
+ * on the Week 12 slate with a CLEAR kick + TV, on the 2026-11-15 refit board).
+ * Sat 2026-11-21 14:30 CT · ABC (ESPN scoreboard; migration 0101).
+ * Vegas blank: ESPN DraftKings (TENN −1.5, 46.5) is the only book posted; Bovada
+ * had no Week 12 line at the stamp, so no two-book exact match.
+ * Home desk FEATURED_SLATE_WEEK is 12.
+ */
+export const WEEK12_FEATURED = {
+  homeSlug: "tennessee",
+  awaySlug: "lsu",
 } as const;
 
 
@@ -227,8 +241,8 @@ export function selectFeaturedKick<
 }
 
 /**
- * Board featured for the live featured slate (Week 11).
- * Prefers the Week 11 pin (Michigan @ Oregon) via
+ * Board featured for the live featured slate (Week 12).
+ * Prefers the Week 12 pin (LSU @ Tennessee) via
  * `selectWeekScopedFeatured(FEATURED_SLATE_WEEK, …)`. Falls back to the
  * earliest upcoming kick only when the pin is missing or FINAL.
  * Week 2–5 Research pins stay historical helpers. Never a FINAL. Never
@@ -284,14 +298,20 @@ export function isMichiganAtOregon(
   return g.homeSlug === WEEK11_FEATURED.homeSlug && g.awaySlug === WEEK11_FEATURED.awaySlug;
 }
 
+export function isLsuAtTennessee(
+  g: Pick<ScheduleGame, "homeSlug" | "awaySlug">,
+): boolean {
+  return g.homeSlug === WEEK12_FEATURED.homeSlug && g.awaySlug === WEEK12_FEATURED.awaySlug;
+}
+
 /**
  * Featured card scoped to the schedule week being viewed.
  * Week 5 pins Pittsburgh @ Virginia Tech (CLEAR), even though WKU @ NMSU
  * kicks earlier. Week 6 pins Iowa State @ BYU (CLEAR), even though midweek
  * cards kick earlier. Week 7 pins Alabama @ Tennessee. Week 8 pins Ole Miss @ Texas.
  * Week 9 pins Ohio State @ USC. Week 10 pins Oregon @ Ohio State.
- * Week 11 pins Michigan @ Oregon.
- * The homepage desk uses FEATURED_SLATE_WEEK (11) and the same Week 11 pin via
+ * Week 11 pins Michigan @ Oregon. Week 12 pins LSU @ Tennessee.
+ * The homepage desk uses FEATURED_SLATE_WEEK (12) and the same Week 12 pin via
  * `selectBoardFeaturedKick`. Never invents a matchup.
  */
 export function selectWeekScopedFeatured<
@@ -319,6 +339,9 @@ export function selectWeekScopedFeatured<
   }
   if (week === 11) {
     return slate.find((g) => !g.isFcs && g.status !== "final" && isMichiganAtOregon(g)) ?? null;
+  }
+  if (week === 12) {
+    return slate.find((g) => !g.isFcs && g.status !== "final" && isLsuAtTennessee(g)) ?? null;
   }
   return null;
 }

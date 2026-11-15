@@ -85,8 +85,8 @@ describe("Week 8 FBS–FBS kick / TV / Vegas (0064)", () => {
   });
 
   it("kept the historical Week 8 featured Ole Miss @ Texas card: Sat 18:30 CT · ABC · Vegas blank", () => {
-    assert.equal(BOARD_WEEK, 11);
-    assert.equal(FEATURED_SLATE_WEEK, 11);
+    assert.equal(BOARD_WEEK, 12);
+    assert.equal(FEATURED_SLATE_WEEK, 12);
     assert.equal(WEEK8_FEATURED.homeSlug, "texas");
     assert.equal(WEEK8_FEATURED.awaySlug, "ole-miss");
     const g = pack.games.find((r) => r.home_slug === "texas" && r.away_slug === "ole-miss");

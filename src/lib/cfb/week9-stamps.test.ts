@@ -81,8 +81,8 @@ describe("Week 9 FBS–FBS kick / TV / Vegas (0072)", () => {
   });
 
   it("kept the historical Week 9 featured Ohio State @ USC card: Sat 18:30 CT · NBC · Vegas blank", () => {
-    assert.equal(BOARD_WEEK, 11);
-    assert.equal(FEATURED_SLATE_WEEK, 11);
+    assert.equal(BOARD_WEEK, 12);
+    assert.equal(FEATURED_SLATE_WEEK, 12);
     assert.equal(WEEK9_FEATURED.homeSlug, "usc");
     assert.equal(WEEK9_FEATURED.awaySlug, "ohio-state");
     const g = pack.games.find((r) => r.home_slug === "usc" && r.away_slug === "ohio-state");

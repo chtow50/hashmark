@@ -3,7 +3,7 @@
   "n_sims": 10000,
   "seed": 20261112,
   "hx_stamp": "HX 2026.8",
-  "as_of": "2026-11-12",
+  "as_of": "2026-11-15",
   "as_of_tz": "America/Chicago",
   "source": "data/sim_10k_2026_hx2026_8.json",
   "title_game_rule": "Top two by simulated conference win % (then conference wins, then HX, then a coin flip) meet at a neutral site. This is a simplified tiebreak, not each league's full rulebook.",
@@ -17,11 +17,11 @@
    "conference": "Mountain West",
    "make_ccg": 0,
    "conf_title": 0,
-   "conf_w_now": 2,
+   "conf_w_now": 3,
    "conf_l_now": 2,
-   "proj_conf_w": 2.843,
-   "proj_conf_l": 3.157,
-   "proj_wins": 8.665
+   "proj_conf_w": 3.234,
+   "proj_conf_l": 2.766,
+   "proj_wins": 9.082
   },
   {
    "slug": "akron",
@@ -30,64 +30,64 @@
    "conf_title": 0,
    "conf_w_now": 0,
    "conf_l_now": 6,
-   "proj_conf_w": 0.582,
-   "proj_conf_l": 7.418,
-   "proj_wins": 1.582
+   "proj_conf_w": 0.577,
+   "proj_conf_l": 7.423,
+   "proj_wins": 1.577
   },
   {
    "slug": "alabama",
    "conference": "SEC",
-   "make_ccg": 85.93,
-   "conf_title": 40.36,
-   "conf_w_now": 5,
+   "make_ccg": 86.74,
+   "conf_title": 35.42,
+   "conf_w_now": 6,
    "conf_l_now": 2,
-   "proj_conf_w": 6.722,
-   "proj_conf_l": 2.278,
-   "proj_wins": 10.044
+   "proj_conf_w": 6.828,
+   "proj_conf_l": 2.173,
+   "proj_wins": 10.098
   },
   {
    "slug": "app-state",
    "conference": "Sun Belt",
-   "make_ccg": 0.3,
-   "conf_title": 0.04,
-   "conf_w_now": 2,
+   "make_ccg": 0,
+   "conf_title": 0,
+   "conf_w_now": 3,
    "conf_l_now": 3,
-   "proj_conf_w": 3.499,
-   "proj_conf_l": 4.501,
-   "proj_wins": 6.5
+   "proj_conf_w": 4.124,
+   "proj_conf_l": 3.876,
+   "proj_wins": 7.124
   },
   {
    "slug": "arizona",
    "conference": "Big 12",
-   "make_ccg": 5.18,
-   "conf_title": 1.97,
+   "make_ccg": 0,
+   "conf_title": 0,
    "conf_w_now": 4,
-   "conf_l_now": 2,
-   "proj_conf_w": 5.898,
-   "proj_conf_l": 3.103,
-   "proj_wins": 8.917
+   "conf_l_now": 3,
+   "proj_conf_w": 5.424,
+   "proj_conf_l": 3.576,
+   "proj_wins": 8.424
   },
   {
    "slug": "arizona-state",
    "conference": "Big 12",
    "make_ccg": 0,
    "conf_title": 0,
-   "conf_w_now": 3,
+   "conf_w_now": 4,
    "conf_l_now": 3,
-   "proj_conf_w": 3.964,
-   "proj_conf_l": 5.036,
-   "proj_wins": 5.964
+   "proj_conf_w": 4.711,
+   "proj_conf_l": 4.29,
+   "proj_wins": 6.711
   },
   {
    "slug": "arkansas",
    "conference": "SEC",
    "make_ccg": 0,
    "conf_title": 0,
-   "conf_w_now": 1,
+   "conf_w_now": 2,
    "conf_l_now": 5,
-   "proj_conf_w": 1.701,
-   "proj_conf_l": 7.299,
-   "proj_wins": 3.701
+   "proj_conf_w": 2.44,
+   "proj_conf_l": 6.561,
+   "proj_wins": 4.44
   },
   {
    "slug": "arkansas-state",
@@ -95,32 +95,32 @@
    "make_ccg": 0,
    "conf_title": 0,
    "conf_w_now": 2,
-   "conf_l_now": 3,
-   "proj_conf_w": 2.994,
-   "proj_conf_l": 4.006,
-   "proj_wins": 5.202
+   "conf_l_now": 4,
+   "proj_conf_w": 2.597,
+   "proj_conf_l": 4.403,
+   "proj_wins": 4.796
   },
   {
    "slug": "army",
    "conference": "American",
-   "make_ccg": 2.66,
-   "conf_title": 0.87,
+   "make_ccg": 0.63,
+   "conf_title": 0.17,
    "conf_w_now": 4,
    "conf_l_now": 2,
-   "proj_conf_w": 5.102,
-   "proj_conf_l": 2.898,
-   "proj_wins": 6.666
+   "proj_conf_w": 5.139,
+   "proj_conf_l": 2.861,
+   "proj_wins": 6.696
   },
   {
    "slug": "auburn",
    "conference": "SEC",
    "make_ccg": 0,
    "conf_title": 0,
-   "conf_w_now": 3,
+   "conf_w_now": 4,
    "conf_l_now": 4,
-   "proj_conf_w": 3.577,
-   "proj_conf_l": 5.423,
-   "proj_wins": 6.495
+   "proj_conf_w": 4.173,
+   "proj_conf_l": 4.828,
+   "proj_wins": 7.091
   },
   {
    "slug": "ball-state",
@@ -129,31 +129,31 @@
    "conf_title": 0,
    "conf_w_now": 2,
    "conf_l_now": 4,
-   "proj_conf_w": 2.6,
-   "proj_conf_l": 5.4,
-   "proj_wins": 3.6
+   "proj_conf_w": 2.615,
+   "proj_conf_l": 5.385,
+   "proj_wins": 3.615
   },
   {
    "slug": "baylor",
    "conference": "Big 12",
-   "make_ccg": 2.31,
-   "conf_title": 0.8,
+   "make_ccg": 0,
+   "conf_title": 0,
    "conf_w_now": 4,
-   "conf_l_now": 2,
-   "proj_conf_w": 5.265,
-   "proj_conf_l": 3.735,
-   "proj_wins": 7.273
+   "conf_l_now": 3,
+   "proj_conf_w": 4.877,
+   "proj_conf_l": 4.124,
+   "proj_wins": 6.877
   },
   {
    "slug": "boise-state",
    "conference": "Mountain West",
    "make_ccg": 100,
-   "conf_title": 69.08,
+   "conf_title": 70.8,
    "conf_w_now": 3,
    "conf_l_now": 0,
-   "proj_conf_w": 3.891,
-   "proj_conf_l": 0.11,
-   "proj_wins": 10.396
+   "proj_conf_w": 3.865,
+   "proj_conf_l": 0.135,
+   "proj_wins": 10.573
   },
   {
    "slug": "boston-college",
@@ -162,9 +162,9 @@
    "conf_title": 0,
    "conf_w_now": 2,
    "conf_l_now": 4,
-   "proj_conf_w": 2.614,
-   "proj_conf_l": 5.386,
-   "proj_wins": 4.689
+   "proj_conf_w": 2.607,
+   "proj_conf_l": 5.393,
+   "proj_wins": 4.607
   },
   {
    "slug": "bowling-green",
@@ -173,31 +173,31 @@
    "conf_title": 0,
    "conf_w_now": 3,
    "conf_l_now": 3,
-   "proj_conf_w": 3.907,
-   "proj_conf_l": 4.093,
-   "proj_wins": 3.907
+   "proj_conf_w": 3.908,
+   "proj_conf_l": 4.092,
+   "proj_wins": 3.908
   },
   {
    "slug": "buffalo",
    "conference": "MAC",
-   "make_ccg": 36.8,
-   "conf_title": 14.52,
+   "make_ccg": 36.21,
+   "conf_title": 14.21,
    "conf_w_now": 5,
    "conf_l_now": 1,
-   "proj_conf_w": 6.358,
-   "proj_conf_l": 1.642,
-   "proj_wins": 8.503
+   "proj_conf_w": 6.353,
+   "proj_conf_l": 1.647,
+   "proj_wins": 8.495
   },
   {
    "slug": "byu",
    "conference": "Big 12",
-   "make_ccg": 15.96,
-   "conf_title": 6.5,
-   "conf_w_now": 4,
+   "make_ccg": 6.21,
+   "conf_title": 2.22,
+   "conf_w_now": 5,
    "conf_l_now": 2,
-   "proj_conf_w": 6.121,
-   "proj_conf_l": 2.88,
-   "proj_wins": 9.186
+   "proj_conf_w": 6.509,
+   "proj_conf_l": 2.491,
+   "proj_wins": 9.531
   },
   {
    "slug": "california",
@@ -205,10 +205,10 @@
    "make_ccg": 0,
    "conf_title": 0,
    "conf_w_now": 2,
-   "conf_l_now": 4,
-   "proj_conf_w": 3.18,
-   "proj_conf_l": 5.82,
-   "proj_wins": 4.18
+   "conf_l_now": 5,
+   "proj_conf_w": 2.798,
+   "proj_conf_l": 6.202,
+   "proj_wins": 3.798
   },
   {
    "slug": "central-michigan",
@@ -217,9 +217,9 @@
    "conf_title": 0,
    "conf_w_now": 3,
    "conf_l_now": 3,
-   "proj_conf_w": 4,
-   "proj_conf_l": 4,
-   "proj_wins": 6
+   "proj_conf_w": 3.991,
+   "proj_conf_l": 4.009,
+   "proj_wins": 5.991
   },
   {
    "slug": "charlotte",
@@ -227,10 +227,10 @@
    "make_ccg": 0,
    "conf_title": 0,
    "conf_w_now": 1,
-   "conf_l_now": 4,
-   "proj_conf_w": 1.886,
-   "proj_conf_l": 6.114,
-   "proj_wins": 1.886
+   "conf_l_now": 5,
+   "proj_conf_w": 1.553,
+   "proj_conf_l": 6.447,
+   "proj_wins": 1.553
   },
   {
    "slug": "cincinnati",
@@ -238,43 +238,43 @@
    "make_ccg": 0,
    "conf_title": 0,
    "conf_w_now": 2,
-   "conf_l_now": 4,
-   "proj_conf_w": 3.278,
-   "proj_conf_l": 5.722,
-   "proj_wins": 6.278
+   "conf_l_now": 5,
+   "proj_conf_w": 2.756,
+   "proj_conf_l": 6.244,
+   "proj_wins": 5.756
   },
   {
    "slug": "clemson",
    "conference": "ACC",
-   "make_ccg": 2.16,
-   "conf_title": 0.48,
+   "make_ccg": 0,
+   "conf_title": 0,
    "conf_w_now": 4,
-   "conf_l_now": 2,
-   "proj_conf_w": 5.209,
-   "proj_conf_l": 2.792,
-   "proj_wins": 7.69
+   "conf_l_now": 3,
+   "proj_conf_w": 4.301,
+   "proj_conf_l": 3.699,
+   "proj_wins": 6.779
   },
   {
    "slug": "coastal-carolina",
    "conference": "Sun Belt",
-   "make_ccg": 0.12,
-   "conf_title": 0.02,
-   "conf_w_now": 2,
+   "make_ccg": 0,
+   "conf_title": 0,
+   "conf_w_now": 3,
    "conf_l_now": 3,
-   "proj_conf_w": 2.998,
-   "proj_conf_l": 5.002,
-   "proj_wins": 3.998
+   "proj_conf_w": 3.429,
+   "proj_conf_l": 4.571,
+   "proj_wins": 4.429
   },
   {
    "slug": "colorado",
    "conference": "Big 12",
    "make_ccg": 0,
    "conf_title": 0,
-   "conf_w_now": 1,
+   "conf_w_now": 2,
    "conf_l_now": 5,
-   "proj_conf_w": 2.047,
-   "proj_conf_l": 6.953,
-   "proj_wins": 4.047
+   "proj_conf_w": 2.949,
+   "proj_conf_l": 6.051,
+   "proj_wins": 4.949
   },
   {
    "slug": "colorado-state",
@@ -283,42 +283,42 @@
    "conf_title": 0,
    "conf_w_now": 2,
    "conf_l_now": 2,
-   "proj_conf_w": 2.18,
-   "proj_conf_l": 2.82,
-   "proj_wins": 3.52
+   "proj_conf_w": 2.161,
+   "proj_conf_l": 2.839,
+   "proj_wins": 3.161
   },
   {
    "slug": "delaware",
    "conference": "CUSA",
    "make_ccg": 0,
    "conf_title": 0,
-   "conf_w_now": 2,
+   "conf_w_now": 3,
    "conf_l_now": 3,
-   "proj_conf_w": 3.722,
-   "proj_conf_l": 4.278,
-   "proj_wins": 5.722
+   "proj_conf_w": 4.159,
+   "proj_conf_l": 3.841,
+   "proj_wins": 6.159
   },
   {
    "slug": "duke",
    "conference": "ACC",
-   "make_ccg": 1.94,
-   "conf_title": 0.47,
+   "make_ccg": 0,
+   "conf_title": 0,
    "conf_w_now": 4,
-   "conf_l_now": 2,
-   "proj_conf_w": 5.173,
-   "proj_conf_l": 3.827,
-   "proj_wins": 8.178
+   "conf_l_now": 3,
+   "proj_conf_w": 5.034,
+   "proj_conf_l": 3.966,
+   "proj_wins": 8.034
   },
   {
    "slug": "east-carolina",
    "conference": "American",
-   "make_ccg": 1.49,
-   "conf_title": 0.45,
-   "conf_w_now": 3,
+   "make_ccg": 0.57,
+   "conf_title": 0.22,
+   "conf_w_now": 4,
    "conf_l_now": 2,
-   "proj_conf_w": 4.703,
-   "proj_conf_l": 3.297,
-   "proj_wins": 6.708
+   "proj_conf_w": 5.014,
+   "proj_conf_l": 2.986,
+   "proj_wins": 7.016
   },
   {
    "slug": "eastern-michigan",
@@ -327,9 +327,9 @@
    "conf_title": 0,
    "conf_w_now": 3,
    "conf_l_now": 3,
-   "proj_conf_w": 3.779,
-   "proj_conf_l": 4.221,
-   "proj_wins": 4.779
+   "proj_conf_w": 3.78,
+   "proj_conf_l": 4.22,
+   "proj_wins": 4.78
   },
   {
    "slug": "fiu",
@@ -337,43 +337,43 @@
    "make_ccg": 0,
    "conf_title": 0,
    "conf_w_now": 2,
-   "conf_l_now": 3,
-   "proj_conf_w": 3.64,
-   "proj_conf_l": 4.36,
-   "proj_wins": 5.64
+   "conf_l_now": 4,
+   "proj_conf_w": 3.22,
+   "proj_conf_l": 4.78,
+   "proj_wins": 5.22
   },
   {
    "slug": "florida",
    "conference": "SEC",
    "make_ccg": 0,
    "conf_title": 0,
-   "conf_w_now": 3,
+   "conf_w_now": 4,
    "conf_l_now": 4,
-   "proj_conf_w": 4.173,
-   "proj_conf_l": 4.827,
-   "proj_wins": 6.697
+   "proj_conf_w": 4.769,
+   "proj_conf_l": 4.231,
+   "proj_wins": 7.306
   },
   {
    "slug": "florida-atlantic",
    "conference": "American",
-   "make_ccg": 0.63,
-   "conf_title": 0.29,
+   "make_ccg": 0,
+   "conf_title": 0,
    "conf_w_now": 3,
-   "conf_l_now": 2,
-   "proj_conf_w": 4.263,
-   "proj_conf_l": 3.737,
-   "proj_wins": 7.266
+   "conf_l_now": 3,
+   "proj_conf_w": 3.891,
+   "proj_conf_l": 4.109,
+   "proj_wins": 6.891
   },
   {
    "slug": "florida-state",
    "conference": "ACC",
    "make_ccg": 0,
    "conf_title": 0,
-   "conf_w_now": 2,
+   "conf_w_now": 3,
    "conf_l_now": 4,
-   "proj_conf_w": 3.159,
-   "proj_conf_l": 4.841,
-   "proj_wins": 5.635
+   "proj_conf_w": 3.727,
+   "proj_conf_l": 4.273,
+   "proj_wins": 6.19
   },
   {
    "slug": "fresno-state",
@@ -382,53 +382,53 @@
    "conf_title": 0,
    "conf_w_now": 1,
    "conf_l_now": 3,
-   "proj_conf_w": 1.82,
-   "proj_conf_l": 3.18,
-   "proj_wins": 6.154
+   "proj_conf_w": 1.839,
+   "proj_conf_l": 3.161,
+   "proj_wins": 5.839
   },
   {
    "slug": "georgia",
    "conference": "SEC",
-   "make_ccg": 97.84,
-   "conf_title": 54.36,
-   "conf_w_now": 6,
+   "make_ccg": 100,
+   "conf_title": 60.01,
+   "conf_w_now": 7,
    "conf_l_now": 1,
-   "proj_conf_w": 7.513,
-   "proj_conf_l": 1.487,
-   "proj_wins": 11.018
+   "proj_conf_w": 7.772,
+   "proj_conf_l": 1.228,
+   "proj_wins": 11.333
   },
   {
    "slug": "georgia-southern",
    "conference": "Sun Belt",
-   "make_ccg": 69.21,
-   "conf_title": 26.29,
-   "conf_w_now": 4,
+   "make_ccg": 86.98,
+   "conf_title": 39.36,
+   "conf_w_now": 5,
    "conf_l_now": 1,
-   "proj_conf_w": 5.122,
-   "proj_conf_l": 1.878,
-   "proj_wins": 6.916
+   "proj_conf_w": 5.635,
+   "proj_conf_l": 1.366,
+   "proj_wins": 7.558
   },
   {
    "slug": "georgia-state",
    "conference": "Sun Belt",
-   "make_ccg": 1.22,
-   "conf_title": 0.34,
+   "make_ccg": 0,
+   "conf_title": 0,
    "conf_w_now": 2,
-   "conf_l_now": 3,
-   "proj_conf_w": 3.394,
-   "proj_conf_l": 4.606,
-   "proj_wins": 6.397
+   "conf_l_now": 4,
+   "proj_conf_w": 2.852,
+   "proj_conf_l": 5.148,
+   "proj_wins": 5.852
   },
   {
    "slug": "georgia-tech",
    "conference": "ACC",
    "make_ccg": 0,
    "conf_title": 0,
-   "conf_w_now": 1,
+   "conf_w_now": 2,
    "conf_l_now": 5,
-   "proj_conf_w": 1.401,
-   "proj_conf_l": 6.599,
-   "proj_wins": 2.439
+   "proj_conf_w": 2.229,
+   "proj_conf_l": 5.771,
+   "proj_wins": 3.268
   },
   {
    "slug": "hawaii",
@@ -436,98 +436,98 @@
    "make_ccg": 0,
    "conf_title": 0,
    "conf_w_now": 0,
-   "conf_l_now": 4,
-   "proj_conf_w": 0.706,
-   "proj_conf_l": 5.294,
-   "proj_wins": 4.496
+   "conf_l_now": 5,
+   "proj_conf_w": 0.366,
+   "proj_conf_l": 5.634,
+   "proj_wins": 4.154
   },
   {
    "slug": "houston",
    "conference": "Big 12",
-   "make_ccg": 7.78,
-   "conf_title": 2.74,
+   "make_ccg": 0,
+   "conf_title": 0,
    "conf_w_now": 4,
-   "conf_l_now": 2,
-   "proj_conf_w": 5.992,
-   "proj_conf_l": 3.008,
-   "proj_wins": 9.02
+   "conf_l_now": 3,
+   "proj_conf_w": 5.243,
+   "proj_conf_l": 3.757,
+   "proj_wins": 8.243
   },
   {
    "slug": "illinois",
    "conference": "Big Ten",
-   "make_ccg": 0.3,
-   "conf_title": 0.09,
+   "make_ccg": 0,
+   "conf_title": 0,
    "conf_w_now": 4,
-   "conf_l_now": 2,
-   "proj_conf_w": 5.008,
-   "proj_conf_l": 3.992,
-   "proj_wins": 7.009
+   "conf_l_now": 3,
+   "proj_conf_w": 4.769,
+   "proj_conf_l": 4.231,
+   "proj_wins": 6.769
   },
   {
    "slug": "indiana",
    "conference": "Big Ten",
-   "make_ccg": 56.61,
-   "conf_title": 29.23,
-   "conf_w_now": 5,
+   "make_ccg": 64.37,
+   "conf_title": 34,
+   "conf_w_now": 6,
    "conf_l_now": 1,
-   "proj_conf_w": 7.148,
-   "proj_conf_l": 1.852,
-   "proj_wins": 10.44
+   "proj_conf_w": 7.476,
+   "proj_conf_l": 1.524,
+   "proj_wins": 10.816
   },
   {
    "slug": "iowa",
    "conference": "Big Ten",
-   "make_ccg": 2.48,
-   "conf_title": 1.13,
-   "conf_w_now": 4,
+   "make_ccg": 0.47,
+   "conf_title": 0.15,
+   "conf_w_now": 5,
    "conf_l_now": 2,
-   "proj_conf_w": 6.025,
-   "proj_conf_l": 2.975,
-   "proj_wins": 9.036
+   "proj_conf_w": 6.181,
+   "proj_conf_l": 2.819,
+   "proj_wins": 9.182
   },
   {
    "slug": "iowa-state",
    "conference": "Big 12",
    "make_ccg": 0,
    "conf_title": 0,
-   "conf_w_now": 2,
+   "conf_w_now": 3,
    "conf_l_now": 4,
-   "proj_conf_w": 3.719,
-   "proj_conf_l": 5.281,
-   "proj_wins": 5.719
+   "proj_conf_w": 4.187,
+   "proj_conf_l": 4.814,
+   "proj_wins": 6.187
   },
   {
    "slug": "jacksonville-state",
    "conference": "CUSA",
-   "make_ccg": 99.85,
-   "conf_title": 28.08,
+   "make_ccg": 100,
+   "conf_title": 28.7,
    "conf_w_now": 5,
-   "conf_l_now": 0,
-   "proj_conf_w": 6.812,
-   "proj_conf_l": 1.188,
-   "proj_wins": 9.093
+   "conf_l_now": 1,
+   "proj_conf_w": 6.187,
+   "proj_conf_l": 1.813,
+   "proj_wins": 8.474
   },
   {
    "slug": "james-madison",
    "conference": "Sun Belt",
-   "make_ccg": 82.04,
-   "conf_title": 56.02,
+   "make_ccg": 61.29,
+   "conf_title": 36.96,
    "conf_w_now": 5,
    "conf_l_now": 2,
-   "proj_conf_w": 5.859,
-   "proj_conf_l": 2.141,
-   "proj_wins": 10.114
+   "proj_conf_w": 5.827,
+   "proj_conf_l": 2.173,
+   "proj_wins": 9.196
   },
   {
    "slug": "kansas",
    "conference": "Big 12",
    "make_ccg": 0,
    "conf_title": 0,
-   "conf_w_now": 1,
+   "conf_w_now": 2,
    "conf_l_now": 5,
-   "proj_conf_w": 1.974,
-   "proj_conf_l": 7.026,
-   "proj_wins": 3.974
+   "proj_conf_w": 2.645,
+   "proj_conf_l": 6.355,
+   "proj_wins": 4.645
   },
   {
    "slug": "kansas-state",
@@ -535,21 +535,21 @@
    "make_ccg": 0,
    "conf_title": 0,
    "conf_w_now": 1,
-   "conf_l_now": 5,
-   "proj_conf_w": 1.947,
-   "proj_conf_l": 7.053,
-   "proj_wins": 4.947
+   "conf_l_now": 6,
+   "proj_conf_w": 1.657,
+   "proj_conf_l": 7.344,
+   "proj_wins": 4.657
   },
   {
    "slug": "kennesaw-state",
    "conference": "CUSA",
    "make_ccg": 0,
    "conf_title": 0,
-   "conf_w_now": 2,
+   "conf_w_now": 3,
    "conf_l_now": 3,
-   "proj_conf_w": 3.521,
-   "proj_conf_l": 4.479,
-   "proj_wins": 4.521
+   "proj_conf_w": 3.963,
+   "proj_conf_l": 4.037,
+   "proj_wins": 4.963
   },
   {
    "slug": "kent-state",
@@ -558,42 +558,42 @@
    "conf_title": 0,
    "conf_w_now": 2,
    "conf_l_now": 4,
-   "proj_conf_w": 2.74,
-   "proj_conf_l": 5.26,
-   "proj_wins": 3.74
+   "proj_conf_w": 2.734,
+   "proj_conf_l": 5.266,
+   "proj_wins": 3.734
   },
   {
    "slug": "kentucky",
    "conference": "SEC",
-   "make_ccg": 3.36,
-   "conf_title": 0.68,
+   "make_ccg": 0,
+   "conf_title": 0,
    "conf_w_now": 5,
-   "conf_l_now": 2,
-   "proj_conf_w": 5.934,
-   "proj_conf_l": 3.066,
-   "proj_wins": 8.481
+   "conf_l_now": 3,
+   "proj_conf_w": 5.332,
+   "proj_conf_l": 3.668,
+   "proj_wins": 7.811
   },
   {
    "slug": "liberty",
    "conference": "CUSA",
-   "make_ccg": 99.94,
-   "conf_title": 71.9,
-   "conf_w_now": 5,
+   "make_ccg": 100,
+   "conf_title": 71.3,
+   "conf_w_now": 6,
    "conf_l_now": 0,
-   "proj_conf_w": 7.562,
-   "proj_conf_l": 0.438,
-   "proj_wins": 11.281
+   "proj_conf_w": 7.621,
+   "proj_conf_l": 0.379,
+   "proj_wins": 11.334
   },
   {
    "slug": "louisiana",
    "conference": "Sun Belt",
-   "make_ccg": 42.42,
-   "conf_title": 15.94,
-   "conf_w_now": 3,
+   "make_ccg": 50.99,
+   "conf_title": 23.43,
+   "conf_w_now": 4,
    "conf_l_now": 1,
-   "proj_conf_w": 4.988,
-   "proj_conf_l": 2.012,
-   "proj_wins": 8.148
+   "proj_conf_w": 5.32,
+   "proj_conf_l": 1.68,
+   "proj_wins": 8.554
   },
   {
    "slug": "louisiana-tech",
@@ -604,51 +604,51 @@
    "conf_l_now": 0,
    "proj_conf_w": 0,
    "proj_conf_l": 0,
-   "proj_wins": 9.108
+   "proj_wins": 9.271
   },
   {
    "slug": "louisville",
    "conference": "ACC",
-   "make_ccg": 34.65,
-   "conf_title": 10.91,
-   "conf_w_now": 5,
+   "make_ccg": 5.96,
+   "conf_title": 1.89,
+   "conf_w_now": 6,
    "conf_l_now": 2,
-   "proj_conf_w": 6.296,
-   "proj_conf_l": 2.704,
-   "proj_wins": 7.865
+   "proj_conf_w": 6.774,
+   "proj_conf_l": 2.226,
+   "proj_wins": 8.314
   },
   {
    "slug": "lsu",
    "conference": "SEC",
-   "make_ccg": 0.15,
-   "conf_title": 0.05,
+   "make_ccg": 0,
+   "conf_title": 0,
    "conf_w_now": 3,
-   "conf_l_now": 3,
-   "proj_conf_w": 4.828,
-   "proj_conf_l": 4.172,
-   "proj_wins": 7.829
+   "conf_l_now": 4,
+   "proj_conf_w": 4.113,
+   "proj_conf_l": 4.887,
+   "proj_wins": 7.113
   },
   {
    "slug": "marshall",
    "conference": "Sun Belt",
-   "make_ccg": 0.62,
-   "conf_title": 0.13,
+   "make_ccg": 0,
+   "conf_title": 0,
    "conf_w_now": 2,
-   "conf_l_now": 3,
-   "proj_conf_w": 3.799,
-   "proj_conf_l": 4.201,
-   "proj_wins": 6.8
+   "conf_l_now": 4,
+   "proj_conf_w": 3.199,
+   "proj_conf_l": 4.801,
+   "proj_wins": 6.199
   },
   {
    "slug": "maryland",
    "conference": "Big Ten",
    "make_ccg": 0,
    "conf_title": 0,
-   "conf_w_now": 1,
+   "conf_w_now": 2,
    "conf_l_now": 5,
-   "proj_conf_w": 1.839,
-   "proj_conf_l": 7.161,
-   "proj_wins": 3.839
+   "proj_conf_w": 2.515,
+   "proj_conf_l": 6.485,
+   "proj_wins": 4.515
   },
   {
    "slug": "massachusetts",
@@ -657,42 +657,42 @@
    "conf_title": 0,
    "conf_w_now": 2,
    "conf_l_now": 4,
-   "proj_conf_w": 2.978,
-   "proj_conf_l": 5.022,
-   "proj_wins": 5.978
+   "proj_conf_w": 2.995,
+   "proj_conf_l": 5.005,
+   "proj_wins": 5.995
   },
   {
    "slug": "memphis",
    "conference": "American",
-   "make_ccg": 75.29,
-   "conf_title": 41.48,
-   "conf_w_now": 4,
+   "make_ccg": 90.91,
+   "conf_title": 53.36,
+   "conf_w_now": 5,
    "conf_l_now": 1,
-   "proj_conf_w": 6.057,
-   "proj_conf_l": 1.943,
-   "proj_wins": 9.472
+   "proj_conf_w": 6.58,
+   "proj_conf_l": 1.42,
+   "proj_wins": 10.113
   },
   {
    "slug": "miami",
    "conference": "ACC",
-   "make_ccg": 99.85,
-   "conf_title": 70.28,
-   "conf_w_now": 6,
+   "make_ccg": 100,
+   "conf_title": 65.47,
+   "conf_w_now": 7,
    "conf_l_now": 0,
-   "proj_conf_w": 8.612,
-   "proj_conf_l": 0.388,
-   "proj_wins": 11.315
+   "proj_conf_w": 8.829,
+   "proj_conf_l": 0.171,
+   "proj_wins": 11.484
   },
   {
    "slug": "miami-oh",
    "conference": "MAC",
-   "make_ccg": 0.04,
-   "conf_title": 0.02,
+   "make_ccg": 0.08,
+   "conf_title": 0.03,
    "conf_w_now": 4,
    "conf_l_now": 2,
-   "proj_conf_w": 4.891,
-   "proj_conf_l": 3.109,
-   "proj_wins": 6.891
+   "proj_conf_w": 4.899,
+   "proj_conf_l": 3.101,
+   "proj_wins": 6.9
   },
   {
    "slug": "michigan",
@@ -700,10 +700,10 @@
    "make_ccg": 0,
    "conf_title": 0,
    "conf_w_now": 2,
-   "conf_l_now": 4,
-   "proj_conf_w": 2.793,
-   "proj_conf_l": 6.207,
-   "proj_wins": 5.793
+   "conf_l_now": 5,
+   "proj_conf_w": 2.553,
+   "proj_conf_l": 6.447,
+   "proj_wins": 5.553
   },
   {
    "slug": "michigan-state",
@@ -711,21 +711,21 @@
    "make_ccg": 0,
    "conf_title": 0,
    "conf_w_now": 1,
-   "conf_l_now": 5,
-   "proj_conf_w": 2.291,
-   "proj_conf_l": 6.709,
-   "proj_wins": 4.291
+   "conf_l_now": 6,
+   "proj_conf_w": 1.843,
+   "proj_conf_l": 7.157,
+   "proj_wins": 3.843
   },
   {
    "slug": "middle-tennessee",
    "conference": "CUSA",
-   "make_ccg": 0.21,
-   "conf_title": 0.02,
+   "make_ccg": 0,
+   "conf_title": 0,
    "conf_w_now": 3,
-   "conf_l_now": 2,
-   "proj_conf_w": 4.302,
-   "proj_conf_l": 3.698,
-   "proj_wins": 6.302
+   "conf_l_now": 3,
+   "proj_conf_w": 4.324,
+   "proj_conf_l": 3.676,
+   "proj_wins": 6.324
   },
   {
    "slug": "minnesota",
@@ -733,10 +733,10 @@
    "make_ccg": 0,
    "conf_title": 0,
    "conf_w_now": 3,
-   "conf_l_now": 3,
-   "proj_conf_w": 3.945,
-   "proj_conf_l": 5.055,
-   "proj_wins": 5.945
+   "conf_l_now": 4,
+   "proj_conf_w": 3.601,
+   "proj_conf_l": 5.4,
+   "proj_wins": 5.601
   },
   {
    "slug": "mississippi-state",
@@ -744,10 +744,10 @@
    "make_ccg": 0,
    "conf_title": 0,
    "conf_w_now": 2,
-   "conf_l_now": 5,
-   "proj_conf_w": 2.757,
-   "proj_conf_l": 6.243,
-   "proj_wins": 5.678
+   "conf_l_now": 6,
+   "proj_conf_w": 2.176,
+   "proj_conf_l": 6.824,
+   "proj_wins": 5.097
   },
   {
    "slug": "missouri",
@@ -755,21 +755,21 @@
    "make_ccg": 0,
    "conf_title": 0,
    "conf_w_now": 3,
-   "conf_l_now": 3,
-   "proj_conf_w": 4.519,
-   "proj_conf_l": 4.481,
-   "proj_wins": 7.519
+   "conf_l_now": 4,
+   "proj_conf_w": 4.311,
+   "proj_conf_l": 4.689,
+   "proj_wins": 7.311
   },
   {
    "slug": "missouri-state",
    "conference": "CUSA",
    "make_ccg": 0,
    "conf_title": 0,
-   "conf_w_now": 2,
+   "conf_w_now": 3,
    "conf_l_now": 3,
-   "proj_conf_w": 3.098,
-   "proj_conf_l": 4.903,
-   "proj_wins": 4.098
+   "proj_conf_w": 3.483,
+   "proj_conf_l": 4.517,
+   "proj_wins": 4.483
   },
   {
    "slug": "navy",
@@ -778,9 +778,9 @@
    "conf_title": 0,
    "conf_w_now": 2,
    "conf_l_now": 4,
-   "proj_conf_w": 2.925,
-   "proj_conf_l": 5.075,
-   "proj_wins": 4.37
+   "proj_conf_w": 2.91,
+   "proj_conf_l": 5.091,
+   "proj_wins": 4.354
   },
   {
    "slug": "nc-state",
@@ -788,21 +788,21 @@
    "make_ccg": 0,
    "conf_title": 0,
    "conf_w_now": 2,
-   "conf_l_now": 4,
-   "proj_conf_w": 3.047,
-   "proj_conf_l": 5.954,
-   "proj_wins": 5.047
+   "conf_l_now": 5,
+   "proj_conf_w": 2.52,
+   "proj_conf_l": 6.48,
+   "proj_wins": 4.52
   },
   {
    "slug": "nebraska",
    "conference": "Big Ten",
    "make_ccg": 0,
    "conf_title": 0,
-   "conf_w_now": 2,
+   "conf_w_now": 3,
    "conf_l_now": 4,
-   "proj_conf_w": 3.534,
-   "proj_conf_l": 5.466,
-   "proj_wins": 6.534
+   "proj_conf_w": 3.815,
+   "proj_conf_l": 5.185,
+   "proj_wins": 6.815
   },
   {
    "slug": "nevada",
@@ -811,20 +811,20 @@
    "conf_title": 0,
    "conf_w_now": 1,
    "conf_l_now": 3,
-   "proj_conf_w": 1.908,
-   "proj_conf_l": 4.092,
-   "proj_wins": 4.54
+   "proj_conf_w": 1.942,
+   "proj_conf_l": 4.058,
+   "proj_wins": 4.942
   },
   {
    "slug": "new-mexico",
    "conference": "Mountain West",
-   "make_ccg": 90.51,
-   "conf_title": 28.64,
+   "make_ccg": 86.47,
+   "conf_title": 26.42,
    "conf_w_now": 4,
-   "conf_l_now": 0,
-   "proj_conf_w": 6.276,
-   "proj_conf_l": 0.724,
-   "proj_wins": 10.562
+   "conf_l_now": 1,
+   "proj_conf_w": 5.433,
+   "proj_conf_l": 1.567,
+   "proj_wins": 9.698
   },
   {
    "slug": "new-mexico-state",
@@ -832,10 +832,10 @@
    "make_ccg": 0,
    "conf_title": 0,
    "conf_w_now": 2,
-   "conf_l_now": 3,
-   "proj_conf_w": 3.117,
-   "proj_conf_l": 4.883,
-   "proj_wins": 4.117
+   "conf_l_now": 4,
+   "proj_conf_w": 2.692,
+   "proj_conf_l": 5.308,
+   "proj_wins": 3.692
   },
   {
    "slug": "north-carolina",
@@ -843,32 +843,32 @@
    "make_ccg": 0,
    "conf_title": 0,
    "conf_w_now": 2,
-   "conf_l_now": 3,
-   "proj_conf_w": 3.751,
-   "proj_conf_l": 4.249,
-   "proj_wins": 6.751
+   "conf_l_now": 4,
+   "proj_conf_w": 3.27,
+   "proj_conf_l": 4.731,
+   "proj_wins": 6.27
   },
   {
    "slug": "north-dakota-state",
    "conference": "Mountain West",
-   "make_ccg": 0.22,
-   "conf_title": 0.06,
-   "conf_w_now": 3,
+   "make_ccg": 5.23,
+   "conf_title": 1.3,
+   "conf_w_now": 4,
    "conf_l_now": 2,
-   "proj_conf_w": 4.342,
-   "proj_conf_l": 2.658,
-   "proj_wins": 9.243
+   "proj_conf_w": 4.698,
+   "proj_conf_l": 2.302,
+   "proj_wins": 9.625
   },
   {
    "slug": "north-texas",
    "conference": "American",
-   "make_ccg": 87.69,
-   "conf_title": 41.97,
+   "make_ccg": 40.4,
+   "conf_title": 16.53,
    "conf_w_now": 5,
-   "conf_l_now": 0,
-   "proj_conf_w": 6.834,
-   "proj_conf_l": 1.167,
-   "proj_wins": 9.253
+   "conf_l_now": 1,
+   "proj_conf_w": 6.318,
+   "proj_conf_l": 1.682,
+   "proj_wins": 8.483
   },
   {
    "slug": "northern-illinois",
@@ -879,7 +879,7 @@
    "conf_l_now": 0,
    "proj_conf_w": 0,
    "proj_conf_l": 0,
-   "proj_wins": 1.083
+   "proj_wins": 0.684
   },
   {
    "slug": "northwestern",
@@ -887,10 +887,10 @@
    "make_ccg": 0,
    "conf_title": 0,
    "conf_w_now": 3,
-   "conf_l_now": 3,
-   "proj_conf_w": 4.562,
-   "proj_conf_l": 4.438,
-   "proj_wins": 7.562
+   "conf_l_now": 4,
+   "proj_conf_w": 4.335,
+   "proj_conf_l": 4.665,
+   "proj_wins": 7.335
   },
   {
    "slug": "notre-dame",
@@ -901,51 +901,51 @@
    "conf_l_now": 0,
    "proj_conf_w": 0,
    "proj_conf_l": 0,
-   "proj_wins": 10.559
+   "proj_wins": 10.668
   },
   {
    "slug": "ohio",
    "conference": "MAC",
-   "make_ccg": 28.6,
-   "conf_title": 11.04,
+   "make_ccg": 27.97,
+   "conf_title": 11.07,
    "conf_w_now": 5,
    "conf_l_now": 1,
-   "proj_conf_w": 6.286,
-   "proj_conf_l": 1.714,
-   "proj_wins": 8.396
+   "proj_conf_w": 6.27,
+   "proj_conf_l": 1.73,
+   "proj_wins": 8.38
   },
   {
    "slug": "ohio-state",
    "conference": "Big Ten",
-   "make_ccg": 27.57,
-   "conf_title": 15.27,
-   "conf_w_now": 4,
+   "make_ccg": 25.84,
+   "conf_title": 14.82,
+   "conf_w_now": 5,
    "conf_l_now": 2,
-   "proj_conf_w": 6.126,
-   "proj_conf_l": 2.874,
-   "proj_wins": 8.279
+   "proj_conf_w": 6.385,
+   "proj_conf_l": 2.615,
+   "proj_wins": 8.533
   },
   {
    "slug": "oklahoma",
    "conference": "SEC",
    "make_ccg": 0,
    "conf_title": 0,
-   "conf_w_now": 3,
+   "conf_w_now": 4,
    "conf_l_now": 3,
-   "proj_conf_w": 4.316,
-   "proj_conf_l": 4.684,
-   "proj_wins": 6.316
+   "proj_conf_w": 4.934,
+   "proj_conf_l": 4.067,
+   "proj_wins": 6.934
   },
   {
    "slug": "oklahoma-state",
    "conference": "Big 12",
-   "make_ccg": 5.91,
-   "conf_title": 2.14,
+   "make_ccg": 0,
+   "conf_title": 0,
    "conf_w_now": 4,
-   "conf_l_now": 2,
-   "proj_conf_w": 5.907,
-   "proj_conf_l": 3.093,
-   "proj_wins": 7.928
+   "conf_l_now": 3,
+   "proj_conf_w": 5.216,
+   "proj_conf_l": 3.784,
+   "proj_wins": 7.216
   },
   {
    "slug": "old-dominion",
@@ -954,31 +954,31 @@
    "conf_title": 0,
    "conf_w_now": 2,
    "conf_l_now": 4,
-   "proj_conf_w": 2.622,
-   "proj_conf_l": 4.378,
-   "proj_wins": 3.917
+   "proj_conf_w": 2.606,
+   "proj_conf_l": 4.394,
+   "proj_wins": 3.84
   },
   {
    "slug": "ole-miss",
    "conference": "SEC",
-   "make_ccg": 0.02,
+   "make_ccg": 0,
    "conf_title": 0,
    "conf_w_now": 4,
-   "conf_l_now": 3,
-   "proj_conf_w": 5.365,
-   "proj_conf_l": 3.635,
-   "proj_wins": 8.286
+   "conf_l_now": 4,
+   "proj_conf_w": 4.824,
+   "proj_conf_l": 4.176,
+   "proj_wins": 7.744
   },
   {
    "slug": "oregon",
    "conference": "Big Ten",
-   "make_ccg": 25.65,
-   "conf_title": 14.21,
-   "conf_w_now": 4,
+   "make_ccg": 18.68,
+   "conf_title": 10.37,
+   "conf_w_now": 5,
    "conf_l_now": 2,
-   "proj_conf_w": 6.339,
-   "proj_conf_l": 2.661,
-   "proj_wins": 8.481
+   "proj_conf_w": 6.558,
+   "proj_conf_l": 2.442,
+   "proj_wins": 8.662
   },
   {
    "slug": "oregon-state",
@@ -989,18 +989,18 @@
    "conf_l_now": 0,
    "proj_conf_w": 1,
    "proj_conf_l": 0,
-   "proj_wins": 5.79
+   "proj_wins": 5.666
   },
   {
    "slug": "penn-state",
    "conference": "Big Ten",
    "make_ccg": 0,
    "conf_title": 0,
-   "conf_w_now": 2,
+   "conf_w_now": 3,
    "conf_l_now": 4,
-   "proj_conf_w": 4.257,
-   "proj_conf_l": 4.743,
-   "proj_wins": 7.257
+   "proj_conf_w": 4.543,
+   "proj_conf_l": 4.457,
+   "proj_wins": 7.543
   },
   {
    "slug": "pittsburgh",
@@ -1008,10 +1008,10 @@
    "make_ccg": 0,
    "conf_title": 0,
    "conf_w_now": 3,
-   "conf_l_now": 3,
-   "proj_conf_w": 4.499,
-   "proj_conf_l": 4.501,
-   "proj_wins": 7.499
+   "conf_l_now": 4,
+   "proj_conf_w": 3.891,
+   "proj_conf_l": 5.109,
+   "proj_wins": 6.891
   },
   {
    "slug": "purdue",
@@ -1019,10 +1019,10 @@
    "make_ccg": 0,
    "conf_title": 0,
    "conf_w_now": 2,
-   "conf_l_now": 4,
-   "proj_conf_w": 2.753,
-   "proj_conf_l": 6.247,
-   "proj_wins": 3.753
+   "conf_l_now": 5,
+   "proj_conf_w": 2.59,
+   "proj_conf_l": 6.41,
+   "proj_wins": 3.59
   },
   {
    "slug": "rice",
@@ -1030,10 +1030,10 @@
    "make_ccg": 0,
    "conf_title": 0,
    "conf_w_now": 0,
-   "conf_l_now": 5,
-   "proj_conf_w": 1.376,
-   "proj_conf_l": 6.624,
-   "proj_wins": 2.376
+   "conf_l_now": 6,
+   "proj_conf_w": 0.879,
+   "proj_conf_l": 7.121,
+   "proj_wins": 1.879
   },
   {
    "slug": "rutgers",
@@ -1041,10 +1041,10 @@
    "make_ccg": 0,
    "conf_title": 0,
    "conf_w_now": 1,
-   "conf_l_now": 5,
-   "proj_conf_w": 1.771,
-   "proj_conf_l": 7.229,
-   "proj_wins": 2.771
+   "conf_l_now": 6,
+   "proj_conf_w": 1.512,
+   "proj_conf_l": 7.488,
+   "proj_wins": 2.512
   },
   {
    "slug": "sacramento-state",
@@ -1055,7 +1055,7 @@
    "conf_l_now": 7,
    "proj_conf_w": 1,
    "proj_conf_l": 7,
-   "proj_wins": 2.21
+   "proj_wins": 2.212
   },
   {
    "slug": "sam-houston",
@@ -1063,21 +1063,21 @@
    "make_ccg": 0,
    "conf_title": 0,
    "conf_w_now": 0,
-   "conf_l_now": 5,
-   "proj_conf_w": 1.073,
-   "proj_conf_l": 6.928,
-   "proj_wins": 2.073
+   "conf_l_now": 6,
+   "proj_conf_w": 0.582,
+   "proj_conf_l": 7.418,
+   "proj_wins": 1.582
   },
   {
    "slug": "san-diego-state",
    "conference": "Mountain West",
-   "make_ccg": 0.65,
-   "conf_title": 0.09,
-   "conf_w_now": 1,
+   "make_ccg": 6.32,
+   "conf_title": 1.12,
+   "conf_w_now": 2,
    "conf_l_now": 1,
-   "proj_conf_w": 1.564,
-   "proj_conf_l": 2.436,
-   "proj_wins": 4.565
+   "proj_conf_w": 2.135,
+   "proj_conf_l": 1.865,
+   "proj_wins": 5.147
   },
   {
    "slug": "san-jose-state",
@@ -1085,43 +1085,43 @@
    "make_ccg": 0,
    "conf_title": 0,
    "conf_w_now": 1,
-   "conf_l_now": 4,
-   "proj_conf_w": 2.14,
-   "proj_conf_l": 5.86,
-   "proj_wins": 6.14
+   "conf_l_now": 5,
+   "proj_conf_w": 1.7,
+   "proj_conf_l": 6.3,
+   "proj_wins": 5.7
   },
   {
    "slug": "smu",
    "conference": "ACC",
-   "make_ccg": 10.46,
-   "conf_title": 2.69,
+   "make_ccg": 0,
+   "conf_title": 0,
    "conf_w_now": 5,
-   "conf_l_now": 2,
-   "proj_conf_w": 6.256,
-   "proj_conf_l": 2.744,
-   "proj_wins": 8.477
+   "conf_l_now": 3,
+   "proj_conf_w": 5.616,
+   "proj_conf_l": 3.384,
+   "proj_wins": 7.78
   },
   {
    "slug": "south-alabama",
    "conference": "Sun Belt",
-   "make_ccg": 2.29,
-   "conf_title": 0.79,
-   "conf_w_now": 2,
+   "make_ccg": 0.74,
+   "conf_title": 0.25,
+   "conf_w_now": 3,
    "conf_l_now": 2,
-   "proj_conf_w": 3.794,
-   "proj_conf_l": 3.206,
-   "proj_wins": 5.802
+   "proj_conf_w": 4.215,
+   "proj_conf_l": 2.785,
+   "proj_wins": 6.217
   },
   {
    "slug": "south-carolina",
    "conference": "SEC",
-   "make_ccg": 0.02,
+   "make_ccg": 0,
    "conf_title": 0,
    "conf_w_now": 4,
-   "conf_l_now": 3,
-   "proj_conf_w": 4.94,
-   "proj_conf_l": 4.06,
-   "proj_wins": 7.463
+   "conf_l_now": 4,
+   "proj_conf_w": 4.228,
+   "proj_conf_l": 4.772,
+   "proj_wins": 6.75
   },
   {
    "slug": "southern-miss",
@@ -1130,42 +1130,42 @@
    "conf_title": 0,
    "conf_w_now": 2,
    "conf_l_now": 3,
-   "proj_conf_w": 2.82,
-   "proj_conf_l": 4.18,
-   "proj_wins": 3.973
+   "proj_conf_w": 2.819,
+   "proj_conf_l": 4.181,
+   "proj_wins": 3.819
   },
   {
    "slug": "stanford",
    "conference": "ACC",
    "make_ccg": 0,
    "conf_title": 0,
-   "conf_w_now": 2,
+   "conf_w_now": 3,
    "conf_l_now": 4,
-   "proj_conf_w": 2.948,
-   "proj_conf_l": 6.052,
-   "proj_wins": 4.948
+   "proj_conf_w": 3.921,
+   "proj_conf_l": 5.079,
+   "proj_wins": 5.921
   },
   {
    "slug": "syracuse",
    "conference": "ACC",
    "make_ccg": 0,
    "conf_title": 0,
-   "conf_w_now": 2,
+   "conf_w_now": 3,
    "conf_l_now": 5,
-   "proj_conf_w": 2.907,
-   "proj_conf_l": 6.093,
-   "proj_wins": 5.078
+   "proj_conf_w": 3.466,
+   "proj_conf_l": 5.534,
+   "proj_wins": 5.633
   },
   {
    "slug": "tcu",
    "conference": "Big 12",
    "make_ccg": 0,
    "conf_title": 0,
-   "conf_w_now": 2,
+   "conf_w_now": 3,
    "conf_l_now": 4,
-   "proj_conf_w": 3.31,
-   "proj_conf_l": 5.69,
-   "proj_wins": 5.31
+   "proj_conf_w": 3.576,
+   "proj_conf_l": 5.424,
+   "proj_wins": 5.576
   },
   {
    "slug": "temple",
@@ -1173,32 +1173,32 @@
    "make_ccg": 0,
    "conf_title": 0,
    "conf_w_now": 1,
-   "conf_l_now": 4,
-   "proj_conf_w": 2.253,
-   "proj_conf_l": 5.747,
-   "proj_wins": 3.253
+   "conf_l_now": 5,
+   "proj_conf_w": 1.682,
+   "proj_conf_l": 6.318,
+   "proj_wins": 2.682
   },
   {
    "slug": "tennessee",
    "conference": "SEC",
-   "make_ccg": 5.43,
-   "conf_title": 1.85,
-   "conf_w_now": 4,
+   "make_ccg": 3.75,
+   "conf_title": 1.3,
+   "conf_w_now": 5,
    "conf_l_now": 2,
-   "proj_conf_w": 5.873,
-   "proj_conf_l": 3.127,
-   "proj_wins": 8.891
+   "proj_conf_w": 6.376,
+   "proj_conf_l": 2.625,
+   "proj_wins": 9.389
   },
   {
    "slug": "texas",
    "conference": "SEC",
-   "make_ccg": 7.25,
-   "conf_title": 2.7,
-   "conf_w_now": 4,
+   "make_ccg": 9.51,
+   "conf_title": 3.27,
+   "conf_w_now": 5,
    "conf_l_now": 2,
-   "proj_conf_w": 5.903,
-   "proj_conf_l": 3.097,
-   "proj_wins": 8.93
+   "proj_conf_w": 6.488,
+   "proj_conf_l": 2.512,
+   "proj_wins": 9.521
   },
   {
    "slug": "texas-am",
@@ -1206,10 +1206,10 @@
    "make_ccg": 0,
    "conf_title": 0,
    "conf_w_now": 1,
-   "conf_l_now": 5,
-   "proj_conf_w": 2.267,
-   "proj_conf_l": 6.733,
-   "proj_wins": 5.267
+   "conf_l_now": 6,
+   "proj_conf_w": 1.788,
+   "proj_conf_l": 7.212,
+   "proj_wins": 4.788
   },
   {
    "slug": "texas-state",
@@ -1220,73 +1220,73 @@
    "conf_l_now": 0,
    "proj_conf_w": 0,
    "proj_conf_l": 0,
-   "proj_wins": 6.483
+   "proj_wins": 6.792
   },
   {
    "slug": "texas-tech",
    "conference": "Big 12",
-   "make_ccg": 64.15,
-   "conf_title": 25.42,
-   "conf_w_now": 5,
+   "make_ccg": 93.79,
+   "conf_title": 38.72,
+   "conf_w_now": 6,
    "conf_l_now": 1,
-   "proj_conf_w": 6.674,
-   "proj_conf_l": 2.326,
-   "proj_wins": 9.928
+   "proj_conf_w": 7.285,
+   "proj_conf_l": 1.715,
+   "proj_wins": 10.672
   },
   {
    "slug": "toledo",
    "conference": "MAC",
-   "make_ccg": 50.33,
-   "conf_title": 23.29,
+   "make_ccg": 51.53,
+   "conf_title": 24.68,
    "conf_w_now": 5,
    "conf_l_now": 1,
-   "proj_conf_w": 6.289,
-   "proj_conf_l": 1.711,
-   "proj_wins": 9.522
+   "proj_conf_w": 6.291,
+   "proj_conf_l": 1.709,
+   "proj_wins": 9.538
   },
   {
    "slug": "troy",
    "conference": "Sun Belt",
-   "make_ccg": 1.37,
-   "conf_title": 0.39,
+   "make_ccg": 0,
+   "conf_title": 0,
    "conf_w_now": 2,
-   "conf_l_now": 2,
-   "proj_conf_w": 3.222,
-   "proj_conf_l": 3.778,
-   "proj_wins": 5.226
+   "conf_l_now": 3,
+   "proj_conf_w": 2.769,
+   "proj_conf_l": 4.231,
+   "proj_wins": 4.769
   },
   {
    "slug": "tulane",
    "conference": "American",
    "make_ccg": 0,
    "conf_title": 0,
-   "conf_w_now": 2,
+   "conf_w_now": 3,
    "conf_l_now": 3,
-   "proj_conf_w": 3.137,
-   "proj_conf_l": 4.863,
-   "proj_wins": 5.137
+   "proj_conf_w": 3.712,
+   "proj_conf_l": 4.288,
+   "proj_wins": 5.712
   },
   {
    "slug": "tulsa",
    "conference": "American",
-   "make_ccg": 0.03,
-   "conf_title": 0.02,
-   "conf_w_now": 2,
+   "make_ccg": 0,
+   "conf_title": 0,
+   "conf_w_now": 3,
    "conf_l_now": 3,
-   "proj_conf_w": 3.825,
-   "proj_conf_l": 4.175,
-   "proj_wins": 6.825
+   "proj_conf_w": 4.183,
+   "proj_conf_l": 3.817,
+   "proj_wins": 7.183
   },
   {
    "slug": "uab",
    "conference": "American",
-   "make_ccg": 0.53,
-   "conf_title": 0.19,
-   "conf_w_now": 3,
+   "make_ccg": 0.79,
+   "conf_title": 0.21,
+   "conf_w_now": 4,
    "conf_l_now": 2,
-   "proj_conf_w": 4.084,
-   "proj_conf_l": 3.916,
-   "proj_wins": 6.086
+   "proj_conf_w": 4.669,
+   "proj_conf_l": 3.331,
+   "proj_wins": 6.672
   },
   {
    "slug": "ucf",
@@ -1294,21 +1294,21 @@
    "make_ccg": 0,
    "conf_title": 0,
    "conf_w_now": 3,
-   "conf_l_now": 3,
-   "proj_conf_w": 4.719,
-   "proj_conf_l": 4.281,
-   "proj_wins": 6.719
+   "conf_l_now": 4,
+   "proj_conf_w": 3.948,
+   "proj_conf_l": 5.052,
+   "proj_wins": 5.948
   },
   {
    "slug": "ucla",
    "conference": "Big Ten",
-   "make_ccg": 84.83,
-   "conf_title": 39.08,
-   "conf_w_now": 6,
+   "make_ccg": 90.64,
+   "conf_title": 40.66,
+   "conf_w_now": 7,
    "conf_l_now": 0,
-   "proj_conf_w": 8.03,
-   "proj_conf_l": 0.97,
-   "proj_wins": 11.421
+   "proj_conf_w": 8.288,
+   "proj_conf_l": 0.712,
+   "proj_wins": 11.694
   },
   {
    "slug": "uconn",
@@ -1319,73 +1319,73 @@
    "conf_l_now": 0,
    "proj_conf_w": 0,
    "proj_conf_l": 0,
-   "proj_wins": 5.48
+   "proj_wins": 6.296
   },
   {
    "slug": "ul-monroe",
    "conference": "Sun Belt",
-   "make_ccg": 0.41,
-   "conf_title": 0.04,
+   "make_ccg": 0,
+   "conf_title": 0,
    "conf_w_now": 2,
-   "conf_l_now": 2,
-   "proj_conf_w": 2.888,
-   "proj_conf_l": 4.112,
-   "proj_wins": 2.889
+   "conf_l_now": 3,
+   "proj_conf_w": 2.609,
+   "proj_conf_l": 4.391,
+   "proj_wins": 2.609
   },
   {
    "slug": "unlv",
    "conference": "Mountain West",
-   "make_ccg": 0.11,
-   "conf_title": 0.02,
-   "conf_w_now": 2,
+   "make_ccg": 0.79,
+   "conf_title": 0.22,
+   "conf_w_now": 3,
    "conf_l_now": 2,
-   "proj_conf_w": 3.488,
-   "proj_conf_l": 3.512,
-   "proj_wins": 6.488
+   "proj_conf_w": 4.294,
+   "proj_conf_l": 2.706,
+   "proj_wins": 7.296
   },
   {
    "slug": "usc",
    "conference": "Big Ten",
-   "make_ccg": 1.45,
-   "conf_title": 0.54,
+   "make_ccg": 0,
+   "conf_title": 0,
    "conf_w_now": 4,
-   "conf_l_now": 2,
-   "proj_conf_w": 5.49,
-   "proj_conf_l": 3.51,
-   "proj_wins": 8.496
+   "conf_l_now": 3,
+   "proj_conf_w": 5.153,
+   "proj_conf_l": 3.847,
+   "proj_wins": 8.153
   },
   {
    "slug": "usf",
    "conference": "American",
-   "make_ccg": 0.02,
-   "conf_title": 0.01,
+   "make_ccg": 0,
+   "conf_title": 0,
    "conf_w_now": 2,
-   "conf_l_now": 3,
-   "proj_conf_w": 3.711,
-   "proj_conf_l": 4.29,
-   "proj_wins": 7.711
+   "conf_l_now": 4,
+   "proj_conf_w": 3.214,
+   "proj_conf_l": 4.786,
+   "proj_wins": 7.214
   },
   {
    "slug": "utah",
    "conference": "Big 12",
-   "make_ccg": 98.71,
-   "conf_title": 60.43,
-   "conf_w_now": 6,
+   "make_ccg": 100,
+   "conf_title": 59.06,
+   "conf_w_now": 7,
    "conf_l_now": 0,
-   "proj_conf_w": 8.116,
-   "proj_conf_l": 0.884,
-   "proj_wins": 11.72
+   "proj_conf_w": 8.57,
+   "proj_conf_l": 0.43,
+   "proj_wins": 12.16
   },
   {
    "slug": "utah-state",
    "conference": "Mountain West",
-   "make_ccg": 8.35,
-   "conf_title": 2.1,
+   "make_ccg": 0,
+   "conf_title": 0,
    "conf_w_now": 2,
-   "conf_l_now": 1,
-   "proj_conf_w": 2.546,
-   "proj_conf_l": 1.454,
-   "proj_wins": 4.962
+   "conf_l_now": 2,
+   "proj_conf_w": 2,
+   "proj_conf_l": 2,
+   "proj_wins": 4.335
   },
   {
    "slug": "utep",
@@ -1396,18 +1396,18 @@
    "conf_l_now": 0,
    "proj_conf_w": 0,
    "proj_conf_l": 0,
-   "proj_wins": 1.891
+   "proj_wins": 1.554
   },
   {
    "slug": "utsa",
    "conference": "American",
-   "make_ccg": 31.66,
-   "conf_title": 14.72,
-   "conf_w_now": 4,
+   "make_ccg": 66.7,
+   "conf_title": 29.51,
+   "conf_w_now": 5,
    "conf_l_now": 1,
-   "proj_conf_w": 5.844,
-   "proj_conf_l": 2.156,
-   "proj_wins": 8.991
+   "proj_conf_w": 6.256,
+   "proj_conf_l": 1.744,
+   "proj_wins": 9.551
   },
   {
    "slug": "vanderbilt",
@@ -1415,21 +1415,21 @@
    "make_ccg": 0,
    "conf_title": 0,
    "conf_w_now": 1,
-   "conf_l_now": 5,
-   "proj_conf_w": 1.613,
-   "proj_conf_l": 7.387,
-   "proj_wins": 4.613
+   "conf_l_now": 6,
+   "proj_conf_w": 1.451,
+   "proj_conf_l": 7.549,
+   "proj_wins": 4.451
   },
   {
    "slug": "virginia",
    "conference": "ACC",
    "make_ccg": 0,
    "conf_title": 0,
-   "conf_w_now": 2,
+   "conf_w_now": 3,
    "conf_l_now": 4,
-   "proj_conf_w": 3.546,
-   "proj_conf_l": 5.454,
-   "proj_wins": 5.546
+   "proj_conf_w": 3.935,
+   "proj_conf_l": 5.065,
+   "proj_wins": 5.935
   },
   {
    "slug": "virginia-tech",
@@ -1437,32 +1437,32 @@
    "make_ccg": 0,
    "conf_title": 0,
    "conf_w_now": 3,
-   "conf_l_now": 3,
-   "proj_conf_w": 4.526,
-   "proj_conf_l": 4.474,
-   "proj_wins": 7.526
+   "conf_l_now": 4,
+   "proj_conf_w": 3.646,
+   "proj_conf_l": 5.354,
+   "proj_wins": 6.646
   },
   {
    "slug": "wake-forest",
    "conference": "ACC",
-   "make_ccg": 50.94,
-   "conf_title": 15.17,
-   "conf_w_now": 5,
+   "make_ccg": 94.04,
+   "conf_title": 32.64,
+   "conf_w_now": 6,
    "conf_l_now": 1,
-   "proj_conf_w": 6.877,
-   "proj_conf_l": 2.123,
-   "proj_wins": 10.028
+   "proj_conf_w": 7.437,
+   "proj_conf_l": 1.563,
+   "proj_wins": 10.763
   },
   {
    "slug": "washington",
    "conference": "Big Ten",
    "make_ccg": 0,
    "conf_title": 0,
-   "conf_w_now": 2,
+   "conf_w_now": 3,
    "conf_l_now": 4,
-   "proj_conf_w": 3.131,
-   "proj_conf_l": 5.869,
-   "proj_wins": 6.131
+   "proj_conf_w": 3.588,
+   "proj_conf_l": 5.412,
+   "proj_wins": 6.588
   },
   {
    "slug": "washington-state",
@@ -1473,7 +1473,7 @@
    "conf_l_now": 1,
    "proj_conf_w": 0,
    "proj_conf_l": 1,
-   "proj_wins": 1.843
+   "proj_wins": 2.208
   },
   {
    "slug": "west-virginia",
@@ -1481,54 +1481,54 @@
    "make_ccg": 0,
    "conf_title": 0,
    "conf_w_now": 2,
-   "conf_l_now": 4,
-   "proj_conf_w": 3.071,
-   "proj_conf_l": 5.929,
-   "proj_wins": 6.071
+   "conf_l_now": 5,
+   "proj_conf_w": 2.45,
+   "proj_conf_l": 6.55,
+   "proj_wins": 5.45
   },
   {
    "slug": "western-kentucky",
    "conference": "CUSA",
    "make_ccg": 0,
    "conf_title": 0,
-   "conf_w_now": 2,
+   "conf_w_now": 3,
    "conf_l_now": 3,
-   "proj_conf_w": 3.153,
-   "proj_conf_l": 4.847,
-   "proj_wins": 4.153
+   "proj_conf_w": 3.768,
+   "proj_conf_l": 4.232,
+   "proj_wins": 4.768
   },
   {
    "slug": "western-michigan",
    "conference": "MAC",
-   "make_ccg": 84.23,
-   "conf_title": 51.13,
+   "make_ccg": 84.21,
+   "conf_title": 50.01,
    "conf_w_now": 5,
    "conf_l_now": 1,
-   "proj_conf_w": 6.591,
-   "proj_conf_l": 1.41,
-   "proj_wins": 9.102
+   "proj_conf_w": 6.587,
+   "proj_conf_l": 1.413,
+   "proj_wins": 9.087
   },
   {
    "slug": "wisconsin",
    "conference": "Big Ten",
-   "make_ccg": 1.11,
-   "conf_title": 0.45,
+   "make_ccg": 0,
+   "conf_title": 0,
    "conf_w_now": 4,
-   "conf_l_now": 2,
-   "proj_conf_w": 5.958,
-   "proj_conf_l": 3.042,
-   "proj_wins": 7.962
+   "conf_l_now": 3,
+   "proj_conf_w": 5.298,
+   "proj_conf_l": 3.702,
+   "proj_wins": 7.298
   },
   {
    "slug": "wyoming",
    "conference": "Mountain West",
-   "make_ccg": 0.16,
-   "conf_title": 0.01,
+   "make_ccg": 1.19,
+   "conf_title": 0.14,
    "conf_w_now": 4,
    "conf_l_now": 2,
-   "proj_conf_w": 4.3,
-   "proj_conf_l": 2.701,
-   "proj_wins": 7.501
+   "proj_conf_w": 4.333,
+   "proj_conf_l": 2.667,
+   "proj_wins": 7.804
   }
  ]
 }

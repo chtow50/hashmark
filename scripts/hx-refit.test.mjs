@@ -177,7 +177,7 @@ describe("ΔHX /55 step is retired", () => {
 });
 
 describe("2026 FBS newcomers (0093): North Dakota State and Sacramento State", () => {
-  it("are on the board with their FBS games: 17 unrated FINALs in the fit, 4 scheduled, no stub duplicates", async () => {
+  it("are on the board with their FBS games: 17 pre-join unrated FINALs, rated FINALs since the join, no stub duplicates", async () => {
     const db = await replayMigrations();
     const teams = (await db.query("select slug, conference from teams where slug in ('north-dakota-state', 'sacramento-state') order by slug")).rows;
     const games = (await db.query(`
@@ -190,9 +190,14 @@ describe("2026 FBS newcomers (0093): North Dakota State and Sacramento State", (
       { slug: "sacramento-state", conference: "MAC" },
     ]);
     const finals = games.filter((g) => g.status === "final");
-    assert.equal(finals.length, 17);
-    assert.ok(finals.every((g) => g.hx_unrated && g.lock_home_hx == null), "pre-join FINALs carry no pregame HX");
-    assert.equal(games.filter((g) => g.status === "scheduled" && !g.hx_unrated).length, 4);
+    const preJoin = finals.filter((g) => g.hx_unrated);
+    assert.equal(preJoin.length, 17);
+    assert.ok(preJoin.every((g) => g.lock_home_hx == null), "pre-join FINALs carry no pregame HX");
+    // Post-join FINALs are graded like any FBS–FBS game: pregame HX lock frozen by the refit.
+    const rated = finals.filter((g) => !g.hx_unrated);
+    assert.ok(rated.every((g) => g.lock_home_hx != null), "post-join FINALs carry their pregame HX lock");
+    assert.ok(rated.some((g) => g.home === "hawaii" && g.away === "north-dakota-state"), "NDSU @ Hawaiʻi (0100) is a rated FINAL");
+    assert.equal(rated.length + games.filter((g) => g.status === "scheduled" && !g.hx_unrated).length, 4);
     const { FCS_STUB_GAMES } = await import("../src/lib/cfb/fcs-stubs.ts");
     assert.equal(FCS_STUB_GAMES.filter((s) => /^(North Dakota State|Sacramento State)/.test(s.opponentLabel)).length, 0);
     const refitFile = JSON.parse(readFileSync(join(ROOT, REFIT_PATH), "utf8"));

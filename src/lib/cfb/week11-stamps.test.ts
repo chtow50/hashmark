@@ -131,8 +131,8 @@ describe("Week 11 FBS–FBS kick / TV / Vegas (0087)", () => {
   });
 
   it("pins the Week 11 featured Michigan @ Oregon card: Sat 14:30 CT · FS1 · Vegas blank", () => {
-    assert.equal(BOARD_WEEK, 11);
-    assert.equal(FEATURED_SLATE_WEEK, 11);
+    assert.equal(BOARD_WEEK, 12);
+    assert.equal(FEATURED_SLATE_WEEK, 12);
     assert.equal(WEEK11_FEATURED.homeSlug, "oregon");
     assert.equal(WEEK11_FEATURED.awaySlug, "michigan");
     const g = pack.games.find((r) => r.home_slug === "oregon" && r.away_slug === "michigan");
@@ -185,8 +185,8 @@ describe("Week 10 AP Top 25 stamp (0088, Nov. 1)", () => {
     assert.equal(AP_STAMP.asOf, "Nov. 8");
     assert.equal(AP_STAMP.label, "Week 11 AP");
     assert.equal(AP_STAMP.columnHint, "W11 stamp");
-    assert.equal(BOARD_WEEK, 11);
-    assert.equal(FEATURED_SLATE_WEEK, 11);
+    assert.equal(BOARD_WEEK, 12);
+    assert.equal(FEATURED_SLATE_WEEK, 12);
   });
 });
 

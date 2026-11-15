@@ -15,6 +15,7 @@ import {
   WEEK9_FEATURED,
   WEEK10_FEATURED,
   WEEK11_FEATURED,
+  WEEK12_FEATURED,
   featuredBook,
   featuredSlateWeek,
   favoriteLine,
@@ -193,12 +194,12 @@ const beforeThursday = Date.parse("2026-09-01T22:00:00.000Z");
 const afterGtKick = Date.parse("2026-09-04T00:01:00.000Z");
 const fridayAfternoon = Date.parse("2026-09-04T18:00:00.000Z");
 
-test("board chrome is Week 11; featured slate is the Week 11 pin", () => {
-  assert.equal(BOARD_WEEK, 11);
-  assert.equal(FEATURED_SLATE_WEEK, 11);
+test("board chrome is Week 12; featured slate is the Week 12 pin", () => {
+  assert.equal(BOARD_WEEK, 12);
+  assert.equal(FEATURED_SLATE_WEEK, 12);
   assert.equal(MODEL.version, "2026.8");
-  assert.equal(MODEL.week, 11);
-  assert.equal(MODEL.weekLabel, "Week 11 board");
+  assert.equal(MODEL.week, 12);
+  assert.equal(MODEL.weekLabel, "Week 12 board");
 });
 
 test("AP chrome is the last stamped Week 11 poll (Nov. 8); CFP is the Nov. 10 committee ranking", () => {
@@ -206,7 +207,7 @@ test("AP chrome is the last stamped Week 11 poll (Nov. 8); CFP is the Nov. 10 co
   assert.equal(AP_STAMP.asOf, "Nov. 8");
   assert.equal(AP_STAMP.label, "Week 11 AP");
   assert.equal(AP_STAMP.columnHint, "W11 stamp");
-  assert.equal(BOARD_WEEK, 11);
+  assert.equal(BOARD_WEEK, 12);
   assert.match(AP_STAMP.vsHx, /Week 11, Nov\. 8/);
   assert.doesNotMatch(AP_STAMP.lede, /HX is Week/);
   assert.match(AP_STAMP.lede, /last stamped poll \(Week 11, Nov\. 8\)/);
@@ -609,8 +610,8 @@ test("FCS Vegas-only rows are never featured (no invented HX)", () => {
 });
 
 test("Week 5 schedule pin is Pittsburgh @ Virginia Tech; home slate week is 6", () => {
-  assert.equal(BOARD_WEEK, 11);
-  assert.equal(FEATURED_SLATE_WEEK, 11);
+  assert.equal(BOARD_WEEK, 12);
+  assert.equal(FEATURED_SLATE_WEEK, 12);
   assert.equal(WEEK5_FEATURED.homeSlug, "virginia-tech");
   assert.equal(WEEK5_FEATURED.awaySlug, "pittsburgh");
   const wku = game({
@@ -651,8 +652,8 @@ test("Week 5 schedule pin is Pittsburgh @ Virginia Tech; home slate week is 6", 
 });
 
 test("Week 6 schedule pin is Iowa State @ BYU; featured slate week is 6", () => {
-  assert.equal(BOARD_WEEK, 11);
-  assert.equal(FEATURED_SLATE_WEEK, 11);
+  assert.equal(BOARD_WEEK, 12);
+  assert.equal(FEATURED_SLATE_WEEK, 12);
   assert.equal(WEEK6_FEATURED.homeSlug, "byu");
   assert.equal(WEEK6_FEATURED.awaySlug, "iowa-state");
   const usm = game({
@@ -901,7 +902,7 @@ test("home board featured for Week 10 prefers Oregon @ Ohio State over the Tuesd
   assert.equal(selectWeekScopedFeatured(10, [akr, osuFinal]), null);
 });
 
-test("home board featured for Week 11 prefers Michigan @ Oregon over the Tuesday opener", () => {
+test("Week 11 schedule pin stays Michigan @ Oregon (historical); the home desk moved to Week 12", () => {
   const akr = game({
     id: 901,
     week: 11,
@@ -927,16 +928,48 @@ test("home board featured for Week 11 prefers Michigan @ Oregon over the Tuesday
     vegasTotal: null,
     location: "Autzen Stadium",
   });
-  const now = Date.parse("2026-11-08T16:00:00.000Z");
-  assert.equal(selectFeaturedKick([akr, ore], now)?.homeSlug, "akron");
-  const board = selectBoardFeaturedKick([akr, ore], now);
-  assert.equal(board?.homeSlug, "oregon");
-  assert.equal(board?.awaySlug, "michigan");
-  assert.equal(board?.tv, "FS1");
-  // Vegas stays blank: ESPN DraftKings and CBS Sports did not match exactly on the total.
+  assert.equal(selectWeekScopedFeatured(11, [akr, ore])?.homeSlug, "oregon");
+  assert.equal(selectWeekScopedFeatured(11, [akr, ore])?.awaySlug, "michigan");
+  const oreFinal = game({ ...ore, status: "final", homeScore: 1, awayScore: 0 });
+  assert.equal(selectWeekScopedFeatured(11, [akr, oreFinal]), null);
+});
+
+test("home board featured for Week 12 prefers LSU @ Tennessee over the Tuesday opener", () => {
+  const wmu = game({
+    id: 1201,
+    week: 12,
+    homeSlug: "western-michigan",
+    awaySlug: "eastern-michigan",
+    kickoffDate: "2026-11-17",
+    kickoffAt: "2026-11-17T23:00:00.000Z",
+    tv: "ESPN2",
+    vegasSpread: null,
+    vegasTotal: null,
+  });
+  const tenn = game({
+    id: 1202,
+    week: 12,
+    homeSlug: WEEK12_FEATURED.homeSlug,
+    awaySlug: WEEK12_FEATURED.awaySlug,
+    homeShort: "Tennessee",
+    awayShort: "LSU",
+    kickoffDate: "2026-11-21",
+    kickoffAt: "2026-11-21T20:30:00.000Z",
+    tv: "ABC",
+    vegasSpread: null,
+    vegasTotal: null,
+    location: "Neyland Stadium",
+  });
+  const now = Date.parse("2026-11-15T18:00:00.000Z");
+  assert.equal(selectFeaturedKick([wmu, tenn], now)?.homeSlug, "western-michigan");
+  const board = selectBoardFeaturedKick([wmu, tenn], now);
+  assert.equal(board?.homeSlug, "tennessee");
+  assert.equal(board?.awaySlug, "lsu");
+  assert.equal(board?.tv, "ABC");
+  // Vegas stays blank: only one book (DraftKings) had a Week 12 line at the stamp.
   assert.equal(board?.vegasSpread, null);
   assert.equal(board?.vegasTotal, null);
-  assert.equal(selectWeekScopedFeatured(11, [akr, ore])?.homeSlug, "oregon");
-  const oreFinal = game({ ...ore, status: "final", homeScore: 1, awayScore: 0 });
-  assert.equal(selectBoardFeaturedKick([akr, oreFinal], now)?.homeSlug, "akron");
+  assert.equal(selectWeekScopedFeatured(12, [wmu, tenn])?.homeSlug, "tennessee");
+  const tennFinal = game({ ...tenn, status: "final", homeScore: 1, awayScore: 0 });
+  assert.equal(selectBoardFeaturedKick([wmu, tennFinal], now)?.homeSlug, "western-michigan");
 });
