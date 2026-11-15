@@ -29,6 +29,7 @@ export function qbDesk(key: string | undefined, teams: TeamInfo[]): QbDesk | nul
   const raw = rawQb.find((q) => q.slug === row.slug && q.name === row.name);
   if (!entry || !raw) return null;
   const short = new Map(teams.map((t) => [t.slug, t.shortName ?? t.name]));
+  const names = new Map(teams.map((t) => [t.slug, t.name]));
   return buildDesk({
     file,
     entry,
@@ -37,6 +38,7 @@ export function qbDesk(key: string | undefined, teams: TeamInfo[]): QbDesk | nul
     rows,
     keyOf,
     teamShort: (slug, name) => (slug ? (short.get(slug) ?? name) : name),
+    teamName: (slug, name) => (slug ? (names.get(slug) ?? name) : name),
     gameKeyOf: (g, slug) => {
       if (!g.opp) return null;
       const k = g.home ? gameKey(chicagoDate(g.date), g.opp, slug) : gameKey(chicagoDate(g.date), slug, g.opp);

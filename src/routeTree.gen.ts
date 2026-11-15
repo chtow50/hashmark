@@ -26,6 +26,7 @@ import { Route as StoriesRouteImport } from './routes/stories'
 import { Route as StrengthRouteImport } from './routes/strength'
 import { Route as TalentRouteImport } from './routes/talent'
 import { Route as EdgeSplatRouteImport } from './routes/edge.$'
+import { Route as GamesIndexRouteImport } from './routes/games.index'
 import { Route as GamesKeyRouteImport } from './routes/games.$key'
 import { Route as StoriesSlugRouteImport } from './routes/stories_.$slug'
 import { Route as TeamsSlugRouteImport } from './routes/teams.$slug'
@@ -115,6 +116,11 @@ const EdgeSplatRoute = EdgeSplatRouteImport.update({
   path: '/$',
   getParentRoute: () => EdgeRoute,
 } as any)
+const GamesIndexRoute = GamesIndexRouteImport.update({
+  id: '/games/',
+  path: '/games/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const GamesKeyRoute = GamesKeyRouteImport.update({
   id: '/games/$key',
   path: '/games/$key',
@@ -152,6 +158,7 @@ export interface FileRoutesByFullPath {
   '/games/$key': typeof GamesKeyRoute
   '/stories/$slug': typeof StoriesSlugRoute
   '/teams/$slug': typeof TeamsSlugRoute
+  '/games/': typeof GamesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -174,6 +181,7 @@ export interface FileRoutesByTo {
   '/games/$key': typeof GamesKeyRoute
   '/stories/$slug': typeof StoriesSlugRoute
   '/teams/$slug': typeof TeamsSlugRoute
+  '/games': typeof GamesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -197,6 +205,7 @@ export interface FileRoutesById {
   '/games/$key': typeof GamesKeyRoute
   '/stories_/$slug': typeof StoriesSlugRoute
   '/teams/$slug': typeof TeamsSlugRoute
+  '/games/': typeof GamesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -221,6 +230,7 @@ export interface FileRouteTypes {
     | '/games/$key'
     | '/stories/$slug'
     | '/teams/$slug'
+    | '/games/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -243,6 +253,7 @@ export interface FileRouteTypes {
     | '/games/$key'
     | '/stories/$slug'
     | '/teams/$slug'
+    | '/games'
   id:
     | '__root__'
     | '/'
@@ -265,6 +276,7 @@ export interface FileRouteTypes {
     | '/games/$key'
     | '/stories_/$slug'
     | '/teams/$slug'
+    | '/games/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -287,6 +299,7 @@ export interface RootRouteChildren {
   GamesKeyRoute: typeof GamesKeyRoute
   StoriesSlugRoute: typeof StoriesSlugRoute
   TeamsSlugRoute: typeof TeamsSlugRoute
+  GamesIndexRoute: typeof GamesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -410,6 +423,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EdgeSplatRouteImport
       parentRoute: typeof EdgeRoute
     }
+    '/games/': {
+      id: '/games/'
+      path: '/games'
+      fullPath: '/games/'
+      preLoaderRoute: typeof GamesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/games/$key': {
       id: '/games/$key'
       path: '/games/$key'
@@ -464,6 +484,7 @@ const rootRouteChildren: RootRouteChildren = {
   GamesKeyRoute: GamesKeyRoute,
   StoriesSlugRoute: StoriesSlugRoute,
   TeamsSlugRoute: TeamsSlugRoute,
+  GamesIndexRoute: GamesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

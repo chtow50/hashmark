@@ -49,6 +49,18 @@ describe("QB Desk", () => {
     assert.equal(d.last?.gameKey, "2026-11-14-tennessee-at-texas-am");
     assert.equal(d.epaBeforeNote, null);
   });
+  it("opponents use the database display name (Hawaiʻi with the ʻokina)", () => {
+    const named = teams.map((t: { slug: string }) => (t.slug === "hawaii" ? { ...t, name: "Hawaiʻi", shortName: "Hawaiʻi" } : t));
+    const vsHawaii = file.qbs.filter((q: { games: { opp: string | null }[] }) => q.games.some((g) => g.opp === "hawaii"));
+    let checked = 0;
+    for (const e of vsHawaii) {
+      const d = qbDesk(e.key, named);
+      if (!d || d.qb.key !== e.key) continue; // not qualified: desk falls back to the default QB
+      assert.equal(d.games.find((x) => x.opp === "hawaii")!.opp_name, "Hawaiʻi");
+      checked++;
+    }
+    assert.ok(checked > 0);
+  });
   it("unknown keys fall back to the default QB", () => {
     assert.equal(qbDesk("nobody-nowhere", teams)?.qb.key, DEFAULT_QB);
     assert.equal(deskKey("Marcel Reed", "texas-am"), "marcel-reed-texas-am");

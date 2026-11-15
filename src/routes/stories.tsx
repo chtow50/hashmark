@@ -9,8 +9,8 @@ export const Route = createFileRoute("/stories")({
   head: () =>
     seo({
       path: "/stories",
-      title: "Stories · HASHMARK",
-      description: "HASHMARK game notes and weekly tapes from the 2026 college football season.",
+      title: "Story archive · HASHMARK",
+      description: "HASHMARK game notes and weekly tapes from earlier in the 2026 college football season, kept as written.",
     }),
 });
 
@@ -46,9 +46,9 @@ function StoriesPage() {
   return (
     <div>
       <PageHead
-        kicker="Week 6 · Oct 9"
-        title="Week 6 Friday desk."
-        lede="Georgia–Alabama flip. Oregon doubles the book. A&M flip in Columbia. HX 6–1 midweek."
+        kicker="Archive · 2026 season"
+        title="Story archive"
+        lede="Game notes and weekly tapes from earlier this season, kept as written. The newest is the Week 6 Friday desk (Oct 9). Current numbers live on the board, the schedule and the accuracy tape."
       />
 
       <p className="mb-8 font-mono text-[11px] uppercase tracking-[0.16em] text-faint">

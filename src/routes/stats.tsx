@@ -80,7 +80,7 @@ export const Route = createFileRoute("/stats")({
       path: "/stats",
       title: "CFB stats explorer · EPA, success rate, havoc, box stats · HASHMARK",
       description:
-        "2026 FBS team and player stats: opponent-adjusted EPA per play, success rate, explosiveness, line yards, havoc, player EPA and usage, plus box stats. Sort, filter by conference, chart, and compare.",
+        "2026 FBS team and player stats: opponent-adjusted EPA, success rate, havoc and box stats, plus the HASHMARK QB Desk: any QB's last game, rank moves and game-by-game EPA.",
     }),
 });
 
@@ -167,7 +167,7 @@ function StatsPage() {
               role="tab"
               aria-selected={tab === t}
               className={cn(
-                "inline-flex h-10 flex-1 items-center justify-center whitespace-nowrap rounded-lg px-3 text-sm font-medium transition-colors sm:flex-none sm:px-4",
+                "inline-flex h-10 flex-1 items-center justify-center whitespace-nowrap rounded-lg px-2 text-[13px] font-medium transition-colors sm:flex-none sm:px-4 sm:text-sm",
                 tab === t ? "bg-fg text-bg" : "text-muted hover:text-fg",
               )}
             >
