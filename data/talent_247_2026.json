@@ -1,0 +1,1372 @@
+{
+ "source": "247Sports Team Talent Composite",
+ "via": "CollegeFootballData.com /talent, pulled Nov 12, 2026",
+ "url": "https://247sports.com/season/2026-football/compositeteamtalent/",
+ "note": "Whole-roster 247 Composite talent points. Rank is among HASHMARK's FBS teams. Not HX and not the two-deep composite.",
+ "years": {
+  "2025": [
+   {
+    "slug": "georgia",
+    "talent": 1002.98,
+    "rank": 1
+   },
+   {
+    "slug": "alabama",
+    "talent": 993.55,
+    "rank": 2
+   },
+   {
+    "slug": "ohio-state",
+    "talent": 973.69,
+    "rank": 3
+   },
+   {
+    "slug": "texas",
+    "talent": 973.54,
+    "rank": 4
+   },
+   {
+    "slug": "oregon",
+    "talent": 941.22,
+    "rank": 5
+   },
+   {
+    "slug": "lsu",
+    "talent": 920.05,
+    "rank": 6
+   },
+   {
+    "slug": "clemson",
+    "talent": 918.43,
+    "rank": 7
+   },
+   {
+    "slug": "texas-am",
+    "talent": 917.29,
+    "rank": 8
+   },
+   {
+    "slug": "notre-dame",
+    "talent": 912.11,
+    "rank": 9
+   },
+   {
+    "slug": "penn-state",
+    "talent": 910.42,
+    "rank": 10
+   },
+   {
+    "slug": "michigan",
+    "talent": 907.22,
+    "rank": 11
+   },
+   {
+    "slug": "florida",
+    "talent": 898.58,
+    "rank": 12
+   },
+   {
+    "slug": "auburn",
+    "talent": 891.84,
+    "rank": 13
+   },
+   {
+    "slug": "oklahoma",
+    "talent": 882.59,
+    "rank": 14
+   },
+   {
+    "slug": "miami",
+    "talent": 874.57,
+    "rank": 15
+   },
+   {
+    "slug": "tennessee",
+    "talent": 866.57,
+    "rank": 16
+   },
+   {
+    "slug": "usc",
+    "talent": 847.53,
+    "rank": 17
+   },
+   {
+    "slug": "south-carolina",
+    "talent": 833.26,
+    "rank": 18
+   },
+   {
+    "slug": "florida-state",
+    "talent": 828.45,
+    "rank": 19
+   },
+   {
+    "slug": "nebraska",
+    "talent": 821.39,
+    "rank": 20
+   },
+   {
+    "slug": "ole-miss",
+    "talent": 813.11,
+    "rank": 21
+   },
+   {
+    "slug": "missouri",
+    "talent": 804.77,
+    "rank": 22
+   },
+   {
+    "slug": "arkansas",
+    "talent": 772.64,
+    "rank": 23
+   },
+   {
+    "slug": "mississippi-state",
+    "talent": 770.48,
+    "rank": 24
+   },
+   {
+    "slug": "smu",
+    "talent": 766.67,
+    "rank": 25
+   },
+   {
+    "slug": "ucla",
+    "talent": 766.62,
+    "rank": 26
+   },
+   {
+    "slug": "kentucky",
+    "talent": 763.18,
+    "rank": 27
+   },
+   {
+    "slug": "wisconsin",
+    "talent": 763.17,
+    "rank": 28
+   },
+   {
+    "slug": "texas-tech",
+    "talent": 757.49,
+    "rank": 29
+   },
+   {
+    "slug": "colorado",
+    "talent": 755.2,
+    "rank": 30
+   },
+   {
+    "slug": "north-carolina",
+    "talent": 753.2,
+    "rank": 31
+   },
+   {
+    "slug": "tcu",
+    "talent": 745.01,
+    "rank": 32
+   },
+   {
+    "slug": "arizona-state",
+    "talent": 738.52,
+    "rank": 33
+   },
+   {
+    "slug": "syracuse",
+    "talent": 727.83,
+    "rank": 34
+   },
+   {
+    "slug": "baylor",
+    "talent": 726.3,
+    "rank": 35
+   },
+   {
+    "slug": "california",
+    "talent": 726.21,
+    "rank": 36
+   },
+   {
+    "slug": "washington",
+    "talent": 720.56,
+    "rank": 37
+   },
+   {
+    "slug": "michigan-state",
+    "talent": 717.42,
+    "rank": 38
+   },
+   {
+    "slug": "georgia-tech",
+    "talent": 715.56,
+    "rank": 39
+   },
+   {
+    "slug": "virginia-tech",
+    "talent": 712.19,
+    "rank": 40
+   },
+   {
+    "slug": "minnesota",
+    "talent": 711.04,
+    "rank": 41
+   },
+   {
+    "slug": "iowa",
+    "talent": 710,
+    "rank": 42
+   },
+   {
+    "slug": "ucf",
+    "talent": 709.99,
+    "rank": 43
+   },
+   {
+    "slug": "utah",
+    "talent": 707.86,
+    "rank": 44
+   },
+   {
+    "slug": "nc-state",
+    "talent": 707.51,
+    "rank": 45
+   },
+   {
+    "slug": "stanford",
+    "talent": 707.27,
+    "rank": 46
+   },
+   {
+    "slug": "kansas-state",
+    "talent": 705.85,
+    "rank": 47
+   },
+   {
+    "slug": "kansas",
+    "talent": 705.32,
+    "rank": 48
+   },
+   {
+    "slug": "oklahoma-state",
+    "talent": 702.74,
+    "rank": 49
+   },
+   {
+    "slug": "louisville",
+    "talent": 700.77,
+    "rank": 50
+   },
+   {
+    "slug": "unlv",
+    "talent": 700.54,
+    "rank": 51
+   },
+   {
+    "slug": "maryland",
+    "talent": 699.31,
+    "rank": 52
+   },
+   {
+    "slug": "rutgers",
+    "talent": 689.22,
+    "rank": 53
+   },
+   {
+    "slug": "purdue",
+    "talent": 687.74,
+    "rank": 54
+   },
+   {
+    "slug": "vanderbilt",
+    "talent": 685.42,
+    "rank": 55
+   },
+   {
+    "slug": "pittsburgh",
+    "talent": 681.21,
+    "rank": 56
+   },
+   {
+    "slug": "northwestern",
+    "talent": 677.97,
+    "rank": 57
+   },
+   {
+    "slug": "duke",
+    "talent": 669.18,
+    "rank": 58
+   },
+   {
+    "slug": "memphis",
+    "talent": 668.63,
+    "rank": 59
+   },
+   {
+    "slug": "oregon-state",
+    "talent": 667.99,
+    "rank": 60
+   },
+   {
+    "slug": "usf",
+    "talent": 666.89,
+    "rank": 61
+   },
+   {
+    "slug": "virginia",
+    "talent": 666.74,
+    "rank": 62
+   },
+   {
+    "slug": "west-virginia",
+    "talent": 662.33,
+    "rank": 63
+   },
+   {
+    "slug": "illinois",
+    "talent": 662.13,
+    "rank": 64
+   },
+   {
+    "slug": "utsa",
+    "talent": 662.09,
+    "rank": 65
+   },
+   {
+    "slug": "houston",
+    "talent": 656.74,
+    "rank": 66
+   },
+   {
+    "slug": "arizona",
+    "talent": 651.62,
+    "rank": 67
+   },
+   {
+    "slug": "tulane",
+    "talent": 650.87,
+    "rank": 68
+   },
+   {
+    "slug": "boston-college",
+    "talent": 650.12,
+    "rank": 69
+   },
+   {
+    "slug": "byu",
+    "talent": 649.36,
+    "rank": 70
+   },
+   {
+    "slug": "iowa-state",
+    "talent": 648.93,
+    "rank": 71
+   },
+   {
+    "slug": "indiana",
+    "talent": 645.34,
+    "rank": 72
+   },
+   {
+    "slug": "cincinnati",
+    "talent": 644.1,
+    "rank": 73
+   },
+   {
+    "slug": "wake-forest",
+    "talent": 627.16,
+    "rank": 74
+   },
+   {
+    "slug": "toledo",
+    "talent": 620.13,
+    "rank": 75
+   },
+   {
+    "slug": "texas-state",
+    "talent": 612.16,
+    "rank": 76
+   },
+   {
+    "slug": "georgia-state",
+    "talent": 611.97,
+    "rank": 77
+   },
+   {
+    "slug": "east-carolina",
+    "talent": 611.55,
+    "rank": 78
+   },
+   {
+    "slug": "app-state",
+    "talent": 611.31,
+    "rank": 79
+   },
+   {
+    "slug": "coastal-carolina",
+    "talent": 610.88,
+    "rank": 80
+   },
+   {
+    "slug": "boise-state",
+    "talent": 610.65,
+    "rank": 81
+   },
+   {
+    "slug": "florida-atlantic",
+    "talent": 605.22,
+    "rank": 82
+   },
+   {
+    "slug": "southern-miss",
+    "talent": 602.53,
+    "rank": 83
+   },
+   {
+    "slug": "liberty",
+    "talent": 599.12,
+    "rank": 84
+   },
+   {
+    "slug": "tulsa",
+    "talent": 594.78,
+    "rank": 85
+   },
+   {
+    "slug": "san-diego-state",
+    "talent": 594.27,
+    "rank": 86
+   },
+   {
+    "slug": "miami-oh",
+    "talent": 592.1,
+    "rank": 87
+   },
+   {
+    "slug": "arkansas-state",
+    "talent": 591.27,
+    "rank": 88
+   },
+   {
+    "slug": "marshall",
+    "talent": 590.64,
+    "rank": 89
+   },
+   {
+    "slug": "fresno-state",
+    "talent": 586.84,
+    "rank": 90
+   },
+   {
+    "slug": "louisiana",
+    "talent": 585.82,
+    "rank": 91
+   },
+   {
+    "slug": "colorado-state",
+    "talent": 583.71,
+    "rank": 92
+   },
+   {
+    "slug": "georgia-southern",
+    "talent": 574.48,
+    "rank": 93
+   },
+   {
+    "slug": "eastern-michigan",
+    "talent": 572.9,
+    "rank": 94
+   },
+   {
+    "slug": "washington-state",
+    "talent": 569.46,
+    "rank": 95
+   },
+   {
+    "slug": "north-texas",
+    "talent": 569.15,
+    "rank": 96
+   },
+   {
+    "slug": "uconn",
+    "talent": 568.12,
+    "rank": 97
+   },
+   {
+    "slug": "fiu",
+    "talent": 562.61,
+    "rank": 98
+   },
+   {
+    "slug": "troy",
+    "talent": 561.87,
+    "rank": 99
+   },
+   {
+    "slug": "western-kentucky",
+    "talent": 561.36,
+    "rank": 100
+   },
+   {
+    "slug": "utep",
+    "talent": 551.88,
+    "rank": 101
+   },
+   {
+    "slug": "south-alabama",
+    "talent": 544.87,
+    "rank": 102
+   },
+   {
+    "slug": "uab",
+    "talent": 540.93,
+    "rank": 103
+   },
+   {
+    "slug": "akron",
+    "talent": 537.21,
+    "rank": 104
+   },
+   {
+    "slug": "western-michigan",
+    "talent": 534.35,
+    "rank": 105
+   },
+   {
+    "slug": "rice",
+    "talent": 530.06,
+    "rank": 106
+   },
+   {
+    "slug": "bowling-green",
+    "talent": 527.31,
+    "rank": 107
+   },
+   {
+    "slug": "charlotte",
+    "talent": 526.3,
+    "rank": 108
+   },
+   {
+    "slug": "san-jose-state",
+    "talent": 522.91,
+    "rank": 109
+   },
+   {
+    "slug": "middle-tennessee",
+    "talent": 520.55,
+    "rank": 110
+   },
+   {
+    "slug": "jacksonville-state",
+    "talent": 519.93,
+    "rank": 111
+   },
+   {
+    "slug": "buffalo",
+    "talent": 513.33,
+    "rank": 112
+   },
+   {
+    "slug": "temple",
+    "talent": 507.91,
+    "rank": 113
+   },
+   {
+    "slug": "utah-state",
+    "talent": 503.59,
+    "rank": 114
+   },
+   {
+    "slug": "ball-state",
+    "talent": 495.35,
+    "rank": 115
+   },
+   {
+    "slug": "louisiana-tech",
+    "talent": 493.5,
+    "rank": 116
+   },
+   {
+    "slug": "wyoming",
+    "talent": 489.33,
+    "rank": 117
+   },
+   {
+    "slug": "massachusetts",
+    "talent": 488.73,
+    "rank": 118
+   },
+   {
+    "slug": "nevada",
+    "talent": 488.69,
+    "rank": 119
+   },
+   {
+    "slug": "hawaii",
+    "talent": 481.2,
+    "rank": 120
+   },
+   {
+    "slug": "central-michigan",
+    "talent": 481.16,
+    "rank": 121
+   },
+   {
+    "slug": "old-dominion",
+    "talent": 477.45,
+    "rank": 122
+   },
+   {
+    "slug": "sam-houston",
+    "talent": 477.35,
+    "rank": 123
+   },
+   {
+    "slug": "ul-monroe",
+    "talent": 473.34,
+    "rank": 124
+   },
+   {
+    "slug": "northern-illinois",
+    "talent": 471.01,
+    "rank": 125
+   },
+   {
+    "slug": "ohio",
+    "talent": 469.99,
+    "rank": 126
+   },
+   {
+    "slug": "james-madison",
+    "talent": 459.53,
+    "rank": 127
+   },
+   {
+    "slug": "kent-state",
+    "talent": 456.24,
+    "rank": 128
+   },
+   {
+    "slug": "missouri-state",
+    "talent": 426.1,
+    "rank": 129
+   },
+   {
+    "slug": "new-mexico-state",
+    "talent": 402.9,
+    "rank": 130
+   },
+   {
+    "slug": "new-mexico",
+    "talent": 378.8,
+    "rank": 131
+   },
+   {
+    "slug": "kennesaw-state",
+    "talent": 338.87,
+    "rank": 132
+   },
+   {
+    "slug": "delaware",
+    "talent": 242.85,
+    "rank": 133
+   },
+   {
+    "slug": "army",
+    "talent": 23.66,
+    "rank": 134
+   }
+  ],
+  "2026": [
+   {
+    "slug": "georgia",
+    "talent": 1003.67,
+    "rank": 1
+   },
+   {
+    "slug": "texas",
+    "talent": 985.17,
+    "rank": 2
+   },
+   {
+    "slug": "oregon",
+    "talent": 984.33,
+    "rank": 3
+   },
+   {
+    "slug": "alabama",
+    "talent": 973.53,
+    "rank": 4
+   },
+   {
+    "slug": "ohio-state",
+    "talent": 964.27,
+    "rank": 5
+   },
+   {
+    "slug": "notre-dame",
+    "talent": 953.03,
+    "rank": 6
+   },
+   {
+    "slug": "texas-am",
+    "talent": 933,
+    "rank": 7
+   },
+   {
+    "slug": "lsu",
+    "talent": 931.76,
+    "rank": 8
+   },
+   {
+    "slug": "usc",
+    "talent": 899,
+    "rank": 9
+   },
+   {
+    "slug": "florida",
+    "talent": 891.07,
+    "rank": 10
+   },
+   {
+    "slug": "michigan",
+    "talent": 890.02,
+    "rank": 11
+   },
+   {
+    "slug": "miami",
+    "talent": 885.94,
+    "rank": 12
+   },
+   {
+    "slug": "tennessee",
+    "talent": 885.9,
+    "rank": 13
+   },
+   {
+    "slug": "ole-miss",
+    "talent": 885.72,
+    "rank": 14
+   },
+   {
+    "slug": "south-carolina",
+    "talent": 862.87,
+    "rank": 15
+   },
+   {
+    "slug": "clemson",
+    "talent": 862.85,
+    "rank": 16
+   },
+   {
+    "slug": "oklahoma",
+    "talent": 851.14,
+    "rank": 17
+   },
+   {
+    "slug": "auburn",
+    "talent": 828.19,
+    "rank": 18
+   },
+   {
+    "slug": "missouri",
+    "talent": 808.36,
+    "rank": 19
+   },
+   {
+    "slug": "mississippi-state",
+    "talent": 804.53,
+    "rank": 20
+   },
+   {
+    "slug": "florida-state",
+    "talent": 800.2,
+    "rank": 21
+   },
+   {
+    "slug": "nebraska",
+    "talent": 787.45,
+    "rank": 22
+   },
+   {
+    "slug": "kentucky",
+    "talent": 786.65,
+    "rank": 23
+   },
+   {
+    "slug": "washington",
+    "talent": 777.63,
+    "rank": 24
+   },
+   {
+    "slug": "ucla",
+    "talent": 774.45,
+    "rank": 25
+   },
+   {
+    "slug": "penn-state",
+    "talent": 774.04,
+    "rank": 26
+   },
+   {
+    "slug": "virginia-tech",
+    "talent": 769.12,
+    "rank": 27
+   },
+   {
+    "slug": "north-carolina",
+    "talent": 767.89,
+    "rank": 28
+   },
+   {
+    "slug": "texas-tech",
+    "talent": 767.89,
+    "rank": 28
+   },
+   {
+    "slug": "wisconsin",
+    "talent": 767.68,
+    "rank": 30
+   },
+   {
+    "slug": "smu",
+    "talent": 764.5,
+    "rank": 31
+   },
+   {
+    "slug": "nc-state",
+    "talent": 757.14,
+    "rank": 32
+   },
+   {
+    "slug": "california",
+    "talent": 751.92,
+    "rank": 33
+   },
+   {
+    "slug": "georgia-tech",
+    "talent": 751.65,
+    "rank": 34
+   },
+   {
+    "slug": "syracuse",
+    "talent": 745.61,
+    "rank": 35
+   },
+   {
+    "slug": "arkansas",
+    "talent": 745.48,
+    "rank": 36
+   },
+   {
+    "slug": "louisville",
+    "talent": 739.97,
+    "rank": 37
+   },
+   {
+    "slug": "indiana",
+    "talent": 735.26,
+    "rank": 38
+   },
+   {
+    "slug": "colorado",
+    "talent": 731.62,
+    "rank": 39
+   },
+   {
+    "slug": "tcu",
+    "talent": 730.79,
+    "rank": 40
+   },
+   {
+    "slug": "minnesota",
+    "talent": 728.79,
+    "rank": 41
+   },
+   {
+    "slug": "vanderbilt",
+    "talent": 727.39,
+    "rank": 42
+   },
+   {
+    "slug": "baylor",
+    "talent": 723.28,
+    "rank": 43
+   },
+   {
+    "slug": "iowa",
+    "talent": 722.73,
+    "rank": 44
+   },
+   {
+    "slug": "arizona-state",
+    "talent": 722,
+    "rank": 45
+   },
+   {
+    "slug": "maryland",
+    "talent": 719.64,
+    "rank": 46
+   },
+   {
+    "slug": "kansas-state",
+    "talent": 718.67,
+    "rank": 47
+   },
+   {
+    "slug": "rutgers",
+    "talent": 709.04,
+    "rank": 48
+   },
+   {
+    "slug": "west-virginia",
+    "talent": 707.6,
+    "rank": 49
+   },
+   {
+    "slug": "stanford",
+    "talent": 705.81,
+    "rank": 50
+   },
+   {
+    "slug": "illinois",
+    "talent": 704.01,
+    "rank": 51
+   },
+   {
+    "slug": "usf",
+    "talent": 703.81,
+    "rank": 52
+   },
+   {
+    "slug": "virginia",
+    "talent": 700.18,
+    "rank": 53
+   },
+   {
+    "slug": "arizona",
+    "talent": 699.59,
+    "rank": 54
+   },
+   {
+    "slug": "purdue",
+    "talent": 698.33,
+    "rank": 55
+   },
+   {
+    "slug": "unlv",
+    "talent": 696.03,
+    "rank": 56
+   },
+   {
+    "slug": "houston",
+    "talent": 695.93,
+    "rank": 57
+   },
+   {
+    "slug": "utah",
+    "talent": 695.72,
+    "rank": 58
+   },
+   {
+    "slug": "byu",
+    "talent": 689.42,
+    "rank": 59
+   },
+   {
+    "slug": "northwestern",
+    "talent": 688.32,
+    "rank": 60
+   },
+   {
+    "slug": "michigan-state",
+    "talent": 685.02,
+    "rank": 61
+   },
+   {
+    "slug": "kansas",
+    "talent": 684.51,
+    "rank": 62
+   },
+   {
+    "slug": "wake-forest",
+    "talent": 680.87,
+    "rank": 63
+   },
+   {
+    "slug": "pittsburgh",
+    "talent": 675.02,
+    "rank": 64
+   },
+   {
+    "slug": "oklahoma-state",
+    "talent": 672.69,
+    "rank": 65
+   },
+   {
+    "slug": "ucf",
+    "talent": 672.14,
+    "rank": 66
+   },
+   {
+    "slug": "memphis",
+    "talent": 670.31,
+    "rank": 67
+   },
+   {
+    "slug": "iowa-state",
+    "talent": 669.55,
+    "rank": 68
+   },
+   {
+    "slug": "duke",
+    "talent": 668.47,
+    "rank": 69
+   },
+   {
+    "slug": "tulane",
+    "talent": 665.11,
+    "rank": 70
+   },
+   {
+    "slug": "boston-college",
+    "talent": 660,
+    "rank": 71
+   },
+   {
+    "slug": "utsa",
+    "talent": 655.82,
+    "rank": 72
+   },
+   {
+    "slug": "uconn",
+    "talent": 652.56,
+    "rank": 73
+   },
+   {
+    "slug": "boise-state",
+    "talent": 641.17,
+    "rank": 74
+   },
+   {
+    "slug": "colorado-state",
+    "talent": 640.31,
+    "rank": 75
+   },
+   {
+    "slug": "oregon-state",
+    "talent": 635.79,
+    "rank": 76
+   },
+   {
+    "slug": "cincinnati",
+    "talent": 634.28,
+    "rank": 77
+   },
+   {
+    "slug": "georgia-southern",
+    "talent": 634.19,
+    "rank": 78
+   },
+   {
+    "slug": "liberty",
+    "talent": 633.35,
+    "rank": 79
+   },
+   {
+    "slug": "temple",
+    "talent": 631.07,
+    "rank": 80
+   },
+   {
+    "slug": "washington-state",
+    "talent": 630.29,
+    "rank": 81
+   },
+   {
+    "slug": "texas-state",
+    "talent": 624.81,
+    "rank": 82
+   },
+   {
+    "slug": "east-carolina",
+    "talent": 623.79,
+    "rank": 83
+   },
+   {
+    "slug": "tulsa",
+    "talent": 622.84,
+    "rank": 84
+   },
+   {
+    "slug": "app-state",
+    "talent": 621.61,
+    "rank": 85
+   },
+   {
+    "slug": "miami-oh",
+    "talent": 621.37,
+    "rank": 86
+   },
+   {
+    "slug": "western-kentucky",
+    "talent": 611.52,
+    "rank": 87
+   },
+   {
+    "slug": "fresno-state",
+    "talent": 609.75,
+    "rank": 88
+   },
+   {
+    "slug": "san-diego-state",
+    "talent": 609.22,
+    "rank": 89
+   },
+   {
+    "slug": "fiu",
+    "talent": 607.56,
+    "rank": 90
+   },
+   {
+    "slug": "arkansas-state",
+    "talent": 606.22,
+    "rank": 91
+   },
+   {
+    "slug": "uab",
+    "talent": 606.18,
+    "rank": 92
+   },
+   {
+    "slug": "jacksonville-state",
+    "talent": 602.83,
+    "rank": 93
+   },
+   {
+    "slug": "southern-miss",
+    "talent": 602.63,
+    "rank": 94
+   },
+   {
+    "slug": "north-texas",
+    "talent": 602.08,
+    "rank": 95
+   },
+   {
+    "slug": "troy",
+    "talent": 596.19,
+    "rank": 96
+   },
+   {
+    "slug": "marshall",
+    "talent": 594.71,
+    "rank": 97
+   },
+   {
+    "slug": "florida-atlantic",
+    "talent": 593.36,
+    "rank": 98
+   },
+   {
+    "slug": "louisiana",
+    "talent": 590.94,
+    "rank": 99
+   },
+   {
+    "slug": "rice",
+    "talent": 589.89,
+    "rank": 100
+   },
+   {
+    "slug": "james-madison",
+    "talent": 588.31,
+    "rank": 101
+   },
+   {
+    "slug": "utep",
+    "talent": 585.76,
+    "rank": 102
+   },
+   {
+    "slug": "eastern-michigan",
+    "talent": 580.64,
+    "rank": 103
+   },
+   {
+    "slug": "charlotte",
+    "talent": 576.77,
+    "rank": 104
+   },
+   {
+    "slug": "coastal-carolina",
+    "talent": 573.96,
+    "rank": 105
+   },
+   {
+    "slug": "georgia-state",
+    "talent": 573.83,
+    "rank": 106
+   },
+   {
+    "slug": "south-alabama",
+    "talent": 573.38,
+    "rank": 107
+   },
+   {
+    "slug": "western-michigan",
+    "talent": 572.2,
+    "rank": 108
+   },
+   {
+    "slug": "middle-tennessee",
+    "talent": 571.5,
+    "rank": 109
+   },
+   {
+    "slug": "san-jose-state",
+    "talent": 569.25,
+    "rank": 110
+   },
+   {
+    "slug": "bowling-green",
+    "talent": 568.33,
+    "rank": 111
+   },
+   {
+    "slug": "new-mexico",
+    "talent": 568.19,
+    "rank": 112
+   },
+   {
+    "slug": "ball-state",
+    "talent": 563.88,
+    "rank": 113
+   },
+   {
+    "slug": "sacramento-state",
+    "talent": 561.42,
+    "rank": 114
+   },
+   {
+    "slug": "hawaii",
+    "talent": 556.82,
+    "rank": 115
+   },
+   {
+    "slug": "toledo",
+    "talent": 556.26,
+    "rank": 116
+   },
+   {
+    "slug": "sam-houston",
+    "talent": 554.47,
+    "rank": 117
+   },
+   {
+    "slug": "nevada",
+    "talent": 549.99,
+    "rank": 118
+   },
+   {
+    "slug": "missouri-state",
+    "talent": 549.92,
+    "rank": 119
+   },
+   {
+    "slug": "buffalo",
+    "talent": 549.31,
+    "rank": 120
+   },
+   {
+    "slug": "akron",
+    "talent": 546.84,
+    "rank": 121
+   },
+   {
+    "slug": "old-dominion",
+    "talent": 544.25,
+    "rank": 122
+   },
+   {
+    "slug": "utah-state",
+    "talent": 543.98,
+    "rank": 123
+   },
+   {
+    "slug": "louisiana-tech",
+    "talent": 543.02,
+    "rank": 124
+   },
+   {
+    "slug": "central-michigan",
+    "talent": 540.01,
+    "rank": 125
+   },
+   {
+    "slug": "northern-illinois",
+    "talent": 536.58,
+    "rank": 126
+   },
+   {
+    "slug": "wyoming",
+    "talent": 528.29,
+    "rank": 127
+   },
+   {
+    "slug": "massachusetts",
+    "talent": 525.94,
+    "rank": 128
+   },
+   {
+    "slug": "ohio",
+    "talent": 522.84,
+    "rank": 129
+   },
+   {
+    "slug": "kent-state",
+    "talent": 522.83,
+    "rank": 130
+   },
+   {
+    "slug": "north-dakota-state",
+    "talent": 515.59,
+    "rank": 131
+   },
+   {
+    "slug": "ul-monroe",
+    "talent": 505.49,
+    "rank": 132
+   },
+   {
+    "slug": "kennesaw-state",
+    "talent": 502.86,
+    "rank": 133
+   },
+   {
+    "slug": "delaware",
+    "talent": 483.48,
+    "rank": 134
+   },
+   {
+    "slug": "new-mexico-state",
+    "talent": 460.38,
+    "rank": 135
+   },
+   {
+    "slug": "army",
+    "talent": 303.83,
+    "rank": 136
+   },
+   {
+    "slug": "air-force",
+    "talent": 272.35,
+    "rank": 137
+   },
+   {
+    "slug": "navy",
+    "talent": 195.68,
+    "rank": 138
+   }
+  ]
+ }
+}

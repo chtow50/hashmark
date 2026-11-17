@@ -1,4 +1,5 @@
 import { createServerFn } from "@tanstack/react-start";
+import recruiting2027 from "../../../data/recruiting_2027_247.json" with { type: "json" };
 import { z } from "zod";
 import { getSql } from "@/lib/db";
 import { predictMatchup } from "./model";
@@ -21,6 +22,10 @@ import type {
   StateRow,
   TeamSummary,
 } from "./types";
+
+const CLASS_2027 = recruiting2027 as {
+  classes: { slug: string; rank: number; commits: number; avg: number; five: number; four: number; three: number; points: number }[];
+};
 type TeamDb = {
   id: number;
   slug: string;
@@ -366,7 +371,31 @@ export const listRecruiting = createServerFn({ method: "GET" }).handler(async ()
      join rankings r on r.team_id = t.id and r.season = 2026 and r.week = 0
      order by rec.class_year, rec.composite_rank, t.name`,
   );
-  return rows.map(mapClass);
+  // Class of 2027 in progress: 247 Composite top 50 (data/recruiting_2027_247.json), stamped as-of.
+  const teams = await sql.query<Omit<RecruitingClass, "classYear" | "compositeRank" | "commits" | "avgRating" | "points" | "fiveStars" | "fourStars" | "threeStars">>(
+    `select t.id as "teamId", t.slug, t.name, t.short_name as "shortName", t.conference,
+            t.color_primary as "colorPrimary", r.hx_rank as "hxRank"
+     from teams t join rankings r on r.team_id = t.id and r.season = 2026 and r.week = 0`,
+  );
+  const bySlug = new Map(teams.map((t) => [t.slug, t]));
+  const next: RecruitingClass[] = [];
+  for (const c of CLASS_2027.classes) {
+    const t = bySlug.get(c.slug);
+    if (!t) continue;
+    next.push({
+      ...t,
+      hxRank: Number(t.hxRank),
+      classYear: 2027,
+      compositeRank: c.rank,
+      commits: c.commits,
+      avgRating: c.avg,
+      points: c.points,
+      fiveStars: c.five,
+      fourStars: c.four,
+      threeStars: c.three,
+    });
+  }
+  return [...rows.map(mapClass), ...next];
 });
 
 function mapPlayer(p: Player): Player {

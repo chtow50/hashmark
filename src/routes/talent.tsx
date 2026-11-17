@@ -4,18 +4,37 @@ import { Fragment, useMemo, useState } from "react";
 import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import { ConfPills, PageHead, Panel, TeamSelect } from "@/components/shell";
 import { CompareRow, TeamMark } from "@/components/marks";
-import { TalentSliceChart, TalentSliceLeaders, TalentSliceMixCell, TalentSliceStats } from "@/components/talent-slices";
+import {
+  TalentSliceChart,
+  TalentSliceLeaders,
+  TalentSliceMixCell,
+  TalentSliceStats,
+} from "@/components/talent-slices";
 import { inConf, parseConf, type ConfFilter } from "@/lib/cfb/conferences";
 import { TALENT_UNITS } from "@/lib/cfb/positions";
-import { SIZE_GROUPS, sizeLensFor, sizeSortLabel, type SizeGroupKey, type SizeSortKey } from "@/lib/cfb/size-groups";
+import {
+  SIZE_GROUPS,
+  sizeLensFor,
+  sizeSortLabel,
+  type SizeGroupKey,
+  type SizeSortKey,
+} from "@/lib/cfb/size-groups";
 import { hasPortalMix, hasPortalSlice } from "@/lib/cfb/talent-slices";
 import { listTeams } from "@/lib/cfb/queries";
 import { ShowMore } from "@/components/show-more";
+import { TalentNav } from "@/components/talent-nav";
+import { TalentResultsTeaser, ResultsBoard } from "@/components/talent-results";
+import {
+  buildTalentResults,
+  summarizeTalentResults,
+  type TalentResultsSummary,
+} from "@/lib/cfb/talent-results";
 import { cn, fmtHeight, fmtNum, fmtPct } from "@/lib/utils";
 import type { TeamSummary } from "@/lib/cfb/types";
 
-type Board = "composite" | "size";
-type Lens = "talentScore" | "hsTalent" | "portalTalent" | "starterTalent" | "offTalent" | "defTalent";
+type Board = "composite" | "size" | "results";
+type Lens =
+  "talentScore" | "hsTalent" | "portalTalent" | "starterTalent" | "offTalent" | "defTalent";
 
 type Search = { board?: Board; conf?: ConfFilter };
 
@@ -34,21 +53,26 @@ export const Route = createFileRoute("/talent")({
   // Defaults are dropped (undefined) so /talent never 307s to a param-stuffed URL on crawl.
   validateSearch: (s: Record<string, unknown>): Search => {
     const conf = parseConf(s.conf);
-    return { board: s.board === "size" ? "size" : undefined, conf: conf === "All" ? undefined : conf };
+    const board = s.board === "size" || s.board === "results" ? s.board : undefined;
+    return { board, conf: conf === "All" ? undefined : conf };
   },
-  // Talent boards rank sourced two-deep profiles only (2026 newcomers have none yet).
-  loader: async () => (await listTeams()).filter((t) => t.hasProfile !== false),
+  // All teams load (talent vs results covers all 138); the two-deep boards filter to sourced profiles.
+  loader: async () => listTeams(),
   component: TalentPage,
   head: () =>
     seo({
       path: "/talent",
-      title: "Roster talent · two-deep composite and size · HASHMARK",
-      description: "Two-deep roster talent for every FBS team (247 composite, transfers included) and the measurables size board.",
+      title:
+        "Roster talent vs results · two-deep composite, 247 team talent, HX and records · HASHMARK",
+      description:
+        "Two-deep roster talent for every FBS team (247 composite, transfers included), 247 team talent next to HX rank and record (who is playing above or below its roster), and the measurables size board.",
     }),
 });
 
 function TalentPage() {
-  const teams = Route.useLoaderData();
+  const allTeams = Route.useLoaderData();
+  // Two-deep boards rank sourced profiles only (2026 FBS newcomers have none yet).
+  const teams = useMemo(() => allTeams.filter((t) => t.hasProfile !== false), [allTeams]);
   const board = Route.useSearch().board ?? "composite";
   const conf = Route.useSearch().conf ?? "All";
   const [a, setA] = useState("ohio-state");
@@ -67,6 +91,13 @@ function TalentPage() {
     [pool, lens],
   );
 
+  const results = useMemo(() => buildTalentResults(allTeams), [allTeams]);
+  const summary = useMemo(() => summarizeTalentResults(results), [results]);
+  const resultsPool = useMemo(
+    () => results.filter((t) => inConf(t.conference, conf)),
+    [results, conf],
+  );
+
   const sizeRanked = useMemo(
     () => [...pool].sort((x, y) => y[sizeLens] - x[sizeLens] || x.talentRank - y.talentRank),
     [pool, sizeLens],
@@ -75,57 +106,34 @@ function TalentPage() {
   return (
     <div>
       <PageHead
-        kicker="Two-deep composite"
-        title="Roster talent"
-        lede="Who is on the roster now — high-school signees plus portal transfers. HS and portal are separate two-deep ratings and a weight mix, not additive slices of the composite. Starters carry full weight, backups 0.4. Size is a separate board — not talent and not HX."
+        kicker={
+          board === "results"
+            ? "Talent vs results"
+            : board === "size"
+              ? "Measurables"
+              : "Two-deep composite"
+        }
+        title={
+          board === "results"
+            ? "Talent vs results"
+            : board === "size"
+              ? "Roster size"
+              : "Roster talent"
+        }
+        lede={
+          board === "results"
+            ? "Which programs are playing above or below their roster? 247 team talent next to the HX rank and the record. Nothing here is blended into HX."
+            : board === "size"
+              ? "Average height and weight by position group on the listed two-deep. Size is a measurable, not talent and not HX."
+              : "Who is on the roster now: high-school signees plus portal transfers, weighted by the listed two-deep (starters full weight, backups 0.4)."
+        }
       />
 
-      <div className="mb-6 grid grid-cols-2 gap-2">
-        <Link
-          to="/talent"
-          search={{ conf: conf === "All" ? undefined : conf }}
-          className={cn(
-            "rounded-xl px-4 py-3 shadow-[var(--shadow-border)] transition-colors duration-150",
-            board === "composite" ? "bg-accent text-accent-fg" : "bg-surface text-fg hover:bg-raised",
-          )}
-        >
-          <div
-            className={cn(
-              "font-mono text-[11px] uppercase tracking-[0.16em]",
-              board === "composite" ? "text-accent-fg/70" : "text-faint",
-            )}
-          >
-            Ranking
-          </div>
-          <div className="font-display text-2xl tracking-wide sm:text-3xl">Composite</div>
-          <p className={cn("mt-1 text-sm", board === "composite" ? "text-accent-fg/80" : "text-muted")}>
-            Two-deep + transfers
-          </p>
-        </Link>
-        <Link
-          to="/talent"
-          search={{ board: "size", conf: conf === "All" ? undefined : conf }}
-          className={cn(
-            "rounded-xl px-4 py-3 shadow-[var(--shadow-border)] transition-colors duration-150",
-            board === "size" ? "bg-accent text-accent-fg" : "bg-surface text-fg hover:bg-raised",
-          )}
-        >
-          <div
-            className={cn(
-              "font-mono text-[11px] uppercase tracking-[0.16em]",
-              board === "size" ? "text-accent-fg/70" : "text-faint",
-            )}
-          >
-            Measurables
-          </div>
-          <div className="font-display text-2xl tracking-wide sm:text-3xl">Size</div>
-          <p className={cn("mt-1 text-sm", board === "size" ? "text-accent-fg/80" : "text-muted")}>
-            Height and weight by group
-          </p>
-        </Link>
-      </div>
+      <TalentNav active={board === "results" ? "results" : board === "size" ? "size" : "roster"} />
 
-      {board === "composite" ? (
+      {board === "results" ? (
+        <ResultsBoard rows={resultsPool} summary={summary} conf={conf} />
+      ) : board === "composite" ? (
         <CompositeBoard
           ranked={ranked}
           left={left}
@@ -138,6 +146,7 @@ function TalentPage() {
           conf={conf}
           lens={lens}
           setLens={setLens}
+          summary={summary}
         />
       ) : (
         <SizeBoard
@@ -173,6 +182,7 @@ function CompositeBoard({
   conf,
   lens,
   setLens,
+  summary,
 }: {
   ranked: TeamSummary[];
   left?: TeamSummary;
@@ -185,147 +195,13 @@ function CompositeBoard({
   conf: ConfFilter;
   lens: Lens;
   setLens: (l: Lens) => void;
+  summary: TalentResultsSummary;
 }) {
-  const chart = ranked.slice(0, 12).map((t) => ({
-    name: t.shortName,
-    talent: Number(t.talentScore.toFixed(1)),
-  }));
-  const ymin = Math.max(70, Math.floor(Math.min(...chart.map((c) => c.talent), 90) - 2));
-  const ymax = Math.min(100, Math.ceil(Math.max(...chart.map((c) => c.talent), 94) + 1));
-
   return (
     <>
-      <Panel className="mb-6">
-        <h2 className="font-display text-2xl tracking-wide">High school vs portal</h2>
-        <p className="mt-2 text-sm text-muted">
-          Separate weighted 247 ratings on the listed two-deep — HS signees vs portal transfers — plus portal weight share.
-          Sourced from roster players (transfer flag) and TWO·DEEP depth weights.
-        </p>
-        <div className="mt-5">
-          <TalentSliceLeaders teams={ranked} />
-        </div>
-        <div className="mt-6">
-          <TalentSliceChart teams={ranked} />
-        </div>
-      </Panel>
+      <TalentResultsTeaser summary={summary} />
 
-      <Panel className="mb-6">
-        <h2 className="font-display text-2xl tracking-wide">How the composite is built</h2>
-        <ul className="mt-4 grid gap-3 text-sm text-muted sm:grid-cols-3">
-          <li>
-            <div className="font-medium text-fg">The two-deep</div>
-            <p className="mt-1">Listed TWO·DEEP charts from thetwodeep.com for all 136 FBS programs (2026-09-07). 247 composite, transfers included.</p>
-          </li>
-          <li>
-            <div className="font-medium text-fg">Transfers count</div>
-            <p className="mt-1">A portal player is talent on this roster, not a hole in last year’s class.</p>
-          </li>
-          <li>
-            <div className="font-medium text-fg">OL is not this board</div>
-            <p className="mt-1">
-              Line size is a measurable, not an HX term. Open{" "}
-              <Link to="/talent" search={{ board: "size" }} className="text-fg underline decoration-border underline-offset-4">
-                Size
-              </Link>{" "}
-              for mass. Units below are slices, not the ranking.
-            </p>
-          </li>
-        </ul>
-      </Panel>
-
-      <div className="mb-6 grid gap-4 sm:grid-cols-3">
-        {ranked.slice(0, 3).map((t) => (
-          <Panel key={t.slug}>
-            <div className="font-display text-3xl tabular text-muted">{t.talentRank}</div>
-            <Link
-              to="/teams/$slug"
-              params={{ slug: t.slug }}
-              className="mt-2 flex items-center gap-2 font-display text-2xl tracking-wide"
-            >
-              <TeamMark slug={t.slug} color={t.colorPrimary} logoSize={20} />
-              {t.name}
-            </Link>
-            <p className="mt-2 text-sm text-muted">{fmtNum(t.talentScore, 1)} composite</p>
-            <TalentSliceStats team={t} className="mt-4" />
-          </Panel>
-        ))}
-      </div>
-
-      <Panel className="mb-6">
-        <h2 className="font-display text-2xl tracking-wide">Compare two rosters</h2>
-        <div className="mt-4 grid gap-4 sm:grid-cols-2">
-          <TeamSelect id="talent-a" label="Team A" value={a} teams={teams} onChange={setA} />
-          <TeamSelect id="talent-b" label="Team B" value={b} teams={teams} onChange={setB} />
-        </div>
-        {left && right ? (
-          <div className="mt-6">
-            <p className="mb-2 text-[11px] uppercase tracking-[0.12em] text-faint">HS vs portal slices</p>
-            <CompareRow label="HS two-deep" a={left.hsTalent} b={right.hsTalent} max={100} format={(n) => fmtNum(n, 1)} />
-            {hasPortalSlice(left) || hasPortalSlice(right) ? (
-              <CompareRow
-                label="Portal two-deep"
-                a={left.portalTalent}
-                b={right.portalTalent}
-                max={100}
-                format={(n) => fmtNum(n, 1)}
-              />
-            ) : null}
-            {hasPortalMix(left) || hasPortalMix(right) ? (
-              <CompareRow label="Portal weight" a={left.portalShare} b={right.portalShare} max={100} format={(n) => fmtPct(n, 0)} />
-            ) : null}
-            <CompareRow label="Talent composite" a={left.talentScore} b={right.talentScore} max={100} format={(n) => fmtNum(n, 1)} />
-            <CompareRow label="Starter talent" a={left.starterTalent} b={right.starterTalent} max={100} format={(n) => fmtNum(n, 1)} />
-            <CompareRow label="Offense" a={left.offTalent} b={right.offTalent} max={100} format={(n) => fmtNum(n, 1)} />
-            <CompareRow label="Defense" a={left.defTalent} b={right.defTalent} max={100} format={(n) => fmtNum(n, 1)} />
-            <CompareRow label="Blue-chip %" a={left.blueChipPct} b={right.blueChipPct} max={100} format={(n) => fmtPct(n, 0)} />
-            <p className="mt-4 text-[11px] uppercase tracking-[0.12em] text-faint">Unit slices — not the ranking</p>
-            <div className="mt-1">
-              {TALENT_UNITS.map((u) => (
-                <CompareRow
-                  key={u.key}
-                  label={u.label}
-                  a={left[u.key]}
-                  b={right[u.key]}
-                  max={100}
-                  format={(n) => fmtNum(n, 1)}
-                />
-              ))}
-            </div>
-          </div>
-        ) : null}
-      </Panel>
-
-      <Panel className="mb-6">
-        <h2 className="mb-1 font-display text-2xl tracking-wide">Top of the composite</h2>
-        <p className="mb-4 text-sm text-muted">
-          Weighted 247 of the listed two-deep, transfers included. HS and portal are subset ratings — not additive slices.
-        </p>
-        <div className="h-64">
-          <ResponsiveContainer width="100%" height="100%">
-            <BarChart data={chart} margin={{ top: 8, right: 8, left: 0, bottom: 8 }}>
-              <CartesianGrid stroke="var(--color-line)" vertical={false} />
-              <XAxis dataKey="name" tick={{ fill: "var(--color-muted)", fontSize: 11 }} axisLine={false} tickLine={false} interval={0} />
-              <YAxis tick={{ fill: "var(--color-faint)", fontSize: 11 }} axisLine={false} tickLine={false} domain={[ymin, ymax]} />
-              <Tooltip
-                contentStyle={{
-                  background: "var(--color-surface)",
-                  border: "1px solid var(--color-border)",
-                  borderRadius: 10,
-                  color: "var(--color-fg)",
-                }}
-                formatter={(v) => [`${v}`, "Composite"]}
-              />
-              <Bar dataKey="talent" fill="var(--color-accent)" radius={[4, 4, 0, 0]} />
-            </BarChart>
-          </ResponsiveContainer>
-        </div>
-      </Panel>
-
-      <ConfPills
-        value={conf}
-        to="/talent"
-        searchFor={(c) => (c === "All" ? {} : { conf: c })}
-      />
+      <ConfPills value={conf} to="/talent" searchFor={(c) => (c === "All" ? {} : { conf: c })} />
 
       <div className="mb-5 flex gap-2 overflow-x-auto pb-1">
         {LENSES.map((c) => (
@@ -344,10 +220,11 @@ function CompositeBoard({
       </div>
 
       <p className="mb-3 text-sm text-muted">
-        Ranking by {LENSES.find((l) => l.key === lens)?.label ?? "composite"}. Offensive line lives on Size — measurables, not this sort.
+        Ranking by {LENSES.find((l) => l.key === lens)?.label ?? "composite"}. Offensive line lives
+        on Size — measurables, not this sort.
       </p>
 
-      <div className="sm:hidden">
+      <div className="mb-6 sm:hidden">
         <ShowMore
           items={ranked}
           noun="teams"
@@ -357,7 +234,7 @@ function CompositeBoard({
         />
       </div>
 
-      <Panel className="hidden overflow-hidden p-0 sm:block sm:p-0">
+      <Panel className="mb-6 hidden overflow-hidden p-0 sm:block sm:p-0">
         <div className="overflow-x-auto">
           <table className="w-full min-w-4xl text-left text-sm">
             <thead>
@@ -415,6 +292,145 @@ function CompositeBoard({
           </table>
         </div>
       </Panel>
+
+      <Panel className="mb-6">
+        <h2 className="font-display text-2xl tracking-wide">Compare two rosters</h2>
+        <div className="mt-4 grid gap-4 sm:grid-cols-2">
+          <TeamSelect id="talent-a" label="Team A" value={a} teams={teams} onChange={setA} />
+          <TeamSelect id="talent-b" label="Team B" value={b} teams={teams} onChange={setB} />
+        </div>
+        {left && right ? (
+          <div className="mt-6">
+            <p className="mb-2 text-[11px] uppercase tracking-[0.12em] text-faint">
+              HS vs portal slices
+            </p>
+            <CompareRow
+              label="HS two-deep"
+              a={left.hsTalent}
+              b={right.hsTalent}
+              max={100}
+              format={(n) => fmtNum(n, 1)}
+            />
+            {hasPortalSlice(left) || hasPortalSlice(right) ? (
+              <CompareRow
+                label="Portal two-deep"
+                a={left.portalTalent}
+                b={right.portalTalent}
+                max={100}
+                format={(n) => fmtNum(n, 1)}
+              />
+            ) : null}
+            {hasPortalMix(left) || hasPortalMix(right) ? (
+              <CompareRow
+                label="Portal weight"
+                a={left.portalShare}
+                b={right.portalShare}
+                max={100}
+                format={(n) => fmtPct(n, 0)}
+              />
+            ) : null}
+            <CompareRow
+              label="Talent composite"
+              a={left.talentScore}
+              b={right.talentScore}
+              max={100}
+              format={(n) => fmtNum(n, 1)}
+            />
+            <CompareRow
+              label="Starter talent"
+              a={left.starterTalent}
+              b={right.starterTalent}
+              max={100}
+              format={(n) => fmtNum(n, 1)}
+            />
+            <CompareRow
+              label="Offense"
+              a={left.offTalent}
+              b={right.offTalent}
+              max={100}
+              format={(n) => fmtNum(n, 1)}
+            />
+            <CompareRow
+              label="Defense"
+              a={left.defTalent}
+              b={right.defTalent}
+              max={100}
+              format={(n) => fmtNum(n, 1)}
+            />
+            <CompareRow
+              label="Blue-chip %"
+              a={left.blueChipPct}
+              b={right.blueChipPct}
+              max={100}
+              format={(n) => fmtPct(n, 0)}
+            />
+            <p className="mt-4 text-[11px] uppercase tracking-[0.12em] text-faint">
+              Unit slices — not the ranking
+            </p>
+            <div className="mt-1">
+              {TALENT_UNITS.map((u) => (
+                <CompareRow
+                  key={u.key}
+                  label={u.label}
+                  a={left[u.key]}
+                  b={right[u.key]}
+                  max={100}
+                  format={(n) => fmtNum(n, 1)}
+                />
+              ))}
+            </div>
+          </div>
+        ) : null}
+      </Panel>
+
+      <Panel className="mb-6">
+        <h2 className="font-display text-2xl tracking-wide">High school vs portal</h2>
+        <p className="mt-2 text-sm text-muted">
+          Separate weighted 247 ratings on the listed two-deep — HS signees vs portal transfers —
+          plus portal weight share. Sourced from roster players (transfer flag) and TWO·DEEP depth
+          weights.
+        </p>
+        <div className="mt-5">
+          <TalentSliceLeaders teams={ranked} />
+        </div>
+        <div className="mt-6">
+          <TalentSliceChart teams={ranked} />
+        </div>
+      </Panel>
+
+      <Panel className="mb-6">
+        <h2 className="font-display text-2xl tracking-wide">How the composite is built</h2>
+        <ul className="mt-4 grid gap-3 text-sm text-muted sm:grid-cols-3">
+          <li>
+            <div className="font-medium text-fg">The two-deep</div>
+            <p className="mt-1">
+              Listed TWO·DEEP charts from thetwodeep.com (2026-09-07) for 136 programs. North Dakota
+              State and Sacramento State moved up to FBS after that and have no two-deep yet. 247
+              composite, transfers included.
+            </p>
+          </li>
+          <li>
+            <div className="font-medium text-fg">Transfers count</div>
+            <p className="mt-1">
+              A portal player is talent on this roster, not a hole in last year’s class.
+            </p>
+          </li>
+          <li>
+            <div className="font-medium text-fg">OL is not this board</div>
+            <p className="mt-1">
+              Line size is a measurable, not an HX term. Open{" "}
+              <Link
+                to="/talent"
+                search={{ board: "size" }}
+                className="text-fg underline decoration-border underline-offset-4"
+              >
+                Size
+              </Link>{" "}
+              for mass. Units below are slices, not the ranking.
+            </p>
+          </li>
+        </ul>
+      </Panel>
     </>
   );
 }
@@ -465,8 +481,8 @@ function SizeBoard({
       <Panel className="mb-6">
         <h2 className="font-display text-2xl tracking-wide">Measurables by position group</h2>
         <p className="mt-3 text-sm leading-relaxed text-muted">
-          Average height and weight on the listed two-deep for QB, skill, OL, DL, LB, and DB.
-          This board is separate from the talent composite — open{" "}
+          Average height and weight on the listed two-deep for QB, skill, OL, DL, LB, and DB. This
+          board is separate from the talent composite — open{" "}
           <Link
             to="/talent"
             search={{ conf: conf === "All" ? undefined : conf }}
@@ -505,8 +521,20 @@ function SizeBoard({
               </div>
             ))}
             <div className="mt-2 border-t border-line pt-2">
-              <CompareRow label="Roster weight" a={left.avgWeightLbs} b={right.avgWeightLbs} max={280} format={(n) => `${fmtNum(n, 0)} lb`} />
-              <CompareRow label="Talent composite" a={left.talentScore} b={right.talentScore} max={100} format={(n) => fmtNum(n, 1)} />
+              <CompareRow
+                label="Roster weight"
+                a={left.avgWeightLbs}
+                b={right.avgWeightLbs}
+                max={280}
+                format={(n) => `${fmtNum(n, 0)} lb`}
+              />
+              <CompareRow
+                label="Talent composite"
+                a={left.talentScore}
+                b={right.talentScore}
+                max={100}
+                format={(n) => fmtNum(n, 1)}
+              />
             </div>
           </div>
         ) : null}
@@ -519,8 +547,19 @@ function SizeBoard({
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={chart} margin={{ top: 8, right: 8, left: 0, bottom: 8 }}>
               <CartesianGrid stroke="var(--color-line)" vertical={false} />
-              <XAxis dataKey="name" tick={{ fill: "var(--color-muted)", fontSize: 11 }} axisLine={false} tickLine={false} interval={0} />
-              <YAxis tick={{ fill: "var(--color-faint)", fontSize: 11 }} axisLine={false} tickLine={false} domain={[290, 340]} />
+              <XAxis
+                dataKey="name"
+                tick={{ fill: "var(--color-muted)", fontSize: 11 }}
+                axisLine={false}
+                tickLine={false}
+                interval={0}
+              />
+              <YAxis
+                tick={{ fill: "var(--color-faint)", fontSize: 11 }}
+                axisLine={false}
+                tickLine={false}
+                domain={[290, 340]}
+              />
               <Tooltip
                 contentStyle={{
                   background: "var(--color-surface)",
@@ -545,7 +584,11 @@ function SizeBoard({
         })}
       />
 
-      <div className="mb-3 flex gap-2 overflow-x-auto pb-1" role="tablist" aria-label="Position group">
+      <div
+        className="mb-3 flex gap-2 overflow-x-auto pb-1"
+        role="tablist"
+        aria-label="Position group"
+      >
         {SIZE_GROUPS.map((g) => (
           <button
             key={g.key}
@@ -555,7 +598,9 @@ function SizeBoard({
             onClick={() => setSizeGroup(g.key)}
             className={cn(
               "h-10 shrink-0 rounded-full px-4 text-sm transition-colors duration-150",
-              sizeGroup === g.key ? "bg-accent text-accent-fg" : "bg-raised text-muted hover:text-fg",
+              sizeGroup === g.key
+                ? "bg-accent text-accent-fg"
+                : "bg-raised text-muted hover:text-fg",
             )}
           >
             {g.label}
@@ -572,7 +617,9 @@ function SizeBoard({
             onClick={() => setSizeMetric(metric)}
             className={cn(
               "h-9 rounded-full px-3 text-sm capitalize transition-colors duration-150",
-              sizeMetric === metric ? "bg-raised text-fg" : "bg-transparent text-muted hover:text-fg",
+              sizeMetric === metric
+                ? "bg-raised text-fg"
+                : "bg-transparent text-muted hover:text-fg",
             )}
           >
             {metric}
@@ -580,9 +627,7 @@ function SizeBoard({
         ))}
       </div>
 
-      <p className="mb-3 text-sm text-muted">
-        Sorted by {sizeSortLabel(sizeLens)}.
-      </p>
+      <p className="mb-3 text-sm text-muted">Sorted by {sizeSortLabel(sizeLens)}.</p>
 
       <div className="sm:hidden">
         <ShowMore
@@ -591,28 +636,28 @@ function SizeBoard({
           resetKey={sizeLens}
           className="space-y-3"
           render={(t, i) => (
-          <Link
-            key={t.slug}
-            to="/teams/$slug"
-            params={{ slug: t.slug }}
-            className="block rounded-xl bg-surface p-4 shadow-[var(--shadow-border)]"
-          >
-            <div className="flex items-start justify-between gap-3">
-              <div className="flex items-center gap-2.5">
-                <span className="font-display text-xl tabular text-muted">{i + 1}</span>
-                <TeamMark slug={t.slug} color={t.colorPrimary} logoSize={20} />
-                <span className="font-medium">{t.name}</span>
+            <Link
+              key={t.slug}
+              to="/teams/$slug"
+              params={{ slug: t.slug }}
+              className="block rounded-xl bg-surface p-4 shadow-[var(--shadow-border)]"
+            >
+              <div className="flex items-start justify-between gap-3">
+                <div className="flex items-center gap-2.5">
+                  <span className="font-display text-xl tabular text-muted">{i + 1}</span>
+                  <TeamMark slug={t.slug} color={t.colorPrimary} logoSize={20} />
+                  <span className="font-medium">{t.name}</span>
+                </div>
+                <span className="font-display text-xl tabular">{formatSize(t, sizeLens)}</span>
               </div>
-              <span className="font-display text-xl tabular">{formatSize(t, sizeLens)}</span>
-            </div>
-            <div className="mt-3 grid grid-cols-2 gap-x-3 gap-y-1 text-xs tabular text-muted">
-              {SIZE_GROUPS.map((g) => (
-                <span key={g.key}>
-                  {g.label} {fmtHeight(t[g.heightKey])} / {fmtNum(t[g.weightKey], 0)} lb
-                </span>
-              ))}
-            </div>
-          </Link>
+              <div className="mt-3 grid grid-cols-2 gap-x-3 gap-y-1 text-xs tabular text-muted">
+                {SIZE_GROUPS.map((g) => (
+                  <span key={g.key}>
+                    {g.label} {fmtHeight(t[g.heightKey])} / {fmtNum(t[g.weightKey], 0)} lb
+                  </span>
+                ))}
+              </div>
+            </Link>
           )}
         />
       </div>
@@ -658,8 +703,12 @@ function SizeBoard({
                     </Link>
                   </td>
                   {SIZE_GROUPS.flatMap((g) => [
-                    <td key={`${t.slug}-${g.key}-wt`} className="px-3 py-3 tabular">{fmtNum(t[g.weightKey], 0)}</td>,
-                    <td key={`${t.slug}-${g.key}-ht`} className="px-3 py-3 tabular">{fmtHeight(t[g.heightKey])}</td>,
+                    <td key={`${t.slug}-${g.key}-wt`} className="px-3 py-3 tabular">
+                      {fmtNum(t[g.weightKey], 0)}
+                    </td>,
+                    <td key={`${t.slug}-${g.key}-ht`} className="px-3 py-3 tabular">
+                      {fmtHeight(t[g.heightKey])}
+                    </td>,
                   ])}
                   <td className="px-3 py-3 tabular">{fmtNum(t.talentScore, 1)}</td>
                 </tr>
@@ -674,7 +723,11 @@ function SizeBoard({
 
 function TalentCard({ team, place, lens }: { team: TeamSummary; place: number; lens: Lens }) {
   return (
-    <Link to="/teams/$slug" params={{ slug: team.slug }} className="block rounded-xl bg-surface p-4 shadow-[var(--shadow-border)]">
+    <Link
+      to="/teams/$slug"
+      params={{ slug: team.slug }}
+      className="block rounded-xl bg-surface p-4 shadow-[var(--shadow-border)]"
+    >
       <div className="flex items-start justify-between gap-3">
         <div className="flex items-center gap-2.5">
           <span className="font-display text-xl tabular text-muted">{place}</span>
