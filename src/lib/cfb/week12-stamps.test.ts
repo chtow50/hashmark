@@ -122,3 +122,26 @@ describe("Week 11 Sunday sweep (0100)", () => {
     assert.match(block, /vegas_total = 48\.5/);
   });
 });
+
+describe("Week 12 Tuesday FINALs (0104)", () => {
+  const tueSql = readFileSync(join(root, "migrations/0104_week12_tue_finals.sql"), "utf8");
+  const expected = [
+    ["401866465", "western-michigan", "eastern-michigan", 34, 27, "Eastern Michigan @ Western Michigan — Western Michigan 34, Eastern Michigan 27"],
+    ["401866464", "ohio", "ball-state", 35, 28, "Ball State @ Ohio — Ohio 35, Ball State 28"],
+    ["401866466", "kent-state", "miami-oh", 3, 20, "Miami (OH) @ Kent State — Kent State 3, Miami (OH) 20"],
+  ] as const;
+
+  it("stamps scores+status only, with the exact home/away orientation", () => {
+    assert.equal((tueSql.match(/update games/g) ?? []).length, 3);
+    assert.equal((tueSql.match(/g\.week = 12/g) ?? []).length, 3);
+    for (const [espn, hSlug, aSlug, hs, as, label] of expected) {
+      assert.ok(tueSql.includes(`-- ${label}`), label);
+      assert.ok(tueSql.includes(`home_score = ${hs},\n    away_score = ${as}\n`), `${espn} scores`);
+      assert.ok(tueSql.includes(`and h.slug = '${hSlug}' and a.slug = '${aSlug}';`), `${espn} orientation`);
+      assert.match(tueSql, new RegExp(`Source event ${espn}`));
+    }
+    assert.doesNotMatch(tueSql, /kickoff_at|vegas_spread|vegas_total|\btv\s*=|hx_rating|win_title|make_field/);
+    const header = tueSql.split(/update games/i)[0] ?? "";
+    assert.doesNotMatch(header, /\b401\d{6,}\b/);
+  });
+});

@@ -1,6 +1,6 @@
 import { t as MODEL } from "./model-DsakJcRf.mjs";
 import { w as require_jsx_runtime, x as Link } from "../_libs/@tanstack/react-router+[...].mjs";
-import { Q as Panel, Z as PageHead } from "./router-DoqqwjXe.mjs";
+import { Q as Panel, Z as PageHead } from "./router-CTi4KAWr.mjs";
 import { n as hx_refit_2026_default } from "./hx_refit_2026-Dkf4uLyN.mjs";
 //#region node_modules/.nitro/vite/services/ssr/assets/model-BM4l6Lzn.js
 var import_jsx_runtime = require_jsx_runtime();
