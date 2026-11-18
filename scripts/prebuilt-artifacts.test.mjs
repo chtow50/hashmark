@@ -938,4 +938,13 @@ describe("prebuilt deploy artifacts", () => {
     assert.doesNotMatch(text, /The board is posted/);
   });
   // END week12-board-test
+
+  it("includes Week 12 Tuesday FINALs (0104) with exact home/away orientation in committed output", () => {
+    const text = corpus();
+    assert.match(text, /0104_week12_tue_finals/);
+    assert.match(text, /Eastern Michigan @ Western Michigan — Western Michigan 34, Eastern Michigan 27/);
+    assert.match(text, /and h\.slug = 'western-michigan' and a\.slug = 'eastern-michigan';/);
+    assert.match(text, /and h\.slug = 'ohio' and a\.slug = 'ball-state';/);
+    assert.match(text, /and h\.slug = 'kent-state' and a\.slug = 'miami-oh';/);
+  });
 });
