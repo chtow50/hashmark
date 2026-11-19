@@ -28,6 +28,7 @@ import { Route as TalentRouteImport } from './routes/talent'
 import { Route as EdgeSplatRouteImport } from './routes/edge.$'
 import { Route as GamesIndexRouteImport } from './routes/games.index'
 import { Route as GamesKeyRouteImport } from './routes/games.$key'
+import { Route as StatsQbLeadersRouteImport } from './routes/stats_.qb-leaders'
 import { Route as StoriesSlugRouteImport } from './routes/stories_.$slug'
 import { Route as TeamsSlugRouteImport } from './routes/teams.$slug'
 
@@ -126,6 +127,11 @@ const GamesKeyRoute = GamesKeyRouteImport.update({
   path: '/games/$key',
   getParentRoute: () => rootRouteImport,
 } as any)
+const StatsQbLeadersRoute = StatsQbLeadersRouteImport.update({
+  id: '/stats_/qb-leaders',
+  path: '/stats/qb-leaders',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const StoriesSlugRoute = StoriesSlugRouteImport.update({
   id: '/stories_/$slug',
   path: '/stories/$slug',
@@ -156,6 +162,7 @@ export interface FileRoutesByFullPath {
   '/talent': typeof TalentRoute
   '/edge/$': typeof EdgeSplatRoute
   '/games/$key': typeof GamesKeyRoute
+  '/stats/qb-leaders': typeof StatsQbLeadersRoute
   '/stories/$slug': typeof StoriesSlugRoute
   '/teams/$slug': typeof TeamsSlugRoute
   '/games/': typeof GamesIndexRoute
@@ -179,6 +186,7 @@ export interface FileRoutesByTo {
   '/talent': typeof TalentRoute
   '/edge/$': typeof EdgeSplatRoute
   '/games/$key': typeof GamesKeyRoute
+  '/stats/qb-leaders': typeof StatsQbLeadersRoute
   '/stories/$slug': typeof StoriesSlugRoute
   '/teams/$slug': typeof TeamsSlugRoute
   '/games': typeof GamesIndexRoute
@@ -203,6 +211,7 @@ export interface FileRoutesById {
   '/talent': typeof TalentRoute
   '/edge/$': typeof EdgeSplatRoute
   '/games/$key': typeof GamesKeyRoute
+  '/stats_/qb-leaders': typeof StatsQbLeadersRoute
   '/stories_/$slug': typeof StoriesSlugRoute
   '/teams/$slug': typeof TeamsSlugRoute
   '/games/': typeof GamesIndexRoute
@@ -228,6 +237,7 @@ export interface FileRouteTypes {
     | '/talent'
     | '/edge/$'
     | '/games/$key'
+    | '/stats/qb-leaders'
     | '/stories/$slug'
     | '/teams/$slug'
     | '/games/'
@@ -251,6 +261,7 @@ export interface FileRouteTypes {
     | '/talent'
     | '/edge/$'
     | '/games/$key'
+    | '/stats/qb-leaders'
     | '/stories/$slug'
     | '/teams/$slug'
     | '/games'
@@ -274,6 +285,7 @@ export interface FileRouteTypes {
     | '/talent'
     | '/edge/$'
     | '/games/$key'
+    | '/stats_/qb-leaders'
     | '/stories_/$slug'
     | '/teams/$slug'
     | '/games/'
@@ -297,6 +309,7 @@ export interface RootRouteChildren {
   StrengthRoute: typeof StrengthRoute
   TalentRoute: typeof TalentRoute
   GamesKeyRoute: typeof GamesKeyRoute
+  StatsQbLeadersRoute: typeof StatsQbLeadersRoute
   StoriesSlugRoute: typeof StoriesSlugRoute
   TeamsSlugRoute: typeof TeamsSlugRoute
   GamesIndexRoute: typeof GamesIndexRoute
@@ -437,6 +450,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GamesKeyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/stats_/qb-leaders': {
+      id: '/stats_/qb-leaders'
+      path: '/stats/qb-leaders'
+      fullPath: '/stats/qb-leaders'
+      preLoaderRoute: typeof StatsQbLeadersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/stories_/$slug': {
       id: '/stories_/$slug'
       path: '/stories/$slug'
@@ -482,6 +502,7 @@ const rootRouteChildren: RootRouteChildren = {
   StrengthRoute: StrengthRoute,
   TalentRoute: TalentRoute,
   GamesKeyRoute: GamesKeyRoute,
+  StatsQbLeadersRoute: StatsQbLeadersRoute,
   StoriesSlugRoute: StoriesSlugRoute,
   TeamsSlugRoute: TeamsSlugRoute,
   GamesIndexRoute: GamesIndexRoute,

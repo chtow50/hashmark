@@ -2,6 +2,7 @@ import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { getSql } from "@/lib/db";
 import { STAT_TABS } from "./stats";
+import { buildLeaders, DEFAULT_LEADER_SORT, LEADER_SORTS } from "./qb-leaders";
 
 /** One /stats tab: rows joined to team name, conference, and color. Data file stays server-side. */
 export const getStatsTab = createServerFn({ method: "GET" })
@@ -41,4 +42,25 @@ export const getQbDesk = createServerFn({ method: "GET" })
     );
     const { qbDesk } = await import("./qb-desk.server");
     return qbDesk(data.qb, teams);
+  });
+
+/**
+ * QB stat leaderboard: qualified QBs sorted by one real stat, FBS ranks on every column, plus team record and
+ * HX rank as context. `limit` trims the list (the board's compact module asks for 5).
+ */
+export const getQbLeaders = createServerFn({ method: "GET" })
+  .validator(z.object({ sort: z.enum(LEADER_SORTS).optional(), limit: z.number().int().min(1).max(250).optional() }))
+  .handler(async ({ data }) => {
+    const { listTeams } = await import("./queries");
+    const teams = await listTeams();
+    const { statRows, statsMeta } = await import("./stats.server");
+    const { deskKey } = await import("./qb-desk.server");
+    const board = buildLeaders({
+      rows: statRows("qb", teams),
+      sort: data.sort ?? DEFAULT_LEADER_SORT,
+      keyOf: (r) => deskKey(r.name, r.slug),
+      teams: teams.map((t) => ({ slug: t.slug, w: t.seasonWins, l: t.seasonLosses, hxRank: t.hxRank ?? null })),
+    });
+    const meta = statsMeta();
+    return { asOf: meta.as_of, advancedThrough: meta.advanced_through, n: board.n, rows: data.limit ? board.rows.slice(0, data.limit) : board.rows };
   });
