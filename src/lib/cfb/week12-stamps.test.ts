@@ -145,3 +145,25 @@ describe("Week 12 Tuesday FINALs (0104)", () => {
     assert.doesNotMatch(header, /\b401\d{6,}\b/);
   });
 });
+
+describe("Week 12 Wednesday FINALs (0105)", () => {
+  const wedSql = readFileSync(join(root, "migrations/0105_week12_wed_finals.sql"), "utf8");
+  const expected = [
+    ["401866467", "massachusetts", "akron", 33, 34, "Akron @ Massachusetts — Massachusetts 33, Akron 34"],
+    ["401866469", "buffalo", "central-michigan", 40, 21, "Central Michigan @ Buffalo — Buffalo 40, Central Michigan 21"],
+  ] as const;
+
+  it("stamps scores+status only, with the exact home/away orientation", () => {
+    assert.equal((wedSql.match(/update games/g) ?? []).length, 2);
+    assert.equal((wedSql.match(/g\.week = 12/g) ?? []).length, 2);
+    for (const [espn, hSlug, aSlug, hs, as, label] of expected) {
+      assert.ok(wedSql.includes(`-- ${label}`), label);
+      assert.ok(wedSql.includes(`home_score = ${hs},\n    away_score = ${as}\n`), `${espn} scores`);
+      assert.ok(wedSql.includes(`and h.slug = '${hSlug}' and a.slug = '${aSlug}';`), `${espn} orientation`);
+      assert.match(wedSql, new RegExp(`Source event ${espn}`));
+    }
+    assert.doesNotMatch(wedSql, /kickoff_at|vegas_spread|vegas_total|\btv\s*=|hx_rating|win_title|make_field/);
+    const header = wedSql.split(/update games/i)[0] ?? "";
+    assert.doesNotMatch(header, /\b401\d{6,}\b/);
+  });
+});
