@@ -1,5 +1,5 @@
 import { w as require_jsx_runtime, x as Link } from "../_libs/@tanstack/react-router+[...].mjs";
-import { nt as cn } from "./router-CTi4KAWr.mjs";
+import { nt as cn } from "./router-DpZMmqM3.mjs";
 //#region node_modules/.nitro/vite/services/ssr/assets/talent-nav-_bLSVw9b.js
 var import_jsx_runtime = require_jsx_runtime();
 var ITEMS = [
