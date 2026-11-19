@@ -19,6 +19,8 @@ import {
   selectBoardFeaturedKick,
 } from "@/lib/cfb/featured";
 import { PinnedTeamCard } from "@/components/pinned-team-card";
+import { QbLeadersCard } from "@/components/qb-leaders-card";
+import { getQbLeaders } from "@/lib/cfb/stats-queries";
 import { listGames, listScheduleWeek, listTeams } from "@/lib/cfb/queries";
 import { formatSeasonRecord } from "@/lib/cfb/season-record";
 import { MODEL, predictMatchup } from "@/lib/cfb/model";
@@ -36,10 +38,11 @@ import { apLabel, fmtNum, fmtPct } from "@/lib/utils";
 
 export const Route = createFileRoute("/")({
   loader: async () => {
-    const [teams, games, slate] = await Promise.all([
+    const [teams, games, slate, qbLeaders] = await Promise.all([
       listTeams(),
       listGames(),
       listScheduleWeek({ data: { week: FEATURED_SLATE_WEEK } }),
+      getQbLeaders({ data: { limit: 5 } }),
     ]);
     const top = new Set(teams.slice(0, 20).map((t) => t.slug));
     const notable = games.filter((g) => top.has(g.homeSlug) && top.has(g.awaySlug));
@@ -47,7 +50,7 @@ export const Route = createFileRoute("/")({
       slate.filter((g) => !g.isFcs),
       Date.now(),
     );
-    return { teams, games: notable.length ? notable : games.slice(0, 12), featured, slate };
+    return { teams, games: notable.length ? notable : games.slice(0, 12), featured, slate, qbLeaders };
   },
   component: Home,
   head: () =>
@@ -60,7 +63,7 @@ export const Route = createFileRoute("/")({
 });
 
 function Home() {
-  const { teams, games, featured, slate } = Route.useLoaderData();
+  const { teams, games, featured, slate, qbLeaders } = Route.useLoaderData();
   const top = teams.slice(0, 25);
   const one = teams[0];
   const featurePred = featured
@@ -157,6 +160,8 @@ function Home() {
           <DisagreementCard rows={disagreements} />
 
           <RisersFallersCard teams={teams} />
+
+          <QbLeadersCard rows={qbLeaders.rows} n={qbLeaders.n} asOf={qbLeaders.asOf} />
         </div>
       </div>
 

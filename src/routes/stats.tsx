@@ -204,6 +204,15 @@ function StatsPage() {
         </div>
       </div>
 
+      {tab === "qb" ? (
+        <p className="mb-3 text-sm text-muted">
+          <Link to="/stats/qb-leaders" className="font-medium text-accent underline-offset-2 hover:underline">
+            QB stat leaderboard
+          </Link>{" "}
+          · every qualified QB by total EPA, with FBS ranks on each stat.
+        </p>
+      ) : null}
+
       {tab === "qb" && desk ? (
         <QbDesk
           desk={desk}
