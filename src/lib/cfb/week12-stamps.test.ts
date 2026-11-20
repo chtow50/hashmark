@@ -167,3 +167,19 @@ describe("Week 12 Wednesday FINALs (0105)", () => {
     assert.doesNotMatch(header, /\b401\d{6,}\b/);
   });
 });
+
+describe("Week 12 Thursday FINAL (0106)", () => {
+  const thuSql = readFileSync(join(root, "migrations/0106_week12_thu_finals.sql"), "utf8");
+  it("stamps scores+status only, with the exact home/away orientation", () => {
+    assert.equal((thuSql.match(/update games/g) ?? []).length, 1);
+    assert.equal((thuSql.match(/g\.week = 12/g) ?? []).length, 1);
+    assert.ok(thuSql.includes("-- Rice @ Temple — Temple 27, Rice 31"));
+    assert.ok(thuSql.includes("home_score = 27,\n    away_score = 31\n"));
+    assert.ok(thuSql.includes("and h.slug = 'temple' and a.slug = 'rice';"));
+    assert.match(thuSql, /Source event 401862830/);
+    assert.doesNotMatch(thuSql, /kickoff_at|vegas_spread|vegas_total|\btv\s*=|hx_rating|win_title|make_field/);
+    const header = thuSql.split(/update games/i)[0] ?? "";
+    assert.doesNotMatch(header, /\b401\d{6,}\b/);
+  });
+});
+
