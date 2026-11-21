@@ -962,4 +962,12 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /Rice @ Temple — Temple 27, Rice 31/);
     assert.match(text, /and h\.slug = 'temple' and a\.slug = 'rice';/);
   });
+
+  it("includes Week 12 Friday FINALs (0107) with exact home/away orientation in committed output", () => {
+    const text = corpus();
+    assert.match(text, /0107_week12_fri_finals/);
+    assert.match(text, /Iowa State @ UCF — UCF 48, Iowa State 17/);
+    assert.match(text, /and h\.slug = 'ucf' and a\.slug = 'iowa-state';/);
+    assert.match(text, /and h\.slug = 'michigan-state' and a\.slug = 'oregon';/);
+  });
 });

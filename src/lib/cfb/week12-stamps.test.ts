@@ -183,3 +183,25 @@ describe("Week 12 Thursday FINAL (0106)", () => {
   });
 });
 
+describe("Week 12 Friday FINALs (0107)", () => {
+  const friSql = readFileSync(join(root, "migrations/0107_week12_fri_finals.sql"), "utf8");
+  const expected = [
+    ["ucf", "iowa-state", 48, 17],
+    ["duke", "clemson", 10, 20],
+    ["toledo", "bowling-green", 19, 0],
+    ["michigan-state", "oregon", 7, 45],
+    ["air-force", "utep", 52, 3],
+    ["wyoming", "new-mexico", 17, 24],
+  ] as const;
+  it("stamps scores+status only, with the exact home/away orientation", () => {
+    assert.equal((friSql.match(/update games/g) ?? []).length, 6);
+    assert.equal((friSql.match(/g\.week = 12/g) ?? []).length, 6);
+    for (const [home, away, hs, as] of expected) {
+      assert.ok(friSql.includes(`home_score = ${hs},\n    away_score = ${as}\n`));
+      assert.ok(friSql.includes(`and h.slug = '${home}' and a.slug = '${away}';`));
+    }
+    assert.doesNotMatch(friSql, /kickoff_at|vegas_spread|vegas_total|\btv\s*=|hx_rating|win_title|make_field/);
+    const header = friSql.split(/update games/i)[0] ?? "";
+    assert.doesNotMatch(header, /\b401\d{6,}\b/);
+  });
+});
