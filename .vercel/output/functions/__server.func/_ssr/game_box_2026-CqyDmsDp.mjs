@@ -1,4 +1,4 @@
-//#region node_modules/.nitro/vite/services/ssr/assets/game_box_2026-CqyDmsDp.js
+//#region ../hashmark-repo/node_modules/.nitro/vite/services/ssr/assets/game_box_2026-CqyDmsDp.js
 var game_box_2026_default = {
 	meta: {
 		"source": "CollegeFootballData (CFBD): /games/teams box and /stats/game/advanced (all plays)",

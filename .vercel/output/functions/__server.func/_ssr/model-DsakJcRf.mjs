@@ -1,4 +1,4 @@
-//#region node_modules/.nitro/vite/services/ssr/assets/model-DsakJcRf.js
+//#region ../hashmark-repo/node_modules/.nitro/vite/services/ssr/assets/model-DsakJcRf.js
 /**
 * HASHMARK Index — HX 2026.8 (Week 12 board chrome).
 * Preseason prior = the composite below (data/hx_preseason_prior_2026.json).

@@ -1,5 +1,5 @@
 import { createHash } from "node:crypto";
-//#region node_modules/.nitro/vite/services/ssr/assets/db-snapshot-shared-CiMn5NL8.js
+//#region ../hashmark-repo/node_modules/.nitro/vite/services/ssr/assets/db-snapshot-shared-CiMn5NL8.js
 /**
 * Prebuilt PGLite snapshot, shared by the build step (scripts/build-db-snapshot.mjs)
 * and the runtime loader (src/lib/db.ts).

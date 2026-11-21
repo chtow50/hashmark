@@ -1,4 +1,4 @@
-//#region node_modules/.nitro/vite/services/ssr/assets/fbs_newcomers_2026-DcTJaOY9.js
+//#region ../hashmark-repo/node_modules/.nitro/vite/services/ssr/assets/fbs_newcomers_2026-DcTJaOY9.js
 var fbs_newcomers_2026_default = {
 	meta: {
 		"as_of": "2026-11-12",

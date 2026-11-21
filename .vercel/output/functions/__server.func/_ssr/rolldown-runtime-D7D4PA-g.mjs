@@ -1,4 +1,4 @@
-//#region node_modules/.nitro/vite/services/ssr/assets/rolldown-runtime-D7D4PA-g.js
+//#region ../hashmark-repo/node_modules/.nitro/vite/services/ssr/assets/rolldown-runtime-D7D4PA-g.js
 var __defProp = Object.defineProperty;
 var __exportAll = (all, no_symbols) => {
 	let target = {};

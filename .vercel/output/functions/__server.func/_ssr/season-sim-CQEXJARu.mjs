@@ -1,6 +1,6 @@
 import { i as fcsStubsForTeam, r as fcsStubIsFinal } from "./fcs-stubs-BauL-2kD.mjs";
 import { r as sim_free_hx2026_8_default } from "./sim_free_hx2026_8-CbSdleiN.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/season-sim-CQEXJARu.js
+//#region ../hashmark-repo/node_modules/.nitro/vite/services/ssr/assets/season-sim-CQEXJARu.js
 var week11_tape_2026_default = {
 	meta: {
 		"as_of": "2026-11-15 4:32 PM CT",
