@@ -1,5 +1,5 @@
 import { n as chicagoCivilToIso } from "./chicago-CEb1x88L.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/fcs-stubs-BauL-2kD.js
+//#region ../hashmark-repo/node_modules/.nitro/vite/services/ssr/assets/fcs-stubs-BauL-2kD.js
 /**
 * FBS vs FCS rows dropped from the 138-team games table.
 *

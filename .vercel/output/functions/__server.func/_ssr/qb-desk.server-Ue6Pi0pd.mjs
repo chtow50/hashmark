@@ -1,7 +1,7 @@
 import { n as gameKey, t as chicagoDate } from "./game-key-MogMlpsX.mjs";
 import { g as buildDesk, w as isQualified } from "./qb-leaders-ClQAW6us.mjs";
 import { statRows, t as stats_2026_default } from "./stats.server-BYdmWDs-.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/qb-desk.server-Ue6Pi0pd.js
+//#region ../hashmark-repo/node_modules/.nitro/vite/services/ssr/assets/qb-desk.server-Ue6Pi0pd.js
 var qb_desk_2026_default = {
 	meta: {
 		"as_of": "2026-11-14",

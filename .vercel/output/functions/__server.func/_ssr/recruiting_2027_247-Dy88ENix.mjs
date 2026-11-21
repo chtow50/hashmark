@@ -1,4 +1,4 @@
-//#region node_modules/.nitro/vite/services/ssr/assets/recruiting_2027_247-Dy88ENix.js
+//#region ../hashmark-repo/node_modules/.nitro/vite/services/ssr/assets/recruiting_2027_247-Dy88ENix.js
 var recruiting_2027_247_default = {
 	source: "247Sports Composite Team Rankings",
 	url: "https://247sports.com/season/2027-football/compositeteamrankings/",

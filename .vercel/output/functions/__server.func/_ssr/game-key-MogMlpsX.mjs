@@ -1,4 +1,4 @@
-//#region node_modules/.nitro/vite/services/ssr/assets/game-key-MogMlpsX.js
+//#region ../hashmark-repo/node_modules/.nitro/vite/services/ssr/assets/game-key-MogMlpsX.js
 /** /games/<key> URLs: `<kickoff date>-<away slug>-at-<home slug>`, e.g. 2026-11-14-michigan-at-oregon. */
 function gameKey(kickoffDate, away, home) {
 	return `${kickoffDate.slice(0, 10)}-${away}-at-${home}`;

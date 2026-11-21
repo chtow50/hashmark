@@ -1,5 +1,5 @@
 import { r as fcsStubIsFinal, t as FCS_STUB_GAMES } from "./fcs-stubs-BauL-2kD.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/sim_free_hx2026_8-CbSdleiN.js
+//#region ../hashmark-repo/node_modules/.nitro/vite/services/ssr/assets/sim_free_hx2026_8-CbSdleiN.js
 /** En-dash W–L for Board / Rankings / team hub. */
 function formatSeasonRecord(wins, losses) {
 	return `${wins}–${losses}`;
