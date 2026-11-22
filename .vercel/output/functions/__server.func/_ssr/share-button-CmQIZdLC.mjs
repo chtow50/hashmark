@@ -2,7 +2,7 @@ import { o as __toESM } from "../_runtime.mjs";
 import { n as require_react } from "../_libs/@radix-ui/react-compose-refs+[...].mjs";
 import { w as require_jsx_runtime } from "../_libs/@tanstack/react-router+[...].mjs";
 import { s as ImageDown } from "../_libs/lucide-react.mjs";
-//#region ../hashmark-repo/node_modules/.nitro/vite/services/ssr/assets/share-button-CmQIZdLC.js
+//#region node_modules/.nitro/vite/services/ssr/assets/share-button-CmQIZdLC.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 var W = 1200;

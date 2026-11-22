@@ -350,6 +350,17 @@ const WEEK10_FCS_STUBS: FcsStubGame[] = [
 const WEEK11_FCS_STUBS: FcsStubGame[] = [
 ];
 
+const WEEK12_FCS_STUBS: FcsStubGame[] = [
+  // Chattanooga @ Alabama — Alabama 47, Chattanooga 0.
+  finalHome("alabama", 12, "2026-11-21", "Chattanooga", 47, 0),
+  // Wofford @ Ole Miss — Ole Miss 59, Wofford 17.
+  finalHome("ole-miss", 12, "2026-11-21", "Wofford", 59, 17),
+  // Tennessee Tech @ Mississippi State — Mississippi State 34, Tennessee Tech 16.
+  finalHome("mississippi-state", 12, "2026-11-21", "Tennessee Tech", 34, 16),
+  // Samford @ Auburn — Auburn 59, Samford 17.
+  finalHome("auburn", 12, "2026-11-21", "Samford", 59, 17),
+];
+
 /** FBS vs FCS rows dropped from the 138-team games table (W–L stubs + Week 2 Vegas-only JSON). */
 export const FCS_STUB_GAMES: FcsStubGame[] = [
   ...WEEK0_FCS_STUBS,
@@ -364,6 +375,7 @@ export const FCS_STUB_GAMES: FcsStubGame[] = [
   ...WEEK9_FCS_STUBS,
   ...WEEK10_FCS_STUBS,
   ...WEEK11_FCS_STUBS,
+  ...WEEK12_FCS_STUBS,
 ];
 
 export function fcsStubIsFinal(stub: FcsStubGame): boolean {

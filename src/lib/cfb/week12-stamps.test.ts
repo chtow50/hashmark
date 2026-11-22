@@ -3,6 +3,7 @@ import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { describe, it } from "node:test";
+import { fcsStubsForWeek } from "./fcs-stubs.ts";
 import { BOARD_WEEK, FEATURED_SLATE_WEEK, WEEK12_FEATURED } from "./featured.ts";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "../../..");
@@ -203,5 +204,86 @@ describe("Week 12 Friday FINALs (0107)", () => {
     assert.doesNotMatch(friSql, /kickoff_at|vegas_spread|vegas_total|\btv\s*=|hx_rating|win_title|make_field/);
     const header = friSql.split(/update games/i)[0] ?? "";
     assert.doesNotMatch(header, /\b401\d{6,}\b/);
+  });
+});
+
+describe("Week 12 Saturday FINALs (0108)", () => {
+  const satSql = readFileSync(join(root, "migrations/0108_week12_sat_finals.sql"), "utf8");
+  const expected = [
+    ["south-carolina", "georgia", 6, 34],
+    ["tcu", "utah", 17, 38],
+    ["michigan", "ucla", 18, 16],
+    ["texas", "arkansas", 45, 3],
+    ["notre-dame", "smu", 24, 3],
+    ["miami", "virginia-tech", 28, 20],
+    ["washington", "indiana", 27, 24],
+    ["tennessee", "lsu", 27, 13],
+    ["kansas", "byu", 29, 31],
+    ["georgia-tech", "wake-forest", 29, 50],
+    ["baylor", "texas-tech", 10, 20],
+    ["nebraska", "ohio-state", 31, 28],
+    ["illinois", "iowa", 17, 34],
+    ["missouri", "kentucky", 28, 14],
+    ["boise-state", "san-diego-state", 20, 22],
+    ["usc", "maryland", 35, 21],
+    ["kansas-state", "arizona", 28, 35],
+    ["west-virginia", "houston", 31, 34],
+    ["oklahoma", "texas-am", 28, 7],
+    ["louisville", "pittsburgh", 42, 10],
+    ["florida", "vanderbilt", 34, 27],
+    ["cincinnati", "colorado", 35, 28],
+    ["boston-college", "syracuse", 27, 15],
+    ["minnesota", "northwestern", 20, 17],
+    ["purdue", "wisconsin", 10, 42],
+    ["army", "east-carolina", 6, 10],
+    ["navy", "memphis", 38, 34],
+    ["tulane", "north-texas", 28, 24],
+    ["virginia", "north-carolina", 41, 24],
+    ["liberty", "western-kentucky", 45, 14],
+    ["tulsa", "charlotte", 42, 14],
+    ["jacksonville-state", "missouri-state", 25, 20],
+    ["sam-houston", "middle-tennessee", 28, 31],
+    ["florida-atlantic", "usf", 35, 14],
+    ["app-state", "ul-monroe", 17, 16],
+    ["louisiana", "coastal-carolina", 38, 24],
+    ["new-mexico-state", "delaware", 30, 42],
+    ["kennesaw-state", "fiu", 35, 24],
+    ["florida-state", "nc-state", 10, 28],
+    ["penn-state", "rutgers", 24, 25],
+    ["uconn", "old-dominion", 29, 21],
+    ["north-dakota-state", "northern-illinois", 31, 25],
+    ["troy", "georgia-southern", 7, 45],
+    ["marshall", "georgia-state", 28, 27],
+    ["southern-miss", "south-alabama", 35, 40],
+    ["texas-state", "washington-state", 42, 14],
+    ["san-jose-state", "unlv", 22, 24],
+    ["louisiana-tech", "arkansas-state", 48, 3],
+    ["california", "stanford", 28, 44],
+    ["fresno-state", "colorado-state", 49, 42],
+    ["uab", "utsa", 17, 19],
+    ["oregon-state", "utah-state", 31, 24],
+    ["nevada", "hawaii", 16, 8],
+  ] as const;
+  it("stamps scores+status only, with the exact home/away orientation", () => {
+    assert.equal((satSql.match(/update games/g) ?? []).length, 53);
+    assert.equal((satSql.match(/g\.week = 12/g) ?? []).length, 53);
+    for (const [home, away, hs, as] of expected) {
+      assert.ok(satSql.includes(`home_score = ${hs},\n    away_score = ${as}\n`));
+      assert.ok(satSql.includes(`and h.slug = '${home}' and a.slug = '${away}';`));
+    }
+    assert.doesNotMatch(satSql, /kickoff_at|vegas_spread|vegas_total|\btv\s*=|hx_rating|win_title|make_field/);
+    assert.doesNotMatch(satSql, /oklahoma-state/);
+    const header = satSql.split(/update games/i)[0] ?? "";
+    assert.doesNotMatch(header, /\b401\d{6,}\b/);
+  });
+
+  it("adds the four Week 12 FBS-vs-FCS FINAL stubs", () => {
+    const got = fcsStubsForWeek(12).map((g) => [g.teamSlug, g.home, g.opponentLabel, g.homeScore, g.awayScore, g.status]);
+    assert.deepEqual(got, [
+      ["alabama", true, "Chattanooga", 47, 0, "final"],
+      ["ole-miss", true, "Wofford", 59, 17, "final"],
+      ["mississippi-state", true, "Tennessee Tech", 34, 16, "final"],
+      ["auburn", true, "Samford", 59, 17, "final"],
+    ]);
   });
 });
