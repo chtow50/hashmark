@@ -134,7 +134,7 @@ if (want("static")) {
   await shot(staticCard("Matchup", "Any two FBS teams: HX line and win %, plus unit-vs-unit edges from the advanced stats.", "Head to head"), join(OUT, "matchup.jpg"));
 }
 if (want("coordinators")) {
-  await shot(staticCard("Best coordinators", "Current Power 4 OCs and DCs by the adjusted EPA of the units they ran, verified seasons only. Track record, not a coach rating.", "Unit track records · 2016–25"), join(OUT, "coordinators.jpg"));
+  await shot(staticCard("Best coordinators", "Every FBS offense and defense ranked by production, with the coordinator each school lists. 2026 season and a 2024–26 average. Track record, not a coach rating.", "Production board · 2026 + 2024–26"), join(OUT, "coordinators.jpg"));
 }
 const cards = { teams: [], games: [] };
 for (const t of teams) {

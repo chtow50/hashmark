@@ -65,15 +65,15 @@ export const getQbLeaders = createServerFn({ method: "GET" })
     return { asOf: meta.as_of, advancedThrough: meta.advanced_through, n: board.n, rows: data.limit ? board.rows.slice(0, data.limit) : board.rows };
   });
 
-/** /coordinators: verified coordinator credits + unit numbers, team names, and 2026 to date. */
+/** /coordinators: every FBS unit's 2026 production with its listed coordinator, plus 2024–26 coordinator records. */
 export const getCoordinators = createServerFn({ method: "GET" }).handler(async () => {
   const sql = await getSql();
   const teams = await sql.query<{ slug: string; name: string; colorPrimary: string }>(`select slug, name, color_primary as "colorPrimary" from teams`);
-  const { coordinatorsFile, season2026, stats2026AsOf } = await import("./coordinators.server");
+  const { coordinatorsFile, live2026, talent2026, stats2026AsOf, withLive2026 } = await import("./coordinators.server");
   const file = coordinatorsFile();
-  const now: Record<string, ReturnType<typeof season2026>> = {};
-  for (const c of file.coaches) now[`${c.unit}|${c.name}`] = season2026(c.team, c.unit);
-  const used = new Set([...file.population.map((p) => p.team), ...file.coaches.flatMap((c) => c.history.map((h) => h.team))]);
+  const live = live2026();
+  const coaches = withLive2026(file, live);
+  const used = new Set([...file.units2026.map((u) => u.team), ...coaches.flatMap((c) => c.history.map((h) => h.team))]);
   const teamInfo = Object.fromEntries(teams.filter((t) => used.has(t.slug)).map((t) => [t.slug, { name: t.name, color: t.colorPrimary }]));
-  return { file, now, asOf2026: stats2026AsOf(), teams: teamInfo };
+  return { built: file.built, source: file.source, units2026: file.units2026, prior2025: file.prior2025, coaches, live, talent: talent2026(), asOf2026: stats2026AsOf(), teams: teamInfo };
 });
