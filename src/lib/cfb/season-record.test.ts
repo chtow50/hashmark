@@ -69,9 +69,13 @@ describe("tallyFcsStubRecord", () => {
 
   it("leaves teams without FINAL FCS stubs at 0–0", () => {
     // No FCS stub at all for these FBS teams (records audit 2026-10-09).
-    for (const slug of ["ohio-state", "alabama", "notre-dame"]) {
+    for (const slug of ["ohio-state", "notre-dame"]) {
       assert.deepEqual(tallyFcsStubRecord(slug), { seasonWins: 0, seasonLosses: 0 }, slug);
     }
+  });
+
+  it("counts the Week 12 FCS FINALs (Alabama 47–0 Chattanooga)", () => {
+    assert.deepEqual(tallyFcsStubRecord("alabama"), { seasonWins: 1, seasonLosses: 0 });
   });
 
   it("counts Buffalo FCS wins: Week 1 UAlbany 21–17 + Week 4 Robert Morris 31–28", () => {

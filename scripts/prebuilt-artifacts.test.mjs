@@ -970,4 +970,12 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /and h\.slug = 'ucf' and a\.slug = 'iowa-state';/);
     assert.match(text, /and h\.slug = 'michigan-state' and a\.slug = 'oregon';/);
   });
+
+  it("includes Week 12 Saturday FINALs (0108) with exact home/away orientation in committed output", () => {
+    const text = corpus();
+    assert.match(text, /0108_week12_sat_finals/);
+    assert.match(text, /Georgia @ South Carolina — South Carolina 6, Georgia 34/);
+    assert.match(text, /and h\.slug = 'south-carolina' and a\.slug = 'georgia';/);
+    assert.match(text, /and h\.slug = 'north-dakota-state' and a\.slug = 'northern-illinois';/);
+  });
 });

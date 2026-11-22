@@ -402,9 +402,9 @@ describe("Week 1 FCS backfill (fcs_backfill_week1_all_finals_clear_2026-10-09)",
       'finalHome("oregon", 3, "2026-09-18", "Portland State", 84, 0)',
     ]);
     assert.equal(fcsStubsForWeek(2).length, payload.games.length - 2);
-    // 87 after #84, + 36 records-audit finals (TTU is replace-not-add), + 2 Week 6 FINALs, + 5 Week 7 FINALs, + 2 Week 8 FINALs, + 2 Week 9 FINALs, + 2 Week 10 FINALs, + 1 Week 11 FINAL = 137;
+    // 87 after #84, + 36 records-audit finals (TTU is replace-not-add), + 2 Week 6 FINALs, + 5 Week 7 FINALs, + 2 Week 8 FINALs, + 2 Week 9 FINALs, + 2 Week 10 FINALs, + 1 Week 11 FINAL + 4 Week 12 FINALs = 141;
     // 0093 moves 16 newcomer games (14 stubs + 2 Week 2 JSON rows) to games and adds their 2 own FCS games.
-    assert.equal(FCS_STUB_GAMES.length, 123);
+    assert.equal(FCS_STUB_GAMES.length, 127);
     // Buffalo Week 4 (Robert Morris) landed in the records audit; Jacksonville State Week 0 (NDSU) is a games row since 0093.
     assert.deepEqual(fcsStubsForTeam("buffalo").map((s) => s.week), [1, 4]);
     assert.deepEqual(fcsStubsForTeam("jacksonville-state").map((s) => s.week), [1]);

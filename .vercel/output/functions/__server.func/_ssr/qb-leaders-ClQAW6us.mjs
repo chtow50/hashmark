@@ -1,4 +1,4 @@
-//#region ../hashmark-repo/node_modules/.nitro/vite/services/ssr/assets/qb-leaders-ClQAW6us.js
+//#region node_modules/.nitro/vite/services/ssr/assets/qb-leaders-ClQAW6us.js
 /**
 * /stats metric catalog and math (client-safe; no data import).
 * Rows come from data/stats_2026.json via the getStatsTab server function (stats.server.ts).

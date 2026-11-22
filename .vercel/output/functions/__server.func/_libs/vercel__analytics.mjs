@@ -1,6 +1,6 @@
 import { o as __toESM } from "../_runtime.mjs";
 import { n as require_react } from "./@radix-ui/react-compose-refs+[...].mjs";
-//#region ../hashmark-repo/node_modules/@vercel/analytics/dist/react/index.mjs
+//#region node_modules/@vercel/analytics/dist/react/index.mjs
 var import_react = /* @__PURE__ */ __toESM(require_react(), 1);
 var initQueue = () => {
 	if (window.va) return;
