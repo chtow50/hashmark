@@ -376,7 +376,7 @@ function Board3y({ coaches, units, unit, sort, dir, teams, tn }: { coaches: Coac
           </span>
         </p>
         <p className="mt-1 text-xs leading-relaxed text-muted">
-          A season counts when that year&apos;s official staff page lists him as the only {UNIT_SHORT[unit]} at that school. 2026 counts to date. Tap a coach for every season with sources.
+          A season counts when that year&apos;s official staff page lists him with the full {UNIT_SHORT[unit]} title at that school (a co-{UNIT_SHORT[unit]} may also be listed). 2026 counts to date. Tap a coach for every season with sources.
         </p>
       </div>
       <Panel className="p-0 sm:p-0">
@@ -586,9 +586,9 @@ function Method({ unit }: { unit: Unit }) {
             school&apos;s unit last season; for a first-year coordinator that is the unit he inherited. Talent rank is the 247 Team Talent Composite, for context.
           </li>
           <li>
-            <span className="text-fg">3-year board (2024–26):</span> current coordinators only. A season counts when that year&apos;s official staff page (live or archived) lists him as the only
-            coordinator on that side at that school, the school had one head coach that season (2024–25), and the head coach is not documented calling that side. Co-coordinator seasons, missing
-            staff pages and head-coach play-caller seasons are shown greyed with the reason. Each credited season counts once (equal weight); 2026 counts to date; 2 credited seasons to be ranked.
+            <span className="text-fg">3-year board (2024–26):</span> current coordinators only. A season counts when that year&apos;s official staff page (live or archived) lists him holding the
+            full coordinator title on that side at that school (a co-coordinator may also be listed), the school had one head coach that season (2024–25), and the head coach is not documented
+            calling that side. Seasons where he was only a co-coordinator, missing staff pages and head-coach play-caller seasons are shown greyed with the reason. Each credited season counts once (equal weight); 2026 counts to date; 2 credited seasons to be ranked.
           </li>
           <li>
             <span className="text-fg">Limits:</span> a staff page is a snapshot, so a mid-season change can hide behind it. Titles say who holds the job, not always who calls every play. Treat

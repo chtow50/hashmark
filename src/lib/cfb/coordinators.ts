@@ -9,7 +9,8 @@
  *    head coaches who hold the coordinator title or are documented play-callers, interim setups, and
  *    units with no listed coordinator stay on the board with a label instead of being dropped.
  *  - "3y": current coordinators averaged over 2024–26, crediting only seasons where that season's
- *    official staff page lists him as the only coordinator on that side at that school. Each credited
+ *    official staff page lists him holding the full coordinator title on that side at that school
+ *    (a co-coordinator may also be listed; co-coordinator-only seasons never count). Each credited
  *    season counts once (equal weight); 2+ credited seasons to be ranked.
  */
 
@@ -96,7 +97,7 @@ export const COL_META: Record<CoordCol, { s: string; l: string; def: string; dig
   delta: { s: "vs 2025", l: "Change in adj EPA/play vs the same unit in 2025", def: "This season minus last season for this school's unit (positive = better for offense; for defense, negative = fewer EPA allowed = better). For a first-year coordinator it is the change from the unit he inherited.", digits: 3 },
   talent: { s: "Talent rank", l: "247 roster talent rank (2026)", def: "247Sports Team Talent Composite rank among FBS teams: what the unit had to work with. Context only.", digits: 0 },
   rank: { s: "Avg FBS rank", l: "Average FBS rank (adj EPA/play)", def: "The unit's FBS rank on adjusted EPA/play each credited season, averaged.", digits: 1 },
-  n: { s: "Seasons", l: "Credited seasons, 2024–26", def: "Seasons where that year's official staff page lists him as the only coordinator on that side.", digits: 0 },
+  n: { s: "Seasons", l: "Credited seasons, 2024–26", def: "Seasons where that year's official staff page lists him holding the full coordinator title on that side (a co-coordinator may also be listed).", digits: 0 },
 };
 
 /** True when a higher value is better for this unit and column. */

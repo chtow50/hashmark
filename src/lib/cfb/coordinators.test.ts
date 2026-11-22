@@ -90,12 +90,15 @@ describe("shipped data", () => {
         if (h.status === "credited") {
           assert.match(String(h.staffUrl), /^https?:\/\//, `${c.name} ${h.season}`);
           if (h.season < 2026) assert.ok(h.stats && h.stats.epa != null, `${c.name} ${h.season} stats`);
-        } else assert.ok(h.reasons && h.reasons.length > 0, `${c.name} ${h.season} reason`);
+        } else {
+          assert.ok(h.reasons && h.reasons.length > 0, `${c.name} ${h.season} reason`);
+          assert.ok(!h.reasons!.some((r) => /co-coordinator season/.test(r)), "old strict-sole reason must be gone");
+        }
       }
     }
   });
-  it("a credited 2026 season means the school lists him as its only coordinator on that side", () => {
-    const sole = new Set(file.units2026.filter((u) => u.label === "sole").map((u) => `${u.unit}|${u.team}|${u.coaches[0].name}`));
+  it("a credited 2026 season means he holds the school's full coordinator title on that side (a co-coordinator may also be listed)", () => {
+    const sole = new Set(file.units2026.filter((u) => u.label === "sole" || u.label === "with-co").map((u) => `${u.unit}|${u.team}|${u.coaches[0].name}`));
     for (const c of file.coaches) for (const h of c.history) if (h.season === 2026 && h.status === "credited") assert.ok(sole.has(`${c.unit}|${h.team}|${c.name}`), c.name);
   });
   it("free surface: no win_title", () => {
