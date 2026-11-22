@@ -78,6 +78,12 @@ import {
   week11TapePack,
   week11Top25Pack,
   week11Top25Tape,
+  week12BoardFlags,
+  week12SeasonTape,
+  week12Tape,
+  week12TapePack,
+  week12Top25Pack,
+  week12Top25Tape,
 } from "./truth-pack.ts";
 import { SIM_FULL_FILE, sim10kFull, simFullTeamBySlug } from "./sim-full.server.ts";
 
@@ -353,7 +359,8 @@ test("Week 3 Top 25 closer cut is 5/21 HX · 20/21 SU", () => {
   const src = readFileSync(join(root, "src/lib/cfb/truth-pack.ts"), "utf8");
   assert.match(src, /function week3Tape\(\)/);
   const home = readFileSync(join(root, "src/routes/index.tsx"), "utf8");
-  assert.match(home, /week11Tape\(\)/);
+  assert.match(home, /week12Tape\(\)/);
+  assert.doesNotMatch(home, /week11Tape\(\)/);
   assert.doesNotMatch(home, /week10Tape\(\)/);
   assert.doesNotMatch(home, /week9Tape\(\)/);
   assert.doesNotMatch(home, /week8Tape\(\)/);
@@ -584,7 +591,7 @@ test("Week 6 tape is 33/56 SU and 27/56 closer (no closer FLAG) on the HX 2026.7
   assert.equal(asu?.score_home, 30);
   assert.equal(asu?.score_away, 12);
   const home = readFileSync(join(root, "src/routes/index.tsx"), "utf8");
-  assert.match(home, /weekLabel="Week 11 tape"/);
+  assert.match(home, /weekLabel="Week 12 tape"/);
   assert.doesNotMatch(home, /The board is posted/);
   assert.doesNotMatch(JSON.stringify(week6TapePack), /win_title/);
 });
@@ -632,8 +639,8 @@ test("Week 7 tape is 34/57 SU; closer 3/6 on the Vegas-lined cards (HX 2026.7 pr
   assert.equal(ore?.score_home, 17);
   assert.equal(ore?.score_away, 14);
   const home = readFileSync(join(root, "src/routes/index.tsx"), "utf8");
-  assert.match(home, /weekLabel="Week 11 tape"/);
-  assert.match(home, /scheduleWeek=\{11\}/);
+  assert.match(home, /weekLabel="Week 12 tape"/);
+  assert.match(home, /scheduleWeek=\{12\}/);
   assert.match(home, /closerScope="Vegas-lined"/);
   assert.doesNotMatch(home, /The board is posted/);
   assert.doesNotMatch(JSON.stringify(week7TapePack), /win_title/);
@@ -731,8 +738,8 @@ test("Week 9 tape is 44/54 SU; closer 3/6 on the Vegas-lined cards, no closer FL
   assert.equal(usc?.score_home, 30);
   assert.equal(usc?.score_away, 18);
   const home = readFileSync(join(root, "src/routes/index.tsx"), "utf8");
-  assert.match(home, /weekLabel="Week 11 tape"/);
-  assert.match(home, /scheduleWeek=\{11\}/);
+  assert.match(home, /weekLabel="Week 12 tape"/);
+  assert.match(home, /scheduleWeek=\{12\}/);
   assert.match(home, /closerScope="Vegas-lined"/);
   assert.doesNotMatch(home, /The board is posted/);
   assert.doesNotMatch(JSON.stringify(week9TapePack), /win_title/);
@@ -784,8 +791,8 @@ test("Week 10 tape is 36/61 SU; closer 3/5 on the Vegas-lined cards, SU FLAG, no
   assert.equal(osu?.score_home, 28);
   assert.equal(osu?.score_away, 41);
   const home = readFileSync(join(root, "src/routes/index.tsx"), "utf8");
-  assert.match(home, /weekLabel="Week 11 tape"/);
-  assert.match(home, /scheduleWeek=\{11\}/);
+  assert.match(home, /weekLabel="Week 12 tape"/);
+  assert.match(home, /scheduleWeek=\{12\}/);
   assert.match(home, /closerScope="Vegas-lined"/);
   assert.doesNotMatch(home, /SU 36\/61 is under 70%/);
   assert.doesNotMatch(home, /The board is posted/);
@@ -841,12 +848,57 @@ test("Week 11 tape is 43/66 SU; closer 21/50 on the Vegas-lined cards (pregame H
   assert.equal(haw?.score_home, 13);
   assert.equal(haw?.score_away, 21);
   const home = readFileSync(join(root, "src/routes/index.tsx"), "utf8");
-  assert.match(home, /weekLabel="Week 11 tape"/);
-  assert.match(home, /scheduleWeek=\{11\}/);
-  assert.match(home, /closerScope="Vegas-lined"/);
-  assert.match(home, /SU 43\/66 is /);
+  assert.doesNotMatch(home, /weekLabel="Week 11 tape"/);
+  assert.doesNotMatch(home, /SU 43\/66 is /);
   assert.doesNotMatch(home, /The board is posted/);
   assert.doesNotMatch(JSON.stringify(week11TapePack), /win_title/);
   assert.doesNotMatch(JSON.stringify(week11Top25Pack), /win_title/);
 });
 // END week11-tape-test
+
+// BEGIN week12-tape-test (generated from data/week12_tape_2026.json)
+test("Week 12 tape is 50/66 SU; no Vegas-lined cards so closer is not graded (pregame HX 2026.8 locks)", () => {
+  const tape = week12Tape();
+  assert.equal(tape.n, 66);
+  assert.equal(tape.su, "50/66");
+  assert.equal(tape.su_pct, 75.8);
+  assert.equal(tape.hx_closer, "0/0");
+  assert.equal(tape.closer_flag, false);
+  assert.equal(tape.vegas_closer, "0/0");
+  assert.equal(tape.hx_ats, "0/0");
+  assert.equal(tape.mae_hx, 11.56);
+  assert.equal(tape.brier, 0.181);
+  const m = week12TapePack.meta;
+  assert.equal(m.closer_n, 0);
+  assert.equal(m.headline_flags.su_below_70, false);
+  assert.equal(week12TapePack.games.length, 66);
+  assert.equal(week12TapePack.games.filter((g) => g.su_hit).length, 50);
+  assert.equal(week12TapePack.games.filter((g) => g.vegas_details != null).length, 0);
+  assert.equal(week12TapePack.su_misses.length, 16);
+  assert.equal(week12BoardFlags().length, 0);
+  const season = week12SeasonTape();
+  assert.equal(season.label, "W1–W12");
+  assert.equal(season.su, "474/672");
+  assert.equal(season.hx_closer, "163/388");
+  const top = week12Top25Tape();
+  assert.equal(top.n, 21);
+  assert.equal(top.su, "16/21");
+  assert.equal(top.hx_closer, "0/0");
+  assert.equal(week12Top25Pack.games.length, 21);
+  // Saturday-night straggler stamped in 0109 (Oklahoma State @ Arizona State, ESPN 401856870).
+  const asu = week12TapePack.games.find((g) => g.home_slug === "arizona-state" && g.away_slug === "oklahoma-state");
+  assert.equal(asu?.score_home, 27);
+  assert.equal(asu?.score_away, 30);
+  const tex = week12TapePack.games.find((g) => g.home_slug === "texas" && g.away_slug === "arkansas");
+  assert.equal(tex?.score_home, 45);
+  assert.equal(tex?.score_away, 3);
+  const home = readFileSync(join(root, "src/routes/index.tsx"), "utf8");
+  assert.match(home, /weekLabel="Week 12 tape"/);
+  assert.match(home, /scheduleWeek=\{12\}/);
+  assert.match(home, /closerScope="Vegas-lined"/);
+  assert.match(home, /SU 50\/66 /);
+  assert.doesNotMatch(home, /The board is posted/);
+  assert.doesNotMatch(JSON.stringify(week12TapePack), /win_title/);
+  assert.doesNotMatch(JSON.stringify(week12Top25Pack), /win_title/);
+});
+// END week12-tape-test

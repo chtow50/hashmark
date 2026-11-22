@@ -1,1 +1,0 @@
-import{f as e}from"./stats-CE7nvvnh.js";var t=new Set([`SEC`,`Big Ten`,`Big 12`,`ACC`]),n=new Set([`American`,`Sun Belt`,`MAC`,`CUSA`,`Mountain West`,`Pac-12`]),r=[`epa`,`tepa`,`eff`,`ypa`,`aya`,`cmp`,`tdp`,`intp`],i=[`epa`,`tepa`,`eff`,`ypa`],a=t=>e(`qb`,t);export{a,t as i,r as n,n as r,i as t};

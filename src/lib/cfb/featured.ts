@@ -4,43 +4,43 @@ import type { ScheduleGame } from "./types";
  * Board chrome week (Rankings / home PageHead). Ranking *rows* stay
  * `season = 2026 AND week = 0` — that is what queries read.
  */
-export const BOARD_WEEK = 12;
+export const BOARD_WEEK = 13;
 
 /**
- * Last stamped AP ballot on the live board: Week 11 AP (Nov. 8), ESPN rankings API with
- * an NCAA.com cross-check (25/25 ranks, records, points; no ties; through games Nov. 7).
- * Source: data/week11_ap_top25_2026.json (migration 0092).
+ * Last stamped AP ballot on the live board: Week 12 AP (Nov. 16), ESPN rankings API
+ * (25/25 ranks, records, points; no ties; through games Nov. 14).
+ * Source: data/week12_ap_top25_2026.json (migration 0112).
  */
 export const AP_STAMP = {
-  week: 11,
-  asOf: "Nov. 8",
-  label: "Week 11 AP",
-  columnHint: "W11 stamp",
-  vsHx: "the last stamped AP poll (Week 11, Nov. 8)",
-  lede: "AP is the last stamped poll (Week 11, Nov. 8). CFP is the committee ranking of Nov. 10.",
+  week: 12,
+  asOf: "Nov. 16",
+  label: "Week 12 AP",
+  columnHint: "W12 stamp",
+  vsHx: "the last stamped AP poll (Week 12, Nov. 16)",
+  lede: "AP is the last stamped poll (Week 12, Nov. 16). CFP is the committee ranking of Nov. 17.",
 } as const;
 
 /**
  * Last stamped CFP committee ranking (top 25), ESPN rankings API with an NCAA.com
- * cross-check (25/25 ranks and records). Source: data/cfp_rankings_2026_11_10.json (0092).
+ * (25/25 ranks and records). Source: data/cfp_rankings_2026_11_17.json (0112).
  * The committee's number, not HASHMARK's — HX stays the only rating.
  */
 export const CFP_STAMP = {
-  release: "2026-11-10",
-  asOf: "Nov. 10",
-  label: "CFP rankings · Nov. 10",
-  columnHint: "Committee · Nov. 10",
+  release: "2026-11-17",
+  asOf: "Nov. 17",
+  label: "CFP rankings · Nov. 17",
+  columnHint: "Committee · Nov. 17",
 } as const;
 
 /**
- * Featured kick reads the HASHMARK Week 12 slate (`/schedule?w=12`).
- * Board chrome is Week 12. Live ratings are HX 2026.8 (weekly refit). The Week 11 tape
+ * Featured kick reads the HASHMARK Week 13 slate (`/schedule?w=13`).
+ * Board chrome is Week 13. Live ratings are HX 2026.8 (weekly refit). The Week 12 tape
  * grades the pregame HX 2026.8 locks. Make the 12 is the HX 2026.8
  * 10k table (make-field only on free chrome). Home desk aligns to the
- * Week 12 pin (LSU @ Tennessee), matching `/schedule?w=12` featured —
+ * Week 13 pin (Auburn @ Alabama), matching `/schedule?w=13` featured —
  * not the earliest kick. FCS rows are never featured. Never invent Vegas.
  */
-export const FEATURED_SLATE_WEEK = 12;
+export const FEATURED_SLATE_WEEK = 13;
 
 /** Thursday night flag: Colorado at Georgia Tech, Bobby Dodd. */
 export const WEEK1_FLAG = {
@@ -174,11 +174,24 @@ export const WEEK11_FEATURED = {
  * Sat 2026-11-21 14:30 CT · ABC (ESPN scoreboard; migration 0101).
  * Vegas blank: ESPN DraftKings (TENN −1.5, 46.5) is the only book posted; Bovada
  * had no Week 12 line at the stamp, so no two-book exact match.
- * Home desk FEATURED_SLATE_WEEK is 12.
+ * Historical pin (FINAL). Home desk FEATURED_SLATE_WEEK is 13.
  */
 export const WEEK12_FEATURED = {
   homeSlug: "tennessee",
   awaySlug: "lsu",
+} as const;
+
+/**
+ * Saturday ABC: Auburn at Alabama, Bryant-Denny Stadium (Iron Bowl). Schedule-page pin for
+ * `/schedule?w=13` and the home desk featured card (best combined HX 2026.8 rank on the
+ * Week 13 slate with a CLEAR kick + TV, on the 2026-11-22 refit board).
+ * Sat 2026-11-28 18:30 CT · ABC (ESPN scoreboard; migration 0111).
+ * Vegas blank: CFBD lists DraftKings only for Week 13 (no Bovada), so no two-book exact match.
+ * Home desk FEATURED_SLATE_WEEK is 13.
+ */
+export const WEEK13_FEATURED = {
+  homeSlug: "alabama",
+  awaySlug: "auburn",
 } as const;
 
 
@@ -241,8 +254,8 @@ export function selectFeaturedKick<
 }
 
 /**
- * Board featured for the live featured slate (Week 12).
- * Prefers the Week 12 pin (LSU @ Tennessee) via
+ * Board featured for the live featured slate (Week 13).
+ * Prefers the Week 13 pin (Auburn @ Alabama) via
  * `selectWeekScopedFeatured(FEATURED_SLATE_WEEK, …)`. Falls back to the
  * earliest upcoming kick only when the pin is missing or FINAL.
  * Week 2–5 Research pins stay historical helpers. Never a FINAL. Never
@@ -298,6 +311,12 @@ export function isMichiganAtOregon(
   return g.homeSlug === WEEK11_FEATURED.homeSlug && g.awaySlug === WEEK11_FEATURED.awaySlug;
 }
 
+export function isAuburnAtAlabama(
+  g: Pick<ScheduleGame, "homeSlug" | "awaySlug">,
+): boolean {
+  return g.homeSlug === WEEK13_FEATURED.homeSlug && g.awaySlug === WEEK13_FEATURED.awaySlug;
+}
+
 export function isLsuAtTennessee(
   g: Pick<ScheduleGame, "homeSlug" | "awaySlug">,
 ): boolean {
@@ -310,8 +329,8 @@ export function isLsuAtTennessee(
  * kicks earlier. Week 6 pins Iowa State @ BYU (CLEAR), even though midweek
  * cards kick earlier. Week 7 pins Alabama @ Tennessee. Week 8 pins Ole Miss @ Texas.
  * Week 9 pins Ohio State @ USC. Week 10 pins Oregon @ Ohio State.
- * Week 11 pins Michigan @ Oregon. Week 12 pins LSU @ Tennessee.
- * The homepage desk uses FEATURED_SLATE_WEEK (12) and the same Week 12 pin via
+ * Week 11 pins Michigan @ Oregon. Week 12 pins LSU @ Tennessee. Week 13 pins Auburn @ Alabama.
+ * The homepage desk uses FEATURED_SLATE_WEEK (13) and the same Week 13 pin via
  * `selectBoardFeaturedKick`. Never invents a matchup.
  */
 export function selectWeekScopedFeatured<
@@ -342,6 +361,9 @@ export function selectWeekScopedFeatured<
   }
   if (week === 12) {
     return slate.find((g) => !g.isFcs && g.status !== "final" && isLsuAtTennessee(g)) ?? null;
+  }
+  if (week === 13) {
+    return slate.find((g) => !g.isFcs && g.status !== "final" && isAuburnAtAlabama(g)) ?? null;
   }
   return null;
 }

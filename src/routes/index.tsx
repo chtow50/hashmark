@@ -28,10 +28,10 @@ import { make12FreeFromSim } from "@/lib/cfb/season-sim";
 import {
   liveDisagreementRows,
   SIM_10K_HX_STAMP,
-  week11BoardFlags,
-  week11SeasonTape,
-  week11Tape,
-  week11Top25Tape,
+  week12BoardFlags,
+  week12SeasonTape,
+  week12Tape,
+  week12Top25Tape,
 } from "@/lib/cfb/truth-pack";
 import type { Prediction, ScheduleGame, TeamSummary } from "@/lib/cfb/types";
 import { apLabel, fmtNum, fmtPct } from "@/lib/utils";
@@ -75,10 +75,10 @@ function Home() {
     : null;
 
   const disagreements = liveDisagreementRows(teams).slice(0, 8);
-  const tape = week11Tape();
-  const top25 = week11Top25Tape();
-  const season = week11SeasonTape();
-  const flags = week11BoardFlags();
+  const tape = week12Tape();
+  const top25 = week12Top25Tape();
+  const season = week12SeasonTape();
+  const flags = week12BoardFlags();
   const oneMake = one ? make12FreeFromSim(one.slug, one) : null;
 
   const recLeaders = [...teams].sort((a, b) => a.recRank - b.recRank).slice(0, 5);
@@ -172,11 +172,11 @@ function Home() {
         top25={top25}
         season={season}
         flags={flags}
-        weekLabel="Week 11 tape"
-        scheduleWeek={11}
+        weekLabel="Week 12 tape"
+        scheduleWeek={12}
         closerScope="Vegas-lined"
-        dek="SU 43/66 is under 70% — SU FLAG. Closer 21/50 is graded on the 50 cards with a stamped Vegas line — under 45%, so closer FLAG. Soft-cal FLAG stays. Graded on the pregame HX 2026.8 locks (the board live when each game was stamped); the weekly refit runs after the tape."
-        flagsKicker="Board flags · pregame HX 2026.8"
+        dek="SU 50/66 (75.8%) is at or above 70%, so no SU FLAG. No Week 12 card carries a stamped Vegas close (CFBD listed DraftKings only, no Bovada), so closer is not graded this week. Season closer 163/388 is still under 45%, and the Soft-cal FLAG stays. Graded on the pregame HX 2026.8 locks (the board live when each game was stamped); the weekly refit runs after the tape."
+        flagsKicker="Board flags · pregame HX 2026.8 · none this week (no Vegas-lined cards)"
       />
 
       <Panel>

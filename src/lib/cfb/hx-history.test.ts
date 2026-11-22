@@ -23,8 +23,9 @@ describe("HX history", () => {
   });
   it("starts late joiners the week they joined and ranks them only from then", () => {
     const h = teamHxHistory(refit.history, "north-dakota-state", late)!;
-    assert.equal(h.points.length, 1);
+    assert.equal(h.points.length, 2);
     assert.equal(h.points[0].week, 12);
+    assert.equal(h.points[1].week, 13);
     assert.equal(h.points[0].of, 138);
     const g = teamHxHistory(refit.history, "georgia", late)!;
     assert.equal(g.points[0].of, 136);

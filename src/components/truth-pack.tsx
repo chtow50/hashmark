@@ -81,7 +81,10 @@ export function AccountabilityCard({
   dek?: string;
   flagsKicker?: string;
 }) {
-  const top25CloserFlag = top25.hx_closer_pct < 45;
+  const noLines = (c: string) => c.endsWith("/0");
+  const tapeNoLines = noLines(tape.hx_closer);
+  const top25NoLines = noLines(top25.hx_closer);
+  const top25CloserFlag = !top25NoLines && top25.hx_closer_pct < 45;
   return (
     <Panel>
       <div className="mb-4 flex flex-wrap items-baseline justify-between gap-2">
@@ -124,7 +127,9 @@ export function AccountabilityCard({
           <div className="mt-1 font-display text-2xl tabular leading-none text-fg sm:text-3xl">
             {tape.hx_closer}
           </div>
-          <div className="mt-1.5 text-xs tabular text-muted">{fmtNum(tape.hx_closer_pct, 1)}%</div>
+          <div className="mt-1.5 text-xs tabular text-muted">
+            {tapeNoLines ? "no Vegas-lined cards" : `${fmtNum(tape.hx_closer_pct, 1)}%`}
+          </div>
         </div>
         <div className="rounded-md border border-line bg-raised/40 px-4 py-3">
           <div className="text-[11px] uppercase tracking-[0.14em] text-faint">SU · Top 25</div>
@@ -150,13 +155,17 @@ export function AccountabilityCard({
           <div className="mt-1 font-display text-2xl tabular leading-none text-fg sm:text-3xl">
             {top25.hx_closer}
           </div>
-          <div className="mt-1.5 text-xs tabular text-muted">{fmtNum(top25.hx_closer_pct, 1)}%</div>
+          <div className="mt-1.5 text-xs tabular text-muted">
+            {top25NoLines ? "no Vegas-lined cards" : `${fmtNum(top25.hx_closer_pct, 1)}%`}
+          </div>
         </div>
       </div>
       <p className="mt-4 text-sm text-muted">
         {tape.lined
           ? `MAE on the ${tape.lined.n} Vegas-lined cards: HX ${fmtNum(tape.lined.mae_hx, 2)} / Vegas ${fmtNum(tape.lined.mae_vegas, 2)}. Full-slate HX MAE ${fmtNum(tape.mae_hx, 2)} (n=${tape.n}).`
-          : `Slate MAE HX ${fmtNum(tape.mae_hx, 2)} / Vegas ${fmtNum(tape.mae_vegas, 2)}.`}{" "}
+          : tapeNoLines || tape.mae_vegas == null
+            ? `Slate MAE HX ${fmtNum(tape.mae_hx, 2)} (n=${tape.n}); no Vegas closes stamped.`
+            : `Slate MAE HX ${fmtNum(tape.mae_hx, 2)} / Vegas ${fmtNum(tape.mae_vegas, 2)}.`}{" "}
         ATS {tape.hx_ats}.
         Vegas closer {tape.vegas_closer}.
         {top25.mae_hx != null && top25.mae_vegas != null
