@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AccuracyRouteImport } from './routes/accuracy'
 import { Route as ConferencesRouteImport } from './routes/conferences'
+import { Route as CoordinatorsRouteImport } from './routes/coordinators'
 import { Route as DeskRouteImport } from './routes/desk'
 import { Route as EdgeRouteImport } from './routes/edge'
 import { Route as LogosRouteImport } from './routes/logos'
@@ -45,6 +46,11 @@ const AccuracyRoute = AccuracyRouteImport.update({
 const ConferencesRoute = ConferencesRouteImport.update({
   id: '/conferences',
   path: '/conferences',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CoordinatorsRoute = CoordinatorsRouteImport.update({
+  id: '/coordinators',
+  path: '/coordinators',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DeskRoute = DeskRouteImport.update({
@@ -147,6 +153,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/accuracy': typeof AccuracyRoute
   '/conferences': typeof ConferencesRoute
+  '/coordinators': typeof CoordinatorsRoute
   '/desk': typeof DeskRoute
   '/edge': typeof EdgeRouteWithChildren
   '/logos': typeof LogosRoute
@@ -171,6 +178,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/accuracy': typeof AccuracyRoute
   '/conferences': typeof ConferencesRoute
+  '/coordinators': typeof CoordinatorsRoute
   '/desk': typeof DeskRoute
   '/edge': typeof EdgeRouteWithChildren
   '/logos': typeof LogosRoute
@@ -196,6 +204,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/accuracy': typeof AccuracyRoute
   '/conferences': typeof ConferencesRoute
+  '/coordinators': typeof CoordinatorsRoute
   '/desk': typeof DeskRoute
   '/edge': typeof EdgeRouteWithChildren
   '/logos': typeof LogosRoute
@@ -222,6 +231,7 @@ export interface FileRouteTypes {
     | '/'
     | '/accuracy'
     | '/conferences'
+    | '/coordinators'
     | '/desk'
     | '/edge'
     | '/logos'
@@ -246,6 +256,7 @@ export interface FileRouteTypes {
     | '/'
     | '/accuracy'
     | '/conferences'
+    | '/coordinators'
     | '/desk'
     | '/edge'
     | '/logos'
@@ -270,6 +281,7 @@ export interface FileRouteTypes {
     | '/'
     | '/accuracy'
     | '/conferences'
+    | '/coordinators'
     | '/desk'
     | '/edge'
     | '/logos'
@@ -295,6 +307,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AccuracyRoute: typeof AccuracyRoute
   ConferencesRoute: typeof ConferencesRoute
+  CoordinatorsRoute: typeof CoordinatorsRoute
   DeskRoute: typeof DeskRoute
   EdgeRoute: typeof EdgeRouteWithChildren
   LogosRoute: typeof LogosRoute
@@ -336,6 +349,13 @@ declare module '@tanstack/react-router' {
       path: '/conferences'
       fullPath: '/conferences'
       preLoaderRoute: typeof ConferencesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/coordinators': {
+      id: '/coordinators'
+      path: '/coordinators'
+      fullPath: '/coordinators'
+      preLoaderRoute: typeof CoordinatorsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/desk': {
@@ -488,6 +508,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AccuracyRoute: AccuracyRoute,
   ConferencesRoute: ConferencesRoute,
+  CoordinatorsRoute: CoordinatorsRoute,
   DeskRoute: DeskRoute,
   EdgeRoute: EdgeRouteWithChildren,
   LogosRoute: LogosRoute,

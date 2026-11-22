@@ -5,7 +5,7 @@ import { cdnCacheControl, FEATURED_CACHE, LONG_CACHE, nextChicagoMidnightMs } fr
 const base = { method: "GET", status: 200 };
 
 test("data pages and server functions get the long tier", () => {
-  for (const pathname of ["/teams/ohio-state", "/games/2026-08-29-hawaii-at-stanford", "/stats", "/stats/qb-leaders", "/recruiting", "/talent", "/rankings", "/model", "/_serverFn/abc"]) {
+  for (const pathname of ["/teams/ohio-state", "/games/2026-08-29-hawaii-at-stanford", "/stats", "/stats/qb-leaders", "/coordinators", "/recruiting", "/talent", "/rankings", "/model", "/_serverFn/abc"]) {
     assert.equal(cdnCacheControl({ ...base, pathname }), LONG_CACHE, pathname);
   }
   assert.equal(cdnCacheControl({ ...base, pathname: "/stats/qb-leaders", search: "?scope=sec&dir=asc" }), LONG_CACHE);

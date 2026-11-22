@@ -1,0 +1,2748 @@
+{
+ "built": "2026-11-22",
+ "source": "Unit numbers: HASHMARK ridge model (same as /stats) on CollegeFootballData play-by-play, 2016–2025 FBS-vs-FBS games. Credits: official school staff pages and bios.",
+ "population": [
+  {
+   "name": "Ryan Grubb",
+   "unit": "off",
+   "team": "alabama",
+   "title": "Offensive Coordinator"
+  },
+  {
+   "name": "Seth Doege",
+   "unit": "off",
+   "team": "arizona",
+   "title": "Offensive Coordinator / Quarterbacks Coach"
+  },
+  {
+   "name": "Marcus Arroyo",
+   "unit": "off",
+   "team": "arizona-state",
+   "title": "Offensive Coordinator"
+  },
+  {
+   "name": "Tim Cramsey",
+   "unit": "off",
+   "team": "arkansas",
+   "title": "Offensive Coordinator"
+  },
+  {
+   "name": "Jake Spavital",
+   "unit": "off",
+   "team": "baylor",
+   "title": "Offensive Coordinator (Quarterbacks)"
+  },
+  {
+   "name": "Aaron Roderick",
+   "unit": "off",
+   "team": "byu",
+   "title": "Offensive Coordinator / Quarterbacks Coach"
+  },
+  {
+   "name": "Brennan Marion",
+   "unit": "off",
+   "team": "colorado",
+   "title": "Offensive Coordinator/Quarterbacks"
+  },
+  {
+   "name": "Jonathan Brewer",
+   "unit": "off",
+   "team": "duke",
+   "title": "Hall Family Offensive Coordinator/Quarterbacks"
+  },
+  {
+   "name": "Tim Harris Jr.",
+   "unit": "off",
+   "team": "florida-state",
+   "title": "Offensive Coordinator/Wide Receivers Coach"
+  },
+  {
+   "name": "Buster Faulkner",
+   "unit": "off",
+   "team": "florida",
+   "title": "Offensive Coordinator"
+  },
+  {
+   "name": "Mike Bobo",
+   "unit": "off",
+   "team": "georgia",
+   "title": "John and Alice Sands Offensive Coordinator - Quarterbacks Coach"
+  },
+  {
+   "name": "Slade Nagle",
+   "unit": "off",
+   "team": "houston",
+   "title": "Offensive Coordinator"
+  },
+  {
+   "name": "Barry Lunney Jr.",
+   "unit": "off",
+   "team": "illinois",
+   "title": "Offensive Coordinator"
+  },
+  {
+   "name": "Tim Lester",
+   "unit": "off",
+   "team": "iowa",
+   "title": "Offensive Coordinator"
+  },
+  {
+   "name": "Tyler Roehl",
+   "unit": "off",
+   "team": "iowa-state",
+   "title": "Offensive Coordinator"
+  },
+  {
+   "name": "Sean Gleeson",
+   "unit": "off",
+   "team": "kansas-state",
+   "title": "Offensive Coordinator"
+  },
+  {
+   "name": "Joe Sloan",
+   "unit": "off",
+   "team": "kentucky",
+   "title": "Offensive Coordinator"
+  },
+  {
+   "name": "Brian Brohm",
+   "unit": "off",
+   "team": "louisville",
+   "title": "Offensive Coordinator/Quarterbacks"
+  },
+  {
+   "name": "Clint Trickett",
+   "unit": "off",
+   "team": "maryland",
+   "title": "Offensive Coordinator/Quarterbacks Coach"
+  },
+  {
+   "name": "Shannon Dawson",
+   "unit": "off",
+   "team": "miami",
+   "title": "Offensive Coordinator"
+  },
+  {
+   "name": "Jason Beck",
+   "unit": "off",
+   "team": "michigan",
+   "title": "Sanford Robertson Offensive Coordinator, Robert McCollum Family Quarterbacks Coach"
+  },
+  {
+   "name": "Nick Sheridan",
+   "unit": "off",
+   "team": "michigan-state",
+   "title": "Offensive Coordinator"
+  },
+  {
+   "name": "Chip Lindsey",
+   "unit": "off",
+   "team": "missouri",
+   "title": "Offensive Coordinator"
+  },
+  {
+   "name": "Kurt Roper",
+   "unit": "off",
+   "team": "nc-state",
+   "title": "Offensive Coordinator/Quarterbacks Coach"
+  },
+  {
+   "name": "Bobby Petrino",
+   "unit": "off",
+   "team": "north-carolina",
+   "title": "Offensive Coordinator"
+  },
+  {
+   "name": "Chip Kelly",
+   "unit": "off",
+   "team": "northwestern",
+   "title": "Offensive Coordinator"
+  },
+  {
+   "name": "Mike Denbrock",
+   "unit": "off",
+   "team": "notre-dame",
+   "title": "John and Bobbie Arlotta Family Offensive Coordinator/Tight Ends Coach"
+  },
+  {
+   "name": "Jason Witten",
+   "unit": "off",
+   "team": "oklahoma",
+   "title": "Interim Offensive Coordinator/Tight Ends"
+  },
+  {
+   "name": "Sean Brophy",
+   "unit": "off",
+   "team": "oklahoma-state",
+   "title": "Offensive Coordinator / Quarterbacks"
+  },
+  {
+   "name": "Justin Lustig",
+   "unit": "off",
+   "team": "penn-state",
+   "title": "Offensive Coordinator/Tight Ends"
+  },
+  {
+   "name": "Kade Bell",
+   "unit": "off",
+   "team": "pittsburgh",
+   "title": "Offensive Coordinator / Quarterbacks"
+  },
+  {
+   "name": "Josh Henson",
+   "unit": "off",
+   "team": "purdue",
+   "title": "Offensive Coordinator / Tight Ends"
+  },
+  {
+   "name": "Kirk Ciarrocca",
+   "unit": "off",
+   "team": "rutgers",
+   "title": "Offensive Coordinator/Quarterbacks"
+  },
+  {
+   "name": "Kendal Briles",
+   "unit": "off",
+   "team": "south-carolina",
+   "title": "Offensive Coordinator/Quarterbacks Coach"
+  },
+  {
+   "name": "Gordon Sammis",
+   "unit": "off",
+   "team": "tcu",
+   "title": "Offensive Coordinator"
+  },
+  {
+   "name": "Joey Halzle",
+   "unit": "off",
+   "team": "tennessee",
+   "title": "Offensive Coordinator/Quarterbacks"
+  },
+  {
+   "name": "Holmon Wiggins",
+   "unit": "off",
+   "team": "texas-am",
+   "title": "Offensive Coordinator"
+  },
+  {
+   "name": "Mack Leftwich",
+   "unit": "off",
+   "team": "texas-tech",
+   "title": "Offensive Coordinator / Quarterbacks"
+  },
+  {
+   "name": "Steve Cooper",
+   "unit": "off",
+   "team": "ucf",
+   "title": "Offensive Coordinator"
+  },
+  {
+   "name": "Dean Kennedy",
+   "unit": "off",
+   "team": "ucla",
+   "title": "Assistant Coach, Offensive Coordinator"
+  },
+  {
+   "name": "Kevin McGiven",
+   "unit": "off",
+   "team": "utah",
+   "title": "Offensive Coordinator"
+  },
+  {
+   "name": "Tim Beck",
+   "unit": "off",
+   "team": "vanderbilt",
+   "title": "Offensive Coordinator"
+  },
+  {
+   "name": "Des Kitchings",
+   "unit": "off",
+   "team": "virginia",
+   "title": "Offensive Coordinator/Tight Ends"
+  },
+  {
+   "name": "Ty Howle",
+   "unit": "off",
+   "team": "virginia-tech",
+   "title": "Offensive Coordinator / Tight Ends Coach"
+  },
+  {
+   "name": "Jeff Grimes",
+   "unit": "off",
+   "team": "wisconsin",
+   "title": "Offensive Coordinator"
+  },
+  {
+   "name": "Danny Gonzales",
+   "unit": "def",
+   "team": "arizona",
+   "title": "Defensive Coordinator"
+  },
+  {
+   "name": "Brian Ward",
+   "unit": "def",
+   "team": "arizona-state",
+   "title": "Defensive Coordinator"
+  },
+  {
+   "name": "Joe Klanderman",
+   "unit": "def",
+   "team": "baylor",
+   "title": "Interim Head Coach | Defensive Coordinator (Safeties)"
+  },
+  {
+   "name": "Ted Roof",
+   "unit": "def",
+   "team": "boston-college",
+   "title": "Kevin T. Fee Family Defensive Coordinator"
+  },
+  {
+   "name": "Kelly Poppinga",
+   "unit": "def",
+   "team": "byu",
+   "title": "Defensive Coordinator / Inside Linebackers Coach"
+  },
+  {
+   "name": "Chris Marve",
+   "unit": "def",
+   "team": "colorado",
+   "title": "Defensive Coordinator/Linebackers"
+  },
+  {
+   "name": "Jonathan Patke",
+   "unit": "def",
+   "team": "duke",
+   "title": "Defensive Coordinator/Linebackers"
+  },
+  {
+   "name": "Ernie Sims",
+   "unit": "def",
+   "team": "florida-state",
+   "title": "Interim Defensive Coordinator/Linebackers Coach"
+  },
+  {
+   "name": "Brad White",
+   "unit": "def",
+   "team": "florida",
+   "title": "Defensive Coordinator"
+  },
+  {
+   "name": "Austin Armstrong",
+   "unit": "def",
+   "team": "houston",
+   "title": "Defensive Coordinator"
+  },
+  {
+   "name": "Bryant Haines",
+   "unit": "def",
+   "team": "indiana",
+   "title": "Defensive Coordinator/Linebackers"
+  },
+  {
+   "name": "Phil Parker",
+   "unit": "def",
+   "team": "iowa",
+   "title": "Defensive Coordinator/Secondary"
+  },
+  {
+   "name": "Jesse Bobbit",
+   "unit": "def",
+   "team": "iowa-state",
+   "title": "Defensive Coordinator"
+  },
+  {
+   "name": "D.K. McDonald",
+   "unit": "def",
+   "team": "kansas",
+   "title": "Defensive Coordinator"
+  },
+  {
+   "name": "Jordan Peterson",
+   "unit": "def",
+   "team": "kansas-state",
+   "title": "Defensive Coordinator/Defensive Backs"
+  },
+  {
+   "name": "Jay Bateman",
+   "unit": "def",
+   "team": "kentucky",
+   "title": "Defensive Coordinator"
+  },
+  {
+   "name": "Corey Hetherman",
+   "unit": "def",
+   "team": "miami",
+   "title": "Defensive Coordinator"
+  },
+  {
+   "name": "Jay Hill",
+   "unit": "def",
+   "team": "michigan",
+   "title": "Matt and Nicole Lester Family Defensive Coordinator"
+  },
+  {
+   "name": "Rob Aurich",
+   "unit": "def",
+   "team": "nebraska",
+   "title": "Defensive Coordinator"
+  },
+  {
+   "name": "Charlton Warren",
+   "unit": "def",
+   "team": "nc-state",
+   "title": "Defensive Coordinator and Safeties/Nickels Coach"
+  },
+  {
+   "name": "Tim McGarigle",
+   "unit": "def",
+   "team": "northwestern",
+   "title": "Defensive Coordinator (Linebackers)"
+  },
+  {
+   "name": "Skyler Cassity",
+   "unit": "def",
+   "team": "oklahoma-state",
+   "title": "Defensive Coordinator"
+  },
+  {
+   "name": "Chris Hampton",
+   "unit": "def",
+   "team": "oregon",
+   "title": "Defensive Coordinator/Safeties"
+  },
+  {
+   "name": "Terry M. Smith",
+   "unit": "def",
+   "team": "penn-state",
+   "title": "Defensive Coordinator"
+  },
+  {
+   "name": "Cory Sanders",
+   "unit": "def",
+   "team": "pittsburgh",
+   "title": "Defensive Coordinator"
+  },
+  {
+   "name": "Travis Johansen",
+   "unit": "def",
+   "team": "rutgers",
+   "title": "Defensive Coordinator"
+  },
+  {
+   "name": "Andy Avalos",
+   "unit": "def",
+   "team": "tcu",
+   "title": "Defensive Coordinator"
+  },
+  {
+   "name": "Alex Grinch",
+   "unit": "def",
+   "team": "ucf",
+   "title": "Defensive Coordinator/Safeties"
+  },
+  {
+   "name": "Colin Hitschler",
+   "unit": "def",
+   "team": "ucla",
+   "title": "Assistant Coach, Defensive Coordinator"
+  },
+  {
+   "name": "Gary Patterson",
+   "unit": "def",
+   "team": "usc",
+   "title": "Defensive Coordinator"
+  },
+  {
+   "name": "Colton Swan",
+   "unit": "def",
+   "team": "utah",
+   "title": "Defensive Coordinator/Linebackers"
+  },
+  {
+   "name": "John Rudzinski",
+   "unit": "def",
+   "team": "virginia",
+   "title": "Defensive Coordinator"
+  },
+  {
+   "name": "Brent Pry",
+   "unit": "def",
+   "team": "virginia-tech",
+   "title": "Defensive Coordinator / Linebackers Coach"
+  },
+  {
+   "name": "Ryan Walters",
+   "unit": "def",
+   "team": "washington",
+   "title": "Defensive Coordinator"
+  },
+  {
+   "name": "Zac Alley",
+   "unit": "def",
+   "team": "west-virginia",
+   "title": "Assistant Head Coach/Defensive Coordinator/Linebackers"
+  },
+  {
+   "name": "Mike Tressel",
+   "unit": "def",
+   "team": "wisconsin",
+   "title": "Defensive Coordinator"
+  }
+ ],
+ "coaches": [
+  {
+   "name": "Tim Cramsey",
+   "unit": "off",
+   "team": "arkansas",
+   "title": "Offensive Coordinator",
+   "bioUrl": "https://arkansasrazorbacks.com/coache/tim-cramsey/",
+   "history": [
+    {
+     "season": 2018,
+     "team": "marshall",
+     "school": "Marshall",
+     "status": "verified",
+     "staffUrl": "https://herdzone.com/sports/football/roster/2018",
+     "headCoach": "Doc Holliday",
+     "bioLine": "2018-21 Marshall – Offensive Coordinator/Quarterbacks",
+     "stats": {
+      "epa": 0.0278,
+      "sr": 40.88,
+      "xpl": 1.1525,
+      "ppd": 1.689,
+      "rank": 96,
+      "nFbs": 130,
+      "games": 12
+     },
+     "hcUrl": "https://arkansasrazorbacks.com/coache/tim-cramsey/",
+     "hcNote": "He called plays at FIU in 2012, Montana State for three seasons (2012-15), Sam Houston State in 2017, Marshall and Memphis."
+    },
+    {
+     "season": 2019,
+     "team": "marshall",
+     "school": "Marshall",
+     "status": "verified",
+     "staffUrl": "https://herdzone.com/sports/football/roster/2019",
+     "headCoach": "Doc Holliday",
+     "bioLine": "2018-21 Marshall – Offensive Coordinator/Quarterbacks",
+     "stats": {
+      "epa": 0.0408,
+      "sr": 40.1,
+      "xpl": 1.1404,
+      "ppd": 1.73,
+      "rank": 97,
+      "nFbs": 130,
+      "games": 12
+     },
+     "hcUrl": "https://arkansasrazorbacks.com/coache/tim-cramsey/",
+     "hcNote": "He called plays at FIU in 2012, Montana State for three seasons (2012-15), Sam Houston State in 2017, Marshall and Memphis."
+    },
+    {
+     "season": 2020,
+     "team": "marshall",
+     "school": "Marshall",
+     "status": "verified",
+     "staffUrl": "https://herdzone.com/sports/football/roster/2020",
+     "headCoach": "Doc Holliday",
+     "bioLine": "2018-21 Marshall – Offensive Coordinator/Quarterbacks",
+     "stats": {
+      "epa": 0.0742,
+      "sr": 42.49,
+      "xpl": 1.1833,
+      "ppd": 2.126,
+      "rank": 83,
+      "nFbs": 128,
+      "games": 9
+     },
+     "hcUrl": "https://arkansasrazorbacks.com/coache/tim-cramsey/",
+     "hcNote": "He called plays at FIU in 2012, Montana State for three seasons (2012-15), Sam Houston State in 2017, Marshall and Memphis."
+    },
+    {
+     "season": 2021,
+     "team": "marshall",
+     "school": "Marshall",
+     "status": "verified",
+     "staffUrl": "https://herdzone.com/sports/football/coaches/2021",
+     "headCoach": "Charles Huff",
+     "bioLine": "2018-21 Marshall – Offensive Coordinator/Quarterbacks",
+     "stats": {
+      "epa": 0.1519,
+      "sr": 45.89,
+      "xpl": 1.1691,
+      "ppd": 2.955,
+      "rank": 64,
+      "nFbs": 130,
+      "games": 12
+     },
+     "hcUrl": "https://arkansasrazorbacks.com/coache/tim-cramsey/",
+     "hcNote": "He called plays at FIU in 2012, Montana State for three seasons (2012-15), Sam Houston State in 2017, Marshall and Memphis."
+    },
+    {
+     "season": 2022,
+     "team": "memphis",
+     "school": "Memphis",
+     "status": "verified",
+     "staffUrl": "https://gotigersgo.com/sports/football/roster/2022",
+     "headCoach": "Ryan Silverfield",
+     "bioLine": "2022-25 Memphis – Offensive Coordinator/Quarterbacks",
+     "stats": {
+      "epa": 0.1001,
+      "sr": 43.47,
+      "xpl": 1.1615,
+      "ppd": 2.507,
+      "rank": 68,
+      "nFbs": 131,
+      "games": 12
+     },
+     "hcUrl": "https://arkansasrazorbacks.com/coache/tim-cramsey/",
+     "hcNote": "He called plays at ... Marshall and Memphis. ... In his four seasons calling plays for the Tigers ..."
+    },
+    {
+     "season": 2023,
+     "team": "memphis",
+     "school": "Memphis",
+     "status": "verified",
+     "staffUrl": "https://gotigersgo.com/sports/football/roster/2023",
+     "headCoach": "Ryan Silverfield",
+     "bioLine": "2022-25 Memphis – Offensive Coordinator/Quarterbacks",
+     "stats": {
+      "epa": 0.2119,
+      "sr": 45.66,
+      "xpl": 1.3318,
+      "ppd": 2.531,
+      "rank": 23,
+      "nFbs": 133,
+      "games": 12
+     },
+     "hcUrl": "https://arkansasrazorbacks.com/coache/tim-cramsey/",
+     "hcNote": "He called plays at ... Marshall and Memphis. ... In his four seasons calling plays for the Tigers ..."
+    },
+    {
+     "season": 2024,
+     "team": "memphis",
+     "school": "Memphis",
+     "status": "excluded",
+     "staffUrl": "https://gotigersgo.com/sports/football/roster/2024",
+     "headCoach": "Ryan Silverfield",
+     "bioLine": "2022-25 Memphis – Offensive Coordinator/Quarterbacks",
+     "stats": {
+      "epa": 0.1735,
+      "sr": 42.43,
+      "xpl": 1.3117,
+      "ppd": 2.76,
+      "rank": 41,
+      "nFbs": 134,
+      "games": 12
+     },
+     "reasons": [
+      "Season staff page lists a co-coordinator on this side"
+     ]
+    },
+    {
+     "season": 2025,
+     "team": "memphis",
+     "school": "Memphis",
+     "status": "excluded",
+     "staffUrl": "https://gotigersgo.com/sports/football/roster/2025",
+     "headCoach": "Reggie Howard / Ryan Silverfield",
+     "bioLine": "2022-25 Memphis – Offensive Coordinator/Quarterbacks",
+     "stats": {
+      "epa": 0.1582,
+      "sr": 43.61,
+      "xpl": 1.2836,
+      "ppd": 2.821,
+      "rank": 38,
+      "nFbs": 136,
+      "games": 12
+     },
+     "reasons": [
+      "Season staff page lists a co-coordinator on this side",
+      "Head coach changed during the season (incl. bowl)"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Mike Denbrock",
+   "unit": "off",
+   "team": "notre-dame",
+   "title": "John and Bobbie Arlotta Family Offensive Coordinator/Tight Ends Coach",
+   "bioUrl": "https://fightingirish.com/sports/football/roster/season/2026-27/staff/mike-denbrock",
+   "history": [
+    {
+     "season": 2017,
+     "team": "cincinnati",
+     "school": "Cincinnati",
+     "status": "verified",
+     "staffUrl": "https://web.archive.org/web/20201122104622/https://gobearcats.com/sports/football/roster/2017",
+     "headCoach": "Luke Fickell",
+     "bioLine": "2017-21 Cincinnati Offensive Coordinator/Quarterbacks",
+     "stats": {
+      "epa": 0.0693,
+      "sr": 40.95,
+      "xpl": 1.173,
+      "ppd": 1.69,
+      "rank": 72,
+      "nFbs": 130,
+      "games": 11
+     },
+     "hcUrl": "https://uwbadgers.com/sports/football/roster/coaches/luke-fickell/2804",
+     "hcNote": "Bio: Ohio State co-DC/DC and linebackers; no offensive coordinator role."
+    },
+    {
+     "season": 2018,
+     "team": "cincinnati",
+     "school": "Cincinnati",
+     "status": "verified",
+     "staffUrl": "https://web.archive.org/web/20200910154320/https://gobearcats.com/sports/football/roster/2018",
+     "headCoach": "Luke Fickell",
+     "bioLine": "2017-21 Cincinnati Offensive Coordinator/Quarterbacks",
+     "stats": {
+      "epa": 0.1201,
+      "sr": 41.57,
+      "xpl": 1.2212,
+      "ppd": 2.181,
+      "rank": 55,
+      "nFbs": 130,
+      "games": 12
+     },
+     "hcUrl": "https://uwbadgers.com/sports/football/roster/coaches/luke-fickell/2804",
+     "hcNote": "Bio: Ohio State co-DC/DC and linebackers; no offensive coordinator role."
+    },
+    {
+     "season": 2019,
+     "team": "cincinnati",
+     "school": "Cincinnati",
+     "status": "verified",
+     "staffUrl": "https://web.archive.org/web/20221103015450/https://gobearcats.com/sports/football/roster/2019",
+     "headCoach": "Luke Fickell",
+     "bioLine": "2017-21 Cincinnati Offensive Coordinator/Quarterbacks",
+     "stats": {
+      "epa": 0.121,
+      "sr": 43.65,
+      "xpl": 1.116,
+      "ppd": 2.157,
+      "rank": 55,
+      "nFbs": 130,
+      "games": 14
+     },
+     "hcUrl": "https://uwbadgers.com/sports/football/roster/coaches/luke-fickell/2804",
+     "hcNote": "Bio: Ohio State co-DC/DC and linebackers; no offensive coordinator role."
+    },
+    {
+     "season": 2020,
+     "team": "cincinnati",
+     "school": "Cincinnati",
+     "status": "verified",
+     "staffUrl": "https://web.archive.org/web/20200407142654/https://gobearcats.com/sports/football/roster/2020",
+     "headCoach": "Luke Fickell",
+     "bioLine": "2017-21 Cincinnati Offensive Coordinator/Quarterbacks",
+     "stats": {
+      "epa": 0.1968,
+      "sr": 45.45,
+      "xpl": 1.3208,
+      "ppd": 2.357,
+      "rank": 26,
+      "nFbs": 128,
+      "games": 9
+     },
+     "hcUrl": "https://uwbadgers.com/sports/football/roster/coaches/luke-fickell/2804",
+     "hcNote": "Bio: Ohio State co-DC/DC and linebackers; no offensive coordinator role."
+    },
+    {
+     "season": 2021,
+     "team": "cincinnati",
+     "school": "Cincinnati",
+     "status": "excluded",
+     "staffUrl": "https://gobearcats.com/sports/football/roster/2021",
+     "headCoach": "Luke Fickell",
+     "bioLine": "2017-21 Cincinnati Offensive Coordinator/Quarterbacks",
+     "stats": {
+      "epa": 0.2502,
+      "sr": 48.61,
+      "xpl": 1.2247,
+      "ppd": 2.671,
+      "rank": 19,
+      "nFbs": 130,
+      "games": 13
+     },
+     "reasons": [
+      "Official season staff page does not list him as coordinator"
+     ]
+    },
+    {
+     "season": 2022,
+     "team": "lsu",
+     "school": "LSU",
+     "status": "excluded",
+     "staffUrl": null,
+     "headCoach": "Brian Kelly",
+     "bioLine": "2022-23 LSU Offensive Coordinator/Tight Ends",
+     "stats": {
+      "epa": 0.2854,
+      "sr": 51.56,
+      "xpl": 1.2302,
+      "ppd": 2.51,
+      "rank": 9,
+      "nFbs": 131,
+      "games": 13
+     },
+     "reasons": [
+      "No official season staff page found (live or archived)",
+      "No cited source on whether the head coach called this side"
+     ]
+    },
+    {
+     "season": 2023,
+     "team": "lsu",
+     "school": "LSU",
+     "status": "excluded",
+     "staffUrl": null,
+     "headCoach": "Brian Kelly",
+     "bioLine": "2022-23 LSU Offensive Coordinator/Tight Ends",
+     "stats": {
+      "epa": 0.4585,
+      "sr": 56.78,
+      "xpl": 1.336,
+      "ppd": 3.436,
+      "rank": 1,
+      "nFbs": 133,
+      "games": 12
+     },
+     "reasons": [
+      "No official season staff page found (live or archived)",
+      "No cited source on whether the head coach called this side"
+     ]
+    },
+    {
+     "season": 2024,
+     "team": "notre-dame",
+     "school": "Notre Dame",
+     "status": "verified",
+     "staffUrl": "https://fightingirish.com/sports/football/roster/season/2024-25/",
+     "headCoach": "Marcus Freeman",
+     "bioLine": "2024- Notre Dame Offensive Coordinator/Tight Ends Coach",
+     "stats": {
+      "epa": 0.2854,
+      "sr": 47.06,
+      "xpl": 1.3032,
+      "ppd": 2.667,
+      "rank": 6,
+      "nFbs": 134,
+      "games": 16
+     },
+     "hcUrl": "https://fightingirish.com/sports/football/roster/season/2026-27/staff/marcus-freeman",
+     "hcNote": "Bio: linebackers coach, Purdue co-DC, Cincinnati and Notre Dame DC; no offensive role."
+    },
+    {
+     "season": 2025,
+     "team": "notre-dame",
+     "school": "Notre Dame",
+     "status": "verified",
+     "staffUrl": "https://fightingirish.com/sports/football/roster/season/2025-26/",
+     "headCoach": "Marcus Freeman",
+     "bioLine": "2024- Notre Dame Offensive Coordinator/Tight Ends Coach",
+     "stats": {
+      "epa": 0.2898,
+      "sr": 48.2,
+      "xpl": 1.4411,
+      "ppd": 3.175,
+      "rank": 9,
+      "nFbs": 136,
+      "games": 12
+     },
+     "hcUrl": "https://fightingirish.com/sports/football/roster/season/2026-27/staff/marcus-freeman",
+     "hcNote": "Bio: linebackers coach, Purdue co-DC, Cincinnati and Notre Dame DC; no offensive role."
+    }
+   ]
+  },
+  {
+   "name": "Jeff Grimes",
+   "unit": "off",
+   "team": "wisconsin",
+   "title": "Offensive Coordinator",
+   "bioUrl": "https://uwbadgers.com/sports/football/roster/coaches/jeff-grimes/2839",
+   "history": [
+    {
+     "season": 2018,
+     "team": "byu",
+     "school": "BYU",
+     "status": "excluded",
+     "staffUrl": null,
+     "headCoach": "Kalani Sitake",
+     "bioLine": "2018-20 BYU (Offensive Coordinator)",
+     "stats": {
+      "epa": 0.1311,
+      "sr": 45.0,
+      "xpl": 1.1589,
+      "ppd": 2.053,
+      "rank": 47,
+      "nFbs": 130,
+      "games": 12
+     },
+     "reasons": [
+      "No official season staff page found (live or archived)"
+     ]
+    },
+    {
+     "season": 2019,
+     "team": "byu",
+     "school": "BYU",
+     "status": "excluded",
+     "staffUrl": null,
+     "headCoach": "Kalani Sitake",
+     "bioLine": "2018-20 BYU (Offensive Coordinator)",
+     "stats": {
+      "epa": 0.1096,
+      "sr": 43.85,
+      "xpl": 1.2249,
+      "ppd": 2.059,
+      "rank": 61,
+      "nFbs": 130,
+      "games": 12
+     },
+     "reasons": [
+      "No official season staff page found (live or archived)"
+     ]
+    },
+    {
+     "season": 2020,
+     "team": "byu",
+     "school": "BYU",
+     "status": "excluded",
+     "staffUrl": null,
+     "headCoach": "Kalani Sitake",
+     "bioLine": "2018-20 BYU (Offensive Coordinator)",
+     "stats": {
+      "epa": 0.3225,
+      "sr": 51.89,
+      "xpl": 1.3562,
+      "ppd": 3.621,
+      "rank": 3,
+      "nFbs": 128,
+      "games": 11
+     },
+     "reasons": [
+      "No official season staff page found (live or archived)"
+     ]
+    },
+    {
+     "season": 2021,
+     "team": "baylor",
+     "school": "Baylor",
+     "status": "verified",
+     "staffUrl": "https://baylorbears.com/sports/football/roster/2021",
+     "headCoach": "Dave Aranda",
+     "bioLine": "2021-23 Baylor (Offensive Coordinator)",
+     "stats": {
+      "epa": 0.2053,
+      "sr": 43.9,
+      "xpl": 1.3645,
+      "ppd": 2.409,
+      "rank": 38,
+      "nFbs": 130,
+      "games": 13
+     },
+     "hcUrl": "https://baylorbears.com/sports/football/roster/coaches/dave-aranda/2510",
+     "hcNote": "Bio: defensive coordinator career (Delta State, Hawaiʻi, Utah State, Wisconsin, LSU); no offensive role."
+    },
+    {
+     "season": 2022,
+     "team": "baylor",
+     "school": "Baylor",
+     "status": "verified",
+     "staffUrl": "https://baylorbears.com/sports/football/roster/2022",
+     "headCoach": "Dave Aranda",
+     "bioLine": "2021-23 Baylor (Offensive Coordinator)",
+     "stats": {
+      "epa": 0.1556,
+      "sr": 45.12,
+      "xpl": 1.2947,
+      "ppd": 2.266,
+      "rank": 42,
+      "nFbs": 131,
+      "games": 12
+     },
+     "hcUrl": "https://baylorbears.com/sports/football/roster/coaches/dave-aranda/2510",
+     "hcNote": "Bio: defensive coordinator career (Delta State, Hawaiʻi, Utah State, Wisconsin, LSU); no offensive role."
+    },
+    {
+     "season": 2023,
+     "team": "baylor",
+     "school": "Baylor",
+     "status": "verified",
+     "staffUrl": "https://baylorbears.com/sports/football/roster/2023",
+     "headCoach": "Dave Aranda",
+     "bioLine": "2021-23 Baylor (Offensive Coordinator)",
+     "stats": {
+      "epa": 0.0537,
+      "sr": 40.66,
+      "xpl": 1.2551,
+      "ppd": 1.826,
+      "rank": 89,
+      "nFbs": 133,
+      "games": 11
+     },
+     "hcUrl": "https://baylorbears.com/sports/football/roster/coaches/dave-aranda/2510",
+     "hcNote": "Bio: defensive coordinator career (Delta State, Hawaiʻi, Utah State, Wisconsin, LSU); no offensive role."
+    },
+    {
+     "season": 2024,
+     "team": "kansas",
+     "school": "Kansas",
+     "status": "excluded",
+     "staffUrl": "https://web.archive.org/web/20240806051021/https://kuathletics.com/sports/football/roster/2024",
+     "headCoach": "Lance Leipold",
+     "bioLine": "one season at Kansas, where he served as the offensive coordinator",
+     "stats": {
+      "epa": 0.3021,
+      "sr": 49.27,
+      "xpl": 1.2718,
+      "ppd": 2.311,
+      "rank": 5,
+      "nFbs": 134,
+      "games": 11
+     },
+     "reasons": [
+      "Season staff page lists a co-coordinator on this side",
+      "No cited source on whether the head coach called this side"
+     ]
+    },
+    {
+     "season": 2025,
+     "team": "wisconsin",
+     "school": "Wisconsin",
+     "status": "verified",
+     "staffUrl": "https://uwbadgers.com/sports/football/roster/2025",
+     "headCoach": "Luke Fickell",
+     "bioLine": "joined the Badger staff in December of 2024",
+     "stats": {
+      "epa": 0.0043,
+      "sr": 39.03,
+      "xpl": 1.2748,
+      "ppd": 1.48,
+      "rank": 109,
+      "nFbs": 136,
+      "games": 12
+     },
+     "hcUrl": "https://uwbadgers.com/sports/football/roster/coaches/luke-fickell/2804",
+     "hcNote": "Bio: Ohio State co-DC/DC and linebackers; no offensive coordinator role."
+    }
+   ]
+  },
+  {
+   "name": "Aaron Roderick",
+   "unit": "off",
+   "team": "byu",
+   "title": "Offensive Coordinator / Quarterbacks Coach",
+   "bioUrl": "https://byucougars.com/sports/football/roster/season/2026/staff/aaron-roderick",
+   "history": [
+    {
+     "season": 2021,
+     "team": "byu",
+     "school": "BYU",
+     "status": "excluded",
+     "staffUrl": "https://byucougars.com/sports/football/roster/season/2021/",
+     "headCoach": "Kalani Sitake",
+     "bioLine": "2021-present (Offensive Coordinator, Quarterbacks)",
+     "stats": {
+      "epa": 0.3054,
+      "sr": 49.49,
+      "xpl": 1.3026,
+      "ppd": 2.846,
+      "rank": 4,
+      "nFbs": 130,
+      "games": 12
+     },
+     "reasons": [
+      "Official season staff page does not list him as coordinator"
+     ]
+    },
+    {
+     "season": 2022,
+     "team": "byu",
+     "school": "BYU",
+     "status": "excluded",
+     "staffUrl": "https://byucougars.com/sports/football/roster/season/2022/",
+     "headCoach": "Kalani Sitake",
+     "bioLine": "2021-present (Offensive Coordinator, Quarterbacks)",
+     "stats": {
+      "epa": 0.1764,
+      "sr": 43.53,
+      "xpl": 1.3084,
+      "ppd": 2.594,
+      "rank": 32,
+      "nFbs": 131,
+      "games": 12
+     },
+     "reasons": [
+      "Official season staff page does not list him as coordinator"
+     ]
+    },
+    {
+     "season": 2023,
+     "team": "byu",
+     "school": "BYU",
+     "status": "verified",
+     "staffUrl": "https://byucougars.com/sports/football/roster/season/2023/",
+     "headCoach": "Kalani Sitake",
+     "bioLine": "2021-present (Offensive Coordinator, Quarterbacks)",
+     "stats": {
+      "epa": -0.0011,
+      "sr": 37.57,
+      "xpl": 1.2532,
+      "ppd": 1.478,
+      "rank": 111,
+      "nFbs": 133,
+      "games": 11
+     },
+     "hcUrl": "https://byucougars.com/sports/football/roster/season/2026/staff/kalani-sitake",
+     "hcNote": "Bio: Utah and Oregon State defensive coordinator; no offensive coordinator role."
+    },
+    {
+     "season": 2024,
+     "team": "byu",
+     "school": "BYU",
+     "status": "verified",
+     "staffUrl": "https://byucougars.com/sports/football/roster/season/2024/",
+     "headCoach": "Kalani Sitake",
+     "bioLine": "2021-present (Offensive Coordinator, Quarterbacks)",
+     "stats": {
+      "epa": 0.1592,
+      "sr": 46.63,
+      "xpl": 1.2092,
+      "ppd": 2.282,
+      "rank": 49,
+      "nFbs": 134,
+      "games": 12
+     },
+     "hcUrl": "https://byucougars.com/sports/football/roster/season/2026/staff/kalani-sitake",
+     "hcNote": "Bio: Utah and Oregon State defensive coordinator; no offensive coordinator role."
+    },
+    {
+     "season": 2025,
+     "team": "byu",
+     "school": "BYU",
+     "status": "verified",
+     "staffUrl": "https://byucougars.com/sports/football/roster/season/2025/",
+     "headCoach": "Kalani Sitake",
+     "bioLine": "2021-present (Offensive Coordinator, Quarterbacks)",
+     "stats": {
+      "epa": 0.2,
+      "sr": 47.19,
+      "xpl": 1.1678,
+      "ppd": 2.438,
+      "rank": 26,
+      "nFbs": 136,
+      "games": 13
+     },
+     "hcUrl": "https://byucougars.com/sports/football/roster/season/2026/staff/kalani-sitake",
+     "hcNote": "Bio: Utah and Oregon State defensive coordinator; no offensive coordinator role."
+    }
+   ]
+  },
+  {
+   "name": "Mike Bobo",
+   "unit": "off",
+   "team": "georgia",
+   "title": "John and Alice Sands Offensive Coordinator - Quarterbacks Coach",
+   "bioUrl": "https://georgiadogs.com/sports/football/roster/coaches/mike-bobo/3746",
+   "history": [
+    {
+     "season": 2020,
+     "team": "south-carolina",
+     "school": "South Carolina",
+     "status": "excluded",
+     "staffUrl": "https://web.archive.org/web/20200628212307/https://gamecocksonline.com/sports/football/roster/2020",
+     "headCoach": "Mike Bobo / Will Muschamp",
+     "bioLine": "2020 South Carolina (Off. Coord./QB’s)",
+     "stats": {
+      "epa": 0.0788,
+      "sr": 39.33,
+      "xpl": 1.3094,
+      "ppd": 1.911,
+      "rank": 78,
+      "nFbs": 128,
+      "games": 10
+     },
+     "reasons": [
+      "Head coach changed during the season (incl. bowl)"
+     ]
+    },
+    {
+     "season": 2021,
+     "team": "auburn",
+     "school": "Auburn",
+     "status": "excluded",
+     "staffUrl": "https://auburntigers.com/sports/football/roster/2021",
+     "headCoach": "Bryan Harsin",
+     "bioLine": "2021 Auburn (Off. Coord.)",
+     "stats": {
+      "epa": 0.224,
+      "sr": 46.07,
+      "xpl": 1.2238,
+      "ppd": 1.867,
+      "rank": 28,
+      "nFbs": 130,
+      "games": 12
+     },
+     "reasons": [
+      "No cited source on whether the head coach called this side"
+     ]
+    },
+    {
+     "season": 2023,
+     "team": "georgia",
+     "school": "Georgia",
+     "status": "verified",
+     "staffUrl": "https://georgiadogs.com/sports/football/roster/2023",
+     "headCoach": "Kirby Smart",
+     "bioLine": "2023-present Georgia (Off. Coord./Quarterbacks)",
+     "stats": {
+      "epa": 0.34,
+      "sr": 53.33,
+      "xpl": 1.2379,
+      "ppd": 3.57,
+      "rank": 4,
+      "nFbs": 133,
+      "games": 13
+     },
+     "hcUrl": "https://georgiadogs.com/sports/football/roster/coaches/kirby--smart-/3728",
+     "hcNote": "Bio: Valdosta State and Alabama DC; Georgia running backs (position coach only); no offensive coordinator role."
+    },
+    {
+     "season": 2024,
+     "team": "georgia",
+     "school": "Georgia",
+     "status": "verified",
+     "staffUrl": "https://georgiadogs.com/sports/football/roster/2024",
+     "headCoach": "Kirby Smart",
+     "bioLine": "2023-present Georgia (Off. Coord./Quarterbacks)",
+     "stats": {
+      "epa": 0.2323,
+      "sr": 47.17,
+      "xpl": 1.2858,
+      "ppd": 2.261,
+      "rank": 14,
+      "nFbs": 134,
+      "games": 13
+     },
+     "hcUrl": "https://georgiadogs.com/sports/football/roster/coaches/kirby--smart-/3728",
+     "hcNote": "Bio: Valdosta State and Alabama DC; Georgia running backs (position coach only); no offensive coordinator role."
+    },
+    {
+     "season": 2025,
+     "team": "georgia",
+     "school": "Georgia",
+     "status": "verified",
+     "staffUrl": "https://georgiadogs.com/sports/football/roster/2025",
+     "headCoach": "Kirby Smart",
+     "bioLine": "2023-present Georgia (Off. Coord./Quarterbacks)",
+     "stats": {
+      "epa": 0.2201,
+      "sr": 46.61,
+      "xpl": 1.2177,
+      "ppd": 2.856,
+      "rank": 21,
+      "nFbs": 136,
+      "games": 13
+     },
+     "hcUrl": "https://georgiadogs.com/sports/football/roster/coaches/kirby--smart-/3728",
+     "hcNote": "Bio: Valdosta State and Alabama DC; Georgia running backs (position coach only); no offensive coordinator role."
+    }
+   ]
+  },
+  {
+   "name": "Barry Lunney Jr.",
+   "unit": "off",
+   "team": "illinois",
+   "title": "Offensive Coordinator",
+   "bioUrl": "https://fightingillini.com/staff-directory/barry-lunney-jr-/1885",
+   "history": [
+    {
+     "season": 2020,
+     "team": "utsa",
+     "school": "UTSA",
+     "status": "excluded",
+     "staffUrl": null,
+     "headCoach": "Jeff Traylor",
+     "bioLine": "2020-21 UTSA / Associate Head Coach/Offensive Coordinator/QBs",
+     "stats": {
+      "epa": 0.0918,
+      "sr": 39.36,
+      "xpl": 1.3695,
+      "ppd": 2.25,
+      "rank": 68,
+      "nFbs": 128,
+      "games": 11
+     },
+     "reasons": [
+      "No official season staff page found (live or archived)",
+      "No cited source on whether the head coach called this side"
+     ]
+    },
+    {
+     "season": 2021,
+     "team": "utsa",
+     "school": "UTSA",
+     "status": "excluded",
+     "staffUrl": null,
+     "headCoach": "Jeff Traylor",
+     "bioLine": "2020-21 UTSA / Associate Head Coach/Offensive Coordinator/QBs",
+     "stats": {
+      "epa": 0.1874,
+      "sr": 44.03,
+      "xpl": 1.2671,
+      "ppd": 2.637,
+      "rank": 43,
+      "nFbs": 130,
+      "games": 13
+     },
+     "reasons": [
+      "No official season staff page found (live or archived)",
+      "No cited source on whether the head coach called this side"
+     ]
+    },
+    {
+     "season": 2022,
+     "team": "illinois",
+     "school": "Illinois",
+     "status": "verified",
+     "staffUrl": "https://fightingillini.com/sports/football/coaches/2022",
+     "headCoach": "Bret Bielema",
+     "bioLine": "2022-25 Illinois / Offensive Coordinator/QBs",
+     "stats": {
+      "epa": 0.1264,
+      "sr": 44.78,
+      "xpl": 1.0779,
+      "ppd": 1.805,
+      "rank": 53,
+      "nFbs": 131,
+      "games": 12
+     },
+     "hcUrl": "https://fightingillini.com/sports/football/roster/coaches/bret-bielema/2382",
+     "hcNote": "Bio: Iowa linebackers, Kansas State co-DC, Wisconsin DC; no offensive role."
+    },
+    {
+     "season": 2023,
+     "team": "illinois",
+     "school": "Illinois",
+     "status": "verified",
+     "staffUrl": "https://fightingillini.com/sports/football/coaches/2023",
+     "headCoach": "Bret Bielema",
+     "bioLine": "2022-25 Illinois / Offensive Coordinator/QBs",
+     "stats": {
+      "epa": 0.1318,
+      "sr": 45.97,
+      "xpl": 1.194,
+      "ppd": 1.877,
+      "rank": 52,
+      "nFbs": 133,
+      "games": 12
+     },
+     "hcUrl": "https://fightingillini.com/sports/football/roster/coaches/bret-bielema/2382",
+     "hcNote": "Bio: Iowa linebackers, Kansas State co-DC, Wisconsin DC; no offensive role."
+    },
+    {
+     "season": 2024,
+     "team": "illinois",
+     "school": "Illinois",
+     "status": "verified",
+     "staffUrl": "https://fightingillini.com/sports/football/coaches/2024",
+     "headCoach": "Bret Bielema",
+     "bioLine": "2022-25 Illinois / Offensive Coordinator/QBs",
+     "stats": {
+      "epa": 0.207,
+      "sr": 45.28,
+      "xpl": 1.2848,
+      "ppd": 2.397,
+      "rank": 25,
+      "nFbs": 134,
+      "games": 12
+     },
+     "hcUrl": "https://fightingillini.com/sports/football/roster/coaches/bret-bielema/2382",
+     "hcNote": "Bio: Iowa linebackers, Kansas State co-DC, Wisconsin DC; no offensive role."
+    },
+    {
+     "season": 2025,
+     "team": "illinois",
+     "school": "Illinois",
+     "status": "verified",
+     "staffUrl": "https://fightingillini.com/sports/football/coaches/2025",
+     "headCoach": "Bret Bielema",
+     "bioLine": "2022-25 Illinois / Offensive Coordinator/QBs",
+     "stats": {
+      "epa": 0.1641,
+      "sr": 46.52,
+      "xpl": 1.1918,
+      "ppd": 2.452,
+      "rank": 37,
+      "nFbs": 136,
+      "games": 12
+     },
+     "hcUrl": "https://fightingillini.com/sports/football/roster/coaches/bret-bielema/2382",
+     "hcNote": "Bio: Iowa linebackers, Kansas State co-DC, Wisconsin DC; no offensive role."
+    }
+   ]
+  },
+  {
+   "name": "Kirk Ciarrocca",
+   "unit": "off",
+   "team": "rutgers",
+   "title": "Offensive Coordinator/Quarterbacks",
+   "bioUrl": "https://scarletknights.com/sports/football/roster/coaches/kirk-ciarrocca/6286",
+   "history": [
+    {
+     "season": 2017,
+     "team": "minnesota",
+     "school": "Minnesota",
+     "status": "excluded",
+     "staffUrl": "https://gophersports.com/sports/football/roster/2017",
+     "headCoach": "P.J. Fleck",
+     "bioLine": "2017-19: Minnesota (offensive coordinator/quarterbacks)",
+     "stats": {
+      "epa": 0.0386,
+      "sr": 41.58,
+      "xpl": 1.15,
+      "ppd": 1.638,
+      "rank": 90,
+      "nFbs": 130,
+      "games": 12
+     },
+     "reasons": [
+      "No cited source on whether the head coach called this side"
+     ]
+    },
+    {
+     "season": 2018,
+     "team": "minnesota",
+     "school": "Minnesota",
+     "status": "excluded",
+     "staffUrl": "https://gophersports.com/sports/football/roster/2018",
+     "headCoach": "P.J. Fleck",
+     "bioLine": "2017-19: Minnesota (offensive coordinator/quarterbacks)",
+     "stats": {
+      "epa": 0.1031,
+      "sr": 44.14,
+      "xpl": 1.1564,
+      "ppd": 2.106,
+      "rank": 63,
+      "nFbs": 130,
+      "games": 13
+     },
+     "reasons": [
+      "No cited source on whether the head coach called this side"
+     ]
+    },
+    {
+     "season": 2019,
+     "team": "minnesota",
+     "school": "Minnesota",
+     "status": "excluded",
+     "staffUrl": "https://gophersports.com/sports/football/roster/2019",
+     "headCoach": "P.J. Fleck",
+     "bioLine": "2017-19: Minnesota (offensive coordinator/quarterbacks)",
+     "stats": {
+      "epa": 0.2958,
+      "sr": 49.43,
+      "xpl": 1.2848,
+      "ppd": 2.794,
+      "rank": 5,
+      "nFbs": 130,
+      "games": 12
+     },
+     "reasons": [
+      "Season staff page lists a co-coordinator on this side",
+      "No cited source on whether the head coach called this side"
+     ]
+    },
+    {
+     "season": 2020,
+     "team": "penn-state",
+     "school": "Penn State",
+     "status": "excluded",
+     "staffUrl": "https://web.archive.org/web/20201119220740/https://gopsusports.com/sports/football/roster/2020",
+     "headCoach": "James Franklin",
+     "bioLine": "2020: Penn State (offensive coordinator/quarterbacks)",
+     "stats": {
+      "epa": 0.0846,
+      "sr": 43.13,
+      "xpl": 1.2334,
+      "ppd": 1.89,
+      "rank": 75,
+      "nFbs": 128,
+      "games": 9
+     },
+     "reasons": [
+      "No cited source on whether the head coach called this side"
+     ]
+    },
+    {
+     "season": 2022,
+     "team": "minnesota",
+     "school": "Minnesota",
+     "status": "excluded",
+     "staffUrl": "https://gophersports.com/sports/football/roster/2022",
+     "headCoach": "P.J. Fleck",
+     "bioLine": "2022: Minnesota (offensive coordinator/quarterbacks)",
+     "stats": {
+      "epa": 0.1667,
+      "sr": 46.34,
+      "xpl": 1.1779,
+      "ppd": 2.219,
+      "rank": 35,
+      "nFbs": 131,
+      "games": 12
+     },
+     "reasons": [
+      "Season staff page lists a co-coordinator on this side",
+      "No cited source on whether the head coach called this side"
+     ]
+    },
+    {
+     "season": 2023,
+     "team": "rutgers",
+     "school": "Rutgers",
+     "status": "verified",
+     "staffUrl": "https://scarletknights.com/sports/football/roster/2023",
+     "headCoach": "Greg Schiano",
+     "bioLine": "2023-present: Rutgers (offensive coordinator/quarterbacks)",
+     "stats": {
+      "epa": 0.0852,
+      "sr": 40.47,
+      "xpl": 1.2527,
+      "ppd": 1.612,
+      "rank": 75,
+      "nFbs": 133,
+      "games": 12
+     },
+     "hcUrl": "https://scarletknights.com/sports/football/roster/coaches/greg-schiano/6284",
+     "hcNote": "Bio: Bears secondary, Miami and Ohio State DC; no offensive role."
+    },
+    {
+     "season": 2024,
+     "team": "rutgers",
+     "school": "Rutgers",
+     "status": "verified",
+     "staffUrl": "https://scarletknights.com/sports/football/roster/2024",
+     "headCoach": "Greg Schiano",
+     "bioLine": "2023-present: Rutgers (offensive coordinator/quarterbacks)",
+     "stats": {
+      "epa": 0.1617,
+      "sr": 43.67,
+      "xpl": 1.248,
+      "ppd": 2.448,
+      "rank": 47,
+      "nFbs": 134,
+      "games": 12
+     },
+     "hcUrl": "https://scarletknights.com/sports/football/roster/coaches/greg-schiano/6284",
+     "hcNote": "Bio: Bears secondary, Miami and Ohio State DC; no offensive role."
+    },
+    {
+     "season": 2025,
+     "team": "rutgers",
+     "school": "Rutgers",
+     "status": "verified",
+     "staffUrl": "https://scarletknights.com/sports/football/roster/2025",
+     "headCoach": "Greg Schiano",
+     "bioLine": "2023-present: Rutgers (offensive coordinator/quarterbacks)",
+     "stats": {
+      "epa": 0.1864,
+      "sr": 46.19,
+      "xpl": 1.2285,
+      "ppd": 2.569,
+      "rank": 29,
+      "nFbs": 136,
+      "games": 11
+     },
+     "hcUrl": "https://scarletknights.com/sports/football/roster/coaches/greg-schiano/6284",
+     "hcNote": "Bio: Bears secondary, Miami and Ohio State DC; no offensive role."
+    }
+   ]
+  },
+  {
+   "name": "Jake Spavital",
+   "unit": "off",
+   "team": "baylor",
+   "title": "Offensive Coordinator (Quarterbacks)",
+   "bioUrl": "https://baylorbears.com/sports/football/roster/coaches/jake-spavital/2925",
+   "history": [
+    {
+     "season": 2016,
+     "team": "california",
+     "school": "California",
+     "status": "excluded",
+     "staffUrl": "https://calbears.com/sports/football/roster/2016",
+     "headCoach": "Sonny Dykes",
+     "bioLine": "2016: Offensive Coordinator/Quarterbacks – Cal",
+     "stats": {
+      "epa": 0.2117,
+      "sr": 47.31,
+      "xpl": 1.189,
+      "ppd": 2.612,
+      "rank": 24,
+      "nFbs": 128,
+      "games": 12
+     },
+     "reasons": [
+      "Official season staff page does not list him as coordinator",
+      "No cited source on whether the head coach called this side"
+     ]
+    },
+    {
+     "season": 2017,
+     "team": "west-virginia",
+     "school": "West Virginia",
+     "status": "excluded",
+     "staffUrl": "https://wvusports.com/sports/football/roster/2017",
+     "headCoach": "Dana Holgorsen",
+     "bioLine": "2017-18: Offensive Coordinator/Quarterbacks – West Virginia",
+     "stats": {
+      "epa": 0.16,
+      "sr": 44.4,
+      "xpl": 1.2327,
+      "ppd": 2.152,
+      "rank": 31,
+      "nFbs": 130,
+      "games": 12
+     },
+     "reasons": [
+      "Head coach has coordinated or called this side; play-caller not confirmed"
+     ]
+    },
+    {
+     "season": 2018,
+     "team": "west-virginia",
+     "school": "West Virginia",
+     "status": "excluded",
+     "staffUrl": "https://wvusports.com/sports/football/roster/2018",
+     "headCoach": "Dana Holgorsen",
+     "bioLine": "2017-18: Offensive Coordinator/Quarterbacks – West Virginia",
+     "stats": {
+      "epa": 0.229,
+      "sr": 46.25,
+      "xpl": 1.351,
+      "ppd": 2.902,
+      "rank": 12,
+      "nFbs": 130,
+      "games": 11
+     },
+     "reasons": [
+      "Head coach has coordinated or called this side; play-caller not confirmed"
+     ]
+    },
+    {
+     "season": 2023,
+     "team": "california",
+     "school": "California",
+     "status": "excluded",
+     "staffUrl": "https://calbears.com/sports/football/roster/2023",
+     "headCoach": "Justin Wilcox",
+     "bioLine": "2023: Offensive Coordinator/Quarterbacks – Cal",
+     "stats": {
+      "epa": 0.0929,
+      "sr": 41.31,
+      "xpl": 1.2126,
+      "ppd": 2.134,
+      "rank": 67,
+      "nFbs": 133,
+      "games": 12
+     },
+     "reasons": [
+      "Official season staff page does not list him as coordinator",
+      "No cited source on whether the head coach called this side"
+     ]
+    },
+    {
+     "season": 2024,
+     "team": "baylor",
+     "school": "Baylor",
+     "status": "verified",
+     "staffUrl": "https://baylorbears.com/sports/football/roster/2024",
+     "headCoach": "Dave Aranda",
+     "bioLine": "2024-26: Offensive Coordinator/Quarterbacks – Baylor",
+     "stats": {
+      "epa": 0.216,
+      "sr": 48.8,
+      "xpl": 1.2045,
+      "ppd": 2.568,
+      "rank": 22,
+      "nFbs": 134,
+      "games": 12
+     },
+     "hcUrl": "https://baylorbears.com/sports/football/roster/coaches/dave-aranda/2510",
+     "hcNote": "Bio: defensive coordinator career (Delta State, Hawaiʻi, Utah State, Wisconsin, LSU); no offensive role."
+    },
+    {
+     "season": 2025,
+     "team": "baylor",
+     "school": "Baylor",
+     "status": "verified",
+     "staffUrl": "https://baylorbears.com/sports/football/roster/2025",
+     "headCoach": "Dave Aranda",
+     "bioLine": "2024-26: Offensive Coordinator/Quarterbacks – Baylor",
+     "stats": {
+      "epa": 0.1703,
+      "sr": 46.46,
+      "xpl": 1.3035,
+      "ppd": 2.711,
+      "rank": 35,
+      "nFbs": 136,
+      "games": 11
+     },
+     "hcUrl": "https://baylorbears.com/sports/football/roster/coaches/dave-aranda/2510",
+     "hcNote": "Bio: defensive coordinator career (Delta State, Hawaiʻi, Utah State, Wisconsin, LSU); no offensive role."
+    }
+   ]
+  },
+  {
+   "name": "Phil Parker",
+   "unit": "def",
+   "team": "iowa",
+   "title": "Defensive Coordinator/Secondary",
+   "bioUrl": "https://hawkeyesports.com/sports/football/roster/season/2026-27/staff/phil-parker",
+   "history": [
+    {
+     "season": 2016,
+     "team": "iowa",
+     "school": "Iowa",
+     "status": "verified",
+     "staffUrl": "https://web.archive.org/web/20200103101418/https://hawkeyesports.com/sports/football/roster/2016",
+     "headCoach": "Kirk Ferentz",
+     "bioLine": "Iowa – Defensive Coordinator/Defensive Backs, 2013-present",
+     "stats": {
+      "epa": 0.0586,
+      "sr": 40.45,
+      "xpl": 1.0614,
+      "ppd": 1.293,
+      "rank": 42,
+      "nFbs": 128,
+      "games": 12
+     },
+     "hcUrl": "https://hawkeyesports.com/sports/football/roster/season/2026-27/staff/kirk-ferentz",
+     "hcNote": "Bio: offensive line career (Pittsburgh, Iowa, Maine, Browns, Ravens); only defensive coordinator role was Worcester Academy (high school), 1980."
+    },
+    {
+     "season": 2017,
+     "team": "iowa",
+     "school": "Iowa",
+     "status": "verified",
+     "staffUrl": "https://web.archive.org/web/20200103100328/https://hawkeyesports.com/sports/football/roster/2017",
+     "headCoach": "Kirk Ferentz",
+     "bioLine": "Iowa – Defensive Coordinator/Defensive Backs, 2013-present",
+     "stats": {
+      "epa": -0.0563,
+      "sr": 40.13,
+      "xpl": 1.1149,
+      "ppd": 1.413,
+      "rank": 13,
+      "nFbs": 130,
+      "games": 13
+     },
+     "hcUrl": "https://hawkeyesports.com/sports/football/roster/season/2026-27/staff/kirk-ferentz",
+     "hcNote": "Bio: offensive line career (Pittsburgh, Iowa, Maine, Browns, Ravens); only defensive coordinator role was Worcester Academy (high school), 1980."
+    },
+    {
+     "season": 2018,
+     "team": "iowa",
+     "school": "Iowa",
+     "status": "verified",
+     "staffUrl": "https://hawkeyesports.com/sports/football/roster/season/2018-19/",
+     "headCoach": "Kirk Ferentz",
+     "bioLine": "Iowa – Defensive Coordinator/Defensive Backs, 2013-present",
+     "stats": {
+      "epa": -0.0477,
+      "sr": 38.46,
+      "xpl": 1.0922,
+      "ppd": 1.318,
+      "rank": 13,
+      "nFbs": 130,
+      "games": 12
+     },
+     "hcUrl": "https://hawkeyesports.com/sports/football/roster/season/2026-27/staff/kirk-ferentz",
+     "hcNote": "Bio: offensive line career (Pittsburgh, Iowa, Maine, Browns, Ravens); only defensive coordinator role was Worcester Academy (high school), 1980."
+    },
+    {
+     "season": 2019,
+     "team": "iowa",
+     "school": "Iowa",
+     "status": "verified",
+     "staffUrl": "https://web.archive.org/web/20200103100149/https://hawkeyesports.com/sports/football/roster/2019",
+     "headCoach": "Kirk Ferentz",
+     "bioLine": "Iowa – Defensive Coordinator/Defensive Backs, 2013-present",
+     "stats": {
+      "epa": -0.0347,
+      "sr": 39.16,
+      "xpl": 0.9924,
+      "ppd": 1.151,
+      "rank": 12,
+      "nFbs": 130,
+      "games": 13
+     },
+     "hcUrl": "https://hawkeyesports.com/sports/football/roster/season/2026-27/staff/kirk-ferentz",
+     "hcNote": "Bio: offensive line career (Pittsburgh, Iowa, Maine, Browns, Ravens); only defensive coordinator role was Worcester Academy (high school), 1980."
+    },
+    {
+     "season": 2020,
+     "team": "iowa",
+     "school": "Iowa",
+     "status": "verified",
+     "staffUrl": "https://hawkeyesports.com/sports/football/roster/season/2020-21/",
+     "headCoach": "Kirk Ferentz",
+     "bioLine": "Iowa – Defensive Coordinator/Defensive Backs, 2013-present",
+     "stats": {
+      "epa": -0.01,
+      "sr": 40.03,
+      "xpl": 1.1863,
+      "ppd": 1.086,
+      "rank": 12,
+      "nFbs": 128,
+      "games": 8
+     },
+     "hcUrl": "https://hawkeyesports.com/sports/football/roster/season/2026-27/staff/kirk-ferentz",
+     "hcNote": "Bio: offensive line career (Pittsburgh, Iowa, Maine, Browns, Ravens); only defensive coordinator role was Worcester Academy (high school), 1980."
+    },
+    {
+     "season": 2021,
+     "team": "iowa",
+     "school": "Iowa",
+     "status": "verified",
+     "staffUrl": "https://hawkeyesports.com/sports/football/roster/season/2021-22/",
+     "headCoach": "Kirk Ferentz",
+     "bioLine": "Iowa – Defensive Coordinator/Defensive Backs, 2013-present",
+     "stats": {
+      "epa": -0.0321,
+      "sr": 36.65,
+      "xpl": 1.2178,
+      "ppd": 1.428,
+      "rank": 7,
+      "nFbs": 130,
+      "games": 14
+     },
+     "hcUrl": "https://hawkeyesports.com/sports/football/roster/season/2026-27/staff/kirk-ferentz",
+     "hcNote": "Bio: offensive line career (Pittsburgh, Iowa, Maine, Browns, Ravens); only defensive coordinator role was Worcester Academy (high school), 1980."
+    },
+    {
+     "season": 2022,
+     "team": "iowa",
+     "school": "Iowa",
+     "status": "verified",
+     "staffUrl": "https://hawkeyesports.com/sports/football/roster/season/2022-23/",
+     "headCoach": "Kirk Ferentz",
+     "bioLine": "Iowa – Defensive Coordinator/Defensive Backs, 2013-present",
+     "stats": {
+      "epa": -0.0866,
+      "sr": 36.6,
+      "xpl": 1.0571,
+      "ppd": 1.04,
+      "rank": 3,
+      "nFbs": 131,
+      "games": 12
+     },
+     "hcUrl": "https://hawkeyesports.com/sports/football/roster/season/2026-27/staff/kirk-ferentz",
+     "hcNote": "Bio: offensive line career (Pittsburgh, Iowa, Maine, Browns, Ravens); only defensive coordinator role was Worcester Academy (high school), 1980."
+    },
+    {
+     "season": 2023,
+     "team": "iowa",
+     "school": "Iowa",
+     "status": "verified",
+     "staffUrl": "https://hawkeyesports.com/sports/football/roster/season/2023-24/",
+     "headCoach": "Kirk Ferentz",
+     "bioLine": "Iowa – Defensive Coordinator/Defensive Backs, 2013-present",
+     "stats": {
+      "epa": -0.0694,
+      "sr": 34.79,
+      "xpl": 1.1321,
+      "ppd": 1.022,
+      "rank": 5,
+      "nFbs": 133,
+      "games": 14
+     },
+     "hcUrl": "https://hawkeyesports.com/sports/football/roster/season/2026-27/staff/kirk-ferentz",
+     "hcNote": "Bio: offensive line career (Pittsburgh, Iowa, Maine, Browns, Ravens); only defensive coordinator role was Worcester Academy (high school), 1980."
+    },
+    {
+     "season": 2024,
+     "team": "iowa",
+     "school": "Iowa",
+     "status": "verified",
+     "staffUrl": "https://hawkeyesports.com/sports/football/roster/season/2024-25/",
+     "headCoach": "Kirk Ferentz",
+     "bioLine": "Iowa – Defensive Coordinator/Defensive Backs, 2013-present",
+     "stats": {
+      "epa": 0.0279,
+      "sr": 41.21,
+      "xpl": 1.1206,
+      "ppd": 1.518,
+      "rank": 29,
+      "nFbs": 134,
+      "games": 12
+     },
+     "hcUrl": "https://hawkeyesports.com/sports/football/roster/season/2026-27/staff/kirk-ferentz",
+     "hcNote": "Bio: offensive line career (Pittsburgh, Iowa, Maine, Browns, Ravens); only defensive coordinator role was Worcester Academy (high school), 1980."
+    },
+    {
+     "season": 2025,
+     "team": "iowa",
+     "school": "Iowa",
+     "status": "verified",
+     "staffUrl": "https://hawkeyesports.com/sports/football/roster/season/2025-26/",
+     "headCoach": "Kirk Ferentz",
+     "bioLine": "Iowa – Defensive Coordinator/Defensive Backs, 2013-present",
+     "stats": {
+      "epa": -0.1003,
+      "sr": 37.28,
+      "xpl": 1.0517,
+      "ppd": 1.474,
+      "rank": 7,
+      "nFbs": 136,
+      "games": 12
+     },
+     "hcUrl": "https://hawkeyesports.com/sports/football/roster/season/2026-27/staff/kirk-ferentz",
+     "hcNote": "Bio: offensive line career (Pittsburgh, Iowa, Maine, Browns, Ravens); only defensive coordinator role was Worcester Academy (high school), 1980."
+    }
+   ]
+  },
+  {
+   "name": "Austin Armstrong",
+   "unit": "def",
+   "team": "houston",
+   "title": "Defensive Coordinator",
+   "bioUrl": "https://uhcougars.com/sports/football/roster/coaches/austin-armstrong/1735",
+   "history": [
+    {
+     "season": 2021,
+     "team": "southern-miss",
+     "school": "Southern Miss",
+     "status": "verified",
+     "staffUrl": "https://southernmiss.com/sports/football/coaches/2021",
+     "headCoach": "Will Hall",
+     "bioLine": "2021-22 Southern Miss, Defensive Coordinator",
+     "stats": {
+      "epa": 0.2014,
+      "sr": 43.65,
+      "xpl": 1.3734,
+      "ppd": 2.174,
+      "rank": 99,
+      "nFbs": 130,
+      "games": 11
+     },
+     "hcUrl": "https://southernmiss.com/sports/football/roster/coaches/will-hall/1803",
+     "hcNote": "Bio: Louisiana and Tulane offensive coordinator; no defensive role."
+    },
+    {
+     "season": 2022,
+     "team": "southern-miss",
+     "school": "Southern Miss",
+     "status": "verified",
+     "staffUrl": "https://southernmiss.com/sports/football/coaches/2022",
+     "headCoach": "Will Hall",
+     "bioLine": "2021-22 Southern Miss, Defensive Coordinator",
+     "stats": {
+      "epa": 0.0596,
+      "sr": 39.66,
+      "xpl": 1.3188,
+      "ppd": 1.724,
+      "rank": 41,
+      "nFbs": 131,
+      "games": 12
+     },
+     "hcUrl": "https://southernmiss.com/sports/football/roster/coaches/will-hall/1803",
+     "hcNote": "Bio: Louisiana and Tulane offensive coordinator; no defensive role."
+    },
+    {
+     "season": 2023,
+     "team": "florida",
+     "school": "Florida",
+     "status": "verified",
+     "staffUrl": "https://floridagators.com/sports/football/roster/2023",
+     "headCoach": "Billy Napier",
+     "bioLine": "2023-24 Florida, Defensive Coordinator",
+     "stats": {
+      "epa": 0.1483,
+      "sr": 36.58,
+      "xpl": 1.4925,
+      "ppd": 2.318,
+      "rank": 87,
+      "nFbs": 133,
+      "games": 11
+     },
+     "hcUrl": "https://floridagators.com/sports/football/roster/coaches/billy-napier/1830",
+     "hcNote": "Bio: Clemson and Arizona State offensive coordinator, receivers/TE coach; no defensive role."
+    },
+    {
+     "season": 2024,
+     "team": "florida",
+     "school": "Florida",
+     "status": "excluded",
+     "staffUrl": "https://floridagators.com/sports/football/roster/2024",
+     "headCoach": "Billy Napier",
+     "bioLine": "2023-24 Florida, Defensive Coordinator",
+     "stats": {
+      "epa": -0.0163,
+      "sr": 40.11,
+      "xpl": 1.1743,
+      "ppd": 1.792,
+      "rank": 17,
+      "nFbs": 134,
+      "games": 12
+     },
+     "reasons": [
+      "Season staff page lists a co-coordinator on this side"
+     ]
+    },
+    {
+     "season": 2025,
+     "team": "houston",
+     "school": "Houston",
+     "status": "excluded",
+     "staffUrl": "https://uhcougars.com/sports/football/roster/2025",
+     "headCoach": "Willie Fritz",
+     "bioLine": "2025 - Houston, Defensive Coordinator",
+     "stats": {
+      "epa": 0.1211,
+      "sr": 43.98,
+      "xpl": 1.1808,
+      "ppd": 2.125,
+      "rank": 74,
+      "nFbs": 136,
+      "games": 12
+     },
+     "reasons": [
+      "Head coach has coordinated or called this side; play-caller not confirmed"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "John Rudzinski",
+   "unit": "def",
+   "team": "virginia",
+   "title": "Defensive Coordinator",
+   "bioUrl": "https://virginiasports.com/sports/football/roster/season/2026-27/staff/john-rudzinski",
+   "history": [
+    {
+     "season": 2019,
+     "team": "air-force",
+     "school": "Air Force",
+     "status": "verified",
+     "staffUrl": "https://goairforcefalcons.com/sports/football/roster/2019",
+     "headCoach": "Troy Calhoun",
+     "bioLine": "spent the 14 seasons as a member of the Air Force coaching staff, including his last four years as the Falcons’ defensive coordinator",
+     "stats": {
+      "epa": 0.0713,
+      "sr": 39.09,
+      "xpl": 1.2885,
+      "ppd": 2.017,
+      "rank": 53,
+      "nFbs": 130,
+      "games": 12
+     },
+     "hcUrl": "https://web.archive.org/web/20220930045133/https://goairforcefalcons.com/sports/football/roster/coaches/troy-calhoun/1115",
+     "hcNote": "Bio: offensive coordinator career (Ohio, Wake Forest, Houston Texans); 2003 Broncos defensive assistant, no defensive coordinator role."
+    },
+    {
+     "season": 2020,
+     "team": "air-force",
+     "school": "Air Force",
+     "status": "verified",
+     "staffUrl": "https://goairforcefalcons.com/sports/football/roster/2020",
+     "headCoach": "Troy Calhoun",
+     "bioLine": "spent the 14 seasons as a member of the Air Force coaching staff, including his last four years as the Falcons’ defensive coordinator",
+     "stats": {
+      "epa": 0.0787,
+      "sr": 45.79,
+      "xpl": 1.2299,
+      "ppd": 1.333,
+      "rank": 48,
+      "nFbs": 128,
+      "games": 6
+     },
+     "hcUrl": "https://web.archive.org/web/20220930045133/https://goairforcefalcons.com/sports/football/roster/coaches/troy-calhoun/1115",
+     "hcNote": "Bio: offensive coordinator career (Ohio, Wake Forest, Houston Texans); 2003 Broncos defensive assistant, no defensive coordinator role."
+    },
+    {
+     "season": 2021,
+     "team": "air-force",
+     "school": "Air Force",
+     "status": "excluded",
+     "staffUrl": "https://goairforcefalcons.com/sports/football/roster/2021",
+     "headCoach": "Troy Calhoun",
+     "bioLine": "spent the 14 seasons as a member of the Air Force coaching staff, including his last four years as the Falcons’ defensive coordinator",
+     "stats": {
+      "epa": 0.1278,
+      "sr": 39.39,
+      "xpl": 1.3247,
+      "ppd": 1.76,
+      "rank": 64,
+      "nFbs": 130,
+      "games": 12
+     },
+     "reasons": [
+      "Official season staff page does not list him as coordinator"
+     ]
+    },
+    {
+     "season": 2022,
+     "team": "air-force",
+     "school": "Air Force",
+     "status": "excluded",
+     "staffUrl": "https://goairforcefalcons.com/sports/football/roster/2022",
+     "headCoach": "Troy Calhoun",
+     "bioLine": "spent the 14 seasons as a member of the Air Force coaching staff, including his last four years as the Falcons’ defensive coordinator",
+     "stats": {
+      "epa": 0.0915,
+      "sr": 42.43,
+      "xpl": 1.1999,
+      "ppd": 1.393,
+      "rank": 57,
+      "nFbs": 131,
+      "games": 12
+     },
+     "reasons": [
+      "Official season staff page does not list him as coordinator"
+     ]
+    },
+    {
+     "season": 2023,
+     "team": "virginia",
+     "school": "Virginia",
+     "status": "verified",
+     "staffUrl": "https://virginiasports.com/sports/football/roster/season/2023-24/",
+     "headCoach": "Tony Elliott",
+     "bioLine": "Virginia defensive coordinator since 2023",
+     "stats": {
+      "epa": 0.1556,
+      "sr": 43.41,
+      "xpl": 1.2477,
+      "ppd": 2.532,
+      "rank": 96,
+      "nFbs": 133,
+      "games": 11
+     },
+     "hcUrl": "https://virginiasports.com/sports/football/roster/season/2026-27/staff/tony-elliott",
+     "hcNote": "Bio: Clemson running backs and co-OC/OC; no defensive role."
+    },
+    {
+     "season": 2024,
+     "team": "virginia",
+     "school": "Virginia",
+     "status": "verified",
+     "staffUrl": "https://virginiasports.com/sports/football/roster/season/2024-25/",
+     "headCoach": "Tony Elliott",
+     "bioLine": "Virginia defensive coordinator since 2023",
+     "stats": {
+      "epa": 0.1641,
+      "sr": 40.93,
+      "xpl": 1.3177,
+      "ppd": 2.338,
+      "rank": 93,
+      "nFbs": 134,
+      "games": 11
+     },
+     "hcUrl": "https://virginiasports.com/sports/football/roster/season/2026-27/staff/tony-elliott",
+     "hcNote": "Bio: Clemson running backs and co-OC/OC; no defensive role."
+    },
+    {
+     "season": 2025,
+     "team": "virginia",
+     "school": "Virginia",
+     "status": "verified",
+     "staffUrl": "https://virginiasports.com/sports/football/roster/season/2025-26/",
+     "headCoach": "Tony Elliott",
+     "bioLine": "Virginia defensive coordinator since 2023",
+     "stats": {
+      "epa": -0.0016,
+      "sr": 36.41,
+      "xpl": 1.2043,
+      "ppd": 1.918,
+      "rank": 27,
+      "nFbs": 136,
+      "games": 13
+     },
+     "hcUrl": "https://virginiasports.com/sports/football/roster/season/2026-27/staff/tony-elliott",
+     "hcNote": "Bio: Clemson running backs and co-OC/OC; no defensive role."
+    }
+   ]
+  },
+  {
+   "name": "Alex Grinch",
+   "unit": "def",
+   "team": "ucf",
+   "title": "Defensive Coordinator/Safeties",
+   "bioUrl": "https://ucfknights.com/sports/football/roster/season/2026/staff/alex-grinch",
+   "history": [
+    {
+     "season": 2016,
+     "team": "washington-state",
+     "school": "Washington State",
+     "status": "verified",
+     "staffUrl": "https://wsucougars.com/sports/football/roster/2016",
+     "headCoach": "Mike Leach",
+     "bioLine": "2015–2017 Washington State / Defensive Coordinator / Secondary",
+     "stats": {
+      "epa": 0.0069,
+      "sr": 41.38,
+      "xpl": 1.1667,
+      "ppd": 1.697,
+      "rank": 19,
+      "nFbs": 128,
+      "games": 12
+     },
+     "hcUrl": "https://web.archive.org/web/20250123024157/https://wsucougars.com/sports/football/roster/coaches/mike-leach/1627",
+     "hcNote": "Bio: offensive coordinator career (Iowa Wesleyan, Valdosta State, Kentucky, Oklahoma); no defensive role."
+    },
+    {
+     "season": 2017,
+     "team": "washington-state",
+     "school": "Washington State",
+     "status": "verified",
+     "staffUrl": "https://wsucougars.com/sports/football/roster/2017",
+     "headCoach": "Mike Leach",
+     "bioLine": "2015–2017 Washington State / Defensive Coordinator / Secondary",
+     "stats": {
+      "epa": -0.0538,
+      "sr": 38.02,
+      "xpl": 1.191,
+      "ppd": 1.722,
+      "rank": 14,
+      "nFbs": 130,
+      "games": 12
+     },
+     "hcUrl": "https://web.archive.org/web/20250123024157/https://wsucougars.com/sports/football/roster/coaches/mike-leach/1627",
+     "hcNote": "Bio: offensive coordinator career (Iowa Wesleyan, Valdosta State, Kentucky, Oklahoma); no defensive role."
+    },
+    {
+     "season": 2019,
+     "team": "oklahoma",
+     "school": "Oklahoma",
+     "status": "verified",
+     "staffUrl": "https://soonersports.com/sports/football/roster/2019",
+     "headCoach": "Lincoln Riley",
+     "bioLine": "2019–2021 Oklahoma / Defensive Coordinator / Safeties",
+     "stats": {
+      "epa": 0.0619,
+      "sr": 38.97,
+      "xpl": 1.2416,
+      "ppd": 1.987,
+      "rank": 46,
+      "nFbs": 130,
+      "games": 13
+     },
+     "hcUrl": "https://usctrojans.com/sports/football/roster/coaches/lincoln-riley/7394",
+     "hcNote": "Bio: East Carolina and Oklahoma offensive coordinator; no defensive role."
+    },
+    {
+     "season": 2020,
+     "team": "oklahoma",
+     "school": "Oklahoma",
+     "status": "verified",
+     "staffUrl": "https://soonersports.com/sports/football/roster/2020",
+     "headCoach": "Lincoln Riley",
+     "bioLine": "2019–2021 Oklahoma / Defensive Coordinator / Safeties",
+     "stats": {
+      "epa": 0.0285,
+      "sr": 37.21,
+      "xpl": 1.337,
+      "ppd": 1.732,
+      "rank": 33,
+      "nFbs": 128,
+      "games": 10
+     },
+     "hcUrl": "https://usctrojans.com/sports/football/roster/coaches/lincoln-riley/7394",
+     "hcNote": "Bio: East Carolina and Oklahoma offensive coordinator; no defensive role."
+    },
+    {
+     "season": 2021,
+     "team": "oklahoma",
+     "school": "Oklahoma",
+     "status": "excluded",
+     "staffUrl": "https://soonersports.com/sports/football/roster/2021",
+     "headCoach": "Lincoln Riley / Bob Stoops",
+     "bioLine": "2019–2021 Oklahoma / Defensive Coordinator / Safeties",
+     "stats": {
+      "epa": 0.0993,
+      "sr": 41.12,
+      "xpl": 1.2886,
+      "ppd": 2.607,
+      "rank": 43,
+      "nFbs": 130,
+      "games": 12
+     },
+     "reasons": [
+      "Official season staff page does not list him as coordinator",
+      "Head coach changed during the season (incl. bowl)"
+     ]
+    },
+    {
+     "season": 2022,
+     "team": "usc",
+     "school": "USC",
+     "status": "verified",
+     "staffUrl": "https://usctrojans.com/sports/football/roster/2022",
+     "headCoach": "Lincoln Riley",
+     "bioLine": "2022–2023 USC / Defensive Coordinator / Safeties",
+     "stats": {
+      "epa": 0.1692,
+      "sr": 45.79,
+      "xpl": 1.3325,
+      "ppd": 2.639,
+      "rank": 99,
+      "nFbs": 131,
+      "games": 14
+     },
+     "hcUrl": "https://usctrojans.com/sports/football/roster/coaches/lincoln-riley/7394",
+     "hcNote": "Bio: East Carolina and Oklahoma offensive coordinator; no defensive role."
+    },
+    {
+     "season": 2023,
+     "team": "usc",
+     "school": "USC",
+     "status": "excluded",
+     "staffUrl": "https://usctrojans.com/sports/football/roster/2023",
+     "headCoach": "Lincoln Riley",
+     "bioLine": "2022–2023 USC / Defensive Coordinator / Safeties",
+     "stats": {
+      "epa": 0.1443,
+      "sr": 42.42,
+      "xpl": 1.339,
+      "ppd": 2.485,
+      "rank": 85,
+      "nFbs": 133,
+      "games": 13
+     },
+     "reasons": [
+      "Official season staff page does not list him as coordinator",
+      "Coordinator change during the season"
+     ]
+    },
+    {
+     "season": 2025,
+     "team": "ucf",
+     "school": "UCF",
+     "status": "excluded",
+     "staffUrl": "https://ucfknights.com/sports/football/roster/season/2025/",
+     "headCoach": "Scott Frost",
+     "bioLine": "2025–present UCF / Defensive Coordinator",
+     "stats": {
+      "epa": 0.0603,
+      "sr": 42.49,
+      "xpl": 1.1285,
+      "ppd": 2.142,
+      "rank": 48,
+      "nFbs": 136,
+      "games": 11
+     },
+     "reasons": [
+      "Head coach has coordinated or called this side; play-caller not confirmed"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Brian Ward",
+   "unit": "def",
+   "team": "arizona-state",
+   "title": "Defensive Coordinator",
+   "bioUrl": "https://thesundevils.com/sports/football/roster/season/2026/staff/brian-ward",
+   "history": [
+    {
+     "season": 2016,
+     "team": "syracuse",
+     "school": "Syracuse",
+     "status": "verified",
+     "staffUrl": "https://cuse.com/sports/football/coaches/2016",
+     "headCoach": "Dino Babers",
+     "bioLine": "He was hired as defensive coordinator in 2016 [Syracuse]",
+     "stats": {
+      "epa": 0.1903,
+      "sr": 44.65,
+      "xpl": 1.3269,
+      "ppd": 2.237,
+      "rank": 104,
+      "nFbs": 128,
+      "games": 11
+     },
+     "hcUrl": "https://web.archive.org/web/20250816034014/https://cuse.com/sports/football/roster/coaches/dino-babers/1244",
+     "hcNote": "Bio: offensive career (Arizona, Texas A&M offensive coordinator); no defensive role."
+    },
+    {
+     "season": 2017,
+     "team": "syracuse",
+     "school": "Syracuse",
+     "status": "verified",
+     "staffUrl": "https://cuse.com/sports/football/coaches/2017",
+     "headCoach": "Dino Babers",
+     "bioLine": "He was hired as defensive coordinator in 2016 [Syracuse]",
+     "stats": {
+      "epa": 0.1257,
+      "sr": 42.01,
+      "xpl": 1.3039,
+      "ppd": 2.327,
+      "rank": 83,
+      "nFbs": 130,
+      "games": 11
+     },
+     "hcUrl": "https://web.archive.org/web/20250816034014/https://cuse.com/sports/football/roster/coaches/dino-babers/1244",
+     "hcNote": "Bio: offensive career (Arizona, Texas A&M offensive coordinator); no defensive role."
+    },
+    {
+     "season": 2020,
+     "team": "nevada",
+     "school": "Nevada",
+     "status": "verified",
+     "staffUrl": "https://nevadawolfpack.com/sports/football/roster/2020",
+     "headCoach": "Jay Norvell",
+     "bioLine": "spent two years as defensive coordinator at the University of Nevada",
+     "stats": {
+      "epa": 0.105,
+      "sr": 42.36,
+      "xpl": 1.2181,
+      "ppd": 1.741,
+      "rank": 57,
+      "nFbs": 128,
+      "games": 9
+     },
+     "hcUrl": "https://csurams.com/sports/football/roster/coaches/jay-norvell/3626",
+     "hcNote": "Bio: offensive coordinator career (Nebraska, UCLA, Oklahoma co-OC); no defensive coordinator role."
+    },
+    {
+     "season": 2021,
+     "team": "nevada",
+     "school": "Nevada",
+     "status": "excluded",
+     "staffUrl": "https://nevadawolfpack.com/sports/football/roster/2021",
+     "headCoach": "Jay Norvell / Vai Taua",
+     "bioLine": "spent two years as defensive coordinator at the University of Nevada",
+     "stats": {
+      "epa": 0.1171,
+      "sr": 46.55,
+      "xpl": 1.2381,
+      "ppd": 1.994,
+      "rank": 53,
+      "nFbs": 130,
+      "games": 12
+     },
+     "reasons": [
+      "Head coach changed during the season (incl. bowl)"
+     ]
+    },
+    {
+     "season": 2022,
+     "team": "washington-state",
+     "school": "Washington State",
+     "status": "excluded",
+     "staffUrl": null,
+     "headCoach": "Jake Dickert",
+     "bioLine": "his season in Pullman",
+     "stats": {
+      "epa": 0.051,
+      "sr": 40.58,
+      "xpl": 1.272,
+      "ppd": 1.936,
+      "rank": 36,
+      "nFbs": 131,
+      "games": 12
+     },
+     "reasons": [
+      "No official season staff page found (live or archived)",
+      "No cited source on whether the head coach called this side"
+     ]
+    },
+    {
+     "season": 2023,
+     "team": "arizona-state",
+     "school": "Arizona State",
+     "status": "verified",
+     "staffUrl": "https://thesundevils.com/sports/football/roster/2023",
+     "headCoach": "Kenny Dillingham",
+     "bioLine": "Arizona State defensive coordinator",
+     "stats": {
+      "epa": 0.1366,
+      "sr": 43.47,
+      "xpl": 1.2159,
+      "ppd": 2.677,
+      "rank": 79,
+      "nFbs": 133,
+      "games": 11
+     },
+     "hcUrl": "https://thesundevils.com/sports/football/roster/season/2026/staff/kenny-dillingham",
+     "hcNote": "Bio: offensive coordinator career (Memphis, Auburn, Florida State, Oregon); no defensive role."
+    },
+    {
+     "season": 2024,
+     "team": "arizona-state",
+     "school": "Arizona State",
+     "status": "verified",
+     "staffUrl": "https://thesundevils.com/sports/football/roster/2024",
+     "headCoach": "Kenny Dillingham",
+     "bioLine": "Arizona State defensive coordinator",
+     "stats": {
+      "epa": -0.0073,
+      "sr": 39.46,
+      "xpl": 1.2425,
+      "ppd": 1.861,
+      "rank": 19,
+      "nFbs": 134,
+      "games": 14
+     },
+     "hcUrl": "https://thesundevils.com/sports/football/roster/season/2026/staff/kenny-dillingham",
+     "hcNote": "Bio: offensive coordinator career (Memphis, Auburn, Florida State, Oregon); no defensive role."
+    },
+    {
+     "season": 2025,
+     "team": "arizona-state",
+     "school": "Arizona State",
+     "status": "verified",
+     "staffUrl": "https://thesundevils.com/sports/football/roster/season/2025/",
+     "headCoach": "Kenny Dillingham",
+     "bioLine": "Arizona State defensive coordinator",
+     "stats": {
+      "epa": 0.0246,
+      "sr": 39.45,
+      "xpl": 1.2187,
+      "ppd": 1.966,
+      "rank": 40,
+      "nFbs": 136,
+      "games": 12
+     },
+     "hcUrl": "https://thesundevils.com/sports/football/roster/season/2026/staff/kenny-dillingham",
+     "hcNote": "Bio: offensive coordinator career (Memphis, Auburn, Florida State, Oregon); no defensive role."
+    }
+   ]
+  },
+  {
+   "name": "Zac Alley",
+   "unit": "def",
+   "team": "west-virginia",
+   "title": "Assistant Head Coach/Defensive Coordinator/Linebackers",
+   "bioUrl": "https://wvusports.com/sports/football/roster/coaches/zac-alley/4643",
+   "history": [
+    {
+     "season": 2021,
+     "team": "ul-monroe",
+     "school": "UL Monroe",
+     "status": "verified",
+     "staffUrl": "https://ulmwarhawks.com/sports/football/roster/2021",
+     "headCoach": "Terry Bowden",
+     "bioLine": "2021 Louisiana-Monroe - Defensive Coordinator/Linebackers Coach",
+     "stats": {
+      "epa": 0.2052,
+      "sr": 46.09,
+      "xpl": 1.2735,
+      "ppd": 2.594,
+      "rank": 100,
+      "nFbs": 130,
+      "games": 11
+     },
+     "hcUrl": "https://web.archive.org/web/20240902041022/https://ulmwarhawks.com/sports/football/roster/coaches/terry-bowden/3818",
+     "hcNote": "Bio: head-coaching career; no defensive coordinator role listed."
+    },
+    {
+     "season": 2023,
+     "team": "jacksonville-state",
+     "school": "Jacksonville State",
+     "status": "excluded",
+     "staffUrl": "https://jsugamecocksports.com/sports/football/roster/2023",
+     "headCoach": "Rich Rodriguez",
+     "bioLine": "2022-23 Jacksonville State - Defensive Coordinator/Linebackers Coach",
+     "stats": {
+      "epa": 0.0027,
+      "sr": 37.36,
+      "xpl": 1.285,
+      "ppd": 1.309,
+      "rank": 22,
+      "nFbs": 133,
+      "games": 12
+     },
+     "reasons": [
+      "Head coach has coordinated or called this side; play-caller not confirmed"
+     ]
+    },
+    {
+     "season": 2025,
+     "team": "west-virginia",
+     "school": "West Virginia",
+     "status": "excluded",
+     "staffUrl": "https://wvusports.com/sports/football/roster/2025",
+     "headCoach": "Rich Rodriguez",
+     "bioLine": "2025-present West Virginia - Assistant Head Coach/Defensive Coordinator/Linebackers Coach",
+     "stats": {
+      "epa": 0.1014,
+      "sr": 40.5,
+      "xpl": 1.3681,
+      "ppd": 2.543,
+      "rank": 64,
+      "nFbs": 136,
+      "games": 11
+     },
+     "reasons": [
+      "Head coach has coordinated or called this side; play-caller not confirmed"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Bryant Haines",
+   "unit": "def",
+   "team": "indiana",
+   "title": "Defensive Coordinator/Linebackers",
+   "bioUrl": "https://iuhoosiers.com/sports/football/roster/coaches/bryant-haines/4343",
+   "history": [
+    {
+     "season": 2022,
+     "team": "james-madison",
+     "school": "James Madison",
+     "status": "verified",
+     "staffUrl": "https://jmusports.com/sports/football/coaches/2022",
+     "headCoach": "Curt Cignetti",
+     "bioLine": "2022-23: Defensive Coordinator/Linebackers [James Madison]",
+     "stats": {
+      "epa": -0.037,
+      "sr": 32.83,
+      "xpl": 1.2713,
+      "ppd": 1.329,
+      "rank": 9,
+      "nFbs": 131,
+      "games": 10
+     },
+     "hcUrl": "https://iuhoosiers.com/sports/football/roster/coaches/curt-cignetti/4341",
+     "hcNote": "Bio ledger: quarterbacks, receivers and tight ends coach, recruiting coordinator (NC State, Alabama), then head coach; no defensive role."
+    },
+    {
+     "season": 2023,
+     "team": "james-madison",
+     "school": "James Madison",
+     "status": "excluded",
+     "staffUrl": "https://jmusports.com/sports/football/roster/2023",
+     "headCoach": "Curt Cignetti / Damian Wroblewski",
+     "bioLine": "2022-23: Defensive Coordinator/Linebackers [James Madison]",
+     "stats": {
+      "epa": -0.0024,
+      "sr": 35.68,
+      "xpl": 1.4175,
+      "ppd": 1.571,
+      "rank": 18,
+      "nFbs": 133,
+      "games": 12
+     },
+     "reasons": [
+      "Head coach changed during the season (incl. bowl)"
+     ]
+    },
+    {
+     "season": 2024,
+     "team": "indiana",
+     "school": "Indiana",
+     "status": "verified",
+     "staffUrl": "https://iuhoosiers.com/sports/football/roster/2024",
+     "headCoach": "Curt Cignetti",
+     "bioLine": "2024-: Defensive Coordinator/Linebackers [Indiana]",
+     "stats": {
+      "epa": -0.0868,
+      "sr": 37.26,
+      "xpl": 1.1582,
+      "ppd": 1.42,
+      "rank": 4,
+      "nFbs": 134,
+      "games": 12
+     },
+     "hcUrl": "https://iuhoosiers.com/sports/football/roster/coaches/curt-cignetti/4341",
+     "hcNote": "Bio ledger: quarterbacks, receivers and tight ends coach, recruiting coordinator (NC State, Alabama), then head coach; no defensive role."
+    },
+    {
+     "season": 2025,
+     "team": "indiana",
+     "school": "Indiana",
+     "status": "verified",
+     "staffUrl": "https://iuhoosiers.com/sports/football/roster/2025",
+     "headCoach": "Curt Cignetti",
+     "bioLine": "2024-: Defensive Coordinator/Linebackers [Indiana]",
+     "stats": {
+      "epa": -0.1058,
+      "sr": 32.69,
+      "xpl": 1.3535,
+      "ppd": 1.079,
+      "rank": 5,
+      "nFbs": 136,
+      "games": 15
+     },
+     "hcUrl": "https://iuhoosiers.com/sports/football/roster/coaches/curt-cignetti/4341",
+     "hcNote": "Bio ledger: quarterbacks, receivers and tight ends coach, recruiting coordinator (NC State, Alabama), then head coach; no defensive role."
+    }
+   ]
+  },
+  {
+   "name": "Mack Leftwich",
+   "unit": "off",
+   "team": "texas-tech",
+   "title": "Offensive Coordinator / Quarterbacks",
+   "bioUrl": "https://texastech.com/sports/football/roster/coaches/mack-leftwich/4306",
+   "history": [
+    {
+     "season": 2023,
+     "team": "texas-state",
+     "school": "Texas State",
+     "status": "verified",
+     "staffUrl": "https://txst.com/sports/football/coaches/2023",
+     "headCoach": "G.J. Kinne",
+     "bioLine": "2023-24 – Texas State Offensive Coordinator (Quarterbacks)",
+     "stats": {
+      "epa": 0.1125,
+      "sr": 43.88,
+      "xpl": 1.2351,
+      "ppd": 2.483,
+      "rank": 58,
+      "nFbs": 133,
+      "games": 12
+     },
+     "hcUrl": "https://texastech.com/sports/football/roster/coaches/mack-leftwich/4306",
+     "hcNote": "It was quite the debut as a play-caller for Leftwich, whose offenses averaged 41.8 points per game between his time at both UIW and Texas State."
+    },
+    {
+     "season": 2024,
+     "team": "texas-state",
+     "school": "Texas State",
+     "status": "excluded",
+     "staffUrl": "https://txst.com/sports/football/roster/2024",
+     "headCoach": "G.J. Kinne",
+     "bioLine": "2023-24 – Texas State Offensive Coordinator (Quarterbacks)",
+     "stats": {
+      "epa": 0.1906,
+      "sr": 45.03,
+      "xpl": 1.2515,
+      "ppd": 2.845,
+      "rank": 34,
+      "nFbs": 134,
+      "games": 12
+     },
+     "reasons": [
+      "Official season staff page does not list him as coordinator"
+     ]
+    },
+    {
+     "season": 2025,
+     "team": "texas-tech",
+     "school": "Texas Tech",
+     "status": "verified",
+     "staffUrl": "https://texastech.com/sports/football/coaches/2025",
+     "headCoach": "Joey McGuire",
+     "bioLine": "2025-present – Texas Tech Offensive Coordinator (Quarterbacks)",
+     "stats": {
+      "epa": 0.1556,
+      "sr": 42.43,
+      "xpl": 1.3058,
+      "ppd": 2.613,
+      "rank": 39,
+      "nFbs": 136,
+      "games": 13
+     },
+     "hcUrl": "https://texastech.com/sports/football/roster/coaches/joey-mcguire/4291",
+     "hcNote": "Bio: Baylor tight ends/defensive ends/outside linebackers and Texas high school head coach; no offensive coordinator or play-calling role."
+    }
+   ]
+  }
+ ]
+}
