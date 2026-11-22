@@ -1,0 +1,13098 @@
+import { t as stats_2026_default } from "./stats_2026-CRa7esya.mjs";
+import { t as talent_247_2026_default } from "./talent_247_2026-DHgGh9sk.mjs";
+//#region node_modules/.nitro/vite/services/ssr/assets/coordinators.server-C_FSFNtQ.js
+/** Server only: reads data/coordinators_2026.json, the /stats team board (2026 to date) and 247 talent. */
+var file = {
+	built: "2026-11-22",
+	source: "Unit numbers: HASHMARK ridge model (same as /stats) on CollegeFootballData play-by-play, FBS-vs-FBS games; 2026 points per game from the /stats board. Coordinators: each school’s official staff pages (2026 live; 2024–25 season pages, live or archived at the Internet Archive). Talent: 247Sports Team Talent Composite.",
+	units2026: [
+		{
+			"team": "army",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Cody Worley",
+				"title": "Offensive Coordinator / Quarterbacks"
+			}],
+			"staffUrl": "https://goarmywestpoint.com/sports/football/coaches",
+			"since": 2024
+		},
+		{
+			"team": "army",
+			"unit": "def",
+			"label": "with-co",
+			"coaches": [{
+				"name": "Daryl Dixon",
+				"title": "Defensive Coordinator"
+			}, {
+				"name": "Scot Sloan",
+				"title": "Co-Defensive Coordinator / Safeties"
+			}],
+			"staffUrl": "https://goarmywestpoint.com/sports/football/coaches",
+			"note": "Daryl Dixon holds the coordinator title; Scot Sloan also listed as co-coordinator.",
+			"since": 2026
+		},
+		{
+			"team": "charlotte",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Todd Fitch",
+				"title": "Associate Head Coach -- Offensive Coordinator/Quarterbacks"
+			}],
+			"staffUrl": "https://charlotte49ers.com/sports/football/coaches",
+			"since": 2025
+		},
+		{
+			"team": "charlotte",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Nate Faanes",
+				"title": "Defensive Coordinator -- Linebackers"
+			}],
+			"staffUrl": "https://charlotte49ers.com/sports/football/coaches",
+			"since": 2025
+		},
+		{
+			"team": "east-carolina",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Jordan Davis",
+				"title": "Offensive Coordinator/Quarterbacks"
+			}],
+			"staffUrl": "https://ecupirates.com/sports/football/coaches",
+			"since": 2026
+		},
+		{
+			"team": "east-carolina",
+			"unit": "def",
+			"label": "with-co",
+			"coaches": [{
+				"name": "Jordon Hankins",
+				"title": "Defensive Coordinator/Linebackers"
+			}, {
+				"name": "Roy Tesh",
+				"title": "Co-Defensive Coordinator/Defensive Line"
+			}],
+			"staffUrl": "https://ecupirates.com/sports/football/coaches",
+			"note": "Jordon Hankins holds the coordinator title; Roy Tesh also listed as co-coordinator.",
+			"since": 2026
+		},
+		{
+			"team": "florida-atlantic",
+			"unit": "off",
+			"label": "unverified",
+			"coaches": [],
+			"staffUrl": "https://fausports.com/sports/football/coaches",
+			"note": "No offensive coordinator is listed on the 2026 staff page."
+		},
+		{
+			"team": "florida-atlantic",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Brett Dewhurst",
+				"title": "Defensive Coordinator"
+			}],
+			"staffUrl": "https://fausports.com/sports/football/coaches",
+			"since": 2025
+		},
+		{
+			"team": "memphis",
+			"unit": "off",
+			"label": "with-co",
+			"coaches": [{
+				"name": "Kevin Decker",
+				"title": "Offensive Coordinator / Quarterbacks Coach"
+			}, {
+				"name": "David Weeks",
+				"title": "Co-Offensive Coordinator / Tight Ends Coach"
+			}],
+			"staffUrl": "https://gotigersgo.com/sports/football/coaches",
+			"note": "Kevin Decker holds the coordinator title; David Weeks also listed as co-coordinator.",
+			"since": 2026
+		},
+		{
+			"team": "memphis",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Lance Guidry",
+				"title": "Defensive Coordinator / Linebackers Coach"
+			}],
+			"staffUrl": "https://gotigersgo.com/sports/football/coaches",
+			"since": 2026
+		},
+		{
+			"team": "navy",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Drew Cronic",
+				"title": "Offensive Coordinator"
+			}],
+			"staffUrl": "https://navysports.com/sports/football/coaches",
+			"since": 2024
+		},
+		{
+			"team": "navy",
+			"unit": "def",
+			"label": "with-co",
+			"coaches": [{
+				"name": "Eric Lewis",
+				"title": "Defensive Coordinator / Safeties"
+			}, {
+				"name": "Ricky Brown",
+				"title": "Co-Defensive Coordinator / Outside Linebackers"
+			}],
+			"staffUrl": "https://navysports.com/sports/football/coaches",
+			"note": "Eric Lewis holds the coordinator title; Ricky Brown also listed as co-coordinator.",
+			"since": 2026
+		},
+		{
+			"team": "north-texas",
+			"unit": "off",
+			"label": "unverified",
+			"coaches": [],
+			"staffUrl": "https://meangreensports.com/sports/football/coaches",
+			"note": "No offensive coordinator is listed on the 2026 staff page."
+		},
+		{
+			"team": "north-texas",
+			"unit": "def",
+			"label": "with-co",
+			"coaches": [{
+				"name": "Matt Powledge",
+				"title": "Defensive Coordinator"
+			}, {
+				"name": "Bradley Dale Peveto",
+				"title": "Co-Defensive Coordinator, Linebackers"
+			}],
+			"staffUrl": "https://meangreensports.com/sports/football/coaches",
+			"note": "Matt Powledge holds the coordinator title; Bradley Dale Peveto also listed as co-coordinator.",
+			"since": 2026
+		},
+		{
+			"team": "rice",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Vince Munch",
+				"title": "Offensive Coordinator/Offensive Line"
+			}],
+			"staffUrl": "https://riceowls.com/sports/football/coaches",
+			"since": 2026
+		},
+		{
+			"team": "rice",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Jon Kay",
+				"title": "Defensive Coordinator"
+			}],
+			"staffUrl": "https://riceowls.com/sports/football/coaches",
+			"since": 2026
+		},
+		{
+			"team": "temple",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Tyler Walker",
+				"title": "Offensive Coordinator / Quarterbacks"
+			}],
+			"staffUrl": "https://owlsports.com/sports/football/coaches",
+			"since": 2025
+		},
+		{
+			"team": "temple",
+			"unit": "def",
+			"label": "interim",
+			"coaches": [{
+				"name": "Henry Baker",
+				"title": "Assistant Head Coach / Interim Defensive Coordinator / Cornerbacks"
+			}],
+			"staffUrl": "https://owlsports.com/sports/football/coaches",
+			"note": "Interim coordinator: the 2026 season is split.",
+			"since": 2026
+		},
+		{
+			"team": "tulane",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Russ Callaway",
+				"title": "Offensive Coordinator"
+			}],
+			"staffUrl": "https://tulanegreenwave.com/sports/football/coaches",
+			"since": 2026
+		},
+		{
+			"team": "tulane",
+			"unit": "def",
+			"label": "with-co",
+			"coaches": [{
+				"name": "Tayler Polk",
+				"title": "Defensive Coordinator/Inside Linebackers"
+			}, {
+				"name": "Nate Fuqua",
+				"title": "Co-Defensive Coordinator/Bandits"
+			}],
+			"staffUrl": "https://tulanegreenwave.com/sports/football/coaches",
+			"note": "Tayler Polk holds the coordinator title; Nate Fuqua also listed as co-coordinator.",
+			"since": 2026
+		},
+		{
+			"team": "tulsa",
+			"unit": "off",
+			"label": "with-co",
+			"coaches": [{
+				"name": "Kevin Barbay",
+				"title": "Offensive Coordinator"
+			}, {
+				"name": "Ty Darlington",
+				"title": "Co-Offensive Coordinator / Tight Ends Coach"
+			}],
+			"staffUrl": "https://tulsahurricane.com/sports/football/coaches",
+			"note": "Kevin Barbay holds the coordinator title; Ty Darlington also listed as co-coordinator.",
+			"since": 2026
+		},
+		{
+			"team": "tulsa",
+			"unit": "def",
+			"label": "with-co",
+			"coaches": [{
+				"name": "Josh Reardon",
+				"title": "Defensive Coordinator / Safeties Coach"
+			}, {
+				"name": "Mike Gray",
+				"title": "Co-Defensive Coordinator / Linebackers Coach"
+			}],
+			"staffUrl": "https://tulsahurricane.com/sports/football/coaches",
+			"note": "Josh Reardon holds the coordinator title; Mike Gray also listed as co-coordinator.",
+			"since": 2025
+		},
+		{
+			"team": "uab",
+			"unit": "off",
+			"label": "unverified",
+			"coaches": [],
+			"staffUrl": "https://uabsports.com/sports/football/coaches",
+			"note": "No offensive coordinator is listed on the 2026 staff page."
+		},
+		{
+			"team": "uab",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Todd Grantham",
+				"title": "Defensive Coordinator"
+			}],
+			"staffUrl": "https://uabsports.com/sports/football/coaches",
+			"since": 2026
+		},
+		{
+			"team": "usf",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Tim Beck",
+				"title": "Offensive Coordinator"
+			}],
+			"staffUrl": "https://gousfbulls.com/sports/football/coaches",
+			"since": 2026
+		},
+		{
+			"team": "usf",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Josh Aldridge",
+				"title": "Defensive Coordinator/Inside Linebackers"
+			}],
+			"staffUrl": "https://gousfbulls.com/sports/football/coaches",
+			"since": 2026
+		},
+		{
+			"team": "utsa",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Rick Bowie",
+				"title": "Offensive Coordinator"
+			}],
+			"staffUrl": "https://goutsa.com/sports/football/roster",
+			"since": 2026
+		},
+		{
+			"team": "utsa",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Jess Loepp",
+				"title": "Defensive Coordinator/Safeties"
+			}],
+			"staffUrl": "https://goutsa.com/sports/football/roster",
+			"since": 2024
+		},
+		{
+			"team": "boston-college",
+			"unit": "off",
+			"label": "hc-title",
+			"coaches": [{
+				"name": "Bill O'Brien",
+				"title": "Gregory P. Barber ’69 and Family Head Coach/ Edward F. Connelly Offensive Coordinator"
+			}],
+			"staffUrl": "https://bceagles.com/sports/football/roster",
+			"note": "The head coach holds the coordinator title."
+		},
+		{
+			"team": "boston-college",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Ted Roof",
+				"title": "Kevin T. Fee Family Defensive Coordinator"
+			}],
+			"staffUrl": "https://bceagles.com/sports/football/roster",
+			"since": 2026
+		},
+		{
+			"team": "california",
+			"unit": "off",
+			"label": "with-co",
+			"coaches": [{
+				"name": "Jordan Somerville",
+				"title": "Offensive Coordinator"
+			}, {
+				"name": "Ike Hilliard",
+				"title": "Wide Receivers/Co-Offensive Coordinator"
+			}],
+			"staffUrl": "https://calbears.com/sports/football/roster",
+			"note": "Jordan Somerville holds the coordinator title; Ike Hilliard also listed as co-coordinator.",
+			"since": 2026
+		},
+		{
+			"team": "california",
+			"unit": "def",
+			"label": "with-co",
+			"coaches": [{
+				"name": "Michael Hutchings",
+				"title": "Defensive Coordinator"
+			}, {
+				"name": "Da'Von Brown",
+				"title": "Defensive Backs/Co-Defensive Coordinator"
+			}],
+			"staffUrl": "https://calbears.com/sports/football/roster",
+			"note": "Michael Hutchings holds the coordinator title; Da'Von Brown also listed as co-coordinator.",
+			"since": 2026
+		},
+		{
+			"team": "clemson",
+			"unit": "off",
+			"label": "with-co",
+			"coaches": [
+				{
+					"name": "Chad Morris",
+					"title": "Offensive Coordinator"
+				},
+				{
+					"name": "Kyle Richardson",
+					"title": "Co-Offensive Coordinator, Tight Ends"
+				},
+				{
+					"name": "Matt Luke",
+					"title": "Assistant Head Coach, Co-Offensive Coordinator, Offensive Linemen"
+				}
+			],
+			"staffUrl": "https://clemsontigers.com/sports/football/roster",
+			"note": "Chad Morris holds the coordinator title; Kyle Richardson & Matt Luke also listed as co-coordinator.",
+			"since": 2026
+		},
+		{
+			"team": "clemson",
+			"unit": "def",
+			"label": "with-co",
+			"coaches": [{
+				"name": "Tom Allen",
+				"title": "Defensive Coordinator, Linebackers"
+			}, {
+				"name": "Nick Eason",
+				"title": "Associate Head Coach, Co-Defensive Coordinator, Defensive Tackles"
+			}],
+			"staffUrl": "https://clemsontigers.com/sports/football/roster",
+			"note": "Tom Allen holds the coordinator title; Nick Eason also listed as co-coordinator.",
+			"since": 2025
+		},
+		{
+			"team": "duke",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Jonathan Brewer",
+				"title": "Hall Family Offensive Coordinator/Quarterbacks"
+			}],
+			"staffUrl": "https://goduke.com/sports/football/roster",
+			"since": 2026
+		},
+		{
+			"team": "duke",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Jonathan Patke",
+				"title": "Defensive Coordinator/Linebackers"
+			}],
+			"staffUrl": "https://goduke.com/sports/football/roster",
+			"since": 2026
+		},
+		{
+			"team": "florida-state",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Tim Harris Jr.",
+				"title": "Offensive Coordinator/Wide Receivers Coach"
+			}],
+			"staffUrl": "https://seminoles.com/sports/football/roster",
+			"since": 2026
+		},
+		{
+			"team": "florida-state",
+			"unit": "def",
+			"label": "interim",
+			"coaches": [{
+				"name": "Ernie Sims",
+				"title": "Interim Defensive Coordinator/Linebackers Coach"
+			}],
+			"staffUrl": "https://seminoles.com/sports/football/roster",
+			"note": "Interim coordinator: the 2026 season is split.",
+			"since": 2026
+		},
+		{
+			"team": "georgia-tech",
+			"unit": "off",
+			"label": "with-co",
+			"coaches": [{
+				"name": "George Godsey",
+				"title": "Offensive Coordinator"
+			}, {
+				"name": "Chris Weinke",
+				"title": "Assistant Head Coach/Co-OC/Quarterbacks"
+			}],
+			"staffUrl": "https://ramblinwreck.com/sports/m-footbl/roster/",
+			"note": "George Godsey holds the coordinator title; Chris Weinke also listed as co-coordinator.",
+			"since": null
+		},
+		{
+			"team": "georgia-tech",
+			"unit": "def",
+			"label": "unverified",
+			"coaches": [],
+			"staffUrl": "https://ramblinwreck.com/sports/m-footbl/roster/",
+			"note": "No defensive coordinator is listed on the 2026 staff page."
+		},
+		{
+			"team": "louisville",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Brian Brohm",
+				"title": "Offensive Coordinator/Quarterbacks"
+			}],
+			"staffUrl": "https://gocards.com/sports/football/roster",
+			"since": 2026
+		},
+		{
+			"team": "louisville",
+			"unit": "def",
+			"label": "co",
+			"coaches": [{
+				"name": "Mark Ivey",
+				"title": "Co-Defensive Coordinator/Defensive Line"
+			}, {
+				"name": "Steve Ellis",
+				"title": "Co-Defensive Coordinator/Cornerbacks"
+			}],
+			"staffUrl": "https://gocards.com/sports/football/roster",
+			"note": "Co-coordinators: no single coordinator title on this side.",
+			"since": 2026
+		},
+		{
+			"team": "miami",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Shannon Dawson",
+				"title": "Offensive Coordinator / Quarterbacks Coach"
+			}],
+			"staffUrl": "https://miamihurricanes.com/staff/shannon-dawson/",
+			"note": "Source: his official 2026 Miami bio (the staff list page does not render a coordinator list).",
+			"since": null
+		},
+		{
+			"team": "miami",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Corey Hetherman",
+				"title": "Defensive Coordinator / Linebackers Coach"
+			}],
+			"staffUrl": "https://miamihurricanes.com/staff/corey-hetherman/",
+			"note": "Source: his official 2026 Miami bio (the staff list page does not render a coordinator list).",
+			"since": null
+		},
+		{
+			"team": "nc-state",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Kurt Roper",
+				"title": "Offensive Coordinator/Quarterbacks Coach"
+			}],
+			"staffUrl": "https://gopack.com/sports/football/roster",
+			"since": 2025
+		},
+		{
+			"team": "nc-state",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Charlton Warren",
+				"title": "Defensive Coordinator and Safeties/Nickels Coach"
+			}],
+			"staffUrl": "https://gopack.com/sports/football/roster",
+			"since": 2025
+		},
+		{
+			"team": "north-carolina",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Bobby Petrino",
+				"title": "Offensive Coordinator"
+			}],
+			"staffUrl": "https://goheels.com/sports/football/roster",
+			"since": null
+		},
+		{
+			"team": "north-carolina",
+			"unit": "def",
+			"label": "unverified",
+			"coaches": [],
+			"staffUrl": "https://goheels.com/sports/football/roster",
+			"note": "No defensive coordinator is listed on the 2026 staff page."
+		},
+		{
+			"team": "pittsburgh",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Kade Bell",
+				"title": "Offensive Coordinator / Quarterbacks"
+			}],
+			"staffUrl": "https://pittsburghpanthers.com/sports/football/roster",
+			"since": 2024
+		},
+		{
+			"team": "pittsburgh",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Cory Sanders",
+				"title": "Defensive Coordinator"
+			}],
+			"staffUrl": "https://pittsburghpanthers.com/sports/football/roster",
+			"since": 2025
+		},
+		{
+			"team": "smu",
+			"unit": "off",
+			"label": "co",
+			"coaches": [
+				{
+					"name": "D'Eriq King",
+					"title": "Co-Offensive Coordinator / Quarterbacks"
+				},
+				{
+					"name": "Garin Justice",
+					"title": "Assistant Head Coach / Co-Offensive Coordinator / Offensive Line"
+				},
+				{
+					"name": "Rob Likens",
+					"title": "Associate Head Coach / Chief of Staff / Co-Offensive Coordinator / Wide Receivers"
+				}
+			],
+			"staffUrl": "https://smumustangs.com/sports/football/roster",
+			"note": "Co-coordinators: no single coordinator title on this side.",
+			"since": 2026
+		},
+		{
+			"team": "smu",
+			"unit": "def",
+			"label": "co",
+			"coaches": [{
+				"name": "Maurice Crum Jr.",
+				"title": "Co-Defensive Coordinator / Play Caller"
+			}, {
+				"name": "Rickey Hunley Jr.",
+				"title": "Co-Defensive Coordinator / Secondary"
+			}],
+			"staffUrl": "https://smumustangs.com/sports/football/roster",
+			"note": "Co-coordinators: no single coordinator title on this side.",
+			"since": 2024
+		},
+		{
+			"team": "stanford",
+			"unit": "off",
+			"label": "unverified",
+			"coaches": [{
+				"name": "Terry Heffernan",
+				"title": "Andrew Luck Director of Offense"
+			}],
+			"staffUrl": "https://gostanford.com/sports/football/roster/season/2026",
+			"note": "Stanford lists a Director of Offense, not an offensive coordinator.",
+			"since": 2026
+		},
+		{
+			"team": "stanford",
+			"unit": "def",
+			"label": "unverified",
+			"coaches": [{
+				"name": "Kris Richard",
+				"title": "Willie Shaw Director of Defense • Defensive Backs"
+			}],
+			"staffUrl": "https://gostanford.com/sports/football/roster/season/2026",
+			"note": "Stanford lists a Director of Defense, not a defensive coordinator.",
+			"since": 2026
+		},
+		{
+			"team": "syracuse",
+			"unit": "off",
+			"label": "with-co",
+			"coaches": [{
+				"name": "Jeff Nixon",
+				"title": "Offensive Coordinator"
+			}, {
+				"name": "Michael Johnson",
+				"title": "Co-Offensive Coordinator/Tight Ends"
+			}],
+			"staffUrl": "https://cuse.com/sports/football/coaches",
+			"note": "Jeff Nixon holds the coordinator title; Michael Johnson also listed as co-coordinator.",
+			"since": null
+		},
+		{
+			"team": "syracuse",
+			"unit": "def",
+			"label": "with-co",
+			"coaches": [{
+				"name": "Vince Kehres",
+				"title": "Defensive Coordinator"
+			}, {
+				"name": "John Scott Jr.",
+				"title": "Assistant Head Coach/co-Defensive Coordinator/Defensive Line"
+			}],
+			"staffUrl": "https://cuse.com/sports/football/coaches",
+			"note": "Vince Kehres holds the coordinator title; John Scott Jr. also listed as co-coordinator.",
+			"since": null
+		},
+		{
+			"team": "virginia",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Des Kitchings",
+				"title": "Offensive Coordinator/Tight Ends"
+			}],
+			"staffUrl": "https://virginiasports.com/sports/football/roster",
+			"since": null
+		},
+		{
+			"team": "virginia",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "John Rudzinski",
+				"title": "Defensive Coordinator"
+			}],
+			"staffUrl": "https://virginiasports.com/sports/football/roster",
+			"since": null
+		},
+		{
+			"team": "virginia-tech",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Ty Howle",
+				"title": "Offensive Coordinator / Tight Ends Coach"
+			}],
+			"staffUrl": "https://hokiesports.com/sports/football/roster",
+			"since": 2026
+		},
+		{
+			"team": "virginia-tech",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Brent Pry",
+				"title": "Defensive Coordinator / Linebackers Coach"
+			}],
+			"staffUrl": "https://hokiesports.com/sports/football/roster",
+			"since": 2026
+		},
+		{
+			"team": "wake-forest",
+			"unit": "off",
+			"label": "with-co",
+			"coaches": [{
+				"name": "Rob Ezell",
+				"title": "Offensive Coordinator"
+			}, {
+				"name": "Dan Enos",
+				"title": "Co-Offensive Coordinator / Quarterbacks"
+			}],
+			"staffUrl": "https://godeacs.com/sports/football/roster",
+			"note": "Rob Ezell holds the coordinator title; Dan Enos also listed as co-coordinator.",
+			"since": 2025
+		},
+		{
+			"team": "wake-forest",
+			"unit": "def",
+			"label": "with-co",
+			"coaches": [{
+				"name": "Scottie Hazelton",
+				"title": "Defensive Coordinator"
+			}, {
+				"name": "Freddie Banks",
+				"title": "Co-Defensive Coordinator / Safeties"
+			}],
+			"staffUrl": "https://godeacs.com/sports/football/roster",
+			"note": "Scottie Hazelton holds the coordinator title; Freddie Banks also listed as co-coordinator.",
+			"since": 2025
+		},
+		{
+			"team": "arizona",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Seth Doege",
+				"title": "Offensive Coordinator / Quarterbacks Coach"
+			}],
+			"staffUrl": "https://arizonawildcats.com/sports/football/roster",
+			"since": 2026
+		},
+		{
+			"team": "arizona",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Danny Gonzales",
+				"title": "Defensive Coordinator"
+			}],
+			"staffUrl": "https://arizonawildcats.com/sports/football/roster",
+			"since": 2026
+		},
+		{
+			"team": "arizona-state",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Marcus Arroyo",
+				"title": "Offensive Coordinator"
+			}],
+			"staffUrl": "https://thesundevils.com/sports/football/roster",
+			"since": 2024
+		},
+		{
+			"team": "arizona-state",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Brian Ward",
+				"title": "Defensive Coordinator"
+			}],
+			"staffUrl": "https://thesundevils.com/sports/football/roster",
+			"since": 2024
+		},
+		{
+			"team": "byu",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Aaron Roderick",
+				"title": "Offensive Coordinator / Quarterbacks Coach"
+			}],
+			"staffUrl": "https://byucougars.com/sports/football/roster",
+			"since": 2024
+		},
+		{
+			"team": "byu",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Kelly Poppinga",
+				"title": "Defensive Coordinator / Inside Linebackers Coach"
+			}],
+			"staffUrl": "https://byucougars.com/sports/football/roster",
+			"since": 2025
+		},
+		{
+			"team": "baylor",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Jake Spavital",
+				"title": "Offensive Coordinator (Quarterbacks)"
+			}],
+			"staffUrl": "https://baylorbears.com/sports/football/roster",
+			"since": 2024
+		},
+		{
+			"team": "baylor",
+			"unit": "def",
+			"label": "hc-title",
+			"coaches": [{
+				"name": "Joe Klanderman",
+				"title": "Interim Head Coach | Defensive Coordinator (Safeties)"
+			}],
+			"staffUrl": "https://baylorbears.com/sports/football/roster",
+			"note": "The head coach holds the coordinator title (interim head coach)."
+		},
+		{
+			"team": "cincinnati",
+			"unit": "off",
+			"label": "hc-calls",
+			"coaches": [{
+				"name": "Nic Cardwell",
+				"title": "Co-Offensive Coordinator / Offensive Line"
+			}, {
+				"name": "Pete Thomas",
+				"title": "Co-Offensive Coordinator / Quarterbacks"
+			}],
+			"staffUrl": "https://gobearcats.com/sports/football/roster",
+			"note": "Scott Satterfield’s official bio says he calls the offensive plays; the staff page lists Nic Cardwell & Pete Thomas with a coordinator title.",
+			"hcSource": {
+				"url": "https://gobearcats.com/sports/football/roster/season/2026/staff/scott-satterfield",
+				"quote": "A proven offensive strategist, Satterfield calls plays with a balanced approach."
+			},
+			"since": 2026
+		},
+		{
+			"team": "cincinnati",
+			"unit": "def",
+			"label": "with-co",
+			"coaches": [{
+				"name": "Nate Woody",
+				"title": "Defensive Coordinator"
+			}, {
+				"name": "Cortney Braswell",
+				"title": "Co-Defensive Coordinator / Inside Linebackers"
+			}],
+			"staffUrl": "https://gobearcats.com/sports/football/roster",
+			"note": "Nate Woody holds the coordinator title; Cortney Braswell also listed as co-coordinator.",
+			"since": 2026
+		},
+		{
+			"team": "colorado",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Brennan Marion",
+				"title": "Offensive Coordinator/Quarterbacks"
+			}],
+			"staffUrl": "https://cubuffs.com/sports/football/roster",
+			"since": 2026
+		},
+		{
+			"team": "colorado",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Chris Marve",
+				"title": "Defensive Coordinator/Linebackers"
+			}],
+			"staffUrl": "https://cubuffs.com/sports/football/roster",
+			"since": 2026
+		},
+		{
+			"team": "houston",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Slade Nagle",
+				"title": "Offensive Coordinator"
+			}],
+			"staffUrl": "https://uhcougars.com/sports/football/roster",
+			"since": 2025
+		},
+		{
+			"team": "houston",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Austin Armstrong",
+				"title": "Defensive Coordinator"
+			}],
+			"staffUrl": "https://uhcougars.com/sports/football/roster",
+			"since": 2025
+		},
+		{
+			"team": "iowa-state",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Tyler Roehl",
+				"title": "Offensive Coordinator"
+			}],
+			"staffUrl": "https://cyclones.com/sports/football/roster",
+			"since": 2026
+		},
+		{
+			"team": "iowa-state",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Jesse Bobbit",
+				"title": "Defensive Coordinator"
+			}],
+			"staffUrl": "https://cyclones.com/sports/football/roster",
+			"since": 2026
+		},
+		{
+			"team": "kansas",
+			"unit": "off",
+			"label": "co",
+			"coaches": [{
+				"name": "Matt Lubick",
+				"title": "Co-Offensive Coordinator/Tight Ends"
+			}],
+			"staffUrl": "https://kuathletics.com/sports/football/roster",
+			"note": "Only a co-coordinator is listed on this side.",
+			"since": 2025
+		},
+		{
+			"team": "kansas",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "D.K. McDonald",
+				"title": "Defensive Coordinator"
+			}],
+			"staffUrl": "https://kuathletics.com/sports/football/roster",
+			"since": 2024
+		},
+		{
+			"team": "kansas-state",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Sean Gleeson",
+				"title": "Offensive Coordinator"
+			}],
+			"staffUrl": "https://kstatesports.com/sports/football/roster",
+			"since": 2026
+		},
+		{
+			"team": "kansas-state",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Jordan Peterson",
+				"title": "Defensive Coordinator/Defensive Backs"
+			}],
+			"staffUrl": "https://kstatesports.com/sports/football/roster",
+			"since": 2026
+		},
+		{
+			"team": "oklahoma-state",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Sean Brophy",
+				"title": "Offensive Coordinator / Quarterbacks"
+			}],
+			"staffUrl": "https://okstate.com/sports/football/roster",
+			"since": 2026
+		},
+		{
+			"team": "oklahoma-state",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Skyler Cassity",
+				"title": "Defensive Coordinator"
+			}],
+			"staffUrl": "https://okstate.com/sports/football/roster",
+			"since": 2026
+		},
+		{
+			"team": "tcu",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Gordon Sammis",
+				"title": "Offensive Coordinator"
+			}],
+			"staffUrl": "https://gofrogs.com/sports/football/roster",
+			"since": 2026
+		},
+		{
+			"team": "tcu",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Andy Avalos",
+				"title": "Defensive Coordinator"
+			}],
+			"staffUrl": "https://gofrogs.com/sports/football/roster",
+			"since": 2024
+		},
+		{
+			"team": "texas-tech",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Mack Leftwich",
+				"title": "Offensive Coordinator / Quarterbacks"
+			}],
+			"staffUrl": "https://texastech.com/sports/football/roster",
+			"since": null
+		},
+		{
+			"team": "texas-tech",
+			"unit": "def",
+			"label": "with-co",
+			"coaches": [{
+				"name": "Shiel Wood",
+				"title": "Defensive Coordinator / Inside Linebackers"
+			}, {
+				"name": "Rob Greene",
+				"title": "Co-Defensive Coordinator / Safeties Coach"
+			}],
+			"staffUrl": "https://texastech.com/sports/football/roster",
+			"note": "Shiel Wood holds the coordinator title; Rob Greene also listed as co-coordinator.",
+			"since": null
+		},
+		{
+			"team": "ucf",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Steve Cooper",
+				"title": "Offensive Coordinator"
+			}],
+			"staffUrl": "https://ucfknights.com/sports/football/roster",
+			"since": 2024
+		},
+		{
+			"team": "ucf",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Alex Grinch",
+				"title": "Defensive Coordinator/Safeties"
+			}],
+			"staffUrl": "https://ucfknights.com/sports/football/roster",
+			"since": 2024
+		},
+		{
+			"team": "utah",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Kevin McGiven",
+				"title": "Offensive Coordinator"
+			}],
+			"staffUrl": "https://utahutes.com/sports/football/roster",
+			"since": null
+		},
+		{
+			"team": "utah",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Colton Swan",
+				"title": "Defensive Coordinator/Linebackers"
+			}],
+			"staffUrl": "https://utahutes.com/sports/football/roster",
+			"since": null
+		},
+		{
+			"team": "west-virginia",
+			"unit": "off",
+			"label": "unverified",
+			"coaches": [],
+			"staffUrl": "https://wvusports.com/sports/football/roster",
+			"note": "No offensive coordinator is listed on the 2026 staff page."
+		},
+		{
+			"team": "west-virginia",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Zac Alley",
+				"title": "Assistant Head Coach/Defensive Coordinator/Linebackers"
+			}],
+			"staffUrl": "https://wvusports.com/sports/football/roster",
+			"since": 2025
+		},
+		{
+			"team": "illinois",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Barry Lunney Jr.",
+				"title": "Offensive Coordinator"
+			}],
+			"staffUrl": "https://fightingillini.com/sports/football/coaches",
+			"since": null
+		},
+		{
+			"team": "illinois",
+			"unit": "def",
+			"label": "unverified",
+			"coaches": [],
+			"staffUrl": "https://fightingillini.com/sports/football/coaches",
+			"note": "No defensive coordinator is listed on the 2026 staff page."
+		},
+		{
+			"team": "indiana",
+			"unit": "off",
+			"label": "with-co",
+			"coaches": [{
+				"name": "Mike Shanahan",
+				"title": "Offensive Coordinator/Wide Receivers"
+			}, {
+				"name": "Tino Sunseri",
+				"title": "Quarterbacks/Co-Offensive Coordinator"
+			}],
+			"staffUrl": "https://iuhoosiers.com/sports/football/roster",
+			"note": "Mike Shanahan holds the coordinator title; Tino Sunseri also listed as co-coordinator.",
+			"since": 2024
+		},
+		{
+			"team": "indiana",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Bryant Haines",
+				"title": "Defensive Coordinator/Linebackers"
+			}],
+			"staffUrl": "https://iuhoosiers.com/sports/football/roster",
+			"since": 2024
+		},
+		{
+			"team": "iowa",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Tim Lester",
+				"title": "Offensive Coordinator"
+			}],
+			"staffUrl": "https://hawkeyesports.com/sports/football/roster",
+			"since": null
+		},
+		{
+			"team": "iowa",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Phil Parker",
+				"title": "Defensive Coordinator/Secondary"
+			}],
+			"staffUrl": "https://hawkeyesports.com/sports/football/roster",
+			"since": null
+		},
+		{
+			"team": "maryland",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Clint Trickett",
+				"title": "Offensive Coordinator/Quarterbacks Coach"
+			}],
+			"staffUrl": "https://umterps.com/sports/football/roster",
+			"since": 2026
+		},
+		{
+			"team": "maryland",
+			"unit": "def",
+			"label": "with-co",
+			"coaches": [{
+				"name": "Zac Spavital",
+				"title": "Defensive Coordinator/Inside Linebackers Coach"
+			}, {
+				"name": "James Thomas Jr.",
+				"title": "Co-Defensive Coordinator/Safeties Coach"
+			}],
+			"staffUrl": "https://umterps.com/sports/football/roster",
+			"note": "Zac Spavital holds the coordinator title; James Thomas Jr. also listed as co-coordinator.",
+			"since": 2026
+		},
+		{
+			"team": "michigan",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Jason Beck",
+				"title": "Sanford Robertson Offensive Coordinator, Robert McCollum Family Quarterbacks Coach"
+			}],
+			"staffUrl": "https://mgoblue.com/sports/football/coaches",
+			"since": 2026
+		},
+		{
+			"team": "michigan",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Jay Hill",
+				"title": "Matt and Nicole Lester Family Defensive Coordinator"
+			}],
+			"staffUrl": "https://mgoblue.com/sports/football/coaches",
+			"since": 2026
+		},
+		{
+			"team": "michigan-state",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Nick Sheridan",
+				"title": "Offensive Coordinator"
+			}],
+			"staffUrl": "https://msuspartans.com/sports/football/roster",
+			"since": 2026
+		},
+		{
+			"team": "michigan-state",
+			"unit": "def",
+			"label": "with-co",
+			"coaches": [{
+				"name": "Joe Rossi",
+				"title": "Secchia Family Defensive Coordinator"
+			}, {
+				"name": "Max Bullough",
+				"title": "Co-Defensive Coordinator/Linebackers Coach"
+			}],
+			"staffUrl": "https://msuspartans.com/sports/football/roster",
+			"note": "Joe Rossi holds the coordinator title; Max Bullough also listed as co-coordinator.",
+			"since": 2026
+		},
+		{
+			"team": "minnesota",
+			"unit": "off",
+			"label": "unverified",
+			"coaches": [],
+			"staffUrl": "https://gophersports.com/sports/football/roster",
+			"note": "No offensive coordinator is listed on the 2026 staff page."
+		},
+		{
+			"team": "minnesota",
+			"unit": "def",
+			"label": "with-co",
+			"coaches": [{
+				"name": "Danny Collins",
+				"title": "Defensive Coordinator / Safeties"
+			}, {
+				"name": "Nick Monroe",
+				"title": "Cornerbacks / Co-Defensive Coordinator"
+			}],
+			"staffUrl": "https://gophersports.com/sports/football/roster",
+			"note": "Danny Collins holds the coordinator title; Nick Monroe also listed as co-coordinator.",
+			"since": 2024
+		},
+		{
+			"team": "nebraska",
+			"unit": "off",
+			"label": "co",
+			"coaches": [{
+				"name": "Glenn Thomas",
+				"title": "Co-Offensive Coordinator - Quarterbacks"
+			}],
+			"staffUrl": "https://huskers.com/sports/football/roster",
+			"note": "Only a co-coordinator is listed on this side.",
+			"since": 2024
+		},
+		{
+			"team": "nebraska",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Rob Aurich",
+				"title": "Defensive Coordinator"
+			}],
+			"staffUrl": "https://huskers.com/sports/football/roster",
+			"since": 2026
+		},
+		{
+			"team": "northwestern",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Chip Kelly",
+				"title": "Offensive Coordinator"
+			}],
+			"staffUrl": "https://nusports.com/sports/football/roster",
+			"since": 2026
+		},
+		{
+			"team": "northwestern",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Tim McGarigle",
+				"title": "Defensive Coordinator (Linebackers)"
+			}],
+			"staffUrl": "https://nusports.com/sports/football/roster",
+			"since": 2024
+		},
+		{
+			"team": "ohio-state",
+			"unit": "off",
+			"label": "with-co",
+			"coaches": [{
+				"name": "Arthur Smith",
+				"title": "Offensive Coordinator"
+			}, {
+				"name": "Keenan Bailey",
+				"title": "Co-Offensive Coordinator / Tight Ends Coach"
+			}],
+			"staffUrl": "https://ohiostatebuckeyes.com/sports/football/roster",
+			"note": "Arthur Smith holds the coordinator title; Keenan Bailey also listed as co-coordinator.",
+			"since": 2026
+		},
+		{
+			"team": "ohio-state",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Matt Patricia",
+				"title": "Defensive Coordinator"
+			}],
+			"staffUrl": "https://ohiostatebuckeyes.com/sports/football/roster",
+			"since": 2025
+		},
+		{
+			"team": "oregon",
+			"unit": "off",
+			"label": "unverified",
+			"coaches": [],
+			"staffUrl": "https://goducks.com/sports/football/roster",
+			"note": "No offensive coordinator is listed on the 2026 staff page."
+		},
+		{
+			"team": "oregon",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Chris Hampton",
+				"title": "Defensive Coordinator/Safeties"
+			}],
+			"staffUrl": "https://goducks.com/sports/football/roster",
+			"since": 2024
+		},
+		{
+			"team": "penn-state",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Taylor Mouser",
+				"title": "Offensive Coordinator/Tight Ends"
+			}],
+			"staffUrl": "https://gopsusports.com/sports/football/roster",
+			"since": 2026
+		},
+		{
+			"team": "penn-state",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "D'Anton Lynn",
+				"title": "Defensive Coordinator"
+			}],
+			"staffUrl": "https://gopsusports.com/sports/football/roster",
+			"since": 2026
+		},
+		{
+			"team": "purdue",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Josh Henson",
+				"title": "Offensive Coordinator / Tight Ends"
+			}],
+			"staffUrl": "https://purduesports.com/sports/football/roster",
+			"since": 2025
+		},
+		{
+			"team": "purdue",
+			"unit": "def",
+			"label": "unverified",
+			"coaches": [],
+			"staffUrl": "https://purduesports.com/sports/football/roster",
+			"note": "No defensive coordinator is listed on the 2026 staff page."
+		},
+		{
+			"team": "rutgers",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Kirk Ciarrocca",
+				"title": "Offensive Coordinator/Quarterbacks"
+			}],
+			"staffUrl": "https://scarletknights.com/sports/football/roster",
+			"since": 2024
+		},
+		{
+			"team": "rutgers",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Travis Johansen",
+				"title": "Defensive Coordinator"
+			}],
+			"staffUrl": "https://scarletknights.com/sports/football/roster",
+			"since": 2025
+		},
+		{
+			"team": "ucla",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Dean Kennedy",
+				"title": "Assistant Coach, Offensive Coordinator"
+			}],
+			"staffUrl": "https://uclabruins.com/sports/football/roster",
+			"since": 2026
+		},
+		{
+			"team": "ucla",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Colin Hitschler",
+				"title": "Assistant Coach, Defensive Coordinator"
+			}],
+			"staffUrl": "https://uclabruins.com/sports/football/roster",
+			"since": 2026
+		},
+		{
+			"team": "usc",
+			"unit": "off",
+			"label": "with-co",
+			"coaches": [{
+				"name": "Luke Huard",
+				"title": "Offensive Coordinator / Quarterbacks Coach"
+			}, {
+				"name": "Dennis Simmons",
+				"title": "Assistant Head Coach / Co-Offensive Coordinator / Wide Receivers Coach"
+			}],
+			"staffUrl": "https://usctrojans.com/sports/football/roster",
+			"note": "Luke Huard holds the coordinator title; Dennis Simmons also listed as co-coordinator.",
+			"since": 2026
+		},
+		{
+			"team": "usc",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Gary Patterson",
+				"title": "Defensive Coordinator"
+			}],
+			"staffUrl": "https://usctrojans.com/sports/football/roster",
+			"since": 2026
+		},
+		{
+			"team": "washington",
+			"unit": "off",
+			"label": "hc-calls",
+			"coaches": [],
+			"staffUrl": "https://gohuskies.com/sports/football/roster",
+			"note": "Jedd Fisch’s official bio says he calls the offensive plays.",
+			"hcSource": {
+				"url": "https://gohuskies.com/sports/football/roster/coaches/jedd-fisch/6715",
+				"quote": "Fisch, who calls the offensive plays, oversaw a team that made huge improvements in key statistical categories on both sides of the ball."
+			}
+		},
+		{
+			"team": "washington",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Ryan Walters",
+				"title": "Defensive Coordinator"
+			}],
+			"staffUrl": "https://gohuskies.com/sports/football/roster",
+			"since": 2025
+		},
+		{
+			"team": "wisconsin",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Jeff Grimes",
+				"title": "Offensive Coordinator"
+			}],
+			"staffUrl": "https://uwbadgers.com/sports/football/roster",
+			"since": 2024
+		},
+		{
+			"team": "wisconsin",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Mike Tressel",
+				"title": "Defensive Coordinator"
+			}],
+			"staffUrl": "https://uwbadgers.com/sports/football/roster",
+			"since": 2024
+		},
+		{
+			"team": "delaware",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Terence Archer",
+				"title": "Assistant Head Coach, Offense / Offensive Coordinator / Wide Receivers"
+			}],
+			"staffUrl": "https://bluehens.com/sports/football/coaches",
+			"since": 2024
+		},
+		{
+			"team": "delaware",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Manny Rojas",
+				"title": "Assistant Head Coach, Defense / Defensive Coordinator / Safeties"
+			}],
+			"staffUrl": "https://bluehens.com/sports/football/coaches",
+			"since": 2024
+		},
+		{
+			"team": "fiu",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Nick Coleman",
+				"title": "Offensive Coordinator/Quarterbacks Coach"
+			}],
+			"staffUrl": "https://fiusports.com/sports/football/coaches",
+			"since": 2025
+		},
+		{
+			"team": "fiu",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Jovan Dewitt",
+				"title": "Assistant Head Coach/Defensive Coordinator"
+			}],
+			"staffUrl": "https://fiusports.com/sports/football/coaches",
+			"since": 2024
+		},
+		{
+			"team": "jacksonville-state",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Taylor Housewright",
+				"title": "Offensive Coordinator/Quarterbacks"
+			}],
+			"staffUrl": "https://jaxstatesports.com/sports/football/coaches",
+			"since": 2026
+		},
+		{
+			"team": "jacksonville-state",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Brian Williams",
+				"title": "Defensive Coordinator/Safeties"
+			}],
+			"staffUrl": "https://jaxstatesports.com/sports/football/coaches",
+			"since": 2025
+		},
+		{
+			"team": "kennesaw-state",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Mitch Militello",
+				"title": "Offensive Coordinator/Quarterbacks"
+			}],
+			"staffUrl": "https://ksuowls.com/sports/football/coaches",
+			"since": 2025
+		},
+		{
+			"team": "kennesaw-state",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Marc Mattioli",
+				"title": "Defensive Coordinator/Safeties"
+			}],
+			"staffUrl": "https://ksuowls.com/sports/football/coaches",
+			"since": 2025
+		},
+		{
+			"team": "liberty",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Newland Isaac",
+				"title": "Offensive Coordinator/Running Backs Coach"
+			}],
+			"staffUrl": "https://libertyflames.com/sports/football/coaches",
+			"since": 2024
+		},
+		{
+			"team": "liberty",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Shawn Quinn",
+				"title": "Defensive Coordinator/Outside Linebackers Coach"
+			}],
+			"staffUrl": "https://libertyflames.com/sports/football/coaches",
+			"since": 2026
+		},
+		{
+			"team": "middle-tennessee",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Anthony Scelfo",
+				"title": "Offensive Coordinator"
+			}],
+			"staffUrl": "https://goblueraiders.com/sports/football/coaches",
+			"since": 2026
+		},
+		{
+			"team": "middle-tennessee",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Brian Stewart",
+				"title": "Asst. Head Coach/Defensive Coordinator"
+			}],
+			"staffUrl": "https://goblueraiders.com/sports/football/coaches",
+			"since": 2026
+		},
+		{
+			"team": "missouri-state",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Mark Cala",
+				"title": "Offensive Coordinator / Quarterbacks"
+			}],
+			"staffUrl": "https://missouristatebears.com/sports/football/coaches",
+			"since": 2026
+		},
+		{
+			"team": "missouri-state",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Jack Curtis",
+				"title": "Defensive Coordinator / Safeties"
+			}],
+			"staffUrl": "https://missouristatebears.com/sports/football/coaches",
+			"since": 2026
+		},
+		{
+			"team": "new-mexico-state",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "David Yost",
+				"title": "Offensive Coordinator/Quarterbacks"
+			}],
+			"staffUrl": "https://nmstatesports.com/sports/football/coaches",
+			"since": 2025
+		},
+		{
+			"team": "new-mexico-state",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Joe Morris",
+				"title": "Defensive Coordinator/Defensive Ends/Jacks"
+			}],
+			"staffUrl": "https://nmstatesports.com/sports/football/coaches",
+			"since": 2024
+		},
+		{
+			"team": "sam-houston",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Zack Patterson",
+				"title": "Offensive Coordinator"
+			}],
+			"staffUrl": "https://gobearkats.com/sports/football/coaches",
+			"since": 2025
+		},
+		{
+			"team": "sam-houston",
+			"unit": "def",
+			"label": "hc-title",
+			"coaches": [{
+				"name": "Freddie Aughtry-Lindsay",
+				"title": "Co-Interim HC / Defensive Coordinator"
+			}],
+			"staffUrl": "https://gobearkats.com/sports/football/coaches",
+			"note": "The head coach holds the coordinator title (interim head coach)."
+		},
+		{
+			"team": "western-kentucky",
+			"unit": "off",
+			"label": "with-co",
+			"coaches": [{
+				"name": "Bodie Reeder",
+				"title": "Assistant Coach – Offensive Coordinator/Quarterbacks"
+			}, {
+				"name": "Joe Bernardi",
+				"title": "Assistant Coach – Co-Offensive Coordinator/Offensive Line"
+			}],
+			"staffUrl": "https://wkusports.com/sports/football/coaches",
+			"note": "Bodie Reeder holds the coordinator title; Joe Bernardi also listed as co-coordinator.",
+			"since": 2026
+		},
+		{
+			"team": "western-kentucky",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Davis Merritt",
+				"title": "Assistant Coach – Defensive Coordinator/Inside Linebackers"
+			}],
+			"staffUrl": "https://wkusports.com/sports/football/coaches",
+			"since": 2026
+		},
+		{
+			"team": "uconn",
+			"unit": "off",
+			"label": "with-co",
+			"coaches": [{
+				"name": "Nunzio Campanile",
+				"title": "Offensive Coordinator"
+			}, {
+				"name": "Marquel Blackwell",
+				"title": "Assistant Coach - Co-Offensive Coordinator / Quarterbacks"
+			}],
+			"staffUrl": "https://uconnhuskies.com/sports/football/coaches",
+			"note": "Nunzio Campanile holds the coordinator title; Marquel Blackwell also listed as co-coordinator.",
+			"since": null
+		},
+		{
+			"team": "uconn",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Ryan Manalac",
+				"title": "Defensive Coordinator"
+			}],
+			"staffUrl": "https://uconnhuskies.com/sports/football/coaches",
+			"since": null
+		},
+		{
+			"team": "notre-dame",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Mike Denbrock",
+				"title": "John and Bobbie Arlotta Family Offensive Coordinator/Tight Ends Coach"
+			}],
+			"staffUrl": "https://fightingirish.com/sports/football/roster",
+			"since": null
+		},
+		{
+			"team": "notre-dame",
+			"unit": "def",
+			"label": "with-co",
+			"coaches": [{
+				"name": "Chris Ash",
+				"title": "Bob Hinton Defensive Coordinator"
+			}, {
+				"name": "Aaron Henry",
+				"title": "Co-Defensive Coordinator/Pat and Jana Eilers Defensive Backs Coach"
+			}],
+			"staffUrl": "https://fightingirish.com/sports/football/roster",
+			"note": "Chris Ash holds the coordinator title; Aaron Henry also listed as co-coordinator.",
+			"since": null
+		},
+		{
+			"team": "akron",
+			"unit": "off",
+			"label": "unverified",
+			"coaches": [],
+			"staffUrl": "https://gozips.com/sports/football/coaches",
+			"note": "No offensive coordinator is listed on the 2026 staff page."
+		},
+		{
+			"team": "akron",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Tim Tibesar",
+				"title": "Defensive Coordinator | Linebackers"
+			}],
+			"staffUrl": "https://gozips.com/sports/football/coaches",
+			"since": 2024
+		},
+		{
+			"team": "ball-state",
+			"unit": "off",
+			"label": "unverified",
+			"coaches": [],
+			"staffUrl": "https://ballstatesports.com/sports/football/coaches",
+			"note": "No offensive coordinator is listed on the 2026 staff page."
+		},
+		{
+			"team": "ball-state",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Jeff Knowles",
+				"title": "Defensive Coordinator/Linebackers Coach"
+			}],
+			"staffUrl": "https://ballstatesports.com/sports/football/coaches",
+			"since": 2024
+		},
+		{
+			"team": "bowling-green",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Greg Nosal",
+				"title": "Offensive Coordinator/Offensive Line"
+			}],
+			"staffUrl": "https://bgsufalcons.com/sports/football/coaches",
+			"since": 2026
+		},
+		{
+			"team": "bowling-green",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Joe Bowden",
+				"title": "Defensive Coordinator/Linebackers"
+			}],
+			"staffUrl": "https://bgsufalcons.com/sports/football/coaches",
+			"since": 2026
+		},
+		{
+			"team": "buffalo",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Tony Tokarz",
+				"title": "Offensive Coordinator/Quarterbacks"
+			}],
+			"staffUrl": "https://ubbulls.com/sports/football/coaches",
+			"since": 2026
+		},
+		{
+			"team": "buffalo",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Brian Dougherty",
+				"title": "Defensive Coordinator/Safeties"
+			}],
+			"staffUrl": "https://ubbulls.com/sports/football/coaches",
+			"since": 2025
+		},
+		{
+			"team": "central-michigan",
+			"unit": "off",
+			"label": "with-co",
+			"coaches": [{
+				"name": "Jim Chapin",
+				"title": "Offensive Coordinator/Quarterbacks Coach"
+			}, {
+				"name": "Derek Fulton",
+				"title": "Co-Offensive Coordinator/Tight Ends Coach"
+			}],
+			"staffUrl": "https://cmuchippewas.com/sports/football/coaches",
+			"note": "Jim Chapin holds the coordinator title; Derek Fulton also listed as co-coordinator.",
+			"since": 2026
+		},
+		{
+			"team": "central-michigan",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Sean Cronin",
+				"title": "Defensive Coordinator/Linebackers Coach"
+			}],
+			"staffUrl": "https://cmuchippewas.com/sports/football/coaches",
+			"since": 2026
+		},
+		{
+			"team": "eastern-michigan",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Mike Piatkowski",
+				"title": "Assistant Coach/Offensive Coordinator/Quarterbacks"
+			}],
+			"staffUrl": "https://emueagles.com/sports/football/coaches",
+			"since": 2024
+		},
+		{
+			"team": "eastern-michigan",
+			"unit": "def",
+			"label": "co",
+			"coaches": [{
+				"name": "Kasey Teegardin",
+				"title": "Assistant Head Coach/Co-Defensive Coordinator/Defensive Ends"
+			}, {
+				"name": "Tate Omli",
+				"title": "Assistant Coach/Co-Defensive Coordinator/Safeties"
+			}],
+			"staffUrl": "https://emueagles.com/sports/football/coaches",
+			"note": "Co-coordinators: no single coordinator title on this side.",
+			"since": 2026
+		},
+		{
+			"team": "kent-state",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Clay Patterson",
+				"title": "Offensive Coordinator/Quarterbacks"
+			}],
+			"staffUrl": "https://kentstatesports.com/sports/football/coaches",
+			"since": 2026
+		},
+		{
+			"team": "kent-state",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Cherokee Valeria",
+				"title": "Assistant Head Coach/Defensive Coordinator/Safeties"
+			}],
+			"staffUrl": "https://kentstatesports.com/sports/football/coaches",
+			"since": 2025
+		},
+		{
+			"team": "massachusetts",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Max Warner",
+				"title": "Offensive Coordinator"
+			}],
+			"staffUrl": "https://umassathletics.com/sports/football/coaches",
+			"since": 2026
+		},
+		{
+			"team": "massachusetts",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Jared Keyte",
+				"title": "Defensive Coordinator"
+			}],
+			"staffUrl": "https://umassathletics.com/sports/football/coaches",
+			"since": 2025
+		},
+		{
+			"team": "miami-oh",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Gus Ragland",
+				"title": "Offensive Coordinator/Quarterbacks"
+			}],
+			"staffUrl": "https://miamiredhawks.com/sports/football/coaches",
+			"since": 2026
+		},
+		{
+			"team": "miami-oh",
+			"unit": "def",
+			"label": "hc-title",
+			"coaches": [{
+				"name": "Bill Brechin",
+				"title": "Assistant HC/Defensive Coordinator/Linebackers"
+			}],
+			"staffUrl": "https://miamiredhawks.com/sports/football/coaches",
+			"note": "The head coach holds the coordinator title."
+		},
+		{
+			"team": "ohio",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Scott Isphording",
+				"title": "Offensive Coordinator / Quarterbacks Coach"
+			}],
+			"staffUrl": "https://ohiobobcats.com/sports/football/coaches",
+			"since": 2026
+		},
+		{
+			"team": "ohio",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Kurt Mattix",
+				"title": "Defensive Coordinator"
+			}],
+			"staffUrl": "https://ohiobobcats.com/sports/football/coaches",
+			"since": 2026
+		},
+		{
+			"team": "sacramento-state",
+			"unit": "off",
+			"label": "with-co",
+			"coaches": [{
+				"name": "Eric Kiesau",
+				"title": "Offensive Coordinator"
+			}, {
+				"name": "Eric Scott",
+				"title": "Co-Offensive Coordinator/Wide Receivers"
+			}],
+			"staffUrl": "https://hornetsports.com/sports/football/coaches",
+			"note": "Eric Kiesau holds the coordinator title; Eric Scott also listed as co-coordinator.",
+			"since": 2026
+		},
+		{
+			"team": "sacramento-state",
+			"unit": "def",
+			"label": "with-co",
+			"coaches": [{
+				"name": "Adam Clark",
+				"title": "Defensive Coordinator"
+			}, {
+				"name": "Kenwick Thompson",
+				"title": "Assistant Head Coach/Co-Defensive Coordinator/Linebackers"
+			}],
+			"staffUrl": "https://hornetsports.com/sports/football/coaches",
+			"note": "Adam Clark holds the coordinator title; Kenwick Thompson also listed as co-coordinator.",
+			"since": 2026
+		},
+		{
+			"team": "toledo",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Cris Reisert",
+				"title": "Offensive Coordinator/Quarterbacks Coach"
+			}],
+			"staffUrl": "https://utrockets.com/sports/football/coaches",
+			"since": 2026
+		},
+		{
+			"team": "toledo",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Jahmal Brown",
+				"title": "Defensive Coordinator/Safeties Coach"
+			}],
+			"staffUrl": "https://utrockets.com/sports/football/coaches",
+			"since": 2026
+		},
+		{
+			"team": "western-michigan",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Walt Bell",
+				"title": "Assistant Coach - Offensive Coordinator"
+			}],
+			"staffUrl": "https://wmubroncos.com/sports/football/coaches",
+			"since": 2024
+		},
+		{
+			"team": "western-michigan",
+			"unit": "def",
+			"label": "with-co",
+			"coaches": [{
+				"name": "Greer Martini",
+				"title": "Assistant Coach - Defensive Coordinator/Linebackers"
+			}, {
+				"name": "Duane Vaughn",
+				"title": "Assistant Coach - Outside Linebackers/Co-Defensive Coordinator"
+			}],
+			"staffUrl": "https://wmubroncos.com/sports/football/coaches",
+			"note": "Greer Martini holds the coordinator title; Duane Vaughn also listed as co-coordinator.",
+			"since": 2026
+		},
+		{
+			"team": "air-force",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Mike Thiessen",
+				"title": "Off. Coordinator, Quarterbacks"
+			}],
+			"staffUrl": "https://goairforcefalcons.com/sports/football/roster",
+			"since": 2026
+		},
+		{
+			"team": "air-force",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Steve Russ",
+				"title": "Defensive Coordinator"
+			}],
+			"staffUrl": "https://goairforcefalcons.com/sports/football/coaches",
+			"since": 2026
+		},
+		{
+			"team": "hawaii",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Anthony Arceneaux",
+				"title": "Offensive Coordinator/Running Backs"
+			}],
+			"staffUrl": "https://hawaiiathletics.com/sports/football/coaches",
+			"since": 2025
+		},
+		{
+			"team": "hawaii",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Dennis Thurman",
+				"title": "Defensive Coordinator"
+			}],
+			"staffUrl": "https://hawaiiathletics.com/sports/football/coaches",
+			"since": 2024
+		},
+		{
+			"team": "nevada",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Brett Bartolone",
+				"title": "Offensive Coordinator"
+			}],
+			"staffUrl": "https://nevadawolfpack.com/sports/football/coaches",
+			"since": 2026
+		},
+		{
+			"team": "nevada",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Kane Ioane",
+				"title": "Defensive Coordinator"
+			}],
+			"staffUrl": "https://nevadawolfpack.com/sports/football/coaches",
+			"since": 2024
+		},
+		{
+			"team": "new-mexico",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Luke Schleusner",
+				"title": "Offensive Coordinator/QBs"
+			}],
+			"staffUrl": "https://golobos.com/sports/football/roster",
+			"since": null
+		},
+		{
+			"team": "new-mexico",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Spence Nowinsky",
+				"title": "Defensive Coordinator"
+			}],
+			"staffUrl": "https://golobos.com/sports/football/roster",
+			"since": null
+		},
+		{
+			"team": "north-dakota-state",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Dan Larson",
+				"title": "Offensive Coordinator/Tight Ends and Fullbacks"
+			}],
+			"staffUrl": "https://gobison.com/sports/football/coaches",
+			"since": 2025
+		},
+		{
+			"team": "north-dakota-state",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Grant Olson",
+				"title": "Defensive Coordinator/Linebackers"
+			}],
+			"staffUrl": "https://gobison.com/sports/football/coaches",
+			"since": 2024
+		},
+		{
+			"team": "northern-illinois",
+			"unit": "off",
+			"label": "with-co",
+			"coaches": [{
+				"name": "Tony Petersen",
+				"title": "Offensive Coordinator / Quarterbacks"
+			}, {
+				"name": "Quinn Sanders",
+				"title": "Co-Offensive Coordinator / Wide Receivers"
+			}],
+			"staffUrl": "https://niuhuskies.com/sports/football/coaches",
+			"note": "Tony Petersen holds the coordinator title; Quinn Sanders also listed as co-coordinator.",
+			"since": 2025
+		},
+		{
+			"team": "northern-illinois",
+			"unit": "def",
+			"label": "unverified",
+			"coaches": [],
+			"staffUrl": "https://niuhuskies.com/sports/football/coaches",
+			"note": "No defensive coordinator is listed on the 2026 staff page."
+		},
+		{
+			"team": "san-jose-state",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Craig Stutzmann",
+				"title": "Offensive Coordinator/Quarterbacks"
+			}],
+			"staffUrl": "https://sjsuspartans.com/sports/football/roster/season/2026/",
+			"since": 2024
+		},
+		{
+			"team": "san-jose-state",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Bojay Filimoeatu",
+				"title": "Defensive Coordinator"
+			}],
+			"staffUrl": "https://sjsuspartans.com/sports/football/roster/season/2026/",
+			"since": 2026
+		},
+		{
+			"team": "unlv",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Corey Dennis",
+				"title": "Offensive Coordinator/Quarterbacks"
+			}],
+			"staffUrl": "https://unlvrebels.com/sports/football/coaches",
+			"since": 2026
+		},
+		{
+			"team": "unlv",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Paul Guenther",
+				"title": "Associate Head Coach/Defensive Coordinator"
+			}],
+			"staffUrl": "https://unlvrebels.com/sports/football/coaches",
+			"since": 2025
+		},
+		{
+			"team": "utep",
+			"unit": "off",
+			"label": "co",
+			"coaches": [{
+				"name": "Joe Pappalardo",
+				"title": "Co-Offensive Coordinator/Quarterbacks"
+			}, {
+				"name": "Lanear Sampson",
+				"title": "Co-Offensive Coordinator/Wide Receivers"
+			}],
+			"staffUrl": "https://utepminers.com/sports/football/coaches",
+			"note": "Co-coordinators: no single coordinator title on this side.",
+			"since": 2026
+		},
+		{
+			"team": "utep",
+			"unit": "def",
+			"label": "hc-title",
+			"coaches": [{
+				"name": "Kyle Beyer",
+				"title": "Interim Head Coach/Defensive Coordinator/Linebackers"
+			}, {
+				"name": "Kelvin Sigler",
+				"title": "Co-Defensive Coordinator/Safeties/Spurs"
+			}],
+			"staffUrl": "https://utepminers.com/sports/football/coaches",
+			"note": "The head coach holds the coordinator title (interim head coach).",
+			"since": 2024
+		},
+		{
+			"team": "wyoming",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Christian Taylor",
+				"title": "Offensive Coordinator/Quarterbacks"
+			}],
+			"staffUrl": "https://gowyo.com/sports/football/coaches",
+			"since": 2026
+		},
+		{
+			"team": "wyoming",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Aaron Bohl",
+				"title": "Defensive Coordinator/Linebackers"
+			}],
+			"staffUrl": "https://gowyo.com/sports/football/coaches",
+			"since": 2024
+		},
+		{
+			"team": "boise-state",
+			"unit": "off",
+			"label": "with-co",
+			"coaches": [{
+				"name": "Nate Potter",
+				"title": "Offensive Coordinator"
+			}, {
+				"name": "Zak Hill",
+				"title": "Co-Offensive Coordinator / Quarterbacks"
+			}],
+			"staffUrl": "https://broncosports.com/sports/football/coaches",
+			"note": "Nate Potter holds the coordinator title; Zak Hill also listed as co-coordinator.",
+			"since": 2024
+		},
+		{
+			"team": "boise-state",
+			"unit": "def",
+			"label": "with-co",
+			"coaches": [{
+				"name": "Erik Chinander",
+				"title": "Defensive Coordinator"
+			}, {
+				"name": "Terrence Brown",
+				"title": "Co-Defensive Coordinator / Defensive Backs"
+			}],
+			"staffUrl": "https://broncosports.com/sports/football/coaches",
+			"note": "Erik Chinander holds the coordinator title; Terrence Brown also listed as co-coordinator.",
+			"since": 2024
+		},
+		{
+			"team": "colorado-state",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Pryce Tracy",
+				"title": "Offensive Coordinator"
+			}],
+			"staffUrl": "https://csurams.com/sports/football/coaches",
+			"since": 2026
+		},
+		{
+			"team": "colorado-state",
+			"unit": "def",
+			"label": "co",
+			"coaches": [{
+				"name": "Kenny McClendon",
+				"title": "Assistant Head Coach / Co-Defensive Coordinator / Defensive Line"
+			}],
+			"staffUrl": "https://csurams.com/sports/football/coaches",
+			"note": "Only a co-coordinator is listed on this side.",
+			"since": 2026
+		},
+		{
+			"team": "fresno-state",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Josh Davis",
+				"title": "Offensive Coordinator"
+			}],
+			"staffUrl": "https://gobulldogs.com/sports/football/coaches",
+			"since": 2026
+		},
+		{
+			"team": "fresno-state",
+			"unit": "def",
+			"label": "with-co",
+			"coaches": [{
+				"name": "Nick Benedetto",
+				"title": "Defensive Coordinator/Associate Head Coach"
+			}, {
+				"name": "Adam Breske",
+				"title": "Linebackers/Co-DC"
+			}],
+			"staffUrl": "https://gobulldogs.com/sports/football/coaches",
+			"note": "Nick Benedetto holds the coordinator title; Adam Breske also listed as co-coordinator.",
+			"since": 2026
+		},
+		{
+			"team": "oregon-state",
+			"unit": "off",
+			"label": "with-co",
+			"coaches": [{
+				"name": "Mitch Dahlen",
+				"title": "Offensive Coordinator/Quarterbacks"
+			}, {
+				"name": "Ryan Wallace",
+				"title": "Co-Offensive Coordinator/Tight Ends"
+			}],
+			"staffUrl": "https://osubeavers.com/sports/football/coaches",
+			"note": "Mitch Dahlen holds the coordinator title; Ryan Wallace also listed as co-coordinator.",
+			"since": 2026
+		},
+		{
+			"team": "oregon-state",
+			"unit": "def",
+			"label": "with-co",
+			"coaches": [{
+				"name": "Mike MacIntyre",
+				"title": "Defensive Coordinator/Safeties"
+			}, {
+				"name": "Cort Dennison",
+				"title": "Co-Defensive Coordinator/Linebackers"
+			}],
+			"staffUrl": "https://osubeavers.com/sports/football/coaches",
+			"note": "Mike MacIntyre holds the coordinator title; Cort Dennison also listed as co-coordinator.",
+			"since": 2026
+		},
+		{
+			"team": "san-diego-state",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Matt Johnson",
+				"title": "Offensive Coordinator (quarterbacks)"
+			}],
+			"staffUrl": "https://goaztecs.com/sports/football/roster",
+			"since": null
+		},
+		{
+			"team": "san-diego-state",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Demetrius Sumler",
+				"title": "Defensive Coordinator"
+			}],
+			"staffUrl": "https://goaztecs.com/sports/football/roster",
+			"since": null
+		},
+		{
+			"team": "texas-state",
+			"unit": "off",
+			"label": "with-co",
+			"coaches": [{
+				"name": "Landon Keopple",
+				"title": "Offensive Coordinator"
+			}, {
+				"name": "Jordan Shoemaker",
+				"title": "Co-Offensive Coordinator / Offensive Line"
+			}],
+			"staffUrl": "https://txst.com/sports/football/coaches",
+			"note": "Landon Keopple holds the coordinator title; Jordan Shoemaker also listed as co-coordinator.",
+			"since": 2025
+		},
+		{
+			"team": "texas-state",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Will Windham",
+				"title": "Defensive Coordinator"
+			}],
+			"staffUrl": "https://txst.com/sports/football/coaches",
+			"since": 2026
+		},
+		{
+			"team": "utah-state",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Robert Anae",
+				"title": "Offensive Coordinator/Tight Ends"
+			}],
+			"staffUrl": "https://utahstateaggies.com/sports/football/coaches",
+			"since": null
+		},
+		{
+			"team": "utah-state",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Nick Howell",
+				"title": "Defensive Coordinator/Safeties"
+			}],
+			"staffUrl": "https://utahstateaggies.com/sports/football/coaches",
+			"since": null
+		},
+		{
+			"team": "washington-state",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Matt Miller",
+				"title": "Offensive Coordinator / Quarterbacks Coach"
+			}],
+			"staffUrl": "https://wsucougars.com/sports/football/roster",
+			"since": 2026
+		},
+		{
+			"team": "washington-state",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Trent Bray",
+				"title": "Defensive Coordinator / Linebackers Coach"
+			}],
+			"staffUrl": "https://wsucougars.com/sports/football/roster",
+			"since": 2026
+		},
+		{
+			"team": "alabama",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Ryan Grubb",
+				"title": "Offensive Coordinator"
+			}],
+			"staffUrl": "https://rolltide.com/sports/football/roster",
+			"since": 2025
+		},
+		{
+			"team": "alabama",
+			"unit": "def",
+			"label": "with-co",
+			"coaches": [{
+				"name": "Kane Wommack",
+				"title": "Defensive Coordinator"
+			}, {
+				"name": "Maurice Linguist",
+				"title": "Co-Defensive Coordinator/Defensive Backs"
+			}],
+			"staffUrl": "https://rolltide.com/sports/football/roster",
+			"note": "Kane Wommack holds the coordinator title; Maurice Linguist also listed as co-coordinator.",
+			"since": 2024
+		},
+		{
+			"team": "arkansas",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Tim Cramsey",
+				"title": "Offensive Coordinator"
+			}],
+			"staffUrl": "https://arkansasrazorbacks.com/sport/m-footbl/roster/",
+			"since": null
+		},
+		{
+			"team": "arkansas",
+			"unit": "def",
+			"label": "with-co",
+			"coaches": [{
+				"name": "Ron Roberts",
+				"title": "Defensive Coordinator"
+			}, {
+				"name": "Deron Wilson",
+				"title": "co-Defensive Coordinator/Secondary"
+			}],
+			"staffUrl": "https://arkansasrazorbacks.com/sport/m-footbl/roster/",
+			"note": "Ron Roberts holds the coordinator title; Deron Wilson also listed as co-coordinator.",
+			"since": null
+		},
+		{
+			"team": "auburn",
+			"unit": "off",
+			"label": "with-co",
+			"coaches": [{
+				"name": "Joel Gordon",
+				"title": "Offensive Coordinator / Quarterbacks"
+			}, {
+				"name": "Kodi Burns",
+				"title": "Associate Head Coach / Co-Offensive Coordinator / Wide Receivers"
+			}],
+			"staffUrl": "https://auburntigers.com/sports/football/roster",
+			"note": "Joel Gordon holds the coordinator title; Kodi Burns also listed as co-coordinator.",
+			"since": 2026
+		},
+		{
+			"team": "auburn",
+			"unit": "def",
+			"label": "with-co",
+			"coaches": [{
+				"name": "DJ Durkin",
+				"title": "Defensive Coordinator / Linebackers"
+			}, {
+				"name": "Tim Banks",
+				"title": "Co-Defensive Coordinator / Safeties"
+			}],
+			"staffUrl": "https://auburntigers.com/sports/football/roster",
+			"note": "DJ Durkin holds the coordinator title; Tim Banks also listed as co-coordinator.",
+			"since": 2024
+		},
+		{
+			"team": "florida",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Buster Faulkner",
+				"title": "Offensive Coordinator"
+			}],
+			"staffUrl": "https://floridagators.com/sports/football/roster",
+			"since": 2026
+		},
+		{
+			"team": "florida",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Brad White",
+				"title": "Defensive Coordinator"
+			}],
+			"staffUrl": "https://floridagators.com/sports/football/roster",
+			"since": 2026
+		},
+		{
+			"team": "georgia",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Mike Bobo",
+				"title": "John and Alice Sands Offensive Coordinator - Quarterbacks Coach"
+			}],
+			"staffUrl": "https://georgiadogs.com/sports/football/roster",
+			"since": 2024
+		},
+		{
+			"team": "georgia",
+			"unit": "def",
+			"label": "with-co",
+			"coaches": [{
+				"name": "Glenn Schumann",
+				"title": "Fain & Billy Slaughter Defensive Coordinator - Inside Linebackers"
+			}, {
+				"name": "Travaris Robinson",
+				"title": "Co-Defensive Coordinator - Safeties Coach"
+			}],
+			"staffUrl": "https://georgiadogs.com/sports/football/roster",
+			"note": "Glenn Schumann holds the coordinator title; Travaris Robinson also listed as co-coordinator.",
+			"since": 2024
+		},
+		{
+			"team": "kentucky",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Joe Sloan",
+				"title": "Offensive Coordinator"
+			}],
+			"staffUrl": "https://ukathletics.com/sports/football/roster",
+			"since": 2026
+		},
+		{
+			"team": "kentucky",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Jay Bateman",
+				"title": "Defensive Coordinator"
+			}],
+			"staffUrl": "https://ukathletics.com/sports/football/roster",
+			"since": 2026
+		},
+		{
+			"team": "lsu",
+			"unit": "off",
+			"label": "with-co",
+			"coaches": [{
+				"name": "Charlie Weis Jr.",
+				"title": "Offensive Coordinator"
+			}, {
+				"name": "Joe Cox",
+				"title": "Co-Offensive Coordinator / Tight Ends"
+			}],
+			"staffUrl": "https://lsusports.net/sports/football/roster",
+			"note": "Charlie Weis Jr. holds the coordinator title; Joe Cox also listed as co-coordinator.",
+			"since": null
+		},
+		{
+			"team": "lsu",
+			"unit": "def",
+			"label": "with-co",
+			"coaches": [{
+				"name": "Blake Baker",
+				"title": "Defensive Coordinator"
+			}, {
+				"name": "Chris Kiffin",
+				"title": "Co-Defensive Coordinator / Linebackers"
+			}],
+			"staffUrl": "https://lsusports.net/sports/football/roster",
+			"note": "Blake Baker holds the coordinator title; Chris Kiffin also listed as co-coordinator.",
+			"since": null
+		},
+		{
+			"team": "mississippi-state",
+			"unit": "off",
+			"label": "hc-calls",
+			"coaches": [],
+			"staffUrl": "https://hailstate.com/sports/football/coaches",
+			"note": "Jeff Lebby’s official bio says he calls the offensive plays.",
+			"hcSource": {
+				"url": "https://hailstate.com/sports/football/roster/coaches/jeff-lebby/3343",
+				"quote": "Jeff Lebby, a dynamic play caller and the mastermind behind many of college football's most feared offenses"
+			}
+		},
+		{
+			"team": "mississippi-state",
+			"unit": "def",
+			"label": "with-co",
+			"coaches": [{
+				"name": "Zach Arnett",
+				"title": "Defensive Coordinator"
+			}, {
+				"name": "Matt Brock",
+				"title": "Co-Defensive Coordinator (Linebackers)"
+			}],
+			"staffUrl": "https://hailstate.com/sports/football/coaches",
+			"note": "Zach Arnett holds the coordinator title; Matt Brock also listed as co-coordinator.",
+			"since": 2026
+		},
+		{
+			"team": "missouri",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Chip Lindsey",
+				"title": "Offensive Coordinator"
+			}],
+			"staffUrl": "https://mutigers.com/sports/football/roster",
+			"since": 2026
+		},
+		{
+			"team": "missouri",
+			"unit": "def",
+			"label": "with-co",
+			"coaches": [{
+				"name": "Corey Batoon",
+				"title": "Defensive Coordinator"
+			}, {
+				"name": "Derek Nicholson",
+				"title": "Assistant Coach / Co-Defensive Coordinator / Linebackers"
+			}],
+			"staffUrl": "https://mutigers.com/sports/football/roster",
+			"note": "Corey Batoon holds the coordinator title; Derek Nicholson also listed as co-coordinator.",
+			"since": 2026
+		},
+		{
+			"team": "oklahoma",
+			"unit": "off",
+			"label": "interim",
+			"coaches": [{
+				"name": "Jason Witten",
+				"title": "Interim Offensive Coordinator/Tight Ends"
+			}],
+			"staffUrl": "https://soonersports.com/sports/football/roster",
+			"note": "Interim coordinator: the 2026 season is split.",
+			"since": 2026
+		},
+		{
+			"team": "oklahoma",
+			"unit": "def",
+			"label": "co",
+			"coaches": [{
+				"name": "Todd Bates",
+				"title": "Associate Head Coach / Co-Defensive Coordinator / Run Defense / Defensive Tackles"
+			}],
+			"staffUrl": "https://soonersports.com/sports/football/roster",
+			"note": "Only a co-coordinator is listed on this side.",
+			"since": 2024
+		},
+		{
+			"team": "ole-miss",
+			"unit": "off",
+			"label": "with-co",
+			"coaches": [{
+				"name": "John David Baker",
+				"title": "Assistant Coach/Offensive Coordinator"
+			}, {
+				"name": "Cody Woodiel",
+				"title": "Assistant Coach/Co-Offensive Coordinator/Tight Ends"
+			}],
+			"staffUrl": "https://olemisssports.com/sports/football/roster",
+			"note": "John David Baker holds the coordinator title; Cody Woodiel also listed as co-coordinator.",
+			"since": 2026
+		},
+		{
+			"team": "ole-miss",
+			"unit": "def",
+			"label": "with-co",
+			"coaches": [{
+				"name": "Bryan Brown",
+				"title": "Assistant Coach/Defensive Coordinator"
+			}, {
+				"name": "Marcus Woodson",
+				"title": "Assistant Coach/Co-Defensive Coordinator"
+			}],
+			"staffUrl": "https://olemisssports.com/sports/football/roster",
+			"note": "Bryan Brown holds the coordinator title; Marcus Woodson also listed as co-coordinator.",
+			"since": 2024
+		},
+		{
+			"team": "south-carolina",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Kendal Briles",
+				"title": "Offensive Coordinator/Quarterbacks Coach"
+			}],
+			"staffUrl": "https://gamecocksonline.com/sports/football/roster",
+			"since": 2026
+		},
+		{
+			"team": "south-carolina",
+			"unit": "def",
+			"label": "with-co",
+			"coaches": [{
+				"name": "Clayton White",
+				"title": "Defensive Coordinator/LBs"
+			}, {
+				"name": "Torrian Gray",
+				"title": "Co-Defensive Coordinator/Defensive Backs Coach"
+			}],
+			"staffUrl": "https://gamecocksonline.com/sports/football/roster",
+			"note": "Clayton White holds the coordinator title; Torrian Gray also listed as co-coordinator.",
+			"since": 2024
+		},
+		{
+			"team": "tennessee",
+			"unit": "off",
+			"label": "hc-calls",
+			"coaches": [{
+				"name": "Joey Halzle",
+				"title": "Offensive Coordinator/Quarterbacks"
+			}],
+			"staffUrl": "https://utsports.com/sports/football/roster",
+			"note": "Josh Heupel’s official bio says he calls the offensive plays; the staff page lists Joey Halzle with a coordinator title.",
+			"hcSource": {
+				"url": "https://utsports.com/sports/football/roster/coaches/josh-heupel/5842",
+				"quote": "They have a high-end offense and one of the best play callers in the country who happens to be their head coach."
+			},
+			"since": 2024
+		},
+		{
+			"team": "tennessee",
+			"unit": "def",
+			"label": "with-co",
+			"coaches": [{
+				"name": "Jim Knowles",
+				"title": "Defensive Coordinator"
+			}, {
+				"name": "Anthony Poindexter",
+				"title": "Co-Defensive Coordinator/Secondary"
+			}],
+			"staffUrl": "https://utsports.com/sports/football/roster",
+			"note": "Jim Knowles holds the coordinator title; Anthony Poindexter also listed as co-coordinator.",
+			"since": 2026
+		},
+		{
+			"team": "texas",
+			"unit": "off",
+			"label": "with-co",
+			"coaches": [{
+				"name": "Kyle Flood",
+				"title": "Assistant Coach, Football - Offensive Coordinator / OL"
+			}, {
+				"name": "AJ Milwee",
+				"title": "Assistant Coach, Football - Co-Offensive Coordinator / QB"
+			}],
+			"staffUrl": "https://texaslonghorns.com/sports/football/roster",
+			"note": "Kyle Flood holds the coordinator title; AJ Milwee also listed as co-coordinator.",
+			"since": null
+		},
+		{
+			"team": "texas",
+			"unit": "def",
+			"label": "with-co",
+			"coaches": [{
+				"name": "Will Muschamp",
+				"title": "Assistant Coach, Football - Defensive Coordinator"
+			}, {
+				"name": "Johnny Nansen",
+				"title": "Assistant Coach, Football - Co-Defensive Coordinator/Inside Linebackers"
+			}],
+			"staffUrl": "https://texaslonghorns.com/sports/football/roster",
+			"note": "Will Muschamp holds the coordinator title; Johnny Nansen also listed as co-coordinator.",
+			"since": 2026
+		},
+		{
+			"team": "texas-am",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Holmon Wiggins",
+				"title": "Offensive Coordinator"
+			}],
+			"staffUrl": "https://12thman.com/sports/football/roster",
+			"since": 2024
+		},
+		{
+			"team": "texas-am",
+			"unit": "def",
+			"label": "with-co",
+			"coaches": [{
+				"name": "Lyle Hemphill",
+				"title": "Defensive Coordinator"
+			}, {
+				"name": "Elijah Robinson",
+				"title": "Co-Defensive Coordinator/Defensive Line"
+			}],
+			"staffUrl": "https://12thman.com/sports/football/roster",
+			"note": "Lyle Hemphill holds the coordinator title; Elijah Robinson also listed as co-coordinator.",
+			"since": 2026
+		},
+		{
+			"team": "vanderbilt",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Tim Beck",
+				"title": "Offensive Coordinator"
+			}],
+			"staffUrl": "https://vucommodores.com/sports/football/roster",
+			"since": null
+		},
+		{
+			"team": "vanderbilt",
+			"unit": "def",
+			"label": "with-co",
+			"coaches": [{
+				"name": "Steve Gregory",
+				"title": "Defensive Coordinator"
+			}, {
+				"name": "Nick Lezynski",
+				"title": "Co-Defensive Coordinator • Linebackers"
+			}],
+			"staffUrl": "https://vucommodores.com/sports/football/roster",
+			"note": "Steve Gregory holds the coordinator title; Nick Lezynski also listed as co-coordinator.",
+			"since": null
+		},
+		{
+			"team": "app-state",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Mike Anthony",
+				"title": "Offensive Coordinator"
+			}],
+			"staffUrl": "https://appstatesports.com/sports/football/coaches",
+			"since": 2026
+		},
+		{
+			"team": "app-state",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "DJ Smith",
+				"title": "Defensive Coordinator/Linebackers"
+			}],
+			"staffUrl": "https://appstatesports.com/sports/football/coaches",
+			"since": 2025
+		},
+		{
+			"team": "arkansas-state",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Garrett Altman",
+				"title": "Offensive Coordinator"
+			}],
+			"staffUrl": "https://astateredwolves.com/sports/football/coaches",
+			"since": 2026
+		},
+		{
+			"team": "arkansas-state",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Griff McCarley",
+				"title": "Defensive Coordinator"
+			}],
+			"staffUrl": "https://astateredwolves.com/sports/football/coaches",
+			"since": 2025
+		},
+		{
+			"team": "coastal-carolina",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Nick Petrino",
+				"title": "Offensive Coordinator / Quarterbacks Coach"
+			}],
+			"staffUrl": "https://goccusports.com/sports/football/coaches",
+			"since": 2026
+		},
+		{
+			"team": "coastal-carolina",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "L.D. Scott",
+				"title": "Defensive Coordinator / Defensive Line Coach"
+			}],
+			"staffUrl": "https://goccusports.com/sports/football/coaches",
+			"since": 2026
+		},
+		{
+			"team": "georgia-southern",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Ryan Aplin",
+				"title": "Offensive Coordinator/Quarterbacks Coach"
+			}],
+			"staffUrl": "https://gseagles.com/sports/football/coaches",
+			"since": 2025
+		},
+		{
+			"team": "georgia-southern",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Mike Mutz",
+				"title": "Defensive Coordinator"
+			}],
+			"staffUrl": "https://gseagles.com/sports/football/coaches",
+			"since": 2026
+		},
+		{
+			"team": "georgia-state",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Hue Jackson",
+				"title": "Offensive Coordinator"
+			}],
+			"staffUrl": "https://georgiastatesports.com/sports/football/coaches",
+			"since": 2025
+		},
+		{
+			"team": "georgia-state",
+			"unit": "def",
+			"label": "co",
+			"coaches": [{
+				"name": "Cam Clark",
+				"title": "Co-Defensive Coordinator"
+			}, {
+				"name": "John Haneline",
+				"title": "Co-Defensive Coordinator"
+			}],
+			"staffUrl": "https://georgiastatesports.com/sports/football/coaches",
+			"note": "Co-coordinators: no single coordinator title on this side.",
+			"since": 2026
+		},
+		{
+			"team": "james-madison",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Cam Aiken",
+				"title": "Offensive Coordinator"
+			}],
+			"staffUrl": "https://jmusports.com/sports/football/coaches",
+			"since": 2026
+		},
+		{
+			"team": "james-madison",
+			"unit": "def",
+			"label": "with-co",
+			"coaches": [{
+				"name": "Robert Bala",
+				"title": "Defensive Coordinator"
+			}, {
+				"name": "Josh Linam",
+				"title": "Co-Defensive Coordinator/Linebackers"
+			}],
+			"staffUrl": "https://jmusports.com/sports/football/coaches",
+			"note": "Robert Bala holds the coordinator title; Josh Linam also listed as co-coordinator.",
+			"since": 2026
+		},
+		{
+			"team": "louisiana",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Tim Leger",
+				"title": "Offensive Coordinator (WR/Recruiting Coordinator)"
+			}],
+			"staffUrl": "https://ragincajuns.com/sports/football/coaches",
+			"since": 2024
+		},
+		{
+			"team": "louisiana",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Jim Salgado",
+				"title": "Defensive Coordinator (Safeties)"
+			}],
+			"staffUrl": "https://ragincajuns.com/sports/football/coaches",
+			"since": 2024
+		},
+		{
+			"team": "louisiana-tech",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Nathan Young",
+				"title": "Offensive Coordinator/Quarterbacks Coach"
+			}],
+			"staffUrl": "https://latechsports.com/sports/football/coaches",
+			"since": null
+		},
+		{
+			"team": "louisiana-tech",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Luke Olson",
+				"title": "Defensive Coordinator"
+			}],
+			"staffUrl": "https://latechsports.com/sports/football/coaches",
+			"since": null
+		},
+		{
+			"team": "ul-monroe",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Jesse Montalto",
+				"title": "Offensive Coordinator / Receivers"
+			}],
+			"staffUrl": "https://ulmwarhawks.com/sports/football/coaches",
+			"since": 2026
+		},
+		{
+			"team": "ul-monroe",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Troy Reffett",
+				"title": "Defensive Coordinator / Inside Linebackers"
+			}],
+			"staffUrl": "https://ulmwarhawks.com/sports/football/coaches",
+			"since": 2026
+		},
+		{
+			"team": "marshall",
+			"unit": "off",
+			"label": "interim",
+			"coaches": [{
+				"name": "Gunter Brewer",
+				"title": "Interim OC/AHC/Inside WRs/Tight Ends"
+			}],
+			"staffUrl": "https://herdzone.com/sports/football/roster",
+			"note": "Interim coordinator: the 2026 season is split.",
+			"since": 2026
+		},
+		{
+			"team": "marshall",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Brad Lambert",
+				"title": "Defensive Coordinator / Linebackers"
+			}],
+			"staffUrl": "https://herdzone.com/sports/football/roster",
+			"since": 2026
+		},
+		{
+			"team": "old-dominion",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Kody Cook",
+				"title": "Quarterbacks/Offensive Coordinator"
+			}],
+			"staffUrl": "https://odusports.com/sports/football/roster",
+			"since": 2024
+		},
+		{
+			"team": "old-dominion",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Blake Seiler",
+				"title": "Defensive Coordinator/Inside Linebackers"
+			}],
+			"staffUrl": "https://odusports.com/sports/football/roster",
+			"since": 2024
+		},
+		{
+			"team": "south-alabama",
+			"unit": "off",
+			"label": "unverified",
+			"coaches": [],
+			"staffUrl": "https://usajaguars.com/sports/football/coaches",
+			"note": "No offensive coordinator is listed on the 2026 staff page."
+		},
+		{
+			"team": "south-alabama",
+			"unit": "def",
+			"label": "with-co",
+			"coaches": [{
+				"name": "Todd Orlando",
+				"title": "Assistant Coach -- Defensive Coordinator / Inside Linebackers"
+			}, {
+				"name": "Jason Washington",
+				"title": "Assistant Coach -- Co-Defensive Coordinator / Cornerbacks"
+			}],
+			"staffUrl": "https://usajaguars.com/sports/football/coaches",
+			"note": "Todd Orlando holds the coordinator title; Jason Washington also listed as co-coordinator.",
+			"since": 2026
+		},
+		{
+			"team": "southern-miss",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Kyle Cefalo",
+				"title": "Assistant Head Coach/Offensive Coordinator/Quarterbacks Coach"
+			}],
+			"staffUrl": "https://southernmiss.com/sports/football/coaches",
+			"since": 2026
+		},
+		{
+			"team": "southern-miss",
+			"unit": "def",
+			"label": "sole",
+			"coaches": [{
+				"name": "Joe Bolden",
+				"title": "Defensive Coordinator/Linebackers"
+			}],
+			"staffUrl": "https://southernmiss.com/sports/football/coaches",
+			"since": 2026
+		},
+		{
+			"team": "troy",
+			"unit": "off",
+			"label": "sole",
+			"coaches": [{
+				"name": "Adam Austin",
+				"title": "Offensive Coordinator / Quarterbacks"
+			}],
+			"staffUrl": "https://troytrojans.com/sports/football/coaches",
+			"since": 2026
+		},
+		{
+			"team": "troy",
+			"unit": "def",
+			"label": "with-co",
+			"coaches": [{
+				"name": "Dontae Wright",
+				"title": "Defensive Coordinator / Safeties"
+			}, {
+				"name": "Nathan Burton",
+				"title": "Co-Defensive Coordinator / Inside Linebackers"
+			}],
+			"staffUrl": "https://troytrojans.com/sports/football/coaches",
+			"note": "Dontae Wright holds the coordinator title; Nathan Burton also listed as co-coordinator.",
+			"since": 2024
+		}
+	],
+	prior2025: /* @__PURE__ */ JSON.parse("{\"vanderbilt\":{\"off\":{\"epa\":0.3763,\"sr\":50.47,\"xpl\":1.4701,\"ppd\":3.469,\"rank\":1,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":0.1328,\"sr\":41.7,\"xpl\":1.2902,\"ppd\":2.225,\"rank\":82,\"nFbs\":136,\"games\":12}},\"indiana\":{\"off\":{\"epa\":0.3578,\"sr\":51.45,\"xpl\":1.3249,\"ppd\":3.301,\"rank\":2,\"nFbs\":136,\"games\":15},\"def\":{\"epa\":-0.1058,\"sr\":32.69,\"xpl\":1.3535,\"ppd\":1.079,\"rank\":5,\"nFbs\":136,\"games\":15}},\"usc\":{\"off\":{\"epa\":0.3153,\"sr\":48.62,\"xpl\":1.4071,\"ppd\":3.265,\"rank\":3,\"nFbs\":136,\"games\":13},\"def\":{\"epa\":0.0588,\"sr\":43.05,\"xpl\":1.1647,\"ppd\":2.221,\"rank\":46,\"nFbs\":136,\"games\":13}},\"utah\":{\"off\":{\"epa\":0.3128,\"sr\":48.6,\"xpl\":1.2823,\"ppd\":3.326,\"rank\":4,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":0.022,\"sr\":38.19,\"xpl\":1.3436,\"ppd\":1.631,\"rank\":38,\"nFbs\":136,\"games\":12}},\"north-texas\":{\"off\":{\"epa\":0.3054,\"sr\":51.22,\"xpl\":1.2928,\"ppd\":4.273,\"rank\":5,\"nFbs\":136,\"games\":13},\"def\":{\"epa\":0.1236,\"sr\":43.95,\"xpl\":1.278,\"ppd\":3.217,\"rank\":77,\"nFbs\":136,\"games\":13}},\"ole-miss\":{\"off\":{\"epa\":0.3049,\"sr\":49.05,\"xpl\":1.3429,\"ppd\":2.988,\"rank\":6,\"nFbs\":136,\"games\":14},\"def\":{\"epa\":0.0375,\"sr\":37.34,\"xpl\":1.3654,\"ppd\":1.873,\"rank\":43,\"nFbs\":136,\"games\":14}},\"oregon\":{\"off\":{\"epa\":0.2971,\"sr\":49.11,\"xpl\":1.3371,\"ppd\":2.724,\"rank\":7,\"nFbs\":136,\"games\":14},\"def\":{\"epa\":-0.0834,\"sr\":33.98,\"xpl\":1.2178,\"ppd\":1.694,\"rank\":8,\"nFbs\":136,\"games\":14}},\"ohio-state\":{\"off\":{\"epa\":0.2938,\"sr\":51.37,\"xpl\":1.1963,\"ppd\":2.945,\"rank\":8,\"nFbs\":136,\"games\":13},\"def\":{\"epa\":-0.116,\"sr\":33.61,\"xpl\":1.0818,\"ppd\":0.984,\"rank\":3,\"nFbs\":136,\"games\":13}},\"notre-dame\":{\"off\":{\"epa\":0.2898,\"sr\":48.2,\"xpl\":1.4411,\"ppd\":3.175,\"rank\":9,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":-0.1026,\"sr\":34.74,\"xpl\":1.2422,\"ppd\":1.507,\"rank\":6,\"nFbs\":136,\"games\":12}},\"texas-am\":{\"off\":{\"epa\":0.2718,\"sr\":48.63,\"xpl\":1.2341,\"ppd\":2.53,\"rank\":10,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":0.0294,\"sr\":33.44,\"xpl\":1.3944,\"ppd\":1.631,\"rank\":42,\"nFbs\":136,\"games\":12}},\"tennessee\":{\"off\":{\"epa\":0.2684,\"sr\":49.68,\"xpl\":1.2772,\"ppd\":2.86,\"rank\":11,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":0.0837,\"sr\":43.77,\"xpl\":1.1497,\"ppd\":2.479,\"rank\":56,\"nFbs\":136,\"games\":12}},\"arkansas\":{\"off\":{\"epa\":0.2576,\"sr\":51.45,\"xpl\":1.2777,\"ppd\":2.729,\"rank\":12,\"nFbs\":136,\"games\":11},\"def\":{\"epa\":0.166,\"sr\":43.53,\"xpl\":1.294,\"ppd\":3.032,\"rank\":97,\"nFbs\":136,\"games\":11}},\"texas-state\":{\"off\":{\"epa\":0.235,\"sr\":45.56,\"xpl\":1.2944,\"ppd\":2.886,\"rank\":13,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":0.1893,\"sr\":44.17,\"xpl\":1.3546,\"ppd\":3.303,\"rank\":108,\"nFbs\":136,\"games\":12}},\"smu\":{\"off\":{\"epa\":0.2346,\"sr\":44.82,\"xpl\":1.3617,\"ppd\":2.497,\"rank\":14,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":-0.021,\"sr\":39.29,\"xpl\":1.2334,\"ppd\":1.907,\"rank\":20,\"nFbs\":136,\"games\":12}},\"miami\":{\"off\":{\"epa\":0.2339,\"sr\":48.4,\"xpl\":1.1364,\"ppd\":2.45,\"rank\":15,\"nFbs\":136,\"games\":15},\"def\":{\"epa\":-0.1321,\"sr\":32.7,\"xpl\":1.2339,\"ppd\":1.294,\"rank\":2,\"nFbs\":136,\"games\":15}},\"florida-state\":{\"off\":{\"epa\":0.2336,\"sr\":48.25,\"xpl\":1.3096,\"ppd\":2.975,\"rank\":16,\"nFbs\":136,\"games\":11},\"def\":{\"epa\":0.0954,\"sr\":40.95,\"xpl\":1.1783,\"ppd\":2.082,\"rank\":59,\"nFbs\":136,\"games\":11}},\"georgia-tech\":{\"off\":{\"epa\":0.2328,\"sr\":50.3,\"xpl\":1.1304,\"ppd\":2.938,\"rank\":17,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":0.1468,\"sr\":43.93,\"xpl\":1.2101,\"ppd\":2.32,\"rank\":89,\"nFbs\":136,\"games\":12}},\"kansas\":{\"off\":{\"epa\":0.2319,\"sr\":48.3,\"xpl\":1.1956,\"ppd\":2.269,\"rank\":18,\"nFbs\":136,\"games\":11},\"def\":{\"epa\":0.1956,\"sr\":42.63,\"xpl\":1.3427,\"ppd\":2.466,\"rank\":114,\"nFbs\":136,\"games\":11}},\"alabama\":{\"off\":{\"epa\":0.2252,\"sr\":45.59,\"xpl\":1.3093,\"ppd\":2.534,\"rank\":19,\"nFbs\":136,\"games\":14},\"def\":{\"epa\":-0.0161,\"sr\":36.06,\"xpl\":1.2303,\"ppd\":1.801,\"rank\":21,\"nFbs\":136,\"games\":14}},\"usf\":{\"off\":{\"epa\":0.2234,\"sr\":46.45,\"xpl\":1.2668,\"ppd\":2.855,\"rank\":20,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":0.0589,\"sr\":38.19,\"xpl\":1.3301,\"ppd\":1.941,\"rank\":47,\"nFbs\":136,\"games\":12}},\"georgia\":{\"off\":{\"epa\":0.2201,\"sr\":46.61,\"xpl\":1.2177,\"ppd\":2.856,\"rank\":21,\"nFbs\":136,\"games\":13},\"def\":{\"epa\":-0.0095,\"sr\":35.62,\"xpl\":1.1752,\"ppd\":1.593,\"rank\":24,\"nFbs\":136,\"games\":13}},\"penn-state\":{\"off\":{\"epa\":0.2188,\"sr\":46.86,\"xpl\":1.2444,\"ppd\":2.691,\"rank\":22,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":0.0121,\"sr\":39.24,\"xpl\":1.2045,\"ppd\":1.967,\"rank\":31,\"nFbs\":136,\"games\":12}},\"cincinnati\":{\"off\":{\"epa\":0.2152,\"sr\":44.96,\"xpl\":1.3121,\"ppd\":2.531,\"rank\":23,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":0.1601,\"sr\":43.93,\"xpl\":1.1832,\"ppd\":2.524,\"rank\":94,\"nFbs\":136,\"games\":12}},\"unlv\":{\"off\":{\"epa\":0.2146,\"sr\":44.96,\"xpl\":1.3531,\"ppd\":2.574,\"rank\":24,\"nFbs\":136,\"games\":13},\"def\":{\"epa\":0.2017,\"sr\":45.39,\"xpl\":1.3529,\"ppd\":2.362,\"rank\":117,\"nFbs\":136,\"games\":13}},\"washington\":{\"off\":{\"epa\":0.2131,\"sr\":47.86,\"xpl\":1.2753,\"ppd\":2.764,\"rank\":25,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":-0.032,\"sr\":37.27,\"xpl\":1.2332,\"ppd\":1.82,\"rank\":18,\"nFbs\":136,\"games\":12}},\"byu\":{\"off\":{\"epa\":0.2,\"sr\":47.19,\"xpl\":1.1678,\"ppd\":2.438,\"rank\":26,\"nFbs\":136,\"games\":13},\"def\":{\"epa\":-0.0067,\"sr\":39.18,\"xpl\":1.1986,\"ppd\":1.987,\"rank\":25,\"nFbs\":136,\"games\":13}},\"duke\":{\"off\":{\"epa\":0.1997,\"sr\":45.88,\"xpl\":1.359,\"ppd\":2.911,\"rank\":27,\"nFbs\":136,\"games\":13},\"def\":{\"epa\":0.1263,\"sr\":43.43,\"xpl\":1.3309,\"ppd\":2.56,\"rank\":79,\"nFbs\":136,\"games\":13}},\"texas\":{\"off\":{\"epa\":0.1922,\"sr\":42.57,\"xpl\":1.3874,\"ppd\":2.577,\"rank\":28,\"nFbs\":136,\"games\":13},\"def\":{\"epa\":-0.0155,\"sr\":36.3,\"xpl\":1.1377,\"ppd\":1.628,\"rank\":22,\"nFbs\":136,\"games\":13}},\"rutgers\":{\"off\":{\"epa\":0.1864,\"sr\":46.19,\"xpl\":1.2285,\"ppd\":2.569,\"rank\":29,\"nFbs\":136,\"games\":11},\"def\":{\"epa\":0.2658,\"sr\":46.63,\"xpl\":1.3614,\"ppd\":3.167,\"rank\":132,\"nFbs\":136,\"games\":11}},\"michigan\":{\"off\":{\"epa\":0.1839,\"sr\":45.48,\"xpl\":1.216,\"ppd\":2.361,\"rank\":30,\"nFbs\":136,\"games\":13},\"def\":{\"epa\":0.0096,\"sr\":40.23,\"xpl\":1.1024,\"ppd\":1.75,\"rank\":28,\"nFbs\":136,\"games\":13}},\"navy\":{\"off\":{\"epa\":0.179,\"sr\":45.75,\"xpl\":1.2496,\"ppd\":2.869,\"rank\":31,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":0.1193,\"sr\":39.97,\"xpl\":1.3251,\"ppd\":2.548,\"rank\":73,\"nFbs\":136,\"games\":12}},\"nc-state\":{\"off\":{\"epa\":0.1775,\"sr\":42.8,\"xpl\":1.3642,\"ppd\":2.391,\"rank\":32,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":0.1131,\"sr\":38.29,\"xpl\":1.3673,\"ppd\":2.445,\"rank\":71,\"nFbs\":136,\"games\":12}},\"uconn\":{\"off\":{\"epa\":0.1768,\"sr\":42.59,\"xpl\":1.2664,\"ppd\":3.277,\"rank\":33,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":0.2067,\"sr\":49.76,\"xpl\":1.1566,\"ppd\":2.338,\"rank\":118,\"nFbs\":136,\"games\":12}},\"air-force\":{\"off\":{\"epa\":0.1708,\"sr\":44.57,\"xpl\":1.236,\"ppd\":2.917,\"rank\":34,\"nFbs\":136,\"games\":11},\"def\":{\"epa\":0.3762,\"sr\":50.26,\"xpl\":1.3768,\"ppd\":3.165,\"rank\":136,\"nFbs\":136,\"games\":11}},\"baylor\":{\"off\":{\"epa\":0.1703,\"sr\":46.46,\"xpl\":1.3035,\"ppd\":2.711,\"rank\":35,\"nFbs\":136,\"games\":11},\"def\":{\"epa\":0.1313,\"sr\":43.57,\"xpl\":1.1861,\"ppd\":2.876,\"rank\":81,\"nFbs\":136,\"games\":11}},\"iowa-state\":{\"off\":{\"epa\":0.1703,\"sr\":45.0,\"xpl\":1.2002,\"ppd\":2.221,\"rank\":36,\"nFbs\":136,\"games\":11},\"def\":{\"epa\":0.021,\"sr\":39.66,\"xpl\":1.2016,\"ppd\":1.935,\"rank\":37,\"nFbs\":136,\"games\":11}},\"illinois\":{\"off\":{\"epa\":0.1641,\"sr\":46.52,\"xpl\":1.1918,\"ppd\":2.452,\"rank\":37,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":0.0955,\"sr\":42.53,\"xpl\":1.1522,\"ppd\":2.479,\"rank\":60,\"nFbs\":136,\"games\":12}},\"memphis\":{\"off\":{\"epa\":0.1582,\"sr\":43.61,\"xpl\":1.2836,\"ppd\":2.821,\"rank\":38,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":0.142,\"sr\":40.9,\"xpl\":1.2851,\"ppd\":2.022,\"rank\":87,\"nFbs\":136,\"games\":12}},\"texas-tech\":{\"off\":{\"epa\":0.1556,\"sr\":42.43,\"xpl\":1.3058,\"ppd\":2.613,\"rank\":39,\"nFbs\":136,\"games\":13},\"def\":{\"epa\":-0.2338,\"sr\":31.46,\"xpl\":1.1625,\"ppd\":0.869,\"rank\":1,\"nFbs\":136,\"games\":13}},\"james-madison\":{\"off\":{\"epa\":0.1545,\"sr\":43.39,\"xpl\":1.3053,\"ppd\":2.646,\"rank\":40,\"nFbs\":136,\"games\":13},\"def\":{\"epa\":-0.0496,\"sr\":30.81,\"xpl\":1.539,\"ppd\":1.383,\"rank\":13,\"nFbs\":136,\"games\":13}},\"kansas-state\":{\"off\":{\"epa\":0.1454,\"sr\":40.91,\"xpl\":1.408,\"ppd\":2.197,\"rank\":41,\"nFbs\":136,\"games\":11},\"def\":{\"epa\":0.0132,\"sr\":39.04,\"xpl\":1.3017,\"ppd\":1.985,\"rank\":33,\"nFbs\":136,\"games\":11}},\"tcu\":{\"off\":{\"epa\":0.1451,\"sr\":43.63,\"xpl\":1.2966,\"ppd\":2.585,\"rank\":42,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":0.0139,\"sr\":37.94,\"xpl\":1.2784,\"ppd\":2.0,\"rank\":34,\"nFbs\":136,\"games\":12}},\"georgia-southern\":{\"off\":{\"epa\":0.144,\"sr\":41.21,\"xpl\":1.2323,\"ppd\":2.221,\"rank\":43,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":0.2746,\"sr\":50.78,\"xpl\":1.2551,\"ppd\":2.925,\"rank\":134,\"nFbs\":136,\"games\":12}},\"virginia-tech\":{\"off\":{\"epa\":0.142,\"sr\":43.02,\"xpl\":1.3224,\"ppd\":2.025,\"rank\":44,\"nFbs\":136,\"games\":11},\"def\":{\"epa\":0.1952,\"sr\":43.38,\"xpl\":1.252,\"ppd\":2.958,\"rank\":113,\"nFbs\":136,\"games\":11}},\"tulane\":{\"off\":{\"epa\":0.1418,\"sr\":43.53,\"xpl\":1.1972,\"ppd\":2.222,\"rank\":45,\"nFbs\":136,\"games\":14},\"def\":{\"epa\":0.0666,\"sr\":43.14,\"xpl\":1.1582,\"ppd\":2.081,\"rank\":50,\"nFbs\":136,\"games\":14}},\"louisville\":{\"off\":{\"epa\":0.139,\"sr\":45.93,\"xpl\":1.1846,\"ppd\":2.325,\"rank\":46,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":-0.0321,\"sr\":37.22,\"xpl\":1.182,\"ppd\":1.483,\"rank\":17,\"nFbs\":136,\"games\":12}},\"auburn\":{\"off\":{\"epa\":0.1306,\"sr\":45.33,\"xpl\":1.0806,\"ppd\":1.911,\"rank\":47,\"nFbs\":136,\"games\":11},\"def\":{\"epa\":-0.0374,\"sr\":35.31,\"xpl\":1.2546,\"ppd\":2.0,\"rank\":15,\"nFbs\":136,\"games\":11}},\"utah-state\":{\"off\":{\"epa\":0.1266,\"sr\":39.28,\"xpl\":1.3241,\"ppd\":2.227,\"rank\":48,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":0.135,\"sr\":43.81,\"xpl\":1.2425,\"ppd\":2.305,\"rank\":85,\"nFbs\":136,\"games\":12}},\"missouri\":{\"off\":{\"epa\":0.1261,\"sr\":44.62,\"xpl\":1.219,\"ppd\":2.271,\"rank\":49,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":-0.0239,\"sr\":32.26,\"xpl\":1.3125,\"ppd\":1.599,\"rank\":19,\"nFbs\":136,\"games\":12}},\"arizona\":{\"off\":{\"epa\":0.1243,\"sr\":42.31,\"xpl\":1.2871,\"ppd\":2.411,\"rank\":50,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":-0.073,\"sr\":37.07,\"xpl\":1.2437,\"ppd\":1.639,\"rank\":9,\"nFbs\":136,\"games\":12}},\"eastern-michigan\":{\"off\":{\"epa\":0.124,\"sr\":40.72,\"xpl\":1.2437,\"ppd\":2.172,\"rank\":51,\"nFbs\":136,\"games\":11},\"def\":{\"epa\":0.2703,\"sr\":47.13,\"xpl\":1.3076,\"ppd\":2.748,\"rank\":133,\"nFbs\":136,\"games\":11}},\"utsa\":{\"off\":{\"epa\":0.1213,\"sr\":42.35,\"xpl\":1.3235,\"ppd\":2.599,\"rank\":52,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":0.049,\"sr\":38.17,\"xpl\":1.3893,\"ppd\":2.021,\"rank\":44,\"nFbs\":136,\"games\":12}},\"old-dominion\":{\"off\":{\"epa\":0.1202,\"sr\":44.16,\"xpl\":1.2089,\"ppd\":2.234,\"rank\":53,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":-0.054,\"sr\":38.82,\"xpl\":1.0423,\"ppd\":1.456,\"rank\":12,\"nFbs\":136,\"games\":12}},\"toledo\":{\"off\":{\"epa\":0.1183,\"sr\":41.78,\"xpl\":1.2245,\"ppd\":2.109,\"rank\":54,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":-0.0128,\"sr\":38.41,\"xpl\":1.2413,\"ppd\":1.078,\"rank\":23,\"nFbs\":136,\"games\":12}},\"temple\":{\"off\":{\"epa\":0.1162,\"sr\":40.14,\"xpl\":1.1857,\"ppd\":2.096,\"rank\":55,\"nFbs\":136,\"games\":11},\"def\":{\"epa\":0.199,\"sr\":44.95,\"xpl\":1.2536,\"ppd\":3.129,\"rank\":115,\"nFbs\":136,\"games\":11}},\"houston\":{\"off\":{\"epa\":0.1148,\"sr\":44.29,\"xpl\":1.2111,\"ppd\":2.613,\"rank\":56,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":0.1211,\"sr\":43.98,\"xpl\":1.1808,\"ppd\":2.125,\"rank\":74,\"nFbs\":136,\"games\":12}},\"mississippi-state\":{\"off\":{\"epa\":0.1134,\"sr\":42.95,\"xpl\":1.2742,\"ppd\":2.157,\"rank\":57,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":0.1033,\"sr\":41.3,\"xpl\":1.2969,\"ppd\":2.54,\"rank\":65,\"nFbs\":136,\"games\":12}},\"iowa\":{\"off\":{\"epa\":0.1105,\"sr\":43.11,\"xpl\":1.1515,\"ppd\":2.349,\"rank\":58,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":-0.1003,\"sr\":37.28,\"xpl\":1.0517,\"ppd\":1.474,\"rank\":7,\"nFbs\":136,\"games\":12}},\"east-carolina\":{\"off\":{\"epa\":0.1093,\"sr\":43.5,\"xpl\":1.183,\"ppd\":2.214,\"rank\":59,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":-0.0022,\"sr\":39.7,\"xpl\":1.2638,\"ppd\":1.545,\"rank\":26,\"nFbs\":136,\"games\":12}},\"boston-college\":{\"off\":{\"epa\":0.1081,\"sr\":43.18,\"xpl\":1.2279,\"ppd\":2.109,\"rank\":60,\"nFbs\":136,\"games\":11},\"def\":{\"epa\":0.1915,\"sr\":42.06,\"xpl\":1.389,\"ppd\":2.835,\"rank\":110,\"nFbs\":136,\"games\":11}},\"clemson\":{\"off\":{\"epa\":0.1066,\"sr\":43.01,\"xpl\":1.1988,\"ppd\":2.08,\"rank\":61,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":0.0113,\"sr\":37.27,\"xpl\":1.3165,\"ppd\":1.643,\"rank\":30,\"nFbs\":136,\"games\":12}},\"virginia\":{\"off\":{\"epa\":0.1064,\"sr\":40.99,\"xpl\":1.2894,\"ppd\":2.24,\"rank\":62,\"nFbs\":136,\"games\":13},\"def\":{\"epa\":-0.0016,\"sr\":36.41,\"xpl\":1.2043,\"ppd\":1.918,\"rank\":27,\"nFbs\":136,\"games\":13}},\"kennesaw-state\":{\"off\":{\"epa\":0.1029,\"sr\":40.26,\"xpl\":1.3468,\"ppd\":1.987,\"rank\":63,\"nFbs\":136,\"games\":13},\"def\":{\"epa\":0.1626,\"sr\":45.31,\"xpl\":1.1815,\"ppd\":2.27,\"rank\":95,\"nFbs\":136,\"games\":13}},\"pittsburgh\":{\"off\":{\"epa\":0.1026,\"sr\":41.43,\"xpl\":1.2934,\"ppd\":2.172,\"rank\":64,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":-0.0549,\"sr\":35.44,\"xpl\":1.3643,\"ppd\":1.975,\"rank\":11,\"nFbs\":136,\"games\":12}},\"ucla\":{\"off\":{\"epa\":0.1009,\"sr\":42.27,\"xpl\":1.1851,\"ppd\":1.713,\"rank\":65,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":0.125,\"sr\":45.79,\"xpl\":1.1381,\"ppd\":3.085,\"rank\":78,\"nFbs\":136,\"games\":12}},\"nebraska\":{\"off\":{\"epa\":0.099,\"sr\":44.42,\"xpl\":1.1676,\"ppd\":2.221,\"rank\":66,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":0.1129,\"sr\":42.23,\"xpl\":1.2651,\"ppd\":2.336,\"rank\":70,\"nFbs\":136,\"games\":12}},\"florida\":{\"off\":{\"epa\":0.0986,\"sr\":44.71,\"xpl\":1.1096,\"ppd\":1.625,\"rank\":67,\"nFbs\":136,\"games\":11},\"def\":{\"epa\":0.0732,\"sr\":39.92,\"xpl\":1.3153,\"ppd\":2.273,\"rank\":52,\"nFbs\":136,\"games\":11}},\"marshall\":{\"off\":{\"epa\":0.0985,\"sr\":42.03,\"xpl\":1.17,\"ppd\":2.596,\"rank\":68,\"nFbs\":136,\"games\":11},\"def\":{\"epa\":0.1214,\"sr\":40.89,\"xpl\":1.3886,\"ppd\":2.504,\"rank\":75,\"nFbs\":136,\"games\":11}},\"missouri-state\":{\"off\":{\"epa\":0.0972,\"sr\":38.2,\"xpl\":1.4672,\"ppd\":2.136,\"rank\":69,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":0.2235,\"sr\":44.77,\"xpl\":1.3307,\"ppd\":2.305,\"rank\":125,\"nFbs\":136,\"games\":12}},\"michigan-state\":{\"off\":{\"epa\":0.0832,\"sr\":42.21,\"xpl\":1.2266,\"ppd\":2.198,\"rank\":70,\"nFbs\":136,\"games\":11},\"def\":{\"epa\":0.0956,\"sr\":42.67,\"xpl\":1.2053,\"ppd\":2.614,\"rank\":61,\"nFbs\":136,\"games\":11}},\"california\":{\"off\":{\"epa\":0.081,\"sr\":41.03,\"xpl\":1.2569,\"ppd\":1.929,\"rank\":71,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":0.1335,\"sr\":42.75,\"xpl\":1.169,\"ppd\":2.593,\"rank\":83,\"nFbs\":136,\"games\":12}},\"washington-state\":{\"off\":{\"epa\":0.0804,\"sr\":44.11,\"xpl\":1.0785,\"ppd\":2.029,\"rank\":72,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":0.0234,\"sr\":40.47,\"xpl\":1.1043,\"ppd\":1.699,\"rank\":39,\"nFbs\":136,\"games\":12}},\"oklahoma\":{\"off\":{\"epa\":0.0801,\"sr\":41.63,\"xpl\":1.2934,\"ppd\":1.893,\"rank\":73,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":-0.1109,\"sr\":29.24,\"xpl\":1.3376,\"ppd\":1.221,\"rank\":4,\"nFbs\":136,\"games\":12}},\"boise-state\":{\"off\":{\"epa\":0.0771,\"sr\":39.9,\"xpl\":1.2678,\"ppd\":2.195,\"rank\":74,\"nFbs\":136,\"games\":13},\"def\":{\"epa\":0.0208,\"sr\":35.76,\"xpl\":1.333,\"ppd\":1.944,\"rank\":36,\"nFbs\":136,\"games\":13}},\"purdue\":{\"off\":{\"epa\":0.0747,\"sr\":41.95,\"xpl\":1.2783,\"ppd\":1.592,\"rank\":75,\"nFbs\":136,\"games\":11},\"def\":{\"epa\":0.1665,\"sr\":44.18,\"xpl\":1.237,\"ppd\":2.705,\"rank\":98,\"nFbs\":136,\"games\":11}},\"army\":{\"off\":{\"epa\":0.0734,\"sr\":39.49,\"xpl\":1.1595,\"ppd\":2.582,\"rank\":76,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":0.0778,\"sr\":44.8,\"xpl\":1.1014,\"ppd\":2.185,\"rank\":53,\"nFbs\":136,\"games\":12}},\"wake-forest\":{\"off\":{\"epa\":0.0722,\"sr\":38.49,\"xpl\":1.3912,\"ppd\":1.87,\"rank\":77,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":-0.0451,\"sr\":35.12,\"xpl\":1.1587,\"ppd\":1.902,\"rank\":14,\"nFbs\":136,\"games\":12}},\"south-carolina\":{\"off\":{\"epa\":0.0692,\"sr\":41.8,\"xpl\":1.2788,\"ppd\":1.609,\"rank\":78,\"nFbs\":136,\"games\":11},\"def\":{\"epa\":0.0171,\"sr\":40.19,\"xpl\":1.1605,\"ppd\":1.731,\"rank\":35,\"nFbs\":136,\"games\":11}},\"ohio\":{\"off\":{\"epa\":0.0682,\"sr\":40.96,\"xpl\":1.1963,\"ppd\":2.3,\"rank\":79,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":0.1001,\"sr\":44.53,\"xpl\":1.268,\"ppd\":1.853,\"rank\":62,\"nFbs\":136,\"games\":12}},\"new-mexico\":{\"off\":{\"epa\":0.067,\"sr\":39.57,\"xpl\":1.2914,\"ppd\":2.318,\"rank\":80,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":0.0714,\"sr\":40.13,\"xpl\":1.2803,\"ppd\":1.954,\"rank\":51,\"nFbs\":136,\"games\":12}},\"delaware\":{\"off\":{\"epa\":0.0652,\"sr\":40.04,\"xpl\":1.3194,\"ppd\":2.264,\"rank\":81,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":0.2355,\"sr\":44.4,\"xpl\":1.4179,\"ppd\":2.493,\"rank\":129,\"nFbs\":136,\"games\":12}},\"louisiana-tech\":{\"off\":{\"epa\":0.063,\"sr\":38.4,\"xpl\":1.2402,\"ppd\":1.803,\"rank\":82,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":0.0918,\"sr\":40.67,\"xpl\":1.3527,\"ppd\":1.686,\"rank\":58,\"nFbs\":136,\"games\":12}},\"south-alabama\":{\"off\":{\"epa\":0.0629,\"sr\":39.57,\"xpl\":1.2098,\"ppd\":2.254,\"rank\":83,\"nFbs\":136,\"games\":11},\"def\":{\"epa\":0.2147,\"sr\":43.54,\"xpl\":1.3163,\"ppd\":2.68,\"rank\":120,\"nFbs\":136,\"games\":11}},\"minnesota\":{\"off\":{\"epa\":0.0624,\"sr\":37.88,\"xpl\":1.2147,\"ppd\":1.565,\"rank\":84,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":0.1347,\"sr\":42.32,\"xpl\":1.242,\"ppd\":2.215,\"rank\":84,\"nFbs\":136,\"games\":12}},\"liberty\":{\"off\":{\"epa\":0.0618,\"sr\":42.19,\"xpl\":1.1557,\"ppd\":2.678,\"rank\":85,\"nFbs\":136,\"games\":11},\"def\":{\"epa\":0.2015,\"sr\":44.93,\"xpl\":1.1958,\"ppd\":2.216,\"rank\":116,\"nFbs\":136,\"games\":11}},\"jacksonville-state\":{\"off\":{\"epa\":0.0603,\"sr\":39.81,\"xpl\":1.289,\"ppd\":2.289,\"rank\":86,\"nFbs\":136,\"games\":13},\"def\":{\"epa\":0.181,\"sr\":45.46,\"xpl\":1.2984,\"ppd\":2.04,\"rank\":106,\"nFbs\":136,\"games\":13}},\"arizona-state\":{\"off\":{\"epa\":0.0587,\"sr\":40.51,\"xpl\":1.1892,\"ppd\":1.946,\"rank\":87,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":0.0246,\"sr\":39.45,\"xpl\":1.2187,\"ppd\":1.966,\"rank\":40,\"nFbs\":136,\"games\":12}},\"northwestern\":{\"off\":{\"epa\":0.0587,\"sr\":42.0,\"xpl\":1.1945,\"ppd\":2.025,\"rank\":88,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":0.0827,\"sr\":44.05,\"xpl\":1.161,\"ppd\":1.943,\"rank\":55,\"nFbs\":136,\"games\":12}},\"hawaii\":{\"off\":{\"epa\":0.0586,\"sr\":39.69,\"xpl\":1.3422,\"ppd\":2.248,\"rank\":89,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":0.1716,\"sr\":44.49,\"xpl\":1.3066,\"ppd\":1.978,\"rank\":100,\"nFbs\":136,\"games\":12}},\"lsu\":{\"off\":{\"epa\":0.0553,\"sr\":40.53,\"xpl\":1.1624,\"ppd\":1.614,\"rank\":90,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":-0.0589,\"sr\":35.88,\"xpl\":1.2411,\"ppd\":1.61,\"rank\":10,\"nFbs\":136,\"games\":12}},\"north-carolina\":{\"off\":{\"epa\":0.0527,\"sr\":39.62,\"xpl\":1.2006,\"ppd\":1.58,\"rank\":91,\"nFbs\":136,\"games\":11},\"def\":{\"epa\":0.1648,\"sr\":42.85,\"xpl\":1.1971,\"ppd\":2.353,\"rank\":96,\"nFbs\":136,\"games\":11}},\"colorado\":{\"off\":{\"epa\":0.047,\"sr\":37.14,\"xpl\":1.3479,\"ppd\":1.717,\"rank\":92,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":0.1177,\"sr\":41.61,\"xpl\":1.3264,\"ppd\":2.372,\"rank\":72,\"nFbs\":136,\"games\":12}},\"colorado-state\":{\"off\":{\"epa\":0.0462,\"sr\":39.44,\"xpl\":1.2355,\"ppd\":1.52,\"rank\":93,\"nFbs\":136,\"games\":11},\"def\":{\"epa\":0.2208,\"sr\":45.73,\"xpl\":1.2754,\"ppd\":2.682,\"rank\":123,\"nFbs\":136,\"games\":11}},\"kentucky\":{\"off\":{\"epa\":0.0461,\"sr\":43.09,\"xpl\":1.1595,\"ppd\":1.773,\"rank\":94,\"nFbs\":136,\"games\":11},\"def\":{\"epa\":0.011,\"sr\":39.78,\"xpl\":1.2472,\"ppd\":2.31,\"rank\":29,\"nFbs\":136,\"games\":11}},\"stanford\":{\"off\":{\"epa\":0.0453,\"sr\":38.59,\"xpl\":1.2334,\"ppd\":1.478,\"rank\":95,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":0.1004,\"sr\":40.13,\"xpl\":1.3208,\"ppd\":2.436,\"rank\":63,\"nFbs\":136,\"games\":12}},\"georgia-state\":{\"off\":{\"epa\":0.0428,\"sr\":39.92,\"xpl\":1.2149,\"ppd\":1.693,\"rank\":96,\"nFbs\":136,\"games\":11},\"def\":{\"epa\":0.2353,\"sr\":46.12,\"xpl\":1.2559,\"ppd\":3.543,\"rank\":128,\"nFbs\":136,\"games\":11}},\"san-jose-state\":{\"off\":{\"epa\":0.0425,\"sr\":42.12,\"xpl\":1.1881,\"ppd\":1.723,\"rank\":97,\"nFbs\":136,\"games\":11},\"def\":{\"epa\":0.1936,\"sr\":45.02,\"xpl\":1.2356,\"ppd\":2.473,\"rank\":112,\"nFbs\":136,\"games\":11}},\"san-diego-state\":{\"off\":{\"epa\":0.0417,\"sr\":40.27,\"xpl\":1.2033,\"ppd\":1.85,\"rank\":98,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":-0.0356,\"sr\":38.18,\"xpl\":1.1826,\"ppd\":1.367,\"rank\":16,\"nFbs\":136,\"games\":12}},\"western-kentucky\":{\"off\":{\"epa\":0.041,\"sr\":40.81,\"xpl\":1.1867,\"ppd\":2.086,\"rank\":99,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":0.1215,\"sr\":40.42,\"xpl\":1.3219,\"ppd\":1.973,\"rank\":76,\"nFbs\":136,\"games\":12}},\"southern-miss\":{\"off\":{\"epa\":0.0408,\"sr\":36.77,\"xpl\":1.2949,\"ppd\":2.067,\"rank\":100,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":0.1094,\"sr\":43.96,\"xpl\":1.2469,\"ppd\":2.139,\"rank\":68,\"nFbs\":136,\"games\":12}},\"middle-tennessee\":{\"off\":{\"epa\":0.0311,\"sr\":40.73,\"xpl\":1.2652,\"ppd\":1.954,\"rank\":101,\"nFbs\":136,\"games\":11},\"def\":{\"epa\":0.2204,\"sr\":46.81,\"xpl\":1.2679,\"ppd\":2.765,\"rank\":122,\"nFbs\":136,\"games\":11}},\"maryland\":{\"off\":{\"epa\":0.0281,\"sr\":37.51,\"xpl\":1.3328,\"ppd\":1.643,\"rank\":102,\"nFbs\":136,\"games\":11},\"def\":{\"epa\":0.0579,\"sr\":43.11,\"xpl\":1.2329,\"ppd\":2.142,\"rank\":45,\"nFbs\":136,\"games\":11}},\"ucf\":{\"off\":{\"epa\":0.028,\"sr\":39.42,\"xpl\":1.3037,\"ppd\":1.651,\"rank\":103,\"nFbs\":136,\"games\":11},\"def\":{\"epa\":0.0603,\"sr\":42.49,\"xpl\":1.1285,\"ppd\":2.142,\"rank\":48,\"nFbs\":136,\"games\":11}},\"florida-atlantic\":{\"off\":{\"epa\":0.0192,\"sr\":38.47,\"xpl\":1.4016,\"ppd\":2.038,\"rank\":104,\"nFbs\":136,\"games\":11},\"def\":{\"epa\":0.1907,\"sr\":45.16,\"xpl\":1.2503,\"ppd\":2.923,\"rank\":109,\"nFbs\":136,\"games\":11}},\"central-michigan\":{\"off\":{\"epa\":0.0177,\"sr\":37.54,\"xpl\":1.1778,\"ppd\":1.677,\"rank\":105,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":0.1046,\"sr\":45.0,\"xpl\":1.199,\"ppd\":1.977,\"rank\":66,\"nFbs\":136,\"games\":12}},\"west-virginia\":{\"off\":{\"epa\":0.015,\"sr\":37.2,\"xpl\":1.2557,\"ppd\":1.566,\"rank\":106,\"nFbs\":136,\"games\":11},\"def\":{\"epa\":0.1014,\"sr\":40.5,\"xpl\":1.3681,\"ppd\":2.543,\"rank\":64,\"nFbs\":136,\"games\":11}},\"oregon-state\":{\"off\":{\"epa\":0.0128,\"sr\":40.86,\"xpl\":1.1682,\"ppd\":1.674,\"rank\":107,\"nFbs\":136,\"games\":11},\"def\":{\"epa\":0.179,\"sr\":40.11,\"xpl\":1.436,\"ppd\":2.562,\"rank\":104,\"nFbs\":136,\"games\":11}},\"louisiana\":{\"off\":{\"epa\":0.0058,\"sr\":37.51,\"xpl\":1.1667,\"ppd\":1.943,\"rank\":108,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":0.1794,\"sr\":47.44,\"xpl\":1.1641,\"ppd\":2.471,\"rank\":105,\"nFbs\":136,\"games\":12}},\"wisconsin\":{\"off\":{\"epa\":0.0043,\"sr\":39.03,\"xpl\":1.2748,\"ppd\":1.48,\"rank\":109,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":0.066,\"sr\":41.75,\"xpl\":1.167,\"ppd\":1.969,\"rank\":49,\"nFbs\":136,\"games\":12}},\"uab\":{\"off\":{\"epa\":0.0041,\"sr\":39.83,\"xpl\":1.2779,\"ppd\":2.017,\"rank\":110,\"nFbs\":136,\"games\":11},\"def\":{\"epa\":0.2181,\"sr\":47.02,\"xpl\":1.2455,\"ppd\":3.974,\"rank\":121,\"nFbs\":136,\"games\":11}},\"western-michigan\":{\"off\":{\"epa\":-0.0003,\"sr\":38.67,\"xpl\":1.1075,\"ppd\":2.788,\"rank\":111,\"nFbs\":136,\"games\":13},\"def\":{\"epa\":0.0249,\"sr\":39.55,\"xpl\":1.2645,\"ppd\":2.121,\"rank\":41,\"nFbs\":136,\"games\":13}},\"app-state\":{\"off\":{\"epa\":-0.0034,\"sr\":37.87,\"xpl\":1.2473,\"ppd\":1.924,\"rank\":112,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":0.1864,\"sr\":47.53,\"xpl\":1.2219,\"ppd\":2.483,\"rank\":107,\"nFbs\":136,\"games\":12}},\"tulsa\":{\"off\":{\"epa\":-0.0104,\"sr\":39.54,\"xpl\":1.2505,\"ppd\":2.147,\"rank\":113,\"nFbs\":136,\"games\":11},\"def\":{\"epa\":0.1524,\"sr\":44.43,\"xpl\":1.2444,\"ppd\":2.687,\"rank\":91,\"nFbs\":136,\"games\":11}},\"fiu\":{\"off\":{\"epa\":-0.0122,\"sr\":36.94,\"xpl\":1.3156,\"ppd\":2.077,\"rank\":114,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":0.1125,\"sr\":43.63,\"xpl\":1.2415,\"ppd\":2.447,\"rank\":69,\"nFbs\":136,\"games\":12}},\"coastal-carolina\":{\"off\":{\"epa\":-0.0185,\"sr\":35.81,\"xpl\":1.2774,\"ppd\":1.497,\"rank\":115,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":0.1717,\"sr\":45.47,\"xpl\":1.2897,\"ppd\":2.38,\"rank\":101,\"nFbs\":136,\"games\":12}},\"ul-monroe\":{\"off\":{\"epa\":-0.0197,\"sr\":35.2,\"xpl\":1.4156,\"ppd\":1.182,\"rank\":116,\"nFbs\":136,\"games\":11},\"def\":{\"epa\":0.2213,\"sr\":43.46,\"xpl\":1.3836,\"ppd\":2.828,\"rank\":124,\"nFbs\":136,\"games\":11}},\"kent-state\":{\"off\":{\"epa\":-0.0217,\"sr\":34.39,\"xpl\":1.3667,\"ppd\":1.462,\"rank\":117,\"nFbs\":136,\"games\":11},\"def\":{\"epa\":0.2275,\"sr\":48.8,\"xpl\":1.2629,\"ppd\":2.754,\"rank\":126,\"nFbs\":136,\"games\":11}},\"miami-oh\":{\"off\":{\"epa\":-0.0227,\"sr\":36.62,\"xpl\":1.1964,\"ppd\":1.723,\"rank\":118,\"nFbs\":136,\"games\":13},\"def\":{\"epa\":0.1284,\"sr\":42.86,\"xpl\":1.266,\"ppd\":1.868,\"rank\":80,\"nFbs\":136,\"games\":13}},\"arkansas-state\":{\"off\":{\"epa\":-0.0283,\"sr\":38.22,\"xpl\":1.1397,\"ppd\":1.926,\"rank\":119,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":0.1773,\"sr\":44.96,\"xpl\":1.2622,\"ppd\":2.25,\"rank\":103,\"nFbs\":136,\"games\":12}},\"syracuse\":{\"off\":{\"epa\":-0.0288,\"sr\":38.61,\"xpl\":1.1646,\"ppd\":1.207,\"rank\":120,\"nFbs\":136,\"games\":11},\"def\":{\"epa\":0.1729,\"sr\":41.94,\"xpl\":1.338,\"ppd\":2.586,\"rank\":102,\"nFbs\":136,\"games\":11}},\"nevada\":{\"off\":{\"epa\":-0.0348,\"sr\":37.19,\"xpl\":1.1996,\"ppd\":1.283,\"rank\":121,\"nFbs\":136,\"games\":11},\"def\":{\"epa\":0.1666,\"sr\":44.09,\"xpl\":1.2017,\"ppd\":2.268,\"rank\":99,\"nFbs\":136,\"games\":11}},\"fresno-state\":{\"off\":{\"epa\":-0.0461,\"sr\":36.73,\"xpl\":1.2335,\"ppd\":1.816,\"rank\":122,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":0.0131,\"sr\":39.9,\"xpl\":1.1696,\"ppd\":1.858,\"rank\":32,\"nFbs\":136,\"games\":12}},\"northern-illinois\":{\"off\":{\"epa\":-0.0484,\"sr\":32.95,\"xpl\":1.2733,\"ppd\":1.41,\"rank\":123,\"nFbs\":136,\"games\":11},\"def\":{\"epa\":0.2416,\"sr\":48.69,\"xpl\":1.1902,\"ppd\":2.174,\"rank\":130,\"nFbs\":136,\"games\":11}},\"troy\":{\"off\":{\"epa\":-0.0558,\"sr\":36.16,\"xpl\":1.2485,\"ppd\":2.113,\"rank\":124,\"nFbs\":136,\"games\":13},\"def\":{\"epa\":0.0895,\"sr\":41.26,\"xpl\":1.2752,\"ppd\":1.826,\"rank\":57,\"nFbs\":136,\"games\":13}},\"oklahoma-state\":{\"off\":{\"epa\":-0.066,\"sr\":35.12,\"xpl\":1.2325,\"ppd\":1.068,\"rank\":125,\"nFbs\":136,\"games\":11},\"def\":{\"epa\":0.1924,\"sr\":42.93,\"xpl\":1.3388,\"ppd\":2.677,\"rank\":111,\"nFbs\":136,\"games\":11}},\"akron\":{\"off\":{\"epa\":-0.0697,\"sr\":35.22,\"xpl\":1.1875,\"ppd\":1.542,\"rank\":126,\"nFbs\":136,\"games\":11},\"def\":{\"epa\":0.2289,\"sr\":46.57,\"xpl\":1.3384,\"ppd\":2.116,\"rank\":127,\"nFbs\":136,\"games\":11}},\"rice\":{\"off\":{\"epa\":-0.0739,\"sr\":31.99,\"xpl\":1.3068,\"ppd\":1.534,\"rank\":127,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":0.2098,\"sr\":41.78,\"xpl\":1.477,\"ppd\":2.699,\"rank\":119,\"nFbs\":136,\"games\":12}},\"new-mexico-state\":{\"off\":{\"epa\":-0.0783,\"sr\":35.83,\"xpl\":1.272,\"ppd\":1.691,\"rank\":128,\"nFbs\":136,\"games\":11},\"def\":{\"epa\":0.1373,\"sr\":45.66,\"xpl\":1.1716,\"ppd\":2.193,\"rank\":86,\"nFbs\":136,\"games\":11}},\"wyoming\":{\"off\":{\"epa\":-0.0808,\"sr\":34.67,\"xpl\":1.1961,\"ppd\":1.077,\"rank\":129,\"nFbs\":136,\"games\":11},\"def\":{\"epa\":0.0796,\"sr\":39.61,\"xpl\":1.2759,\"ppd\":1.631,\"rank\":54,\"nFbs\":136,\"games\":11}},\"bowling-green\":{\"off\":{\"epa\":-0.0832,\"sr\":33.36,\"xpl\":1.3256,\"ppd\":1.602,\"rank\":130,\"nFbs\":136,\"games\":11},\"def\":{\"epa\":0.1583,\"sr\":44.28,\"xpl\":1.3039,\"ppd\":1.885,\"rank\":93,\"nFbs\":136,\"games\":11}},\"buffalo\":{\"off\":{\"epa\":-0.0833,\"sr\":33.92,\"xpl\":1.1923,\"ppd\":1.816,\"rank\":131,\"nFbs\":136,\"games\":11},\"def\":{\"epa\":0.1452,\"sr\":44.01,\"xpl\":1.2747,\"ppd\":1.68,\"rank\":88,\"nFbs\":136,\"games\":11}},\"sam-houston\":{\"off\":{\"epa\":-0.0973,\"sr\":35.42,\"xpl\":1.2196,\"ppd\":1.171,\"rank\":132,\"nFbs\":136,\"games\":12},\"def\":{\"epa\":0.2562,\"sr\":49.74,\"xpl\":1.2451,\"ppd\":2.628,\"rank\":131,\"nFbs\":136,\"games\":12}},\"ball-state\":{\"off\":{\"epa\":-0.1039,\"sr\":29.12,\"xpl\":1.2862,\"ppd\":1.108,\"rank\":133,\"nFbs\":136,\"games\":11},\"def\":{\"epa\":0.1542,\"sr\":46.5,\"xpl\":1.3179,\"ppd\":2.28,\"rank\":92,\"nFbs\":136,\"games\":11}},\"charlotte\":{\"off\":{\"epa\":-0.124,\"sr\":33.08,\"xpl\":1.1956,\"ppd\":0.939,\"rank\":134,\"nFbs\":136,\"games\":11},\"def\":{\"epa\":0.1494,\"sr\":50.74,\"xpl\":1.0838,\"ppd\":2.831,\"rank\":90,\"nFbs\":136,\"games\":11}},\"massachusetts\":{\"off\":{\"epa\":-0.1598,\"sr\":31.37,\"xpl\":1.1775,\"ppd\":0.794,\"rank\":135,\"nFbs\":136,\"games\":11},\"def\":{\"epa\":0.3284,\"sr\":52.36,\"xpl\":1.1677,\"ppd\":3.317,\"rank\":135,\"nFbs\":136,\"games\":11}},\"utep\":{\"off\":{\"epa\":-0.1822,\"sr\":31.14,\"xpl\":1.3399,\"ppd\":1.377,\"rank\":136,\"nFbs\":136,\"games\":11},\"def\":{\"epa\":0.1092,\"sr\":42.09,\"xpl\":1.1583,\"ppd\":2.147,\"rank\":67,\"nFbs\":136,\"games\":11}}}"),
+	coaches: [
+		{
+			"name": "Cody Worley",
+			"unit": "off",
+			"team": "army",
+			"title": "Offensive Coordinator / Quarterbacks",
+			"history": [
+				{
+					"season": 2024,
+					"team": "army",
+					"status": "credited",
+					"title": "Offensive Coordinator / Quarterbacks",
+					"staffUrl": "https://goarmywestpoint.com/sports/football/roster/2024",
+					"playcall": null,
+					"stats": {
+						"epa": .2128,
+						"sr": 47.75,
+						"xpl": 1.0749,
+						"ppd": 3.363,
+						"rank": 23,
+						"nFbs": 134,
+						"games": 12
+					}
+				},
+				{
+					"season": 2025,
+					"team": "army",
+					"status": "credited",
+					"title": "Offensive Coordinator / Quarterbacks",
+					"staffUrl": "https://goarmywestpoint.com/sports/football/roster/2025",
+					"playcall": null,
+					"stats": {
+						"epa": .0734,
+						"sr": 39.49,
+						"xpl": 1.1595,
+						"ppd": 2.582,
+						"rank": 76,
+						"nFbs": 136,
+						"games": 12
+					}
+				},
+				{
+					"season": 2026,
+					"team": "army",
+					"status": "credited",
+					"title": "Offensive Coordinator / Quarterbacks",
+					"staffUrl": "https://goarmywestpoint.com/sports/football/coaches",
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Daryl Dixon",
+			"unit": "def",
+			"team": "army",
+			"title": "Defensive Coordinator",
+			"history": [{
+				"season": 2026,
+				"team": "army",
+				"status": "excluded",
+				"title": "Defensive Coordinator",
+				"staffUrl": "https://goarmywestpoint.com/sports/football/coaches",
+				"reasons": ["a co-coordinator is also listed"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Scot Sloan",
+			"unit": "def",
+			"team": "army",
+			"title": "Co-Defensive Coordinator / Safeties",
+			"history": [{
+				"season": 2024,
+				"team": "app-state",
+				"status": "credited",
+				"title": "Defensive Coordinator",
+				"staffUrl": "https://appstatesports.com/sports/football/roster/2024",
+				"playcall": null,
+				"stats": {
+					"epa": .2316,
+					"sr": 49.69,
+					"xpl": 1.162,
+					"ppd": 2.838,
+					"rank": 119,
+					"nFbs": 134,
+					"games": 10
+				}
+			}, {
+				"season": 2026,
+				"team": "army",
+				"status": "excluded",
+				"title": "Co-Defensive Coordinator / Safeties",
+				"staffUrl": "https://goarmywestpoint.com/sports/football/coaches",
+				"reasons": ["co-coordinator"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Todd Fitch",
+			"unit": "off",
+			"team": "charlotte",
+			"title": "Associate Head Coach -- Offensive Coordinator/Quarterbacks",
+			"history": [{
+				"season": 2025,
+				"team": "charlotte",
+				"status": "credited",
+				"title": "Associate Head Coach -- Offensive Coordinator/Quarterbacks",
+				"staffUrl": "https://web.archive.org/web/20260603215605id_/https://charlotte49ers.com/sports/football/roster/2025",
+				"playcall": null,
+				"stats": {
+					"epa": -.124,
+					"sr": 33.08,
+					"xpl": 1.1956,
+					"ppd": .939,
+					"rank": 134,
+					"nFbs": 136,
+					"games": 11
+				}
+			}, {
+				"season": 2026,
+				"team": "charlotte",
+				"status": "credited",
+				"title": "Associate Head Coach -- Offensive Coordinator/Quarterbacks",
+				"staffUrl": "https://charlotte49ers.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Nate Faanes",
+			"unit": "def",
+			"team": "charlotte",
+			"title": "Defensive Coordinator -- Linebackers",
+			"history": [
+				{
+					"season": 2024,
+					"team": "ohio",
+					"status": "excluded",
+					"title": "Co-Defensive Coordinator/Special Teams Coordinator/Linebackers",
+					"staffUrl": "https://ohiobobcats.com/sports/football/roster/2024",
+					"reasons": ["co-coordinator season (also listed: John Hauser)"],
+					"playcall": null,
+					"stats": {
+						"epa": .0972,
+						"sr": 40.78,
+						"xpl": 1.2458,
+						"ppd": 1.474,
+						"rank": 66,
+						"nFbs": 134,
+						"games": 13
+					}
+				},
+				{
+					"season": 2025,
+					"team": "charlotte",
+					"status": "excluded",
+					"title": "Defensive Coordinator -- Linebackers",
+					"staffUrl": "https://web.archive.org/web/20260603215605id_/https://charlotte49ers.com/sports/football/roster/2025",
+					"reasons": ["co-coordinator season (also listed: Kurt Mattix)"],
+					"playcall": null,
+					"stats": {
+						"epa": .1494,
+						"sr": 50.74,
+						"xpl": 1.0838,
+						"ppd": 2.831,
+						"rank": 90,
+						"nFbs": 136,
+						"games": 11
+					}
+				},
+				{
+					"season": 2026,
+					"team": "charlotte",
+					"status": "credited",
+					"title": "Defensive Coordinator -- Linebackers",
+					"staffUrl": "https://charlotte49ers.com/sports/football/coaches",
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Jordan Davis",
+			"unit": "off",
+			"team": "east-carolina",
+			"title": "Offensive Coordinator/Quarterbacks",
+			"history": [
+				{
+					"season": 2024,
+					"team": "north-texas",
+					"status": "credited",
+					"title": "Offensive Coordinator, Wide Receivers",
+					"staffUrl": "https://meangreensports.com/sports/football/roster/2024",
+					"playcall": null,
+					"stats": {
+						"epa": .1018,
+						"sr": 42.13,
+						"xpl": 1.393,
+						"ppd": 2.545,
+						"rank": 71,
+						"nFbs": 134,
+						"games": 12
+					}
+				},
+				{
+					"season": 2025,
+					"team": "north-texas",
+					"status": "excluded",
+					"title": "Offensive Coordinator, Wide Receivers",
+					"staffUrl": "https://meangreensports.com/sports/football/roster/2025",
+					"reasons": ["two head coaches that season (Eric Morris, Drew Svoboda)"],
+					"playcall": null,
+					"stats": {
+						"epa": .3054,
+						"sr": 51.22,
+						"xpl": 1.2928,
+						"ppd": 4.273,
+						"rank": 5,
+						"nFbs": 136,
+						"games": 13
+					}
+				},
+				{
+					"season": 2026,
+					"team": "east-carolina",
+					"status": "credited",
+					"title": "Offensive Coordinator/Quarterbacks",
+					"staffUrl": "https://ecupirates.com/sports/football/coaches",
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Jordon Hankins",
+			"unit": "def",
+			"team": "east-carolina",
+			"title": "Defensive Coordinator/Linebackers",
+			"history": [
+				{
+					"season": 2024,
+					"team": "memphis",
+					"status": "excluded",
+					"title": "Defensive Coordinator / Linebackers",
+					"staffUrl": "https://gotigersgo.com/sports/football/roster/2024",
+					"reasons": ["co-coordinator season (also listed: Spence Nowinsky)"],
+					"playcall": null,
+					"stats": {
+						"epa": .1696,
+						"sr": 42.86,
+						"xpl": 1.33,
+						"ppd": 2.056,
+						"rank": 98,
+						"nFbs": 134,
+						"games": 12
+					}
+				},
+				{
+					"season": 2025,
+					"team": "memphis",
+					"status": "excluded",
+					"title": "Defensive Coordinator / Linebackers",
+					"staffUrl": "https://gotigersgo.com/sports/football/roster/2025",
+					"reasons": ["two head coaches that season (Reggie Howard, Ryan Silverfield)"],
+					"playcall": null,
+					"stats": {
+						"epa": .142,
+						"sr": 40.9,
+						"xpl": 1.2851,
+						"ppd": 2.022,
+						"rank": 87,
+						"nFbs": 136,
+						"games": 12
+					}
+				},
+				{
+					"season": 2026,
+					"team": "east-carolina",
+					"status": "excluded",
+					"title": "Defensive Coordinator/Linebackers",
+					"staffUrl": "https://ecupirates.com/sports/football/coaches",
+					"reasons": ["a co-coordinator is also listed"],
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Roy Tesh",
+			"unit": "def",
+			"team": "east-carolina",
+			"title": "Co-Defensive Coordinator/Defensive Line",
+			"history": [{
+				"season": 2026,
+				"team": "east-carolina",
+				"status": "excluded",
+				"title": "Co-Defensive Coordinator/Defensive Line",
+				"staffUrl": "https://ecupirates.com/sports/football/coaches",
+				"reasons": ["co-coordinator"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Brett Dewhurst",
+			"unit": "def",
+			"team": "florida-atlantic",
+			"title": "Defensive Coordinator",
+			"history": [{
+				"season": 2025,
+				"team": "florida-atlantic",
+				"status": "excluded",
+				"title": "Defensive Coordinator",
+				"staffUrl": "https://fausports.com/sports/football/roster/2025",
+				"reasons": ["co-coordinator season (also listed: Brian Young)"],
+				"playcall": null,
+				"stats": {
+					"epa": .1907,
+					"sr": 45.16,
+					"xpl": 1.2503,
+					"ppd": 2.923,
+					"rank": 109,
+					"nFbs": 136,
+					"games": 11
+				}
+			}, {
+				"season": 2026,
+				"team": "florida-atlantic",
+				"status": "credited",
+				"title": "Defensive Coordinator",
+				"staffUrl": "https://fausports.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Kevin Decker",
+			"unit": "off",
+			"team": "memphis",
+			"title": "Offensive Coordinator / Quarterbacks Coach",
+			"history": [
+				{
+					"season": 2024,
+					"team": "old-dominion",
+					"status": "excluded",
+					"title": "Offensive Coordinator/Quarterbacks",
+					"staffUrl": "https://odusports.com/sports/football/roster/2024",
+					"reasons": ["co-coordinator season (also listed: Kody Cook)"],
+					"playcall": null,
+					"stats": {
+						"epa": .1689,
+						"sr": 40.85,
+						"xpl": 1.3745,
+						"ppd": 2.007,
+						"rank": 45,
+						"nFbs": 134,
+						"games": 12
+					}
+				},
+				{
+					"season": 2025,
+					"team": "old-dominion",
+					"status": "excluded",
+					"title": "Offensive Coordinator/Quarterbacks",
+					"staffUrl": "https://odusports.com/sports/football/roster/season/2025/",
+					"reasons": ["co-coordinator season (also listed: Kody Cook)"],
+					"playcall": null,
+					"stats": {
+						"epa": .1202,
+						"sr": 44.16,
+						"xpl": 1.2089,
+						"ppd": 2.234,
+						"rank": 53,
+						"nFbs": 136,
+						"games": 12
+					}
+				},
+				{
+					"season": 2026,
+					"team": "memphis",
+					"status": "excluded",
+					"title": "Offensive Coordinator / Quarterbacks Coach",
+					"staffUrl": "https://gotigersgo.com/sports/football/coaches",
+					"reasons": ["a co-coordinator is also listed"],
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "David Weeks",
+			"unit": "off",
+			"team": "memphis",
+			"title": "Co-Offensive Coordinator / Tight Ends Coach",
+			"history": [{
+				"season": 2026,
+				"team": "memphis",
+				"status": "excluded",
+				"title": "Co-Offensive Coordinator / Tight Ends Coach",
+				"staffUrl": "https://gotigersgo.com/sports/football/coaches",
+				"reasons": ["co-coordinator"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Lance Guidry",
+			"unit": "def",
+			"team": "memphis",
+			"title": "Defensive Coordinator / Linebackers Coach",
+			"history": [{
+				"season": 2026,
+				"team": "memphis",
+				"status": "credited",
+				"title": "Defensive Coordinator / Linebackers Coach",
+				"staffUrl": "https://gotigersgo.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Drew Cronic",
+			"unit": "off",
+			"team": "navy",
+			"title": "Offensive Coordinator",
+			"history": [
+				{
+					"season": 2024,
+					"team": "navy",
+					"status": "credited",
+					"title": "Offensive Coordinator",
+					"staffUrl": "https://navysports.com/sports/football/roster/2024",
+					"playcall": null,
+					"stats": {
+						"epa": .204,
+						"sr": 42.64,
+						"xpl": 1.3268,
+						"ppd": 2.246,
+						"rank": 28,
+						"nFbs": 134,
+						"games": 12
+					}
+				},
+				{
+					"season": 2025,
+					"team": "navy",
+					"status": "credited",
+					"title": "Offensive Coordinator",
+					"staffUrl": "https://navysports.com/sports/football/roster/2025",
+					"playcall": null,
+					"stats": {
+						"epa": .179,
+						"sr": 45.75,
+						"xpl": 1.2496,
+						"ppd": 2.869,
+						"rank": 31,
+						"nFbs": 136,
+						"games": 12
+					}
+				},
+				{
+					"season": 2026,
+					"team": "navy",
+					"status": "credited",
+					"title": "Offensive Coordinator",
+					"staffUrl": "https://navysports.com/sports/football/coaches",
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Eric Lewis",
+			"unit": "def",
+			"team": "navy",
+			"title": "Defensive Coordinator / Safeties",
+			"history": [{
+				"season": 2026,
+				"team": "navy",
+				"status": "excluded",
+				"title": "Defensive Coordinator / Safeties",
+				"staffUrl": "https://navysports.com/sports/football/coaches",
+				"reasons": ["a co-coordinator is also listed"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Ricky Brown",
+			"unit": "def",
+			"team": "navy",
+			"title": "Co-Defensive Coordinator / Outside Linebackers",
+			"history": [{
+				"season": 2026,
+				"team": "navy",
+				"status": "excluded",
+				"title": "Co-Defensive Coordinator / Outside Linebackers",
+				"staffUrl": "https://navysports.com/sports/football/coaches",
+				"reasons": ["co-coordinator"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Matt Powledge",
+			"unit": "def",
+			"team": "north-texas",
+			"title": "Defensive Coordinator",
+			"history": [
+				{
+					"season": 2024,
+					"team": "baylor",
+					"status": "credited",
+					"title": "Defensive Coordinator (Safeties)",
+					"staffUrl": "https://baylorbears.com/sports/football/roster/2024",
+					"playcall": null,
+					"stats": {
+						"epa": .0951,
+						"sr": 38.36,
+						"xpl": 1.349,
+						"ppd": 2.235,
+						"rank": 63,
+						"nFbs": 134,
+						"games": 12
+					}
+				},
+				{
+					"season": 2025,
+					"team": "baylor",
+					"status": "credited",
+					"title": "Defensive Coordinator (Safeties)",
+					"staffUrl": "https://baylorbears.com/sports/football/roster/2025",
+					"playcall": null,
+					"stats": {
+						"epa": .1313,
+						"sr": 43.57,
+						"xpl": 1.1861,
+						"ppd": 2.876,
+						"rank": 81,
+						"nFbs": 136,
+						"games": 11
+					}
+				},
+				{
+					"season": 2026,
+					"team": "north-texas",
+					"status": "excluded",
+					"title": "Defensive Coordinator",
+					"staffUrl": "https://meangreensports.com/sports/football/coaches",
+					"reasons": ["a co-coordinator is also listed"],
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Bradley Dale Peveto",
+			"unit": "def",
+			"team": "north-texas",
+			"title": "Co-Defensive Coordinator, Linebackers",
+			"history": [{
+				"season": 2024,
+				"team": "texas-state",
+				"status": "excluded",
+				"title": "Co-Defensive Coordinator/Linebackers",
+				"staffUrl": "https://txst.com/sports/football/roster/2024",
+				"reasons": ["co-coordinator season (also listed: Dexter McCoil, Sr.)"],
+				"playcall": null,
+				"stats": {
+					"epa": .1228,
+					"sr": 41.02,
+					"xpl": 1.3547,
+					"ppd": 2.021,
+					"rank": 73,
+					"nFbs": 134,
+					"games": 12
+				}
+			}, {
+				"season": 2026,
+				"team": "north-texas",
+				"status": "excluded",
+				"title": "Co-Defensive Coordinator, Linebackers",
+				"staffUrl": "https://meangreensports.com/sports/football/coaches",
+				"reasons": ["co-coordinator"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Vince Munch",
+			"unit": "off",
+			"team": "rice",
+			"title": "Offensive Coordinator/Offensive Line",
+			"history": [{
+				"season": 2026,
+				"team": "rice",
+				"status": "credited",
+				"title": "Offensive Coordinator/Offensive Line",
+				"staffUrl": "https://riceowls.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Jon Kay",
+			"unit": "def",
+			"team": "rice",
+			"title": "Defensive Coordinator",
+			"history": [{
+				"season": 2026,
+				"team": "rice",
+				"status": "credited",
+				"title": "Defensive Coordinator",
+				"staffUrl": "https://riceowls.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Tyler Walker",
+			"unit": "off",
+			"team": "temple",
+			"title": "Offensive Coordinator / Quarterbacks",
+			"history": [{
+				"season": 2025,
+				"team": "temple",
+				"status": "credited",
+				"title": "Offensive Coordinator / Quarterbacks",
+				"staffUrl": "https://owlsports.com/sports/football/roster/2025",
+				"playcall": null,
+				"stats": {
+					"epa": .1162,
+					"sr": 40.14,
+					"xpl": 1.1857,
+					"ppd": 2.096,
+					"rank": 55,
+					"nFbs": 136,
+					"games": 11
+				}
+			}, {
+				"season": 2026,
+				"team": "temple",
+				"status": "credited",
+				"title": "Offensive Coordinator / Quarterbacks",
+				"staffUrl": "https://owlsports.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Henry Baker",
+			"unit": "def",
+			"team": "temple",
+			"title": "Assistant Head Coach / Interim Defensive Coordinator / Cornerbacks",
+			"history": [{
+				"season": 2024,
+				"team": "marshall",
+				"status": "excluded",
+				"title": "Co-Defensive Coordinator/Cornerbacks",
+				"staffUrl": "https://herdzone.com/sports/football/roster/2024",
+				"reasons": ["co-coordinator season"],
+				"playcall": null,
+				"stats": {
+					"epa": .0904,
+					"sr": 42.35,
+					"xpl": 1.2676,
+					"ppd": 1.86,
+					"rank": 62,
+					"nFbs": 134,
+					"games": 12
+				}
+			}, {
+				"season": 2026,
+				"team": "temple",
+				"status": "excluded",
+				"title": "Assistant Head Coach / Interim Defensive Coordinator / Cornerbacks",
+				"staffUrl": "https://owlsports.com/sports/football/coaches",
+				"reasons": ["interim, split season"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Russ Callaway",
+			"unit": "off",
+			"team": "tulane",
+			"title": "Offensive Coordinator",
+			"history": [{
+				"season": 2026,
+				"team": "tulane",
+				"status": "credited",
+				"title": "Offensive Coordinator",
+				"staffUrl": "https://tulanegreenwave.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Tayler Polk",
+			"unit": "def",
+			"team": "tulane",
+			"title": "Defensive Coordinator/Inside Linebackers",
+			"history": [{
+				"season": 2026,
+				"team": "tulane",
+				"status": "excluded",
+				"title": "Defensive Coordinator/Inside Linebackers",
+				"staffUrl": "https://tulanegreenwave.com/sports/football/coaches",
+				"reasons": ["a co-coordinator is also listed"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Nate Fuqua",
+			"unit": "def",
+			"team": "tulane",
+			"title": "Co-Defensive Coordinator/Bandits",
+			"history": [{
+				"season": 2024,
+				"team": "cincinnati",
+				"status": "excluded",
+				"title": "Co-Defensive Coordinator / Stars",
+				"staffUrl": "https://web.archive.org/web/20240815181116id_/https://gobearcats.com/sports/football/roster/2024",
+				"reasons": ["co-coordinator season (also listed: Tyson Veidt)"],
+				"playcall": null,
+				"stats": {
+					"epa": .0641,
+					"sr": 39.78,
+					"xpl": 1.2498,
+					"ppd": 2.102,
+					"rank": 46,
+					"nFbs": 134,
+					"games": 11
+				}
+			}, {
+				"season": 2026,
+				"team": "tulane",
+				"status": "excluded",
+				"title": "Co-Defensive Coordinator/Bandits",
+				"staffUrl": "https://tulanegreenwave.com/sports/football/coaches",
+				"reasons": ["co-coordinator"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Kevin Barbay",
+			"unit": "off",
+			"team": "tulsa",
+			"title": "Offensive Coordinator",
+			"history": [{
+				"season": 2024,
+				"team": "houston",
+				"status": "excluded",
+				"title": "Offensive Coordinator/Tight Ends",
+				"staffUrl": "https://uhcougars.com/sports/football/roster/2024",
+				"reasons": ["two head coaches that season (Willie Fritz, Dana Holgorsen)"],
+				"playcall": null,
+				"stats": {
+					"epa": -.0586,
+					"sr": 39.24,
+					"xpl": 1.1646,
+					"ppd": .964,
+					"rank": 126,
+					"nFbs": 134,
+					"games": 12
+				}
+			}, {
+				"season": 2026,
+				"team": "tulsa",
+				"status": "excluded",
+				"title": "Offensive Coordinator",
+				"staffUrl": "https://tulsahurricane.com/sports/football/coaches",
+				"reasons": ["a co-coordinator is also listed"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Ty Darlington",
+			"unit": "off",
+			"team": "tulsa",
+			"title": "Co-Offensive Coordinator / Tight Ends Coach",
+			"history": [{
+				"season": 2025,
+				"team": "tulsa",
+				"status": "excluded",
+				"title": "Co-Offensive Coordinator / Tight Ends",
+				"staffUrl": "https://tulsahurricane.com/sports/football/roster/2025",
+				"reasons": ["co-coordinator season (also listed: Brad Robbins)"],
+				"playcall": null,
+				"stats": {
+					"epa": -.0104,
+					"sr": 39.54,
+					"xpl": 1.2505,
+					"ppd": 2.147,
+					"rank": 113,
+					"nFbs": 136,
+					"games": 11
+				}
+			}, {
+				"season": 2026,
+				"team": "tulsa",
+				"status": "excluded",
+				"title": "Co-Offensive Coordinator / Tight Ends Coach",
+				"staffUrl": "https://tulsahurricane.com/sports/football/coaches",
+				"reasons": ["co-coordinator"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Josh Reardon",
+			"unit": "def",
+			"team": "tulsa",
+			"title": "Defensive Coordinator / Safeties Coach",
+			"history": [{
+				"season": 2025,
+				"team": "tulsa",
+				"status": "excluded",
+				"title": "Defensive Coordinator / Safeties Coach",
+				"staffUrl": "https://tulsahurricane.com/sports/football/roster/2025",
+				"reasons": ["co-coordinator season (also listed: Mike Gray)"],
+				"playcall": null,
+				"stats": {
+					"epa": .1524,
+					"sr": 44.43,
+					"xpl": 1.2444,
+					"ppd": 2.687,
+					"rank": 91,
+					"nFbs": 136,
+					"games": 11
+				}
+			}, {
+				"season": 2026,
+				"team": "tulsa",
+				"status": "excluded",
+				"title": "Defensive Coordinator / Safeties Coach",
+				"staffUrl": "https://tulsahurricane.com/sports/football/coaches",
+				"reasons": ["a co-coordinator is also listed"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Mike Gray",
+			"unit": "def",
+			"team": "tulsa",
+			"title": "Co-Defensive Coordinator / Linebackers Coach",
+			"history": [{
+				"season": 2025,
+				"team": "tulsa",
+				"status": "excluded",
+				"title": "Co-Defensive Coordinator / Linebackers",
+				"staffUrl": "https://tulsahurricane.com/sports/football/roster/2025",
+				"reasons": ["co-coordinator season (also listed: Josh Reardon)"],
+				"playcall": null,
+				"stats": {
+					"epa": .1524,
+					"sr": 44.43,
+					"xpl": 1.2444,
+					"ppd": 2.687,
+					"rank": 91,
+					"nFbs": 136,
+					"games": 11
+				}
+			}, {
+				"season": 2026,
+				"team": "tulsa",
+				"status": "excluded",
+				"title": "Co-Defensive Coordinator / Linebackers Coach",
+				"staffUrl": "https://tulsahurricane.com/sports/football/coaches",
+				"reasons": ["co-coordinator"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Todd Grantham",
+			"unit": "def",
+			"team": "uab",
+			"title": "Defensive Coordinator",
+			"history": [{
+				"season": 2026,
+				"team": "uab",
+				"status": "credited",
+				"title": "Defensive Coordinator",
+				"staffUrl": "https://uabsports.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Tim Beck",
+			"unit": "off",
+			"team": "usf",
+			"title": "Offensive Coordinator",
+			"history": [{
+				"season": 2026,
+				"team": "usf",
+				"status": "credited",
+				"title": "Offensive Coordinator",
+				"staffUrl": "https://gousfbulls.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Josh Aldridge",
+			"unit": "def",
+			"team": "usf",
+			"title": "Defensive Coordinator/Inside Linebackers",
+			"history": [{
+				"season": 2025,
+				"team": "east-carolina",
+				"status": "credited",
+				"title": "Defensive Coordinator/Linebackers",
+				"staffUrl": "https://ecupirates.com/sports/football/roster/2025",
+				"playcall": null,
+				"stats": {
+					"epa": -.0022,
+					"sr": 39.7,
+					"xpl": 1.2638,
+					"ppd": 1.545,
+					"rank": 26,
+					"nFbs": 136,
+					"games": 12
+				}
+			}, {
+				"season": 2026,
+				"team": "usf",
+				"status": "credited",
+				"title": "Defensive Coordinator/Inside Linebackers",
+				"staffUrl": "https://gousfbulls.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Rick Bowie",
+			"unit": "off",
+			"team": "utsa",
+			"title": "Offensive Coordinator",
+			"history": [{
+				"season": 2025,
+				"team": "western-kentucky",
+				"status": "credited",
+				"title": "Assistant Coach – Offensive Coordinator/Quarterbacks",
+				"staffUrl": "https://wkusports.com/sports/football/roster/2025",
+				"playcall": null,
+				"stats": {
+					"epa": .041,
+					"sr": 40.81,
+					"xpl": 1.1867,
+					"ppd": 2.086,
+					"rank": 99,
+					"nFbs": 136,
+					"games": 12
+				}
+			}, {
+				"season": 2026,
+				"team": "utsa",
+				"status": "credited",
+				"title": "Offensive Coordinator",
+				"staffUrl": "https://goutsa.com/sports/football/roster",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Jess Loepp",
+			"unit": "def",
+			"team": "utsa",
+			"title": "Defensive Coordinator/Safeties",
+			"history": [
+				{
+					"season": 2024,
+					"team": "utsa",
+					"status": "credited",
+					"title": "Defensive Coordinator/Safeties",
+					"staffUrl": "https://goutsa.com/sports/football/roster/season/2024/",
+					"playcall": null,
+					"stats": {
+						"epa": .0654,
+						"sr": 37.21,
+						"xpl": 1.4339,
+						"ppd": 1.948,
+						"rank": 47,
+						"nFbs": 134,
+						"games": 12
+					}
+				},
+				{
+					"season": 2025,
+					"team": "utsa",
+					"status": "credited",
+					"title": "Defensive Coordinator/Safeties",
+					"staffUrl": "https://goutsa.com/sports/football/roster/season/2025/",
+					"playcall": null,
+					"stats": {
+						"epa": .049,
+						"sr": 38.17,
+						"xpl": 1.3893,
+						"ppd": 2.021,
+						"rank": 44,
+						"nFbs": 136,
+						"games": 12
+					}
+				},
+				{
+					"season": 2026,
+					"team": "utsa",
+					"status": "credited",
+					"title": "Defensive Coordinator/Safeties",
+					"staffUrl": "https://goutsa.com/sports/football/roster",
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Ted Roof",
+			"unit": "def",
+			"team": "boston-college",
+			"title": "Kevin T. Fee Family Defensive Coordinator",
+			"history": [{
+				"season": 2026,
+				"team": "boston-college",
+				"status": "credited",
+				"title": "Kevin T. Fee Family Defensive Coordinator",
+				"staffUrl": "https://bceagles.com/sports/football/roster",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Jordan Somerville",
+			"unit": "off",
+			"team": "california",
+			"title": "Offensive Coordinator",
+			"history": [{
+				"season": 2026,
+				"team": "california",
+				"status": "excluded",
+				"title": "Offensive Coordinator",
+				"staffUrl": "https://calbears.com/sports/football/roster",
+				"reasons": ["a co-coordinator is also listed"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Ike Hilliard",
+			"unit": "off",
+			"team": "california",
+			"title": "Wide Receivers/Co-Offensive Coordinator",
+			"history": [{
+				"season": 2026,
+				"team": "california",
+				"status": "excluded",
+				"title": "Wide Receivers/Co-Offensive Coordinator",
+				"staffUrl": "https://calbears.com/sports/football/roster",
+				"reasons": ["co-coordinator"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Michael Hutchings",
+			"unit": "def",
+			"team": "california",
+			"title": "Defensive Coordinator",
+			"history": [{
+				"season": 2026,
+				"team": "california",
+				"status": "excluded",
+				"title": "Defensive Coordinator",
+				"staffUrl": "https://calbears.com/sports/football/roster",
+				"reasons": ["a co-coordinator is also listed"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Da'Von Brown",
+			"unit": "def",
+			"team": "california",
+			"title": "Defensive Backs/Co-Defensive Coordinator",
+			"history": [{
+				"season": 2026,
+				"team": "california",
+				"status": "excluded",
+				"title": "Defensive Backs/Co-Defensive Coordinator",
+				"staffUrl": "https://calbears.com/sports/football/roster",
+				"reasons": ["co-coordinator"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Chad Morris",
+			"unit": "off",
+			"team": "clemson",
+			"title": "Offensive Coordinator",
+			"history": [{
+				"season": 2026,
+				"team": "clemson",
+				"status": "excluded",
+				"title": "Offensive Coordinator",
+				"staffUrl": "https://clemsontigers.com/sports/football/roster",
+				"reasons": ["a co-coordinator is also listed"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Kyle Richardson",
+			"unit": "off",
+			"team": "clemson",
+			"title": "Co-Offensive Coordinator, Tight Ends",
+			"history": [
+				{
+					"season": 2024,
+					"team": "clemson",
+					"status": "excluded",
+					"title": "Co-Offensive Coordinator, Tight Ends",
+					"staffUrl": "https://clemsontigers.com/sports/football/roster/season/2024/",
+					"reasons": ["co-coordinator season (also listed: Matt Luke, Garrett Riley)"],
+					"playcall": null,
+					"stats": {
+						"epa": .2193,
+						"sr": 46.25,
+						"xpl": 1.2439,
+						"ppd": 2.414,
+						"rank": 20,
+						"nFbs": 134,
+						"games": 13
+					}
+				},
+				{
+					"season": 2025,
+					"team": "clemson",
+					"status": "excluded",
+					"title": "Co-Offensive Coordinator, Tight Ends",
+					"staffUrl": "https://clemsontigers.com/sports/football/roster/season/2025/",
+					"reasons": ["co-coordinator season (also listed: Matt Luke, Garrett Riley)"],
+					"playcall": null,
+					"stats": {
+						"epa": .1066,
+						"sr": 43.01,
+						"xpl": 1.1988,
+						"ppd": 2.08,
+						"rank": 61,
+						"nFbs": 136,
+						"games": 12
+					}
+				},
+				{
+					"season": 2026,
+					"team": "clemson",
+					"status": "excluded",
+					"title": "Co-Offensive Coordinator, Tight Ends",
+					"staffUrl": "https://clemsontigers.com/sports/football/roster",
+					"reasons": ["co-coordinator"],
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Matt Luke",
+			"unit": "off",
+			"team": "clemson",
+			"title": "Assistant Head Coach, Co-Offensive Coordinator, Offensive Linemen",
+			"history": [
+				{
+					"season": 2024,
+					"team": "clemson",
+					"status": "excluded",
+					"title": "Assistant Head Coach, Co-Offensive Coordinator, Offensive Linemen",
+					"staffUrl": "https://clemsontigers.com/sports/football/roster/season/2024/",
+					"reasons": ["co-coordinator season (also listed: Kyle Richardson, Garrett Riley)"],
+					"playcall": null,
+					"stats": {
+						"epa": .2193,
+						"sr": 46.25,
+						"xpl": 1.2439,
+						"ppd": 2.414,
+						"rank": 20,
+						"nFbs": 134,
+						"games": 13
+					}
+				},
+				{
+					"season": 2025,
+					"team": "clemson",
+					"status": "excluded",
+					"title": "Assistant Head Coach, Co-Offensive Coordinator, Offensive Linemen",
+					"staffUrl": "https://clemsontigers.com/sports/football/roster/season/2025/",
+					"reasons": ["co-coordinator season (also listed: Kyle Richardson, Garrett Riley)"],
+					"playcall": null,
+					"stats": {
+						"epa": .1066,
+						"sr": 43.01,
+						"xpl": 1.1988,
+						"ppd": 2.08,
+						"rank": 61,
+						"nFbs": 136,
+						"games": 12
+					}
+				},
+				{
+					"season": 2026,
+					"team": "clemson",
+					"status": "excluded",
+					"title": "Assistant Head Coach, Co-Offensive Coordinator, Offensive Linemen",
+					"staffUrl": "https://clemsontigers.com/sports/football/roster",
+					"reasons": ["co-coordinator"],
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Tom Allen",
+			"unit": "def",
+			"team": "clemson",
+			"title": "Defensive Coordinator, Linebackers",
+			"history": [
+				{
+					"season": 2024,
+					"team": "penn-state",
+					"status": "excluded",
+					"title": "Defensive Coordinator/Linebackers",
+					"staffUrl": "https://web.archive.org/web/20240313125314id_/https://gopsusports.com/sports/football/roster/2024",
+					"reasons": ["co-coordinator season (also listed: Anthony Poindexter)"],
+					"playcall": null,
+					"stats": {
+						"epa": -.0676,
+						"sr": 35.71,
+						"xpl": 1.2199,
+						"ppd": 1.404,
+						"rank": 5,
+						"nFbs": 134,
+						"games": 16
+					}
+				},
+				{
+					"season": 2025,
+					"team": "clemson",
+					"status": "excluded",
+					"title": "Defensive Coordinator, Linebackers",
+					"staffUrl": "https://clemsontigers.com/sports/football/roster/season/2025/",
+					"reasons": ["co-coordinator season (also listed: Nick Eason)"],
+					"playcall": null,
+					"stats": {
+						"epa": .0113,
+						"sr": 37.27,
+						"xpl": 1.3165,
+						"ppd": 1.643,
+						"rank": 30,
+						"nFbs": 136,
+						"games": 12
+					}
+				},
+				{
+					"season": 2026,
+					"team": "clemson",
+					"status": "excluded",
+					"title": "Defensive Coordinator, Linebackers",
+					"staffUrl": "https://clemsontigers.com/sports/football/roster",
+					"reasons": ["a co-coordinator is also listed"],
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Nick Eason",
+			"unit": "def",
+			"team": "clemson",
+			"title": "Associate Head Coach, Co-Defensive Coordinator, Defensive Tackles",
+			"history": [
+				{
+					"season": 2024,
+					"team": "clemson",
+					"status": "excluded",
+					"title": "Associate Head Coach, Co-Defensive Coordinator, Defensive Tackles",
+					"staffUrl": "https://clemsontigers.com/sports/football/roster/season/2024/",
+					"reasons": ["co-coordinator season (also listed: Wes Goodwin)"],
+					"playcall": null,
+					"stats": {
+						"epa": .0762,
+						"sr": 40.06,
+						"xpl": 1.3185,
+						"ppd": 1.861,
+						"rank": 54,
+						"nFbs": 134,
+						"games": 13
+					}
+				},
+				{
+					"season": 2025,
+					"team": "clemson",
+					"status": "excluded",
+					"title": "Associate Head Coach, Co-Defensive Coordinator, Defensive Tackles",
+					"staffUrl": "https://clemsontigers.com/sports/football/roster/season/2025/",
+					"reasons": ["co-coordinator season (also listed: Tom Allen)"],
+					"playcall": null,
+					"stats": {
+						"epa": .0113,
+						"sr": 37.27,
+						"xpl": 1.3165,
+						"ppd": 1.643,
+						"rank": 30,
+						"nFbs": 136,
+						"games": 12
+					}
+				},
+				{
+					"season": 2026,
+					"team": "clemson",
+					"status": "excluded",
+					"title": "Associate Head Coach, Co-Defensive Coordinator, Defensive Tackles",
+					"staffUrl": "https://clemsontigers.com/sports/football/roster",
+					"reasons": ["co-coordinator"],
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Jonathan Brewer",
+			"unit": "off",
+			"team": "duke",
+			"title": "Hall Family Offensive Coordinator/Quarterbacks",
+			"history": [{
+				"season": 2026,
+				"team": "duke",
+				"status": "credited",
+				"title": "Hall Family Offensive Coordinator/Quarterbacks",
+				"staffUrl": "https://goduke.com/sports/football/roster",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Jonathan Patke",
+			"unit": "def",
+			"team": "duke",
+			"title": "Defensive Coordinator/Linebackers",
+			"history": [{
+				"season": 2026,
+				"team": "duke",
+				"status": "credited",
+				"title": "Defensive Coordinator/Linebackers",
+				"staffUrl": "https://goduke.com/sports/football/roster",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Tim Harris Jr.",
+			"unit": "off",
+			"team": "florida-state",
+			"title": "Offensive Coordinator/Wide Receivers Coach",
+			"history": [{
+				"season": 2026,
+				"team": "florida-state",
+				"status": "credited",
+				"title": "Offensive Coordinator/Wide Receivers Coach",
+				"staffUrl": "https://seminoles.com/sports/football/roster",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Ernie Sims",
+			"unit": "def",
+			"team": "florida-state",
+			"title": "Interim Defensive Coordinator/Linebackers Coach",
+			"history": [{
+				"season": 2026,
+				"team": "florida-state",
+				"status": "excluded",
+				"title": "Interim Defensive Coordinator/Linebackers Coach",
+				"staffUrl": "https://seminoles.com/sports/football/roster",
+				"reasons": ["interim, split season"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "George Godsey",
+			"unit": "off",
+			"team": "georgia-tech",
+			"title": "Offensive Coordinator",
+			"history": [{
+				"season": 2026,
+				"team": "georgia-tech",
+				"status": "excluded",
+				"title": "Offensive Coordinator",
+				"staffUrl": "https://ramblinwreck.com/sports/m-footbl/roster/",
+				"reasons": ["a co-coordinator is also listed"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Chris Weinke",
+			"unit": "off",
+			"team": "georgia-tech",
+			"title": "Assistant Head Coach/Co-OC/Quarterbacks",
+			"history": [{
+				"season": 2026,
+				"team": "georgia-tech",
+				"status": "excluded",
+				"title": "Assistant Head Coach/Co-OC/Quarterbacks",
+				"staffUrl": "https://ramblinwreck.com/sports/m-footbl/roster/",
+				"reasons": ["co-coordinator"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Brian Brohm",
+			"unit": "off",
+			"team": "louisville",
+			"title": "Offensive Coordinator/Quarterbacks",
+			"history": [{
+				"season": 2026,
+				"team": "louisville",
+				"status": "credited",
+				"title": "Offensive Coordinator/Quarterbacks",
+				"staffUrl": "https://gocards.com/sports/football/roster",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Mark Ivey",
+			"unit": "def",
+			"team": "louisville",
+			"title": "Co-Defensive Coordinator/Defensive Line",
+			"history": [{
+				"season": 2026,
+				"team": "louisville",
+				"status": "excluded",
+				"title": "Co-Defensive Coordinator/Defensive Line",
+				"staffUrl": "https://gocards.com/sports/football/roster",
+				"reasons": ["co-coordinator setup"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Steve Ellis",
+			"unit": "def",
+			"team": "louisville",
+			"title": "Co-Defensive Coordinator/Cornerbacks",
+			"history": [{
+				"season": 2026,
+				"team": "louisville",
+				"status": "excluded",
+				"title": "Co-Defensive Coordinator/Cornerbacks",
+				"staffUrl": "https://gocards.com/sports/football/roster",
+				"reasons": ["co-coordinator setup"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Shannon Dawson",
+			"unit": "off",
+			"team": "miami",
+			"title": "Offensive Coordinator / Quarterbacks Coach",
+			"history": [{
+				"season": 2026,
+				"team": "miami",
+				"status": "credited",
+				"title": "Offensive Coordinator / Quarterbacks Coach",
+				"staffUrl": "https://miamihurricanes.com/staff/shannon-dawson/",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Corey Hetherman",
+			"unit": "def",
+			"team": "miami",
+			"title": "Defensive Coordinator / Linebackers Coach",
+			"history": [{
+				"season": 2026,
+				"team": "miami",
+				"status": "credited",
+				"title": "Defensive Coordinator / Linebackers Coach",
+				"staffUrl": "https://miamihurricanes.com/staff/corey-hetherman/",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Kurt Roper",
+			"unit": "off",
+			"team": "nc-state",
+			"title": "Offensive Coordinator/Quarterbacks Coach",
+			"history": [{
+				"season": 2025,
+				"team": "nc-state",
+				"status": "credited",
+				"title": "Offensive Coordinator/Quarterbacks Coach",
+				"staffUrl": "https://gopack.com/sports/football/roster/2025",
+				"playcall": null,
+				"stats": {
+					"epa": .1775,
+					"sr": 42.8,
+					"xpl": 1.3642,
+					"ppd": 2.391,
+					"rank": 32,
+					"nFbs": 136,
+					"games": 12
+				}
+			}, {
+				"season": 2026,
+				"team": "nc-state",
+				"status": "credited",
+				"title": "Offensive Coordinator/Quarterbacks Coach",
+				"staffUrl": "https://gopack.com/sports/football/roster",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Charlton Warren",
+			"unit": "def",
+			"team": "nc-state",
+			"title": "Defensive Coordinator and Safeties/Nickels Coach",
+			"history": [{
+				"season": 2025,
+				"team": "nc-state",
+				"status": "excluded",
+				"title": "Co-Defensive Coordinator and Safeties/Nickels Coach",
+				"staffUrl": "https://gopack.com/sports/football/roster/2025",
+				"reasons": ["co-coordinator season (also listed: DJ Eliot)"],
+				"playcall": null,
+				"stats": {
+					"epa": .1131,
+					"sr": 38.29,
+					"xpl": 1.3673,
+					"ppd": 2.445,
+					"rank": 71,
+					"nFbs": 136,
+					"games": 12
+				}
+			}, {
+				"season": 2026,
+				"team": "nc-state",
+				"status": "credited",
+				"title": "Defensive Coordinator and Safeties/Nickels Coach",
+				"staffUrl": "https://gopack.com/sports/football/roster",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Bobby Petrino",
+			"unit": "off",
+			"team": "north-carolina",
+			"title": "Offensive Coordinator",
+			"history": [{
+				"season": 2025,
+				"team": "north-carolina",
+				"status": "credited",
+				"title": "Offensive Coordinator",
+				"staffUrl": "https://goheels.com/sports/football/roster/2025",
+				"playcall": null,
+				"stats": {
+					"epa": .0527,
+					"sr": 39.62,
+					"xpl": 1.2006,
+					"ppd": 1.58,
+					"rank": 91,
+					"nFbs": 136,
+					"games": 11
+				}
+			}, {
+				"season": 2026,
+				"team": "north-carolina",
+				"status": "credited",
+				"title": "Offensive Coordinator",
+				"staffUrl": "https://goheels.com/sports/football/roster",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Kade Bell",
+			"unit": "off",
+			"team": "pittsburgh",
+			"title": "Offensive Coordinator / Quarterbacks",
+			"history": [
+				{
+					"season": 2024,
+					"team": "pittsburgh",
+					"status": "credited",
+					"title": "Offensive Coordinator / Quarterbacks",
+					"staffUrl": "https://pittsburghpanthers.com/sports/football/roster/2024",
+					"playcall": null,
+					"stats": {
+						"epa": .047,
+						"sr": 41.05,
+						"xpl": 1.298,
+						"ppd": 2,
+						"rank": 94,
+						"nFbs": 134,
+						"games": 12
+					}
+				},
+				{
+					"season": 2025,
+					"team": "pittsburgh",
+					"status": "credited",
+					"title": "Offensive Coordinator / Quarterbacks",
+					"staffUrl": "https://pittsburghpanthers.com/sports/football/roster/2025",
+					"playcall": null,
+					"stats": {
+						"epa": .1026,
+						"sr": 41.43,
+						"xpl": 1.2934,
+						"ppd": 2.172,
+						"rank": 64,
+						"nFbs": 136,
+						"games": 12
+					}
+				},
+				{
+					"season": 2026,
+					"team": "pittsburgh",
+					"status": "credited",
+					"title": "Offensive Coordinator / Quarterbacks",
+					"staffUrl": "https://pittsburghpanthers.com/sports/football/roster",
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Cory Sanders",
+			"unit": "def",
+			"team": "pittsburgh",
+			"title": "Defensive Coordinator",
+			"history": [{
+				"season": 2025,
+				"team": "pittsburgh",
+				"status": "credited",
+				"title": "Defensive Coordinator",
+				"staffUrl": "https://pittsburghpanthers.com/sports/football/roster/2025",
+				"playcall": null,
+				"stats": {
+					"epa": -.0549,
+					"sr": 35.44,
+					"xpl": 1.3643,
+					"ppd": 1.975,
+					"rank": 11,
+					"nFbs": 136,
+					"games": 12
+				}
+			}, {
+				"season": 2026,
+				"team": "pittsburgh",
+				"status": "credited",
+				"title": "Defensive Coordinator",
+				"staffUrl": "https://pittsburghpanthers.com/sports/football/roster",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "D'Eriq King",
+			"unit": "off",
+			"team": "smu",
+			"title": "Co-Offensive Coordinator / Quarterbacks",
+			"history": [{
+				"season": 2026,
+				"team": "smu",
+				"status": "excluded",
+				"title": "Co-Offensive Coordinator / Quarterbacks",
+				"staffUrl": "https://smumustangs.com/sports/football/roster",
+				"reasons": ["co-coordinator setup"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Garin Justice",
+			"unit": "off",
+			"team": "smu",
+			"title": "Assistant Head Coach / Co-Offensive Coordinator / Offensive Line",
+			"history": [
+				{
+					"season": 2024,
+					"team": "smu",
+					"status": "excluded",
+					"title": "Assistant Head Coach / Offensive Line / Co-Offensive Coordinator",
+					"staffUrl": "https://smumustangs.com/sports/football/roster/2024",
+					"reasons": ["co-coordinator season (also listed: Casey Woods, Rob Likens)"],
+					"playcall": null,
+					"stats": {
+						"epa": .1801,
+						"sr": 44.26,
+						"xpl": 1.3557,
+						"ppd": 2.463,
+						"rank": 37,
+						"nFbs": 134,
+						"games": 13
+					}
+				},
+				{
+					"season": 2025,
+					"team": "smu",
+					"status": "excluded",
+					"title": "Assistant Head Coach / Offensive Line / Co-Offensive Coordinator",
+					"staffUrl": "https://smumustangs.com/sports/football/roster/2025",
+					"reasons": ["co-coordinator season (also listed: Casey Woods, Rob Likens)"],
+					"playcall": null,
+					"stats": {
+						"epa": .2346,
+						"sr": 44.82,
+						"xpl": 1.3617,
+						"ppd": 2.497,
+						"rank": 14,
+						"nFbs": 136,
+						"games": 12
+					}
+				},
+				{
+					"season": 2026,
+					"team": "smu",
+					"status": "excluded",
+					"title": "Assistant Head Coach / Co-Offensive Coordinator / Offensive Line",
+					"staffUrl": "https://smumustangs.com/sports/football/roster",
+					"reasons": ["co-coordinator setup"],
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Rob Likens",
+			"unit": "off",
+			"team": "smu",
+			"title": "Associate Head Coach / Chief of Staff / Co-Offensive Coordinator / Wide Receivers",
+			"history": [
+				{
+					"season": 2024,
+					"team": "smu",
+					"status": "excluded",
+					"title": "Associate Head Coach / Co-Offensive Coordinator / Wide Receivers",
+					"staffUrl": "https://smumustangs.com/sports/football/roster/2024",
+					"reasons": ["co-coordinator season (also listed: Casey Woods, Garin Justice)"],
+					"playcall": null,
+					"stats": {
+						"epa": .1801,
+						"sr": 44.26,
+						"xpl": 1.3557,
+						"ppd": 2.463,
+						"rank": 37,
+						"nFbs": 134,
+						"games": 13
+					}
+				},
+				{
+					"season": 2025,
+					"team": "smu",
+					"status": "excluded",
+					"title": "Associate Head Coach / Co-Offensive Coordinator / Wide Receivers",
+					"staffUrl": "https://smumustangs.com/sports/football/roster/2025",
+					"reasons": ["co-coordinator season (also listed: Casey Woods, Garin Justice)"],
+					"playcall": null,
+					"stats": {
+						"epa": .2346,
+						"sr": 44.82,
+						"xpl": 1.3617,
+						"ppd": 2.497,
+						"rank": 14,
+						"nFbs": 136,
+						"games": 12
+					}
+				},
+				{
+					"season": 2026,
+					"team": "smu",
+					"status": "excluded",
+					"title": "Associate Head Coach / Chief of Staff / Co-Offensive Coordinator / Wide Receivers",
+					"staffUrl": "https://smumustangs.com/sports/football/roster",
+					"reasons": ["co-coordinator setup"],
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Maurice Crum Jr.",
+			"unit": "def",
+			"team": "smu",
+			"title": "Co-Defensive Coordinator / Play Caller",
+			"history": [
+				{
+					"season": 2024,
+					"team": "smu",
+					"status": "excluded",
+					"title": "Linebackers / Co-Defensive Coordinator",
+					"staffUrl": "https://smumustangs.com/sports/football/roster/2024",
+					"reasons": ["co-coordinator season (also listed: Scott Symons, Rickey Hunley Jr.)"],
+					"playcall": null,
+					"stats": {
+						"epa": -.0592,
+						"sr": 36.29,
+						"xpl": 1.2826,
+						"ppd": 1.679,
+						"rank": 8,
+						"nFbs": 134,
+						"games": 13
+					}
+				},
+				{
+					"season": 2025,
+					"team": "smu",
+					"status": "excluded",
+					"title": "Linebackers / Co-Defensive Coordinator",
+					"staffUrl": "https://smumustangs.com/sports/football/roster/2025",
+					"reasons": ["co-coordinator season (also listed: Scott Symons, Rickey Hunley Jr.)"],
+					"playcall": null,
+					"stats": {
+						"epa": -.021,
+						"sr": 39.29,
+						"xpl": 1.2334,
+						"ppd": 1.907,
+						"rank": 20,
+						"nFbs": 136,
+						"games": 12
+					}
+				},
+				{
+					"season": 2026,
+					"team": "smu",
+					"status": "excluded",
+					"title": "Co-Defensive Coordinator / Play Caller",
+					"staffUrl": "https://smumustangs.com/sports/football/roster",
+					"reasons": ["co-coordinator setup"],
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Rickey Hunley Jr.",
+			"unit": "def",
+			"team": "smu",
+			"title": "Co-Defensive Coordinator / Secondary",
+			"history": [
+				{
+					"season": 2024,
+					"team": "smu",
+					"status": "excluded",
+					"title": "Cornerbacks / Co-Defensive Coordinator",
+					"staffUrl": "https://smumustangs.com/sports/football/roster/2024",
+					"reasons": ["co-coordinator season (also listed: Scott Symons, Maurice Crum Jr.)"],
+					"playcall": null,
+					"stats": {
+						"epa": -.0592,
+						"sr": 36.29,
+						"xpl": 1.2826,
+						"ppd": 1.679,
+						"rank": 8,
+						"nFbs": 134,
+						"games": 13
+					}
+				},
+				{
+					"season": 2025,
+					"team": "smu",
+					"status": "excluded",
+					"title": "Cornerbacks / Co-Defensive Coordinator",
+					"staffUrl": "https://smumustangs.com/sports/football/roster/2025",
+					"reasons": ["co-coordinator season (also listed: Scott Symons, Maurice Crum Jr.)"],
+					"playcall": null,
+					"stats": {
+						"epa": -.021,
+						"sr": 39.29,
+						"xpl": 1.2334,
+						"ppd": 1.907,
+						"rank": 20,
+						"nFbs": 136,
+						"games": 12
+					}
+				},
+				{
+					"season": 2026,
+					"team": "smu",
+					"status": "excluded",
+					"title": "Co-Defensive Coordinator / Secondary",
+					"staffUrl": "https://smumustangs.com/sports/football/roster",
+					"reasons": ["co-coordinator setup"],
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Terry Heffernan",
+			"unit": "off",
+			"team": "stanford",
+			"title": "Andrew Luck Director of Offense",
+			"history": [{
+				"season": 2026,
+				"team": "stanford",
+				"status": "excluded",
+				"title": "Andrew Luck Director of Offense",
+				"staffUrl": "https://gostanford.com/sports/football/roster/season/2026",
+				"reasons": ["coordinator not confirmed by a staff page"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Kris Richard",
+			"unit": "def",
+			"team": "stanford",
+			"title": "Willie Shaw Director of Defense • Defensive Backs",
+			"history": [{
+				"season": 2026,
+				"team": "stanford",
+				"status": "excluded",
+				"title": "Willie Shaw Director of Defense • Defensive Backs",
+				"staffUrl": "https://gostanford.com/sports/football/roster/season/2026",
+				"reasons": ["coordinator not confirmed by a staff page"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Jeff Nixon",
+			"unit": "off",
+			"team": "syracuse",
+			"title": "Offensive Coordinator",
+			"history": [{
+				"season": 2026,
+				"team": "syracuse",
+				"status": "excluded",
+				"title": "Offensive Coordinator",
+				"staffUrl": "https://cuse.com/sports/football/coaches",
+				"reasons": ["a co-coordinator is also listed"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Michael Johnson",
+			"unit": "off",
+			"team": "syracuse",
+			"title": "Co-Offensive Coordinator/Tight Ends",
+			"history": [{
+				"season": 2026,
+				"team": "syracuse",
+				"status": "excluded",
+				"title": "Co-Offensive Coordinator/Tight Ends",
+				"staffUrl": "https://cuse.com/sports/football/coaches",
+				"reasons": ["co-coordinator"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Vince Kehres",
+			"unit": "def",
+			"team": "syracuse",
+			"title": "Defensive Coordinator",
+			"history": [
+				{
+					"season": 2024,
+					"team": "toledo",
+					"status": "excluded",
+					"title": "Defensive Coordinator/Linebackers Coach",
+					"staffUrl": "https://utrockets.com/sports/football/roster/2024",
+					"reasons": ["co-coordinator season (also listed: Ross Watson)"],
+					"playcall": null,
+					"stats": {
+						"epa": .0797,
+						"sr": 41.79,
+						"xpl": 1.2081,
+						"ppd": 1.635,
+						"rank": 55,
+						"nFbs": 134,
+						"games": 12
+					}
+				},
+				{
+					"season": 2025,
+					"team": "toledo",
+					"status": "excluded",
+					"title": "Defensive Coordinator/Linebackers Coach",
+					"staffUrl": "https://utrockets.com/sports/football/roster/2025",
+					"reasons": ["co-coordinator season (also listed: Ross Watson, Ross Watson, Ross Watson)", "two head coaches that season (Jason Candle, Robert Weiner)"],
+					"playcall": null,
+					"stats": {
+						"epa": -.0128,
+						"sr": 38.41,
+						"xpl": 1.2413,
+						"ppd": 1.078,
+						"rank": 23,
+						"nFbs": 136,
+						"games": 12
+					}
+				},
+				{
+					"season": 2026,
+					"team": "syracuse",
+					"status": "excluded",
+					"title": "Defensive Coordinator",
+					"staffUrl": "https://cuse.com/sports/football/coaches",
+					"reasons": ["a co-coordinator is also listed"],
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "John Scott Jr.",
+			"unit": "def",
+			"team": "syracuse",
+			"title": "Assistant Head Coach/co-Defensive Coordinator/Defensive Line",
+			"history": [{
+				"season": 2026,
+				"team": "syracuse",
+				"status": "excluded",
+				"title": "Assistant Head Coach/co-Defensive Coordinator/Defensive Line",
+				"staffUrl": "https://cuse.com/sports/football/coaches",
+				"reasons": ["co-coordinator"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Des Kitchings",
+			"unit": "off",
+			"team": "virginia",
+			"title": "Offensive Coordinator/Tight Ends",
+			"history": [{
+				"season": 2026,
+				"team": "virginia",
+				"status": "credited",
+				"title": "Offensive Coordinator/Tight Ends",
+				"staffUrl": "https://virginiasports.com/sports/football/roster",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "John Rudzinski",
+			"unit": "def",
+			"team": "virginia",
+			"title": "Defensive Coordinator",
+			"history": [{
+				"season": 2026,
+				"team": "virginia",
+				"status": "credited",
+				"title": "Defensive Coordinator",
+				"staffUrl": "https://virginiasports.com/sports/football/roster",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Ty Howle",
+			"unit": "off",
+			"team": "virginia-tech",
+			"title": "Offensive Coordinator / Tight Ends Coach",
+			"history": [{
+				"season": 2024,
+				"team": "penn-state",
+				"status": "excluded",
+				"title": "Co-Offensive Coordinator/Tight Ends",
+				"staffUrl": "https://web.archive.org/web/20240313125314id_/https://gopsusports.com/sports/football/roster/2024",
+				"reasons": ["co-coordinator season (also listed: Ja'Juan Seider, Andy Kotelnicki)"],
+				"playcall": null,
+				"stats": {
+					"epa": .2727,
+					"sr": 50.35,
+					"xpl": 1.2271,
+					"ppd": 2.812,
+					"rank": 7,
+					"nFbs": 134,
+					"games": 16
+				}
+			}, {
+				"season": 2026,
+				"team": "virginia-tech",
+				"status": "credited",
+				"title": "Offensive Coordinator / Tight Ends Coach",
+				"staffUrl": "https://hokiesports.com/sports/football/roster",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Brent Pry",
+			"unit": "def",
+			"team": "virginia-tech",
+			"title": "Defensive Coordinator / Linebackers Coach",
+			"history": [{
+				"season": 2026,
+				"team": "virginia-tech",
+				"status": "credited",
+				"title": "Defensive Coordinator / Linebackers Coach",
+				"staffUrl": "https://hokiesports.com/sports/football/roster",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Rob Ezell",
+			"unit": "off",
+			"team": "wake-forest",
+			"title": "Offensive Coordinator",
+			"history": [
+				{
+					"season": 2024,
+					"team": "south-alabama",
+					"status": "credited",
+					"title": "Assistant Coach -- Offensive Coordinator / Quarterbacks",
+					"staffUrl": "https://usajaguars.com/sports/football/roster/2024",
+					"playcall": null,
+					"stats": {
+						"epa": .1942,
+						"sr": 44.05,
+						"xpl": 1.2875,
+						"ppd": 2.475,
+						"rank": 30,
+						"nFbs": 134,
+						"games": 12
+					}
+				},
+				{
+					"season": 2025,
+					"team": "wake-forest",
+					"status": "credited",
+					"title": "Offensive Coordinator / Tight Ends",
+					"staffUrl": "https://godeacs.com/sports/football/roster/2025",
+					"playcall": null,
+					"stats": {
+						"epa": .0722,
+						"sr": 38.49,
+						"xpl": 1.3912,
+						"ppd": 1.87,
+						"rank": 77,
+						"nFbs": 136,
+						"games": 12
+					}
+				},
+				{
+					"season": 2026,
+					"team": "wake-forest",
+					"status": "excluded",
+					"title": "Offensive Coordinator",
+					"staffUrl": "https://godeacs.com/sports/football/roster",
+					"reasons": ["a co-coordinator is also listed"],
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Dan Enos",
+			"unit": "off",
+			"team": "wake-forest",
+			"title": "Co-Offensive Coordinator / Quarterbacks",
+			"history": [{
+				"season": 2026,
+				"team": "wake-forest",
+				"status": "excluded",
+				"title": "Co-Offensive Coordinator / Quarterbacks",
+				"staffUrl": "https://godeacs.com/sports/football/roster",
+				"reasons": ["co-coordinator"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Scottie Hazelton",
+			"unit": "def",
+			"team": "wake-forest",
+			"title": "Defensive Coordinator",
+			"history": [{
+				"season": 2025,
+				"team": "wake-forest",
+				"status": "credited",
+				"title": "Defensive Coordinator / Linebackers",
+				"staffUrl": "https://godeacs.com/sports/football/roster/2025",
+				"playcall": null,
+				"stats": {
+					"epa": -.0451,
+					"sr": 35.12,
+					"xpl": 1.1587,
+					"ppd": 1.902,
+					"rank": 14,
+					"nFbs": 136,
+					"games": 12
+				}
+			}, {
+				"season": 2026,
+				"team": "wake-forest",
+				"status": "excluded",
+				"title": "Defensive Coordinator",
+				"staffUrl": "https://godeacs.com/sports/football/roster",
+				"reasons": ["a co-coordinator is also listed"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Freddie Banks",
+			"unit": "def",
+			"team": "wake-forest",
+			"title": "Co-Defensive Coordinator / Safeties",
+			"history": [{
+				"season": 2026,
+				"team": "wake-forest",
+				"status": "excluded",
+				"title": "Co-Defensive Coordinator / Safeties",
+				"staffUrl": "https://godeacs.com/sports/football/roster",
+				"reasons": ["co-coordinator"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Seth Doege",
+			"unit": "off",
+			"team": "arizona",
+			"title": "Offensive Coordinator / Quarterbacks Coach",
+			"history": [{
+				"season": 2026,
+				"team": "arizona",
+				"status": "credited",
+				"title": "Offensive Coordinator / Quarterbacks Coach",
+				"staffUrl": "https://arizonawildcats.com/sports/football/roster",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Danny Gonzales",
+			"unit": "def",
+			"team": "arizona",
+			"title": "Defensive Coordinator",
+			"history": [{
+				"season": 2026,
+				"team": "arizona",
+				"status": "credited",
+				"title": "Defensive Coordinator",
+				"staffUrl": "https://arizonawildcats.com/sports/football/roster",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Marcus Arroyo",
+			"unit": "off",
+			"team": "arizona-state",
+			"title": "Offensive Coordinator",
+			"history": [
+				{
+					"season": 2024,
+					"team": "arizona-state",
+					"status": "credited",
+					"title": "Offensive Coordinator/Quarterbacks",
+					"staffUrl": "https://thesundevils.com/sports/football/roster/2024",
+					"playcall": null,
+					"stats": {
+						"epa": .2689,
+						"sr": 49.46,
+						"xpl": 1.2052,
+						"ppd": 2.846,
+						"rank": 9,
+						"nFbs": 134,
+						"games": 14
+					}
+				},
+				{
+					"season": 2025,
+					"team": "arizona-state",
+					"status": "credited",
+					"title": "Offensive Coordinator",
+					"staffUrl": "https://thesundevils.com/sports/football/roster/season/2025/",
+					"playcall": null,
+					"stats": {
+						"epa": .0587,
+						"sr": 40.51,
+						"xpl": 1.1892,
+						"ppd": 1.946,
+						"rank": 87,
+						"nFbs": 136,
+						"games": 12
+					}
+				},
+				{
+					"season": 2026,
+					"team": "arizona-state",
+					"status": "credited",
+					"title": "Offensive Coordinator",
+					"staffUrl": "https://thesundevils.com/sports/football/roster",
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Brian Ward",
+			"unit": "def",
+			"team": "arizona-state",
+			"title": "Defensive Coordinator",
+			"history": [
+				{
+					"season": 2024,
+					"team": "arizona-state",
+					"status": "credited",
+					"title": "Defensive Coordinator",
+					"staffUrl": "https://thesundevils.com/sports/football/roster/2024",
+					"playcall": "Play-calling also verified: head coach Kenny Dillingham (bio shows no defensive coordinator role).",
+					"stats": {
+						"epa": -.0073,
+						"sr": 39.46,
+						"xpl": 1.2425,
+						"ppd": 1.861,
+						"rank": 19,
+						"nFbs": 134,
+						"games": 14
+					}
+				},
+				{
+					"season": 2025,
+					"team": "arizona-state",
+					"status": "credited",
+					"title": "Defensive Coordinator",
+					"staffUrl": "https://thesundevils.com/sports/football/roster/season/2025/",
+					"playcall": "Play-calling also verified: head coach Kenny Dillingham (bio shows no defensive coordinator role).",
+					"stats": {
+						"epa": .0246,
+						"sr": 39.45,
+						"xpl": 1.2187,
+						"ppd": 1.966,
+						"rank": 40,
+						"nFbs": 136,
+						"games": 12
+					}
+				},
+				{
+					"season": 2026,
+					"team": "arizona-state",
+					"status": "credited",
+					"title": "Defensive Coordinator",
+					"staffUrl": "https://thesundevils.com/sports/football/roster",
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Aaron Roderick",
+			"unit": "off",
+			"team": "byu",
+			"title": "Offensive Coordinator / Quarterbacks Coach",
+			"history": [
+				{
+					"season": 2024,
+					"team": "byu",
+					"status": "credited",
+					"title": "Offensive Coordinator, Quarterbacks Coach",
+					"staffUrl": "https://byucougars.com/sports/football/roster/season/2024/",
+					"playcall": "Play-calling also verified: head coach Kalani Sitake (bio shows no offensive coordinator role).",
+					"stats": {
+						"epa": .1592,
+						"sr": 46.63,
+						"xpl": 1.2092,
+						"ppd": 2.282,
+						"rank": 49,
+						"nFbs": 134,
+						"games": 12
+					}
+				},
+				{
+					"season": 2025,
+					"team": "byu",
+					"status": "credited",
+					"title": "Offensive Coordinator, Quarterbacks Coach",
+					"staffUrl": "https://byucougars.com/sports/football/roster/season/2025/",
+					"playcall": "Play-calling also verified: head coach Kalani Sitake (bio shows no offensive coordinator role).",
+					"stats": {
+						"epa": .2,
+						"sr": 47.19,
+						"xpl": 1.1678,
+						"ppd": 2.438,
+						"rank": 26,
+						"nFbs": 136,
+						"games": 13
+					}
+				},
+				{
+					"season": 2026,
+					"team": "byu",
+					"status": "credited",
+					"title": "Offensive Coordinator / Quarterbacks Coach",
+					"staffUrl": "https://byucougars.com/sports/football/roster",
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Kelly Poppinga",
+			"unit": "def",
+			"team": "byu",
+			"title": "Defensive Coordinator / Inside Linebackers Coach",
+			"history": [{
+				"season": 2025,
+				"team": "byu",
+				"status": "credited",
+				"title": "Defensive Coordinator, Inside Linebackers Coach",
+				"staffUrl": "https://byucougars.com/sports/football/roster/season/2025/",
+				"playcall": null,
+				"stats": {
+					"epa": -.0067,
+					"sr": 39.18,
+					"xpl": 1.1986,
+					"ppd": 1.987,
+					"rank": 25,
+					"nFbs": 136,
+					"games": 13
+				}
+			}, {
+				"season": 2026,
+				"team": "byu",
+				"status": "credited",
+				"title": "Defensive Coordinator / Inside Linebackers Coach",
+				"staffUrl": "https://byucougars.com/sports/football/roster",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Jake Spavital",
+			"unit": "off",
+			"team": "baylor",
+			"title": "Offensive Coordinator (Quarterbacks)",
+			"history": [
+				{
+					"season": 2024,
+					"team": "baylor",
+					"status": "credited",
+					"title": "Offensive Coordinator (Quarterbacks)",
+					"staffUrl": "https://baylorbears.com/sports/football/roster/2024",
+					"playcall": "Play-calling also verified: head coach Dave Aranda (bio shows no offensive coordinator role).",
+					"stats": {
+						"epa": .216,
+						"sr": 48.8,
+						"xpl": 1.2045,
+						"ppd": 2.568,
+						"rank": 22,
+						"nFbs": 134,
+						"games": 12
+					}
+				},
+				{
+					"season": 2025,
+					"team": "baylor",
+					"status": "credited",
+					"title": "Offensive Coordinator (Quarterbacks)",
+					"staffUrl": "https://baylorbears.com/sports/football/roster/2025",
+					"playcall": "Play-calling also verified: head coach Dave Aranda (bio shows no offensive coordinator role).",
+					"stats": {
+						"epa": .1703,
+						"sr": 46.46,
+						"xpl": 1.3035,
+						"ppd": 2.711,
+						"rank": 35,
+						"nFbs": 136,
+						"games": 11
+					}
+				},
+				{
+					"season": 2026,
+					"team": "baylor",
+					"status": "credited",
+					"title": "Offensive Coordinator (Quarterbacks)",
+					"staffUrl": "https://baylorbears.com/sports/football/roster",
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Nic Cardwell",
+			"unit": "off",
+			"team": "cincinnati",
+			"title": "Co-Offensive Coordinator / Offensive Line",
+			"history": [{
+				"season": 2026,
+				"team": "cincinnati",
+				"status": "excluded",
+				"title": "Co-Offensive Coordinator / Offensive Line",
+				"staffUrl": "https://gobearcats.com/sports/football/roster",
+				"reasons": ["the head coach calls the plays"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Pete Thomas",
+			"unit": "off",
+			"team": "cincinnati",
+			"title": "Co-Offensive Coordinator / Quarterbacks",
+			"history": [{
+				"season": 2026,
+				"team": "cincinnati",
+				"status": "excluded",
+				"title": "Co-Offensive Coordinator / Quarterbacks",
+				"staffUrl": "https://gobearcats.com/sports/football/roster",
+				"reasons": ["the head coach calls the plays"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Nate Woody",
+			"unit": "def",
+			"team": "cincinnati",
+			"title": "Defensive Coordinator",
+			"history": [
+				{
+					"season": 2024,
+					"team": "army",
+					"status": "credited",
+					"title": "Defensive Coordinator",
+					"staffUrl": "https://goarmywestpoint.com/sports/football/roster/2024",
+					"playcall": null,
+					"stats": {
+						"epa": .0714,
+						"sr": 44.92,
+						"xpl": 1.2331,
+						"ppd": 1.648,
+						"rank": 50,
+						"nFbs": 134,
+						"games": 12
+					}
+				},
+				{
+					"season": 2025,
+					"team": "army",
+					"status": "credited",
+					"title": "Defensive Coordinator",
+					"staffUrl": "https://goarmywestpoint.com/sports/football/roster/2025",
+					"playcall": null,
+					"stats": {
+						"epa": .0778,
+						"sr": 44.8,
+						"xpl": 1.1014,
+						"ppd": 2.185,
+						"rank": 53,
+						"nFbs": 136,
+						"games": 12
+					}
+				},
+				{
+					"season": 2026,
+					"team": "cincinnati",
+					"status": "excluded",
+					"title": "Defensive Coordinator",
+					"staffUrl": "https://gobearcats.com/sports/football/roster",
+					"reasons": ["a co-coordinator is also listed"],
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Cortney Braswell",
+			"unit": "def",
+			"team": "cincinnati",
+			"title": "Co-Defensive Coordinator / Inside Linebackers",
+			"history": [{
+				"season": 2025,
+				"team": "cincinnati",
+				"status": "excluded",
+				"title": "Co-Defensive Coordinator / Linebackers",
+				"staffUrl": "https://gobearcats.com/sports/football/roster/2025",
+				"reasons": ["co-coordinator season (also listed: Tyson Veidt)"],
+				"playcall": null,
+				"stats": {
+					"epa": .1601,
+					"sr": 43.93,
+					"xpl": 1.1832,
+					"ppd": 2.524,
+					"rank": 94,
+					"nFbs": 136,
+					"games": 12
+				}
+			}, {
+				"season": 2026,
+				"team": "cincinnati",
+				"status": "excluded",
+				"title": "Co-Defensive Coordinator / Inside Linebackers",
+				"staffUrl": "https://gobearcats.com/sports/football/roster",
+				"reasons": ["co-coordinator"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Brennan Marion",
+			"unit": "off",
+			"team": "colorado",
+			"title": "Offensive Coordinator/Quarterbacks",
+			"history": [{
+				"season": 2026,
+				"team": "colorado",
+				"status": "credited",
+				"title": "Offensive Coordinator/Quarterbacks",
+				"staffUrl": "https://cubuffs.com/sports/football/roster",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Chris Marve",
+			"unit": "def",
+			"team": "colorado",
+			"title": "Defensive Coordinator/Linebackers",
+			"history": [{
+				"season": 2026,
+				"team": "colorado",
+				"status": "credited",
+				"title": "Defensive Coordinator/Linebackers",
+				"staffUrl": "https://cubuffs.com/sports/football/roster",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Slade Nagle",
+			"unit": "off",
+			"team": "houston",
+			"title": "Offensive Coordinator",
+			"history": [{
+				"season": 2025,
+				"team": "houston",
+				"status": "credited",
+				"title": "Offensive Coordinator",
+				"staffUrl": "https://uhcougars.com/sports/football/roster/2025",
+				"playcall": null,
+				"stats": {
+					"epa": .1148,
+					"sr": 44.29,
+					"xpl": 1.2111,
+					"ppd": 2.613,
+					"rank": 56,
+					"nFbs": 136,
+					"games": 12
+				}
+			}, {
+				"season": 2026,
+				"team": "houston",
+				"status": "credited",
+				"title": "Offensive Coordinator",
+				"staffUrl": "https://uhcougars.com/sports/football/roster",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Austin Armstrong",
+			"unit": "def",
+			"team": "houston",
+			"title": "Defensive Coordinator",
+			"history": [{
+				"season": 2025,
+				"team": "houston",
+				"status": "credited",
+				"title": "Defensive Coordinator",
+				"staffUrl": "https://uhcougars.com/sports/football/roster/2025",
+				"playcall": null,
+				"stats": {
+					"epa": .1211,
+					"sr": 43.98,
+					"xpl": 1.1808,
+					"ppd": 2.125,
+					"rank": 74,
+					"nFbs": 136,
+					"games": 12
+				}
+			}, {
+				"season": 2026,
+				"team": "houston",
+				"status": "credited",
+				"title": "Defensive Coordinator",
+				"staffUrl": "https://uhcougars.com/sports/football/roster",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Tyler Roehl",
+			"unit": "off",
+			"team": "iowa-state",
+			"title": "Offensive Coordinator",
+			"history": [{
+				"season": 2026,
+				"team": "iowa-state",
+				"status": "credited",
+				"title": "Offensive Coordinator",
+				"staffUrl": "https://cyclones.com/sports/football/roster",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Jesse Bobbit",
+			"unit": "def",
+			"team": "iowa-state",
+			"title": "Defensive Coordinator",
+			"history": [{
+				"season": 2025,
+				"team": "washington-state",
+				"status": "excluded",
+				"title": "Interim Head Coach / Defensive Coordinator / Linebackers Coach",
+				"staffUrl": "https://wsucougars.com/sports/football/roster/2025",
+				"reasons": ["he was the head coach", "two head coaches that season (Jesse Bobbit, Jimmy Rogers)"],
+				"playcall": null,
+				"stats": {
+					"epa": .0234,
+					"sr": 40.47,
+					"xpl": 1.1043,
+					"ppd": 1.699,
+					"rank": 39,
+					"nFbs": 136,
+					"games": 12
+				}
+			}, {
+				"season": 2026,
+				"team": "iowa-state",
+				"status": "credited",
+				"title": "Defensive Coordinator",
+				"staffUrl": "https://cyclones.com/sports/football/roster",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Matt Lubick",
+			"unit": "off",
+			"team": "kansas",
+			"title": "Co-Offensive Coordinator/Tight Ends",
+			"history": [
+				{
+					"season": 2024,
+					"team": "nevada",
+					"status": "excluded",
+					"title": "Offensive Coordinator",
+					"staffUrl": "https://nevadawolfpack.com/sports/football/roster/2024",
+					"reasons": ["co-coordinator season (also listed: Mike Lynch)"],
+					"playcall": null,
+					"stats": {
+						"epa": .1142,
+						"sr": 43.5,
+						"xpl": 1.2015,
+						"ppd": 1.968,
+						"rank": 62,
+						"nFbs": 134,
+						"games": 12
+					}
+				},
+				{
+					"season": 2025,
+					"team": "kansas",
+					"status": "excluded",
+					"title": "Co-Offensive Coordinator/Tight Ends",
+					"staffUrl": "https://kuathletics.com/sports/football/roster/2025",
+					"reasons": ["co-coordinator season (also listed: Jim Zebrowski)"],
+					"playcall": null,
+					"stats": {
+						"epa": .2319,
+						"sr": 48.3,
+						"xpl": 1.1956,
+						"ppd": 2.269,
+						"rank": 18,
+						"nFbs": 136,
+						"games": 11
+					}
+				},
+				{
+					"season": 2026,
+					"team": "kansas",
+					"status": "excluded",
+					"title": "Co-Offensive Coordinator/Tight Ends",
+					"staffUrl": "https://kuathletics.com/sports/football/roster",
+					"reasons": ["co-coordinator setup"],
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "D.K. McDonald",
+			"unit": "def",
+			"team": "kansas",
+			"title": "Defensive Coordinator",
+			"history": [
+				{
+					"season": 2024,
+					"team": "kansas",
+					"status": "excluded",
+					"title": "Co-Defensive Coordinator/Cornerbacks",
+					"staffUrl": "https://web.archive.org/web/20240806051021id_/https://kuathletics.com/sports/football/roster/2024",
+					"reasons": ["co-coordinator season (also listed: Brian Borland)"],
+					"playcall": null,
+					"stats": {
+						"epa": .1308,
+						"sr": 42.16,
+						"xpl": 1.322,
+						"ppd": 2.466,
+						"rank": 77,
+						"nFbs": 134,
+						"games": 11
+					}
+				},
+				{
+					"season": 2025,
+					"team": "kansas",
+					"status": "credited",
+					"title": "Defensive Coordinator",
+					"staffUrl": "https://kuathletics.com/sports/football/roster/2025",
+					"playcall": null,
+					"stats": {
+						"epa": .1956,
+						"sr": 42.63,
+						"xpl": 1.3427,
+						"ppd": 2.466,
+						"rank": 114,
+						"nFbs": 136,
+						"games": 11
+					}
+				},
+				{
+					"season": 2026,
+					"team": "kansas",
+					"status": "credited",
+					"title": "Defensive Coordinator",
+					"staffUrl": "https://kuathletics.com/sports/football/roster",
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Sean Gleeson",
+			"unit": "off",
+			"team": "kansas-state",
+			"title": "Offensive Coordinator",
+			"history": [{
+				"season": 2026,
+				"team": "kansas-state",
+				"status": "credited",
+				"title": "Offensive Coordinator",
+				"staffUrl": "https://kstatesports.com/sports/football/roster",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Jordan Peterson",
+			"unit": "def",
+			"team": "kansas-state",
+			"title": "Defensive Coordinator/Defensive Backs",
+			"history": [
+				{
+					"season": 2024,
+					"team": "texas-am",
+					"status": "excluded",
+					"title": "Co-Defensive Coordinator/Defensive Backs",
+					"staffUrl": "https://12thman.com/sports/football/roster/2024",
+					"reasons": ["co-coordinator season (also listed: Jay Bateman)"],
+					"playcall": null,
+					"stats": {
+						"epa": .0129,
+						"sr": 35.64,
+						"xpl": 1.4324,
+						"ppd": 1.611,
+						"rank": 26,
+						"nFbs": 134,
+						"games": 12
+					}
+				},
+				{
+					"season": 2025,
+					"team": "texas-am",
+					"status": "excluded",
+					"title": "Co-Defensive Coordinator/Defensive Backs",
+					"staffUrl": "https://web.archive.org/web/20250722171514id_/https://12thman.com/sports/football/roster/2025",
+					"reasons": ["co-coordinator season (also listed: Jay Bateman)"],
+					"playcall": null,
+					"stats": {
+						"epa": .0294,
+						"sr": 33.44,
+						"xpl": 1.3944,
+						"ppd": 1.631,
+						"rank": 42,
+						"nFbs": 136,
+						"games": 12
+					}
+				},
+				{
+					"season": 2026,
+					"team": "kansas-state",
+					"status": "credited",
+					"title": "Defensive Coordinator/Defensive Backs",
+					"staffUrl": "https://kstatesports.com/sports/football/roster",
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Sean Brophy",
+			"unit": "off",
+			"team": "oklahoma-state",
+			"title": "Offensive Coordinator / Quarterbacks",
+			"history": [{
+				"season": 2026,
+				"team": "oklahoma-state",
+				"status": "credited",
+				"title": "Offensive Coordinator / Quarterbacks",
+				"staffUrl": "https://okstate.com/sports/football/roster",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Skyler Cassity",
+			"unit": "def",
+			"team": "oklahoma-state",
+			"title": "Defensive Coordinator",
+			"history": [
+				{
+					"season": 2024,
+					"team": "sam-houston",
+					"status": "excluded",
+					"title": "Defensive Coordinator",
+					"staffUrl": "https://gobearkats.com/sports/football/roster/2024",
+					"reasons": ["two head coaches that season (Brad Cornelsen, K.C. Keeler)"],
+					"playcall": null,
+					"stats": {
+						"epa": .0639,
+						"sr": 43.72,
+						"xpl": 1.0517,
+						"ppd": 1.596,
+						"rank": 45,
+						"nFbs": 134,
+						"games": 12
+					}
+				},
+				{
+					"season": 2025,
+					"team": "north-texas",
+					"status": "excluded",
+					"title": "Defensive Coordinator, Defensive Backs",
+					"staffUrl": "https://meangreensports.com/sports/football/roster/2025",
+					"reasons": ["two head coaches that season (Eric Morris, Drew Svoboda)"],
+					"playcall": null,
+					"stats": {
+						"epa": .1236,
+						"sr": 43.95,
+						"xpl": 1.278,
+						"ppd": 3.217,
+						"rank": 77,
+						"nFbs": 136,
+						"games": 13
+					}
+				},
+				{
+					"season": 2026,
+					"team": "oklahoma-state",
+					"status": "credited",
+					"title": "Defensive Coordinator",
+					"staffUrl": "https://okstate.com/sports/football/roster",
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Gordon Sammis",
+			"unit": "off",
+			"team": "tcu",
+			"title": "Offensive Coordinator",
+			"history": [{
+				"season": 2026,
+				"team": "tcu",
+				"status": "credited",
+				"title": "Offensive Coordinator",
+				"staffUrl": "https://gofrogs.com/sports/football/roster",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Andy Avalos",
+			"unit": "def",
+			"team": "tcu",
+			"title": "Defensive Coordinator",
+			"history": [
+				{
+					"season": 2024,
+					"team": "tcu",
+					"status": "credited",
+					"title": "Defensive Coordinator",
+					"staffUrl": "https://gofrogs.com/sports/football/roster/2024",
+					"playcall": null,
+					"stats": {
+						"epa": .0984,
+						"sr": 39.45,
+						"xpl": 1.2706,
+						"ppd": 2.021,
+						"rank": 67,
+						"nFbs": 134,
+						"games": 12
+					}
+				},
+				{
+					"season": 2025,
+					"team": "tcu",
+					"status": "credited",
+					"title": "Defensive Coordinator",
+					"staffUrl": "https://gofrogs.com/sports/football/roster/2025",
+					"playcall": null,
+					"stats": {
+						"epa": .0139,
+						"sr": 37.94,
+						"xpl": 1.2784,
+						"ppd": 2,
+						"rank": 34,
+						"nFbs": 136,
+						"games": 12
+					}
+				},
+				{
+					"season": 2026,
+					"team": "tcu",
+					"status": "credited",
+					"title": "Defensive Coordinator",
+					"staffUrl": "https://gofrogs.com/sports/football/roster",
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Mack Leftwich",
+			"unit": "off",
+			"team": "texas-tech",
+			"title": "Offensive Coordinator / Quarterbacks",
+			"history": [{
+				"season": 2026,
+				"team": "texas-tech",
+				"status": "credited",
+				"title": "Offensive Coordinator / Quarterbacks",
+				"staffUrl": "https://texastech.com/sports/football/roster",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Shiel Wood",
+			"unit": "def",
+			"team": "texas-tech",
+			"title": "Defensive Coordinator / Inside Linebackers",
+			"history": [{
+				"season": 2024,
+				"team": "houston",
+				"status": "excluded",
+				"title": "Defensive Coordinator/Inside Linebackers",
+				"staffUrl": "https://uhcougars.com/sports/football/roster/2024",
+				"reasons": ["two head coaches that season (Willie Fritz, Dana Holgorsen)"],
+				"playcall": null,
+				"stats": {
+					"epa": .0336,
+					"sr": 38.67,
+					"xpl": 1.2701,
+					"ppd": 1.707,
+					"rank": 31,
+					"nFbs": 134,
+					"games": 12
+				}
+			}, {
+				"season": 2026,
+				"team": "texas-tech",
+				"status": "excluded",
+				"title": "Defensive Coordinator / Inside Linebackers",
+				"staffUrl": "https://texastech.com/sports/football/roster",
+				"reasons": ["a co-coordinator is also listed"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Rob Greene",
+			"unit": "def",
+			"team": "texas-tech",
+			"title": "Co-Defensive Coordinator / Safeties Coach",
+			"history": [{
+				"season": 2026,
+				"team": "texas-tech",
+				"status": "excluded",
+				"title": "Co-Defensive Coordinator / Safeties Coach",
+				"staffUrl": "https://texastech.com/sports/football/roster",
+				"reasons": ["co-coordinator"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Steve Cooper",
+			"unit": "off",
+			"team": "ucf",
+			"title": "Offensive Coordinator",
+			"history": [
+				{
+					"season": 2024,
+					"team": "ucf",
+					"status": "credited",
+					"title": "Offensive Coordinator/Tight Ends",
+					"staffUrl": "https://ucfknights.com/sports/football/roster/season/2024/",
+					"playcall": null,
+					"stats": {
+						"epa": .2107,
+						"sr": 48.5,
+						"xpl": 1.2663,
+						"ppd": 2.24,
+						"rank": 24,
+						"nFbs": 134,
+						"games": 11
+					}
+				},
+				{
+					"season": 2025,
+					"team": "ucf",
+					"status": "credited",
+					"title": "Offensive Coordinator/Tight Ends",
+					"staffUrl": "https://ucfknights.com/sports/football/roster/season/2025/",
+					"playcall": null,
+					"stats": {
+						"epa": .028,
+						"sr": 39.42,
+						"xpl": 1.3037,
+						"ppd": 1.651,
+						"rank": 103,
+						"nFbs": 136,
+						"games": 11
+					}
+				},
+				{
+					"season": 2026,
+					"team": "ucf",
+					"status": "credited",
+					"title": "Offensive Coordinator",
+					"staffUrl": "https://ucfknights.com/sports/football/roster",
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Alex Grinch",
+			"unit": "def",
+			"team": "ucf",
+			"title": "Defensive Coordinator/Safeties",
+			"history": [
+				{
+					"season": 2024,
+					"team": "ucf",
+					"status": "credited",
+					"title": "Defensive Coordinator/Safeties",
+					"staffUrl": "https://ucfknights.com/sports/football/roster/season/2024/",
+					"playcall": null,
+					"stats": {
+						"epa": .096,
+						"sr": 37.94,
+						"xpl": 1.3657,
+						"ppd": 2.298,
+						"rank": 65,
+						"nFbs": 134,
+						"games": 11
+					}
+				},
+				{
+					"season": 2025,
+					"team": "ucf",
+					"status": "credited",
+					"title": "Defensive Coordinator/Safeties",
+					"staffUrl": "https://ucfknights.com/sports/football/roster/season/2025/",
+					"playcall": null,
+					"stats": {
+						"epa": .0603,
+						"sr": 42.49,
+						"xpl": 1.1285,
+						"ppd": 2.142,
+						"rank": 48,
+						"nFbs": 136,
+						"games": 11
+					}
+				},
+				{
+					"season": 2026,
+					"team": "ucf",
+					"status": "credited",
+					"title": "Defensive Coordinator/Safeties",
+					"staffUrl": "https://ucfknights.com/sports/football/roster",
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Kevin McGiven",
+			"unit": "off",
+			"team": "utah",
+			"title": "Offensive Coordinator",
+			"history": [{
+				"season": 2026,
+				"team": "utah",
+				"status": "credited",
+				"title": "Offensive Coordinator",
+				"staffUrl": "https://utahutes.com/sports/football/roster",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Colton Swan",
+			"unit": "def",
+			"team": "utah",
+			"title": "Defensive Coordinator/Linebackers",
+			"history": [{
+				"season": 2026,
+				"team": "utah",
+				"status": "credited",
+				"title": "Defensive Coordinator/Linebackers",
+				"staffUrl": "https://utahutes.com/sports/football/roster",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Zac Alley",
+			"unit": "def",
+			"team": "west-virginia",
+			"title": "Assistant Head Coach/Defensive Coordinator/Linebackers",
+			"history": [{
+				"season": 2025,
+				"team": "west-virginia",
+				"status": "credited",
+				"title": "Assistant Head Coach/Defensive Coordinator/Linebackers",
+				"staffUrl": "https://wvusports.com/sports/football/roster/2025",
+				"playcall": null,
+				"stats": {
+					"epa": .1014,
+					"sr": 40.5,
+					"xpl": 1.3681,
+					"ppd": 2.543,
+					"rank": 64,
+					"nFbs": 136,
+					"games": 11
+				}
+			}, {
+				"season": 2026,
+				"team": "west-virginia",
+				"status": "credited",
+				"title": "Assistant Head Coach/Defensive Coordinator/Linebackers",
+				"staffUrl": "https://wvusports.com/sports/football/roster",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Barry Lunney Jr.",
+			"unit": "off",
+			"team": "illinois",
+			"title": "Offensive Coordinator",
+			"history": [{
+				"season": 2026,
+				"team": "illinois",
+				"status": "credited",
+				"title": "Offensive Coordinator",
+				"staffUrl": "https://fightingillini.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Mike Shanahan",
+			"unit": "off",
+			"team": "indiana",
+			"title": "Offensive Coordinator/Wide Receivers",
+			"history": [
+				{
+					"season": 2024,
+					"team": "indiana",
+					"status": "excluded",
+					"title": "Offensive Coordinator/Wide Receivers",
+					"staffUrl": "https://iuhoosiers.com/sports/football/roster/2024",
+					"reasons": ["co-coordinator season (also listed: Tino Sunseri)"],
+					"playcall": null,
+					"stats": {
+						"epa": .2587,
+						"sr": 50.05,
+						"xpl": 1.2462,
+						"ppd": 3.165,
+						"rank": 10,
+						"nFbs": 134,
+						"games": 12
+					}
+				},
+				{
+					"season": 2025,
+					"team": "indiana",
+					"status": "excluded",
+					"title": "Offensive Coordinator/Wide Receivers",
+					"staffUrl": "https://iuhoosiers.com/sports/football/roster/2025",
+					"reasons": ["co-coordinator season (also listed: Chandler Whitmer)"],
+					"playcall": null,
+					"stats": {
+						"epa": .3578,
+						"sr": 51.45,
+						"xpl": 1.3249,
+						"ppd": 3.301,
+						"rank": 2,
+						"nFbs": 136,
+						"games": 15
+					}
+				},
+				{
+					"season": 2026,
+					"team": "indiana",
+					"status": "excluded",
+					"title": "Offensive Coordinator/Wide Receivers",
+					"staffUrl": "https://iuhoosiers.com/sports/football/roster",
+					"reasons": ["a co-coordinator is also listed"],
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Tino Sunseri",
+			"unit": "off",
+			"team": "indiana",
+			"title": "Quarterbacks/Co-Offensive Coordinator",
+			"history": [
+				{
+					"season": 2024,
+					"team": "indiana",
+					"status": "excluded",
+					"title": "Quarterbacks/Co-Offensive Coordinator",
+					"staffUrl": "https://iuhoosiers.com/sports/football/roster/2024",
+					"reasons": ["co-coordinator season (also listed: Mike Shanahan)"],
+					"playcall": null,
+					"stats": {
+						"epa": .2587,
+						"sr": 50.05,
+						"xpl": 1.2462,
+						"ppd": 3.165,
+						"rank": 10,
+						"nFbs": 134,
+						"games": 12
+					}
+				},
+				{
+					"season": 2025,
+					"team": "ucla",
+					"status": "excluded",
+					"title": "Assistant Coach, Offensive Coordinator/Quarterbacks",
+					"staffUrl": "https://uclabruins.com/sports/football/roster/2025",
+					"reasons": ["two head coaches that season (Deshaun Foster, Tim Skipper)"],
+					"playcall": null,
+					"stats": {
+						"epa": .1009,
+						"sr": 42.27,
+						"xpl": 1.1851,
+						"ppd": 1.713,
+						"rank": 65,
+						"nFbs": 136,
+						"games": 12
+					}
+				},
+				{
+					"season": 2026,
+					"team": "indiana",
+					"status": "excluded",
+					"title": "Quarterbacks/Co-Offensive Coordinator",
+					"staffUrl": "https://iuhoosiers.com/sports/football/roster",
+					"reasons": ["co-coordinator"],
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Bryant Haines",
+			"unit": "def",
+			"team": "indiana",
+			"title": "Defensive Coordinator/Linebackers",
+			"history": [
+				{
+					"season": 2024,
+					"team": "indiana",
+					"status": "credited",
+					"title": "Defensive Coordinator/Linebackers",
+					"staffUrl": "https://iuhoosiers.com/sports/football/roster/2024",
+					"playcall": "Play-calling also verified: head coach Curt Cignetti (bio shows no defensive coordinator role).",
+					"stats": {
+						"epa": -.0868,
+						"sr": 37.26,
+						"xpl": 1.1582,
+						"ppd": 1.42,
+						"rank": 4,
+						"nFbs": 134,
+						"games": 12
+					}
+				},
+				{
+					"season": 2025,
+					"team": "indiana",
+					"status": "credited",
+					"title": "Defensive Coordinator/Linebackers",
+					"staffUrl": "https://iuhoosiers.com/sports/football/roster/2025",
+					"playcall": "Play-calling also verified: head coach Curt Cignetti (bio shows no defensive coordinator role).",
+					"stats": {
+						"epa": -.1058,
+						"sr": 32.69,
+						"xpl": 1.3535,
+						"ppd": 1.079,
+						"rank": 5,
+						"nFbs": 136,
+						"games": 15
+					}
+				},
+				{
+					"season": 2026,
+					"team": "indiana",
+					"status": "credited",
+					"title": "Defensive Coordinator/Linebackers",
+					"staffUrl": "https://iuhoosiers.com/sports/football/roster",
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Tim Lester",
+			"unit": "off",
+			"team": "iowa",
+			"title": "Offensive Coordinator",
+			"history": [{
+				"season": 2026,
+				"team": "iowa",
+				"status": "credited",
+				"title": "Offensive Coordinator",
+				"staffUrl": "https://hawkeyesports.com/sports/football/roster",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Phil Parker",
+			"unit": "def",
+			"team": "iowa",
+			"title": "Defensive Coordinator/Secondary",
+			"history": [{
+				"season": 2026,
+				"team": "iowa",
+				"status": "credited",
+				"title": "Defensive Coordinator/Secondary",
+				"staffUrl": "https://hawkeyesports.com/sports/football/roster",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Clint Trickett",
+			"unit": "off",
+			"team": "maryland",
+			"title": "Offensive Coordinator/Quarterbacks Coach",
+			"history": [{
+				"season": 2026,
+				"team": "maryland",
+				"status": "credited",
+				"title": "Offensive Coordinator/Quarterbacks Coach",
+				"staffUrl": "https://umterps.com/sports/football/roster",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Zac Spavital",
+			"unit": "def",
+			"team": "maryland",
+			"title": "Defensive Coordinator/Inside Linebackers Coach",
+			"history": [{
+				"season": 2026,
+				"team": "maryland",
+				"status": "excluded",
+				"title": "Defensive Coordinator/Inside Linebackers Coach",
+				"staffUrl": "https://umterps.com/sports/football/roster",
+				"reasons": ["a co-coordinator is also listed"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "James Thomas Jr.",
+			"unit": "def",
+			"team": "maryland",
+			"title": "Co-Defensive Coordinator/Safeties Coach",
+			"history": [{
+				"season": 2026,
+				"team": "maryland",
+				"status": "excluded",
+				"title": "Co-Defensive Coordinator/Safeties Coach",
+				"staffUrl": "https://umterps.com/sports/football/roster",
+				"reasons": ["co-coordinator"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Jason Beck",
+			"unit": "off",
+			"team": "michigan",
+			"title": "Sanford Robertson Offensive Coordinator, Robert McCollum Family Quarterbacks Coach",
+			"history": [{
+				"season": 2026,
+				"team": "michigan",
+				"status": "credited",
+				"title": "Sanford Robertson Offensive Coordinator, Robert McCollum Family Quarterbacks Coach",
+				"staffUrl": "https://mgoblue.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Jay Hill",
+			"unit": "def",
+			"team": "michigan",
+			"title": "Matt and Nicole Lester Family Defensive Coordinator",
+			"history": [{
+				"season": 2024,
+				"team": "byu",
+				"status": "credited",
+				"title": "Associate Head Coach, Defensive Coordinator, Safeties Coach",
+				"staffUrl": "https://byucougars.com/sports/football/roster/season/2024/",
+				"playcall": null,
+				"stats": {
+					"epa": -.0304,
+					"sr": 39.18,
+					"xpl": 1.2598,
+					"ppd": 1.715,
+					"rank": 14,
+					"nFbs": 134,
+					"games": 12
+				}
+			}, {
+				"season": 2026,
+				"team": "michigan",
+				"status": "credited",
+				"title": "Matt and Nicole Lester Family Defensive Coordinator",
+				"staffUrl": "https://mgoblue.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Nick Sheridan",
+			"unit": "off",
+			"team": "michigan-state",
+			"title": "Offensive Coordinator",
+			"history": [
+				{
+					"season": 2024,
+					"team": "alabama",
+					"status": "excluded",
+					"title": "Offensive Coordinator/Quarterbacks",
+					"staffUrl": "https://rolltide.com/sports/football/roster/2024",
+					"reasons": ["co-coordinator season (also listed: JaMarcus Shephard)"],
+					"playcall": null,
+					"stats": {
+						"epa": .216,
+						"sr": 47.18,
+						"xpl": 1.3011,
+						"ppd": 2.571,
+						"rank": 21,
+						"nFbs": 134,
+						"games": 12
+					}
+				},
+				{
+					"season": 2025,
+					"team": "alabama",
+					"status": "excluded",
+					"title": "Co-Offensive Coordinator/Quarterbacks",
+					"staffUrl": "https://rolltide.com/sports/football/roster/2025",
+					"reasons": ["co-coordinator season (also listed: JaMarcus Shephard, Ryan Grubb)"],
+					"playcall": null,
+					"stats": {
+						"epa": .2252,
+						"sr": 45.59,
+						"xpl": 1.3093,
+						"ppd": 2.534,
+						"rank": 19,
+						"nFbs": 136,
+						"games": 14
+					}
+				},
+				{
+					"season": 2026,
+					"team": "michigan-state",
+					"status": "credited",
+					"title": "Offensive Coordinator",
+					"staffUrl": "https://msuspartans.com/sports/football/roster",
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Joe Rossi",
+			"unit": "def",
+			"team": "michigan-state",
+			"title": "Secchia Family Defensive Coordinator",
+			"history": [{
+				"season": 2026,
+				"team": "michigan-state",
+				"status": "excluded",
+				"title": "Secchia Family Defensive Coordinator",
+				"staffUrl": "https://msuspartans.com/sports/football/roster",
+				"reasons": ["a co-coordinator is also listed"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Max Bullough",
+			"unit": "def",
+			"team": "michigan-state",
+			"title": "Co-Defensive Coordinator/Linebackers Coach",
+			"history": [{
+				"season": 2026,
+				"team": "michigan-state",
+				"status": "excluded",
+				"title": "Co-Defensive Coordinator/Linebackers Coach",
+				"staffUrl": "https://msuspartans.com/sports/football/roster",
+				"reasons": ["co-coordinator"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Danny Collins",
+			"unit": "def",
+			"team": "minnesota",
+			"title": "Defensive Coordinator / Safeties",
+			"history": [
+				{
+					"season": 2024,
+					"team": "minnesota",
+					"status": "excluded",
+					"title": "Defensive Coordinator / Safeties",
+					"staffUrl": "https://gophersports.com/sports/football/roster/2024",
+					"reasons": ["co-coordinator season (also listed: Nick Monroe)"],
+					"playcall": null,
+					"stats": {
+						"epa": -.022,
+						"sr": 37.66,
+						"xpl": 1.2012,
+						"ppd": 1.563,
+						"rank": 16,
+						"nFbs": 134,
+						"games": 12
+					}
+				},
+				{
+					"season": 2025,
+					"team": "minnesota",
+					"status": "excluded",
+					"title": "Defensive Coordinator / Safeties",
+					"staffUrl": "https://gophersports.com/sports/football/roster/2025",
+					"reasons": ["co-coordinator season (also listed: Nick Monroe)"],
+					"playcall": null,
+					"stats": {
+						"epa": .1347,
+						"sr": 42.32,
+						"xpl": 1.242,
+						"ppd": 2.215,
+						"rank": 84,
+						"nFbs": 136,
+						"games": 12
+					}
+				},
+				{
+					"season": 2026,
+					"team": "minnesota",
+					"status": "excluded",
+					"title": "Defensive Coordinator / Safeties",
+					"staffUrl": "https://gophersports.com/sports/football/roster",
+					"reasons": ["a co-coordinator is also listed"],
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Nick Monroe",
+			"unit": "def",
+			"team": "minnesota",
+			"title": "Cornerbacks / Co-Defensive Coordinator",
+			"history": [
+				{
+					"season": 2024,
+					"team": "minnesota",
+					"status": "excluded",
+					"title": "Cornerbacks / Co-Defensive Coordinator",
+					"staffUrl": "https://gophersports.com/sports/football/roster/2024",
+					"reasons": ["co-coordinator season (also listed: Danny Collins)"],
+					"playcall": null,
+					"stats": {
+						"epa": -.022,
+						"sr": 37.66,
+						"xpl": 1.2012,
+						"ppd": 1.563,
+						"rank": 16,
+						"nFbs": 134,
+						"games": 12
+					}
+				},
+				{
+					"season": 2025,
+					"team": "minnesota",
+					"status": "excluded",
+					"title": "Cornerbacks / Co-Defensive Coordinator",
+					"staffUrl": "https://gophersports.com/sports/football/roster/2025",
+					"reasons": ["co-coordinator season (also listed: Danny Collins)"],
+					"playcall": null,
+					"stats": {
+						"epa": .1347,
+						"sr": 42.32,
+						"xpl": 1.242,
+						"ppd": 2.215,
+						"rank": 84,
+						"nFbs": 136,
+						"games": 12
+					}
+				},
+				{
+					"season": 2026,
+					"team": "minnesota",
+					"status": "excluded",
+					"title": "Cornerbacks / Co-Defensive Coordinator",
+					"staffUrl": "https://gophersports.com/sports/football/roster",
+					"reasons": ["co-coordinator"],
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Glenn Thomas",
+			"unit": "off",
+			"team": "nebraska",
+			"title": "Co-Offensive Coordinator - Quarterbacks",
+			"history": [
+				{
+					"season": 2024,
+					"team": "nebraska",
+					"status": "excluded",
+					"title": "Co-Offensive Coordinator - Quarterbacks",
+					"staffUrl": "https://huskers.com/sports/football/roster/season/2024/",
+					"reasons": ["co-coordinator season (also listed: Dana Holgorsen, Marcus Satterfield)"],
+					"playcall": null,
+					"stats": {
+						"epa": .1468,
+						"sr": 43.78,
+						"xpl": 1.1769,
+						"ppd": 1.915,
+						"rank": 53,
+						"nFbs": 134,
+						"games": 12
+					}
+				},
+				{
+					"season": 2025,
+					"team": "nebraska",
+					"status": "excluded",
+					"title": "Co-Offensive Coordinator - Quarterbacks",
+					"staffUrl": "https://huskers.com/sports/football/roster/season/2025/",
+					"reasons": ["co-coordinator season (also listed: Dana Holgorsen)"],
+					"playcall": null,
+					"stats": {
+						"epa": .099,
+						"sr": 44.42,
+						"xpl": 1.1676,
+						"ppd": 2.221,
+						"rank": 66,
+						"nFbs": 136,
+						"games": 12
+					}
+				},
+				{
+					"season": 2026,
+					"team": "nebraska",
+					"status": "excluded",
+					"title": "Co-Offensive Coordinator - Quarterbacks",
+					"staffUrl": "https://huskers.com/sports/football/roster",
+					"reasons": ["co-coordinator setup"],
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Rob Aurich",
+			"unit": "def",
+			"team": "nebraska",
+			"title": "Defensive Coordinator",
+			"history": [{
+				"season": 2026,
+				"team": "nebraska",
+				"status": "credited",
+				"title": "Defensive Coordinator",
+				"staffUrl": "https://huskers.com/sports/football/roster",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Chip Kelly",
+			"unit": "off",
+			"team": "northwestern",
+			"title": "Offensive Coordinator",
+			"history": [{
+				"season": 2024,
+				"team": "ohio-state",
+				"status": "excluded",
+				"title": "Offensive Coordinator / Quarterbacks",
+				"staffUrl": "https://ohiostatebuckeyes.com/sports/football/roster/2024",
+				"reasons": ["co-coordinator season (also listed: Brian Hartline)"],
+				"playcall": null,
+				"stats": {
+					"epa": .3776,
+					"sr": 50.6,
+					"xpl": 1.3563,
+					"ppd": 3.018,
+					"rank": 1,
+					"nFbs": 134,
+					"games": 16
+				}
+			}, {
+				"season": 2026,
+				"team": "northwestern",
+				"status": "credited",
+				"title": "Offensive Coordinator",
+				"staffUrl": "https://nusports.com/sports/football/roster",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Tim McGarigle",
+			"unit": "def",
+			"team": "northwestern",
+			"title": "Defensive Coordinator (Linebackers)",
+			"history": [
+				{
+					"season": 2024,
+					"team": "northwestern",
+					"status": "credited",
+					"title": "Defensive Coordinator (Linebackers)",
+					"staffUrl": "https://nusports.com/sports/football/roster/season/2024/",
+					"playcall": null,
+					"stats": {
+						"epa": .0715,
+						"sr": 42.9,
+						"xpl": 1.1847,
+						"ppd": 2.084,
+						"rank": 51,
+						"nFbs": 134,
+						"games": 11
+					}
+				},
+				{
+					"season": 2025,
+					"team": "northwestern",
+					"status": "credited",
+					"title": "Defensive Coordinator (Linebackers)",
+					"staffUrl": "https://web.archive.org/web/20250808162013id_/https://nusports.com/sports/football/roster/2025",
+					"playcall": null,
+					"stats": {
+						"epa": .0827,
+						"sr": 44.05,
+						"xpl": 1.161,
+						"ppd": 1.943,
+						"rank": 55,
+						"nFbs": 136,
+						"games": 12
+					}
+				},
+				{
+					"season": 2026,
+					"team": "northwestern",
+					"status": "credited",
+					"title": "Defensive Coordinator (Linebackers)",
+					"staffUrl": "https://nusports.com/sports/football/roster",
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Arthur Smith",
+			"unit": "off",
+			"team": "ohio-state",
+			"title": "Offensive Coordinator",
+			"history": [{
+				"season": 2026,
+				"team": "ohio-state",
+				"status": "excluded",
+				"title": "Offensive Coordinator",
+				"staffUrl": "https://ohiostatebuckeyes.com/sports/football/roster",
+				"reasons": ["a co-coordinator is also listed"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Keenan Bailey",
+			"unit": "off",
+			"team": "ohio-state",
+			"title": "Co-Offensive Coordinator / Tight Ends Coach",
+			"history": [{
+				"season": 2025,
+				"team": "ohio-state",
+				"status": "excluded",
+				"title": "Co-Offensive Coordinator & Tight Ends Coach",
+				"staffUrl": "https://ohiostatebuckeyes.com/sports/football/roster/2025",
+				"reasons": ["co-coordinator season (also listed: Brian Hartline)"],
+				"playcall": null,
+				"stats": {
+					"epa": .2938,
+					"sr": 51.37,
+					"xpl": 1.1963,
+					"ppd": 2.945,
+					"rank": 8,
+					"nFbs": 136,
+					"games": 13
+				}
+			}, {
+				"season": 2026,
+				"team": "ohio-state",
+				"status": "excluded",
+				"title": "Co-Offensive Coordinator / Tight Ends Coach",
+				"staffUrl": "https://ohiostatebuckeyes.com/sports/football/roster",
+				"reasons": ["co-coordinator"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Matt Patricia",
+			"unit": "def",
+			"team": "ohio-state",
+			"title": "Defensive Coordinator",
+			"history": [{
+				"season": 2025,
+				"team": "ohio-state",
+				"status": "excluded",
+				"title": "Defensive Coordinator",
+				"staffUrl": "https://ohiostatebuckeyes.com/sports/football/roster/2025",
+				"reasons": ["co-coordinator season (also listed: Tim Walton)"],
+				"playcall": null,
+				"stats": {
+					"epa": -.116,
+					"sr": 33.61,
+					"xpl": 1.0818,
+					"ppd": .984,
+					"rank": 3,
+					"nFbs": 136,
+					"games": 13
+				}
+			}, {
+				"season": 2026,
+				"team": "ohio-state",
+				"status": "credited",
+				"title": "Defensive Coordinator",
+				"staffUrl": "https://ohiostatebuckeyes.com/sports/football/roster",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Chris Hampton",
+			"unit": "def",
+			"team": "oregon",
+			"title": "Defensive Coordinator/Safeties",
+			"history": [
+				{
+					"season": 2024,
+					"team": "oregon",
+					"status": "excluded",
+					"title": "Co-Defensive Coordinator/Defensive Backs",
+					"staffUrl": "https://goducks.com/sports/football/roster/2024",
+					"reasons": ["co-coordinator season (also listed: Tosh Lupoi)"],
+					"playcall": null,
+					"stats": {
+						"epa": .0044,
+						"sr": 36.88,
+						"xpl": 1.24,
+						"ppd": 1.694,
+						"rank": 25,
+						"nFbs": 134,
+						"games": 13
+					}
+				},
+				{
+					"season": 2025,
+					"team": "oregon",
+					"status": "credited",
+					"title": "Defensive Coordinator/Defensive Backs",
+					"staffUrl": "https://goducks.com/sports/football/roster/2025",
+					"playcall": null,
+					"stats": {
+						"epa": -.0834,
+						"sr": 33.98,
+						"xpl": 1.2178,
+						"ppd": 1.694,
+						"rank": 8,
+						"nFbs": 136,
+						"games": 14
+					}
+				},
+				{
+					"season": 2026,
+					"team": "oregon",
+					"status": "credited",
+					"title": "Defensive Coordinator/Safeties",
+					"staffUrl": "https://goducks.com/sports/football/roster",
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Taylor Mouser",
+			"unit": "off",
+			"team": "penn-state",
+			"title": "Offensive Coordinator/Tight Ends",
+			"history": [
+				{
+					"season": 2024,
+					"team": "iowa-state",
+					"status": "credited",
+					"title": "Offensive Coordinator/Tight Ends",
+					"staffUrl": "https://cyclones.com/sports/football/roster/2024",
+					"playcall": null,
+					"stats": {
+						"epa": .1765,
+						"sr": 42.33,
+						"xpl": 1.3344,
+						"ppd": 2.58,
+						"rank": 40,
+						"nFbs": 134,
+						"games": 13
+					}
+				},
+				{
+					"season": 2025,
+					"team": "iowa-state",
+					"status": "credited",
+					"title": "Offensive Coordinator/Tight Ends",
+					"staffUrl": "https://cyclones.com/sports/football/roster/2025",
+					"playcall": null,
+					"stats": {
+						"epa": .1703,
+						"sr": 45,
+						"xpl": 1.2002,
+						"ppd": 2.221,
+						"rank": 36,
+						"nFbs": 136,
+						"games": 11
+					}
+				},
+				{
+					"season": 2026,
+					"team": "penn-state",
+					"status": "credited",
+					"title": "Offensive Coordinator/Tight Ends",
+					"staffUrl": "https://gopsusports.com/sports/football/roster",
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "D'Anton Lynn",
+			"unit": "def",
+			"team": "penn-state",
+			"title": "Defensive Coordinator",
+			"history": [{
+				"season": 2026,
+				"team": "penn-state",
+				"status": "credited",
+				"title": "Defensive Coordinator",
+				"staffUrl": "https://gopsusports.com/sports/football/roster",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Josh Henson",
+			"unit": "off",
+			"team": "purdue",
+			"title": "Offensive Coordinator / Tight Ends",
+			"history": [{
+				"season": 2025,
+				"team": "purdue",
+				"status": "credited",
+				"title": "Offensive Coordinator / Tight Ends",
+				"staffUrl": "https://purduesports.com/sports/football/roster/2025",
+				"playcall": null,
+				"stats": {
+					"epa": .0747,
+					"sr": 41.95,
+					"xpl": 1.2783,
+					"ppd": 1.592,
+					"rank": 75,
+					"nFbs": 136,
+					"games": 11
+				}
+			}, {
+				"season": 2026,
+				"team": "purdue",
+				"status": "credited",
+				"title": "Offensive Coordinator / Tight Ends",
+				"staffUrl": "https://purduesports.com/sports/football/roster",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Kirk Ciarrocca",
+			"unit": "off",
+			"team": "rutgers",
+			"title": "Offensive Coordinator/Quarterbacks",
+			"history": [
+				{
+					"season": 2024,
+					"team": "rutgers",
+					"status": "credited",
+					"title": "Offensive Coordinator/Quarterbacks",
+					"staffUrl": "https://scarletknights.com/sports/football/roster/2024",
+					"playcall": "Play-calling also verified: head coach Greg Schiano (bio shows no offensive coordinator role).",
+					"stats": {
+						"epa": .1617,
+						"sr": 43.67,
+						"xpl": 1.248,
+						"ppd": 2.448,
+						"rank": 47,
+						"nFbs": 134,
+						"games": 12
+					}
+				},
+				{
+					"season": 2025,
+					"team": "rutgers",
+					"status": "credited",
+					"title": "Offensive Coordinator/Quarterbacks",
+					"staffUrl": "https://scarletknights.com/sports/football/roster/2025",
+					"playcall": "Play-calling also verified: head coach Greg Schiano (bio shows no offensive coordinator role).",
+					"stats": {
+						"epa": .1864,
+						"sr": 46.19,
+						"xpl": 1.2285,
+						"ppd": 2.569,
+						"rank": 29,
+						"nFbs": 136,
+						"games": 11
+					}
+				},
+				{
+					"season": 2026,
+					"team": "rutgers",
+					"status": "credited",
+					"title": "Offensive Coordinator/Quarterbacks",
+					"staffUrl": "https://scarletknights.com/sports/football/roster",
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Travis Johansen",
+			"unit": "def",
+			"team": "rutgers",
+			"title": "Defensive Coordinator",
+			"history": [{
+				"season": 2025,
+				"team": "rutgers",
+				"status": "credited",
+				"title": "Defensive Coordinator",
+				"staffUrl": "https://scarletknights.com/sports/football/roster/2025",
+				"playcall": null,
+				"stats": {
+					"epa": .2658,
+					"sr": 46.63,
+					"xpl": 1.3614,
+					"ppd": 3.167,
+					"rank": 132,
+					"nFbs": 136,
+					"games": 11
+				}
+			}, {
+				"season": 2026,
+				"team": "rutgers",
+				"status": "credited",
+				"title": "Defensive Coordinator",
+				"staffUrl": "https://scarletknights.com/sports/football/roster",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Dean Kennedy",
+			"unit": "off",
+			"team": "ucla",
+			"title": "Assistant Coach, Offensive Coordinator",
+			"history": [
+				{
+					"season": 2024,
+					"team": "james-madison",
+					"status": "credited",
+					"title": "Offensive Coordinator/Quarterbacks",
+					"staffUrl": "https://jmusports.com/sports/football/roster/2024",
+					"playcall": null,
+					"stats": {
+						"epa": .0572,
+						"sr": 39.84,
+						"xpl": 1.2439,
+						"ppd": 2.272,
+						"rank": 89,
+						"nFbs": 134,
+						"games": 12
+					}
+				},
+				{
+					"season": 2025,
+					"team": "james-madison",
+					"status": "credited",
+					"title": "Offensive Coordinator/Quarterbacks",
+					"staffUrl": "https://web.archive.org/web/20260806080352id_/https://jmusports.com/sports/football/roster/2025",
+					"playcall": null,
+					"stats": {
+						"epa": .1545,
+						"sr": 43.39,
+						"xpl": 1.3053,
+						"ppd": 2.646,
+						"rank": 40,
+						"nFbs": 136,
+						"games": 13
+					}
+				},
+				{
+					"season": 2026,
+					"team": "ucla",
+					"status": "credited",
+					"title": "Assistant Coach, Offensive Coordinator",
+					"staffUrl": "https://uclabruins.com/sports/football/roster",
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Colin Hitschler",
+			"unit": "def",
+			"team": "ucla",
+			"title": "Assistant Coach, Defensive Coordinator",
+			"history": [
+				{
+					"season": 2024,
+					"team": "alabama",
+					"status": "excluded",
+					"title": "Co-Defensive Coordinator/Defensive Backs",
+					"staffUrl": "https://rolltide.com/sports/football/roster/2024",
+					"reasons": ["co-coordinator season (also listed: Kane Wommack, Maurice Linguist)"],
+					"playcall": null,
+					"stats": {
+						"epa": -.048,
+						"sr": 35.79,
+						"xpl": 1.2192,
+						"ppd": 1.291,
+						"rank": 11,
+						"nFbs": 134,
+						"games": 12
+					}
+				},
+				{
+					"season": 2025,
+					"team": "james-madison",
+					"status": "credited",
+					"title": "Defensive Coordinator",
+					"staffUrl": "https://web.archive.org/web/20260806080352id_/https://jmusports.com/sports/football/roster/2025",
+					"playcall": null,
+					"stats": {
+						"epa": -.0496,
+						"sr": 30.81,
+						"xpl": 1.539,
+						"ppd": 1.383,
+						"rank": 13,
+						"nFbs": 136,
+						"games": 13
+					}
+				},
+				{
+					"season": 2026,
+					"team": "ucla",
+					"status": "credited",
+					"title": "Assistant Coach, Defensive Coordinator",
+					"staffUrl": "https://uclabruins.com/sports/football/roster",
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Luke Huard",
+			"unit": "off",
+			"team": "usc",
+			"title": "Offensive Coordinator / Quarterbacks Coach",
+			"history": [{
+				"season": 2026,
+				"team": "usc",
+				"status": "excluded",
+				"title": "Offensive Coordinator / Quarterbacks Coach",
+				"staffUrl": "https://usctrojans.com/sports/football/roster",
+				"reasons": ["a co-coordinator is also listed"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Dennis Simmons",
+			"unit": "off",
+			"team": "usc",
+			"title": "Assistant Head Coach / Co-Offensive Coordinator / Wide Receivers Coach",
+			"history": [{
+				"season": 2026,
+				"team": "usc",
+				"status": "excluded",
+				"title": "Assistant Head Coach / Co-Offensive Coordinator / Wide Receivers Coach",
+				"staffUrl": "https://usctrojans.com/sports/football/roster",
+				"reasons": ["co-coordinator"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Gary Patterson",
+			"unit": "def",
+			"team": "usc",
+			"title": "Defensive Coordinator",
+			"history": [{
+				"season": 2026,
+				"team": "usc",
+				"status": "credited",
+				"title": "Defensive Coordinator",
+				"staffUrl": "https://usctrojans.com/sports/football/roster",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Ryan Walters",
+			"unit": "def",
+			"team": "washington",
+			"title": "Defensive Coordinator",
+			"history": [{
+				"season": 2025,
+				"team": "washington",
+				"status": "credited",
+				"title": "Defensive Coordinator",
+				"staffUrl": "https://gohuskies.com/sports/football/roster/2025",
+				"playcall": null,
+				"stats": {
+					"epa": -.032,
+					"sr": 37.27,
+					"xpl": 1.2332,
+					"ppd": 1.82,
+					"rank": 18,
+					"nFbs": 136,
+					"games": 12
+				}
+			}, {
+				"season": 2026,
+				"team": "washington",
+				"status": "credited",
+				"title": "Defensive Coordinator",
+				"staffUrl": "https://gohuskies.com/sports/football/roster",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Jeff Grimes",
+			"unit": "off",
+			"team": "wisconsin",
+			"title": "Offensive Coordinator",
+			"history": [
+				{
+					"season": 2024,
+					"team": "wisconsin",
+					"status": "credited",
+					"title": "Offensive Coordinator",
+					"staffUrl": "https://uwbadgers.com/sports/football/roster/2024",
+					"playcall": null,
+					"stats": {
+						"epa": .074,
+						"sr": 41.83,
+						"xpl": 1.143,
+						"ppd": 1.662,
+						"rank": 80,
+						"nFbs": 134,
+						"games": 11
+					}
+				},
+				{
+					"season": 2025,
+					"team": "wisconsin",
+					"status": "credited",
+					"title": "Offensive Coordinator",
+					"staffUrl": "https://uwbadgers.com/sports/football/roster/2025",
+					"playcall": "Play-calling also verified: head coach Luke Fickell (bio shows no offensive coordinator role).",
+					"stats": {
+						"epa": .0043,
+						"sr": 39.03,
+						"xpl": 1.2748,
+						"ppd": 1.48,
+						"rank": 109,
+						"nFbs": 136,
+						"games": 12
+					}
+				},
+				{
+					"season": 2026,
+					"team": "wisconsin",
+					"status": "credited",
+					"title": "Offensive Coordinator",
+					"staffUrl": "https://uwbadgers.com/sports/football/roster",
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Mike Tressel",
+			"unit": "def",
+			"team": "wisconsin",
+			"title": "Defensive Coordinator",
+			"history": [
+				{
+					"season": 2024,
+					"team": "wisconsin",
+					"status": "credited",
+					"title": "Defensive Coordinator/Inside Linebackers",
+					"staffUrl": "https://uwbadgers.com/sports/football/roster/2024",
+					"playcall": null,
+					"stats": {
+						"epa": .1017,
+						"sr": 41.25,
+						"xpl": 1.106,
+						"ppd": 1.844,
+						"rank": 68,
+						"nFbs": 134,
+						"games": 11
+					}
+				},
+				{
+					"season": 2025,
+					"team": "wisconsin",
+					"status": "credited",
+					"title": "Defensive Coordinator/Inside Linebackers",
+					"staffUrl": "https://uwbadgers.com/sports/football/roster/2025",
+					"playcall": null,
+					"stats": {
+						"epa": .066,
+						"sr": 41.75,
+						"xpl": 1.167,
+						"ppd": 1.969,
+						"rank": 49,
+						"nFbs": 136,
+						"games": 12
+					}
+				},
+				{
+					"season": 2026,
+					"team": "wisconsin",
+					"status": "credited",
+					"title": "Defensive Coordinator",
+					"staffUrl": "https://uwbadgers.com/sports/football/roster",
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Terence Archer",
+			"unit": "off",
+			"team": "delaware",
+			"title": "Assistant Head Coach, Offense / Offensive Coordinator / Wide Receivers",
+			"history": [
+				{
+					"season": 2024,
+					"team": "delaware",
+					"status": "excluded",
+					"title": "Assistant Head Coach - Offense / Offensive Coordinator / Wide Receivers",
+					"staffUrl": "https://bluehens.com/sports/football/roster/2024",
+					"reasons": ["no FBS unit numbers (not FBS that season)"],
+					"playcall": null,
+					"stats": null
+				},
+				{
+					"season": 2025,
+					"team": "delaware",
+					"status": "credited",
+					"title": "Assistant Head Coach - Offense / Offensive Coordinator / Wide Receivers",
+					"staffUrl": "https://bluehens.com/sports/football/roster/2025",
+					"playcall": null,
+					"stats": {
+						"epa": .0652,
+						"sr": 40.04,
+						"xpl": 1.3194,
+						"ppd": 2.264,
+						"rank": 81,
+						"nFbs": 136,
+						"games": 12
+					}
+				},
+				{
+					"season": 2026,
+					"team": "delaware",
+					"status": "credited",
+					"title": "Assistant Head Coach, Offense / Offensive Coordinator / Wide Receivers",
+					"staffUrl": "https://bluehens.com/sports/football/coaches",
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Manny Rojas",
+			"unit": "def",
+			"team": "delaware",
+			"title": "Assistant Head Coach, Defense / Defensive Coordinator / Safeties",
+			"history": [
+				{
+					"season": 2024,
+					"team": "delaware",
+					"status": "excluded",
+					"title": "Defensive Coordinator",
+					"staffUrl": "https://bluehens.com/sports/football/roster/2024",
+					"reasons": ["no FBS unit numbers (not FBS that season)"],
+					"playcall": null,
+					"stats": null
+				},
+				{
+					"season": 2025,
+					"team": "delaware",
+					"status": "credited",
+					"title": "Defensive Coordinator",
+					"staffUrl": "https://bluehens.com/sports/football/roster/2025",
+					"playcall": null,
+					"stats": {
+						"epa": .2355,
+						"sr": 44.4,
+						"xpl": 1.4179,
+						"ppd": 2.493,
+						"rank": 129,
+						"nFbs": 136,
+						"games": 12
+					}
+				},
+				{
+					"season": 2026,
+					"team": "delaware",
+					"status": "credited",
+					"title": "Assistant Head Coach, Defense / Defensive Coordinator / Safeties",
+					"staffUrl": "https://bluehens.com/sports/football/coaches",
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Nick Coleman",
+			"unit": "off",
+			"team": "fiu",
+			"title": "Offensive Coordinator/Quarterbacks Coach",
+			"history": [{
+				"season": 2025,
+				"team": "fiu",
+				"status": "credited",
+				"title": "Offensive Coordinator/Quarterbacks Coach",
+				"staffUrl": "https://fiusports.com/sports/football/roster/2025",
+				"playcall": null,
+				"stats": {
+					"epa": -.0122,
+					"sr": 36.94,
+					"xpl": 1.3156,
+					"ppd": 2.077,
+					"rank": 114,
+					"nFbs": 136,
+					"games": 12
+				}
+			}, {
+				"season": 2026,
+				"team": "fiu",
+				"status": "credited",
+				"title": "Offensive Coordinator/Quarterbacks Coach",
+				"staffUrl": "https://fiusports.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Jovan Dewitt",
+			"unit": "def",
+			"team": "fiu",
+			"title": "Assistant Head Coach/Defensive Coordinator",
+			"history": [
+				{
+					"season": 2024,
+					"team": "fiu",
+					"status": "credited",
+					"title": "Defensive Coordinator",
+					"staffUrl": "https://fiusports.com/sports/football/roster/2024",
+					"playcall": null,
+					"stats": {
+						"epa": .135,
+						"sr": 44.03,
+						"xpl": 1.139,
+						"ppd": 1.941,
+						"rank": 79,
+						"nFbs": 134,
+						"games": 11
+					}
+				},
+				{
+					"season": 2025,
+					"team": "fiu",
+					"status": "credited",
+					"title": "Assistant Head Coach/Defensive Coordinator",
+					"staffUrl": "https://fiusports.com/sports/football/roster/2025",
+					"playcall": null,
+					"stats": {
+						"epa": .1125,
+						"sr": 43.63,
+						"xpl": 1.2415,
+						"ppd": 2.447,
+						"rank": 69,
+						"nFbs": 136,
+						"games": 12
+					}
+				},
+				{
+					"season": 2026,
+					"team": "fiu",
+					"status": "credited",
+					"title": "Assistant Head Coach/Defensive Coordinator",
+					"staffUrl": "https://fiusports.com/sports/football/coaches",
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Taylor Housewright",
+			"unit": "off",
+			"team": "jacksonville-state",
+			"title": "Offensive Coordinator/Quarterbacks",
+			"history": [{
+				"season": 2026,
+				"team": "jacksonville-state",
+				"status": "credited",
+				"title": "Offensive Coordinator/Quarterbacks",
+				"staffUrl": "https://jaxstatesports.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Brian Williams",
+			"unit": "def",
+			"team": "jacksonville-state",
+			"title": "Defensive Coordinator/Safeties",
+			"history": [{
+				"season": 2025,
+				"team": "jacksonville-state",
+				"status": "credited",
+				"title": "Defensive Coordinator",
+				"staffUrl": "https://jaxstatesports.com/sports/football/roster/2025",
+				"playcall": null,
+				"stats": {
+					"epa": .181,
+					"sr": 45.46,
+					"xpl": 1.2984,
+					"ppd": 2.04,
+					"rank": 106,
+					"nFbs": 136,
+					"games": 13
+				}
+			}, {
+				"season": 2026,
+				"team": "jacksonville-state",
+				"status": "credited",
+				"title": "Defensive Coordinator/Safeties",
+				"staffUrl": "https://jaxstatesports.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Mitch Militello",
+			"unit": "off",
+			"team": "kennesaw-state",
+			"title": "Offensive Coordinator/Quarterbacks",
+			"history": [{
+				"season": 2025,
+				"team": "kennesaw-state",
+				"status": "credited",
+				"title": "Offensive Coordinator/Quarterbacks",
+				"staffUrl": "https://ksuowls.com/sports/football/roster/2025",
+				"playcall": null,
+				"stats": {
+					"epa": .1029,
+					"sr": 40.26,
+					"xpl": 1.3468,
+					"ppd": 1.987,
+					"rank": 63,
+					"nFbs": 136,
+					"games": 13
+				}
+			}, {
+				"season": 2026,
+				"team": "kennesaw-state",
+				"status": "credited",
+				"title": "Offensive Coordinator/Quarterbacks",
+				"staffUrl": "https://ksuowls.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Marc Mattioli",
+			"unit": "def",
+			"team": "kennesaw-state",
+			"title": "Defensive Coordinator/Safeties",
+			"history": [{
+				"season": 2025,
+				"team": "kennesaw-state",
+				"status": "credited",
+				"title": "Defensive Coordinator/Safeties",
+				"staffUrl": "https://ksuowls.com/sports/football/roster/2025",
+				"playcall": null,
+				"stats": {
+					"epa": .1626,
+					"sr": 45.31,
+					"xpl": 1.1815,
+					"ppd": 2.27,
+					"rank": 95,
+					"nFbs": 136,
+					"games": 13
+				}
+			}, {
+				"season": 2026,
+				"team": "kennesaw-state",
+				"status": "credited",
+				"title": "Defensive Coordinator/Safeties",
+				"staffUrl": "https://ksuowls.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Newland Isaac",
+			"unit": "off",
+			"team": "liberty",
+			"title": "Offensive Coordinator/Running Backs Coach",
+			"history": [
+				{
+					"season": 2024,
+					"team": "liberty",
+					"status": "excluded",
+					"title": "Co-Offensive Coordinator/Running Backs Coach",
+					"staffUrl": "https://libertyflames.com/sports/football/roster/2024",
+					"reasons": ["co-coordinator season (also listed: Willy Korn)"],
+					"playcall": null,
+					"stats": {
+						"epa": .0663,
+						"sr": 43.66,
+						"xpl": 1.1532,
+						"ppd": 2.331,
+						"rank": 84,
+						"nFbs": 134,
+						"games": 11
+					}
+				},
+				{
+					"season": 2025,
+					"team": "liberty",
+					"status": "excluded",
+					"title": "Co-Offensive Coordinator/Running Backs Coach",
+					"staffUrl": "https://libertyflames.com/sports/football/roster/2025",
+					"reasons": ["co-coordinator season (also listed: Willy Korn)"],
+					"playcall": null,
+					"stats": {
+						"epa": .0618,
+						"sr": 42.19,
+						"xpl": 1.1557,
+						"ppd": 2.678,
+						"rank": 85,
+						"nFbs": 136,
+						"games": 11
+					}
+				},
+				{
+					"season": 2026,
+					"team": "liberty",
+					"status": "credited",
+					"title": "Offensive Coordinator/Running Backs Coach",
+					"staffUrl": "https://libertyflames.com/sports/football/coaches",
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Shawn Quinn",
+			"unit": "def",
+			"team": "liberty",
+			"title": "Defensive Coordinator/Outside Linebackers Coach",
+			"history": [{
+				"season": 2026,
+				"team": "liberty",
+				"status": "credited",
+				"title": "Defensive Coordinator/Outside Linebackers Coach",
+				"staffUrl": "https://libertyflames.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Anthony Scelfo",
+			"unit": "off",
+			"team": "middle-tennessee",
+			"title": "Offensive Coordinator",
+			"history": [{
+				"season": 2026,
+				"team": "middle-tennessee",
+				"status": "credited",
+				"title": "Offensive Coordinator",
+				"staffUrl": "https://goblueraiders.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Brian Stewart",
+			"unit": "def",
+			"team": "middle-tennessee",
+			"title": "Asst. Head Coach/Defensive Coordinator",
+			"history": [{
+				"season": 2026,
+				"team": "middle-tennessee",
+				"status": "credited",
+				"title": "Asst. Head Coach/Defensive Coordinator",
+				"staffUrl": "https://goblueraiders.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Mark Cala",
+			"unit": "off",
+			"team": "missouri-state",
+			"title": "Offensive Coordinator / Quarterbacks",
+			"history": [{
+				"season": 2025,
+				"team": "utep",
+				"status": "excluded",
+				"title": "Offensive Coordinator",
+				"staffUrl": "https://utepminers.com/sports/football/roster/2025",
+				"reasons": ["co-coordinator season (also listed: Ryan Stanchek)"],
+				"playcall": null,
+				"stats": {
+					"epa": -.1822,
+					"sr": 31.14,
+					"xpl": 1.3399,
+					"ppd": 1.377,
+					"rank": 136,
+					"nFbs": 136,
+					"games": 11
+				}
+			}, {
+				"season": 2026,
+				"team": "missouri-state",
+				"status": "credited",
+				"title": "Offensive Coordinator / Quarterbacks",
+				"staffUrl": "https://missouristatebears.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Jack Curtis",
+			"unit": "def",
+			"team": "missouri-state",
+			"title": "Defensive Coordinator / Safeties",
+			"history": [{
+				"season": 2026,
+				"team": "missouri-state",
+				"status": "credited",
+				"title": "Defensive Coordinator / Safeties",
+				"staffUrl": "https://missouristatebears.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "David Yost",
+			"unit": "off",
+			"team": "new-mexico-state",
+			"title": "Offensive Coordinator/Quarterbacks",
+			"history": [
+				{
+					"season": 2024,
+					"team": "fiu",
+					"status": "credited",
+					"title": "Offensive Coordinator",
+					"staffUrl": "https://fiusports.com/sports/football/roster/2024",
+					"playcall": null,
+					"stats": {
+						"epa": -.0209,
+						"sr": 37.21,
+						"xpl": 1.2897,
+						"ppd": 1.912,
+						"rank": 122,
+						"nFbs": 134,
+						"games": 11
+					}
+				},
+				{
+					"season": 2025,
+					"team": "new-mexico-state",
+					"status": "credited",
+					"title": "Offensive Coordinator/Quarterbacks",
+					"staffUrl": "https://nmstatesports.com/sports/football/roster/2025",
+					"playcall": null,
+					"stats": {
+						"epa": -.0783,
+						"sr": 35.83,
+						"xpl": 1.272,
+						"ppd": 1.691,
+						"rank": 128,
+						"nFbs": 136,
+						"games": 11
+					}
+				},
+				{
+					"season": 2026,
+					"team": "new-mexico-state",
+					"status": "credited",
+					"title": "Offensive Coordinator/Quarterbacks",
+					"staffUrl": "https://nmstatesports.com/sports/football/coaches",
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Joe Morris",
+			"unit": "def",
+			"team": "new-mexico-state",
+			"title": "Defensive Coordinator/Defensive Ends/Jacks",
+			"history": [
+				{
+					"season": 2024,
+					"team": "new-mexico-state",
+					"status": "credited",
+					"title": "Defensive Coordinator",
+					"staffUrl": "https://nmstatesports.com/sports/football/roster/2024",
+					"playcall": null,
+					"stats": {
+						"epa": .2946,
+						"sr": 44.09,
+						"xpl": 1.4819,
+						"ppd": 2.8,
+						"rank": 127,
+						"nFbs": 134,
+						"games": 10
+					}
+				},
+				{
+					"season": 2025,
+					"team": "new-mexico-state",
+					"status": "credited",
+					"title": "Defensive Coordinator",
+					"staffUrl": "https://nmstatesports.com/sports/football/roster/2025",
+					"playcall": null,
+					"stats": {
+						"epa": .1373,
+						"sr": 45.66,
+						"xpl": 1.1716,
+						"ppd": 2.193,
+						"rank": 86,
+						"nFbs": 136,
+						"games": 11
+					}
+				},
+				{
+					"season": 2026,
+					"team": "new-mexico-state",
+					"status": "credited",
+					"title": "Defensive Coordinator/Defensive Ends/Jacks",
+					"staffUrl": "https://nmstatesports.com/sports/football/coaches",
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Zack Patterson",
+			"unit": "off",
+			"team": "sam-houston",
+			"title": "Offensive Coordinator",
+			"history": [{
+				"season": 2025,
+				"team": "sam-houston",
+				"status": "credited",
+				"title": "Offensive Coordinator",
+				"staffUrl": "https://gobearkats.com/sports/football/roster/2025",
+				"playcall": null,
+				"stats": {
+					"epa": -.0973,
+					"sr": 35.42,
+					"xpl": 1.2196,
+					"ppd": 1.171,
+					"rank": 132,
+					"nFbs": 136,
+					"games": 12
+				}
+			}, {
+				"season": 2026,
+				"team": "sam-houston",
+				"status": "credited",
+				"title": "Offensive Coordinator",
+				"staffUrl": "https://gobearkats.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Bodie Reeder",
+			"unit": "off",
+			"team": "western-kentucky",
+			"title": "Assistant Coach – Offensive Coordinator/Quarterbacks",
+			"history": [{
+				"season": 2026,
+				"team": "western-kentucky",
+				"status": "excluded",
+				"title": "Assistant Coach – Offensive Coordinator/Quarterbacks",
+				"staffUrl": "https://wkusports.com/sports/football/coaches",
+				"reasons": ["a co-coordinator is also listed"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Joe Bernardi",
+			"unit": "off",
+			"team": "western-kentucky",
+			"title": "Assistant Coach – Co-Offensive Coordinator/Offensive Line",
+			"history": [{
+				"season": 2026,
+				"team": "western-kentucky",
+				"status": "excluded",
+				"title": "Assistant Coach – Co-Offensive Coordinator/Offensive Line",
+				"staffUrl": "https://wkusports.com/sports/football/coaches",
+				"reasons": ["co-coordinator"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Davis Merritt",
+			"unit": "def",
+			"team": "western-kentucky",
+			"title": "Assistant Coach – Defensive Coordinator/Inside Linebackers",
+			"history": [{
+				"season": 2026,
+				"team": "western-kentucky",
+				"status": "credited",
+				"title": "Assistant Coach – Defensive Coordinator/Inside Linebackers",
+				"staffUrl": "https://wkusports.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Nunzio Campanile",
+			"unit": "off",
+			"team": "uconn",
+			"title": "Offensive Coordinator",
+			"history": [{
+				"season": 2026,
+				"team": "uconn",
+				"status": "excluded",
+				"title": "Offensive Coordinator",
+				"staffUrl": "https://uconnhuskies.com/sports/football/coaches",
+				"reasons": ["a co-coordinator is also listed"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Marquel Blackwell",
+			"unit": "off",
+			"team": "uconn",
+			"title": "Assistant Coach - Co-Offensive Coordinator / Quarterbacks",
+			"history": [{
+				"season": 2026,
+				"team": "uconn",
+				"status": "excluded",
+				"title": "Assistant Coach - Co-Offensive Coordinator / Quarterbacks",
+				"staffUrl": "https://uconnhuskies.com/sports/football/coaches",
+				"reasons": ["co-coordinator"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Ryan Manalac",
+			"unit": "def",
+			"team": "uconn",
+			"title": "Defensive Coordinator",
+			"history": [{
+				"season": 2026,
+				"team": "uconn",
+				"status": "credited",
+				"title": "Defensive Coordinator",
+				"staffUrl": "https://uconnhuskies.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Mike Denbrock",
+			"unit": "off",
+			"team": "notre-dame",
+			"title": "John and Bobbie Arlotta Family Offensive Coordinator/Tight Ends Coach",
+			"history": [{
+				"season": 2026,
+				"team": "notre-dame",
+				"status": "credited",
+				"title": "John and Bobbie Arlotta Family Offensive Coordinator/Tight Ends Coach",
+				"staffUrl": "https://fightingirish.com/sports/football/roster",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Chris Ash",
+			"unit": "def",
+			"team": "notre-dame",
+			"title": "Bob Hinton Defensive Coordinator",
+			"history": [{
+				"season": 2026,
+				"team": "notre-dame",
+				"status": "excluded",
+				"title": "Bob Hinton Defensive Coordinator",
+				"staffUrl": "https://fightingirish.com/sports/football/roster",
+				"reasons": ["a co-coordinator is also listed"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Aaron Henry",
+			"unit": "def",
+			"team": "notre-dame",
+			"title": "Co-Defensive Coordinator/Pat and Jana Eilers Defensive Backs Coach",
+			"history": [{
+				"season": 2026,
+				"team": "notre-dame",
+				"status": "excluded",
+				"title": "Co-Defensive Coordinator/Pat and Jana Eilers Defensive Backs Coach",
+				"staffUrl": "https://fightingirish.com/sports/football/roster",
+				"reasons": ["co-coordinator"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Tim Tibesar",
+			"unit": "def",
+			"team": "akron",
+			"title": "Defensive Coordinator | Linebackers",
+			"history": [
+				{
+					"season": 2024,
+					"team": "akron",
+					"status": "credited",
+					"title": "Defensive Coordinator | Linebackers",
+					"staffUrl": "https://gozips.com/sports/football/roster/2024",
+					"playcall": null,
+					"stats": {
+						"epa": .208,
+						"sr": 45.76,
+						"xpl": 1.3195,
+						"ppd": 2.709,
+						"rank": 109,
+						"nFbs": 134,
+						"games": 11
+					}
+				},
+				{
+					"season": 2025,
+					"team": "akron",
+					"status": "credited",
+					"title": "Defensive Coordinator | Linebackers",
+					"staffUrl": "https://gozips.com/sports/football/roster/2025",
+					"playcall": null,
+					"stats": {
+						"epa": .2289,
+						"sr": 46.57,
+						"xpl": 1.3384,
+						"ppd": 2.116,
+						"rank": 127,
+						"nFbs": 136,
+						"games": 11
+					}
+				},
+				{
+					"season": 2026,
+					"team": "akron",
+					"status": "credited",
+					"title": "Defensive Coordinator | Linebackers",
+					"staffUrl": "https://gozips.com/sports/football/coaches",
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Jeff Knowles",
+			"unit": "def",
+			"team": "ball-state",
+			"title": "Defensive Coordinator/Linebackers Coach",
+			"history": [
+				{
+					"season": 2024,
+					"team": "ball-state",
+					"status": "excluded",
+					"title": "Defensive Coordinator/Linebackers Coach",
+					"staffUrl": "https://ballstatesports.com/sports/football/roster/2024",
+					"reasons": ["two head coaches that season (Colin Johnson, Mike Neu)"],
+					"playcall": null,
+					"stats": {
+						"epa": .3049,
+						"sr": 49.02,
+						"xpl": 1.4501,
+						"ppd": 3.288,
+						"rank": 128,
+						"nFbs": 134,
+						"games": 11
+					}
+				},
+				{
+					"season": 2025,
+					"team": "ball-state",
+					"status": "credited",
+					"title": "Defensive Coordinator/Linebackers Coach",
+					"staffUrl": "https://ballstatesports.com/sports/football/roster/2025",
+					"playcall": null,
+					"stats": {
+						"epa": .1542,
+						"sr": 46.5,
+						"xpl": 1.3179,
+						"ppd": 2.28,
+						"rank": 92,
+						"nFbs": 136,
+						"games": 11
+					}
+				},
+				{
+					"season": 2026,
+					"team": "ball-state",
+					"status": "credited",
+					"title": "Defensive Coordinator/Linebackers Coach",
+					"staffUrl": "https://ballstatesports.com/sports/football/coaches",
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Greg Nosal",
+			"unit": "off",
+			"team": "bowling-green",
+			"title": "Offensive Coordinator/Offensive Line",
+			"history": [{
+				"season": 2026,
+				"team": "bowling-green",
+				"status": "credited",
+				"title": "Offensive Coordinator/Offensive Line",
+				"staffUrl": "https://bgsufalcons.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Joe Bowden",
+			"unit": "def",
+			"team": "bowling-green",
+			"title": "Defensive Coordinator/Linebackers",
+			"history": [{
+				"season": 2026,
+				"team": "bowling-green",
+				"status": "credited",
+				"title": "Defensive Coordinator/Linebackers",
+				"staffUrl": "https://bgsufalcons.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Tony Tokarz",
+			"unit": "off",
+			"team": "buffalo",
+			"title": "Offensive Coordinator/Quarterbacks",
+			"history": [{
+				"season": 2026,
+				"team": "buffalo",
+				"status": "credited",
+				"title": "Offensive Coordinator/Quarterbacks",
+				"staffUrl": "https://ubbulls.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Brian Dougherty",
+			"unit": "def",
+			"team": "buffalo",
+			"title": "Defensive Coordinator/Safeties",
+			"history": [{
+				"season": 2025,
+				"team": "buffalo",
+				"status": "credited",
+				"title": "Defensive Coordinator",
+				"staffUrl": "https://ubbulls.com/sports/football/roster/2025",
+				"playcall": null,
+				"stats": {
+					"epa": .1452,
+					"sr": 44.01,
+					"xpl": 1.2747,
+					"ppd": 1.68,
+					"rank": 88,
+					"nFbs": 136,
+					"games": 11
+				}
+			}, {
+				"season": 2026,
+				"team": "buffalo",
+				"status": "credited",
+				"title": "Defensive Coordinator/Safeties",
+				"staffUrl": "https://ubbulls.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Jim Chapin",
+			"unit": "off",
+			"team": "central-michigan",
+			"title": "Offensive Coordinator/Quarterbacks Coach",
+			"history": [{
+				"season": 2026,
+				"team": "central-michigan",
+				"status": "excluded",
+				"title": "Offensive Coordinator/Quarterbacks Coach",
+				"staffUrl": "https://cmuchippewas.com/sports/football/coaches",
+				"reasons": ["a co-coordinator is also listed"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Derek Fulton",
+			"unit": "off",
+			"team": "central-michigan",
+			"title": "Co-Offensive Coordinator/Tight Ends Coach",
+			"history": [{
+				"season": 2026,
+				"team": "central-michigan",
+				"status": "excluded",
+				"title": "Co-Offensive Coordinator/Tight Ends Coach",
+				"staffUrl": "https://cmuchippewas.com/sports/football/coaches",
+				"reasons": ["co-coordinator"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Sean Cronin",
+			"unit": "def",
+			"team": "central-michigan",
+			"title": "Defensive Coordinator/Linebackers Coach",
+			"history": [{
+				"season": 2026,
+				"team": "central-michigan",
+				"status": "credited",
+				"title": "Defensive Coordinator/Linebackers Coach",
+				"staffUrl": "https://cmuchippewas.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Mike Piatkowski",
+			"unit": "off",
+			"team": "eastern-michigan",
+			"title": "Assistant Coach/Offensive Coordinator/Quarterbacks",
+			"history": [
+				{
+					"season": 2024,
+					"team": "eastern-michigan",
+					"status": "credited",
+					"title": "Assistant Coach/Offensive Coordinator/Quarterbacks",
+					"staffUrl": "https://web.archive.org/web/20250819132432id_/https://emueagles.com/sports/football/roster/2024",
+					"playcall": null,
+					"stats": {
+						"epa": -.0342,
+						"sr": 39.22,
+						"xpl": 1.1787,
+						"ppd": 1.986,
+						"rank": 124,
+						"nFbs": 134,
+						"games": 10
+					}
+				},
+				{
+					"season": 2025,
+					"team": "eastern-michigan",
+					"status": "credited",
+					"title": "Assistant Coach/Offensive Coordinator/Quarterbacks",
+					"staffUrl": "https://emueagles.com/sports/football/roster/2025",
+					"playcall": null,
+					"stats": {
+						"epa": .124,
+						"sr": 40.72,
+						"xpl": 1.2437,
+						"ppd": 2.172,
+						"rank": 51,
+						"nFbs": 136,
+						"games": 11
+					}
+				},
+				{
+					"season": 2026,
+					"team": "eastern-michigan",
+					"status": "credited",
+					"title": "Assistant Coach/Offensive Coordinator/Quarterbacks",
+					"staffUrl": "https://emueagles.com/sports/football/coaches",
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Kasey Teegardin",
+			"unit": "def",
+			"team": "eastern-michigan",
+			"title": "Assistant Head Coach/Co-Defensive Coordinator/Defensive Ends",
+			"history": [{
+				"season": 2026,
+				"team": "eastern-michigan",
+				"status": "excluded",
+				"title": "Assistant Head Coach/Co-Defensive Coordinator/Defensive Ends",
+				"staffUrl": "https://emueagles.com/sports/football/coaches",
+				"reasons": ["co-coordinator setup"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Tate Omli",
+			"unit": "def",
+			"team": "eastern-michigan",
+			"title": "Assistant Coach/Co-Defensive Coordinator/Safeties",
+			"history": [{
+				"season": 2026,
+				"team": "eastern-michigan",
+				"status": "excluded",
+				"title": "Assistant Coach/Co-Defensive Coordinator/Safeties",
+				"staffUrl": "https://emueagles.com/sports/football/coaches",
+				"reasons": ["co-coordinator setup"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Clay Patterson",
+			"unit": "off",
+			"team": "kent-state",
+			"title": "Offensive Coordinator/Quarterbacks",
+			"history": [{
+				"season": 2024,
+				"team": "kent-state",
+				"status": "excluded",
+				"title": "Co-Offensive Coordinator/Wide Receivers",
+				"staffUrl": "https://kentstatesports.com/sports/football/roster/2024",
+				"reasons": ["co-coordinator season (also listed: Mark Carney, Mark Carney, Mark Carney)"],
+				"playcall": null,
+				"stats": {
+					"epa": -.0946,
+					"sr": 29.84,
+					"xpl": 1.3221,
+					"ppd": 1.036,
+					"rank": 132,
+					"nFbs": 134,
+					"games": 10
+				}
+			}, {
+				"season": 2026,
+				"team": "kent-state",
+				"status": "credited",
+				"title": "Offensive Coordinator/Quarterbacks",
+				"staffUrl": "https://kentstatesports.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Cherokee Valeria",
+			"unit": "def",
+			"team": "kent-state",
+			"title": "Assistant Head Coach/Defensive Coordinator/Safeties",
+			"history": [{
+				"season": 2025,
+				"team": "kent-state",
+				"status": "credited",
+				"title": "Defensive Coordinator/Safeties",
+				"staffUrl": "https://kentstatesports.com/sports/football/roster/2025",
+				"playcall": null,
+				"stats": {
+					"epa": .2275,
+					"sr": 48.8,
+					"xpl": 1.2629,
+					"ppd": 2.754,
+					"rank": 126,
+					"nFbs": 136,
+					"games": 11
+				}
+			}, {
+				"season": 2026,
+				"team": "kent-state",
+				"status": "credited",
+				"title": "Assistant Head Coach/Defensive Coordinator/Safeties",
+				"staffUrl": "https://kentstatesports.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Max Warner",
+			"unit": "off",
+			"team": "massachusetts",
+			"title": "Offensive Coordinator",
+			"history": [{
+				"season": 2024,
+				"team": "bowling-green",
+				"status": "excluded",
+				"title": "Co-Offensive Coordinator (Quarterbacks)",
+				"staffUrl": "https://bgsufalcons.com/sports/football/roster/2024",
+				"reasons": ["co-coordinator season"],
+				"playcall": null,
+				"stats": {
+					"epa": .077,
+					"sr": 40.14,
+					"xpl": 1.2492,
+					"ppd": 2.212,
+					"rank": 78,
+					"nFbs": 134,
+					"games": 12
+				}
+			}, {
+				"season": 2026,
+				"team": "massachusetts",
+				"status": "credited",
+				"title": "Offensive Coordinator",
+				"staffUrl": "https://umassathletics.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Jared Keyte",
+			"unit": "def",
+			"team": "massachusetts",
+			"title": "Defensive Coordinator",
+			"history": [{
+				"season": 2025,
+				"team": "massachusetts",
+				"status": "credited",
+				"title": "Defensive Coordinator",
+				"staffUrl": "https://umassathletics.com/sports/football/roster/2025",
+				"playcall": null,
+				"stats": {
+					"epa": .3284,
+					"sr": 52.36,
+					"xpl": 1.1677,
+					"ppd": 3.317,
+					"rank": 135,
+					"nFbs": 136,
+					"games": 11
+				}
+			}, {
+				"season": 2026,
+				"team": "massachusetts",
+				"status": "credited",
+				"title": "Defensive Coordinator",
+				"staffUrl": "https://umassathletics.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Gus Ragland",
+			"unit": "off",
+			"team": "miami-oh",
+			"title": "Offensive Coordinator/Quarterbacks",
+			"history": [{
+				"season": 2026,
+				"team": "miami-oh",
+				"status": "credited",
+				"title": "Offensive Coordinator/Quarterbacks",
+				"staffUrl": "https://miamiredhawks.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Scott Isphording",
+			"unit": "off",
+			"team": "ohio",
+			"title": "Offensive Coordinator / Quarterbacks Coach",
+			"history": [{
+				"season": 2026,
+				"team": "ohio",
+				"status": "credited",
+				"title": "Offensive Coordinator / Quarterbacks Coach",
+				"staffUrl": "https://ohiobobcats.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Kurt Mattix",
+			"unit": "def",
+			"team": "ohio",
+			"title": "Defensive Coordinator",
+			"history": [{
+				"season": 2025,
+				"team": "charlotte",
+				"status": "excluded",
+				"title": "Co-Defensive Coordinator -- Defensive Line",
+				"staffUrl": "https://web.archive.org/web/20260603215605id_/https://charlotte49ers.com/sports/football/roster/2025",
+				"reasons": ["co-coordinator season (also listed: Nate Faanes)"],
+				"playcall": null,
+				"stats": {
+					"epa": .1494,
+					"sr": 50.74,
+					"xpl": 1.0838,
+					"ppd": 2.831,
+					"rank": 90,
+					"nFbs": 136,
+					"games": 11
+				}
+			}, {
+				"season": 2026,
+				"team": "ohio",
+				"status": "credited",
+				"title": "Defensive Coordinator",
+				"staffUrl": "https://ohiobobcats.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Eric Kiesau",
+			"unit": "off",
+			"team": "sacramento-state",
+			"title": "Offensive Coordinator",
+			"history": [{
+				"season": 2026,
+				"team": "sacramento-state",
+				"status": "excluded",
+				"title": "Offensive Coordinator",
+				"staffUrl": "https://hornetsports.com/sports/football/coaches",
+				"reasons": ["a co-coordinator is also listed"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Eric Scott",
+			"unit": "off",
+			"team": "sacramento-state",
+			"title": "Co-Offensive Coordinator/Wide Receivers",
+			"history": [{
+				"season": 2026,
+				"team": "sacramento-state",
+				"status": "excluded",
+				"title": "Co-Offensive Coordinator/Wide Receivers",
+				"staffUrl": "https://hornetsports.com/sports/football/coaches",
+				"reasons": ["co-coordinator"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Adam Clark",
+			"unit": "def",
+			"team": "sacramento-state",
+			"title": "Defensive Coordinator",
+			"history": [{
+				"season": 2026,
+				"team": "sacramento-state",
+				"status": "excluded",
+				"title": "Defensive Coordinator",
+				"staffUrl": "https://hornetsports.com/sports/football/coaches",
+				"reasons": ["a co-coordinator is also listed"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Kenwick Thompson",
+			"unit": "def",
+			"team": "sacramento-state",
+			"title": "Assistant Head Coach/Co-Defensive Coordinator/Linebackers",
+			"history": [{
+				"season": 2026,
+				"team": "sacramento-state",
+				"status": "excluded",
+				"title": "Assistant Head Coach/Co-Defensive Coordinator/Linebackers",
+				"staffUrl": "https://hornetsports.com/sports/football/coaches",
+				"reasons": ["co-coordinator"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Cris Reisert",
+			"unit": "off",
+			"team": "toledo",
+			"title": "Offensive Coordinator/Quarterbacks Coach",
+			"history": [{
+				"season": 2026,
+				"team": "toledo",
+				"status": "credited",
+				"title": "Offensive Coordinator/Quarterbacks Coach",
+				"staffUrl": "https://utrockets.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Jahmal Brown",
+			"unit": "def",
+			"team": "toledo",
+			"title": "Defensive Coordinator/Safeties Coach",
+			"history": [{
+				"season": 2026,
+				"team": "toledo",
+				"status": "credited",
+				"title": "Defensive Coordinator/Safeties Coach",
+				"staffUrl": "https://utrockets.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Walt Bell",
+			"unit": "off",
+			"team": "western-michigan",
+			"title": "Assistant Coach - Offensive Coordinator",
+			"history": [
+				{
+					"season": 2024,
+					"team": "western-michigan",
+					"status": "excluded",
+					"title": "Assistant Coach - Offensive Coordinator/Quarterbacks Coach",
+					"staffUrl": "https://wmubroncos.com/sports/football/roster/2024",
+					"reasons": ["co-coordinator season (also listed: Trevor Mendelson)"],
+					"playcall": null,
+					"stats": {
+						"epa": .105,
+						"sr": 40.91,
+						"xpl": 1.2585,
+						"ppd": 2.197,
+						"rank": 70,
+						"nFbs": 134,
+						"games": 11
+					}
+				},
+				{
+					"season": 2025,
+					"team": "western-michigan",
+					"status": "credited",
+					"title": "Assistant Coach - Offensive Coordinator",
+					"staffUrl": "https://wmubroncos.com/sports/football/roster/2025",
+					"playcall": null,
+					"stats": {
+						"epa": -3e-4,
+						"sr": 38.67,
+						"xpl": 1.1075,
+						"ppd": 2.788,
+						"rank": 111,
+						"nFbs": 136,
+						"games": 13
+					}
+				},
+				{
+					"season": 2026,
+					"team": "western-michigan",
+					"status": "credited",
+					"title": "Assistant Coach - Offensive Coordinator",
+					"staffUrl": "https://wmubroncos.com/sports/football/coaches",
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Greer Martini",
+			"unit": "def",
+			"team": "western-michigan",
+			"title": "Assistant Coach - Defensive Coordinator/Linebackers",
+			"history": [{
+				"season": 2026,
+				"team": "western-michigan",
+				"status": "excluded",
+				"title": "Assistant Coach - Defensive Coordinator/Linebackers",
+				"staffUrl": "https://wmubroncos.com/sports/football/coaches",
+				"reasons": ["a co-coordinator is also listed"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Duane Vaughn",
+			"unit": "def",
+			"team": "western-michigan",
+			"title": "Assistant Coach - Outside Linebackers/Co-Defensive Coordinator",
+			"history": [{
+				"season": 2026,
+				"team": "western-michigan",
+				"status": "excluded",
+				"title": "Assistant Coach - Outside Linebackers/Co-Defensive Coordinator",
+				"staffUrl": "https://wmubroncos.com/sports/football/coaches",
+				"reasons": ["co-coordinator"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Mike Thiessen",
+			"unit": "off",
+			"team": "air-force",
+			"title": "Off. Coordinator, Quarterbacks",
+			"history": [{
+				"season": 2026,
+				"team": "air-force",
+				"status": "credited",
+				"title": "Off. Coordinator, Quarterbacks",
+				"staffUrl": "https://goairforcefalcons.com/sports/football/roster",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Steve Russ",
+			"unit": "def",
+			"team": "air-force",
+			"title": "Defensive Coordinator",
+			"history": [{
+				"season": 2025,
+				"team": "uab",
+				"status": "excluded",
+				"title": "Defensive Coordinator",
+				"staffUrl": "https://uabsports.com/sports/football/roster/2025",
+				"reasons": ["two head coaches that season (Trent Dilfer, Alex Mortensen)"],
+				"playcall": null,
+				"stats": {
+					"epa": .2181,
+					"sr": 47.02,
+					"xpl": 1.2455,
+					"ppd": 3.974,
+					"rank": 121,
+					"nFbs": 136,
+					"games": 11
+				}
+			}, {
+				"season": 2026,
+				"team": "air-force",
+				"status": "credited",
+				"title": "Defensive Coordinator",
+				"staffUrl": "https://goairforcefalcons.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Anthony Arceneaux",
+			"unit": "off",
+			"team": "hawaii",
+			"title": "Offensive Coordinator/Running Backs",
+			"history": [{
+				"season": 2025,
+				"team": "hawaii",
+				"status": "credited",
+				"title": "Offensive Coordinator/Running Backs",
+				"staffUrl": "https://hawaiiathletics.com/sports/football/roster/2025",
+				"playcall": null,
+				"stats": {
+					"epa": .0586,
+					"sr": 39.69,
+					"xpl": 1.3422,
+					"ppd": 2.248,
+					"rank": 89,
+					"nFbs": 136,
+					"games": 12
+				}
+			}, {
+				"season": 2026,
+				"team": "hawaii",
+				"status": "credited",
+				"title": "Offensive Coordinator/Running Backs",
+				"staffUrl": "https://hawaiiathletics.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Dennis Thurman",
+			"unit": "def",
+			"team": "hawaii",
+			"title": "Defensive Coordinator",
+			"history": [
+				{
+					"season": 2024,
+					"team": "hawaii",
+					"status": "credited",
+					"title": "Defensive Coordinator/Cornerbacks",
+					"staffUrl": "https://hawaiiathletics.com/sports/football/roster/2024",
+					"playcall": null,
+					"stats": {
+						"epa": .1568,
+						"sr": 43.37,
+						"xpl": 1.2264,
+						"ppd": 2.407,
+						"rank": 91,
+						"nFbs": 134,
+						"games": 10
+					}
+				},
+				{
+					"season": 2025,
+					"team": "hawaii",
+					"status": "credited",
+					"title": "Defensive Coordinator",
+					"staffUrl": "https://hawaiiathletics.com/sports/football/roster/2025",
+					"playcall": null,
+					"stats": {
+						"epa": .1716,
+						"sr": 44.49,
+						"xpl": 1.3066,
+						"ppd": 1.978,
+						"rank": 100,
+						"nFbs": 136,
+						"games": 12
+					}
+				},
+				{
+					"season": 2026,
+					"team": "hawaii",
+					"status": "credited",
+					"title": "Defensive Coordinator",
+					"staffUrl": "https://hawaiiathletics.com/sports/football/coaches",
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Brett Bartolone",
+			"unit": "off",
+			"team": "nevada",
+			"title": "Offensive Coordinator",
+			"history": [{
+				"season": 2026,
+				"team": "nevada",
+				"status": "credited",
+				"title": "Offensive Coordinator",
+				"staffUrl": "https://nevadawolfpack.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Kane Ioane",
+			"unit": "def",
+			"team": "nevada",
+			"title": "Defensive Coordinator",
+			"history": [
+				{
+					"season": 2024,
+					"team": "nevada",
+					"status": "credited",
+					"title": "Defensive Coordinator",
+					"staffUrl": "https://nevadawolfpack.com/sports/football/roster/2024",
+					"playcall": null,
+					"stats": {
+						"epa": .2383,
+						"sr": 47.32,
+						"xpl": 1.2633,
+						"ppd": 2.77,
+						"rank": 121,
+						"nFbs": 134,
+						"games": 12
+					}
+				},
+				{
+					"season": 2025,
+					"team": "nevada",
+					"status": "credited",
+					"title": "Defensive Coordinator",
+					"staffUrl": "https://nevadawolfpack.com/sports/football/roster/2025",
+					"playcall": null,
+					"stats": {
+						"epa": .1666,
+						"sr": 44.09,
+						"xpl": 1.2017,
+						"ppd": 2.268,
+						"rank": 99,
+						"nFbs": 136,
+						"games": 11
+					}
+				},
+				{
+					"season": 2026,
+					"team": "nevada",
+					"status": "credited",
+					"title": "Defensive Coordinator",
+					"staffUrl": "https://nevadawolfpack.com/sports/football/coaches",
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Luke Schleusner",
+			"unit": "off",
+			"team": "new-mexico",
+			"title": "Offensive Coordinator/QBs",
+			"history": [{
+				"season": 2026,
+				"team": "new-mexico",
+				"status": "credited",
+				"title": "Offensive Coordinator/QBs",
+				"staffUrl": "https://golobos.com/sports/football/roster",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Spence Nowinsky",
+			"unit": "def",
+			"team": "new-mexico",
+			"title": "Defensive Coordinator",
+			"history": [{
+				"season": 2024,
+				"team": "memphis",
+				"status": "excluded",
+				"title": "Co-Defensive Coordinator / Defensive Line",
+				"staffUrl": "https://gotigersgo.com/sports/football/roster/2024",
+				"reasons": ["co-coordinator season (also listed: Jordon Hankins)"],
+				"playcall": null,
+				"stats": {
+					"epa": .1696,
+					"sr": 42.86,
+					"xpl": 1.33,
+					"ppd": 2.056,
+					"rank": 98,
+					"nFbs": 134,
+					"games": 12
+				}
+			}, {
+				"season": 2026,
+				"team": "new-mexico",
+				"status": "credited",
+				"title": "Defensive Coordinator",
+				"staffUrl": "https://golobos.com/sports/football/roster",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Dan Larson",
+			"unit": "off",
+			"team": "north-dakota-state",
+			"title": "Offensive Coordinator/Tight Ends and Fullbacks",
+			"history": [{
+				"season": 2025,
+				"team": "north-dakota-state",
+				"status": "excluded",
+				"title": "Offensive Coordinator/Tight Ends and Fullbacks",
+				"staffUrl": "https://web.archive.org/web/20250901004312id_/https://gobison.com/sports/football/roster/2025",
+				"reasons": ["no FBS unit numbers (not FBS that season)"],
+				"playcall": null,
+				"stats": null
+			}, {
+				"season": 2026,
+				"team": "north-dakota-state",
+				"status": "credited",
+				"title": "Offensive Coordinator/Tight Ends and Fullbacks",
+				"staffUrl": "https://gobison.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Grant Olson",
+			"unit": "def",
+			"team": "north-dakota-state",
+			"title": "Defensive Coordinator/Linebackers",
+			"history": [
+				{
+					"season": 2024,
+					"team": "north-dakota-state",
+					"status": "excluded",
+					"title": "Defensive Coordinator/Linebackers",
+					"staffUrl": "https://gobison.com/sports/football/roster/2024",
+					"reasons": ["co-coordinator season (also listed: Nick Goeser)", "no FBS unit numbers (not FBS that season)"],
+					"playcall": null,
+					"stats": null
+				},
+				{
+					"season": 2025,
+					"team": "north-dakota-state",
+					"status": "excluded",
+					"title": "Defensive Coordinator/Linebackers",
+					"staffUrl": "https://web.archive.org/web/20250901004312id_/https://gobison.com/sports/football/roster/2025",
+					"reasons": ["no FBS unit numbers (not FBS that season)"],
+					"playcall": null,
+					"stats": null
+				},
+				{
+					"season": 2026,
+					"team": "north-dakota-state",
+					"status": "credited",
+					"title": "Defensive Coordinator/Linebackers",
+					"staffUrl": "https://gobison.com/sports/football/coaches",
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Tony Petersen",
+			"unit": "off",
+			"team": "northern-illinois",
+			"title": "Offensive Coordinator / Quarterbacks",
+			"history": [{
+				"season": 2025,
+				"team": "northern-illinois",
+				"status": "excluded",
+				"title": "Offensive Coordinator/Quarterbacks",
+				"staffUrl": "https://niuhuskies.com/sports/football/roster/2025",
+				"reasons": ["co-coordinator season (also listed: Quinn Sanders)"],
+				"playcall": null,
+				"stats": {
+					"epa": -.0484,
+					"sr": 32.95,
+					"xpl": 1.2733,
+					"ppd": 1.41,
+					"rank": 123,
+					"nFbs": 136,
+					"games": 11
+				}
+			}, {
+				"season": 2026,
+				"team": "northern-illinois",
+				"status": "excluded",
+				"title": "Offensive Coordinator / Quarterbacks",
+				"staffUrl": "https://niuhuskies.com/sports/football/coaches",
+				"reasons": ["a co-coordinator is also listed"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Quinn Sanders",
+			"unit": "off",
+			"team": "northern-illinois",
+			"title": "Co-Offensive Coordinator / Wide Receivers",
+			"history": [{
+				"season": 2025,
+				"team": "northern-illinois",
+				"status": "excluded",
+				"title": "Offensive Coordinator/Quarterbacks",
+				"staffUrl": "https://niuhuskies.com/sports/football/roster/2025",
+				"reasons": ["co-coordinator season (also listed: Tony Petersen)"],
+				"playcall": null,
+				"stats": {
+					"epa": -.0484,
+					"sr": 32.95,
+					"xpl": 1.2733,
+					"ppd": 1.41,
+					"rank": 123,
+					"nFbs": 136,
+					"games": 11
+				}
+			}, {
+				"season": 2026,
+				"team": "northern-illinois",
+				"status": "excluded",
+				"title": "Co-Offensive Coordinator / Wide Receivers",
+				"staffUrl": "https://niuhuskies.com/sports/football/coaches",
+				"reasons": ["co-coordinator"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Craig Stutzmann",
+			"unit": "off",
+			"team": "san-jose-state",
+			"title": "Offensive Coordinator/Quarterbacks",
+			"history": [
+				{
+					"season": 2024,
+					"team": "san-jose-state",
+					"status": "credited",
+					"title": "Offensive Coordinator/Quarterbacks",
+					"staffUrl": "https://sjsuspartans.com/sports/football/roster/season/2024/",
+					"playcall": null,
+					"stats": {
+						"epa": .0622,
+						"sr": 41.54,
+						"xpl": 1.2752,
+						"ppd": 2,
+						"rank": 85,
+						"nFbs": 134,
+						"games": 12
+					}
+				},
+				{
+					"season": 2025,
+					"team": "san-jose-state",
+					"status": "credited",
+					"title": "Offensive Coordinator/Quarterbacks",
+					"staffUrl": "https://sjsuspartans.com/sports/football/roster/season/2025/",
+					"playcall": null,
+					"stats": {
+						"epa": .0425,
+						"sr": 42.12,
+						"xpl": 1.1881,
+						"ppd": 1.723,
+						"rank": 97,
+						"nFbs": 136,
+						"games": 11
+					}
+				},
+				{
+					"season": 2026,
+					"team": "san-jose-state",
+					"status": "credited",
+					"title": "Offensive Coordinator/Quarterbacks",
+					"staffUrl": "https://sjsuspartans.com/sports/football/roster/season/2026/",
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Bojay Filimoeatu",
+			"unit": "def",
+			"team": "san-jose-state",
+			"title": "Defensive Coordinator",
+			"history": [{
+				"season": 2024,
+				"team": "san-jose-state",
+				"status": "excluded",
+				"title": "Defensive Coordinator",
+				"staffUrl": "https://sjsuspartans.com/sports/football/roster/season/2024/",
+				"reasons": ["co-coordinator season (also listed: Derrick Odum)"],
+				"playcall": null,
+				"stats": {
+					"epa": .0883,
+					"sr": 42.68,
+					"xpl": 1.2318,
+					"ppd": 2.131,
+					"rank": 60,
+					"nFbs": 134,
+					"games": 12
+				}
+			}, {
+				"season": 2026,
+				"team": "san-jose-state",
+				"status": "credited",
+				"title": "Defensive Coordinator",
+				"staffUrl": "https://sjsuspartans.com/sports/football/roster/season/2026/",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Corey Dennis",
+			"unit": "off",
+			"team": "unlv",
+			"title": "Offensive Coordinator/Quarterbacks",
+			"history": [{
+				"season": 2026,
+				"team": "unlv",
+				"status": "credited",
+				"title": "Offensive Coordinator/Quarterbacks",
+				"staffUrl": "https://unlvrebels.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Paul Guenther",
+			"unit": "def",
+			"team": "unlv",
+			"title": "Associate Head Coach/Defensive Coordinator",
+			"history": [{
+				"season": 2025,
+				"team": "unlv",
+				"status": "credited",
+				"title": "Associate Head Coach/Defensive Coordinator",
+				"staffUrl": "https://unlvrebels.com/sports/football/roster/2025",
+				"playcall": null,
+				"stats": {
+					"epa": .2017,
+					"sr": 45.39,
+					"xpl": 1.3529,
+					"ppd": 2.362,
+					"rank": 117,
+					"nFbs": 136,
+					"games": 13
+				}
+			}, {
+				"season": 2026,
+				"team": "unlv",
+				"status": "credited",
+				"title": "Associate Head Coach/Defensive Coordinator",
+				"staffUrl": "https://unlvrebels.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Joe Pappalardo",
+			"unit": "off",
+			"team": "utep",
+			"title": "Co-Offensive Coordinator/Quarterbacks",
+			"history": [{
+				"season": 2026,
+				"team": "utep",
+				"status": "excluded",
+				"title": "Co-Offensive Coordinator/Quarterbacks",
+				"staffUrl": "https://utepminers.com/sports/football/coaches",
+				"reasons": ["co-coordinator setup"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Lanear Sampson",
+			"unit": "off",
+			"team": "utep",
+			"title": "Co-Offensive Coordinator/Wide Receivers",
+			"history": [{
+				"season": 2026,
+				"team": "utep",
+				"status": "excluded",
+				"title": "Co-Offensive Coordinator/Wide Receivers",
+				"staffUrl": "https://utepminers.com/sports/football/coaches",
+				"reasons": ["co-coordinator setup"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Kelvin Sigler",
+			"unit": "def",
+			"team": "utep",
+			"title": "Co-Defensive Coordinator/Safeties/Spurs",
+			"history": [
+				{
+					"season": 2024,
+					"team": "utep",
+					"status": "excluded",
+					"title": "Co-Defensive Coordinator/Safeties",
+					"staffUrl": "https://utepminers.com/sports/football/roster/2024",
+					"reasons": ["co-coordinator season (also listed: J.J. Clark)"],
+					"playcall": null,
+					"stats": {
+						"epa": .139,
+						"sr": 43.29,
+						"xpl": 1.3739,
+						"ppd": 2.16,
+						"rank": 80,
+						"nFbs": 134,
+						"games": 11
+					}
+				},
+				{
+					"season": 2025,
+					"team": "utep",
+					"status": "excluded",
+					"title": "Co-Defensive Coordinator/Safeties",
+					"staffUrl": "https://utepminers.com/sports/football/roster/2025",
+					"reasons": ["co-coordinator season (also listed: Bobby Daly)"],
+					"playcall": null,
+					"stats": {
+						"epa": .1092,
+						"sr": 42.09,
+						"xpl": 1.1583,
+						"ppd": 2.147,
+						"rank": 67,
+						"nFbs": 136,
+						"games": 11
+					}
+				},
+				{
+					"season": 2026,
+					"team": "utep",
+					"status": "excluded",
+					"title": "Co-Defensive Coordinator/Safeties/Spurs",
+					"staffUrl": "https://utepminers.com/sports/football/coaches",
+					"reasons": ["hc-title"],
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Christian Taylor",
+			"unit": "off",
+			"team": "wyoming",
+			"title": "Offensive Coordinator/Quarterbacks",
+			"history": [{
+				"season": 2026,
+				"team": "wyoming",
+				"status": "credited",
+				"title": "Offensive Coordinator/Quarterbacks",
+				"staffUrl": "https://gowyo.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Aaron Bohl",
+			"unit": "def",
+			"team": "wyoming",
+			"title": "Defensive Coordinator/Linebackers",
+			"history": [
+				{
+					"season": 2024,
+					"team": "wyoming",
+					"status": "credited",
+					"title": "Defensive Coordinator/Linebackers",
+					"staffUrl": "https://gowyo.com/sports/football/roster/2024",
+					"playcall": null,
+					"stats": {
+						"epa": .1664,
+						"sr": 42.38,
+						"xpl": 1.3033,
+						"ppd": 2.313,
+						"rank": 95,
+						"nFbs": 134,
+						"games": 11
+					}
+				},
+				{
+					"season": 2025,
+					"team": "wyoming",
+					"status": "credited",
+					"title": "Defensive Coordinator/Linebackers",
+					"staffUrl": "https://gowyo.com/sports/football/roster/2025",
+					"playcall": null,
+					"stats": {
+						"epa": .0796,
+						"sr": 39.61,
+						"xpl": 1.2759,
+						"ppd": 1.631,
+						"rank": 54,
+						"nFbs": 136,
+						"games": 11
+					}
+				},
+				{
+					"season": 2026,
+					"team": "wyoming",
+					"status": "credited",
+					"title": "Defensive Coordinator/Linebackers",
+					"staffUrl": "https://gowyo.com/sports/football/coaches",
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Nate Potter",
+			"unit": "off",
+			"team": "boise-state",
+			"title": "Offensive Coordinator",
+			"history": [
+				{
+					"season": 2024,
+					"team": "boise-state",
+					"status": "excluded",
+					"title": "Co-Offensive Coordinator / Tight Ends",
+					"staffUrl": "https://broncosports.com/sports/football/roster/2024",
+					"reasons": ["co-coordinator season (also listed: Dirk Koetter)"],
+					"playcall": null,
+					"stats": {
+						"epa": .2467,
+						"sr": 44.95,
+						"xpl": 1.3247,
+						"ppd": 2.854,
+						"rank": 12,
+						"nFbs": 134,
+						"games": 13
+					}
+				},
+				{
+					"season": 2025,
+					"team": "boise-state",
+					"status": "excluded",
+					"title": "Offensive Coordinator / Tight Ends",
+					"staffUrl": "https://broncosports.com/sports/football/roster/2025",
+					"reasons": ["co-coordinator season (also listed: Matt Miller)"],
+					"playcall": null,
+					"stats": {
+						"epa": .0771,
+						"sr": 39.9,
+						"xpl": 1.2678,
+						"ppd": 2.195,
+						"rank": 74,
+						"nFbs": 136,
+						"games": 13
+					}
+				},
+				{
+					"season": 2026,
+					"team": "boise-state",
+					"status": "excluded",
+					"title": "Offensive Coordinator",
+					"staffUrl": "https://broncosports.com/sports/football/coaches",
+					"reasons": ["a co-coordinator is also listed"],
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Zak Hill",
+			"unit": "off",
+			"team": "boise-state",
+			"title": "Co-Offensive Coordinator / Quarterbacks",
+			"history": [{
+				"season": 2026,
+				"team": "boise-state",
+				"status": "excluded",
+				"title": "Co-Offensive Coordinator / Quarterbacks",
+				"staffUrl": "https://broncosports.com/sports/football/coaches",
+				"reasons": ["co-coordinator"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Erik Chinander",
+			"unit": "def",
+			"team": "boise-state",
+			"title": "Defensive Coordinator",
+			"history": [
+				{
+					"season": 2024,
+					"team": "boise-state",
+					"status": "excluded",
+					"title": "Defensive Coordinator / Defensive Line",
+					"staffUrl": "https://broncosports.com/sports/football/roster/2024",
+					"reasons": ["co-coordinator season (also listed: Tyler Stockton)"],
+					"playcall": null,
+					"stats": {
+						"epa": .0822,
+						"sr": 38.23,
+						"xpl": 1.4404,
+						"ppd": 1.854,
+						"rank": 57,
+						"nFbs": 134,
+						"games": 13
+					}
+				},
+				{
+					"season": 2025,
+					"team": "boise-state",
+					"status": "excluded",
+					"title": "Defensive Coordinator / Defensive Line",
+					"staffUrl": "https://broncosports.com/sports/football/roster/2025",
+					"reasons": ["co-coordinator season (also listed: Tyler Stockton)"],
+					"playcall": null,
+					"stats": {
+						"epa": .0208,
+						"sr": 35.76,
+						"xpl": 1.333,
+						"ppd": 1.944,
+						"rank": 36,
+						"nFbs": 136,
+						"games": 13
+					}
+				},
+				{
+					"season": 2026,
+					"team": "boise-state",
+					"status": "excluded",
+					"title": "Defensive Coordinator",
+					"staffUrl": "https://broncosports.com/sports/football/coaches",
+					"reasons": ["a co-coordinator is also listed"],
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Terrence Brown",
+			"unit": "def",
+			"team": "boise-state",
+			"title": "Co-Defensive Coordinator / Defensive Backs",
+			"history": [{
+				"season": 2026,
+				"team": "boise-state",
+				"status": "excluded",
+				"title": "Co-Defensive Coordinator / Defensive Backs",
+				"staffUrl": "https://broncosports.com/sports/football/coaches",
+				"reasons": ["co-coordinator"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Pryce Tracy",
+			"unit": "off",
+			"team": "colorado-state",
+			"title": "Offensive Coordinator",
+			"history": [{
+				"season": 2026,
+				"team": "colorado-state",
+				"status": "credited",
+				"title": "Offensive Coordinator",
+				"staffUrl": "https://csurams.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Kenny McClendon",
+			"unit": "def",
+			"team": "colorado-state",
+			"title": "Assistant Head Coach / Co-Defensive Coordinator / Defensive Line",
+			"history": [{
+				"season": 2026,
+				"team": "colorado-state",
+				"status": "excluded",
+				"title": "Assistant Head Coach / Co-Defensive Coordinator / Defensive Line",
+				"staffUrl": "https://csurams.com/sports/football/coaches",
+				"reasons": ["co-coordinator setup"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Josh Davis",
+			"unit": "off",
+			"team": "fresno-state",
+			"title": "Offensive Coordinator",
+			"history": [{
+				"season": 2026,
+				"team": "fresno-state",
+				"status": "credited",
+				"title": "Offensive Coordinator",
+				"staffUrl": "https://gobulldogs.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Nick Benedetto",
+			"unit": "def",
+			"team": "fresno-state",
+			"title": "Defensive Coordinator/Associate Head Coach",
+			"history": [{
+				"season": 2024,
+				"team": "northern-illinois",
+				"status": "credited",
+				"title": "Defensive Coordinator/Safeties",
+				"staffUrl": "https://niuhuskies.com/sports/football/roster/2024",
+				"playcall": null,
+				"stats": {
+					"epa": .0468,
+					"sr": 40.62,
+					"xpl": 1.208,
+					"ppd": 1.482,
+					"rank": 39,
+					"nFbs": 134,
+					"games": 12
+				}
+			}, {
+				"season": 2026,
+				"team": "fresno-state",
+				"status": "excluded",
+				"title": "Defensive Coordinator/Associate Head Coach",
+				"staffUrl": "https://gobulldogs.com/sports/football/coaches",
+				"reasons": ["a co-coordinator is also listed"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Adam Breske",
+			"unit": "def",
+			"team": "fresno-state",
+			"title": "Linebackers/Co-DC",
+			"history": [{
+				"season": 2026,
+				"team": "fresno-state",
+				"status": "excluded",
+				"title": "Linebackers/Co-DC",
+				"staffUrl": "https://gobulldogs.com/sports/football/coaches",
+				"reasons": ["co-coordinator"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Mitch Dahlen",
+			"unit": "off",
+			"team": "oregon-state",
+			"title": "Offensive Coordinator/Quarterbacks",
+			"history": [{
+				"season": 2026,
+				"team": "oregon-state",
+				"status": "excluded",
+				"title": "Offensive Coordinator/Quarterbacks",
+				"staffUrl": "https://osubeavers.com/sports/football/coaches",
+				"reasons": ["a co-coordinator is also listed"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Ryan Wallace",
+			"unit": "off",
+			"team": "oregon-state",
+			"title": "Co-Offensive Coordinator/Tight Ends",
+			"history": [{
+				"season": 2026,
+				"team": "oregon-state",
+				"status": "excluded",
+				"title": "Co-Offensive Coordinator/Tight Ends",
+				"staffUrl": "https://osubeavers.com/sports/football/coaches",
+				"reasons": ["co-coordinator"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Mike MacIntyre",
+			"unit": "def",
+			"team": "oregon-state",
+			"title": "Defensive Coordinator/Safeties",
+			"history": [{
+				"season": 2026,
+				"team": "oregon-state",
+				"status": "excluded",
+				"title": "Defensive Coordinator/Safeties",
+				"staffUrl": "https://osubeavers.com/sports/football/coaches",
+				"reasons": ["a co-coordinator is also listed"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Cort Dennison",
+			"unit": "def",
+			"team": "oregon-state",
+			"title": "Co-Defensive Coordinator/Linebackers",
+			"history": [{
+				"season": 2026,
+				"team": "oregon-state",
+				"status": "excluded",
+				"title": "Co-Defensive Coordinator/Linebackers",
+				"staffUrl": "https://osubeavers.com/sports/football/coaches",
+				"reasons": ["co-coordinator"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Matt Johnson",
+			"unit": "off",
+			"team": "san-diego-state",
+			"title": "Offensive Coordinator (quarterbacks)",
+			"history": [{
+				"season": 2026,
+				"team": "san-diego-state",
+				"status": "credited",
+				"title": "Offensive Coordinator (quarterbacks)",
+				"staffUrl": "https://goaztecs.com/sports/football/roster",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Demetrius Sumler",
+			"unit": "def",
+			"team": "san-diego-state",
+			"title": "Defensive Coordinator",
+			"history": [{
+				"season": 2026,
+				"team": "san-diego-state",
+				"status": "credited",
+				"title": "Defensive Coordinator",
+				"staffUrl": "https://goaztecs.com/sports/football/roster",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Landon Keopple",
+			"unit": "off",
+			"team": "texas-state",
+			"title": "Offensive Coordinator",
+			"history": [{
+				"season": 2025,
+				"team": "texas-state",
+				"status": "excluded",
+				"title": "Offensive Coordinator",
+				"staffUrl": "https://txst.com/sports/football/roster/2025",
+				"reasons": ["co-coordinator season (also listed: Jordan Shoemaker)"],
+				"playcall": null,
+				"stats": {
+					"epa": .235,
+					"sr": 45.56,
+					"xpl": 1.2944,
+					"ppd": 2.886,
+					"rank": 13,
+					"nFbs": 136,
+					"games": 12
+				}
+			}, {
+				"season": 2026,
+				"team": "texas-state",
+				"status": "excluded",
+				"title": "Offensive Coordinator",
+				"staffUrl": "https://txst.com/sports/football/coaches",
+				"reasons": ["a co-coordinator is also listed"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Jordan Shoemaker",
+			"unit": "off",
+			"team": "texas-state",
+			"title": "Co-Offensive Coordinator / Offensive Line",
+			"history": [{
+				"season": 2025,
+				"team": "texas-state",
+				"status": "excluded",
+				"title": "Co-Offensive Coordinator / Offensive Line",
+				"staffUrl": "https://txst.com/sports/football/roster/2025",
+				"reasons": ["co-coordinator season (also listed: Landon Keopple)"],
+				"playcall": null,
+				"stats": {
+					"epa": .235,
+					"sr": 45.56,
+					"xpl": 1.2944,
+					"ppd": 2.886,
+					"rank": 13,
+					"nFbs": 136,
+					"games": 12
+				}
+			}, {
+				"season": 2026,
+				"team": "texas-state",
+				"status": "excluded",
+				"title": "Co-Offensive Coordinator / Offensive Line",
+				"staffUrl": "https://txst.com/sports/football/coaches",
+				"reasons": ["co-coordinator"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Will Windham",
+			"unit": "def",
+			"team": "texas-state",
+			"title": "Defensive Coordinator",
+			"history": [
+				{
+					"season": 2024,
+					"team": "south-alabama",
+					"status": "credited",
+					"title": "Assistant Coach -- Defensive Coordinator / Safeties",
+					"staffUrl": "https://usajaguars.com/sports/football/roster/2024",
+					"playcall": null,
+					"stats": {
+						"epa": .1025,
+						"sr": 43.14,
+						"xpl": 1.2131,
+						"ppd": 2.149,
+						"rank": 69,
+						"nFbs": 134,
+						"games": 12
+					}
+				},
+				{
+					"season": 2025,
+					"team": "south-alabama",
+					"status": "excluded",
+					"title": "Assistant Coach -- Defensive Coordinator / Safeties",
+					"staffUrl": "https://usajaguars.com/sports/football/roster/2025",
+					"reasons": ["co-coordinator season (also listed: Jason Washington)"],
+					"playcall": null,
+					"stats": {
+						"epa": .2147,
+						"sr": 43.54,
+						"xpl": 1.3163,
+						"ppd": 2.68,
+						"rank": 120,
+						"nFbs": 136,
+						"games": 11
+					}
+				},
+				{
+					"season": 2026,
+					"team": "texas-state",
+					"status": "credited",
+					"title": "Defensive Coordinator",
+					"staffUrl": "https://txst.com/sports/football/coaches",
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Robert Anae",
+			"unit": "off",
+			"team": "utah-state",
+			"title": "Offensive Coordinator/Tight Ends",
+			"history": [{
+				"season": 2024,
+				"team": "nc-state",
+				"status": "credited",
+				"title": "Offensive Coordinator/Inside WR/TE",
+				"staffUrl": "https://gopack.com/sports/football/roster/2024",
+				"playcall": null,
+				"stats": {
+					"epa": .1258,
+					"sr": 43.53,
+					"xpl": 1.2987,
+					"ppd": 2.148,
+					"rank": 61,
+					"nFbs": 134,
+					"games": 12
+				}
+			}, {
+				"season": 2026,
+				"team": "utah-state",
+				"status": "credited",
+				"title": "Offensive Coordinator/Tight Ends",
+				"staffUrl": "https://utahstateaggies.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Nick Howell",
+			"unit": "def",
+			"team": "utah-state",
+			"title": "Defensive Coordinator/Safeties",
+			"history": [{
+				"season": 2026,
+				"team": "utah-state",
+				"status": "credited",
+				"title": "Defensive Coordinator/Safeties",
+				"staffUrl": "https://utahstateaggies.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Matt Miller",
+			"unit": "off",
+			"team": "washington-state",
+			"title": "Offensive Coordinator / Quarterbacks Coach",
+			"history": [{
+				"season": 2025,
+				"team": "boise-state",
+				"status": "excluded",
+				"title": "Co-Offensive Coordinator / Wide Receivers",
+				"staffUrl": "https://broncosports.com/sports/football/roster/2025",
+				"reasons": ["co-coordinator season (also listed: Nate Potter)"],
+				"playcall": null,
+				"stats": {
+					"epa": .0771,
+					"sr": 39.9,
+					"xpl": 1.2678,
+					"ppd": 2.195,
+					"rank": 74,
+					"nFbs": 136,
+					"games": 13
+				}
+			}, {
+				"season": 2026,
+				"team": "washington-state",
+				"status": "credited",
+				"title": "Offensive Coordinator / Quarterbacks Coach",
+				"staffUrl": "https://wsucougars.com/sports/football/roster",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Trent Bray",
+			"unit": "def",
+			"team": "washington-state",
+			"title": "Defensive Coordinator / Linebackers Coach",
+			"history": [{
+				"season": 2026,
+				"team": "washington-state",
+				"status": "credited",
+				"title": "Defensive Coordinator / Linebackers Coach",
+				"staffUrl": "https://wsucougars.com/sports/football/roster",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Ryan Grubb",
+			"unit": "off",
+			"team": "alabama",
+			"title": "Offensive Coordinator",
+			"history": [{
+				"season": 2025,
+				"team": "alabama",
+				"status": "excluded",
+				"title": "Offensive Coordinator",
+				"staffUrl": "https://rolltide.com/sports/football/roster/2025",
+				"reasons": ["co-coordinator season (also listed: JaMarcus Shephard, Nick Sheridan)"],
+				"playcall": null,
+				"stats": {
+					"epa": .2252,
+					"sr": 45.59,
+					"xpl": 1.3093,
+					"ppd": 2.534,
+					"rank": 19,
+					"nFbs": 136,
+					"games": 14
+				}
+			}, {
+				"season": 2026,
+				"team": "alabama",
+				"status": "credited",
+				"title": "Offensive Coordinator",
+				"staffUrl": "https://rolltide.com/sports/football/roster",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Kane Wommack",
+			"unit": "def",
+			"team": "alabama",
+			"title": "Defensive Coordinator",
+			"history": [
+				{
+					"season": 2024,
+					"team": "alabama",
+					"status": "excluded",
+					"title": "Defensive Coordinator",
+					"staffUrl": "https://rolltide.com/sports/football/roster/2024",
+					"reasons": ["co-coordinator season (also listed: Colin Hitschler, Maurice Linguist)"],
+					"playcall": null,
+					"stats": {
+						"epa": -.048,
+						"sr": 35.79,
+						"xpl": 1.2192,
+						"ppd": 1.291,
+						"rank": 11,
+						"nFbs": 134,
+						"games": 12
+					}
+				},
+				{
+					"season": 2025,
+					"team": "alabama",
+					"status": "excluded",
+					"title": "Defensive Coordinator",
+					"staffUrl": "https://rolltide.com/sports/football/roster/2025",
+					"reasons": ["co-coordinator season (also listed: Maurice Linguist)"],
+					"playcall": null,
+					"stats": {
+						"epa": -.0161,
+						"sr": 36.06,
+						"xpl": 1.2303,
+						"ppd": 1.801,
+						"rank": 21,
+						"nFbs": 136,
+						"games": 14
+					}
+				},
+				{
+					"season": 2026,
+					"team": "alabama",
+					"status": "excluded",
+					"title": "Defensive Coordinator",
+					"staffUrl": "https://rolltide.com/sports/football/roster",
+					"reasons": ["a co-coordinator is also listed"],
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Maurice Linguist",
+			"unit": "def",
+			"team": "alabama",
+			"title": "Co-Defensive Coordinator/Defensive Backs",
+			"history": [
+				{
+					"season": 2024,
+					"team": "alabama",
+					"status": "excluded",
+					"title": "Co-Defensive Coordinator/Defensive Backs",
+					"staffUrl": "https://rolltide.com/sports/football/roster/2024",
+					"reasons": ["co-coordinator season (also listed: Kane Wommack, Colin Hitschler)"],
+					"playcall": null,
+					"stats": {
+						"epa": -.048,
+						"sr": 35.79,
+						"xpl": 1.2192,
+						"ppd": 1.291,
+						"rank": 11,
+						"nFbs": 134,
+						"games": 12
+					}
+				},
+				{
+					"season": 2025,
+					"team": "alabama",
+					"status": "excluded",
+					"title": "Co-Defensive Coordinator/Defensive Backs",
+					"staffUrl": "https://rolltide.com/sports/football/roster/2025",
+					"reasons": ["co-coordinator season (also listed: Kane Wommack)"],
+					"playcall": null,
+					"stats": {
+						"epa": -.0161,
+						"sr": 36.06,
+						"xpl": 1.2303,
+						"ppd": 1.801,
+						"rank": 21,
+						"nFbs": 136,
+						"games": 14
+					}
+				},
+				{
+					"season": 2026,
+					"team": "alabama",
+					"status": "excluded",
+					"title": "Co-Defensive Coordinator/Defensive Backs",
+					"staffUrl": "https://rolltide.com/sports/football/roster",
+					"reasons": ["co-coordinator"],
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Tim Cramsey",
+			"unit": "off",
+			"team": "arkansas",
+			"title": "Offensive Coordinator",
+			"history": [
+				{
+					"season": 2024,
+					"team": "memphis",
+					"status": "excluded",
+					"title": "Offensive Coordinator / Quarterbacks",
+					"staffUrl": "https://gotigersgo.com/sports/football/roster/2024",
+					"reasons": ["co-coordinator season (also listed: Larry Smith)"],
+					"playcall": null,
+					"stats": {
+						"epa": .1735,
+						"sr": 42.43,
+						"xpl": 1.3117,
+						"ppd": 2.76,
+						"rank": 41,
+						"nFbs": 134,
+						"games": 12
+					}
+				},
+				{
+					"season": 2025,
+					"team": "memphis",
+					"status": "excluded",
+					"title": "Assistant Head Coach / Offensive Coordinator",
+					"staffUrl": "https://gotigersgo.com/sports/football/roster/2025",
+					"reasons": ["co-coordinator season (also listed: Larry Smith, Larry Smith, Larry Smith)", "two head coaches that season (Reggie Howard, Ryan Silverfield)"],
+					"playcall": null,
+					"stats": {
+						"epa": .1582,
+						"sr": 43.61,
+						"xpl": 1.2836,
+						"ppd": 2.821,
+						"rank": 38,
+						"nFbs": 136,
+						"games": 12
+					}
+				},
+				{
+					"season": 2026,
+					"team": "arkansas",
+					"status": "credited",
+					"title": "Offensive Coordinator",
+					"staffUrl": "https://arkansasrazorbacks.com/sport/m-footbl/roster/",
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Ron Roberts",
+			"unit": "def",
+			"team": "arkansas",
+			"title": "Defensive Coordinator",
+			"history": [{
+				"season": 2026,
+				"team": "arkansas",
+				"status": "excluded",
+				"title": "Defensive Coordinator",
+				"staffUrl": "https://arkansasrazorbacks.com/sport/m-footbl/roster/",
+				"reasons": ["a co-coordinator is also listed"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Deron Wilson",
+			"unit": "def",
+			"team": "arkansas",
+			"title": "co-Defensive Coordinator/Secondary",
+			"history": [{
+				"season": 2026,
+				"team": "arkansas",
+				"status": "excluded",
+				"title": "co-Defensive Coordinator/Secondary",
+				"staffUrl": "https://arkansasrazorbacks.com/sport/m-footbl/roster/",
+				"reasons": ["co-coordinator"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Joel Gordon",
+			"unit": "off",
+			"team": "auburn",
+			"title": "Offensive Coordinator / Quarterbacks",
+			"history": [
+				{
+					"season": 2024,
+					"team": "usf",
+					"status": "credited",
+					"title": "Offensive Coordinator/Quarterbacks Coach",
+					"staffUrl": "https://gousfbulls.com/sports/football/roster/2024",
+					"playcall": null,
+					"stats": {
+						"epa": .0551,
+						"sr": 38.29,
+						"xpl": 1.2746,
+						"ppd": 1.976,
+						"rank": 91,
+						"nFbs": 134,
+						"games": 12
+					}
+				},
+				{
+					"season": 2025,
+					"team": "usf",
+					"status": "excluded",
+					"title": "Offensive Coordinator/Quarterbacks Coach",
+					"staffUrl": "https://gousfbulls.com/sports/football/roster/2025",
+					"reasons": ["co-coordinator season (also listed: Kodi Burns)", "two head coaches that season (Alex Golesh, Kevin Patrick)"],
+					"playcall": null,
+					"stats": {
+						"epa": .2234,
+						"sr": 46.45,
+						"xpl": 1.2668,
+						"ppd": 2.855,
+						"rank": 20,
+						"nFbs": 136,
+						"games": 12
+					}
+				},
+				{
+					"season": 2026,
+					"team": "auburn",
+					"status": "excluded",
+					"title": "Offensive Coordinator / Quarterbacks",
+					"staffUrl": "https://auburntigers.com/sports/football/roster",
+					"reasons": ["a co-coordinator is also listed"],
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Kodi Burns",
+			"unit": "off",
+			"team": "auburn",
+			"title": "Associate Head Coach / Co-Offensive Coordinator / Wide Receivers",
+			"history": [{
+				"season": 2025,
+				"team": "usf",
+				"status": "excluded",
+				"title": "Co-Offensive Coordinator/Assistant Head Coach/Wide Receivers Coach",
+				"staffUrl": "https://gousfbulls.com/sports/football/roster/2025",
+				"reasons": ["co-coordinator season (also listed: Joel Gordon)", "two head coaches that season (Alex Golesh, Kevin Patrick)"],
+				"playcall": null,
+				"stats": {
+					"epa": .2234,
+					"sr": 46.45,
+					"xpl": 1.2668,
+					"ppd": 2.855,
+					"rank": 20,
+					"nFbs": 136,
+					"games": 12
+				}
+			}, {
+				"season": 2026,
+				"team": "auburn",
+				"status": "excluded",
+				"title": "Associate Head Coach / Co-Offensive Coordinator / Wide Receivers",
+				"staffUrl": "https://auburntigers.com/sports/football/roster",
+				"reasons": ["co-coordinator"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "DJ Durkin",
+			"unit": "def",
+			"team": "auburn",
+			"title": "Defensive Coordinator / Linebackers",
+			"history": [
+				{
+					"season": 2024,
+					"team": "auburn",
+					"status": "excluded",
+					"title": "Defensive Coordinator / Linebackers",
+					"staffUrl": "https://auburntigers.com/sports/football/roster/2024",
+					"reasons": ["co-coordinator season (also listed: Charles Kelly)"],
+					"playcall": null,
+					"stats": {
+						"epa": .0281,
+						"sr": 36.15,
+						"xpl": 1.3401,
+						"ppd": 1.914,
+						"rank": 30,
+						"nFbs": 134,
+						"games": 11
+					}
+				},
+				{
+					"season": 2025,
+					"team": "auburn",
+					"status": "excluded",
+					"title": "Defensive Coordinator / Linebackers",
+					"staffUrl": "https://auburntigers.com/sports/football/roster/season/2025/",
+					"reasons": ["two head coaches that season (D.J. Durkin, Hugh Freeze)"],
+					"playcall": null,
+					"stats": {
+						"epa": -.0374,
+						"sr": 35.31,
+						"xpl": 1.2546,
+						"ppd": 2,
+						"rank": 15,
+						"nFbs": 136,
+						"games": 11
+					}
+				},
+				{
+					"season": 2026,
+					"team": "auburn",
+					"status": "excluded",
+					"title": "Defensive Coordinator / Linebackers",
+					"staffUrl": "https://auburntigers.com/sports/football/roster",
+					"reasons": ["a co-coordinator is also listed"],
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Tim Banks",
+			"unit": "def",
+			"team": "auburn",
+			"title": "Co-Defensive Coordinator / Safeties",
+			"history": [
+				{
+					"season": 2024,
+					"team": "tennessee",
+					"status": "credited",
+					"title": "Defensive Coordinator",
+					"staffUrl": "https://utsports.com/sports/football/roster/2024",
+					"playcall": null,
+					"stats": {
+						"epa": -.0604,
+						"sr": 35.95,
+						"xpl": 1.2309,
+						"ppd": 1.272,
+						"rank": 7,
+						"nFbs": 134,
+						"games": 12
+					}
+				},
+				{
+					"season": 2025,
+					"team": "tennessee",
+					"status": "credited",
+					"title": "Defensive Coordinator",
+					"staffUrl": "https://utsports.com/sports/football/roster/2025",
+					"playcall": null,
+					"stats": {
+						"epa": .0837,
+						"sr": 43.77,
+						"xpl": 1.1497,
+						"ppd": 2.479,
+						"rank": 56,
+						"nFbs": 136,
+						"games": 12
+					}
+				},
+				{
+					"season": 2026,
+					"team": "auburn",
+					"status": "excluded",
+					"title": "Co-Defensive Coordinator / Safeties",
+					"staffUrl": "https://auburntigers.com/sports/football/roster",
+					"reasons": ["co-coordinator"],
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Buster Faulkner",
+			"unit": "off",
+			"team": "florida",
+			"title": "Offensive Coordinator",
+			"history": [{
+				"season": 2026,
+				"team": "florida",
+				"status": "credited",
+				"title": "Offensive Coordinator",
+				"staffUrl": "https://floridagators.com/sports/football/roster",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Brad White",
+			"unit": "def",
+			"team": "florida",
+			"title": "Defensive Coordinator",
+			"history": [
+				{
+					"season": 2024,
+					"team": "kentucky",
+					"status": "excluded",
+					"title": "Defensive Coordinator/Outside Linebackers Coach",
+					"staffUrl": "https://ukathletics.com/sports/football/roster/season/2024/",
+					"reasons": ["co-coordinator season (also listed: Chris Collins, Chris Collins)"],
+					"playcall": null,
+					"stats": {
+						"epa": .04,
+						"sr": 42.12,
+						"xpl": 1.1613,
+						"ppd": 1.808,
+						"rank": 34,
+						"nFbs": 134,
+						"games": 11
+					}
+				},
+				{
+					"season": 2025,
+					"team": "kentucky",
+					"status": "excluded",
+					"title": "Defensive Coordinator/Outside Linebackers Coach",
+					"staffUrl": "https://ukathletics.com/sports/football/roster/season/2025/",
+					"reasons": ["co-coordinator season (also listed: Chris Collins, Chris Collins)"],
+					"playcall": null,
+					"stats": {
+						"epa": .011,
+						"sr": 39.78,
+						"xpl": 1.2472,
+						"ppd": 2.31,
+						"rank": 29,
+						"nFbs": 136,
+						"games": 11
+					}
+				},
+				{
+					"season": 2026,
+					"team": "florida",
+					"status": "credited",
+					"title": "Defensive Coordinator",
+					"staffUrl": "https://floridagators.com/sports/football/roster",
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Mike Bobo",
+			"unit": "off",
+			"team": "georgia",
+			"title": "John and Alice Sands Offensive Coordinator - Quarterbacks Coach",
+			"history": [
+				{
+					"season": 2024,
+					"team": "georgia",
+					"status": "credited",
+					"title": "John and Alice Sands Offensive Coordinator - Quarterbacks Coach",
+					"staffUrl": "https://georgiadogs.com/sports/football/roster/2024",
+					"playcall": "Play-calling also verified: head coach Kirby Smart (bio shows no offensive coordinator role).",
+					"stats": {
+						"epa": .2323,
+						"sr": 47.17,
+						"xpl": 1.2858,
+						"ppd": 2.261,
+						"rank": 14,
+						"nFbs": 134,
+						"games": 13
+					}
+				},
+				{
+					"season": 2025,
+					"team": "georgia",
+					"status": "credited",
+					"title": "John and Alice Sands Offensive Coordinator - Quarterbacks Coach",
+					"staffUrl": "https://georgiadogs.com/sports/football/roster/2025",
+					"playcall": "Play-calling also verified: head coach Kirby Smart (bio shows no offensive coordinator role).",
+					"stats": {
+						"epa": .2201,
+						"sr": 46.61,
+						"xpl": 1.2177,
+						"ppd": 2.856,
+						"rank": 21,
+						"nFbs": 136,
+						"games": 13
+					}
+				},
+				{
+					"season": 2026,
+					"team": "georgia",
+					"status": "credited",
+					"title": "John and Alice Sands Offensive Coordinator - Quarterbacks Coach",
+					"staffUrl": "https://georgiadogs.com/sports/football/roster",
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Glenn Schumann",
+			"unit": "def",
+			"team": "georgia",
+			"title": "Fain & Billy Slaughter Defensive Coordinator - Inside Linebackers",
+			"history": [
+				{
+					"season": 2024,
+					"team": "georgia",
+					"status": "excluded",
+					"title": "Fain & Billy Slaughter Defensive Coordinator - Inside Linebackers",
+					"staffUrl": "https://georgiadogs.com/sports/football/roster/2024",
+					"reasons": ["co-coordinator season (also listed: Travaris Robinson)"],
+					"playcall": null,
+					"stats": {
+						"epa": -.0238,
+						"sr": 35.24,
+						"xpl": 1.2343,
+						"ppd": 1.712,
+						"rank": 15,
+						"nFbs": 134,
+						"games": 13
+					}
+				},
+				{
+					"season": 2025,
+					"team": "georgia",
+					"status": "excluded",
+					"title": "Fain & Billy Slaughter Defensive Coordinator - Inside Linebackers",
+					"staffUrl": "https://georgiadogs.com/sports/football/roster/2025",
+					"reasons": ["co-coordinator season (also listed: Travaris Robinson)"],
+					"playcall": null,
+					"stats": {
+						"epa": -.0095,
+						"sr": 35.62,
+						"xpl": 1.1752,
+						"ppd": 1.593,
+						"rank": 24,
+						"nFbs": 136,
+						"games": 13
+					}
+				},
+				{
+					"season": 2026,
+					"team": "georgia",
+					"status": "excluded",
+					"title": "Fain & Billy Slaughter Defensive Coordinator - Inside Linebackers",
+					"staffUrl": "https://georgiadogs.com/sports/football/roster",
+					"reasons": ["a co-coordinator is also listed"],
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Travaris Robinson",
+			"unit": "def",
+			"team": "georgia",
+			"title": "Co-Defensive Coordinator - Safeties Coach",
+			"history": [
+				{
+					"season": 2024,
+					"team": "georgia",
+					"status": "excluded",
+					"title": "Co-Defensive Coordinator - Safeties Coach",
+					"staffUrl": "https://georgiadogs.com/sports/football/roster/2024",
+					"reasons": ["co-coordinator season (also listed: Glenn Schumann)"],
+					"playcall": null,
+					"stats": {
+						"epa": -.0238,
+						"sr": 35.24,
+						"xpl": 1.2343,
+						"ppd": 1.712,
+						"rank": 15,
+						"nFbs": 134,
+						"games": 13
+					}
+				},
+				{
+					"season": 2025,
+					"team": "georgia",
+					"status": "excluded",
+					"title": "Co-Defensive Coordinator - Safeties Coach",
+					"staffUrl": "https://georgiadogs.com/sports/football/roster/2025",
+					"reasons": ["co-coordinator season (also listed: Glenn Schumann)"],
+					"playcall": null,
+					"stats": {
+						"epa": -.0095,
+						"sr": 35.62,
+						"xpl": 1.1752,
+						"ppd": 1.593,
+						"rank": 24,
+						"nFbs": 136,
+						"games": 13
+					}
+				},
+				{
+					"season": 2026,
+					"team": "georgia",
+					"status": "excluded",
+					"title": "Co-Defensive Coordinator - Safeties Coach",
+					"staffUrl": "https://georgiadogs.com/sports/football/roster",
+					"reasons": ["co-coordinator"],
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Joe Sloan",
+			"unit": "off",
+			"team": "kentucky",
+			"title": "Offensive Coordinator",
+			"history": [{
+				"season": 2026,
+				"team": "kentucky",
+				"status": "credited",
+				"title": "Offensive Coordinator",
+				"staffUrl": "https://ukathletics.com/sports/football/roster",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Jay Bateman",
+			"unit": "def",
+			"team": "kentucky",
+			"title": "Defensive Coordinator",
+			"history": [
+				{
+					"season": 2024,
+					"team": "texas-am",
+					"status": "excluded",
+					"title": "Defensive Coordinator/Linebackers",
+					"staffUrl": "https://12thman.com/sports/football/roster/2024",
+					"reasons": ["co-coordinator season (also listed: Jordan Peterson)"],
+					"playcall": null,
+					"stats": {
+						"epa": .0129,
+						"sr": 35.64,
+						"xpl": 1.4324,
+						"ppd": 1.611,
+						"rank": 26,
+						"nFbs": 134,
+						"games": 12
+					}
+				},
+				{
+					"season": 2025,
+					"team": "texas-am",
+					"status": "excluded",
+					"title": "Defensive Coordinator/Linebackers",
+					"staffUrl": "https://web.archive.org/web/20250722171514id_/https://12thman.com/sports/football/roster/2025",
+					"reasons": ["co-coordinator season (also listed: Jordan Peterson)"],
+					"playcall": null,
+					"stats": {
+						"epa": .0294,
+						"sr": 33.44,
+						"xpl": 1.3944,
+						"ppd": 1.631,
+						"rank": 42,
+						"nFbs": 136,
+						"games": 12
+					}
+				},
+				{
+					"season": 2026,
+					"team": "kentucky",
+					"status": "credited",
+					"title": "Defensive Coordinator",
+					"staffUrl": "https://ukathletics.com/sports/football/roster",
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Charlie Weis Jr.",
+			"unit": "off",
+			"team": "lsu",
+			"title": "Offensive Coordinator",
+			"history": [
+				{
+					"season": 2024,
+					"team": "ole-miss",
+					"status": "excluded",
+					"title": "Assistant Coach/Offensive Coordinator/Quarterbacks",
+					"staffUrl": "https://olemisssports.com/sports/football/roster/2024",
+					"reasons": ["co-coordinator season (also listed: Joe Cox)"],
+					"playcall": null,
+					"stats": {
+						"epa": .3151,
+						"sr": 47.17,
+						"xpl": 1.4225,
+						"ppd": 2.774,
+						"rank": 4,
+						"nFbs": 134,
+						"games": 12
+					}
+				},
+				{
+					"season": 2025,
+					"team": "ole-miss",
+					"status": "excluded",
+					"title": "Assistant Coach/Offensive Coordinator/Quarterbacks",
+					"staffUrl": "https://olemisssports.com/sports/football/roster/2025",
+					"reasons": ["co-coordinator season (also listed: Joe Cox)", "two head coaches that season (Pete Golding, Lane Kiffin)"],
+					"playcall": null,
+					"stats": {
+						"epa": .3049,
+						"sr": 49.05,
+						"xpl": 1.3429,
+						"ppd": 2.988,
+						"rank": 6,
+						"nFbs": 136,
+						"games": 14
+					}
+				},
+				{
+					"season": 2026,
+					"team": "lsu",
+					"status": "excluded",
+					"title": "Offensive Coordinator",
+					"staffUrl": "https://lsusports.net/sports/football/roster",
+					"reasons": ["a co-coordinator is also listed"],
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Joe Cox",
+			"unit": "off",
+			"team": "lsu",
+			"title": "Co-Offensive Coordinator / Tight Ends",
+			"history": [
+				{
+					"season": 2024,
+					"team": "ole-miss",
+					"status": "excluded",
+					"title": "Assistant Coach/Co-Offensive Coordinator/Tight Ends",
+					"staffUrl": "https://olemisssports.com/sports/football/roster/2024",
+					"reasons": ["co-coordinator season (also listed: Charlie Weis Jr.)"],
+					"playcall": null,
+					"stats": {
+						"epa": .3151,
+						"sr": 47.17,
+						"xpl": 1.4225,
+						"ppd": 2.774,
+						"rank": 4,
+						"nFbs": 134,
+						"games": 12
+					}
+				},
+				{
+					"season": 2025,
+					"team": "ole-miss",
+					"status": "excluded",
+					"title": "Assistant Coach/Co-Offensive Coordinator/Tight Ends",
+					"staffUrl": "https://olemisssports.com/sports/football/roster/2025",
+					"reasons": ["co-coordinator season (also listed: Charlie Weis Jr.)", "two head coaches that season (Pete Golding, Lane Kiffin)"],
+					"playcall": null,
+					"stats": {
+						"epa": .3049,
+						"sr": 49.05,
+						"xpl": 1.3429,
+						"ppd": 2.988,
+						"rank": 6,
+						"nFbs": 136,
+						"games": 14
+					}
+				},
+				{
+					"season": 2026,
+					"team": "lsu",
+					"status": "excluded",
+					"title": "Co-Offensive Coordinator / Tight Ends",
+					"staffUrl": "https://lsusports.net/sports/football/roster",
+					"reasons": ["co-coordinator"],
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Blake Baker",
+			"unit": "def",
+			"team": "lsu",
+			"title": "Defensive Coordinator",
+			"history": [{
+				"season": 2026,
+				"team": "lsu",
+				"status": "excluded",
+				"title": "Defensive Coordinator",
+				"staffUrl": "https://lsusports.net/sports/football/roster",
+				"reasons": ["a co-coordinator is also listed"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Chris Kiffin",
+			"unit": "def",
+			"team": "lsu",
+			"title": "Co-Defensive Coordinator / Linebackers",
+			"history": [{
+				"season": 2026,
+				"team": "lsu",
+				"status": "excluded",
+				"title": "Co-Defensive Coordinator / Linebackers",
+				"staffUrl": "https://lsusports.net/sports/football/roster",
+				"reasons": ["co-coordinator"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Zach Arnett",
+			"unit": "def",
+			"team": "mississippi-state",
+			"title": "Defensive Coordinator",
+			"history": [{
+				"season": 2026,
+				"team": "mississippi-state",
+				"status": "excluded",
+				"title": "Defensive Coordinator",
+				"staffUrl": "https://hailstate.com/sports/football/coaches",
+				"reasons": ["a co-coordinator is also listed"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Matt Brock",
+			"unit": "def",
+			"team": "mississippi-state",
+			"title": "Co-Defensive Coordinator (Linebackers)",
+			"history": [{
+				"season": 2026,
+				"team": "mississippi-state",
+				"status": "excluded",
+				"title": "Co-Defensive Coordinator (Linebackers)",
+				"staffUrl": "https://hailstate.com/sports/football/coaches",
+				"reasons": ["co-coordinator"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Chip Lindsey",
+			"unit": "off",
+			"team": "missouri",
+			"title": "Offensive Coordinator",
+			"history": [{
+				"season": 2025,
+				"team": "michigan",
+				"status": "excluded",
+				"title": "Sanford Robertson Offensive Coordinator/Robert McCollum Family Quarterbacks Coach",
+				"staffUrl": "https://web.archive.org/web/20260114051719id_/https://mgoblue.com/sports/football/coaches/2025",
+				"reasons": ["two head coaches that season (Sherrone Moore, Biff Poggi)"],
+				"playcall": null,
+				"stats": {
+					"epa": .1839,
+					"sr": 45.48,
+					"xpl": 1.216,
+					"ppd": 2.361,
+					"rank": 30,
+					"nFbs": 136,
+					"games": 13
+				}
+			}, {
+				"season": 2026,
+				"team": "missouri",
+				"status": "credited",
+				"title": "Offensive Coordinator",
+				"staffUrl": "https://mutigers.com/sports/football/roster",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Corey Batoon",
+			"unit": "def",
+			"team": "missouri",
+			"title": "Defensive Coordinator",
+			"history": [{
+				"season": 2024,
+				"team": "missouri",
+				"status": "excluded",
+				"title": "Defensive Coordinator",
+				"staffUrl": "https://web.archive.org/web/20241201102246id_/https://mutigers.com/sports/football/roster/2024",
+				"reasons": ["co-coordinator season (also listed: D.J. Smith)"],
+				"playcall": null,
+				"stats": {
+					"epa": .0389,
+					"sr": 40.35,
+					"xpl": 1.2521,
+					"ppd": 2.008,
+					"rank": 33,
+					"nFbs": 134,
+					"games": 12
+				}
+			}, {
+				"season": 2026,
+				"team": "missouri",
+				"status": "excluded",
+				"title": "Defensive Coordinator",
+				"staffUrl": "https://mutigers.com/sports/football/roster",
+				"reasons": ["a co-coordinator is also listed"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Derek Nicholson",
+			"unit": "def",
+			"team": "missouri",
+			"title": "Assistant Coach / Co-Defensive Coordinator / Linebackers",
+			"history": [{
+				"season": 2026,
+				"team": "missouri",
+				"status": "excluded",
+				"title": "Assistant Coach / Co-Defensive Coordinator / Linebackers",
+				"staffUrl": "https://mutigers.com/sports/football/roster",
+				"reasons": ["co-coordinator"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Jason Witten",
+			"unit": "off",
+			"team": "oklahoma",
+			"title": "Interim Offensive Coordinator/Tight Ends",
+			"history": [{
+				"season": 2026,
+				"team": "oklahoma",
+				"status": "excluded",
+				"title": "Interim Offensive Coordinator/Tight Ends",
+				"staffUrl": "https://soonersports.com/sports/football/roster",
+				"reasons": ["interim, split season"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Todd Bates",
+			"unit": "def",
+			"team": "oklahoma",
+			"title": "Associate Head Coach / Co-Defensive Coordinator / Run Defense / Defensive Tackles",
+			"history": [
+				{
+					"season": 2024,
+					"team": "oklahoma",
+					"status": "excluded",
+					"title": "Associate Head Coach / Co-Defensive Coordinator / Run Defense / Defensive Tackles",
+					"staffUrl": "https://soonersports.com/sports/football/roster/2024",
+					"reasons": ["co-coordinator season (also listed: Jay Valai)"],
+					"playcall": null,
+					"stats": {
+						"epa": -.042,
+						"sr": 34.74,
+						"xpl": 1.2596,
+						"ppd": 1.545,
+						"rank": 12,
+						"nFbs": 134,
+						"games": 12
+					}
+				},
+				{
+					"season": 2025,
+					"team": "oklahoma",
+					"status": "excluded",
+					"title": "Associate Head Coach / Co-Defensive Coordinator / Run Defense / Defensive Tackles",
+					"staffUrl": "https://soonersports.com/sports/football/roster/2025",
+					"reasons": ["co-coordinator season (also listed: Jay Valai)"],
+					"playcall": null,
+					"stats": {
+						"epa": -.1109,
+						"sr": 29.24,
+						"xpl": 1.3376,
+						"ppd": 1.221,
+						"rank": 4,
+						"nFbs": 136,
+						"games": 12
+					}
+				},
+				{
+					"season": 2026,
+					"team": "oklahoma",
+					"status": "excluded",
+					"title": "Associate Head Coach / Co-Defensive Coordinator / Run Defense / Defensive Tackles",
+					"staffUrl": "https://soonersports.com/sports/football/roster",
+					"reasons": ["co-coordinator setup"],
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "John David Baker",
+			"unit": "off",
+			"team": "ole-miss",
+			"title": "Assistant Coach/Offensive Coordinator",
+			"history": [
+				{
+					"season": 2024,
+					"team": "east-carolina",
+					"status": "excluded",
+					"title": "Offensive Coordinator/Quarterbacks",
+					"staffUrl": "https://ecupirates.com/sports/football/roster/2024",
+					"reasons": ["two head coaches that season (Blake Harrell, Mike Houston)"],
+					"playcall": null,
+					"stats": {
+						"epa": .1117,
+						"sr": 41.62,
+						"xpl": 1.3139,
+						"ppd": 2.268,
+						"rank": 66,
+						"nFbs": 134,
+						"games": 12
+					}
+				},
+				{
+					"season": 2025,
+					"team": "east-carolina",
+					"status": "credited",
+					"title": "Offensive Coordinator/Quarterbacks",
+					"staffUrl": "https://ecupirates.com/sports/football/roster/2025",
+					"playcall": null,
+					"stats": {
+						"epa": .1093,
+						"sr": 43.5,
+						"xpl": 1.183,
+						"ppd": 2.214,
+						"rank": 59,
+						"nFbs": 136,
+						"games": 12
+					}
+				},
+				{
+					"season": 2026,
+					"team": "ole-miss",
+					"status": "excluded",
+					"title": "Assistant Coach/Offensive Coordinator",
+					"staffUrl": "https://olemisssports.com/sports/football/roster",
+					"reasons": ["a co-coordinator is also listed"],
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Cody Woodiel",
+			"unit": "off",
+			"team": "ole-miss",
+			"title": "Assistant Coach/Co-Offensive Coordinator/Tight Ends",
+			"history": [{
+				"season": 2026,
+				"team": "ole-miss",
+				"status": "excluded",
+				"title": "Assistant Coach/Co-Offensive Coordinator/Tight Ends",
+				"staffUrl": "https://olemisssports.com/sports/football/roster",
+				"reasons": ["co-coordinator"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Bryan Brown",
+			"unit": "def",
+			"team": "ole-miss",
+			"title": "Assistant Coach/Defensive Coordinator",
+			"history": [
+				{
+					"season": 2024,
+					"team": "ole-miss",
+					"status": "excluded",
+					"title": "Assistant Coach/Co-Defensive Coordinator/Secondary",
+					"staffUrl": "https://olemisssports.com/sports/football/roster/2024",
+					"reasons": ["co-coordinator season (also listed: Pete Golding)"],
+					"playcall": null,
+					"stats": {
+						"epa": -.0502,
+						"sr": 34.7,
+						"xpl": 1.3075,
+						"ppd": 1.199,
+						"rank": 10,
+						"nFbs": 134,
+						"games": 12
+					}
+				},
+				{
+					"season": 2025,
+					"team": "ole-miss",
+					"status": "excluded",
+					"title": "Assistant Coach/Co-Defensive Coordinator/Secondary",
+					"staffUrl": "https://olemisssports.com/sports/football/roster/2025",
+					"reasons": ["co-coordinator season (also listed: Pete Golding)", "two head coaches that season (Pete Golding, Lane Kiffin)"],
+					"playcall": null,
+					"stats": {
+						"epa": .0375,
+						"sr": 37.34,
+						"xpl": 1.3654,
+						"ppd": 1.873,
+						"rank": 43,
+						"nFbs": 136,
+						"games": 14
+					}
+				},
+				{
+					"season": 2026,
+					"team": "ole-miss",
+					"status": "excluded",
+					"title": "Assistant Coach/Defensive Coordinator",
+					"staffUrl": "https://olemisssports.com/sports/football/roster",
+					"reasons": ["a co-coordinator is also listed"],
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Marcus Woodson",
+			"unit": "def",
+			"team": "ole-miss",
+			"title": "Assistant Coach/Co-Defensive Coordinator",
+			"history": [{
+				"season": 2026,
+				"team": "ole-miss",
+				"status": "excluded",
+				"title": "Assistant Coach/Co-Defensive Coordinator",
+				"staffUrl": "https://olemisssports.com/sports/football/roster",
+				"reasons": ["co-coordinator"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Kendal Briles",
+			"unit": "off",
+			"team": "south-carolina",
+			"title": "Offensive Coordinator/Quarterbacks Coach",
+			"history": [
+				{
+					"season": 2024,
+					"team": "tcu",
+					"status": "excluded",
+					"title": "Associate Head Coach / Offensive Coordinator / Quarterbacks",
+					"staffUrl": "https://gofrogs.com/sports/football/roster/2024",
+					"reasons": ["co-coordinator season (also listed: A.J. Ricker)"],
+					"playcall": null,
+					"stats": {
+						"epa": .2234,
+						"sr": 47.32,
+						"xpl": 1.2249,
+						"ppd": 2.697,
+						"rank": 18,
+						"nFbs": 134,
+						"games": 12
+					}
+				},
+				{
+					"season": 2025,
+					"team": "tcu",
+					"status": "excluded",
+					"title": "Associate Head Coach / Offensive Coordinator / Quarterbacks",
+					"staffUrl": "https://gofrogs.com/sports/football/roster/2025",
+					"reasons": ["co-coordinator season (also listed: A.J. Ricker)"],
+					"playcall": null,
+					"stats": {
+						"epa": .1451,
+						"sr": 43.63,
+						"xpl": 1.2966,
+						"ppd": 2.585,
+						"rank": 42,
+						"nFbs": 136,
+						"games": 12
+					}
+				},
+				{
+					"season": 2026,
+					"team": "south-carolina",
+					"status": "credited",
+					"title": "Offensive Coordinator/Quarterbacks Coach",
+					"staffUrl": "https://gamecocksonline.com/sports/football/roster",
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Clayton White",
+			"unit": "def",
+			"team": "south-carolina",
+			"title": "Defensive Coordinator/LBs",
+			"history": [
+				{
+					"season": 2024,
+					"team": "south-carolina",
+					"status": "credited",
+					"title": "Defensive Coordinator/Inside Linebackers Coach",
+					"staffUrl": "https://gamecocksonline.com/sports/football/roster/season/2024/",
+					"playcall": null,
+					"stats": {
+						"epa": -.0402,
+						"sr": 40.36,
+						"xpl": 1.0754,
+						"ppd": 1.538,
+						"rank": 13,
+						"nFbs": 134,
+						"games": 12
+					}
+				},
+				{
+					"season": 2025,
+					"team": "south-carolina",
+					"status": "credited",
+					"title": "Defensive Coordinator/Inside Linebackers Coach",
+					"staffUrl": "https://gamecocksonline.com/sports/football/roster/season/2025/",
+					"playcall": null,
+					"stats": {
+						"epa": .0171,
+						"sr": 40.19,
+						"xpl": 1.1605,
+						"ppd": 1.731,
+						"rank": 35,
+						"nFbs": 136,
+						"games": 11
+					}
+				},
+				{
+					"season": 2026,
+					"team": "south-carolina",
+					"status": "excluded",
+					"title": "Defensive Coordinator/LBs",
+					"staffUrl": "https://gamecocksonline.com/sports/football/roster",
+					"reasons": ["a co-coordinator is also listed"],
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Torrian Gray",
+			"unit": "def",
+			"team": "south-carolina",
+			"title": "Co-Defensive Coordinator/Defensive Backs Coach",
+			"history": [{
+				"season": 2026,
+				"team": "south-carolina",
+				"status": "excluded",
+				"title": "Co-Defensive Coordinator/Defensive Backs Coach",
+				"staffUrl": "https://gamecocksonline.com/sports/football/roster",
+				"reasons": ["co-coordinator"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Joey Halzle",
+			"unit": "off",
+			"team": "tennessee",
+			"title": "Offensive Coordinator/Quarterbacks",
+			"history": [
+				{
+					"season": 2024,
+					"team": "tennessee",
+					"status": "excluded",
+					"title": "Offensive Coordinator/Quarterbacks",
+					"staffUrl": "https://utsports.com/sports/football/roster/2024",
+					"reasons": ["head coach Josh Heupel is documented calling the offensive plays"],
+					"playcall": null,
+					"stats": {
+						"epa": .1933,
+						"sr": 46.78,
+						"xpl": 1.162,
+						"ppd": 2.448,
+						"rank": 31,
+						"nFbs": 134,
+						"games": 12
+					}
+				},
+				{
+					"season": 2025,
+					"team": "tennessee",
+					"status": "excluded",
+					"title": "Offensive Coordinator/Quarterbacks",
+					"staffUrl": "https://utsports.com/sports/football/roster/2025",
+					"reasons": ["head coach Josh Heupel is documented calling the offensive plays"],
+					"playcall": null,
+					"stats": {
+						"epa": .2684,
+						"sr": 49.68,
+						"xpl": 1.2772,
+						"ppd": 2.86,
+						"rank": 11,
+						"nFbs": 136,
+						"games": 12
+					}
+				},
+				{
+					"season": 2026,
+					"team": "tennessee",
+					"status": "excluded",
+					"title": "Offensive Coordinator/Quarterbacks",
+					"staffUrl": "https://utsports.com/sports/football/roster",
+					"reasons": ["the head coach calls the plays"],
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Jim Knowles",
+			"unit": "def",
+			"team": "tennessee",
+			"title": "Defensive Coordinator",
+			"history": [{
+				"season": 2024,
+				"team": "ohio-state",
+				"status": "credited",
+				"title": "Defensive Coordinator",
+				"staffUrl": "https://ohiostatebuckeyes.com/sports/football/roster/2024",
+				"playcall": null,
+				"stats": {
+					"epa": -.0869,
+					"sr": 33.5,
+					"xpl": 1.2214,
+					"ppd": 1.091,
+					"rank": 3,
+					"nFbs": 134,
+					"games": 16
+				}
+			}, {
+				"season": 2026,
+				"team": "tennessee",
+				"status": "excluded",
+				"title": "Defensive Coordinator",
+				"staffUrl": "https://utsports.com/sports/football/roster",
+				"reasons": ["a co-coordinator is also listed"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Anthony Poindexter",
+			"unit": "def",
+			"team": "tennessee",
+			"title": "Co-Defensive Coordinator/Secondary",
+			"history": [
+				{
+					"season": 2024,
+					"team": "penn-state",
+					"status": "excluded",
+					"title": "Co-Defensive Coordinator/Safeties",
+					"staffUrl": "https://web.archive.org/web/20240313125314id_/https://gopsusports.com/sports/football/roster/2024",
+					"reasons": ["co-coordinator season (also listed: Tom Allen)"],
+					"playcall": null,
+					"stats": {
+						"epa": -.0676,
+						"sr": 35.71,
+						"xpl": 1.2199,
+						"ppd": 1.404,
+						"rank": 5,
+						"nFbs": 134,
+						"games": 16
+					}
+				},
+				{
+					"season": 2025,
+					"team": "penn-state",
+					"status": "excluded",
+					"title": "Co-Defensive Coordinator/Safeties",
+					"staffUrl": "https://gopsusports.com/sports/football/roster/season/2025/",
+					"reasons": ["co-coordinator season", "two head coaches that season (James Franklin, Terry Smith)"],
+					"playcall": null,
+					"stats": {
+						"epa": .0121,
+						"sr": 39.24,
+						"xpl": 1.2045,
+						"ppd": 1.967,
+						"rank": 31,
+						"nFbs": 136,
+						"games": 12
+					}
+				},
+				{
+					"season": 2026,
+					"team": "tennessee",
+					"status": "excluded",
+					"title": "Co-Defensive Coordinator/Secondary",
+					"staffUrl": "https://utsports.com/sports/football/roster",
+					"reasons": ["co-coordinator"],
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Kyle Flood",
+			"unit": "off",
+			"team": "texas",
+			"title": "Assistant Coach, Football - Offensive Coordinator / OL",
+			"history": [{
+				"season": 2025,
+				"team": "texas",
+				"status": "excluded",
+				"title": "Assistant Coach, Football - Offensive Coordinator / OL",
+				"staffUrl": "https://texaslonghorns.com/sports/football/roster/2025",
+				"reasons": ["co-coordinator season (also listed: AJ Milwee)"],
+				"playcall": null,
+				"stats": {
+					"epa": .1922,
+					"sr": 42.57,
+					"xpl": 1.3874,
+					"ppd": 2.577,
+					"rank": 28,
+					"nFbs": 136,
+					"games": 13
+				}
+			}, {
+				"season": 2026,
+				"team": "texas",
+				"status": "excluded",
+				"title": "Assistant Coach, Football - Offensive Coordinator / OL",
+				"staffUrl": "https://texaslonghorns.com/sports/football/roster",
+				"reasons": ["a co-coordinator is also listed"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "AJ Milwee",
+			"unit": "off",
+			"team": "texas",
+			"title": "Assistant Coach, Football - Co-Offensive Coordinator / QB",
+			"history": [{
+				"season": 2025,
+				"team": "texas",
+				"status": "excluded",
+				"title": "Assistant Coach, Football - Co-Offensive Coordinator / QB",
+				"staffUrl": "https://texaslonghorns.com/sports/football/roster/2025",
+				"reasons": ["co-coordinator season (also listed: Kyle Flood)"],
+				"playcall": null,
+				"stats": {
+					"epa": .1922,
+					"sr": 42.57,
+					"xpl": 1.3874,
+					"ppd": 2.577,
+					"rank": 28,
+					"nFbs": 136,
+					"games": 13
+				}
+			}, {
+				"season": 2026,
+				"team": "texas",
+				"status": "excluded",
+				"title": "Assistant Coach, Football - Co-Offensive Coordinator / QB",
+				"staffUrl": "https://texaslonghorns.com/sports/football/roster",
+				"reasons": ["co-coordinator"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Will Muschamp",
+			"unit": "def",
+			"team": "texas",
+			"title": "Assistant Coach, Football - Defensive Coordinator",
+			"history": [{
+				"season": 2026,
+				"team": "texas",
+				"status": "excluded",
+				"title": "Assistant Coach, Football - Defensive Coordinator",
+				"staffUrl": "https://texaslonghorns.com/sports/football/roster",
+				"reasons": ["a co-coordinator is also listed"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Johnny Nansen",
+			"unit": "def",
+			"team": "texas",
+			"title": "Assistant Coach, Football - Co-Defensive Coordinator/Inside Linebackers",
+			"history": [{
+				"season": 2025,
+				"team": "texas",
+				"status": "excluded",
+				"title": "Assistant Coach, Football - Co-Defensive Coordinator / LB",
+				"staffUrl": "https://texaslonghorns.com/sports/football/roster/2025",
+				"reasons": ["co-coordinator season (also listed: Pete Kwiatkowski)"],
+				"playcall": null,
+				"stats": {
+					"epa": -.0155,
+					"sr": 36.3,
+					"xpl": 1.1377,
+					"ppd": 1.628,
+					"rank": 22,
+					"nFbs": 136,
+					"games": 13
+				}
+			}, {
+				"season": 2026,
+				"team": "texas",
+				"status": "excluded",
+				"title": "Assistant Coach, Football - Co-Defensive Coordinator/Inside Linebackers",
+				"staffUrl": "https://texaslonghorns.com/sports/football/roster",
+				"reasons": ["co-coordinator"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Holmon Wiggins",
+			"unit": "off",
+			"team": "texas-am",
+			"title": "Offensive Coordinator",
+			"history": [
+				{
+					"season": 2024,
+					"team": "texas-am",
+					"status": "excluded",
+					"title": "Co-Offensive Coordinator/Wide Receivers",
+					"staffUrl": "https://12thman.com/sports/football/roster/2024",
+					"reasons": ["co-coordinator season (also listed: Collin Klein)"],
+					"playcall": null,
+					"stats": {
+						"epa": .1811,
+						"sr": 45.13,
+						"xpl": 1.2424,
+						"ppd": 1.897,
+						"rank": 36,
+						"nFbs": 134,
+						"games": 12
+					}
+				},
+				{
+					"season": 2025,
+					"team": "texas-am",
+					"status": "excluded",
+					"title": "Co-Offensive Coordinator/Wide Receivers",
+					"staffUrl": "https://web.archive.org/web/20250722171514id_/https://12thman.com/sports/football/roster/2025",
+					"reasons": ["co-coordinator season (also listed: Collin Klein)"],
+					"playcall": null,
+					"stats": {
+						"epa": .2718,
+						"sr": 48.63,
+						"xpl": 1.2341,
+						"ppd": 2.53,
+						"rank": 10,
+						"nFbs": 136,
+						"games": 12
+					}
+				},
+				{
+					"season": 2026,
+					"team": "texas-am",
+					"status": "credited",
+					"title": "Offensive Coordinator",
+					"staffUrl": "https://12thman.com/sports/football/roster",
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Lyle Hemphill",
+			"unit": "def",
+			"team": "texas-am",
+			"title": "Defensive Coordinator",
+			"history": [{
+				"season": 2024,
+				"team": "james-madison",
+				"status": "credited",
+				"title": "Defensive Coordinator/Nickels",
+				"staffUrl": "https://jmusports.com/sports/football/roster/2024",
+				"playcall": null,
+				"stats": {
+					"epa": .0036,
+					"sr": 37.63,
+					"xpl": 1.3583,
+					"ppd": 1.423,
+					"rank": 24,
+					"nFbs": 134,
+					"games": 12
+				}
+			}, {
+				"season": 2026,
+				"team": "texas-am",
+				"status": "excluded",
+				"title": "Defensive Coordinator",
+				"staffUrl": "https://12thman.com/sports/football/roster",
+				"reasons": ["a co-coordinator is also listed"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Elijah Robinson",
+			"unit": "def",
+			"team": "texas-am",
+			"title": "Co-Defensive Coordinator/Defensive Line",
+			"history": [{
+				"season": 2026,
+				"team": "texas-am",
+				"status": "excluded",
+				"title": "Co-Defensive Coordinator/Defensive Line",
+				"staffUrl": "https://12thman.com/sports/football/roster",
+				"reasons": ["co-coordinator"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Tim Beck",
+			"unit": "off",
+			"team": "vanderbilt",
+			"title": "Offensive Coordinator",
+			"history": [{
+				"season": 2026,
+				"team": "vanderbilt",
+				"status": "credited",
+				"title": "Offensive Coordinator",
+				"staffUrl": "https://vucommodores.com/sports/football/roster",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Steve Gregory",
+			"unit": "def",
+			"team": "vanderbilt",
+			"title": "Defensive Coordinator",
+			"history": [{
+				"season": 2026,
+				"team": "vanderbilt",
+				"status": "excluded",
+				"title": "Defensive Coordinator",
+				"staffUrl": "https://vucommodores.com/sports/football/roster",
+				"reasons": ["a co-coordinator is also listed"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Nick Lezynski",
+			"unit": "def",
+			"team": "vanderbilt",
+			"title": "Co-Defensive Coordinator • Linebackers",
+			"history": [{
+				"season": 2026,
+				"team": "vanderbilt",
+				"status": "excluded",
+				"title": "Co-Defensive Coordinator • Linebackers",
+				"staffUrl": "https://vucommodores.com/sports/football/roster",
+				"reasons": ["co-coordinator"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Mike Anthony",
+			"unit": "off",
+			"team": "app-state",
+			"title": "Offensive Coordinator",
+			"history": [{
+				"season": 2026,
+				"team": "app-state",
+				"status": "credited",
+				"title": "Offensive Coordinator",
+				"staffUrl": "https://appstatesports.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "DJ Smith",
+			"unit": "def",
+			"team": "app-state",
+			"title": "Defensive Coordinator/Linebackers",
+			"history": [
+				{
+					"season": 2024,
+					"team": "missouri",
+					"status": "excluded",
+					"title": "Co-Defensive Coordinator / Linebackers",
+					"staffUrl": "https://web.archive.org/web/20241201102246id_/https://mutigers.com/sports/football/roster/2024",
+					"reasons": ["co-coordinator season (also listed: Corey Batoon)"],
+					"playcall": null,
+					"stats": {
+						"epa": .0389,
+						"sr": 40.35,
+						"xpl": 1.2521,
+						"ppd": 2.008,
+						"rank": 33,
+						"nFbs": 134,
+						"games": 12
+					}
+				},
+				{
+					"season": 2025,
+					"team": "app-state",
+					"status": "credited",
+					"title": "Defensive Coordinator/Linebackers",
+					"staffUrl": "https://appstatesports.com/sports/football/roster/2025",
+					"playcall": null,
+					"stats": {
+						"epa": .1864,
+						"sr": 47.53,
+						"xpl": 1.2219,
+						"ppd": 2.483,
+						"rank": 107,
+						"nFbs": 136,
+						"games": 12
+					}
+				},
+				{
+					"season": 2026,
+					"team": "app-state",
+					"status": "credited",
+					"title": "Defensive Coordinator/Linebackers",
+					"staffUrl": "https://appstatesports.com/sports/football/coaches",
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Garrett Altman",
+			"unit": "off",
+			"team": "arkansas-state",
+			"title": "Offensive Coordinator",
+			"history": [{
+				"season": 2026,
+				"team": "arkansas-state",
+				"status": "credited",
+				"title": "Offensive Coordinator",
+				"staffUrl": "https://astateredwolves.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Griff McCarley",
+			"unit": "def",
+			"team": "arkansas-state",
+			"title": "Defensive Coordinator",
+			"history": [{
+				"season": 2025,
+				"team": "arkansas-state",
+				"status": "credited",
+				"title": "Defensive Coordinator",
+				"staffUrl": "https://astateredwolves.com/sports/football/roster/2025",
+				"playcall": null,
+				"stats": {
+					"epa": .1773,
+					"sr": 44.96,
+					"xpl": 1.2622,
+					"ppd": 2.25,
+					"rank": 103,
+					"nFbs": 136,
+					"games": 12
+				}
+			}, {
+				"season": 2026,
+				"team": "arkansas-state",
+				"status": "credited",
+				"title": "Defensive Coordinator",
+				"staffUrl": "https://astateredwolves.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Nick Petrino",
+			"unit": "off",
+			"team": "coastal-carolina",
+			"title": "Offensive Coordinator / Quarterbacks Coach",
+			"history": [
+				{
+					"season": 2024,
+					"team": "missouri-state",
+					"status": "excluded",
+					"title": "Offensive Coordinator / Quarterbacks Coach",
+					"staffUrl": "https://missouristatebears.com/sports/football/roster/2024",
+					"reasons": ["no FBS unit numbers (not FBS that season)"],
+					"playcall": null,
+					"stats": null
+				},
+				{
+					"season": 2025,
+					"team": "missouri-state",
+					"status": "excluded",
+					"title": "Offensive Coordinator / Quarterbacks Coach",
+					"staffUrl": "https://missouristatebears.com/sports/football/roster/2025",
+					"reasons": ["two head coaches that season (Ryan Beard, Nick Petrino)"],
+					"playcall": null,
+					"stats": {
+						"epa": .0972,
+						"sr": 38.2,
+						"xpl": 1.4672,
+						"ppd": 2.136,
+						"rank": 69,
+						"nFbs": 136,
+						"games": 12
+					}
+				},
+				{
+					"season": 2026,
+					"team": "coastal-carolina",
+					"status": "credited",
+					"title": "Offensive Coordinator / Quarterbacks Coach",
+					"staffUrl": "https://goccusports.com/sports/football/coaches",
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "L.D. Scott",
+			"unit": "def",
+			"team": "coastal-carolina",
+			"title": "Defensive Coordinator / Defensive Line Coach",
+			"history": [
+				{
+					"season": 2024,
+					"team": "missouri-state",
+					"status": "excluded",
+					"title": "Defensive Coordinator / Defensive Line Coach",
+					"staffUrl": "https://missouristatebears.com/sports/football/roster/2024",
+					"reasons": ["no FBS unit numbers (not FBS that season)"],
+					"playcall": null,
+					"stats": null
+				},
+				{
+					"season": 2025,
+					"team": "missouri-state",
+					"status": "excluded",
+					"title": "Defensive Coordinator / Defensive Line Coach",
+					"staffUrl": "https://missouristatebears.com/sports/football/roster/2025",
+					"reasons": ["two head coaches that season (Ryan Beard, Nick Petrino)"],
+					"playcall": null,
+					"stats": {
+						"epa": .2235,
+						"sr": 44.77,
+						"xpl": 1.3307,
+						"ppd": 2.305,
+						"rank": 125,
+						"nFbs": 136,
+						"games": 12
+					}
+				},
+				{
+					"season": 2026,
+					"team": "coastal-carolina",
+					"status": "credited",
+					"title": "Defensive Coordinator / Defensive Line Coach",
+					"staffUrl": "https://goccusports.com/sports/football/coaches",
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Ryan Aplin",
+			"unit": "off",
+			"team": "georgia-southern",
+			"title": "Offensive Coordinator/Quarterbacks Coach",
+			"history": [{
+				"season": 2025,
+				"team": "georgia-southern",
+				"status": "credited",
+				"title": "Offensive Coordinator/Quarterbacks Coach",
+				"staffUrl": "https://gseagles.com/sports/football/roster/2025",
+				"playcall": null,
+				"stats": {
+					"epa": .144,
+					"sr": 41.21,
+					"xpl": 1.2323,
+					"ppd": 2.221,
+					"rank": 43,
+					"nFbs": 136,
+					"games": 12
+				}
+			}, {
+				"season": 2026,
+				"team": "georgia-southern",
+				"status": "credited",
+				"title": "Offensive Coordinator/Quarterbacks Coach",
+				"staffUrl": "https://gseagles.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Mike Mutz",
+			"unit": "def",
+			"team": "georgia-southern",
+			"title": "Defensive Coordinator",
+			"history": [{
+				"season": 2026,
+				"team": "georgia-southern",
+				"status": "credited",
+				"title": "Defensive Coordinator",
+				"staffUrl": "https://gseagles.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Hue Jackson",
+			"unit": "off",
+			"team": "georgia-state",
+			"title": "Offensive Coordinator",
+			"history": [{
+				"season": 2025,
+				"team": "georgia-state",
+				"status": "credited",
+				"title": "Offensive Coordinator",
+				"staffUrl": "https://georgiastatesports.com/sports/football/roster/2025",
+				"playcall": null,
+				"stats": {
+					"epa": .0428,
+					"sr": 39.92,
+					"xpl": 1.2149,
+					"ppd": 1.693,
+					"rank": 96,
+					"nFbs": 136,
+					"games": 11
+				}
+			}, {
+				"season": 2026,
+				"team": "georgia-state",
+				"status": "credited",
+				"title": "Offensive Coordinator",
+				"staffUrl": "https://georgiastatesports.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Cam Clark",
+			"unit": "def",
+			"team": "georgia-state",
+			"title": "Co-Defensive Coordinator",
+			"history": [{
+				"season": 2026,
+				"team": "georgia-state",
+				"status": "excluded",
+				"title": "Co-Defensive Coordinator",
+				"staffUrl": "https://georgiastatesports.com/sports/football/coaches",
+				"reasons": ["co-coordinator setup"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "John Haneline",
+			"unit": "def",
+			"team": "georgia-state",
+			"title": "Co-Defensive Coordinator",
+			"history": [{
+				"season": 2026,
+				"team": "georgia-state",
+				"status": "excluded",
+				"title": "Co-Defensive Coordinator",
+				"staffUrl": "https://georgiastatesports.com/sports/football/coaches",
+				"reasons": ["co-coordinator setup"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Cam Aiken",
+			"unit": "off",
+			"team": "james-madison",
+			"title": "Offensive Coordinator",
+			"history": [{
+				"season": 2026,
+				"team": "james-madison",
+				"status": "credited",
+				"title": "Offensive Coordinator",
+				"staffUrl": "https://jmusports.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Robert Bala",
+			"unit": "def",
+			"team": "james-madison",
+			"title": "Defensive Coordinator",
+			"history": [{
+				"season": 2026,
+				"team": "james-madison",
+				"status": "excluded",
+				"title": "Defensive Coordinator",
+				"staffUrl": "https://jmusports.com/sports/football/coaches",
+				"reasons": ["a co-coordinator is also listed"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Josh Linam",
+			"unit": "def",
+			"team": "james-madison",
+			"title": "Co-Defensive Coordinator/Linebackers",
+			"history": [{
+				"season": 2026,
+				"team": "james-madison",
+				"status": "excluded",
+				"title": "Co-Defensive Coordinator/Linebackers",
+				"staffUrl": "https://jmusports.com/sports/football/coaches",
+				"reasons": ["co-coordinator"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Tim Leger",
+			"unit": "off",
+			"team": "louisiana",
+			"title": "Offensive Coordinator (WR/Recruiting Coordinator)",
+			"history": [
+				{
+					"season": 2024,
+					"team": "louisiana",
+					"status": "credited",
+					"title": "Offensive Coordinator/Recruiting Coordinator/WR",
+					"staffUrl": "https://ragincajuns.com/sports/football/roster/2024",
+					"playcall": null,
+					"stats": {
+						"epa": .1775,
+						"sr": 40.52,
+						"xpl": 1.3707,
+						"ppd": 2.601,
+						"rank": 39,
+						"nFbs": 134,
+						"games": 13
+					}
+				},
+				{
+					"season": 2025,
+					"team": "louisiana",
+					"status": "credited",
+					"title": "Offensive Coordinator/Recruiting Coordinator/WR",
+					"staffUrl": "https://ragincajuns.com/sports/football/roster/2025",
+					"playcall": null,
+					"stats": {
+						"epa": .0058,
+						"sr": 37.51,
+						"xpl": 1.1667,
+						"ppd": 1.943,
+						"rank": 108,
+						"nFbs": 136,
+						"games": 12
+					}
+				},
+				{
+					"season": 2026,
+					"team": "louisiana",
+					"status": "credited",
+					"title": "Offensive Coordinator (WR/Recruiting Coordinator)",
+					"staffUrl": "https://ragincajuns.com/sports/football/coaches",
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Jim Salgado",
+			"unit": "def",
+			"team": "louisiana",
+			"title": "Defensive Coordinator (Safeties)",
+			"history": [
+				{
+					"season": 2024,
+					"team": "louisiana",
+					"status": "credited",
+					"title": "Defensive Coordinator/Safeties",
+					"staffUrl": "https://ragincajuns.com/sports/football/roster/2024",
+					"playcall": null,
+					"stats": {
+						"epa": .1797,
+						"sr": 48.42,
+						"xpl": 1.1371,
+						"ppd": 2.292,
+						"rank": 103,
+						"nFbs": 134,
+						"games": 13
+					}
+				},
+				{
+					"season": 2025,
+					"team": "louisiana",
+					"status": "credited",
+					"title": "Defensive Coordinator/Safeties",
+					"staffUrl": "https://ragincajuns.com/sports/football/roster/2025",
+					"playcall": null,
+					"stats": {
+						"epa": .1794,
+						"sr": 47.44,
+						"xpl": 1.1641,
+						"ppd": 2.471,
+						"rank": 105,
+						"nFbs": 136,
+						"games": 12
+					}
+				},
+				{
+					"season": 2026,
+					"team": "louisiana",
+					"status": "credited",
+					"title": "Defensive Coordinator (Safeties)",
+					"staffUrl": "https://ragincajuns.com/sports/football/coaches",
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Nathan Young",
+			"unit": "off",
+			"team": "louisiana-tech",
+			"title": "Offensive Coordinator/Quarterbacks Coach",
+			"history": [{
+				"season": 2026,
+				"team": "louisiana-tech",
+				"status": "credited",
+				"title": "Offensive Coordinator/Quarterbacks Coach",
+				"staffUrl": "https://latechsports.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Luke Olson",
+			"unit": "def",
+			"team": "louisiana-tech",
+			"title": "Defensive Coordinator",
+			"history": [{
+				"season": 2024,
+				"team": "jacksonville-state",
+				"status": "credited",
+				"title": "Defensive Coordinator/Stars",
+				"staffUrl": "https://jaxstatesports.com/sports/football/roster/2024",
+				"playcall": null,
+				"stats": {
+					"epa": .1542,
+					"sr": 46.19,
+					"xpl": 1.1995,
+					"ppd": 1.983,
+					"rank": 88,
+					"nFbs": 134,
+					"games": 14
+				}
+			}, {
+				"season": 2026,
+				"team": "louisiana-tech",
+				"status": "credited",
+				"title": "Defensive Coordinator",
+				"staffUrl": "https://latechsports.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Jesse Montalto",
+			"unit": "off",
+			"team": "ul-monroe",
+			"title": "Offensive Coordinator / Receivers",
+			"history": [{
+				"season": 2026,
+				"team": "ul-monroe",
+				"status": "credited",
+				"title": "Offensive Coordinator / Receivers",
+				"staffUrl": "https://ulmwarhawks.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Troy Reffett",
+			"unit": "def",
+			"team": "ul-monroe",
+			"title": "Defensive Coordinator / Inside Linebackers",
+			"history": [{
+				"season": 2026,
+				"team": "ul-monroe",
+				"status": "credited",
+				"title": "Defensive Coordinator / Inside Linebackers",
+				"staffUrl": "https://ulmwarhawks.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Gunter Brewer",
+			"unit": "off",
+			"team": "marshall",
+			"title": "Interim OC/AHC/Inside WRs/Tight Ends",
+			"history": [{
+				"season": 2026,
+				"team": "marshall",
+				"status": "excluded",
+				"title": "Interim OC/AHC/Inside WRs/Tight Ends",
+				"staffUrl": "https://herdzone.com/sports/football/roster",
+				"reasons": ["interim, split season"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Brad Lambert",
+			"unit": "def",
+			"team": "marshall",
+			"title": "Defensive Coordinator / Linebackers",
+			"history": [{
+				"season": 2024,
+				"team": "wake-forest",
+				"status": "credited",
+				"title": "Defensive Coordinator",
+				"staffUrl": "https://godeacs.com/sports/football/roster/2024",
+				"playcall": null,
+				"stats": {
+					"epa": .179,
+					"sr": 49.38,
+					"xpl": 1.1167,
+					"ppd": 2.388,
+					"rank": 102,
+					"nFbs": 134,
+					"games": 11
+				}
+			}, {
+				"season": 2026,
+				"team": "marshall",
+				"status": "credited",
+				"title": "Defensive Coordinator / Linebackers",
+				"staffUrl": "https://herdzone.com/sports/football/roster",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Kody Cook",
+			"unit": "off",
+			"team": "old-dominion",
+			"title": "Quarterbacks/Offensive Coordinator",
+			"history": [
+				{
+					"season": 2024,
+					"team": "old-dominion",
+					"status": "excluded",
+					"title": "Quarterbacks/Offensive Coordinator",
+					"staffUrl": "https://odusports.com/sports/football/roster/2024",
+					"reasons": ["co-coordinator season (also listed: Kevin Decker)"],
+					"playcall": null,
+					"stats": {
+						"epa": .1689,
+						"sr": 40.85,
+						"xpl": 1.3745,
+						"ppd": 2.007,
+						"rank": 45,
+						"nFbs": 134,
+						"games": 12
+					}
+				},
+				{
+					"season": 2025,
+					"team": "old-dominion",
+					"status": "excluded",
+					"title": "Quarterbacks/Offensive Coordinator",
+					"staffUrl": "https://odusports.com/sports/football/roster/season/2025/",
+					"reasons": ["co-coordinator season (also listed: Kevin Decker)"],
+					"playcall": null,
+					"stats": {
+						"epa": .1202,
+						"sr": 44.16,
+						"xpl": 1.2089,
+						"ppd": 2.234,
+						"rank": 53,
+						"nFbs": 136,
+						"games": 12
+					}
+				},
+				{
+					"season": 2026,
+					"team": "old-dominion",
+					"status": "credited",
+					"title": "Quarterbacks/Offensive Coordinator",
+					"staffUrl": "https://odusports.com/sports/football/roster",
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Blake Seiler",
+			"unit": "def",
+			"team": "old-dominion",
+			"title": "Defensive Coordinator/Inside Linebackers",
+			"history": [
+				{
+					"season": 2024,
+					"team": "old-dominion",
+					"status": "credited",
+					"title": "Defensive Coordinator/Inside Linebackers",
+					"staffUrl": "https://odusports.com/sports/football/roster/2024",
+					"playcall": null,
+					"stats": {
+						"epa": .1485,
+						"sr": 40.76,
+						"xpl": 1.339,
+						"ppd": 2.013,
+						"rank": 86,
+						"nFbs": 134,
+						"games": 12
+					}
+				},
+				{
+					"season": 2025,
+					"team": "old-dominion",
+					"status": "credited",
+					"title": "Defensive Coordinator/Inside Linebackers",
+					"staffUrl": "https://odusports.com/sports/football/roster/season/2025/",
+					"playcall": null,
+					"stats": {
+						"epa": -.054,
+						"sr": 38.82,
+						"xpl": 1.0423,
+						"ppd": 1.456,
+						"rank": 12,
+						"nFbs": 136,
+						"games": 12
+					}
+				},
+				{
+					"season": 2026,
+					"team": "old-dominion",
+					"status": "credited",
+					"title": "Defensive Coordinator/Inside Linebackers",
+					"staffUrl": "https://odusports.com/sports/football/roster",
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Todd Orlando",
+			"unit": "def",
+			"team": "south-alabama",
+			"title": "Assistant Coach -- Defensive Coordinator / Inside Linebackers",
+			"history": [
+				{
+					"season": 2024,
+					"team": "usf",
+					"status": "credited",
+					"title": "Defensive Coordinator/Inside Linebackers Coach",
+					"staffUrl": "https://gousfbulls.com/sports/football/roster/2024",
+					"playcall": null,
+					"stats": {
+						"epa": .131,
+						"sr": 41.38,
+						"xpl": 1.3393,
+						"ppd": 2.111,
+						"rank": 78,
+						"nFbs": 134,
+						"games": 12
+					}
+				},
+				{
+					"season": 2025,
+					"team": "usf",
+					"status": "excluded",
+					"title": "Defensive Coordinator/Inside Linebackers Coach",
+					"staffUrl": "https://gousfbulls.com/sports/football/roster/2025",
+					"reasons": ["two head coaches that season (Alex Golesh, Kevin Patrick)"],
+					"playcall": null,
+					"stats": {
+						"epa": .0589,
+						"sr": 38.19,
+						"xpl": 1.3301,
+						"ppd": 1.941,
+						"rank": 47,
+						"nFbs": 136,
+						"games": 12
+					}
+				},
+				{
+					"season": 2026,
+					"team": "south-alabama",
+					"status": "excluded",
+					"title": "Assistant Coach -- Defensive Coordinator / Inside Linebackers",
+					"staffUrl": "https://usajaguars.com/sports/football/coaches",
+					"reasons": ["a co-coordinator is also listed"],
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Jason Washington",
+			"unit": "def",
+			"team": "south-alabama",
+			"title": "Assistant Coach -- Co-Defensive Coordinator / Cornerbacks",
+			"history": [{
+				"season": 2025,
+				"team": "south-alabama",
+				"status": "excluded",
+				"title": "Assistant Coach -- Co-Defensive Coordinator / Cornerbacks",
+				"staffUrl": "https://usajaguars.com/sports/football/roster/2025",
+				"reasons": ["co-coordinator season (also listed: Will Windham)"],
+				"playcall": null,
+				"stats": {
+					"epa": .2147,
+					"sr": 43.54,
+					"xpl": 1.3163,
+					"ppd": 2.68,
+					"rank": 120,
+					"nFbs": 136,
+					"games": 11
+				}
+			}, {
+				"season": 2026,
+				"team": "south-alabama",
+				"status": "excluded",
+				"title": "Assistant Coach -- Co-Defensive Coordinator / Cornerbacks",
+				"staffUrl": "https://usajaguars.com/sports/football/coaches",
+				"reasons": ["co-coordinator"],
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Kyle Cefalo",
+			"unit": "off",
+			"team": "southern-miss",
+			"title": "Assistant Head Coach/Offensive Coordinator/Quarterbacks Coach",
+			"history": [{
+				"season": 2026,
+				"team": "southern-miss",
+				"status": "credited",
+				"title": "Assistant Head Coach/Offensive Coordinator/Quarterbacks Coach",
+				"staffUrl": "https://southernmiss.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Joe Bolden",
+			"unit": "def",
+			"team": "southern-miss",
+			"title": "Defensive Coordinator/Linebackers",
+			"history": [{
+				"season": 2026,
+				"team": "southern-miss",
+				"status": "credited",
+				"title": "Defensive Coordinator/Linebackers",
+				"staffUrl": "https://southernmiss.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Adam Austin",
+			"unit": "off",
+			"team": "troy",
+			"title": "Offensive Coordinator / Quarterbacks",
+			"history": [{
+				"season": 2026,
+				"team": "troy",
+				"status": "credited",
+				"title": "Offensive Coordinator / Quarterbacks",
+				"staffUrl": "https://troytrojans.com/sports/football/coaches",
+				"playcall": null,
+				"stats": null
+			}]
+		},
+		{
+			"name": "Dontae Wright",
+			"unit": "def",
+			"team": "troy",
+			"title": "Defensive Coordinator / Safeties",
+			"history": [
+				{
+					"season": 2024,
+					"team": "troy",
+					"status": "excluded",
+					"title": "Defensive Coordinator / Safeties",
+					"staffUrl": "https://troytrojans.com/sports/football/roster/2024",
+					"reasons": ["co-coordinator season (also listed: Nathan Burton)"],
+					"playcall": null,
+					"stats": {
+						"epa": .1564,
+						"sr": 44.92,
+						"xpl": 1.2445,
+						"ppd": 2.389,
+						"rank": 89,
+						"nFbs": 134,
+						"games": 11
+					}
+				},
+				{
+					"season": 2025,
+					"team": "troy",
+					"status": "excluded",
+					"title": "Defensive Coordinator / Safeties",
+					"staffUrl": "https://troytrojans.com/sports/football/roster/2025",
+					"reasons": ["co-coordinator season (also listed: Nathan Burton, Nathan Burton, Nathan Burton)"],
+					"playcall": null,
+					"stats": {
+						"epa": .0895,
+						"sr": 41.26,
+						"xpl": 1.2752,
+						"ppd": 1.826,
+						"rank": 57,
+						"nFbs": 136,
+						"games": 13
+					}
+				},
+				{
+					"season": 2026,
+					"team": "troy",
+					"status": "excluded",
+					"title": "Defensive Coordinator / Safeties",
+					"staffUrl": "https://troytrojans.com/sports/football/coaches",
+					"reasons": ["a co-coordinator is also listed"],
+					"playcall": null,
+					"stats": null
+				}
+			]
+		},
+		{
+			"name": "Nathan Burton",
+			"unit": "def",
+			"team": "troy",
+			"title": "Co-Defensive Coordinator / Inside Linebackers",
+			"history": [
+				{
+					"season": 2024,
+					"team": "troy",
+					"status": "excluded",
+					"title": "Co-Defensive Coordinator / Inside Linebackers",
+					"staffUrl": "https://troytrojans.com/sports/football/roster/2024",
+					"reasons": ["co-coordinator season (also listed: Dontae Wright)"],
+					"playcall": null,
+					"stats": {
+						"epa": .1564,
+						"sr": 44.92,
+						"xpl": 1.2445,
+						"ppd": 2.389,
+						"rank": 89,
+						"nFbs": 134,
+						"games": 11
+					}
+				},
+				{
+					"season": 2025,
+					"team": "troy",
+					"status": "excluded",
+					"title": "Co-Defensive Coordinator / Inside Linebackers",
+					"staffUrl": "https://troytrojans.com/sports/football/roster/2025",
+					"reasons": ["co-coordinator season (also listed: Dontae Wright, Dontae Wright, Dontae Wright)"],
+					"playcall": null,
+					"stats": {
+						"epa": .0895,
+						"sr": 41.26,
+						"xpl": 1.2752,
+						"ppd": 1.826,
+						"rank": 57,
+						"nFbs": 136,
+						"games": 13
+					}
+				},
+				{
+					"season": 2026,
+					"team": "troy",
+					"status": "excluded",
+					"title": "Co-Defensive Coordinator / Inside Linebackers",
+					"staffUrl": "https://troytrojans.com/sports/football/coaches",
+					"reasons": ["co-coordinator"],
+					"playcall": null,
+					"stats": null
+				}
+			]
+		}
+	]
+};
+var stats = stats_2026_default;
+var talent = talent_247_2026_default;
+var coordinatorsFile = () => file;
+var stats2026AsOf = () => stats.meta.as_of;
+/** 2026-to-date unit numbers (same opponent-adjusted values as /stats) with FBS rank on adj EPA, keyed `unit|slug`. */
+function live2026() {
+	const out = {};
+	for (const unit of ["off", "def"]) {
+		const [ek, sk, xk, pk] = unit === "off" ? [
+			"epa",
+			"sr",
+			"xpl",
+			"ppg"
+		] : [
+			"oepa",
+			"osr",
+			"oxpl",
+			"oppg"
+		];
+		const pool = stats.teams.filter((t) => typeof t[ek] === "number");
+		for (const t of stats.teams) {
+			const v = t[ek];
+			if (typeof v !== "number") {
+				out[`${unit}|${t.slug}`] = null;
+				continue;
+			}
+			const better = pool.filter((x) => unit === "off" ? x[ek] > v : x[ek] < v).length;
+			out[`${unit}|${t.slug}`] = {
+				epa: v,
+				sr: t[sk] ?? null,
+				xpl: t[xk] ?? null,
+				ppg: t[pk] ?? null,
+				games: t.adv_g ?? null,
+				rank: better + 1,
+				n: pool.length
+			};
+		}
+	}
+	return out;
+}
+/** 247 Team Talent Composite rank for 2026 (FBS), keyed by slug. */
+function talent2026() {
+	return Object.fromEntries((talent.years["2026"] ?? []).map((t) => [t.slug, t.rank]));
+}
+/** Fill the 2026 history row's numbers from the live board (the file stores who/where, not the stats). */
+function withLive2026(f, live) {
+	return f.coaches.map((c) => ({
+		...c,
+		history: c.history.map((h) => {
+			if (h.season !== 2026) return h;
+			const l = live[`${c.unit}|${h.team}`];
+			return {
+				...h,
+				stats: l ? {
+					epa: l.epa,
+					sr: l.sr,
+					xpl: l.xpl,
+					ppg: l.ppg,
+					rank: l.rank,
+					nFbs: l.n,
+					games: l.games
+				} : null
+			};
+		})
+	}));
+}
+//#endregion
+export { coordinatorsFile, live2026, stats2026AsOf, talent2026, withLive2026 };
