@@ -212,6 +212,14 @@ function StatsPage() {
           · every qualified QB by total EPA, with FBS ranks on each stat.
         </p>
       ) : null}
+      {tab === "teams" ? (
+        <p className="mb-3 text-sm text-muted">
+          <Link to="/coordinators" className="font-medium text-accent underline-offset-2 hover:underline">
+            Best coordinators
+          </Link>{" "}
+          · current Power 4 OCs and DCs by the adjusted EPA of the units they ran, 2016–25.
+        </p>
+      ) : null}
 
       {tab === "qb" && desk ? (
         <QbDesk

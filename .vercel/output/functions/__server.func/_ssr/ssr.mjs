@@ -104,7 +104,7 @@ var HEADERS = { TSS_SHELL: "X-TSS_SHELL" };
 * the dev styles URL for route-scoped CSS collection.
 */
 async function getStartManifest(matchedRoutes) {
-	const { tsrStartManifest } = await import("../_tanstack-start-manifest_v-BwDa07-W.mjs");
+	const { tsrStartManifest } = await import("../_tanstack-start-manifest_v-BZ09BFna.mjs");
 	const startManifest = tsrStartManifest();
 	let routes = startManifest.routes;
 	routes[rootRouteId];
@@ -126,11 +126,11 @@ async function getStartManifest(matchedRoutes) {
 var manifest = {
 	"15966f3ae068c05fe480bee351a575db8156272dddcf0f8d17efa1eb37487af2": {
 		functionName: "getMatchupEdges_createServerFn_handler",
-		importer: () => import("./stats-queries-BpqHRAMh.mjs")
+		importer: () => import("./stats-queries-CvpjwOgc.mjs")
 	},
 	"1bcb5614a4b0c0e964e8cd896b3f3adeb70bf0346ddda783d7bc1ff58e3f503e": {
 		functionName: "getStatsTab_createServerFn_handler",
-		importer: () => import("./stats-queries-BpqHRAMh.mjs")
+		importer: () => import("./stats-queries-CvpjwOgc.mjs")
 	},
 	"212fff7d2072b94c01d35d756a6846efbcca652fa93e6206b5e625d8fd64ecc1": {
 		functionName: "listTeams_createServerFn_handler",
@@ -143,6 +143,10 @@ var manifest = {
 	"7bd9c5bd2dac37273cb6e205f595eb0bc550bfd9c6ffff5b5b31dcf74c2250bb": {
 		functionName: "getTeam_createServerFn_handler",
 		importer: () => import("./queries-C_2mMOtD.mjs")
+	},
+	"7feab1b7a8f5e53284a47e583da371c3b7e969ae603d2138ff423f45a363aa52": {
+		functionName: "getCoordinators_createServerFn_handler",
+		importer: () => import("./stats-queries-CvpjwOgc.mjs")
 	},
 	"8fc30d569d06734d70bec6e4323a3edfbaefd8eb191dde667d76927e807531ee": {
 		functionName: "getSorBoard_createServerFn_handler",
@@ -182,7 +186,7 @@ var manifest = {
 	},
 	"f39ad56d3d347de0a6b25c8e8ad2766460a4dc12615fb1f0df56124407037068": {
 		functionName: "getTeamAdvanced_createServerFn_handler",
-		importer: () => import("./stats-queries-BpqHRAMh.mjs")
+		importer: () => import("./stats-queries-CvpjwOgc.mjs")
 	},
 	"f55452d4f3f77cab0f95a24b56e8bed8434a482e94fed743291a342313100904": {
 		functionName: "getHxHistory_createServerFn_handler",
@@ -190,11 +194,11 @@ var manifest = {
 	},
 	"f650f8727ec4c385aa32dd5d363114aa5ed2dd96dbe9e99041a4fe01dc40aa63": {
 		functionName: "getQbDesk_createServerFn_handler",
-		importer: () => import("./stats-queries-BpqHRAMh.mjs")
+		importer: () => import("./stats-queries-CvpjwOgc.mjs")
 	},
 	"fa38ba192c4a8331fcc33cbcb432a5ed273c560940b3568ba3260dc9f3db3d75": {
 		functionName: "getQbLeaders_createServerFn_handler",
-		importer: () => import("./stats-queries-BpqHRAMh.mjs")
+		importer: () => import("./stats-queries-CvpjwOgc.mjs")
 	}
 };
 async function getServerFnById(id, access) {
@@ -1599,7 +1603,7 @@ var getBaseManifest = getProdBaseManifest;
 var createEarlyHintsForRequest = createEarlyHintsCollector;
 async function loadEntries() {
 	const [routerEntry, startEntry, pluginAdapters] = await Promise.all([
-		import("./router-BZLj178g.mjs").then((n) => n.t),
+		import("./router-Dh_7IsAt.mjs").then((n) => n.t),
 		import("./start-5Z2QO8AU.mjs"),
 		import("./empty-plugin-adapters-D9UWiqvJ.mjs")
 	]);

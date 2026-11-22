@@ -142,6 +142,7 @@ export function AppShell({ children }: { children: ReactNode }) {
             <Link to="/talent" className="hover:text-fg">Talent</Link>
             <Link to="/stats" className="hover:text-fg">Stats</Link>
             <Link to="/stats/qb-leaders" className="hover:text-fg">QB stat leaders</Link>
+            <Link to="/coordinators" className="hover:text-fg">Best coordinators</Link>
             <Link to="/conferences" className="hover:text-fg">Conference races</Link>
             <Link to="/strength" className="hover:text-fg">Strength of record</Link>
             <Link to="/accuracy" className="hover:text-fg">Accuracy</Link>

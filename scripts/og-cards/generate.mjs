@@ -9,7 +9,7 @@
  *  - teams: logo, name, mascot, conference (no HX number, so the Sunday refit cannot stale it)
  *  - games: FINAL score + the frozen pregame HX line (lock_home_hx/lock_away_hx via gradeGame)
  *    + stamped Vegas line. Only FINALs are carded.
- *  - /accuracy and /matchup: static explainer cards.
+ *  - /accuracy, /matchup and /coordinators: static explainer cards (`coordinators` arg = only that card).
  * Data: committed migrations replayed into in-memory PGLite (same as scripts/generate-game-keys.mjs).
  */
 import { mkdirSync, readFileSync, readdirSync, writeFileSync, existsSync } from "node:fs";
@@ -132,6 +132,9 @@ const want = (k) => only.length === 0 || only.includes(k);
 if (want("static")) {
   await shot(staticCard("Accuracy", "Every FINAL graded against its frozen pregame HX line and win probability, beside the stamped Vegas line.", "HX report card"), join(OUT, "accuracy.jpg"));
   await shot(staticCard("Matchup", "Any two FBS teams: HX line and win %, plus unit-vs-unit edges from the advanced stats.", "Head to head"), join(OUT, "matchup.jpg"));
+}
+if (want("coordinators")) {
+  await shot(staticCard("Best coordinators", "Current Power 4 OCs and DCs by the adjusted EPA of the units they ran, verified seasons only. Track record, not a coach rating.", "Unit track records · 2016–25"), join(OUT, "coordinators.jpg"));
 }
 const cards = { teams: [], games: [] };
 for (const t of teams) {
