@@ -916,28 +916,37 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /\('utah', 3\)/);
     assert.match(text, /\('florida', 25\)/);
     assert.match(text, /week10_tape_2026/);
-    assert.match(text, /Week 10 tape/);
-    assert.match(text, /Week 10 AP/);
-    assert.match(text, /W10 stamp/);
     assert.match(text, /week10_hx_vs_ap_gaps_2026/);
     assert.match(text, /Soft-cal FLAG/);
     assert.doesNotMatch(text, /The board is posted/);
   });
-  // BEGIN week12-board-test
-  it("includes the Week 12 board, Week 11 tape, 0101 Week 12 kicks, and the 0100 Sunday sweep in committed output", () => {
+  it("includes the Week 12 board migrations (0100 Sunday sweep, 0101 Week 12 kicks) in committed output", () => {
     const text = corpus();
     assert.match(text, /0100_week11_sun_finals/);
     assert.match(text, /0101_week12_kick_tv/);
     assert.match(text, /kickoff_at = timestamptz '2026-11-21 14:30:00-06'/);
     assert.match(text, /kickoff_at = timestamptz '2026-11-15 12:00:00-06'/);
     assert.match(text, /week11_tape_2026/);
-    assert.match(text, /43\/66/);
-    assert.match(text, /Week 11 tape/);
-    assert.match(text, /Week 12 board/);
     assert.match(text, /Soft-cal FLAG/);
     assert.doesNotMatch(text, /The board is posted/);
   });
-  // END week12-board-test
+  // BEGIN week13-board-test
+  it("includes the Week 13 board, Week 12 tape, 0111 Week 13 kicks, 0109 Sunday sweep, and 0112 Week 12 AP/CFP in committed output", () => {
+    const text = corpus();
+    assert.match(text, /0109_week12_sun_finals/);
+    assert.match(text, /0111_week13_kick_tv/);
+    assert.match(text, /0112_week12_ap_cfp_rankings/);
+    assert.match(text, /kickoff_at = timestamptz '2026-11-28 18:30:00-06'/);
+    assert.match(text, /week12_tape_2026/);
+    assert.match(text, /50\/66/);
+    assert.match(text, /Week 12 tape/);
+    assert.match(text, /Week 13 board/);
+    assert.match(text, /Week 12 AP/);
+    assert.match(text, /W12 stamp/);
+    assert.match(text, /Soft-cal FLAG/);
+    assert.doesNotMatch(text, /The board is posted/);
+  });
+  // END week13-board-test
 
   it("includes Week 12 Tuesday FINALs (0104) with exact home/away orientation in committed output", () => {
     const text = corpus();

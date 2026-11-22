@@ -16,6 +16,7 @@ import {
   WEEK10_FEATURED,
   WEEK11_FEATURED,
   WEEK12_FEATURED,
+  WEEK13_FEATURED,
   featuredBook,
   featuredSlateWeek,
   favoriteLine,
@@ -194,24 +195,24 @@ const beforeThursday = Date.parse("2026-09-01T22:00:00.000Z");
 const afterGtKick = Date.parse("2026-09-04T00:01:00.000Z");
 const fridayAfternoon = Date.parse("2026-09-04T18:00:00.000Z");
 
-test("board chrome is Week 12; featured slate is the Week 12 pin", () => {
-  assert.equal(BOARD_WEEK, 12);
-  assert.equal(FEATURED_SLATE_WEEK, 12);
+test("board chrome is Week 13; featured slate is the Week 13 pin", () => {
+  assert.equal(BOARD_WEEK, 13);
+  assert.equal(FEATURED_SLATE_WEEK, 13);
   assert.equal(MODEL.version, "2026.8");
-  assert.equal(MODEL.week, 12);
-  assert.equal(MODEL.weekLabel, "Week 12 board");
+  assert.equal(MODEL.week, 13);
+  assert.equal(MODEL.weekLabel, "Week 13 board");
 });
 
-test("AP chrome is the last stamped Week 11 poll (Nov. 8); CFP is the Nov. 10 committee ranking", () => {
-  assert.equal(AP_STAMP.week, 11);
-  assert.equal(AP_STAMP.asOf, "Nov. 8");
-  assert.equal(AP_STAMP.label, "Week 11 AP");
-  assert.equal(AP_STAMP.columnHint, "W11 stamp");
-  assert.equal(BOARD_WEEK, 12);
-  assert.match(AP_STAMP.vsHx, /Week 11, Nov\. 8/);
+test("AP chrome is the last stamped Week 12 poll (Nov. 16); CFP is the Nov. 17 committee ranking", () => {
+  assert.equal(AP_STAMP.week, 12);
+  assert.equal(AP_STAMP.asOf, "Nov. 16");
+  assert.equal(AP_STAMP.label, "Week 12 AP");
+  assert.equal(AP_STAMP.columnHint, "W12 stamp");
+  assert.equal(BOARD_WEEK, 13);
+  assert.match(AP_STAMP.vsHx, /Week 12, Nov\. 16/);
   assert.doesNotMatch(AP_STAMP.lede, /HX is Week/);
-  assert.match(AP_STAMP.lede, /last stamped poll \(Week 11, Nov\. 8\)/);
-  assert.match(AP_STAMP.lede, /CFP is the committee ranking of Nov\. 10/);
+  assert.match(AP_STAMP.lede, /last stamped poll \(Week 12, Nov\. 16\)/);
+  assert.match(AP_STAMP.lede, /CFP is the committee ranking of Nov\. 17/);
   assert.doesNotMatch(AP_STAMP.lede, /Oct\. 25/);
   assert.doesNotMatch(AP_STAMP.lede, /Oct\. 18/);
   assert.doesNotMatch(AP_STAMP.lede, /Oct\. 11/);
@@ -610,8 +611,8 @@ test("FCS Vegas-only rows are never featured (no invented HX)", () => {
 });
 
 test("Week 5 schedule pin is Pittsburgh @ Virginia Tech; home slate week is 6", () => {
-  assert.equal(BOARD_WEEK, 12);
-  assert.equal(FEATURED_SLATE_WEEK, 12);
+  assert.equal(BOARD_WEEK, 13);
+  assert.equal(FEATURED_SLATE_WEEK, 13);
   assert.equal(WEEK5_FEATURED.homeSlug, "virginia-tech");
   assert.equal(WEEK5_FEATURED.awaySlug, "pittsburgh");
   const wku = game({
@@ -652,8 +653,8 @@ test("Week 5 schedule pin is Pittsburgh @ Virginia Tech; home slate week is 6", 
 });
 
 test("Week 6 schedule pin is Iowa State @ BYU; featured slate week is 6", () => {
-  assert.equal(BOARD_WEEK, 12);
-  assert.equal(FEATURED_SLATE_WEEK, 12);
+  assert.equal(BOARD_WEEK, 13);
+  assert.equal(FEATURED_SLATE_WEEK, 13);
   assert.equal(WEEK6_FEATURED.homeSlug, "byu");
   assert.equal(WEEK6_FEATURED.awaySlug, "iowa-state");
   const usm = game({
@@ -934,7 +935,7 @@ test("Week 11 schedule pin stays Michigan @ Oregon (historical); the home desk m
   assert.equal(selectWeekScopedFeatured(11, [akr, oreFinal]), null);
 });
 
-test("home board featured for Week 12 prefers LSU @ Tennessee over the Tuesday opener", () => {
+test("Week 12 schedule pin is LSU @ Tennessee (historical; the home desk is on Week 13)", () => {
   const wmu = game({
     id: 1201,
     week: 12,
@@ -962,14 +963,52 @@ test("home board featured for Week 12 prefers LSU @ Tennessee over the Tuesday o
   });
   const now = Date.parse("2026-11-15T18:00:00.000Z");
   assert.equal(selectFeaturedKick([wmu, tenn], now)?.homeSlug, "western-michigan");
-  const board = selectBoardFeaturedKick([wmu, tenn], now);
-  assert.equal(board?.homeSlug, "tennessee");
-  assert.equal(board?.awaySlug, "lsu");
-  assert.equal(board?.tv, "ABC");
-  // Vegas stays blank: only one book (DraftKings) had a Week 12 line at the stamp.
-  assert.equal(board?.vegasSpread, null);
-  assert.equal(board?.vegasTotal, null);
+  const pinned = selectWeekScopedFeatured(12, [wmu, tenn]);
+  assert.equal(pinned?.awaySlug, "lsu");
+  assert.equal(pinned?.tv, "ABC");
+  assert.equal(pinned?.vegasSpread, null);
+  assert.equal(pinned?.vegasTotal, null);
   assert.equal(selectWeekScopedFeatured(12, [wmu, tenn])?.homeSlug, "tennessee");
   const tennFinal = game({ ...tenn, status: "final", homeScore: 1, awayScore: 0 });
-  assert.equal(selectBoardFeaturedKick([wmu, tennFinal], now)?.homeSlug, "western-michigan");
+  assert.equal(selectWeekScopedFeatured(12, [wmu, tennFinal]), null);
+});
+
+test("home board featured for Week 13 prefers Auburn @ Alabama over the Tuesday opener", () => {
+  const wmu = game({
+    id: 1301,
+    week: 13,
+    homeSlug: "western-michigan",
+    awaySlug: "eastern-michigan",
+    kickoffDate: "2026-11-24",
+    kickoffAt: "2026-11-25T00:00:00.000Z",
+    tv: "ESPN2",
+    vegasSpread: null,
+    vegasTotal: null,
+  });
+  const ala = game({
+    id: 1302,
+    week: 13,
+    homeSlug: WEEK13_FEATURED.homeSlug,
+    awaySlug: WEEK13_FEATURED.awaySlug,
+    homeShort: "Alabama",
+    awayShort: "Auburn",
+    kickoffDate: "2026-11-28",
+    kickoffAt: "2026-11-29T00:30:00.000Z",
+    tv: "ABC",
+    vegasSpread: null,
+    vegasTotal: null,
+    location: "Bryant-Denny Stadium",
+  });
+  const now = Date.parse("2026-11-22T16:00:00.000Z");
+  assert.equal(selectFeaturedKick([wmu, ala], now)?.homeSlug, "western-michigan");
+  const board = selectBoardFeaturedKick([wmu, ala], now);
+  assert.equal(board?.homeSlug, "alabama");
+  assert.equal(board?.awaySlug, "auburn");
+  assert.equal(board?.tv, "ABC");
+  // Vegas stays blank: only one book (DraftKings) had a Week 13 line at the stamp.
+  assert.equal(board?.vegasSpread, null);
+  assert.equal(board?.vegasTotal, null);
+  assert.equal(selectWeekScopedFeatured(13, [wmu, ala])?.homeSlug, "alabama");
+  const alaFinal = game({ ...ala, status: "final", homeScore: 1, awayScore: 0 });
+  assert.equal(selectBoardFeaturedKick([wmu, alaFinal], now)?.homeSlug, "western-michigan");
 });

@@ -34,20 +34,21 @@ describe("data/qb_desk_2026.json", () => {
 });
 
 describe("QB Desk", () => {
-  it("Marcel Reed: Week 11 vs Tennessee, season before matches the Nov 11 build", () => {
+  it("Marcel Reed: Week 11 vs Tennessee (A&M had a Week 12 bye), season line before matches the Nov 14 build", () => {
     const d = qbDesk(DEFAULT_QB, teams)!;
     assert.equal(d.qb.name, "Marcel Reed");
     assert.equal(d.last?.opp, "tennessee");
     assert.deepEqual([d.last?.c, d.last?.a, d.last?.y, d.last?.td, d.last?.i], [9, 22, 71, 0, 1]);
-    assert.deepEqual(d.line.before, { g: 9, att: 265, cmp: 151, yds: 1641, td: 8, int: 8, ruy: 206 });
-    assert.equal(d.values.before?.epa, 0.059);
+    assert.deepEqual(d.line.before, { g: 10, att: 265, cmp: 151, yds: 1641, td: 8, int: 8, ruy: 206 });
+    // Reed's last game is not the only game after the Nov 14 build's cutoff basis, so before-EPA is left blank.
+    assert.equal(d.values.before?.epa, null);
     assert.equal(d.values.after.epa, 0.015);
-    assert.equal(d.values.before?.tepa, 16.2);
+    assert.equal(d.values.before?.tepa, null);
     assert.equal(d.values.after.tepa, 4.3);
     const sec = d.pools.find((p) => p.label === "SEC")!;
     assert.deepEqual(sec.ranks.eff.after, { rank: 18, n: 18 });
     assert.equal(d.last?.gameKey, "2026-11-14-tennessee-at-texas-am");
-    assert.equal(d.epaBeforeNote, null);
+    assert.match(d.epaBeforeNote ?? "", /Ours is from 2026-11-14/);
   });
   it("opponents use the database display name (Hawaiʻi with the ʻokina)", () => {
     const named = teams.map((t: { slug: string }) => (t.slug === "hawaii" ? { ...t, name: "Hawaiʻi", shortName: "Hawaiʻi" } : t));

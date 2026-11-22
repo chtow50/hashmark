@@ -131,8 +131,8 @@ describe("Week 11 FBS–FBS kick / TV / Vegas (0087)", () => {
   });
 
   it("pins the Week 11 featured Michigan @ Oregon card: Sat 14:30 CT · FS1 · Vegas blank", () => {
-    assert.equal(BOARD_WEEK, 12);
-    assert.equal(FEATURED_SLATE_WEEK, 12);
+    assert.equal(BOARD_WEEK, 13);
+    assert.equal(FEATURED_SLATE_WEEK, 13);
     assert.equal(WEEK11_FEATURED.homeSlug, "oregon");
     assert.equal(WEEK11_FEATURED.awaySlug, "michigan");
     const g = pack.games.find((r) => r.home_slug === "oregon" && r.away_slug === "michigan");
@@ -180,13 +180,13 @@ describe("Week 10 AP Top 25 stamp (0088, Nov. 1)", () => {
     }
   });
 
-  it("was superseded on the chrome by the Week 11 stamp (0092)", () => {
-    assert.equal(AP_STAMP.week, 11);
-    assert.equal(AP_STAMP.asOf, "Nov. 8");
-    assert.equal(AP_STAMP.label, "Week 11 AP");
-    assert.equal(AP_STAMP.columnHint, "W11 stamp");
-    assert.equal(BOARD_WEEK, 12);
-    assert.equal(FEATURED_SLATE_WEEK, 12);
+  it("was superseded on the chrome by the Week 12 stamp (0112)", () => {
+    assert.equal(AP_STAMP.week, 12);
+    assert.equal(AP_STAMP.asOf, "Nov. 16");
+    assert.equal(AP_STAMP.label, "Week 12 AP");
+    assert.equal(AP_STAMP.columnHint, "W12 stamp");
+    assert.equal(BOARD_WEEK, 13);
+    assert.equal(FEATURED_SLATE_WEEK, 13);
   });
 });
 
@@ -308,10 +308,10 @@ describe("Week 11 AP (Nov. 8) + CFP committee (Nov. 10) stamp (0092)", () => {
     assert.doesNotMatch(body, /hx_|make_field|win_title|truncate|games/i);
   });
 
-  it("is the live chrome", () => {
-    assert.equal(AP_STAMP.week, 11);
-    assert.equal(AP_STAMP.asOf, "Nov. 8");
-    assert.equal(CFP_STAMP.release, "2026-11-10");
+  it("was superseded on the chrome by the Week 12 AP + Nov. 17 CFP stamp (0112)", () => {
+    assert.equal(AP_STAMP.week, 12);
+    assert.equal(AP_STAMP.asOf, "Nov. 16");
+    assert.equal(CFP_STAMP.release, "2026-11-17");
   });
 });
 

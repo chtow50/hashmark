@@ -4,7 +4,7 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { describe, it } from "node:test";
 import { fcsStubsForWeek } from "./fcs-stubs.ts";
-import { BOARD_WEEK, FEATURED_SLATE_WEEK, WEEK12_FEATURED } from "./featured.ts";
+import { AP_STAMP, BOARD_WEEK, CFP_STAMP, FEATURED_SLATE_WEEK, WEEK12_FEATURED, WEEK13_FEATURED } from "./featured.ts";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "../../..");
 
@@ -86,8 +86,8 @@ describe("Week 12 FBS–FBS kick / TV (0101)", () => {
   });
 
   it("pins the Week 12 featured LSU @ Tennessee card: Sat 14:30 CT · ABC · Vegas blank", () => {
-    assert.equal(BOARD_WEEK, 12);
-    assert.equal(FEATURED_SLATE_WEEK, 12);
+    assert.equal(BOARD_WEEK, 13);
+    assert.equal(FEATURED_SLATE_WEEK, 13);
     assert.equal(WEEK12_FEATURED.homeSlug, "tennessee");
     assert.equal(WEEK12_FEATURED.awaySlug, "lsu");
     const g = pack.games.find((r) => r.home_slug === "tennessee" && r.away_slug === "lsu");
@@ -285,5 +285,96 @@ describe("Week 12 Saturday FINALs (0108)", () => {
       ["mississippi-state", true, "Tennessee Tech", 34, 16, "final"],
       ["auburn", true, "Samford", 59, 17, "final"],
     ]);
+  });
+});
+
+describe("Week 12 Sunday-night straggler (0109)", () => {
+  const sql109 = readFileSync(join(root, "migrations/0109_week12_sun_finals.sql"), "utf8");
+
+  it("stamps Oklahoma State 30 @ Arizona State 27 (ESPN STATUS_FINAL) in exact orientation", () => {
+    assert.match(sql109, /Arizona State 27, Oklahoma State 30/);
+    assert.match(sql109, /home_score = 27,\n\s+away_score = 30/);
+    assert.match(sql109, /g\.week = 12/);
+    assert.match(sql109, /h\.slug = 'arizona-state' and a\.slug = 'oklahoma-state'/);
+    assert.equal((sql109.match(/update games/g) ?? []).length, 1);
+  });
+});
+
+describe("Week 13 FBS–FBS kick / TV / Vegas (0111)", () => {
+  const pack13 = JSON.parse(readFileSync(join(root, "data/week13_fbs_fbs_kick_tv_vegas_2026.json"), "utf8")) as {
+    week: number;
+    n_games: number;
+    n_with_vegas: number;
+    n_blank_vegas: number;
+    n_blank_tv: number;
+    n_tbd_kick: number;
+    games: Array<{ espn_event_id: string; home_slug: string; away_slug: string; kick_ct: string | null; tv: string | null }>;
+  };
+  const sql111 = readFileSync(join(root, "migrations/0111_week13_kick_tv.sql"), "utf8");
+  const block13 = (home: string, away: string) =>
+    sql111.split("\n\n").find((b) => b.includes(`h.slug = '${home}' and a.slug = '${away}'`));
+
+  it("covers 65 games with a CT kick and TV on every card, 0 Vegas (no two-book match), CST offsets", () => {
+    assert.equal(pack13.week, 13);
+    assert.equal(pack13.n_games, 65);
+    assert.equal(pack13.games.length, 65);
+    assert.equal(pack13.n_with_vegas, 0);
+    assert.equal(pack13.n_blank_vegas, 65);
+    assert.equal(pack13.n_tbd_kick, 0);
+    assert.equal(pack13.n_blank_tv, 0);
+    assert.equal((sql111.match(/update games/g) ?? []).length, 65);
+    assert.equal((sql111.match(/g\.week = 13;/g) ?? []).length, 65);
+    assert.equal((sql111.match(/kickoff_at = /g) ?? []).length, 65);
+    assert.equal((sql111.match(/:00-06'/g) ?? []).length, 65);
+    assert.doesNotMatch(sql111, /:00-05'/);
+    assert.equal((sql111.match(/vegas_spread = null/g) ?? []).length, 65);
+    assert.doesNotMatch(sql111, /vegas_spread = -?\d/);
+    assert.doesNotMatch(sql111, /home_score|away_score|status\s*=|hx_rating|win_title|make_field/);
+  });
+
+  it("pins the Week 13 featured Auburn @ Alabama card: Sat 18:30 CT · ABC · Vegas blank", () => {
+    assert.equal(BOARD_WEEK, 13);
+    assert.equal(FEATURED_SLATE_WEEK, 13);
+    assert.equal(WEEK13_FEATURED.homeSlug, "alabama");
+    assert.equal(WEEK13_FEATURED.awaySlug, "auburn");
+    const g = pack13.games.find((r) => r.home_slug === "alabama" && r.away_slug === "auburn");
+    assert.equal(g?.kick_ct, "2026-11-28 18:30");
+    assert.equal(g?.tv, "ABC");
+    const block = block13("alabama", "auburn");
+    assert.ok(block);
+    assert.match(block, /kickoff_at = timestamptz '2026-11-28 18:30:00-06'/);
+    assert.match(block, /tv = 'ABC'/);
+    assert.match(block, /vegas_spread = null/);
+  });
+
+  it("keeps Thanksgiving-week cards on their CT day (Texas @ Texas A&M Fri 18:30 CT ABC)", () => {
+    const block = block13("texas-am", "texas");
+    assert.ok(block);
+    assert.match(block, /Fri 2026-11-27 18:30 CT/);
+    assert.match(block, /kickoff_date = date '2026-11-27'/);
+    assert.doesNotMatch(block, /Saturday|Sat /);
+  });
+});
+
+describe("Week 12 AP (Nov. 16) + CFP committee (Nov. 17) stamp (0112)", () => {
+  const sql112 = readFileSync(join(root, "migrations/0112_week12_ap_cfp_rankings.sql"), "utf8");
+  const ap = JSON.parse(readFileSync(join(root, "data/week12_ap_top25_2026.json"), "utf8"));
+  const cfp = JSON.parse(readFileSync(join(root, "data/cfp_rankings_2026_11_17.json"), "utf8"));
+
+  it("stamps 25/25 AP and CFP ranks that match the committed packs", () => {
+    assert.equal(ap.teams.length, 25);
+    assert.equal(cfp.teams.length, 25);
+    for (const t of ap.teams) assert.match(sql112, new RegExp(`\\('${t.slug}', ${t.rank}\\)`));
+    for (const t of cfp.teams) assert.match(sql112, new RegExp(`\\('${t.slug}', ${t.rank}\\)`));
+    assert.equal(ap.teams[0].slug, "georgia");
+    assert.equal(cfp.teams[0].slug, "georgia");
+    const body = sql112.split("\n").filter((l) => !l.startsWith("--")).join("\n");
+    assert.doesNotMatch(body, /hx_|make_field|win_title|truncate|games/i);
+  });
+
+  it("is the live chrome", () => {
+    assert.equal(AP_STAMP.week, 12);
+    assert.equal(AP_STAMP.asOf, "Nov. 16");
+    assert.equal(CFP_STAMP.release, "2026-11-17");
   });
 });
