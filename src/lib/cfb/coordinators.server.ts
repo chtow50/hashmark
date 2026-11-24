@@ -2,7 +2,7 @@
 import coordRaw from "../../../data/coordinators_2026.json" with { type: "json" };
 import statsRaw from "../../../data/stats_2026.json" with { type: "json" };
 import talentRaw from "../../../data/talent_247_2026.json" with { type: "json" };
-import type { CoachRecord, CoordinatorsFile, HistoryRow, Live2026, Unit } from "./coordinators.ts";
+import { teamCoordinators, type CoachRecord, type CoordinatorsFile, type HistoryRow, type Live2026, type Unit } from "./coordinators.ts";
 
 type TeamStat = { slug: string; g?: number | null; ppg?: number | null; oppg?: number | null; epa?: number | null; oepa?: number | null; sr?: number | null; osr?: number | null; xpl?: number | null; oxpl?: number | null; adv_g?: number | null };
 const file = coordRaw as unknown as CoordinatorsFile;
@@ -43,4 +43,13 @@ export function withLive2026(f: CoordinatorsFile, live: Record<string, Live2026 
       return { ...h, stats: l ? { epa: l.epa, sr: l.sr, xpl: l.xpl, ppg: l.ppg, rank: l.rank, nFbs: l.n, games: l.games } : null };
     }),
   }));
+}
+
+/** Coordinators block for one team page (2026 numbers filled in from the live board). */
+export function teamCoordinatorBlock(slug: string) {
+  const live = live2026();
+  const coaches = withLive2026(file, live);
+  const cards = teamCoordinators(file.units2026, file.prior2025, coaches, live, slug);
+  const teamsUsed = [...new Set(cards.flatMap((c) => c.coaches.flatMap((k) => k.coach.history.map((h) => h.team))))];
+  return { cards, teamsUsed, built: file.built, asOf: stats.meta.as_of };
 }
