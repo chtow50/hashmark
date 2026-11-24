@@ -552,7 +552,9 @@ function HistoryLine({ h, tn }: { h: HistoryRow; tn: TN }) {
     <li className={cn("px-3 py-2 text-xs", ok ? "" : "text-faint")} data-status={h.status}>
       <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
         <span className={cn("w-10 tabular font-medium", ok ? "text-fg" : "")}>{h.season}</span>
-        <span className={cn("min-w-28", ok ? "text-fg" : "")}>{tn(h.team)}</span>
+        <Link to="/teams/$slug" params={{ slug: h.team }} hash="coordinators" className={cn("min-w-28 underline decoration-faint underline-offset-2 hover:text-fg", ok ? "text-fg" : "")}>
+          {tn(h.team)}
+        </Link>
         <span className={cn("tabular", ok ? "text-fg/90" : "")}>{statLine(h.stats, h.season === 2026 ? "ppg" : "ppd")}</span>
         <span className={cn("rounded px-1.5 py-0.5 text-[10px] uppercase tracking-wide", ok ? "bg-raised text-fg/80" : "bg-raised/50")}>{ok ? "credited" : "not credited"}</span>
       </div>

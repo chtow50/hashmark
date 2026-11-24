@@ -12,6 +12,7 @@ import {
   parseView,
   qualifies3y,
   summarize3y,
+  teamCoordinators,
   type CoachRecord,
   type CoordinatorsFile,
   type HistoryRow,
@@ -69,6 +70,39 @@ describe("2026 board", () => {
   });
 });
 
+describe("team page block", () => {
+  const units: Unit2026[] = [
+    { team: "x", unit: "off", label: "with-co", coaches: [{ name: "Full OC", title: "Offensive Coordinator" }, { name: "Co OC", title: "Co-Offensive Coordinator" }], staffUrl: "https://example.edu" },
+    { team: "x", unit: "def", label: "sole", coaches: [{ name: "DC", title: "Defensive Coordinator" }], staffUrl: "https://example.edu" },
+  ];
+  const lv = (epa: number): Live2026 => ({ epa, sr: 45, xpl: 1.2, ppg: 30, games: 11, rank: 5, n: 138 });
+  const live = { "off|x": lv(0.2), "def|x": lv(-0.05) };
+  const prior: CoordinatorsFile["prior2025"] = { x: { off: st(0.1, 30), def: st(0.05, 60) } };
+  const coaches: CoachRecord[] = [
+    coach("Co OC", "off", [row(2026, "excluded")]),
+    coach("Full OC", "off", [row(2025, "credited", 0.1, 30), row(2026, "credited", 0.2, 5)]),
+    { ...coach("Other OC", "off", [row(2025, "credited", 0.3, 2), row(2026, "credited", 0.3, 2)]), team: "y" },
+    coach("DC", "def", [row(2026, "credited", -0.05, 5)]),
+  ];
+  const cards = teamCoordinators(units, prior, coaches, live, "x");
+  it("one card per side; the school's full coordinator before the co-coordinator; other schools' coaches stay out", () => {
+    assert.deepEqual(cards.map((c) => c.unit), ["off", "def"]);
+    assert.deepEqual(cards[0].coaches.map((k) => k.coach.name), ["Full OC", "Co OC"]);
+  });
+  it("vs 2025 and the 3-year rank match the /coordinators boards exactly", () => {
+    assert.ok(Math.abs(cards[0].delta! - 0.1) < 1e-9);
+    assert.ok(Math.abs(cards[1].delta! - -0.1) < 1e-9);
+    const board = buildBoard3y(coaches, "off");
+    assert.deepEqual(cards[0].coaches[0].board3y && { rank: cards[0].coaches[0].board3y.rank, n: cards[0].coaches[0].board3y.n }, { rank: 2, n: board.length });
+    assert.equal(cards[0].coaches[1].board3y, null, "co-coordinator-only seasons never rank");
+    assert.equal(cards[1].coaches[0].board3y, null, "one credited season is not enough");
+  });
+  it("unknown team: empty cards, nothing invented", () => {
+    const none = teamCoordinators(units, prior, coaches, live, "zzz");
+    assert.ok(none.every((c) => c.u === null && c.live === null && c.prior === null && c.delta === null && c.coaches.length === 0));
+  });
+});
+
 describe("shipped data", () => {
   const root = join(import.meta.dirname, "../../..");
   const file = JSON.parse(readFileSync(join(root, "data/coordinators_2026.json"), "utf8")) as CoordinatorsFile;
@@ -100,6 +134,23 @@ describe("shipped data", () => {
   it("a credited 2026 season means he holds the school's full coordinator title on that side (a co-coordinator may also be listed)", () => {
     const sole = new Set(file.units2026.filter((u) => u.label === "sole" || u.label === "with-co").map((u) => `${u.unit}|${u.team}|${u.coaches[0].name}`));
     for (const c of file.coaches) for (const h of c.history) if (h.season === 2026 && h.status === "credited") assert.ok(sole.has(`${c.unit}|${h.team}|${c.name}`), c.name);
+  });
+  it("team pages: every FBS team gets both sides, and every listed coordinator (head coaches with the title aside) has a track record", () => {
+    for (const t of stats.teams) {
+      const cards = teamCoordinators(file.units2026, file.prior2025, file.coaches, {}, t.slug);
+      assert.ok(cards.every((c) => c.u), t.slug);
+      for (const c of cards) {
+        if (c.u!.label === "hc-title") continue;
+        const names = new Set(c.coaches.map((k) => k.coach.name));
+        for (const p of c.u!.coaches) assert.ok(names.has(p.name), `${t.slug} ${c.unit} ${p.name}`);
+      }
+    }
+    const bama = teamCoordinators(file.units2026, file.prior2025, file.coaches, {}, "alabama");
+    assert.equal(bama[1].coaches[0].coach.name, "Kane Wommack");
+    assert.equal(bama[1].coaches[0].board3y?.rank, buildBoard3y(file.coaches, "def").find((r) => r.coach.name === "Kane Wommack")?.rank);
+  });
+  it("incoming coordinators, when added, cite an official announcement", () => {
+    for (const u of file.units2026) for (const i of u.incoming ?? []) assert.match(i.sourceUrl, /^https:\/\//, `${u.team} ${i.name}`);
   });
   it("free surface: no win_title", () => {
     assert.ok(!JSON.stringify(file).includes("win_title"));

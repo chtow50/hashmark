@@ -11,7 +11,8 @@ import { RosterList } from "@/components/roster-duel";
 import { RemainingScheduleSection, SeasonScheduleSection } from "@/components/season-sim";
 import { TALENT_UNITS } from "@/lib/cfb/positions";
 import { getTeam } from "@/lib/cfb/queries";
-import { getTeamAdvanced } from "@/lib/cfb/stats-queries";
+import { getTeamAdvanced, getTeamCoordinators } from "@/lib/cfb/stats-queries";
+import { TeamCoordinatorsPanel } from "@/components/team-coordinators";
 import { getSorBoard } from "@/lib/cfb/sor-queries";
 import { getHxHistory } from "@/lib/cfb/hx-history-queries";
 import { HxSparkline } from "@/components/hx-sparkline";
@@ -24,14 +25,15 @@ import { apLabel, cn, fmtHeight, fmtNum, fmtPct } from "@/lib/utils";
 
 export const Route = createFileRoute("/teams/$slug")({
   loader: async ({ params }) => {
-    const [data, advanced, sor, hxHistory] = await Promise.all([
+    const [data, advanced, sor, hxHistory, coordinators] = await Promise.all([
       getTeam({ data: { slug: params.slug } }),
       getTeamAdvanced({ data: { slug: params.slug } }),
       getSorBoard(),
       getHxHistory({ data: { slug: params.slug } }),
+      getTeamCoordinators({ data: { slug: params.slug } }),
     ]);
     if (!data) throw notFound();
-    return { ...data, advanced, hxHistory, sor: sor.rows.find((r) => r.slug === params.slug) ?? null };
+    return { ...data, advanced, hxHistory, coordinators, sor: sor.rows.find((r) => r.slug === params.slug) ?? null };
   },
   component: TeamPage,
   head: ({ loaderData, params }) =>
@@ -50,7 +52,7 @@ function fmtSigned(v: number) {
 }
 
 function TeamPage() {
-  const { team, players, games, classes, advanced, sor, hxHistory } = Route.useLoaderData();
+  const { team, players, games, classes, advanced, sor, hxHistory, coordinators } = Route.useLoaderData();
   const share = modelShare(team);
   // Free team page: make-field only; win_title is never published on free surfaces.
   const make12 = make12FreeFromSim(team.slug, team);
@@ -160,6 +162,7 @@ function TeamPage() {
           [
             ["upcoming", "Upcoming"],
             ...(advanced ? [["advanced", "Advanced stats"]] : []),
+            ...(coordinators ? [["coordinators", "Coordinators"]] : []),
             ["results", "HX vs results"],
             ["season", "Season"],
             ["roster", team.hasProfile === false ? "About" : "Roster & rating"],
@@ -182,6 +185,12 @@ function TeamPage() {
       {advanced ? (
         <section id="advanced" className="scroll-mt-32">
           <AdvancedStatsPanel data={advanced} teamSlug={team.slug} />
+        </section>
+      ) : null}
+
+      {coordinators ? (
+        <section id="coordinators" className="scroll-mt-32">
+          <TeamCoordinatorsPanel data={coordinators} teamSlug={team.slug} teamName={team.name} />
         </section>
       ) : null}
 

@@ -53,7 +53,10 @@ export type Unit2026 = {
   hcSource?: { url: string; quote: string };
   /** First season of his current run in this role here, when official season pages show it (2024 = "2024 or earlier"). */
   since?: number | null;
+  /** A coordinator the school has announced for next season (official release linked). Empty until a hire is announced. */
+  incoming?: Incoming[];
 };
+export type Incoming = { name: string; title: string; announced: string; sourceUrl: string };
 
 export type SeasonStats = { epa: number | null; sr: number | null; xpl: number | null; ppd?: number | null; ppg?: number | null; rank: number | null; nFbs: number; games?: number | null };
 export type HistoryRow = {
@@ -204,4 +207,48 @@ export function whoLine(u: Unit2026): string {
   if (!u.coaches.length) return "No coordinator listed";
   if (u.label === "with-co") return u.coaches[0].name;
   return u.coaches.map((c) => c.name).join(" & ");
+}
+
+/**
+ * Team-page block: for one school, each side's 2026 unit numbers next to the track record of the coordinator(s)
+ * the school lists. Context, not a forecast: nothing here is combined into a score.
+ */
+export type TeamCoachCard = { coach: CoachRecord; board3y: { rank: number; n: number; v: Values } | null };
+export type TeamUnitCard = {
+  unit: Unit;
+  u: Unit2026 | null;
+  live: Live2026 | null;
+  prior: SeasonStats | null;
+  /** Change in adj EPA/play vs the same school's 2025 unit (sign as stored; read with higherIsBetter). */
+  delta: number | null;
+  coaches: TeamCoachCard[];
+};
+
+export function teamCoordinators(
+  units: Unit2026[],
+  prior: CoordinatorsFile["prior2025"],
+  coaches: CoachRecord[],
+  live: Record<string, Live2026 | null>,
+  slug: string,
+): TeamUnitCard[] {
+  return UNITS.map((unit) => {
+    const u = units.find((x) => x.team === slug && x.unit === unit) ?? null;
+    const l = live[`${unit}|${slug}`] ?? null;
+    const p = prior[slug]?.[unit] ?? null;
+    const delta = l?.epa != null && p?.epa != null ? l.epa - p.epa : null;
+    const board = buildBoard3y(coaches, unit);
+    const recs = coaches.filter((c) => c.team === slug && c.unit === unit);
+    // The school's listing order first (the full coordinator before any co-coordinator), then anyone else on file.
+    const order = (c: CoachRecord) => {
+      const i = u?.coaches.findIndex((x) => x.name === c.name) ?? -1;
+      return i < 0 ? 99 : i;
+    };
+    const cards = [...recs]
+      .sort((a, b) => order(a) - order(b) || a.name.localeCompare(b.name))
+      .map((coach): TeamCoachCard => {
+        const r = board.find((b) => b.coach.name === coach.name && b.coach.team === coach.team);
+        return { coach, board3y: r ? { rank: r.rank, n: board.length, v: r.v } : null };
+      });
+    return { unit, u, live: l, prior: p, delta, coaches: cards };
+  });
 }

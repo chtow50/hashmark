@@ -66,6 +66,20 @@ export const getQbLeaders = createServerFn({ method: "GET" })
   });
 
 /** /coordinators: every FBS unit's 2026 production with its listed coordinator, plus 2024–26 coordinator records. */
+/** Team page: each side's 2026 unit numbers next to its listed coordinator's track record (from /coordinators data). */
+export const getTeamCoordinators = createServerFn({ method: "GET" })
+  .validator(z.object({ slug: z.string().min(1) }))
+  .handler(async ({ data }) => {
+    const { teamCoordinatorBlock } = await import("./coordinators.server");
+    const block = teamCoordinatorBlock(data.slug);
+    if (!block.cards.some((c) => c.u)) return null;
+    const sql = await getSql();
+    const teams = await sql.query<{ slug: string; name: string }>(`select slug, name from teams`);
+    const used = new Set(block.teamsUsed);
+    const names = Object.fromEntries(teams.filter((t) => used.has(t.slug)).map((t) => [t.slug, t.name]));
+    return { cards: block.cards, names, built: block.built, asOf: block.asOf };
+  });
+
 export const getCoordinators = createServerFn({ method: "GET" }).handler(async () => {
   const sql = await getSql();
   const teams = await sql.query<{ slug: string; name: string; colorPrimary: string }>(`select slug, name, color_primary as "colorPrimary" from teams`);
