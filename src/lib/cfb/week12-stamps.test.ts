@@ -378,3 +378,25 @@ describe("Week 12 AP (Nov. 16) + CFP committee (Nov. 17) stamp (0112)", () => {
     assert.equal(CFP_STAMP.release, "2026-11-17");
   });
 });
+
+describe("Week 13 Tuesday FINALs (0113)", () => {
+  const sql13 = readFileSync(join(root, "migrations/0113_week13_tue_finals.sql"), "utf8");
+  const expected = [
+    ["401866470", "eastern-michigan", "kent-state", 17, 12, "Kent State @ Eastern Michigan — Eastern Michigan 17, Kent State 12"],
+    ["401866471", "western-michigan", "miami-oh", 24, 28, "Miami (OH) @ Western Michigan — Western Michigan 24, Miami (OH) 28"],
+  ] as const;
+
+  it("stamps scores+status only, with the exact home/away orientation", () => {
+    assert.equal((sql13.match(/update games/g) ?? []).length, 2);
+    assert.equal((sql13.match(/g\.week = 13/g) ?? []).length, 2);
+    for (const [espn, hSlug, aSlug, hs, as, label] of expected) {
+      assert.ok(sql13.includes(`-- ${label}`), label);
+      assert.ok(sql13.includes(`home_score = ${hs},\n    away_score = ${as}\n`), `${espn} scores`);
+      assert.ok(sql13.includes(`and h.slug = '${hSlug}' and a.slug = '${aSlug}';`), `${espn} orientation`);
+      assert.match(sql13, new RegExp(`Source event ${espn}`));
+    }
+    assert.doesNotMatch(sql13, /kickoff_at|vegas_spread|vegas_total|\btv\s*=|hx_rating|win_title|make_field/);
+    const header = sql13.split(/update games/i)[0] ?? "";
+    assert.doesNotMatch(header, /\b401\d{6,}\b/);
+  });
+});

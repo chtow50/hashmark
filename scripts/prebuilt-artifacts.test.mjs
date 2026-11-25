@@ -987,4 +987,11 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /and h\.slug = 'south-carolina' and a\.slug = 'georgia';/);
     assert.match(text, /and h\.slug = 'north-dakota-state' and a\.slug = 'northern-illinois';/);
   });
+  it("includes Week 13 Tuesday FINALs (0113) with exact home/away orientation in committed output", () => {
+    const text = corpus();
+    assert.match(text, /0113_week13_tue_finals/);
+    assert.match(text, /Kent State @ Eastern Michigan — Eastern Michigan 17, Kent State 12/);
+    assert.match(text, /and h\.slug = 'eastern-michigan' and a\.slug = 'kent-state';/);
+    assert.match(text, /and h\.slug = 'western-michigan' and a\.slug = 'miami-oh';/);
+  });
 });

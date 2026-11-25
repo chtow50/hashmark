@@ -140,9 +140,9 @@ describe("10k sim follows the refit", () => {
     const won = {};
     const left = {};
     // The sim may be drawn before the newest finals are stamped (refit redraws it Sunday): allow one
-    // game of slack per Week 11 final the team now has, which is at most what was stamped after sim.as_of.
+    // game of slack per Week 11 or Week 13 final the team now has, which is at most what was stamped after sim.as_of.
     const slack = {};
-    for (const g of locked) if (g.week === 11) for (const s of g.fcs ? [g.fcs] : [g.home, g.away]) slack[s] = (slack[s] ?? 0) + 1;
+    for (const g of locked) if (g.week === 11 || g.week === 13) for (const s of g.fcs ? [g.fcs] : [g.home, g.away]) slack[s] = (slack[s] ?? 0) + 1;
     for (const g of locked) {
       if (g.fcs) { if (g.won) won[g.fcs] = (won[g.fcs] ?? 0) + 1; }
       else won[g.winner] = (won[g.winner] ?? 0) + 1;
