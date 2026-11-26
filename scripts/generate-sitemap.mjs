@@ -32,6 +32,8 @@ export const STATIC_PATHS = [
   "/coordinators",
   "/coordinators?unit=def",
   "/coordinators?view=3y",
+  "/coaches",
+  "/coaches?view=all",
   "/stats?tab=rush",
   "/stats?tab=rec",
   "/stats?tab=def",

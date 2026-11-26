@@ -1,0 +1,15604 @@
+//#region node_modules/.nitro/vite/services/ssr/assets/coaches.server-BnD8uioJ.js
+var coaches_2026_default = {
+	built: "2026-11-26",
+	cfbdCalls: 50,
+	minSeasons: 2,
+	maxMatch: 3,
+	lastCompleted: 2025,
+	coaches: [
+		{
+			"slug": "air-force",
+			"school": "Air Force",
+			"name": "Troy Calhoun",
+			"first": 2007,
+			"firstSeason": 2007,
+			"status": "compared",
+			"n": 2,
+			"completed": 19,
+			"notes": [],
+			"before": {
+				"years": [2005, 2006],
+				"w": 8,
+				"l": 15,
+				"t": 0,
+				"winPct": .348,
+				"recRank": 113.5,
+				"recPts": 43.515,
+				"talentRank": null,
+				"netEpa": null,
+				"offEpa": null,
+				"defEpa": null
+			},
+			"after": {
+				"years": [2007, 2008],
+				"w": 17,
+				"l": 9,
+				"t": 0,
+				"winPct": .654,
+				"recRank": 115.5,
+				"recPts": 28,
+				"talentRank": null,
+				"netEpa": null,
+				"offEpa": null,
+				"defEpa": null
+			},
+			"tenure": {
+				"years": [2007, 2025],
+				"w": 139,
+				"l": 97,
+				"t": 0,
+				"winPct": .589,
+				"recRank": 112.684,
+				"recPts": 93.769,
+				"talentRank": null,
+				"netEpa": null,
+				"offEpa": null,
+				"defEpa": null
+			},
+			"seasons": [
+				{
+					"y": 2005,
+					"w": 4,
+					"l": 7,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [112, 41.08],
+					"tal": null,
+					"epa": null
+				},
+				{
+					"y": 2006,
+					"w": 4,
+					"l": 8,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [115, 45.95],
+					"tal": null,
+					"epa": null
+				},
+				{
+					"y": 2007,
+					"w": 9,
+					"l": 4,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [114, 32.03],
+					"tal": null,
+					"epa": null
+				},
+				{
+					"y": 2008,
+					"w": 8,
+					"l": 5,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [117, 23.97],
+					"tal": null,
+					"epa": null
+				},
+				{
+					"y": 2009,
+					"w": 8,
+					"l": 5,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [105, 95.62],
+					"tal": null,
+					"epa": null
+				},
+				{
+					"y": 2010,
+					"w": 9,
+					"l": 4,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [120, 26.17],
+					"tal": null,
+					"epa": null
+				},
+				{
+					"y": 2011,
+					"w": 7,
+					"l": 6,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [89, 77.86],
+					"tal": null,
+					"epa": null
+				},
+				{
+					"y": 2012,
+					"w": 6,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [86, 121.39],
+					"tal": null,
+					"epa": null
+				},
+				{
+					"y": 2013,
+					"w": 2,
+					"l": 10,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 12,
+					"rec": [107, 106.74],
+					"tal": null,
+					"epa": null
+				},
+				{
+					"y": 2014,
+					"w": 10,
+					"l": 3,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [112, 97.78],
+					"tal": null,
+					"epa": null
+				},
+				{
+					"y": 2015,
+					"w": 8,
+					"l": 6,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 14,
+					"rec": [123, 98.02],
+					"tal": [149, 70.95],
+					"epa": null
+				},
+				{
+					"y": 2016,
+					"w": 10,
+					"l": 3,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [114, 110.9],
+					"tal": [182, 44.58],
+					"epa": {
+						"off": .0966,
+						"de": .0983,
+						"n": 128
+					}
+				},
+				{
+					"y": 2017,
+					"w": 5,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 12,
+					"rec": [109, 115.88],
+					"tal": [150, 21.1],
+					"epa": {
+						"off": .0735,
+						"de": .2523,
+						"n": 130
+					}
+				},
+				{
+					"y": 2018,
+					"w": 5,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 12,
+					"rec": [122, 110.51],
+					"tal": [129, 186.27],
+					"epa": {
+						"off": .1289,
+						"de": .1725,
+						"n": 130
+					}
+				},
+				{
+					"y": 2019,
+					"w": 11,
+					"l": 2,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [107, 134.5],
+					"tal": [134, 151.86],
+					"epa": {
+						"off": .1919,
+						"de": .0713,
+						"n": 130
+					}
+				},
+				{
+					"y": 2020,
+					"w": 3,
+					"l": 3,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 6,
+					"rec": [107, 142.11],
+					"tal": [153, 71.92],
+					"epa": {
+						"off": .2125,
+						"de": .0787,
+						"n": 128
+					}
+				},
+				{
+					"y": 2021,
+					"w": 10,
+					"l": 3,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [90, 144.16],
+					"tal": [200, 30.32],
+					"epa": {
+						"off": .2436,
+						"de": .1278,
+						"n": 130
+					}
+				},
+				{
+					"y": 2022,
+					"w": 10,
+					"l": 3,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [114, 110.12],
+					"tal": [232, 0],
+					"epa": {
+						"off": .1855,
+						"de": .0915,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 9,
+					"l": 4,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [104, 130.58],
+					"tal": [236, 0],
+					"epa": {
+						"off": .1249,
+						"de": .1134,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 5,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 12,
+					"rec": [172, 23.21],
+					"tal": [132, 0],
+					"epa": {
+						"off": -.0029,
+						"de": .1478,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 4,
+					"l": 8,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 12,
+					"rec": [129, 80.06],
+					"tal": null,
+					"epa": {
+						"off": .1708,
+						"de": .3762,
+						"n": 136
+					}
+				}
+			],
+			"prior": []
+		},
+		{
+			"slug": "akron",
+			"school": "Akron",
+			"name": "Joe Moorhead",
+			"first": 2022,
+			"firstSeason": 2022,
+			"status": "compared",
+			"n": 3,
+			"completed": 4,
+			"notes": [],
+			"before": {
+				"years": [2019, 2021],
+				"w": 3,
+				"l": 27,
+				"t": 0,
+				"winPct": .1,
+				"recRank": 119.333,
+				"recPts": 124.32,
+				"talentRank": 122.333,
+				"netEpa": -.381,
+				"offEpa": -.101,
+				"defEpa": .28
+			},
+			"after": {
+				"years": [2022, 2024],
+				"w": 8,
+				"l": 28,
+				"t": 0,
+				"winPct": .222,
+				"recRank": 112.333,
+				"recPts": 116.51,
+				"talentRank": 99.667,
+				"netEpa": -.248,
+				"offEpa": -.032,
+				"defEpa": .216
+			},
+			"tenure": {
+				"years": [2022, 2025],
+				"w": 13,
+				"l": 35,
+				"t": 0,
+				"winPct": .271,
+				"recRank": 116.25,
+				"recPts": 109.243,
+				"talentRank": 100.75,
+				"netEpa": -.26,
+				"offEpa": -.041,
+				"defEpa": .219
+			},
+			"seasons": [
+				{
+					"y": 2019,
+					"w": 0,
+					"l": 12,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [114, 130.23],
+					"tal": [124, 312.81],
+					"epa": {
+						"off": -.2402,
+						"de": .2081,
+						"n": 130
+					}
+				},
+				{
+					"y": 2020,
+					"w": 1,
+					"l": 5,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [125, 129.48],
+					"tal": [124, 232.81],
+					"epa": {
+						"off": -.1083,
+						"de": .2584,
+						"n": 128
+					}
+				},
+				{
+					"y": 2021,
+					"w": 2,
+					"l": 10,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [119, 113.25],
+					"tal": [119, 330.97],
+					"epa": {
+						"off": .0442,
+						"de": .373,
+						"n": 130
+					}
+				},
+				{
+					"y": 2022,
+					"w": 2,
+					"l": 10,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [127, 81.7],
+					"tal": [95, 456.15],
+					"epa": {
+						"off": -.0099,
+						"de": .2306,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 2,
+					"l": 10,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [109, 121.18],
+					"tal": [102, 445.02],
+					"epa": {
+						"off": -.0682,
+						"de": .2083,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 4,
+					"l": 8,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [101, 146.65],
+					"tal": [102, 537.82],
+					"epa": {
+						"off": -.0178,
+						"de": .208,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 5,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 12,
+					"rec": [128, 87.44],
+					"tal": [104, 537.21],
+					"epa": {
+						"off": -.0697,
+						"de": .2289,
+						"n": 136
+					}
+				}
+			],
+			"prior": [{
+				"school": "Mississippi State",
+				"to": 2019,
+				"w": 14,
+				"l": 12,
+				"t": 0,
+				"from": 2018
+			}]
+		},
+		{
+			"slug": "alabama",
+			"school": "Alabama",
+			"name": "Kalen DeBoer",
+			"first": 2024,
+			"firstSeason": 2024,
+			"status": "compared",
+			"n": 2,
+			"completed": 2,
+			"notes": [],
+			"before": {
+				"years": [2022, 2023],
+				"w": 23,
+				"l": 4,
+				"t": 0,
+				"winPct": .852,
+				"recRank": 1.5,
+				"recPts": 325.125,
+				"talentRank": 1,
+				"netEpa": .33,
+				"offEpa": .282,
+				"defEpa": -.048
+			},
+			"after": {
+				"years": [2024, 2025],
+				"w": 20,
+				"l": 8,
+				"t": 0,
+				"winPct": .714,
+				"recRank": 2.5,
+				"recPts": 304.575,
+				"talentRank": 1.5,
+				"netEpa": .253,
+				"offEpa": .221,
+				"defEpa": -.032
+			},
+			"tenure": {
+				"years": [2024, 2025],
+				"w": 20,
+				"l": 8,
+				"t": 0,
+				"winPct": .714,
+				"recRank": 2.5,
+				"recPts": 304.575,
+				"talentRank": 1.5,
+				"netEpa": .253,
+				"offEpa": .221,
+				"defEpa": -.032
+			},
+			"seasons": [
+				{
+					"y": 2022,
+					"w": 11,
+					"l": 2,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [2, 322.25],
+					"tal": [1, 1016.79],
+					"epa": {
+						"off": .2897,
+						"de": -.073,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 12,
+					"l": 2,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [1, 328],
+					"tal": [1, 1015.43],
+					"epa": {
+						"off": .2753,
+						"de": -.0222,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 9,
+					"l": 4,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [2, 310.75],
+					"tal": [1, 1018.28],
+					"epa": {
+						"off": .216,
+						"de": -.048,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 11,
+					"l": 4,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 15,
+					"rec": [3, 298.4],
+					"tal": [2, 993.55],
+					"epa": {
+						"off": .2252,
+						"de": -.0161,
+						"n": 136
+					}
+				}
+			],
+			"prior": [{
+				"school": "Fresno State",
+				"to": 2021,
+				"w": 12,
+				"l": 6,
+				"t": 0,
+				"from": 2020
+			}, {
+				"school": "Washington",
+				"to": 2023,
+				"w": 25,
+				"l": 3,
+				"t": 0,
+				"from": 2022
+			}]
+		},
+		{
+			"slug": "app-state",
+			"school": "App State",
+			"name": "Dowell Loggains",
+			"first": 2025,
+			"firstSeason": 2025,
+			"status": "too-new",
+			"n": 0,
+			"completed": 1,
+			"notes": ["Only 1 completed full season (through 2025); needs at least 2 for the compared view."],
+			"before": null,
+			"after": null,
+			"tenure": {
+				"years": [2025, 2025],
+				"w": 5,
+				"l": 8,
+				"t": 0,
+				"winPct": .385,
+				"recRank": 116,
+				"recPts": 125.92,
+				"talentRank": 79,
+				"netEpa": -.19,
+				"offEpa": -.003,
+				"defEpa": .186
+			},
+			"seasons": [{
+				"y": 2025,
+				"w": 5,
+				"l": 8,
+				"t": 0,
+				"who": "tenure",
+				"win": null,
+				"mine": 13,
+				"rec": [116, 125.92],
+				"tal": [79, 611.31],
+				"epa": {
+					"off": -.0034,
+					"de": .1864,
+					"n": 136
+				}
+			}],
+			"prior": []
+		},
+		{
+			"slug": "arizona",
+			"school": "Arizona",
+			"name": "Brent Brennan",
+			"first": 2024,
+			"firstSeason": 2024,
+			"status": "compared",
+			"n": 2,
+			"completed": 2,
+			"notes": [],
+			"before": {
+				"years": [2022, 2023],
+				"w": 15,
+				"l": 10,
+				"t": 0,
+				"winPct": .6,
+				"recRank": 31,
+				"recPts": 214.55,
+				"talentRank": 45,
+				"netEpa": .093,
+				"offEpa": .227,
+				"defEpa": .134
+			},
+			"after": {
+				"years": [2024, 2025],
+				"w": 13,
+				"l": 12,
+				"t": 0,
+				"winPct": .52,
+				"recRank": 67.5,
+				"recPts": 181.47,
+				"talentRank": 61.5,
+				"netEpa": .076,
+				"offEpa": .112,
+				"defEpa": .036
+			},
+			"tenure": {
+				"years": [2024, 2025],
+				"w": 13,
+				"l": 12,
+				"t": 0,
+				"winPct": .52,
+				"recRank": 67.5,
+				"recPts": 181.47,
+				"talentRank": 61.5,
+				"netEpa": .076,
+				"offEpa": .112,
+				"defEpa": .036
+			},
+			"seasons": [
+				{
+					"y": 2022,
+					"w": 5,
+					"l": 7,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [22, 224.38],
+					"tal": [48, 652.06],
+					"epa": {
+						"off": .1646,
+						"de": .2087,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 10,
+					"l": 3,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [40, 204.72],
+					"tal": [42, 687.01],
+					"epa": {
+						"off": .29,
+						"de": .0602,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 4,
+					"l": 8,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [85, 162.29],
+					"tal": [56, 672.7],
+					"epa": {
+						"off": .0991,
+						"de": .1444,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 9,
+					"l": 4,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [50, 200.65],
+					"tal": [67, 651.62],
+					"epa": {
+						"off": .1243,
+						"de": -.073,
+						"n": 136
+					}
+				}
+			],
+			"prior": [{
+				"school": "San José State",
+				"to": 2023,
+				"w": 34,
+				"l": 48,
+				"t": 0,
+				"from": 2017
+			}]
+		},
+		{
+			"slug": "arizona-state",
+			"school": "Arizona State",
+			"name": "Kenny Dillingham",
+			"first": 2023,
+			"firstSeason": 2023,
+			"status": "compared",
+			"n": 3,
+			"completed": 3,
+			"notes": [],
+			"before": {
+				"years": [2020, 2022],
+				"w": 13,
+				"l": 16,
+				"t": 0,
+				"winPct": .448,
+				"recRank": 58.333,
+				"recPts": 178.54,
+				"talentRank": 29.333,
+				"netEpa": .084,
+				"offEpa": .181,
+				"defEpa": .097
+			},
+			"after": {
+				"years": [2023, 2025],
+				"w": 22,
+				"l": 17,
+				"t": 0,
+				"winPct": .564,
+				"recRank": 45.333,
+				"recPts": 201.363,
+				"talentRank": 35.667,
+				"netEpa": .065,
+				"offEpa": .116,
+				"defEpa": .051
+			},
+			"tenure": {
+				"years": [2023, 2025],
+				"w": 22,
+				"l": 17,
+				"t": 0,
+				"winPct": .564,
+				"recRank": 45.333,
+				"recPts": 201.363,
+				"talentRank": 35.667,
+				"netEpa": .065,
+				"offEpa": .116,
+				"defEpa": .051
+			},
+			"seasons": [
+				{
+					"y": 2020,
+					"w": 2,
+					"l": 2,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [24, 229.47],
+					"tal": [22, 743.24],
+					"epa": {
+						"off": .1934,
+						"de": .0203,
+						"n": 128
+					}
+				},
+				{
+					"y": 2021,
+					"w": 8,
+					"l": 5,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [48, 185.98],
+					"tal": [26, 734.45],
+					"epa": {
+						"off": .2279,
+						"de": .0621,
+						"n": 130
+					}
+				},
+				{
+					"y": 2022,
+					"w": 3,
+					"l": 9,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [103, 120.17],
+					"tal": [40, 670.18],
+					"epa": {
+						"off": .1229,
+						"de": .2084,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 3,
+					"l": 9,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [44, 201.23],
+					"tal": [44, 681.32],
+					"epa": {
+						"off": .0209,
+						"de": .1366,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 11,
+					"l": 3,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 14,
+					"rec": [48, 199.47],
+					"tal": [30, 757.02],
+					"epa": {
+						"off": .2689,
+						"de": -.0073,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 8,
+					"l": 5,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [44, 203.39],
+					"tal": [33, 738.52],
+					"epa": {
+						"off": .0587,
+						"de": .0246,
+						"n": 136
+					}
+				}
+			],
+			"prior": []
+		},
+		{
+			"slug": "arkansas",
+			"school": "Arkansas",
+			"name": "Ryan Silverfield",
+			"first": 2026,
+			"firstSeason": 2026,
+			"status": "too-new",
+			"n": 0,
+			"completed": 0,
+			"notes": ["Only 0 completed full seasons (through 2025); needs at least 2 for the compared view."],
+			"before": null,
+			"after": null,
+			"tenure": null,
+			"seasons": [],
+			"prior": [{
+				"school": "Memphis",
+				"to": 2025,
+				"w": 50,
+				"l": 24,
+				"t": 0,
+				"from": 2020
+			}]
+		},
+		{
+			"slug": "arkansas-state",
+			"school": "Arkansas State",
+			"name": "Butch Jones",
+			"first": 2021,
+			"firstSeason": 2021,
+			"status": "compared",
+			"n": 3,
+			"completed": 5,
+			"notes": [],
+			"before": {
+				"years": [2018, 2020],
+				"w": 20,
+				"l": 17,
+				"t": 0,
+				"winPct": .541,
+				"recRank": 91.667,
+				"recPts": 146.713,
+				"talentRank": 92,
+				"netEpa": -.022,
+				"offEpa": .118,
+				"defEpa": .14
+			},
+			"after": {
+				"years": [2021, 2023],
+				"w": 11,
+				"l": 26,
+				"t": 0,
+				"winPct": .297,
+				"recRank": 82.333,
+				"recPts": 155.763,
+				"talentRank": 87.667,
+				"netEpa": -.225,
+				"offEpa": .037,
+				"defEpa": .262
+			},
+			"tenure": {
+				"years": [2021, 2025],
+				"w": 26,
+				"l": 37,
+				"t": 0,
+				"winPct": .413,
+				"recRank": 80,
+				"recPts": 161.58,
+				"talentRank": 87.4,
+				"netEpa": -.212,
+				"offEpa": .034,
+				"defEpa": .246
+			},
+			"seasons": [
+				{
+					"y": 2018,
+					"w": 8,
+					"l": 5,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [88, 148.03],
+					"tal": [86, 433.73],
+					"epa": {
+						"off": .1107,
+						"de": .0784,
+						"n": 130
+					}
+				},
+				{
+					"y": 2019,
+					"w": 8,
+					"l": 5,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [95, 143.36],
+					"tal": [93, 447.87],
+					"epa": {
+						"off": .0984,
+						"de": .1507,
+						"n": 130
+					}
+				},
+				{
+					"y": 2020,
+					"w": 4,
+					"l": 7,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [92, 148.75],
+					"tal": [97, 389.49],
+					"epa": {
+						"off": .1458,
+						"de": .1915,
+						"n": 128
+					}
+				},
+				{
+					"y": 2021,
+					"w": 2,
+					"l": 10,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [106, 132.61],
+					"tal": [83, 475.74],
+					"epa": {
+						"off": .0039,
+						"de": .3565,
+						"n": 130
+					}
+				},
+				{
+					"y": 2022,
+					"w": 3,
+					"l": 9,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [67, 166.63],
+					"tal": [88, 471.65],
+					"epa": {
+						"off": .0421,
+						"de": .2359,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 6,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [74, 168.05],
+					"tal": [92, 487.4],
+					"epa": {
+						"off": .0661,
+						"de": .1934,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 8,
+					"l": 5,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [78, 167.29],
+					"tal": [86, 573.27],
+					"epa": {
+						"off": .0868,
+						"de": .2674,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 7,
+					"l": 6,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [75, 173.32],
+					"tal": [88, 591.27],
+					"epa": {
+						"off": -.0283,
+						"de": .1773,
+						"n": 136
+					}
+				}
+			],
+			"prior": [
+				{
+					"school": "Central Michigan",
+					"to": 2009,
+					"w": 27,
+					"l": 13,
+					"t": 0,
+					"from": 2007
+				},
+				{
+					"school": "Cincinnati",
+					"to": 2012,
+					"w": 23,
+					"l": 14,
+					"t": 0,
+					"from": 2010
+				},
+				{
+					"school": "Tennessee",
+					"to": 2017,
+					"w": 34,
+					"l": 27,
+					"t": 0,
+					"from": 2013
+				}
+			]
+		},
+		{
+			"slug": "army",
+			"school": "Army",
+			"name": "Jeff Monken",
+			"first": 2014,
+			"firstSeason": 2014,
+			"status": "compared",
+			"n": 3,
+			"completed": 12,
+			"notes": [],
+			"before": {
+				"years": [2011, 2013],
+				"w": 8,
+				"l": 28,
+				"t": 0,
+				"winPct": .222,
+				"recRank": 113.667,
+				"recPts": 65.79,
+				"talentRank": null,
+				"netEpa": null,
+				"offEpa": null,
+				"defEpa": null
+			},
+			"after": {
+				"years": [2014, 2016],
+				"w": 14,
+				"l": 23,
+				"t": 0,
+				"winPct": .378,
+				"recRank": 119.333,
+				"recPts": 98.983,
+				"talentRank": null,
+				"netEpa": null,
+				"offEpa": null,
+				"defEpa": null
+			},
+			"tenure": {
+				"years": [2014, 2025],
+				"w": 89,
+				"l": 63,
+				"t": 0,
+				"winPct": .586,
+				"recRank": 122.667,
+				"recPts": 97.985,
+				"talentRank": null,
+				"netEpa": null,
+				"offEpa": null,
+				"defEpa": null
+			},
+			"seasons": [
+				{
+					"y": 2011,
+					"w": 3,
+					"l": 9,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [88, 77.89],
+					"tal": null,
+					"epa": null
+				},
+				{
+					"y": 2012,
+					"w": 2,
+					"l": 10,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [126, 45.41],
+					"tal": null,
+					"epa": null
+				},
+				{
+					"y": 2013,
+					"w": 3,
+					"l": 9,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [127, 74.07],
+					"tal": null,
+					"epa": null
+				},
+				{
+					"y": 2014,
+					"w": 4,
+					"l": 8,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [121, 87.22],
+					"tal": null,
+					"epa": null
+				},
+				{
+					"y": 2015,
+					"w": 2,
+					"l": 10,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [120, 100.83],
+					"tal": [129, 186.45],
+					"epa": null
+				},
+				{
+					"y": 2016,
+					"w": 8,
+					"l": 5,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [117, 108.9],
+					"tal": [132, 131.74],
+					"epa": {
+						"off": .0537,
+						"de": .1079,
+						"n": 128
+					}
+				},
+				{
+					"y": 2017,
+					"w": 10,
+					"l": 3,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [120, 106.37],
+					"tal": [133, 88.72],
+					"epa": {
+						"off": .1761,
+						"de": .2009,
+						"n": 130
+					}
+				},
+				{
+					"y": 2018,
+					"w": 11,
+					"l": 2,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [117, 118.69],
+					"tal": [128, 230.75],
+					"epa": {
+						"off": .2023,
+						"de": .0767,
+						"n": 130
+					}
+				},
+				{
+					"y": 2019,
+					"w": 5,
+					"l": 8,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [99, 139.75],
+					"tal": [128, 265.19],
+					"epa": {
+						"off": .0523,
+						"de": .1221,
+						"n": 130
+					}
+				},
+				{
+					"y": 2020,
+					"w": 9,
+					"l": 3,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 12,
+					"rec": [111, 139.43],
+					"tal": [128, 152.03],
+					"epa": {
+						"off": .0603,
+						"de": -8e-4,
+						"n": 128
+					}
+				},
+				{
+					"y": 2021,
+					"w": 9,
+					"l": 4,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [109, 131.27],
+					"tal": [150, 111.53],
+					"epa": {
+						"off": .1711,
+						"de": .1381,
+						"n": 130
+					}
+				},
+				{
+					"y": 2022,
+					"w": 6,
+					"l": 6,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 12,
+					"rec": [158, 18.34],
+					"tal": [219, 17.27],
+					"epa": {
+						"off": .0799,
+						"de": .1394,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 6,
+					"l": 6,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 12,
+					"rec": [118, 110.02],
+					"tal": [236, 0],
+					"epa": {
+						"off": -.0246,
+						"de": .1986,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 12,
+					"l": 2,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 14,
+					"rec": [152, 37.76],
+					"tal": [132, 0],
+					"epa": {
+						"off": .2128,
+						"de": .0714,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 7,
+					"l": 6,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [130, 77.24],
+					"tal": [134, 23.66],
+					"epa": {
+						"off": .0734,
+						"de": .0778,
+						"n": 136
+					}
+				}
+			],
+			"prior": []
+		},
+		{
+			"slug": "auburn",
+			"school": "Auburn",
+			"name": "Alex Golesh",
+			"first": 2026,
+			"firstSeason": 2026,
+			"status": "too-new",
+			"n": 0,
+			"completed": 0,
+			"notes": ["Only 0 completed full seasons (through 2025); needs at least 2 for the compared view."],
+			"before": null,
+			"after": null,
+			"tenure": null,
+			"seasons": [],
+			"prior": [{
+				"school": "South Florida",
+				"to": 2025,
+				"w": 23,
+				"l": 15,
+				"t": 0,
+				"from": 2023
+			}]
+		},
+		{
+			"slug": "ball-state",
+			"school": "Ball State",
+			"name": "Mike Uremovich",
+			"first": 2025,
+			"firstSeason": 2025,
+			"status": "too-new",
+			"n": 0,
+			"completed": 1,
+			"notes": ["Only 1 completed full season (through 2025); needs at least 2 for the compared view."],
+			"before": null,
+			"after": null,
+			"tenure": {
+				"years": [2025, 2025],
+				"w": 4,
+				"l": 8,
+				"t": 0,
+				"winPct": .333,
+				"recRank": 119,
+				"recPts": 118.63,
+				"talentRank": 115,
+				"netEpa": -.258,
+				"offEpa": -.104,
+				"defEpa": .154
+			},
+			"seasons": [{
+				"y": 2025,
+				"w": 4,
+				"l": 8,
+				"t": 0,
+				"who": "tenure",
+				"win": null,
+				"mine": 12,
+				"rec": [119, 118.63],
+				"tal": [115, 495.35],
+				"epa": {
+					"off": -.1039,
+					"de": .1542,
+					"n": 136
+				}
+			}],
+			"prior": []
+		},
+		{
+			"slug": "baylor",
+			"school": "Baylor",
+			"name": "Dave Aranda",
+			"first": 2020,
+			"firstSeason": 2020,
+			"status": "compared",
+			"n": 3,
+			"completed": 6,
+			"notes": [],
+			"before": {
+				"years": [2017, 2019],
+				"w": 19,
+				"l": 20,
+				"t": 0,
+				"winPct": .487,
+				"recRank": 34.667,
+				"recPts": 203.923,
+				"talentRank": 34.333,
+				"netEpa": .034,
+				"offEpa": .126,
+				"defEpa": .093
+			},
+			"after": {
+				"years": [2020, 2022],
+				"w": 20,
+				"l": 16,
+				"t": 0,
+				"winPct": .556,
+				"recRank": 45,
+				"recPts": 193.11,
+				"talentRank": 41,
+				"netEpa": .101,
+				"offEpa": .142,
+				"defEpa": .041
+			},
+			"tenure": {
+				"years": [2020, 2025],
+				"w": 36,
+				"l": 37,
+				"t": 0,
+				"winPct": .493,
+				"recRank": 45.5,
+				"recPts": 196.593,
+				"talentRank": 41.333,
+				"netEpa": .053,
+				"offEpa": .144,
+				"defEpa": .091
+			},
+			"seasons": [
+				{
+					"y": 2017,
+					"w": 1,
+					"l": 11,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [40, 193.36],
+					"tal": [35, 657.22],
+					"epa": {
+						"off": .0439,
+						"de": .1265,
+						"n": 130
+					}
+				},
+				{
+					"y": 2018,
+					"w": 7,
+					"l": 6,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [29, 215.02],
+					"tal": [33, 668.37],
+					"epa": {
+						"off": .1662,
+						"de": .1848,
+						"n": 130
+					}
+				},
+				{
+					"y": 2019,
+					"w": 11,
+					"l": 3,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [35, 203.39],
+					"tal": [35, 668.9],
+					"epa": {
+						"off": .1689,
+						"de": -.0335,
+						"n": 130
+					}
+				},
+				{
+					"y": 2020,
+					"w": 2,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 9,
+					"rec": [54, 181.12],
+					"tal": [41, 642.13],
+					"epa": {
+						"off": .0644,
+						"de": .0514,
+						"n": 128
+					}
+				},
+				{
+					"y": 2021,
+					"w": 12,
+					"l": 2,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 14,
+					"rec": [44, 190.18],
+					"tal": [41, 660.65],
+					"epa": {
+						"off": .2053,
+						"de": .013,
+						"n": 130
+					}
+				},
+				{
+					"y": 2022,
+					"w": 6,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [37, 208.03],
+					"tal": [41, 666.05],
+					"epa": {
+						"off": .1556,
+						"de": .0588,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 3,
+					"l": 9,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 12,
+					"rec": [35, 210.79],
+					"tal": [46, 678],
+					"epa": {
+						"off": .0537,
+						"de": .1957,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 8,
+					"l": 5,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [67, 179.04],
+					"tal": [44, 709.46],
+					"epa": {
+						"off": .216,
+						"de": .0951,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 5,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 12,
+					"rec": [36, 210.4],
+					"tal": [35, 726.3],
+					"epa": {
+						"off": .1703,
+						"de": .1313,
+						"n": 136
+					}
+				}
+			],
+			"prior": []
+		},
+		{
+			"slug": "boise-state",
+			"school": "Boise State",
+			"name": "Spencer Danielson",
+			"first": 2023,
+			"firstSeason": 2024,
+			"status": "compared",
+			"n": 2,
+			"completed": 2,
+			"notes": ["Started partway through 2023: coached 4 of 14 games that season (interim or mid-season hire). That season is shown but excluded from both windows."],
+			"before": {
+				"years": [2021, 2022],
+				"w": 17,
+				"l": 9,
+				"t": 0,
+				"winPct": .654,
+				"recRank": 66,
+				"recPts": 167.825,
+				"talentRank": 71.5,
+				"netEpa": .131,
+				"offEpa": .178,
+				"defEpa": .047
+			},
+			"after": {
+				"years": [2024, 2025],
+				"w": 21,
+				"l": 7,
+				"t": 0,
+				"winPct": .75,
+				"recRank": 63,
+				"recPts": 185.125,
+				"talentRank": 79,
+				"netEpa": .11,
+				"offEpa": .162,
+				"defEpa": .051
+			},
+			"tenure": {
+				"years": [2024, 2025],
+				"w": 21,
+				"l": 7,
+				"t": 0,
+				"winPct": .75,
+				"recRank": 63,
+				"recPts": 185.125,
+				"talentRank": 79,
+				"netEpa": .11,
+				"offEpa": .162,
+				"defEpa": .051
+			},
+			"seasons": [
+				{
+					"y": 2021,
+					"w": 7,
+					"l": 5,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [70, 161.13],
+					"tal": [70, 557.69],
+					"epa": {
+						"off": .1867,
+						"de": .0391,
+						"n": 130
+					}
+				},
+				{
+					"y": 2022,
+					"w": 10,
+					"l": 4,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [62, 174.52],
+					"tal": [73, 533.92],
+					"epa": {
+						"off": .1691,
+						"de": .0545,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 8,
+					"l": 6,
+					"t": 0,
+					"who": "transition",
+					"win": null,
+					"mine": 4,
+					"rec": [67, 179.7],
+					"tal": [72, 579.88],
+					"epa": {
+						"off": .1841,
+						"de": .0972,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 12,
+					"l": 2,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 14,
+					"rec": [64, 181.19],
+					"tal": [77, 608.26],
+					"epa": {
+						"off": .2467,
+						"de": .0822,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 9,
+					"l": 5,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 14,
+					"rec": [62, 189.06],
+					"tal": [81, 610.65],
+					"epa": {
+						"off": .0771,
+						"de": .0208,
+						"n": 136
+					}
+				}
+			],
+			"prior": []
+		},
+		{
+			"slug": "boston-college",
+			"school": "Boston College",
+			"name": "Bill O'Brien",
+			"first": 2024,
+			"firstSeason": 2024,
+			"status": "compared",
+			"n": 2,
+			"completed": 2,
+			"notes": [],
+			"before": {
+				"years": [2022, 2023],
+				"w": 10,
+				"l": 15,
+				"t": 0,
+				"winPct": .4,
+				"recRank": 50.5,
+				"recPts": 193.925,
+				"talentRank": 48.5,
+				"netEpa": -.076,
+				"offEpa": .085,
+				"defEpa": .162
+			},
+			"after": {
+				"years": [2024, 2025],
+				"w": 9,
+				"l": 16,
+				"t": 0,
+				"winPct": .36,
+				"recRank": 77,
+				"recPts": 174.16,
+				"talentRank": 63.5,
+				"netEpa": -.053,
+				"offEpa": .084,
+				"defEpa": .137
+			},
+			"tenure": {
+				"years": [2024, 2025],
+				"w": 9,
+				"l": 16,
+				"t": 0,
+				"winPct": .36,
+				"recRank": 77,
+				"recPts": 174.16,
+				"talentRank": 63.5,
+				"netEpa": -.053,
+				"offEpa": .084,
+				"defEpa": .137
+			},
+			"seasons": [
+				{
+					"y": 2022,
+					"w": 3,
+					"l": 9,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [40, 202.55],
+					"tal": [42, 664.63],
+					"epa": {
+						"off": .0359,
+						"de": .1408,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 7,
+					"l": 6,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [61, 185.3],
+					"tal": [55, 650.23],
+					"epa": {
+						"off": .1346,
+						"de": .1822,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 7,
+					"l": 6,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [95, 153.23],
+					"tal": [58, 667.91],
+					"epa": {
+						"off": .0597,
+						"de": .0816,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 2,
+					"l": 10,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [59, 195.09],
+					"tal": [69, 650.12],
+					"epa": {
+						"off": .1081,
+						"de": .1915,
+						"n": 136
+					}
+				}
+			],
+			"prior": [{
+				"school": "Penn State",
+				"to": 2013,
+				"w": 15,
+				"l": 9,
+				"t": 0,
+				"from": 2012
+			}]
+		},
+		{
+			"slug": "bowling-green",
+			"school": "Bowling Green",
+			"name": "Eddie George",
+			"first": 2025,
+			"firstSeason": 2025,
+			"status": "too-new",
+			"n": 0,
+			"completed": 1,
+			"notes": ["Only 1 completed full season (through 2025); needs at least 2 for the compared view."],
+			"before": null,
+			"after": null,
+			"tenure": {
+				"years": [2025, 2025],
+				"w": 4,
+				"l": 8,
+				"t": 0,
+				"winPct": .333,
+				"recRank": 94,
+				"recPts": 154.51,
+				"talentRank": 107,
+				"netEpa": -.241,
+				"offEpa": -.083,
+				"defEpa": .158
+			},
+			"seasons": [{
+				"y": 2025,
+				"w": 4,
+				"l": 8,
+				"t": 0,
+				"who": "tenure",
+				"win": null,
+				"mine": 12,
+				"rec": [94, 154.51],
+				"tal": [107, 527.31],
+				"epa": {
+					"off": -.0832,
+					"de": .1583,
+					"n": 136
+				}
+			}],
+			"prior": []
+		},
+		{
+			"slug": "buffalo",
+			"school": "Buffalo",
+			"name": "Pete Lembo",
+			"first": 2024,
+			"firstSeason": 2024,
+			"status": "compared",
+			"n": 2,
+			"completed": 2,
+			"notes": [],
+			"before": {
+				"years": [2022, 2023],
+				"w": 10,
+				"l": 15,
+				"t": 0,
+				"winPct": .4,
+				"recRank": 82.5,
+				"recPts": 154.255,
+				"talentRank": 123.5,
+				"netEpa": -.137,
+				"offEpa": -.046,
+				"defEpa": .091
+			},
+			"after": {
+				"years": [2024, 2025],
+				"w": 14,
+				"l": 11,
+				"t": 0,
+				"winPct": .56,
+				"recRank": 101,
+				"recPts": 148.14,
+				"talentRank": 119,
+				"netEpa": -.168,
+				"offEpa": -.026,
+				"defEpa": .142
+			},
+			"tenure": {
+				"years": [2024, 2025],
+				"w": 14,
+				"l": 11,
+				"t": 0,
+				"winPct": .56,
+				"recRank": 101,
+				"recPts": 148.14,
+				"talentRank": 119,
+				"netEpa": -.168,
+				"offEpa": -.026,
+				"defEpa": .142
+			},
+			"seasons": [
+				{
+					"y": 2022,
+					"w": 7,
+					"l": 6,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [81, 147.86],
+					"tal": [117, 370.96],
+					"epa": {
+						"off": .0127,
+						"de": .0882,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 3,
+					"l": 9,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [84, 160.65],
+					"tal": [130, 296.09],
+					"epa": {
+						"off": -.1043,
+						"de": .0941,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 9,
+					"l": 4,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [110, 140.65],
+					"tal": [126, 435.22],
+					"epa": {
+						"off": .0313,
+						"de": .1393,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 5,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [92, 155.63],
+					"tal": [112, 513.33],
+					"epa": {
+						"off": -.0833,
+						"de": .1452,
+						"n": 136
+					}
+				}
+			],
+			"prior": [{
+				"school": "Ball State",
+				"to": 2015,
+				"w": 33,
+				"l": 29,
+				"t": 0,
+				"from": 2011
+			}]
+		},
+		{
+			"slug": "byu",
+			"school": "BYU",
+			"name": "Kalani Sitake",
+			"first": 2016,
+			"firstSeason": 2016,
+			"status": "compared",
+			"n": 3,
+			"completed": 10,
+			"notes": [],
+			"before": {
+				"years": [2013, 2015],
+				"w": 25,
+				"l": 14,
+				"t": 0,
+				"winPct": .641,
+				"recRank": 65,
+				"recPts": 159.773,
+				"talentRank": null,
+				"netEpa": null,
+				"offEpa": null,
+				"defEpa": null
+			},
+			"after": {
+				"years": [2016, 2018],
+				"w": 20,
+				"l": 19,
+				"t": 0,
+				"winPct": .513,
+				"recRank": 64.333,
+				"recPts": 168.58,
+				"talentRank": 56.667,
+				"netEpa": -.014,
+				"offEpa": .047,
+				"defEpa": .061
+			},
+			"tenure": {
+				"years": [2016, 2025],
+				"w": 84,
+				"l": 45,
+				"t": 0,
+				"winPct": .651,
+				"recRank": 64.3,
+				"recPts": 174.343,
+				"talentRank": 73.5,
+				"netEpa": .072,
+				"offEpa": .141,
+				"defEpa": .069
+			},
+			"seasons": [
+				{
+					"y": 2013,
+					"w": 8,
+					"l": 5,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [66, 152.55],
+					"tal": null,
+					"epa": null
+				},
+				{
+					"y": 2014,
+					"w": 8,
+					"l": 5,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [64, 161.71],
+					"tal": null,
+					"epa": null
+				},
+				{
+					"y": 2015,
+					"w": 9,
+					"l": 4,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [65, 165.06],
+					"tal": [63, 521.43],
+					"epa": null
+				},
+				{
+					"y": 2016,
+					"w": 9,
+					"l": 4,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [49, 177.85],
+					"tal": [61, 529.05],
+					"epa": {
+						"off": .093,
+						"de": -.0024,
+						"n": 128
+					}
+				},
+				{
+					"y": 2017,
+					"w": 4,
+					"l": 9,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [66, 167.37],
+					"tal": [53, 574.09],
+					"epa": {
+						"off": -.0831,
+						"de": .1061,
+						"n": 130
+					}
+				},
+				{
+					"y": 2018,
+					"w": 7,
+					"l": 6,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [78, 160.52],
+					"tal": [56, 565.85],
+					"epa": {
+						"off": .1311,
+						"de": .0791,
+						"n": 130
+					}
+				},
+				{
+					"y": 2019,
+					"w": 7,
+					"l": 6,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [81, 156.76],
+					"tal": [68, 560.78],
+					"epa": {
+						"off": .1096,
+						"de": .102,
+						"n": 130
+					}
+				},
+				{
+					"y": 2020,
+					"w": 11,
+					"l": 1,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 12,
+					"rec": [78, 159.91],
+					"tal": [75, 510.95],
+					"epa": {
+						"off": .3225,
+						"de": .0214,
+						"n": 128
+					}
+				},
+				{
+					"y": 2021,
+					"w": 10,
+					"l": 3,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [71, 159.77],
+					"tal": [94, 443.13],
+					"epa": {
+						"off": .3054,
+						"de": .1523,
+						"n": 130
+					}
+				},
+				{
+					"y": 2022,
+					"w": 8,
+					"l": 5,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [55, 181.5],
+					"tal": [107, 415.19],
+					"epa": {
+						"off": .1764,
+						"de": .1873,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 5,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 12,
+					"rec": [66, 179.88],
+					"tal": [73, 576.25],
+					"epa": {
+						"off": -.0011,
+						"de": .0805,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 11,
+					"l": 2,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [44, 202.7],
+					"tal": [78, 602.46],
+					"epa": {
+						"off": .1592,
+						"de": -.0304,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 12,
+					"l": 2,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 14,
+					"rec": [55, 197.17],
+					"tal": [70, 649.36],
+					"epa": {
+						"off": .2,
+						"de": -.0067,
+						"n": 136
+					}
+				}
+			],
+			"prior": []
+		},
+		{
+			"slug": "california",
+			"school": "California",
+			"name": "Tosh Lupoi",
+			"first": 2026,
+			"firstSeason": 2026,
+			"status": "too-new",
+			"n": 0,
+			"completed": 0,
+			"notes": ["Only 0 completed full seasons (through 2025); needs at least 2 for the compared view."],
+			"before": null,
+			"after": null,
+			"tenure": null,
+			"seasons": [],
+			"prior": []
+		},
+		{
+			"slug": "central-michigan",
+			"school": "Central Michigan",
+			"name": "Matt Drinkall",
+			"first": 2025,
+			"firstSeason": 2025,
+			"status": "too-new",
+			"n": 0,
+			"completed": 1,
+			"notes": ["Only 1 completed full season (through 2025); needs at least 2 for the compared view."],
+			"before": null,
+			"after": null,
+			"tenure": {
+				"years": [2025, 2025],
+				"w": 7,
+				"l": 6,
+				"t": 0,
+				"winPct": .538,
+				"recRank": 113,
+				"recPts": 128.41,
+				"talentRank": 121,
+				"netEpa": -.087,
+				"offEpa": .018,
+				"defEpa": .105
+			},
+			"seasons": [{
+				"y": 2025,
+				"w": 7,
+				"l": 6,
+				"t": 0,
+				"who": "tenure",
+				"win": null,
+				"mine": 13,
+				"rec": [113, 128.41],
+				"tal": [121, 481.16],
+				"epa": {
+					"off": .0177,
+					"de": .1046,
+					"n": 136
+				}
+			}],
+			"prior": []
+		},
+		{
+			"slug": "charlotte",
+			"school": "Charlotte",
+			"name": "Tim Albin",
+			"first": 2025,
+			"firstSeason": 2025,
+			"status": "too-new",
+			"n": 0,
+			"completed": 1,
+			"notes": ["Only 1 completed full season (through 2025); needs at least 2 for the compared view."],
+			"before": null,
+			"after": null,
+			"tenure": {
+				"years": [2025, 2025],
+				"w": 1,
+				"l": 11,
+				"t": 0,
+				"winPct": .083,
+				"recRank": 144,
+				"recPts": 38.64,
+				"talentRank": 108,
+				"netEpa": -.273,
+				"offEpa": -.124,
+				"defEpa": .149
+			},
+			"seasons": [{
+				"y": 2025,
+				"w": 1,
+				"l": 11,
+				"t": 0,
+				"who": "tenure",
+				"win": null,
+				"mine": 12,
+				"rec": [144, 38.64],
+				"tal": [108, 526.3],
+				"epa": {
+					"off": -.124,
+					"de": .1494,
+					"n": 136
+				}
+			}],
+			"prior": [{
+				"school": "Ohio",
+				"to": 2024,
+				"w": 34,
+				"l": 19,
+				"t": 0,
+				"from": 2021
+			}]
+		},
+		{
+			"slug": "cincinnati",
+			"school": "Cincinnati",
+			"name": "Scott Satterfield",
+			"first": 2023,
+			"firstSeason": 2023,
+			"status": "compared",
+			"n": 3,
+			"completed": 3,
+			"notes": [],
+			"before": {
+				"years": [2020, 2022],
+				"w": 31,
+				"l": 6,
+				"t": 0,
+				"winPct": .838,
+				"recRank": 41.333,
+				"recPts": 194.453,
+				"talentRank": 53,
+				"netEpa": .199,
+				"offEpa": .177,
+				"defEpa": -.021
+			},
+			"after": {
+				"years": [2023, 2025],
+				"w": 15,
+				"l": 22,
+				"t": 0,
+				"winPct": .405,
+				"recRank": 62.333,
+				"recPts": 184.76,
+				"talentRank": 61.333,
+				"netEpa": .022,
+				"offEpa": .168,
+				"defEpa": .146
+			},
+			"tenure": {
+				"years": [2023, 2025],
+				"w": 15,
+				"l": 22,
+				"t": 0,
+				"winPct": .405,
+				"recRank": 62.333,
+				"recPts": 184.76,
+				"talentRank": 61.333,
+				"netEpa": .022,
+				"offEpa": .168,
+				"defEpa": .146
+			},
+			"seasons": [
+				{
+					"y": 2020,
+					"w": 9,
+					"l": 1,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [40, 194.95],
+					"tal": [58, 600.61],
+					"epa": {
+						"off": .1968,
+						"de": -.0625,
+						"n": 128
+					}
+				},
+				{
+					"y": 2021,
+					"w": 13,
+					"l": 1,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [42, 190.66],
+					"tal": [52, 626.54],
+					"epa": {
+						"off": .2502,
+						"de": -.0263,
+						"n": 130
+					}
+				},
+				{
+					"y": 2022,
+					"w": 9,
+					"l": 4,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [42, 197.75],
+					"tal": [49, 650.89],
+					"epa": {
+						"off": .0848,
+						"de": .0245,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 3,
+					"l": 9,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [75, 167.89],
+					"tal": [51, 663.68],
+					"epa": {
+						"off": .1203,
+						"de": .2141,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 5,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [51, 196.87],
+					"tal": [60, 662.34],
+					"epa": {
+						"off": .1695,
+						"de": .0641,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 7,
+					"l": 6,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [61, 189.52],
+					"tal": [73, 644.1],
+					"epa": {
+						"off": .2152,
+						"de": .1601,
+						"n": 136
+					}
+				}
+			],
+			"prior": [{
+				"school": "App State",
+				"to": 2018,
+				"w": 47,
+				"l": 16,
+				"t": 0,
+				"from": 2014
+			}, {
+				"school": "Louisville",
+				"to": 2022,
+				"w": 25,
+				"l": 24,
+				"t": 0,
+				"from": 2019
+			}]
+		},
+		{
+			"slug": "clemson",
+			"school": "Clemson",
+			"name": "Dabo Swinney",
+			"first": 2008,
+			"firstSeason": 2009,
+			"status": "compared",
+			"n": 3,
+			"completed": 17,
+			"notes": ["Started partway through 2008: coached 7 of 13 games that season (interim or mid-season hire). That season is shown but excluded from both windows."],
+			"before": {
+				"years": [2005, 2007],
+				"w": 25,
+				"l": 13,
+				"t": 0,
+				"winPct": .658,
+				"recRank": 15,
+				"recPts": 223.647,
+				"talentRank": null,
+				"netEpa": null,
+				"offEpa": null,
+				"defEpa": null
+			},
+			"after": {
+				"years": [2009, 2011],
+				"w": 25,
+				"l": 16,
+				"t": 0,
+				"winPct": .61,
+				"recRank": 24.333,
+				"recPts": 231.877,
+				"talentRank": null,
+				"netEpa": null,
+				"offEpa": null,
+				"defEpa": null
+			},
+			"tenure": {
+				"years": [2009, 2025],
+				"w": 183,
+				"l": 50,
+				"t": 0,
+				"winPct": .785,
+				"recRank": 14.294,
+				"recPts": 259.39,
+				"talentRank": null,
+				"netEpa": null,
+				"offEpa": null,
+				"defEpa": null
+			},
+			"seasons": [
+				{
+					"y": 2005,
+					"w": 8,
+					"l": 4,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [15, 217.21],
+					"tal": null,
+					"epa": null
+				},
+				{
+					"y": 2006,
+					"w": 8,
+					"l": 5,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [14, 232.26],
+					"tal": null,
+					"epa": null
+				},
+				{
+					"y": 2007,
+					"w": 9,
+					"l": 4,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [16, 221.47],
+					"tal": null,
+					"epa": null
+				},
+				{
+					"y": 2008,
+					"w": 7,
+					"l": 6,
+					"t": 0,
+					"who": "transition",
+					"win": null,
+					"mine": 7,
+					"rec": [9, 271.35],
+					"tal": null,
+					"epa": null
+				},
+				{
+					"y": 2009,
+					"w": 9,
+					"l": 5,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 14,
+					"rec": [36, 207.86],
+					"tal": null,
+					"epa": null
+				},
+				{
+					"y": 2010,
+					"w": 6,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [27, 218.08],
+					"tal": null,
+					"epa": null
+				},
+				{
+					"y": 2011,
+					"w": 10,
+					"l": 4,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 14,
+					"rec": [10, 269.69],
+					"tal": null,
+					"epa": null
+				},
+				{
+					"y": 2012,
+					"w": 11,
+					"l": 2,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [20, 241.73],
+					"tal": null,
+					"epa": null
+				},
+				{
+					"y": 2013,
+					"w": 11,
+					"l": 2,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [15, 249.66],
+					"tal": null,
+					"epa": null
+				},
+				{
+					"y": 2014,
+					"w": 10,
+					"l": 3,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [16, 240.73],
+					"tal": null,
+					"epa": null
+				},
+				{
+					"y": 2015,
+					"w": 14,
+					"l": 1,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 15,
+					"rec": [9, 277.98],
+					"tal": [13, 807.56],
+					"epa": null
+				},
+				{
+					"y": 2016,
+					"w": 14,
+					"l": 1,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 15,
+					"rec": [11, 271.16],
+					"tal": [9, 846],
+					"epa": {
+						"off": .2431,
+						"de": -.0722,
+						"n": 128
+					}
+				},
+				{
+					"y": 2017,
+					"w": 12,
+					"l": 2,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 14,
+					"rec": [16, 238.91],
+					"tal": [9, 853.65],
+					"epa": {
+						"off": .2144,
+						"de": -.1268,
+						"n": 130
+					}
+				},
+				{
+					"y": 2018,
+					"w": 15,
+					"l": 0,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 15,
+					"rec": [7, 283.67],
+					"tal": [5, 893.21],
+					"epa": {
+						"off": .3231,
+						"de": -.1447,
+						"n": 130
+					}
+				},
+				{
+					"y": 2019,
+					"w": 14,
+					"l": 1,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 15,
+					"rec": [10, 275.55],
+					"tal": [9, 863.03],
+					"epa": {
+						"off": .2846,
+						"de": -.1475,
+						"n": 130
+					}
+				},
+				{
+					"y": 2020,
+					"w": 10,
+					"l": 2,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 12,
+					"rec": [3, 309.73],
+					"tal": [4, 915.57],
+					"epa": {
+						"off": .2719,
+						"de": -.0719,
+						"n": 128
+					}
+				},
+				{
+					"y": 2021,
+					"w": 10,
+					"l": 3,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [5, 291.2],
+					"tal": [4, 935.08],
+					"epa": {
+						"off": .0762,
+						"de": -.0484,
+						"n": 130
+					}
+				},
+				{
+					"y": 2022,
+					"w": 11,
+					"l": 3,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 14,
+					"rec": [10, 260.87],
+					"tal": [5, 943],
+					"epa": {
+						"off": .1382,
+						"de": -.0275,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 9,
+					"l": 4,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [11, 273.39],
+					"tal": [5, 917.88],
+					"epa": {
+						"off": .0704,
+						"de": -.0466,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 10,
+					"l": 4,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 14,
+					"rec": [11, 272.19],
+					"tal": [5, 924.63],
+					"epa": {
+						"off": .2193,
+						"de": .0762,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 7,
+					"l": 6,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [26, 227.23],
+					"tal": [7, 918.43],
+					"epa": {
+						"off": .1066,
+						"de": .0113,
+						"n": 136
+					}
+				}
+			],
+			"prior": []
+		},
+		{
+			"slug": "coastal-carolina",
+			"school": "Coastal Carolina",
+			"name": "Ryan Beard",
+			"first": 2026,
+			"firstSeason": 2026,
+			"status": "too-new",
+			"n": 0,
+			"completed": 0,
+			"notes": ["Only 0 completed full seasons (through 2025); needs at least 2 for the compared view."],
+			"before": null,
+			"after": null,
+			"tenure": null,
+			"seasons": [],
+			"prior": [{
+				"school": "Missouri State",
+				"to": 2025,
+				"w": 7,
+				"l": 5,
+				"t": 0,
+				"from": 2025
+			}]
+		},
+		{
+			"slug": "colorado",
+			"school": "Colorado",
+			"name": "Deion Sanders",
+			"first": 2023,
+			"firstSeason": 2023,
+			"status": "compared",
+			"n": 3,
+			"completed": 3,
+			"notes": [],
+			"before": {
+				"years": [2020, 2022],
+				"w": 9,
+				"l": 21,
+				"t": 0,
+				"winPct": .3,
+				"recRank": 49.333,
+				"recPts": 187.553,
+				"talentRank": 51,
+				"netEpa": -.139,
+				"offEpa": .018,
+				"defEpa": .158
+			},
+			"after": {
+				"years": [2023, 2025],
+				"w": 16,
+				"l": 21,
+				"t": 0,
+				"winPct": .432,
+				"recRank": 49,
+				"recPts": 197.96,
+				"talentRank": 32,
+				"netEpa": .063,
+				"offEpa": .128,
+				"defEpa": .065
+			},
+			"tenure": {
+				"years": [2023, 2025],
+				"w": 16,
+				"l": 21,
+				"t": 0,
+				"winPct": .432,
+				"recRank": 49,
+				"recPts": 197.96,
+				"talentRank": 32,
+				"netEpa": .063,
+				"offEpa": .128,
+				"defEpa": .065
+			},
+			"seasons": [
+				{
+					"y": 2020,
+					"w": 4,
+					"l": 2,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [36, 203.17],
+					"tal": [45, 630.39],
+					"epa": {
+						"off": .051,
+						"de": .0392,
+						"n": 128
+					}
+				},
+				{
+					"y": 2021,
+					"w": 4,
+					"l": 8,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [65, 167.11],
+					"tal": [47, 640.85],
+					"epa": {
+						"off": .0355,
+						"de": .1754,
+						"n": 130
+					}
+				},
+				{
+					"y": 2022,
+					"w": 1,
+					"l": 11,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [47, 192.38],
+					"tal": [61, 616.28],
+					"epa": {
+						"off": -.0317,
+						"de": .2584,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 4,
+					"l": 8,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [29, 219.75],
+					"tal": [35, 711.87],
+					"epa": {
+						"off": .1591,
+						"de": .1442,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 9,
+					"l": 4,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [81, 165.05],
+					"tal": [31, 749.16],
+					"epa": {
+						"off": .1781,
+						"de": -.0669,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 3,
+					"l": 9,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [37, 209.08],
+					"tal": [30, 755.2],
+					"epa": {
+						"off": .047,
+						"de": .1177,
+						"n": 136
+					}
+				}
+			],
+			"prior": []
+		},
+		{
+			"slug": "colorado-state",
+			"school": "Colorado State",
+			"name": "Jim Mora",
+			"first": 2026,
+			"firstSeason": 2026,
+			"status": "too-new",
+			"n": 0,
+			"completed": 0,
+			"notes": ["Only 0 completed full seasons (through 2025); needs at least 2 for the compared view."],
+			"before": null,
+			"after": null,
+			"tenure": null,
+			"seasons": [],
+			"prior": [{
+				"school": "UCLA",
+				"to": 2017,
+				"w": 46,
+				"l": 30,
+				"t": 0,
+				"from": 2012
+			}, {
+				"school": "UConn",
+				"to": 2025,
+				"w": 27,
+				"l": 23,
+				"t": 0,
+				"from": 2022
+			}]
+		},
+		{
+			"slug": "delaware",
+			"school": "Delaware",
+			"name": "Ryan Carty",
+			"first": 2025,
+			"firstSeason": 2025,
+			"status": "too-new",
+			"n": 0,
+			"completed": 1,
+			"notes": ["Only 1 completed full season (through 2025); needs at least 2 for the compared view."],
+			"before": null,
+			"after": null,
+			"tenure": {
+				"years": [2025, 2025],
+				"w": 7,
+				"l": 6,
+				"t": 0,
+				"winPct": .538,
+				"recRank": 137,
+				"recPts": 51.97,
+				"talentRank": 133,
+				"netEpa": -.17,
+				"offEpa": .065,
+				"defEpa": .235
+			},
+			"seasons": [{
+				"y": 2025,
+				"w": 7,
+				"l": 6,
+				"t": 0,
+				"who": "tenure",
+				"win": null,
+				"mine": 13,
+				"rec": [137, 51.97],
+				"tal": [133, 242.85],
+				"epa": {
+					"off": .0652,
+					"de": .2355,
+					"n": 136
+				}
+			}],
+			"prior": []
+		},
+		{
+			"slug": "duke",
+			"school": "Duke",
+			"name": "Manny Diaz",
+			"first": 2024,
+			"firstSeason": 2024,
+			"status": "compared",
+			"n": 2,
+			"completed": 2,
+			"notes": [],
+			"before": {
+				"years": [2022, 2023],
+				"w": 17,
+				"l": 9,
+				"t": 0,
+				"winPct": .654,
+				"recRank": 54,
+				"recPts": 189.29,
+				"talentRank": 64.5,
+				"netEpa": .108,
+				"offEpa": .172,
+				"defEpa": .064
+			},
+			"after": {
+				"years": [2024, 2025],
+				"w": 18,
+				"l": 9,
+				"t": 0,
+				"winPct": .667,
+				"recRank": 45.5,
+				"recPts": 202.42,
+				"talentRank": 64,
+				"netEpa": .056,
+				"offEpa": .118,
+				"defEpa": .062
+			},
+			"tenure": {
+				"years": [2024, 2025],
+				"w": 18,
+				"l": 9,
+				"t": 0,
+				"winPct": .667,
+				"recRank": 45.5,
+				"recPts": 202.42,
+				"talentRank": 64,
+				"netEpa": .056,
+				"offEpa": .118,
+				"defEpa": .062
+			},
+			"seasons": [
+				{
+					"y": 2022,
+					"w": 9,
+					"l": 4,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [52, 186.78],
+					"tal": [62, 603.98],
+					"epa": {
+						"off": .198,
+						"de": .0726,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 8,
+					"l": 5,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [56, 191.8],
+					"tal": [67, 620.9],
+					"epa": {
+						"off": .147,
+						"de": .0558,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 9,
+					"l": 4,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [61, 183.9],
+					"tal": [70, 635.89],
+					"epa": {
+						"off": .0372,
+						"de": -.0015,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 9,
+					"l": 5,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 14,
+					"rec": [30, 220.94],
+					"tal": [58, 669.18],
+					"epa": {
+						"off": .1997,
+						"de": .1263,
+						"n": 136
+					}
+				}
+			],
+			"prior": [{
+				"school": "Miami",
+				"to": 2021,
+				"w": 21,
+				"l": 15,
+				"t": 0,
+				"from": 2019
+			}]
+		},
+		{
+			"slug": "east-carolina",
+			"school": "East Carolina",
+			"name": "Blake Harrell",
+			"first": 2024,
+			"firstSeason": 2025,
+			"status": "too-new",
+			"n": 0,
+			"completed": 1,
+			"notes": ["Only 1 completed full season (through 2025); needs at least 2 for the compared view.", "Started partway through 2024: coached 6 of 13 games that season (interim or mid-season hire). That season is shown but excluded from both windows."],
+			"before": null,
+			"after": null,
+			"tenure": {
+				"years": [2025, 2025],
+				"w": 9,
+				"l": 4,
+				"t": 0,
+				"winPct": .692,
+				"recRank": 77,
+				"recPts": 172.8,
+				"talentRank": 78,
+				"netEpa": .112,
+				"offEpa": .109,
+				"defEpa": -.002
+			},
+			"seasons": [{
+				"y": 2024,
+				"w": 8,
+				"l": 5,
+				"t": 0,
+				"who": "transition",
+				"win": null,
+				"mine": 6,
+				"rec": [73, 171.38],
+				"tal": [74, 611.66],
+				"epa": {
+					"off": .1117,
+					"de": .1517,
+					"n": 134
+				}
+			}, {
+				"y": 2025,
+				"w": 9,
+				"l": 4,
+				"t": 0,
+				"who": "tenure",
+				"win": null,
+				"mine": 13,
+				"rec": [77, 172.8],
+				"tal": [78, 611.55],
+				"epa": {
+					"off": .1093,
+					"de": -.0022,
+					"n": 136
+				}
+			}],
+			"prior": []
+		},
+		{
+			"slug": "eastern-michigan",
+			"school": "Eastern Michigan",
+			"name": "Chris Creighton",
+			"first": 2014,
+			"firstSeason": 2014,
+			"status": "compared",
+			"n": 3,
+			"completed": 12,
+			"notes": [],
+			"before": {
+				"years": [2011, 2013],
+				"w": 10,
+				"l": 26,
+				"t": 0,
+				"winPct": .278,
+				"recRank": 110.667,
+				"recPts": 83.073,
+				"talentRank": null,
+				"netEpa": null,
+				"offEpa": null,
+				"defEpa": null
+			},
+			"after": {
+				"years": [2014, 2016],
+				"w": 10,
+				"l": 27,
+				"t": 0,
+				"winPct": .27,
+				"recRank": 120,
+				"recPts": 99.31,
+				"talentRank": null,
+				"netEpa": null,
+				"offEpa": null,
+				"defEpa": null
+			},
+			"tenure": {
+				"years": [2014, 2025],
+				"w": 61,
+				"l": 83,
+				"t": 0,
+				"winPct": .424,
+				"recRank": 112.333,
+				"recPts": 121.278,
+				"talentRank": null,
+				"netEpa": null,
+				"offEpa": null,
+				"defEpa": null
+			},
+			"seasons": [
+				{
+					"y": 2011,
+					"w": 6,
+					"l": 6,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [111, 53.69],
+					"tal": null,
+					"epa": null
+				},
+				{
+					"y": 2012,
+					"w": 2,
+					"l": 10,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [108, 96.95],
+					"tal": null,
+					"epa": null
+				},
+				{
+					"y": 2013,
+					"w": 2,
+					"l": 10,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [113, 98.58],
+					"tal": null,
+					"epa": null
+				},
+				{
+					"y": 2014,
+					"w": 2,
+					"l": 10,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [124, 84.89],
+					"tal": null,
+					"epa": null
+				},
+				{
+					"y": 2015,
+					"w": 1,
+					"l": 11,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [115, 110.15],
+					"tal": [109, 341.36],
+					"epa": null
+				},
+				{
+					"y": 2016,
+					"w": 7,
+					"l": 6,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [121, 102.89],
+					"tal": [114, 347.7],
+					"epa": {
+						"off": .0812,
+						"de": .1944,
+						"n": 128
+					}
+				},
+				{
+					"y": 2017,
+					"w": 5,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 12,
+					"rec": [123, 100.97],
+					"tal": [118, 292.11],
+					"epa": {
+						"off": -.0031,
+						"de": .065,
+						"n": 130
+					}
+				},
+				{
+					"y": 2018,
+					"w": 7,
+					"l": 6,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [110, 121.54],
+					"tal": [119, 344.06],
+					"epa": {
+						"off": .0244,
+						"de": .0212,
+						"n": 130
+					}
+				},
+				{
+					"y": 2019,
+					"w": 6,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [123, 124.99],
+					"tal": [121, 317.49],
+					"epa": {
+						"off": .1208,
+						"de": .2414,
+						"n": 130
+					}
+				},
+				{
+					"y": 2020,
+					"w": 2,
+					"l": 4,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 6,
+					"rec": [115, 136.77],
+					"tal": [123, 246.82],
+					"epa": {
+						"off": .1248,
+						"de": .1407,
+						"n": 128
+					}
+				},
+				{
+					"y": 2021,
+					"w": 7,
+					"l": 6,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [112, 128.54],
+					"tal": [115, 340.6],
+					"epa": {
+						"off": .0716,
+						"de": .2732,
+						"n": 130
+					}
+				},
+				{
+					"y": 2022,
+					"w": 9,
+					"l": 4,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [128, 77.97],
+					"tal": [111, 404.1],
+					"epa": {
+						"off": .0882,
+						"de": .2168,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 6,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [87, 158.7],
+					"tal": [116, 377.07],
+					"epa": {
+						"off": -.0844,
+						"de": .1939,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 5,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 12,
+					"rec": [93, 156.11],
+					"tal": [109, 508.73],
+					"epa": {
+						"off": -.0342,
+						"de": .2091,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 4,
+					"l": 8,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 12,
+					"rec": [97, 151.82],
+					"tal": [94, 572.9],
+					"epa": {
+						"off": .124,
+						"de": .2703,
+						"n": 136
+					}
+				}
+			],
+			"prior": []
+		},
+		{
+			"slug": "florida",
+			"school": "Florida",
+			"name": "Jon Sumrall",
+			"first": 2026,
+			"firstSeason": 2026,
+			"status": "too-new",
+			"n": 0,
+			"completed": 0,
+			"notes": ["Only 0 completed full seasons (through 2025); needs at least 2 for the compared view."],
+			"before": null,
+			"after": null,
+			"tenure": null,
+			"seasons": [],
+			"prior": [{
+				"school": "Troy",
+				"to": 2023,
+				"w": 23,
+				"l": 4,
+				"t": 0,
+				"from": 2022
+			}, {
+				"school": "Tulane",
+				"to": 2025,
+				"w": 20,
+				"l": 8,
+				"t": 0,
+				"from": 2024
+			}]
+		},
+		{
+			"slug": "florida-atlantic",
+			"school": "Florida Atlantic",
+			"name": "Zach Kittley",
+			"first": 2025,
+			"firstSeason": 2025,
+			"status": "too-new",
+			"n": 0,
+			"completed": 1,
+			"notes": ["Only 1 completed full season (through 2025); needs at least 2 for the compared view."],
+			"before": null,
+			"after": null,
+			"tenure": {
+				"years": [2025, 2025],
+				"w": 4,
+				"l": 8,
+				"t": 0,
+				"winPct": .333,
+				"recRank": 85,
+				"recPts": 163.23,
+				"talentRank": 82,
+				"netEpa": -.172,
+				"offEpa": .019,
+				"defEpa": .191
+			},
+			"seasons": [{
+				"y": 2025,
+				"w": 4,
+				"l": 8,
+				"t": 0,
+				"who": "tenure",
+				"win": null,
+				"mine": 12,
+				"rec": [85, 163.23],
+				"tal": [82, 605.22],
+				"epa": {
+					"off": .0192,
+					"de": .1907,
+					"n": 136
+				}
+			}],
+			"prior": []
+		},
+		{
+			"slug": "fiu",
+			"school": "Florida International",
+			"name": "Willie Simmons",
+			"first": 2025,
+			"firstSeason": 2025,
+			"status": "too-new",
+			"n": 0,
+			"completed": 1,
+			"notes": ["Only 1 completed full season (through 2025); needs at least 2 for the compared view."],
+			"before": null,
+			"after": null,
+			"tenure": {
+				"years": [2025, 2025],
+				"w": 7,
+				"l": 6,
+				"t": 0,
+				"winPct": .538,
+				"recRank": 90,
+				"recPts": 157.7,
+				"talentRank": 98,
+				"netEpa": -.125,
+				"offEpa": -.012,
+				"defEpa": .113
+			},
+			"seasons": [{
+				"y": 2025,
+				"w": 7,
+				"l": 6,
+				"t": 0,
+				"who": "tenure",
+				"win": null,
+				"mine": 13,
+				"rec": [90, 157.7],
+				"tal": [98, 562.61],
+				"epa": {
+					"off": -.0122,
+					"de": .1125,
+					"n": 136
+				}
+			}],
+			"prior": []
+		},
+		{
+			"slug": "florida-state",
+			"school": "Florida State",
+			"name": "Mike Norvell",
+			"first": 2020,
+			"firstSeason": 2020,
+			"status": "compared",
+			"n": 3,
+			"completed": 6,
+			"notes": [],
+			"before": {
+				"years": [2017, 2019],
+				"w": 18,
+				"l": 20,
+				"t": 0,
+				"winPct": .474,
+				"recRank": 12,
+				"recPts": 267.537,
+				"talentRank": 6,
+				"netEpa": .034,
+				"offEpa": .064,
+				"defEpa": .029
+			},
+			"after": {
+				"years": [2020, 2022],
+				"w": 18,
+				"l": 16,
+				"t": 0,
+				"winPct": .529,
+				"recRank": 21.333,
+				"recPts": 227.613,
+				"talentRank": 17.667,
+				"netEpa": .056,
+				"offEpa": .18,
+				"defEpa": .124
+			},
+			"tenure": {
+				"years": [2020, 2025],
+				"w": 38,
+				"l": 34,
+				"t": 0,
+				"winPct": .528,
+				"recRank": 19,
+				"recPts": 239.31,
+				"talentRank": 17.5,
+				"netEpa": .051,
+				"offEpa": .158,
+				"defEpa": .107
+			},
+			"seasons": [
+				{
+					"y": 2017,
+					"w": 7,
+					"l": 6,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [6, 292.88],
+					"tal": [5, 924.97],
+					"epa": {
+						"off": .0692,
+						"de": -.0129,
+						"n": 130
+					}
+				},
+				{
+					"y": 2018,
+					"w": 5,
+					"l": 7,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [11, 265.42],
+					"tal": [7, 888.75],
+					"epa": {
+						"off": .0215,
+						"de": .0347,
+						"n": 130
+					}
+				},
+				{
+					"y": 2019,
+					"w": 6,
+					"l": 7,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [19, 244.31],
+					"tal": [6, 878.07],
+					"epa": {
+						"off": .1005,
+						"de": .0666,
+						"n": 130
+					}
+				},
+				{
+					"y": 2020,
+					"w": 3,
+					"l": 6,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 9,
+					"rec": [22, 238.41],
+					"tal": [15, 832.59],
+					"epa": {
+						"off": .0761,
+						"de": .2135,
+						"n": 128
+					}
+				},
+				{
+					"y": 2021,
+					"w": 5,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [22, 214.97],
+					"tal": [20, 769.76],
+					"epa": {
+						"off": .1798,
+						"de": .0815,
+						"n": 130
+					}
+				},
+				{
+					"y": 2022,
+					"w": 10,
+					"l": 3,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [20, 229.46],
+					"tal": [18, 780.76],
+					"epa": {
+						"off": .2853,
+						"de": .0776,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 13,
+					"l": 1,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 14,
+					"rec": [19, 237.15],
+					"tal": [20, 765.33],
+					"epa": {
+						"off": .1836,
+						"de": -.0032,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 2,
+					"l": 10,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 12,
+					"rec": [12, 271.76],
+					"tal": [13, 879.48],
+					"epa": {
+						"off": -.0103,
+						"de": .1787,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 5,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 12,
+					"rec": [19, 244.11],
+					"tal": [19, 828.45],
+					"epa": {
+						"off": .2336,
+						"de": .0954,
+						"n": 136
+					}
+				}
+			],
+			"prior": [{
+				"school": "Memphis",
+				"to": 2019,
+				"w": 38,
+				"l": 16,
+				"t": 0,
+				"from": 2016
+			}]
+		},
+		{
+			"slug": "fresno-state",
+			"school": "Fresno State",
+			"name": "Matt Entz",
+			"first": 2025,
+			"firstSeason": 2025,
+			"status": "too-new",
+			"n": 0,
+			"completed": 1,
+			"notes": ["Only 1 completed full season (through 2025); needs at least 2 for the compared view."],
+			"before": null,
+			"after": null,
+			"tenure": {
+				"years": [2025, 2025],
+				"w": 9,
+				"l": 4,
+				"t": 0,
+				"winPct": .692,
+				"recRank": 103,
+				"recPts": 142.63,
+				"talentRank": 90,
+				"netEpa": -.059,
+				"offEpa": -.046,
+				"defEpa": .013
+			},
+			"seasons": [{
+				"y": 2025,
+				"w": 9,
+				"l": 4,
+				"t": 0,
+				"who": "tenure",
+				"win": null,
+				"mine": 13,
+				"rec": [103, 142.63],
+				"tal": [90, 586.84],
+				"epa": {
+					"off": -.0461,
+					"de": .0131,
+					"n": 136
+				}
+			}],
+			"prior": []
+		},
+		{
+			"slug": "georgia",
+			"school": "Georgia",
+			"name": "Kirby Smart",
+			"first": 2016,
+			"firstSeason": 2016,
+			"status": "compared",
+			"n": 3,
+			"completed": 10,
+			"notes": [],
+			"before": {
+				"years": [2013, 2015],
+				"w": 28,
+				"l": 11,
+				"t": 0,
+				"winPct": .718,
+				"recRank": 8.667,
+				"recPts": 272.103,
+				"talentRank": null,
+				"netEpa": null,
+				"offEpa": null,
+				"defEpa": null
+			},
+			"after": {
+				"years": [2016, 2018],
+				"w": 32,
+				"l": 10,
+				"t": 0,
+				"winPct": .762,
+				"recRank": 3.333,
+				"recPts": 302.073,
+				"talentRank": 4.333,
+				"netEpa": .298,
+				"offEpa": .248,
+				"defEpa": -.05
+			},
+			"tenure": {
+				"years": [2016, 2025],
+				"w": 117,
+				"l": 21,
+				"t": 0,
+				"winPct": .848,
+				"recRank": 2.4,
+				"recPts": 307.894,
+				"talentRank": 2.6,
+				"netEpa": .319,
+				"offEpa": .265,
+				"defEpa": -.054
+			},
+			"seasons": [
+				{
+					"y": 2013,
+					"w": 8,
+					"l": 5,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [12, 260.38],
+					"tal": null,
+					"epa": null
+				},
+				{
+					"y": 2014,
+					"w": 10,
+					"l": 3,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [8, 273.39],
+					"tal": null,
+					"epa": null
+				},
+				{
+					"y": 2015,
+					"w": 10,
+					"l": 3,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [6, 282.54],
+					"tal": [6, 877.74],
+					"epa": null
+				},
+				{
+					"y": 2016,
+					"w": 8,
+					"l": 5,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [6, 281.31],
+					"tal": [6, 872],
+					"epa": {
+						"off": .1035,
+						"de": .0157,
+						"n": 128
+					}
+				},
+				{
+					"y": 2017,
+					"w": 13,
+					"l": 2,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 15,
+					"rec": [3, 301.6],
+					"tal": [4, 930.34],
+					"epa": {
+						"off": .3026,
+						"de": -.108,
+						"n": 130
+					}
+				},
+				{
+					"y": 2018,
+					"w": 11,
+					"l": 3,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 14,
+					"rec": [1, 323.31],
+					"tal": [3, 964],
+					"epa": {
+						"off": .3383,
+						"de": -.0568,
+						"n": 130
+					}
+				},
+				{
+					"y": 2019,
+					"w": 12,
+					"l": 2,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 14,
+					"rec": [2, 309.12],
+					"tal": [3, 960.16],
+					"epa": {
+						"off": .2059,
+						"de": -.0601,
+						"n": 130
+					}
+				},
+				{
+					"y": 2020,
+					"w": 8,
+					"l": 2,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 10,
+					"rec": [1, 313.34],
+					"tal": [1, 990.47],
+					"epa": {
+						"off": .2126,
+						"de": .0071,
+						"n": 128
+					}
+				},
+				{
+					"y": 2021,
+					"w": 14,
+					"l": 1,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 15,
+					"rec": [3, 294.55],
+					"tal": [2, 1001.79],
+					"epa": {
+						"off": .3228,
+						"de": -.1479,
+						"n": 130
+					}
+				},
+				{
+					"y": 2022,
+					"w": 15,
+					"l": 0,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 15,
+					"rec": [3, 318.34],
+					"tal": [2, 989.76],
+					"epa": {
+						"off": .3697,
+						"de": -.1365,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 13,
+					"l": 1,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 14,
+					"rec": [2, 315.68],
+					"tal": [2, 977.87],
+					"epa": {
+						"off": .34,
+						"de": -.0192,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 11,
+					"l": 3,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 14,
+					"rec": [1, 317.05],
+					"tal": [2, 1006.89],
+					"epa": {
+						"off": .2323,
+						"de": -.0238,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 12,
+					"l": 2,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 14,
+					"rec": [2, 304.64],
+					"tal": [1, 1002.98],
+					"epa": {
+						"off": .2201,
+						"de": -.0095,
+						"n": 136
+					}
+				}
+			],
+			"prior": []
+		},
+		{
+			"slug": "georgia-southern",
+			"school": "Georgia Southern",
+			"name": "Clay Helton",
+			"first": 2022,
+			"firstSeason": 2022,
+			"status": "compared",
+			"n": 3,
+			"completed": 4,
+			"notes": [],
+			"before": {
+				"years": [2019, 2021],
+				"w": 18,
+				"l": 20,
+				"t": 0,
+				"winPct": .474,
+				"recRank": 103.667,
+				"recPts": 137.407,
+				"talentRank": 106.667,
+				"netEpa": -.061,
+				"offEpa": .06,
+				"defEpa": .121
+			},
+			"after": {
+				"years": [2022, 2024],
+				"w": 20,
+				"l": 19,
+				"t": 0,
+				"winPct": .513,
+				"recRank": 100.667,
+				"recPts": 134.747,
+				"talentRank": 107,
+				"netEpa": -.099,
+				"offEpa": .107,
+				"defEpa": .206
+			},
+			"tenure": {
+				"years": [2022, 2025],
+				"w": 27,
+				"l": 25,
+				"t": 0,
+				"winPct": .519,
+				"recRank": 95.5,
+				"recPts": 142.395,
+				"talentRank": 103.5,
+				"netEpa": -.107,
+				"offEpa": .116,
+				"defEpa": .223
+			},
+			"seasons": [
+				{
+					"y": 2019,
+					"w": 7,
+					"l": 6,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [121, 125.24],
+					"tal": [102, 411.8],
+					"epa": {
+						"off": .0285,
+						"de": .0942,
+						"n": 130
+					}
+				},
+				{
+					"y": 2020,
+					"w": 8,
+					"l": 5,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [98, 145.22],
+					"tal": [109, 335.43],
+					"epa": {
+						"off": .136,
+						"de": .0507,
+						"n": 128
+					}
+				},
+				{
+					"y": 2021,
+					"w": 3,
+					"l": 9,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [92, 141.76],
+					"tal": [109, 383.76],
+					"epa": {
+						"off": .0142,
+						"de": .2167,
+						"n": 130
+					}
+				},
+				{
+					"y": 2022,
+					"w": 6,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [110, 115.78],
+					"tal": [109, 414.14],
+					"epa": {
+						"off": .1645,
+						"de": .2622,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 6,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [101, 131.86],
+					"tal": [107, 416.69],
+					"epa": {
+						"off": .0656,
+						"de": .1947,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 8,
+					"l": 5,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [91, 156.6],
+					"tal": [105, 527.99],
+					"epa": {
+						"off": .0907,
+						"de": .1601,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 7,
+					"l": 6,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [80, 165.34],
+					"tal": [93, 574.48],
+					"epa": {
+						"off": .144,
+						"de": .2746,
+						"n": 136
+					}
+				}
+			],
+			"prior": [{
+				"school": "USC",
+				"to": 2021,
+				"w": 46,
+				"l": 24,
+				"t": 0,
+				"from": 2013
+			}]
+		},
+		{
+			"slug": "georgia-state",
+			"school": "Georgia State",
+			"name": "Dell McGee",
+			"first": 2024,
+			"firstSeason": 2024,
+			"status": "compared",
+			"n": 2,
+			"completed": 2,
+			"notes": [],
+			"before": {
+				"years": [2022, 2023],
+				"w": 11,
+				"l": 14,
+				"t": 0,
+				"winPct": .44,
+				"recRank": 108,
+				"recPts": 117.745,
+				"talentRank": 87,
+				"netEpa": -.048,
+				"offEpa": .071,
+				"defEpa": .119
+			},
+			"after": {
+				"years": [2024, 2025],
+				"w": 4,
+				"l": 20,
+				"t": 0,
+				"winPct": .167,
+				"recRank": 93.5,
+				"recPts": 155.14,
+				"talentRank": 84,
+				"netEpa": -.191,
+				"offEpa": .04,
+				"defEpa": .23
+			},
+			"tenure": {
+				"years": [2024, 2025],
+				"w": 4,
+				"l": 20,
+				"t": 0,
+				"winPct": .167,
+				"recRank": 93.5,
+				"recPts": 155.14,
+				"talentRank": 84,
+				"netEpa": -.191,
+				"offEpa": .04,
+				"defEpa": .23
+			},
+			"seasons": [
+				{
+					"y": 2022,
+					"w": 4,
+					"l": 8,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [100, 124.06],
+					"tal": [87, 471.84],
+					"epa": {
+						"off": .0533,
+						"de": .1029,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 7,
+					"l": 6,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [116, 111.43],
+					"tal": [87, 499.67],
+					"epa": {
+						"off": .0893,
+						"de": .1347,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 3,
+					"l": 9,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [120, 126.1],
+					"tal": [91, 564.88],
+					"epa": {
+						"off": .0363,
+						"de": .2249,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 1,
+					"l": 11,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [67, 184.18],
+					"tal": [77, 611.97],
+					"epa": {
+						"off": .0428,
+						"de": .2353,
+						"n": 136
+					}
+				}
+			],
+			"prior": []
+		},
+		{
+			"slug": "georgia-tech",
+			"school": "Georgia Tech",
+			"name": "Brent Key",
+			"first": 2022,
+			"firstSeason": 2023,
+			"status": "compared",
+			"n": 3,
+			"completed": 3,
+			"notes": ["Started partway through 2022: coached 8 of 12 games that season (interim or mid-season hire). That season is shown but excluded from both windows."],
+			"before": {
+				"years": [2019, 2021],
+				"w": 9,
+				"l": 25,
+				"t": 0,
+				"winPct": .265,
+				"recRank": 41.333,
+				"recPts": 199.277,
+				"talentRank": 35.667,
+				"netEpa": -.147,
+				"offEpa": .042,
+				"defEpa": .189
+			},
+			"after": {
+				"years": [2023, 2025],
+				"w": 23,
+				"l": 16,
+				"t": 0,
+				"winPct": .59,
+				"recRank": 38.667,
+				"recPts": 213.323,
+				"talentRank": 40.333,
+				"netEpa": .087,
+				"offEpa": .209,
+				"defEpa": .122
+			},
+			"tenure": {
+				"years": [2023, 2025],
+				"w": 23,
+				"l": 16,
+				"t": 0,
+				"winPct": .59,
+				"recRank": 38.667,
+				"recPts": 213.323,
+				"talentRank": 40.333,
+				"netEpa": .087,
+				"offEpa": .209,
+				"defEpa": .122
+			},
+			"seasons": [
+				{
+					"y": 2019,
+					"w": 3,
+					"l": 9,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [51, 188.28],
+					"tal": [45, 629.1],
+					"epa": {
+						"off": .0213,
+						"de": .1646,
+						"n": 130
+					}
+				},
+				{
+					"y": 2020,
+					"w": 3,
+					"l": 7,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [26, 222.73],
+					"tal": [30, 684.42],
+					"epa": {
+						"off": .0445,
+						"de": .136,
+						"n": 128
+					}
+				},
+				{
+					"y": 2021,
+					"w": 3,
+					"l": 9,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [47, 186.82],
+					"tal": [32, 707.35],
+					"epa": {
+						"off": .0603,
+						"de": .2675,
+						"n": 130
+					}
+				},
+				{
+					"y": 2022,
+					"w": 5,
+					"l": 7,
+					"t": 0,
+					"who": "transition",
+					"win": null,
+					"mine": 8,
+					"rec": [54, 184.81],
+					"tal": [30, 715.48],
+					"epa": {
+						"off": .0069,
+						"de": .0479,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 7,
+					"l": 6,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [62, 185.2],
+					"tal": [36, 710.85],
+					"epa": {
+						"off": .1867,
+						"de": .1508,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 7,
+					"l": 6,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [33, 214],
+					"tal": [46, 703],
+					"epa": {
+						"off": .2069,
+						"de": .0676,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 9,
+					"l": 4,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [21, 240.77],
+					"tal": [39, 715.56],
+					"epa": {
+						"off": .2328,
+						"de": .1468,
+						"n": 136
+					}
+				}
+			],
+			"prior": []
+		},
+		{
+			"slug": "hawaii",
+			"school": "Hawai'i",
+			"name": "Timmy Chang",
+			"first": 2022,
+			"firstSeason": 2022,
+			"status": "compared",
+			"n": 3,
+			"completed": 4,
+			"notes": [],
+			"before": {
+				"years": [2019, 2021],
+				"w": 21,
+				"l": 16,
+				"t": 0,
+				"winPct": .568,
+				"recRank": 123,
+				"recPts": 114.677,
+				"talentRank": 99.333,
+				"netEpa": -.013,
+				"offEpa": .128,
+				"defEpa": .141
+			},
+			"after": {
+				"years": [2022, 2024],
+				"w": 13,
+				"l": 25,
+				"t": 0,
+				"winPct": .342,
+				"recRank": 119.667,
+				"recPts": 111.303,
+				"talentRank": 107.333,
+				"netEpa": -.216,
+				"offEpa": .015,
+				"defEpa": .23
+			},
+			"tenure": {
+				"years": [2022, 2025],
+				"w": 22,
+				"l": 29,
+				"t": 0,
+				"winPct": .431,
+				"recRank": 120.75,
+				"recPts": 108.965,
+				"talentRank": 110.5,
+				"netEpa": -.19,
+				"offEpa": .026,
+				"defEpa": .216
+			},
+			"seasons": [
+				{
+					"y": 2019,
+					"w": 10,
+					"l": 5,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [115, 129.53],
+					"tal": [98, 420.99],
+					"epa": {
+						"off": .1763,
+						"de": .186,
+						"n": 130
+					}
+				},
+				{
+					"y": 2020,
+					"w": 5,
+					"l": 4,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [127, 124.35],
+					"tal": [95, 393.56],
+					"epa": {
+						"off": .1432,
+						"de": .1249,
+						"n": 128
+					}
+				},
+				{
+					"y": 2021,
+					"w": 6,
+					"l": 7,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [127, 90.15],
+					"tal": [105, 397.43],
+					"epa": {
+						"off": .0658,
+						"de": .1128,
+						"n": 130
+					}
+				},
+				{
+					"y": 2022,
+					"w": 3,
+					"l": 10,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [126, 84.97],
+					"tal": [104, 419.54],
+					"epa": {
+						"off": .0193,
+						"de": .3311,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 5,
+					"l": 8,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [117, 111.34],
+					"tal": [110, 407.77],
+					"epa": {
+						"off": .0134,
+						"de": .2028,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 5,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [116, 137.6],
+					"tal": [108, 513.7],
+					"epa": {
+						"off": .0112,
+						"de": .1568,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 9,
+					"l": 4,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [124, 101.95],
+					"tal": [120, 481.2],
+					"epa": {
+						"off": .0586,
+						"de": .1716,
+						"n": 136
+					}
+				}
+			],
+			"prior": []
+		},
+		{
+			"slug": "houston",
+			"school": "Houston",
+			"name": "Willie Fritz",
+			"first": 2024,
+			"firstSeason": 2024,
+			"status": "compared",
+			"n": 2,
+			"completed": 2,
+			"notes": [],
+			"before": {
+				"years": [2022, 2023],
+				"w": 12,
+				"l": 13,
+				"t": 0,
+				"winPct": .48,
+				"recRank": 52.5,
+				"recPts": 189.805,
+				"talentRank": 53.5,
+				"netEpa": .002,
+				"offEpa": .134,
+				"defEpa": .132
+			},
+			"after": {
+				"years": [2024, 2025],
+				"w": 14,
+				"l": 11,
+				"t": 0,
+				"winPct": .56,
+				"recRank": 56,
+				"recPts": 191.365,
+				"talentRank": 66,
+				"netEpa": -.049,
+				"offEpa": .028,
+				"defEpa": .077
+			},
+			"tenure": {
+				"years": [2024, 2025],
+				"w": 14,
+				"l": 11,
+				"t": 0,
+				"winPct": .56,
+				"recRank": 56,
+				"recPts": 191.365,
+				"talentRank": 66,
+				"netEpa": -.049,
+				"offEpa": .028,
+				"defEpa": .077
+			},
+			"seasons": [
+				{
+					"y": 2022,
+					"w": 8,
+					"l": 5,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [50, 187.64],
+					"tal": [58, 629.12],
+					"epa": {
+						"off": .2325,
+						"de": .1143,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 4,
+					"l": 8,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [55, 191.97],
+					"tal": [49, 670.25],
+					"epa": {
+						"off": .0346,
+						"de": .1494,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 4,
+					"l": 8,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [60, 184],
+					"tal": [66, 646.7],
+					"epa": {
+						"off": -.0586,
+						"de": .0336,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 10,
+					"l": 3,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [52, 198.73],
+					"tal": [66, 656.74],
+					"epa": {
+						"off": .1148,
+						"de": .1211,
+						"n": 136
+					}
+				}
+			],
+			"prior": [{
+				"school": "Georgia Southern",
+				"to": 2015,
+				"w": 18,
+				"l": 7,
+				"t": 0,
+				"from": 2014
+			}, {
+				"school": "Tulane",
+				"to": 2023,
+				"w": 54,
+				"l": 47,
+				"t": 0,
+				"from": 2016
+			}]
+		},
+		{
+			"slug": "illinois",
+			"school": "Illinois",
+			"name": "Bret Bielema",
+			"first": 2021,
+			"firstSeason": 2021,
+			"status": "compared",
+			"n": 3,
+			"completed": 5,
+			"notes": [],
+			"before": {
+				"years": [2018, 2020],
+				"w": 12,
+				"l": 21,
+				"t": 0,
+				"winPct": .364,
+				"recRank": 64.667,
+				"recPts": 174.367,
+				"talentRank": 44.667,
+				"netEpa": -.105,
+				"offEpa": .089,
+				"defEpa": .194
+			},
+			"after": {
+				"years": [2021, 2023],
+				"w": 18,
+				"l": 19,
+				"t": 0,
+				"winPct": .486,
+				"recRank": 52.333,
+				"recPts": 185.783,
+				"talentRank": 56.667,
+				"netEpa": .05,
+				"offEpa": .116,
+				"defEpa": .066
+			},
+			"tenure": {
+				"years": [2021, 2025],
+				"w": 37,
+				"l": 26,
+				"t": 0,
+				"winPct": .587,
+				"recRank": 50.2,
+				"recPts": 191.79,
+				"talentRank": 59.4,
+				"netEpa": .062,
+				"offEpa": .144,
+				"defEpa": .082
+			},
+			"seasons": [
+				{
+					"y": 2018,
+					"w": 4,
+					"l": 8,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [54, 185.83],
+					"tal": [58, 562.67],
+					"epa": {
+						"off": .1046,
+						"de": .2824,
+						"n": 130
+					}
+				},
+				{
+					"y": 2019,
+					"w": 6,
+					"l": 7,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [53, 184.37],
+					"tal": [37, 661.73],
+					"epa": {
+						"off": .0492,
+						"de": .0504,
+						"n": 130
+					}
+				},
+				{
+					"y": 2020,
+					"w": 2,
+					"l": 6,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [87, 152.9],
+					"tal": [39, 644.09],
+					"epa": {
+						"off": .1135,
+						"de": .2489,
+						"n": 128
+					}
+				},
+				{
+					"y": 2021,
+					"w": 5,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [73, 159.12],
+					"tal": [51, 630.16],
+					"epa": {
+						"off": .0904,
+						"de": .1478,
+						"n": 130
+					}
+				},
+				{
+					"y": 2022,
+					"w": 8,
+					"l": 5,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [46, 192.59],
+					"tal": [56, 631.46],
+					"epa": {
+						"off": .1264,
+						"de": -.0947,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 5,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [38, 205.64],
+					"tal": [63, 630.95],
+					"epa": {
+						"off": .1318,
+						"de": .1461,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 10,
+					"l": 3,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [49, 198.84],
+					"tal": [63, 653.75],
+					"epa": {
+						"off": .207,
+						"de": .1144,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 9,
+					"l": 4,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [45, 202.76],
+					"tal": [64, 662.13],
+					"epa": {
+						"off": .1641,
+						"de": .0955,
+						"n": 136
+					}
+				}
+			],
+			"prior": [{
+				"school": "Wisconsin",
+				"to": 2012,
+				"w": 68,
+				"l": 24,
+				"t": 0,
+				"from": 2006
+			}, {
+				"school": "Arkansas",
+				"to": 2017,
+				"w": 29,
+				"l": 34,
+				"t": 0,
+				"from": 2013
+			}]
+		},
+		{
+			"slug": "indiana",
+			"school": "Indiana",
+			"name": "Curt Cignetti",
+			"first": 2024,
+			"firstSeason": 2024,
+			"status": "compared",
+			"n": 2,
+			"completed": 2,
+			"notes": [],
+			"before": {
+				"years": [2022, 2023],
+				"w": 7,
+				"l": 17,
+				"t": 0,
+				"winPct": .292,
+				"recRank": 47.5,
+				"recPts": 198.7,
+				"talentRank": 42,
+				"netEpa": -.103,
+				"offEpa": .066,
+				"defEpa": .168
+			},
+			"after": {
+				"years": [2024, 2025],
+				"w": 27,
+				"l": 2,
+				"t": 0,
+				"winPct": .931,
+				"recRank": 56,
+				"recPts": 190.82,
+				"talentRank": 64.5,
+				"netEpa": .405,
+				"offEpa": .308,
+				"defEpa": -.096
+			},
+			"tenure": {
+				"years": [2024, 2025],
+				"w": 27,
+				"l": 2,
+				"t": 0,
+				"winPct": .931,
+				"recRank": 56,
+				"recPts": 190.82,
+				"talentRank": 64.5,
+				"netEpa": .405,
+				"offEpa": .308,
+				"defEpa": -.096
+			},
+			"seasons": [
+				{
+					"y": 2022,
+					"w": 4,
+					"l": 8,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [26, 219.8],
+					"tal": [37, 680.74],
+					"epa": {
+						"off": .058,
+						"de": .1272,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 3,
+					"l": 9,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [69, 177.6],
+					"tal": [47, 677.57],
+					"epa": {
+						"off": .074,
+						"de": .2098,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 11,
+					"l": 2,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [65, 179.89],
+					"tal": [57, 668.92],
+					"epa": {
+						"off": .2587,
+						"de": -.0868,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 16,
+					"l": 0,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 16,
+					"rec": [47, 201.75],
+					"tal": [72, 645.34],
+					"epa": {
+						"off": .3578,
+						"de": -.1058,
+						"n": 136
+					}
+				}
+			],
+			"prior": [{
+				"school": "James Madison",
+				"to": 2023,
+				"w": 19,
+				"l": 4,
+				"t": 0,
+				"from": 2022
+			}]
+		},
+		{
+			"slug": "iowa",
+			"school": "Iowa",
+			"name": "Kirk Ferentz",
+			"first": 2005,
+			"firstSeason": 2005,
+			"status": "no-before",
+			"n": 0,
+			"completed": 21,
+			"notes": ["Hired before 2005 (hire date 1998-12-02); CFBD seasons used here start in 2005, so there is no before window."],
+			"before": null,
+			"after": null,
+			"tenure": {
+				"years": [2005, 2025],
+				"w": 171,
+				"l": 97,
+				"t": 0,
+				"winPct": .638,
+				"recRank": 39.429,
+				"recPts": 196.687,
+				"talentRank": null,
+				"netEpa": null,
+				"offEpa": null,
+				"defEpa": null
+			},
+			"seasons": [
+				{
+					"y": 2005,
+					"w": 7,
+					"l": 5,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 12,
+					"rec": [6, 252.89],
+					"tal": null,
+					"epa": null
+				},
+				{
+					"y": 2006,
+					"w": 6,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [37, 174.47],
+					"tal": null,
+					"epa": null
+				},
+				{
+					"y": 2007,
+					"w": 6,
+					"l": 6,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 12,
+					"rec": [29, 199.85],
+					"tal": null,
+					"epa": null
+				},
+				{
+					"y": 2008,
+					"w": 9,
+					"l": 4,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [50, 169.8],
+					"tal": null,
+					"epa": null
+				},
+				{
+					"y": 2009,
+					"w": 11,
+					"l": 2,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [64, 165.44],
+					"tal": null,
+					"epa": null
+				},
+				{
+					"y": 2010,
+					"w": 8,
+					"l": 5,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [36, 208.14],
+					"tal": null,
+					"epa": null
+				},
+				{
+					"y": 2011,
+					"w": 7,
+					"l": 6,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [26, 208.64],
+					"tal": null,
+					"epa": null
+				},
+				{
+					"y": 2012,
+					"w": 4,
+					"l": 8,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 12,
+					"rec": [40, 201.08],
+					"tal": null,
+					"epa": null
+				},
+				{
+					"y": 2013,
+					"w": 8,
+					"l": 5,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [56, 171.96],
+					"tal": null,
+					"epa": null
+				},
+				{
+					"y": 2014,
+					"w": 7,
+					"l": 6,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [58, 171.84],
+					"tal": null,
+					"epa": null
+				},
+				{
+					"y": 2015,
+					"w": 12,
+					"l": 2,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 14,
+					"rec": [59, 169.99],
+					"tal": [51, 573.06],
+					"epa": null
+				},
+				{
+					"y": 2016,
+					"w": 8,
+					"l": 5,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [47, 181.39],
+					"tal": [55, 558.73],
+					"epa": {
+						"off": .1252,
+						"de": .0586,
+						"n": 128
+					}
+				},
+				{
+					"y": 2017,
+					"w": 8,
+					"l": 5,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [41, 191.44],
+					"tal": [49, 592.95],
+					"epa": {
+						"off": .1066,
+						"de": -.0563,
+						"n": 130
+					}
+				},
+				{
+					"y": 2018,
+					"w": 9,
+					"l": 4,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [39, 203.34],
+					"tal": [42, 615.08],
+					"epa": {
+						"off": .1288,
+						"de": -.0477,
+						"n": 130
+					}
+				},
+				{
+					"y": 2019,
+					"w": 10,
+					"l": 3,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [41, 199.36],
+					"tal": [43, 637.65],
+					"epa": {
+						"off": .1294,
+						"de": -.0347,
+						"n": 130
+					}
+				},
+				{
+					"y": 2020,
+					"w": 6,
+					"l": 2,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 8,
+					"rec": [35, 203.81],
+					"tal": [43, 631.81],
+					"epa": {
+						"off": .1383,
+						"de": -.01,
+						"n": 128
+					}
+				},
+				{
+					"y": 2021,
+					"w": 10,
+					"l": 4,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 14,
+					"rec": [23, 213.89],
+					"tal": [42, 657.39],
+					"epa": {
+						"off": .0227,
+						"de": -.0321,
+						"n": 130
+					}
+				},
+				{
+					"y": 2022,
+					"w": 8,
+					"l": 5,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [30, 215.05],
+					"tal": [36, 681.98],
+					"epa": {
+						"off": 8e-4,
+						"de": -.0866,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 10,
+					"l": 4,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 14,
+					"rec": [41, 204.36],
+					"tal": [41, 692.62],
+					"epa": {
+						"off": -.0905,
+						"de": -.0694,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 8,
+					"l": 5,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [32, 215.41],
+					"tal": [39, 723.51],
+					"epa": {
+						"off": .1326,
+						"de": .0279,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 9,
+					"l": 4,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [38, 208.27],
+					"tal": [42, 710],
+					"epa": {
+						"off": .1105,
+						"de": -.1003,
+						"n": 136
+					}
+				}
+			],
+			"prior": []
+		},
+		{
+			"slug": "iowa-state",
+			"school": "Iowa State",
+			"name": "Jimmy Rogers",
+			"first": 2026,
+			"firstSeason": 2026,
+			"status": "too-new",
+			"n": 0,
+			"completed": 0,
+			"notes": ["Only 0 completed full seasons (through 2025); needs at least 2 for the compared view."],
+			"before": null,
+			"after": null,
+			"tenure": null,
+			"seasons": [],
+			"prior": [{
+				"school": "Washington State",
+				"to": 2025,
+				"w": 6,
+				"l": 6,
+				"t": 0,
+				"from": 2025
+			}]
+		},
+		{
+			"slug": "jacksonville-state",
+			"school": "Jacksonville State",
+			"name": "Charles Kelly",
+			"first": 2025,
+			"firstSeason": 2025,
+			"status": "too-new",
+			"n": 0,
+			"completed": 1,
+			"notes": ["Only 1 completed full season (through 2025); needs at least 2 for the compared view."],
+			"before": null,
+			"after": null,
+			"tenure": {
+				"years": [2025, 2025],
+				"w": 9,
+				"l": 5,
+				"t": 0,
+				"winPct": .643,
+				"recRank": 110,
+				"recPts": 134.66,
+				"talentRank": 111,
+				"netEpa": -.121,
+				"offEpa": .06,
+				"defEpa": .181
+			},
+			"seasons": [{
+				"y": 2025,
+				"w": 9,
+				"l": 5,
+				"t": 0,
+				"who": "tenure",
+				"win": null,
+				"mine": 14,
+				"rec": [110, 134.66],
+				"tal": [111, 519.93],
+				"epa": {
+					"off": .0603,
+					"de": .181,
+					"n": 136
+				}
+			}],
+			"prior": []
+		},
+		{
+			"slug": "james-madison",
+			"school": "James Madison",
+			"name": "Billy Napier",
+			"first": 2026,
+			"firstSeason": 2026,
+			"status": "too-new",
+			"n": 0,
+			"completed": 0,
+			"notes": ["Only 0 completed full seasons (through 2025); needs at least 2 for the compared view."],
+			"before": null,
+			"after": null,
+			"tenure": null,
+			"seasons": [],
+			"prior": [{
+				"school": "Louisiana",
+				"to": 2021,
+				"w": 40,
+				"l": 12,
+				"t": 0,
+				"from": 2018
+			}, {
+				"school": "Florida",
+				"to": 2025,
+				"w": 22,
+				"l": 23,
+				"t": 0,
+				"from": 2022
+			}]
+		},
+		{
+			"slug": "kansas",
+			"school": "Kansas",
+			"name": "Lance Leipold",
+			"first": 2021,
+			"firstSeason": 2021,
+			"status": "compared",
+			"n": 3,
+			"completed": 5,
+			"notes": [],
+			"before": {
+				"years": [2018, 2020],
+				"w": 6,
+				"l": 27,
+				"t": 0,
+				"winPct": .182,
+				"recRank": 62.333,
+				"recPts": 174.467,
+				"talentRank": 71.667,
+				"netEpa": -.119,
+				"offEpa": .032,
+				"defEpa": .151
+			},
+			"after": {
+				"years": [2021, 2023],
+				"w": 17,
+				"l": 21,
+				"t": 0,
+				"winPct": .447,
+				"recRank": 80.333,
+				"recPts": 153.097,
+				"talentRank": 68,
+				"netEpa": .014,
+				"offEpa": .229,
+				"defEpa": .215
+			},
+			"tenure": {
+				"years": [2021, 2025],
+				"w": 27,
+				"l": 35,
+				"t": 0,
+				"winPct": .435,
+				"recRank": 71.2,
+				"recPts": 168.128,
+				"talentRank": 60.2,
+				"netEpa": .05,
+				"offEpa": .244,
+				"defEpa": .194
+			},
+			"seasons": [
+				{
+					"y": 2018,
+					"w": 3,
+					"l": 9,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [60, 178.59],
+					"tal": [72, 517.1],
+					"epa": {
+						"off": .0817,
+						"de": .0785,
+						"n": 130
+					}
+				},
+				{
+					"y": 2019,
+					"w": 3,
+					"l": 9,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [70, 165.84],
+					"tal": [74, 528.62],
+					"epa": {
+						"off": .0767,
+						"de": .2065,
+						"n": 130
+					}
+				},
+				{
+					"y": 2020,
+					"w": 0,
+					"l": 9,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [57, 178.97],
+					"tal": [69, 546.08],
+					"epa": {
+						"off": -.0613,
+						"de": .1687,
+						"n": 128
+					}
+				},
+				{
+					"y": 2021,
+					"w": 2,
+					"l": 10,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [52, 183.13],
+					"tal": [72, 548.1],
+					"epa": {
+						"off": .0597,
+						"de": .3575,
+						"n": 130
+					}
+				},
+				{
+					"y": 2022,
+					"w": 6,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [116, 106.28],
+					"tal": [70, 574.29],
+					"epa": {
+						"off": .3048,
+						"de": .1878,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 9,
+					"l": 4,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [73, 169.88],
+					"tal": [62, 632.68],
+					"epa": {
+						"off": .3224,
+						"de": .1006,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 5,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 12,
+					"rec": [43, 203],
+					"tal": [49, 696.92],
+					"epa": {
+						"off": .3021,
+						"de": .1308,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 5,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 12,
+					"rec": [72, 178.35],
+					"tal": [48, 705.32],
+					"epa": {
+						"off": .2319,
+						"de": .1956,
+						"n": 136
+					}
+				}
+			],
+			"prior": [{
+				"school": "Buffalo",
+				"to": 2020,
+				"w": 37,
+				"l": 33,
+				"t": 0,
+				"from": 2015
+			}]
+		},
+		{
+			"slug": "kansas-state",
+			"school": "Kansas State",
+			"name": "Collin Klein",
+			"first": 2026,
+			"firstSeason": 2026,
+			"status": "too-new",
+			"n": 0,
+			"completed": 0,
+			"notes": ["Only 0 completed full seasons (through 2025); needs at least 2 for the compared view."],
+			"before": null,
+			"after": null,
+			"tenure": null,
+			"seasons": [],
+			"prior": []
+		},
+		{
+			"slug": "kennesaw-state",
+			"school": "Kennesaw State",
+			"name": "Jerry Mack",
+			"first": 2025,
+			"firstSeason": 2025,
+			"status": "too-new",
+			"n": 0,
+			"completed": 1,
+			"notes": ["Only 1 completed full season (through 2025); needs at least 2 for the compared view."],
+			"before": null,
+			"after": null,
+			"tenure": {
+				"years": [2025, 2025],
+				"w": 10,
+				"l": 4,
+				"t": 0,
+				"winPct": .714,
+				"recRank": 154,
+				"recPts": 28.05,
+				"talentRank": 132,
+				"netEpa": -.06,
+				"offEpa": .103,
+				"defEpa": .163
+			},
+			"seasons": [{
+				"y": 2025,
+				"w": 10,
+				"l": 4,
+				"t": 0,
+				"who": "tenure",
+				"win": null,
+				"mine": 14,
+				"rec": [154, 28.05],
+				"tal": [132, 338.87],
+				"epa": {
+					"off": .1029,
+					"de": .1626,
+					"n": 136
+				}
+			}],
+			"prior": []
+		},
+		{
+			"slug": "kent-state",
+			"school": "Kent State",
+			"name": "Mark Carney",
+			"first": 2025,
+			"firstSeason": 2025,
+			"status": "too-new",
+			"n": 0,
+			"completed": 1,
+			"notes": ["Only 1 completed full season (through 2025); needs at least 2 for the compared view."],
+			"before": null,
+			"after": null,
+			"tenure": {
+				"years": [2025, 2025],
+				"w": 5,
+				"l": 7,
+				"t": 0,
+				"winPct": .417,
+				"recRank": 93,
+				"recPts": 155.36,
+				"talentRank": 128,
+				"netEpa": -.249,
+				"offEpa": -.022,
+				"defEpa": .228
+			},
+			"seasons": [{
+				"y": 2025,
+				"w": 5,
+				"l": 7,
+				"t": 0,
+				"who": "tenure",
+				"win": null,
+				"mine": 12,
+				"rec": [93, 155.36],
+				"tal": [128, 456.24],
+				"epa": {
+					"off": -.0217,
+					"de": .2275,
+					"n": 136
+				}
+			}],
+			"prior": []
+		},
+		{
+			"slug": "kentucky",
+			"school": "Kentucky",
+			"name": "Will Stein",
+			"first": 2026,
+			"firstSeason": 2026,
+			"status": "too-new",
+			"n": 0,
+			"completed": 0,
+			"notes": ["Only 0 completed full seasons (through 2025); needs at least 2 for the compared view."],
+			"before": null,
+			"after": null,
+			"tenure": null,
+			"seasons": [],
+			"prior": []
+		},
+		{
+			"slug": "liberty",
+			"school": "Liberty",
+			"name": "Jamey Chadwell",
+			"first": 2023,
+			"firstSeason": 2023,
+			"status": "compared",
+			"n": 3,
+			"completed": 3,
+			"notes": [],
+			"before": {
+				"years": [2020, 2022],
+				"w": 26,
+				"l": 11,
+				"t": 0,
+				"winPct": .703,
+				"recRank": 101.333,
+				"recPts": 134.003,
+				"talentRank": 136,
+				"netEpa": .023,
+				"offEpa": .134,
+				"defEpa": .11
+			},
+			"after": {
+				"years": [2023, 2025],
+				"w": 25,
+				"l": 13,
+				"t": 0,
+				"winPct": .658,
+				"recRank": 100.667,
+				"recPts": 141.333,
+				"talentRank": 99.667,
+				"netEpa": -.03,
+				"offEpa": .118,
+				"defEpa": .148
+			},
+			"tenure": {
+				"years": [2023, 2025],
+				"w": 25,
+				"l": 13,
+				"t": 0,
+				"winPct": .658,
+				"recRank": 100.667,
+				"recPts": 141.333,
+				"talentRank": 99.667,
+				"netEpa": -.03,
+				"offEpa": .118,
+				"defEpa": .148
+			},
+			"seasons": [
+				{
+					"y": 2020,
+					"w": 10,
+					"l": 1,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [95, 146.5],
+					"tal": [127, 158.93],
+					"epa": {
+						"off": .197,
+						"de": .1792,
+						"n": 128
+					}
+				},
+				{
+					"y": 2021,
+					"w": 8,
+					"l": 5,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [111, 129.14],
+					"tal": [135, 154.75],
+					"epa": {
+						"off": .1644,
+						"de": .1092,
+						"n": 130
+					}
+				},
+				{
+					"y": 2022,
+					"w": 8,
+					"l": 5,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [98, 126.37],
+					"tal": [146, 161.88],
+					"epa": {
+						"off": .0392,
+						"de": .0422,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 13,
+					"l": 1,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 14,
+					"rec": [111, 120.52],
+					"tal": [127, 330.29],
+					"epa": {
+						"off": .2271,
+						"de": .1125,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 8,
+					"l": 4,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [105, 142.69],
+					"tal": [88, 569.65],
+					"epa": {
+						"off": .0663,
+						"de": .1303,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 4,
+					"l": 8,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [86, 160.79],
+					"tal": [84, 599.12],
+					"epa": {
+						"off": .0618,
+						"de": .2015,
+						"n": 136
+					}
+				}
+			],
+			"prior": [{
+				"school": "Coastal Carolina",
+				"to": 2022,
+				"w": 39,
+				"l": 22,
+				"t": 0,
+				"from": 2017
+			}]
+		},
+		{
+			"slug": "louisiana",
+			"school": "Louisiana",
+			"name": "Michael Desormeaux",
+			"first": 2021,
+			"firstSeason": 2022,
+			"status": "compared",
+			"n": 3,
+			"completed": 4,
+			"notes": ["Started partway through 2021: coached 1 of 14 games that season (interim or mid-season hire). That season is shown but excluded from both windows."],
+			"before": {
+				"years": [2018, 2020],
+				"w": 28,
+				"l": 11,
+				"t": 0,
+				"winPct": .718,
+				"recRank": 86.667,
+				"recPts": 147.233,
+				"talentRank": 102.667,
+				"netEpa": .082,
+				"offEpa": .198,
+				"defEpa": .116
+			},
+			"after": {
+				"years": [2022, 2024],
+				"w": 22,
+				"l": 18,
+				"t": 0,
+				"winPct": .55,
+				"recRank": 105.667,
+				"recPts": 136.297,
+				"talentRank": 94.667,
+				"netEpa": -.048,
+				"offEpa": .11,
+				"defEpa": .158
+			},
+			"tenure": {
+				"years": [2022, 2025],
+				"w": 28,
+				"l": 25,
+				"t": 0,
+				"winPct": .528,
+				"recRank": 99.5,
+				"recPts": 143.558,
+				"talentRank": 93.75,
+				"netEpa": -.079,
+				"offEpa": .084,
+				"defEpa": .163
+			},
+			"seasons": [
+				{
+					"y": 2018,
+					"w": 7,
+					"l": 7,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [105, 124.91],
+					"tal": [103, 376.68],
+					"epa": {
+						"off": .1879,
+						"de": .2599,
+						"n": 130
+					}
+				},
+				{
+					"y": 2019,
+					"w": 11,
+					"l": 3,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [76, 158.45],
+					"tal": [103, 406.49],
+					"epa": {
+						"off": .2062,
+						"de": .0806,
+						"n": 130
+					}
+				},
+				{
+					"y": 2020,
+					"w": 10,
+					"l": 1,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [79, 158.34],
+					"tal": [102, 378.95],
+					"epa": {
+						"off": .1997,
+						"de": .0063,
+						"n": 128
+					}
+				},
+				{
+					"y": 2021,
+					"w": 13,
+					"l": 1,
+					"t": 0,
+					"who": "transition",
+					"win": null,
+					"mine": 1,
+					"rec": [79, 154.78],
+					"tal": [96, 435.63],
+					"epa": {
+						"off": .1641,
+						"de": .0977,
+						"n": 130
+					}
+				},
+				{
+					"y": 2022,
+					"w": 6,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [111, 115.71],
+					"tal": [93, 458.15],
+					"epa": {
+						"off": .009,
+						"de": .0977,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 6,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [89, 155.69],
+					"tal": [96, 475.45],
+					"epa": {
+						"off": .144,
+						"de": .1959,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 10,
+					"l": 4,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 14,
+					"rec": [117, 137.49],
+					"tal": [95, 553.39],
+					"epa": {
+						"off": .1775,
+						"de": .1797,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 6,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [81, 165.34],
+					"tal": [91, 585.82],
+					"epa": {
+						"off": .0058,
+						"de": .1794,
+						"n": 136
+					}
+				}
+			],
+			"prior": []
+		},
+		{
+			"slug": "louisiana-tech",
+			"school": "Louisiana Tech",
+			"name": "Sonny Cumbie",
+			"first": 2022,
+			"firstSeason": 2022,
+			"status": "compared",
+			"n": 3,
+			"completed": 4,
+			"notes": [],
+			"before": {
+				"years": [2019, 2021],
+				"w": 18,
+				"l": 17,
+				"t": 0,
+				"winPct": .514,
+				"recRank": 93,
+				"recPts": 141.997,
+				"talentRank": 78,
+				"netEpa": -.114,
+				"offEpa": .035,
+				"defEpa": .149
+			},
+			"after": {
+				"years": [2022, 2024],
+				"w": 11,
+				"l": 26,
+				"t": 0,
+				"winPct": .297,
+				"recRank": 92.667,
+				"recPts": 147.59,
+				"talentRank": 98,
+				"netEpa": -.238,
+				"offEpa": -.033,
+				"defEpa": .205
+			},
+			"tenure": {
+				"years": [2022, 2025],
+				"w": 19,
+				"l": 31,
+				"t": 0,
+				"winPct": .38,
+				"recRank": 97.25,
+				"recPts": 143.685,
+				"talentRank": 102.5,
+				"netEpa": -.186,
+				"offEpa": -.009,
+				"defEpa": .176
+			},
+			"seasons": [
+				{
+					"y": 2019,
+					"w": 10,
+					"l": 3,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [83, 155.46],
+					"tal": [78, 501.25],
+					"epa": {
+						"off": .0608,
+						"de": .0714,
+						"n": 130
+					}
+				},
+				{
+					"y": 2020,
+					"w": 5,
+					"l": 5,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [75, 162.08],
+					"tal": [80, 467.46],
+					"epa": {
+						"off": -.0293,
+						"de": .1512,
+						"n": 128
+					}
+				},
+				{
+					"y": 2021,
+					"w": 3,
+					"l": 9,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [121, 108.45],
+					"tal": [76, 520.48],
+					"epa": {
+						"off": .0721,
+						"de": .2231,
+						"n": 130
+					}
+				},
+				{
+					"y": 2022,
+					"w": 3,
+					"l": 9,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [88, 140.27],
+					"tal": [86, 473.76],
+					"epa": {
+						"off": -.0129,
+						"de": .2889,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 3,
+					"l": 9,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [77, 163.34],
+					"tal": [105, 433.72],
+					"epa": {
+						"off": .0044,
+						"de": .2224,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 5,
+					"l": 8,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [113, 139.16],
+					"tal": [103, 533.72],
+					"epa": {
+						"off": -.0917,
+						"de": .1027,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 8,
+					"l": 5,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [111, 131.97],
+					"tal": [116, 493.5],
+					"epa": {
+						"off": .063,
+						"de": .0918,
+						"n": 136
+					}
+				}
+			],
+			"prior": [{
+				"school": "Texas Tech",
+				"to": 2021,
+				"w": 2,
+				"l": 3,
+				"t": 0,
+				"from": 2021
+			}]
+		},
+		{
+			"slug": "louisville",
+			"school": "Louisville",
+			"name": "Jeff Brohm",
+			"first": 2023,
+			"firstSeason": 2023,
+			"status": "compared",
+			"n": 3,
+			"completed": 3,
+			"notes": [],
+			"before": {
+				"years": [2020, 2022],
+				"w": 18,
+				"l": 19,
+				"t": 0,
+				"winPct": .486,
+				"recRank": 43.667,
+				"recPts": 193.35,
+				"talentRank": 55.333,
+				"netEpa": .094,
+				"offEpa": .18,
+				"defEpa": .086
+			},
+			"after": {
+				"years": [2023, 2025],
+				"w": 28,
+				"l": 12,
+				"t": 0,
+				"winPct": .7,
+				"recRank": 52.333,
+				"recPts": 195.87,
+				"talentRank": 38.333,
+				"netEpa": .195,
+				"offEpa": .192,
+				"defEpa": -.003
+			},
+			"tenure": {
+				"years": [2023, 2025],
+				"w": 28,
+				"l": 12,
+				"t": 0,
+				"winPct": .7,
+				"recRank": 52.333,
+				"recPts": 195.87,
+				"talentRank": 38.333,
+				"netEpa": .195,
+				"offEpa": .192,
+				"defEpa": -.003
+			},
+			"seasons": [
+				{
+					"y": 2020,
+					"w": 4,
+					"l": 7,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [42, 194.46],
+					"tal": [48, 621.82],
+					"epa": {
+						"off": .1531,
+						"de": .1072,
+						"n": 128
+					}
+				},
+				{
+					"y": 2021,
+					"w": 6,
+					"l": 7,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [38, 198.01],
+					"tal": [58, 607.77],
+					"epa": {
+						"off": .2739,
+						"de": .18,
+						"n": 130
+					}
+				},
+				{
+					"y": 2022,
+					"w": 8,
+					"l": 5,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [51, 187.58],
+					"tal": [60, 625.42],
+					"epa": {
+						"off": .112,
+						"de": -.03,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 10,
+					"l": 4,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 14,
+					"rec": [31, 217.99],
+					"tal": [29, 744.16],
+					"epa": {
+						"off": .1657,
+						"de": -.0376,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 9,
+					"l": 4,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [58, 186.52],
+					"tal": [36, 739.28],
+					"epa": {
+						"off": .2711,
+						"de": .0595,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 9,
+					"l": 4,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [68, 183.1],
+					"tal": [50, 700.77],
+					"epa": {
+						"off": .139,
+						"de": -.0321,
+						"n": 136
+					}
+				}
+			],
+			"prior": [{
+				"school": "Western Kentucky",
+				"to": 2016,
+				"w": 30,
+				"l": 10,
+				"t": 0,
+				"from": 2014
+			}, {
+				"school": "Purdue",
+				"to": 2022,
+				"w": 36,
+				"l": 34,
+				"t": 0,
+				"from": 2017
+			}]
+		},
+		{
+			"slug": "lsu",
+			"school": "LSU",
+			"name": "Lane Kiffin",
+			"first": 2026,
+			"firstSeason": 2026,
+			"status": "too-new",
+			"n": 0,
+			"completed": 0,
+			"notes": ["Only 0 completed full seasons (through 2025); needs at least 2 for the compared view."],
+			"before": null,
+			"after": null,
+			"tenure": null,
+			"seasons": [],
+			"prior": [
+				{
+					"school": "Tennessee",
+					"to": 2009,
+					"w": 7,
+					"l": 6,
+					"t": 0,
+					"from": 2009
+				},
+				{
+					"school": "USC",
+					"to": 2013,
+					"w": 28,
+					"l": 15,
+					"t": 0,
+					"from": 2010
+				},
+				{
+					"school": "Florida Atlantic",
+					"to": 2019,
+					"w": 27,
+					"l": 13,
+					"t": 0,
+					"from": 2017
+				},
+				{
+					"school": "Ole Miss",
+					"to": 2025,
+					"w": 55,
+					"l": 19,
+					"t": 0,
+					"from": 2020
+				}
+			]
+		},
+		{
+			"slug": "marshall",
+			"school": "Marshall",
+			"name": "Tony Gibson",
+			"first": 2025,
+			"firstSeason": 2025,
+			"status": "too-new",
+			"n": 0,
+			"completed": 1,
+			"notes": ["Only 1 completed full season (through 2025); needs at least 2 for the compared view."],
+			"before": null,
+			"after": null,
+			"tenure": {
+				"years": [2025, 2025],
+				"w": 5,
+				"l": 7,
+				"t": 0,
+				"winPct": .417,
+				"recRank": 120,
+				"recPts": 118.44,
+				"talentRank": 89,
+				"netEpa": -.023,
+				"offEpa": .099,
+				"defEpa": .121
+			},
+			"seasons": [{
+				"y": 2025,
+				"w": 5,
+				"l": 7,
+				"t": 0,
+				"who": "tenure",
+				"win": null,
+				"mine": 12,
+				"rec": [120, 118.44],
+				"tal": [89, 590.64],
+				"epa": {
+					"off": .0985,
+					"de": .1214,
+					"n": 136
+				}
+			}],
+			"prior": []
+		},
+		{
+			"slug": "maryland",
+			"school": "Maryland",
+			"name": "Mike Locksley",
+			"first": 2019,
+			"firstSeason": 2019,
+			"status": "compared",
+			"n": 3,
+			"completed": 7,
+			"notes": [],
+			"before": {
+				"years": [2016, 2018],
+				"w": 15,
+				"l": 22,
+				"t": 0,
+				"winPct": .405,
+				"recRank": 29,
+				"recPts": 212.887,
+				"talentRank": 28.667,
+				"netEpa": -.029,
+				"offEpa": .082,
+				"defEpa": .112
+			},
+			"after": {
+				"years": [2019, 2021],
+				"w": 12,
+				"l": 18,
+				"t": 0,
+				"winPct": .4,
+				"recRank": 32.333,
+				"recPts": 210.713,
+				"talentRank": 32.667,
+				"netEpa": -.087,
+				"offEpa": .09,
+				"defEpa": .177
+			},
+			"tenure": {
+				"years": [2019, 2025],
+				"w": 36,
+				"l": 44,
+				"t": 0,
+				"winPct": .45,
+				"recRank": 32.571,
+				"recPts": 212.939,
+				"talentRank": 40.286,
+				"netEpa": -.001,
+				"offEpa": .105,
+				"defEpa": .106
+			},
+			"seasons": [
+				{
+					"y": 2016,
+					"w": 6,
+					"l": 7,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [41, 190.15],
+					"tal": [34, 651.99],
+					"epa": {
+						"off": .0676,
+						"de": .135,
+						"n": 128
+					}
+				},
+				{
+					"y": 2017,
+					"w": 4,
+					"l": 8,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [18, 230.17],
+					"tal": [28, 696.21],
+					"epa": {
+						"off": .0343,
+						"de": .1463,
+						"n": 130
+					}
+				},
+				{
+					"y": 2018,
+					"w": 5,
+					"l": 7,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [28, 218.34],
+					"tal": [24, 725.94],
+					"epa": {
+						"off": .1452,
+						"de": .0536,
+						"n": 130
+					}
+				},
+				{
+					"y": 2019,
+					"w": 3,
+					"l": 9,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [47, 192.18],
+					"tal": [27, 703.94],
+					"epa": {
+						"off": -.0438,
+						"de": .1306,
+						"n": 130
+					}
+				},
+				{
+					"y": 2020,
+					"w": 2,
+					"l": 3,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 5,
+					"rec": [31, 209.67],
+					"tal": [38, 646.29],
+					"epa": {
+						"off": .1332,
+						"de": .2249,
+						"n": 128
+					}
+				},
+				{
+					"y": 2021,
+					"w": 7,
+					"l": 6,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [19, 230.29],
+					"tal": [33, 705.79],
+					"epa": {
+						"off": .1794,
+						"de": .1745,
+						"n": 130
+					}
+				},
+				{
+					"y": 2022,
+					"w": 8,
+					"l": 5,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [31, 213.62],
+					"tal": [38, 680.22],
+					"epa": {
+						"off": .178,
+						"de": .0227,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 8,
+					"l": 5,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [36, 206.46],
+					"tal": [43, 685.75],
+					"epa": {
+						"off": .1857,
+						"de": .0353,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 4,
+					"l": 8,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 12,
+					"rec": [39, 209.92],
+					"tal": [51, 695.59],
+					"epa": {
+						"off": .0753,
+						"de": .0958,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 4,
+					"l": 8,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 12,
+					"rec": [25, 228.43],
+					"tal": [52, 699.31],
+					"epa": {
+						"off": .0281,
+						"de": .0579,
+						"n": 136
+					}
+				}
+			],
+			"prior": [{
+				"school": "New Mexico",
+				"to": 2011,
+				"w": 2,
+				"l": 26,
+				"t": 0,
+				"from": 2009
+			}]
+		},
+		{
+			"slug": "massachusetts",
+			"school": "Massachusetts",
+			"name": "Joe Harasymiak",
+			"first": 2025,
+			"firstSeason": 2025,
+			"status": "too-new",
+			"n": 0,
+			"completed": 1,
+			"notes": ["Only 1 completed full season (through 2025); needs at least 2 for the compared view."],
+			"before": null,
+			"after": null,
+			"tenure": {
+				"years": [2025, 2025],
+				"w": 0,
+				"l": 12,
+				"t": 0,
+				"winPct": 0,
+				"recRank": 145,
+				"recPts": 36.99,
+				"talentRank": 118,
+				"netEpa": -.488,
+				"offEpa": -.16,
+				"defEpa": .328
+			},
+			"seasons": [{
+				"y": 2025,
+				"w": 0,
+				"l": 12,
+				"t": 0,
+				"who": "tenure",
+				"win": null,
+				"mine": 12,
+				"rec": [145, 36.99],
+				"tal": [118, 488.73],
+				"epa": {
+					"off": -.1598,
+					"de": .3284,
+					"n": 136
+				}
+			}],
+			"prior": []
+		},
+		{
+			"slug": "memphis",
+			"school": "Memphis",
+			"name": "Charles Huff",
+			"first": 2026,
+			"firstSeason": 2026,
+			"status": "too-new",
+			"n": 0,
+			"completed": 0,
+			"notes": ["Only 0 completed full seasons (through 2025); needs at least 2 for the compared view."],
+			"before": null,
+			"after": null,
+			"tenure": null,
+			"seasons": [],
+			"prior": [{
+				"school": "Marshall",
+				"to": 2024,
+				"w": 32,
+				"l": 20,
+				"t": 0,
+				"from": 2021
+			}, {
+				"school": "Southern Miss",
+				"to": 2025,
+				"w": 7,
+				"l": 5,
+				"t": 0,
+				"from": 2025
+			}]
+		},
+		{
+			"slug": "miami",
+			"school": "Miami",
+			"name": "Mario Cristobal",
+			"first": 2022,
+			"firstSeason": 2022,
+			"status": "compared",
+			"n": 3,
+			"completed": 4,
+			"notes": [],
+			"before": {
+				"years": [2019, 2021],
+				"w": 21,
+				"l": 15,
+				"t": 0,
+				"winPct": .583,
+				"recRank": 17.333,
+				"recPts": 247.3,
+				"talentRank": 15.667,
+				"netEpa": .055,
+				"offEpa": .147,
+				"defEpa": .092
+			},
+			"after": {
+				"years": [2022, 2024],
+				"w": 22,
+				"l": 16,
+				"t": 0,
+				"winPct": .579,
+				"recRank": 9,
+				"recPts": 270.403,
+				"talentRank": 13,
+				"netEpa": .124,
+				"offEpa": .2,
+				"defEpa": .077
+			},
+			"tenure": {
+				"years": [2022, 2025],
+				"w": 35,
+				"l": 19,
+				"t": 0,
+				"winPct": .648,
+				"recRank": 10,
+				"recPts": 267.218,
+				"talentRank": 13.5,
+				"netEpa": .184,
+				"offEpa": .209,
+				"defEpa": .025
+			},
+			"seasons": [
+				{
+					"y": 2019,
+					"w": 6,
+					"l": 7,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [27, 222.07],
+					"tal": [18, 815.12],
+					"epa": {
+						"off": .0614,
+						"de": .0491,
+						"n": 130
+					}
+				},
+				{
+					"y": 2020,
+					"w": 8,
+					"l": 3,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [13, 256.71],
+					"tal": [16, 822.41],
+					"epa": {
+						"off": .195,
+						"de": .1124,
+						"n": 128
+					}
+				},
+				{
+					"y": 2021,
+					"w": 7,
+					"l": 5,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [12, 263.12],
+					"tal": [13, 841.45],
+					"epa": {
+						"off": .184,
+						"de": .1153,
+						"n": 130
+					}
+				},
+				{
+					"y": 2022,
+					"w": 5,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [16, 235.03],
+					"tal": [13, 854.72],
+					"epa": {
+						"off": .0443,
+						"de": .1148,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 7,
+					"l": 6,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [7, 284.64],
+					"tal": [12, 860.27],
+					"epa": {
+						"off": .1913,
+						"de": .0688,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 10,
+					"l": 3,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [4, 291.54],
+					"tal": [14, 868.15],
+					"epa": {
+						"off": .3654,
+						"de": .0466,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 13,
+					"l": 3,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 16,
+					"rec": [13, 257.66],
+					"tal": [15, 874.57],
+					"epa": {
+						"off": .2339,
+						"de": -.1321,
+						"n": 136
+					}
+				}
+			],
+			"prior": [{
+				"school": "Florida International",
+				"to": 2012,
+				"w": 27,
+				"l": 47,
+				"t": 0,
+				"from": 2007
+			}, {
+				"school": "Oregon",
+				"to": 2021,
+				"w": 35,
+				"l": 12,
+				"t": 0,
+				"from": 2018
+			}]
+		},
+		{
+			"slug": "miami-oh",
+			"school": "Miami (OH)",
+			"name": "Chuck Martin",
+			"first": 2014,
+			"firstSeason": 2014,
+			"status": "compared",
+			"n": 3,
+			"completed": 12,
+			"notes": [],
+			"before": {
+				"years": [2011, 2013],
+				"w": 8,
+				"l": 28,
+				"t": 0,
+				"winPct": .222,
+				"recRank": 100,
+				"recPts": 95.23,
+				"talentRank": null,
+				"netEpa": null,
+				"offEpa": null,
+				"defEpa": null
+			},
+			"after": {
+				"years": [2014, 2016],
+				"w": 11,
+				"l": 26,
+				"t": 0,
+				"winPct": .297,
+				"recRank": 97.333,
+				"recPts": 121.677,
+				"talentRank": null,
+				"netEpa": null,
+				"offEpa": null,
+				"defEpa": null
+			},
+			"tenure": {
+				"years": [2014, 2025],
+				"w": 72,
+				"l": 74,
+				"t": 0,
+				"winPct": .493,
+				"recRank": 94.083,
+				"recPts": 137.886,
+				"talentRank": null,
+				"netEpa": null,
+				"offEpa": null,
+				"defEpa": null
+			},
+			"seasons": [
+				{
+					"y": 2011,
+					"w": 4,
+					"l": 8,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [107, 57.32],
+					"tal": null,
+					"epa": null
+				},
+				{
+					"y": 2012,
+					"w": 4,
+					"l": 8,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [87, 121.01],
+					"tal": null,
+					"epa": null
+				},
+				{
+					"y": 2013,
+					"w": 0,
+					"l": 12,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [106, 107.36],
+					"tal": null,
+					"epa": null
+				},
+				{
+					"y": 2014,
+					"w": 2,
+					"l": 10,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [125, 84.76],
+					"tal": null,
+					"epa": null
+				},
+				{
+					"y": 2015,
+					"w": 3,
+					"l": 9,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [74, 150.48],
+					"tal": [92, 397.13],
+					"epa": null
+				},
+				{
+					"y": 2016,
+					"w": 6,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [93, 129.79],
+					"tal": [89, 418.04],
+					"epa": {
+						"off": .0737,
+						"de": .0922,
+						"n": 128
+					}
+				},
+				{
+					"y": 2017,
+					"w": 5,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 12,
+					"rec": [94, 126.73],
+					"tal": [84, 413.24],
+					"epa": {
+						"off": .0294,
+						"de": .1009,
+						"n": 130
+					}
+				},
+				{
+					"y": 2018,
+					"w": 6,
+					"l": 6,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 12,
+					"rec": [130, 103.16],
+					"tal": [90, 421.22],
+					"epa": {
+						"off": .0661,
+						"de": .1248,
+						"n": 130
+					}
+				},
+				{
+					"y": 2019,
+					"w": 8,
+					"l": 6,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 14,
+					"rec": [89, 151.13],
+					"tal": [113, 359.14],
+					"epa": {
+						"off": -.009,
+						"de": .099,
+						"n": 130
+					}
+				},
+				{
+					"y": 2020,
+					"w": 2,
+					"l": 1,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 3,
+					"rec": [89, 150.61],
+					"tal": [119, 259.14],
+					"epa": {
+						"off": .1834,
+						"de": .1776,
+						"n": 128
+					}
+				},
+				{
+					"y": 2021,
+					"w": 7,
+					"l": 6,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [88, 146.03],
+					"tal": [111, 378.03],
+					"epa": {
+						"off": .1336,
+						"de": .189,
+						"n": 130
+					}
+				},
+				{
+					"y": 2022,
+					"w": 6,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [77, 152.97],
+					"tal": [112, 397.26],
+					"epa": {
+						"off": -.0139,
+						"de": .1795,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 11,
+					"l": 3,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 14,
+					"rec": [105, 129.81],
+					"tal": [109, 408.16],
+					"epa": {
+						"off": -.0201,
+						"de": .0412,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 9,
+					"l": 5,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 14,
+					"rec": [82, 164.93],
+					"tal": [110, 505.3],
+					"epa": {
+						"off": .1139,
+						"de": .0841,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 7,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 14,
+					"rec": [83, 164.23],
+					"tal": [87, 592.1],
+					"epa": {
+						"off": -.0227,
+						"de": .1284,
+						"n": 136
+					}
+				}
+			],
+			"prior": []
+		},
+		{
+			"slug": "michigan",
+			"school": "Michigan",
+			"name": "Kyle Whittingham",
+			"first": 2026,
+			"firstSeason": 2026,
+			"status": "too-new",
+			"n": 0,
+			"completed": 0,
+			"notes": ["Only 0 completed full seasons (through 2025); needs at least 2 for the compared view."],
+			"before": null,
+			"after": null,
+			"tenure": null,
+			"seasons": [],
+			"prior": [{
+				"school": "Utah",
+				"to": 2025,
+				"w": 176,
+				"l": 88,
+				"t": 0,
+				"from": 2005
+			}]
+		},
+		{
+			"slug": "michigan-state",
+			"school": "Michigan State",
+			"name": "Pat Fitzgerald",
+			"first": 2026,
+			"firstSeason": 2026,
+			"status": "too-new",
+			"n": 0,
+			"completed": 0,
+			"notes": ["Only 0 completed full seasons (through 2025); needs at least 2 for the compared view."],
+			"before": null,
+			"after": null,
+			"tenure": null,
+			"seasons": [],
+			"prior": [{
+				"school": "Northwestern",
+				"to": 2022,
+				"w": 110,
+				"l": 101,
+				"t": 0,
+				"from": 2006
+			}]
+		},
+		{
+			"slug": "middle-tennessee",
+			"school": "Middle Tennessee",
+			"name": "Derek Mason",
+			"first": 2024,
+			"firstSeason": 2024,
+			"status": "compared",
+			"n": 2,
+			"completed": 2,
+			"notes": [],
+			"before": {
+				"years": [2022, 2023],
+				"w": 12,
+				"l": 13,
+				"t": 0,
+				"winPct": .48,
+				"recRank": 120,
+				"recPts": 101.42,
+				"talentRank": 96.5,
+				"netEpa": -.1,
+				"offEpa": .019,
+				"defEpa": .119
+			},
+			"after": {
+				"years": [2024, 2025],
+				"w": 6,
+				"l": 18,
+				"t": 0,
+				"winPct": .25,
+				"recRank": 108.5,
+				"recPts": 141.685,
+				"talentRank": 111,
+				"netEpa": -.251,
+				"offEpa": .026,
+				"defEpa": .276
+			},
+			"tenure": {
+				"years": [2024, 2025],
+				"w": 6,
+				"l": 18,
+				"t": 0,
+				"winPct": .25,
+				"recRank": 108.5,
+				"recPts": 141.685,
+				"talentRank": 111,
+				"netEpa": -.251,
+				"offEpa": .026,
+				"defEpa": .276
+			},
+			"seasons": [
+				{
+					"y": 2022,
+					"w": 8,
+					"l": 5,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [120, 102.04],
+					"tal": [103, 425.43],
+					"epa": {
+						"off": -.0062,
+						"de": .1006,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 4,
+					"l": 8,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [120, 100.8],
+					"tal": [90, 487.98],
+					"epa": {
+						"off": .0442,
+						"de": .1369,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 3,
+					"l": 9,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [119, 131.88],
+					"tal": [112, 503.43],
+					"epa": {
+						"off": .0204,
+						"de": .3322,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 3,
+					"l": 9,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [98, 151.49],
+					"tal": [110, 520.55],
+					"epa": {
+						"off": .0311,
+						"de": .2204,
+						"n": 136
+					}
+				}
+			],
+			"prior": [{
+				"school": "Vanderbilt",
+				"to": 2020,
+				"w": 27,
+				"l": 55,
+				"t": 0,
+				"from": 2014
+			}]
+		},
+		{
+			"slug": "minnesota",
+			"school": "Minnesota",
+			"name": "P.J. Fleck",
+			"first": 2017,
+			"firstSeason": 2017,
+			"status": "compared",
+			"n": 3,
+			"completed": 9,
+			"notes": [],
+			"before": {
+				"years": [2014, 2016],
+				"w": 23,
+				"l": 16,
+				"t": 0,
+				"winPct": .59,
+				"recRank": 55.333,
+				"recPts": 173.85,
+				"talentRank": null,
+				"netEpa": null,
+				"offEpa": null,
+				"defEpa": null
+			},
+			"after": {
+				"years": [2017, 2019],
+				"w": 23,
+				"l": 15,
+				"t": 0,
+				"winPct": .605,
+				"recRank": 47.333,
+				"recPts": 190.853,
+				"talentRank": 52,
+				"netEpa": .078,
+				"offEpa": .146,
+				"defEpa": .068
+			},
+			"tenure": {
+				"years": [2017, 2025],
+				"w": 66,
+				"l": 44,
+				"t": 0,
+				"winPct": .6,
+				"recRank": 44.111,
+				"recPts": 197.164,
+				"talentRank": 50.222,
+				"netEpa": .049,
+				"offEpa": .137,
+				"defEpa": .089
+			},
+			"seasons": [
+				{
+					"y": 2014,
+					"w": 8,
+					"l": 5,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [57, 172.32],
+					"tal": null,
+					"epa": null
+				},
+				{
+					"y": 2015,
+					"w": 6,
+					"l": 7,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [63, 167.01],
+					"tal": [64, 516.1],
+					"epa": null
+				},
+				{
+					"y": 2016,
+					"w": 9,
+					"l": 4,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [46, 182.22],
+					"tal": [59, 535.44],
+					"epa": {
+						"off": .0604,
+						"de": .0235,
+						"n": 128
+					}
+				},
+				{
+					"y": 2017,
+					"w": 5,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [59, 171.42],
+					"tal": [62, 543.8],
+					"epa": {
+						"off": .0386,
+						"de": .0918,
+						"n": 130
+					}
+				},
+				{
+					"y": 2018,
+					"w": 7,
+					"l": 6,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [38, 206.66],
+					"tal": [48, 588.97],
+					"epa": {
+						"off": .1031,
+						"de": .0804,
+						"n": 130
+					}
+				},
+				{
+					"y": 2019,
+					"w": 11,
+					"l": 2,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [45, 194.48],
+					"tal": [46, 621.36],
+					"epa": {
+						"off": .2958,
+						"de": .0314,
+						"n": 130
+					}
+				},
+				{
+					"y": 2020,
+					"w": 3,
+					"l": 4,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 7,
+					"rec": [38, 199.35],
+					"tal": [60, 594.7],
+					"epa": {
+						"off": .1543,
+						"de": .2508,
+						"n": 128
+					}
+				},
+				{
+					"y": 2021,
+					"w": 9,
+					"l": 4,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [37, 199.4],
+					"tal": [43, 653.25],
+					"epa": {
+						"off": .1691,
+						"de": .0386,
+						"n": 130
+					}
+				},
+				{
+					"y": 2022,
+					"w": 9,
+					"l": 4,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [49, 189.38],
+					"tal": [50, 649.43],
+					"epa": {
+						"off": .1667,
+						"de": .0306,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 6,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [45, 201.22],
+					"tal": [57, 640.46],
+					"epa": {
+						"off": .0799,
+						"de": .1605,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 8,
+					"l": 5,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [37, 211.62],
+					"tal": [45, 705.22],
+					"epa": {
+						"off": .1654,
+						"de": -.022,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 8,
+					"l": 5,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [49, 200.95],
+					"tal": [41, 711.04],
+					"epa": {
+						"off": .0624,
+						"de": .1347,
+						"n": 136
+					}
+				}
+			],
+			"prior": [{
+				"school": "Western Michigan",
+				"to": 2016,
+				"w": 30,
+				"l": 22,
+				"t": 0,
+				"from": 2013
+			}]
+		},
+		{
+			"slug": "mississippi-state",
+			"school": "Mississippi State",
+			"name": "Jeff Lebby",
+			"first": 2024,
+			"firstSeason": 2024,
+			"status": "compared",
+			"n": 2,
+			"completed": 2,
+			"notes": [],
+			"before": {
+				"years": [2022, 2023],
+				"w": 14,
+				"l": 11,
+				"t": 0,
+				"winPct": .56,
+				"recRank": 27,
+				"recPts": 221.185,
+				"talentRank": 28.5,
+				"netEpa": .064,
+				"offEpa": .075,
+				"defEpa": .011
+			},
+			"after": {
+				"years": [2024, 2025],
+				"w": 7,
+				"l": 18,
+				"t": 0,
+				"winPct": .28,
+				"recRank": 28,
+				"recPts": 223.915,
+				"talentRank": 29,
+				"netEpa": -.01,
+				"offEpa": .151,
+				"defEpa": .161
+			},
+			"tenure": {
+				"years": [2024, 2025],
+				"w": 7,
+				"l": 18,
+				"t": 0,
+				"winPct": .28,
+				"recRank": 28,
+				"recPts": 223.915,
+				"talentRank": 29,
+				"netEpa": -.01,
+				"offEpa": .151,
+				"defEpa": .161
+			},
+			"seasons": [
+				{
+					"y": 2022,
+					"w": 9,
+					"l": 4,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [27, 219.45],
+					"tal": [29, 725.55],
+					"epa": {
+						"off": .1486,
+						"de": -.024,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 5,
+					"l": 7,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [27, 222.92],
+					"tal": [28, 746.29],
+					"epa": {
+						"off": .0011,
+						"de": .0461,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 2,
+					"l": 10,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [28, 223.21],
+					"tal": [34, 743.77],
+					"epa": {
+						"off": .1891,
+						"de": .2182,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 5,
+					"l": 8,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [28, 224.62],
+					"tal": [24, 770.48],
+					"epa": {
+						"off": .1134,
+						"de": .1033,
+						"n": 136
+					}
+				}
+			],
+			"prior": []
+		},
+		{
+			"slug": "missouri",
+			"school": "Missouri",
+			"name": "Eli Drinkwitz",
+			"first": 2020,
+			"firstSeason": 2020,
+			"status": "compared",
+			"n": 3,
+			"completed": 6,
+			"notes": [],
+			"before": {
+				"years": [2017, 2019],
+				"w": 21,
+				"l": 17,
+				"t": 0,
+				"winPct": .553,
+				"recRank": 41,
+				"recPts": 195.74,
+				"talentRank": 42.667,
+				"netEpa": .13,
+				"offEpa": .156,
+				"defEpa": .026
+			},
+			"after": {
+				"years": [2020, 2022],
+				"w": 17,
+				"l": 19,
+				"t": 0,
+				"winPct": .472,
+				"recRank": 30.667,
+				"recPts": 210.017,
+				"talentRank": 41,
+				"netEpa": -.02,
+				"offEpa": .123,
+				"defEpa": .144
+			},
+			"tenure": {
+				"years": [2020, 2025],
+				"w": 46,
+				"l": 29,
+				"t": 0,
+				"winPct": .613,
+				"recRank": 27.667,
+				"recPts": 221.098,
+				"talentRank": 31.333,
+				"netEpa": .079,
+				"offEpa": .153,
+				"defEpa": .074
+			},
+			"seasons": [
+				{
+					"y": 2017,
+					"w": 7,
+					"l": 6,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [43, 187.71],
+					"tal": [42, 623.33],
+					"epa": {
+						"off": .2065,
+						"de": .0936,
+						"n": 130
+					}
+				},
+				{
+					"y": 2018,
+					"w": 8,
+					"l": 5,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [43, 197.38],
+					"tal": [46, 595.14],
+					"epa": {
+						"off": .1925,
+						"de": -.0326,
+						"n": 130
+					}
+				},
+				{
+					"y": 2019,
+					"w": 6,
+					"l": 6,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [37, 202.13],
+					"tal": [40, 642.83],
+					"epa": {
+						"off": .0684,
+						"de": .0178,
+						"n": 130
+					}
+				},
+				{
+					"y": 2020,
+					"w": 5,
+					"l": 5,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 10,
+					"rec": [50, 182.85],
+					"tal": [47, 627.24],
+					"epa": {
+						"off": .1231,
+						"de": .1627,
+						"n": 128
+					}
+				},
+				{
+					"y": 2021,
+					"w": 6,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [27, 210.28],
+					"tal": [45, 647.74],
+					"epa": {
+						"off": .1796,
+						"de": .2439,
+						"n": 130
+					}
+				},
+				{
+					"y": 2022,
+					"w": 6,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [15, 236.92],
+					"tal": [31, 715.36],
+					"epa": {
+						"off": .0671,
+						"de": .024,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 11,
+					"l": 2,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [34, 211.13],
+					"tal": [24, 755.4],
+					"epa": {
+						"off": .2596,
+						"de": -9e-4,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 10,
+					"l": 3,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [20, 241.93],
+					"tal": [19, 807.36],
+					"epa": {
+						"off": .1609,
+						"de": .0389,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 8,
+					"l": 5,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [20, 243.48],
+					"tal": [22, 804.77],
+					"epa": {
+						"off": .1261,
+						"de": -.0239,
+						"n": 136
+					}
+				}
+			],
+			"prior": [{
+				"school": "App State",
+				"to": 2019,
+				"w": 12,
+				"l": 1,
+				"t": 0,
+				"from": 2019
+			}]
+		},
+		{
+			"slug": "missouri-state",
+			"school": "Missouri State",
+			"name": "Casey Woods",
+			"first": 2026,
+			"firstSeason": 2026,
+			"status": "too-new",
+			"n": 0,
+			"completed": 0,
+			"notes": ["Only 0 completed full seasons (through 2025); needs at least 2 for the compared view."],
+			"before": null,
+			"after": null,
+			"tenure": null,
+			"seasons": [],
+			"prior": []
+		},
+		{
+			"slug": "navy",
+			"school": "Navy",
+			"name": "Brian Newberry",
+			"first": 2023,
+			"firstSeason": 2023,
+			"status": "compared",
+			"n": 3,
+			"completed": 3,
+			"notes": [],
+			"before": {
+				"years": [2020, 2022],
+				"w": 11,
+				"l": 23,
+				"t": 0,
+				"winPct": .324,
+				"recRank": 123.667,
+				"recPts": 100.583,
+				"talentRank": 162.667,
+				"netEpa": -.103,
+				"offEpa": .042,
+				"defEpa": .146
+			},
+			"after": {
+				"years": [2023, 2025],
+				"w": 26,
+				"l": 12,
+				"t": 0,
+				"winPct": .684,
+				"recRank": 138.667,
+				"recPts": 56.477,
+				"talentRank": null,
+				"netEpa": .029,
+				"offEpa": .113,
+				"defEpa": .084
+			},
+			"tenure": {
+				"years": [2023, 2025],
+				"w": 26,
+				"l": 12,
+				"t": 0,
+				"winPct": .684,
+				"recRank": 138.667,
+				"recPts": 56.477,
+				"talentRank": null,
+				"netEpa": .029,
+				"offEpa": .113,
+				"defEpa": .084
+			},
+			"seasons": [
+				{
+					"y": 2020,
+					"w": 3,
+					"l": 7,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [126, 128.76],
+					"tal": [116, 266.19],
+					"epa": {
+						"off": -.0486,
+						"de": .1547,
+						"n": 128
+					}
+				},
+				{
+					"y": 2021,
+					"w": 4,
+					"l": 8,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [107, 131.51],
+					"tal": [140, 127.63],
+					"epa": {
+						"off": .1049,
+						"de": .1518,
+						"n": 130
+					}
+				},
+				{
+					"y": 2022,
+					"w": 4,
+					"l": 8,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [138, 41.48],
+					"tal": [232, 0],
+					"epa": {
+						"off": .0704,
+						"de": .1305,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 5,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [131, 67.03],
+					"tal": [236, 0],
+					"epa": {
+						"off": -.0446,
+						"de": .0917,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 10,
+					"l": 3,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [153, 37.64],
+					"tal": [132, 0],
+					"epa": {
+						"off": .204,
+						"de": .0416,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 11,
+					"l": 2,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [132, 64.76],
+					"tal": null,
+					"epa": {
+						"off": .179,
+						"de": .1193,
+						"n": 136
+					}
+				}
+			],
+			"prior": []
+		},
+		{
+			"slug": "nc-state",
+			"school": "NC State",
+			"name": "Dave Doeren",
+			"first": 2013,
+			"firstSeason": 2013,
+			"status": "compared",
+			"n": 3,
+			"completed": 13,
+			"notes": [],
+			"before": {
+				"years": [2010, 2012],
+				"w": 24,
+				"l": 15,
+				"t": 0,
+				"winPct": .615,
+				"recRank": 52.667,
+				"recPts": 177.093,
+				"talentRank": null,
+				"netEpa": null,
+				"offEpa": null,
+				"defEpa": null
+			},
+			"after": {
+				"years": [2013, 2015],
+				"w": 18,
+				"l": 20,
+				"t": 0,
+				"winPct": .474,
+				"recRank": 41.333,
+				"recPts": 192.013,
+				"talentRank": null,
+				"netEpa": null,
+				"offEpa": null,
+				"defEpa": null
+			},
+			"tenure": {
+				"years": [2013, 2025],
+				"w": 95,
+				"l": 70,
+				"t": 0,
+				"winPct": .576,
+				"recRank": 40.538,
+				"recPts": 198.757,
+				"talentRank": null,
+				"netEpa": null,
+				"offEpa": null,
+				"defEpa": null
+			},
+			"seasons": [
+				{
+					"y": 2010,
+					"w": 9,
+					"l": 4,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [35, 208.25],
+					"tal": null,
+					"epa": null
+				},
+				{
+					"y": 2011,
+					"w": 8,
+					"l": 5,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [71, 139.33],
+					"tal": null,
+					"epa": null
+				},
+				{
+					"y": 2012,
+					"w": 7,
+					"l": 6,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [52, 183.7],
+					"tal": null,
+					"epa": null
+				},
+				{
+					"y": 2013,
+					"w": 3,
+					"l": 9,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [59, 166.04],
+					"tal": null,
+					"epa": null
+				},
+				{
+					"y": 2014,
+					"w": 8,
+					"l": 5,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [34, 201.31],
+					"tal": null,
+					"epa": null
+				},
+				{
+					"y": 2015,
+					"w": 7,
+					"l": 6,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [31, 208.69],
+					"tal": [43, 610.33],
+					"epa": null
+				},
+				{
+					"y": 2016,
+					"w": 7,
+					"l": 6,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [50, 177.67],
+					"tal": [44, 616.29],
+					"epa": {
+						"off": .1039,
+						"de": -.0085,
+						"n": 128
+					}
+				},
+				{
+					"y": 2017,
+					"w": 9,
+					"l": 4,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [53, 180.46],
+					"tal": [44, 609.76],
+					"epa": {
+						"off": .2139,
+						"de": .0472,
+						"n": 130
+					}
+				},
+				{
+					"y": 2018,
+					"w": 9,
+					"l": 4,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [26, 220.57],
+					"tal": [41, 629.39],
+					"epa": {
+						"off": .1478,
+						"de": .0893,
+						"n": 130
+					}
+				},
+				{
+					"y": 2019,
+					"w": 4,
+					"l": 8,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 12,
+					"rec": [31, 217.29],
+					"tal": [36, 668.85],
+					"epa": {
+						"off": -.0234,
+						"de": .1715,
+						"n": 130
+					}
+				},
+				{
+					"y": 2020,
+					"w": 8,
+					"l": 4,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 12,
+					"rec": [41, 194.78],
+					"tal": [31, 680.31],
+					"epa": {
+						"off": .0893,
+						"de": .1114,
+						"n": 128
+					}
+				},
+				{
+					"y": 2021,
+					"w": 9,
+					"l": 3,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 12,
+					"rec": [34, 202.42],
+					"tal": [34, 700.36],
+					"epa": {
+						"off": .2009,
+						"de": .0127,
+						"n": 130
+					}
+				},
+				{
+					"y": 2022,
+					"w": 8,
+					"l": 5,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [64, 171.26],
+					"tal": [35, 686.19],
+					"epa": {
+						"off": .0688,
+						"de": .0365,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 9,
+					"l": 4,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [43, 204.08],
+					"tal": [38, 700.85],
+					"epa": {
+						"off": .1026,
+						"de": .0383,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 6,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [27, 225.02],
+					"tal": [40, 722.41],
+					"epa": {
+						"off": .1258,
+						"de": .144,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 8,
+					"l": 5,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [34, 214.25],
+					"tal": [45, 707.51],
+					"epa": {
+						"off": .1775,
+						"de": .1131,
+						"n": 136
+					}
+				}
+			],
+			"prior": [{
+				"school": "Northern Illinois",
+				"to": 2012,
+				"w": 23,
+				"l": 4,
+				"t": 0,
+				"from": 2011
+			}]
+		},
+		{
+			"slug": "nebraska",
+			"school": "Nebraska",
+			"name": "Matt Rhule",
+			"first": 2023,
+			"firstSeason": 2023,
+			"status": "compared",
+			"n": 3,
+			"completed": 3,
+			"notes": [],
+			"before": {
+				"years": [2020, 2022],
+				"w": 10,
+				"l": 22,
+				"t": 0,
+				"winPct": .312,
+				"recRank": 27,
+				"recPts": 218.47,
+				"talentRank": 24.667,
+				"netEpa": .056,
+				"offEpa": .172,
+				"defEpa": .116
+			},
+			"after": {
+				"years": [2023, 2025],
+				"w": 19,
+				"l": 19,
+				"t": 0,
+				"winPct": .5,
+				"recRank": 21.667,
+				"recPts": 236.383,
+				"talentRank": 21.333,
+				"netEpa": .012,
+				"offEpa": .087,
+				"defEpa": .075
+			},
+			"tenure": {
+				"years": [2023, 2025],
+				"w": 19,
+				"l": 19,
+				"t": 0,
+				"winPct": .5,
+				"recRank": 21.667,
+				"recPts": 236.383,
+				"talentRank": 21.333,
+				"netEpa": .012,
+				"offEpa": .087,
+				"defEpa": .075
+			},
+			"seasons": [
+				{
+					"y": 2020,
+					"w": 3,
+					"l": 5,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [20, 240.27],
+					"tal": [25, 733.39],
+					"epa": {
+						"off": .1271,
+						"de": .1159,
+						"n": 128
+					}
+				},
+				{
+					"y": 2021,
+					"w": 3,
+					"l": 9,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [20, 216.5],
+					"tal": [25, 743.7],
+					"epa": {
+						"off": .2544,
+						"de": .086,
+						"n": 130
+					}
+				},
+				{
+					"y": 2022,
+					"w": 4,
+					"l": 8,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [41, 198.64],
+					"tal": [24, 752.12],
+					"epa": {
+						"off": .1355,
+						"de": .1469,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 5,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [25, 224.12],
+					"tal": [21, 765.2],
+					"epa": {
+						"off": .0158,
+						"de": .0378,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 7,
+					"l": 6,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [18, 247.5],
+					"tal": [23, 790.42],
+					"epa": {
+						"off": .1468,
+						"de": .0746,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 7,
+					"l": 6,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [22, 237.53],
+					"tal": [20, 821.39],
+					"epa": {
+						"off": .099,
+						"de": .1129,
+						"n": 136
+					}
+				}
+			],
+			"prior": [{
+				"school": "Temple",
+				"to": 2016,
+				"w": 28,
+				"l": 23,
+				"t": 0,
+				"from": 2013
+			}, {
+				"school": "Baylor",
+				"to": 2019,
+				"w": 19,
+				"l": 20,
+				"t": 0,
+				"from": 2017
+			}]
+		},
+		{
+			"slug": "nevada",
+			"school": "Nevada",
+			"name": "Jeff Choate",
+			"first": 2024,
+			"firstSeason": 2024,
+			"status": "compared",
+			"n": 2,
+			"completed": 2,
+			"notes": [],
+			"before": {
+				"years": [2022, 2023],
+				"w": 4,
+				"l": 20,
+				"t": 0,
+				"winPct": .167,
+				"recRank": 111,
+				"recPts": 117.505,
+				"talentRank": 102.5,
+				"netEpa": -.232,
+				"offEpa": -.055,
+				"defEpa": .177
+			},
+			"after": {
+				"years": [2024, 2025],
+				"w": 6,
+				"l": 19,
+				"t": 0,
+				"winPct": .24,
+				"recRank": 107.5,
+				"recPts": 136.195,
+				"talentRank": 112.5,
+				"netEpa": -.163,
+				"offEpa": .04,
+				"defEpa": .202
+			},
+			"tenure": {
+				"years": [2024, 2025],
+				"w": 6,
+				"l": 19,
+				"t": 0,
+				"winPct": .24,
+				"recRank": 107.5,
+				"recPts": 136.195,
+				"talentRank": 112.5,
+				"netEpa": -.163,
+				"offEpa": .04,
+				"defEpa": .202
+			},
+			"seasons": [
+				{
+					"y": 2022,
+					"w": 2,
+					"l": 10,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [115, 108.19],
+					"tal": [106, 416.44],
+					"epa": {
+						"off": -.0127,
+						"de": .1885,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 2,
+					"l": 10,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [107, 126.82],
+					"tal": [99, 470.32],
+					"epa": {
+						"off": -.0977,
+						"de": .1647,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 3,
+					"l": 10,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [127, 113.08],
+					"tal": [106, 525.22],
+					"epa": {
+						"off": .1142,
+						"de": .2383,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 3,
+					"l": 9,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [88, 159.31],
+					"tal": [119, 488.69],
+					"epa": {
+						"off": -.0348,
+						"de": .1666,
+						"n": 136
+					}
+				}
+			],
+			"prior": []
+		},
+		{
+			"slug": "new-mexico",
+			"school": "New Mexico",
+			"name": "Jason Eck",
+			"first": 2025,
+			"firstSeason": 2025,
+			"status": "too-new",
+			"n": 0,
+			"completed": 1,
+			"notes": ["Only 1 completed full season (through 2025); needs at least 2 for the compared view."],
+			"before": null,
+			"after": null,
+			"tenure": {
+				"years": [2025, 2025],
+				"w": 9,
+				"l": 4,
+				"t": 0,
+				"winPct": .692,
+				"recRank": 194,
+				"recPts": 10.33,
+				"talentRank": 131,
+				"netEpa": -.004,
+				"offEpa": .067,
+				"defEpa": .071
+			},
+			"seasons": [{
+				"y": 2025,
+				"w": 9,
+				"l": 4,
+				"t": 0,
+				"who": "tenure",
+				"win": null,
+				"mine": 13,
+				"rec": [194, 10.33],
+				"tal": [131, 378.8],
+				"epa": {
+					"off": .067,
+					"de": .0714,
+					"n": 136
+				}
+			}],
+			"prior": []
+		},
+		{
+			"slug": "new-mexico-state",
+			"school": "New Mexico State",
+			"name": "Tony Sanchez",
+			"first": 2024,
+			"firstSeason": 2024,
+			"status": "compared",
+			"n": 2,
+			"completed": 2,
+			"notes": [],
+			"before": {
+				"years": [2022, 2023],
+				"w": 17,
+				"l": 11,
+				"t": 0,
+				"winPct": .607,
+				"recRank": 110.5,
+				"recPts": 116.785,
+				"talentRank": 127.5,
+				"netEpa": -.132,
+				"offEpa": .074,
+				"defEpa": .207
+			},
+			"after": {
+				"years": [2024, 2025],
+				"w": 7,
+				"l": 17,
+				"t": 0,
+				"winPct": .292,
+				"recRank": 130,
+				"recPts": 82.46,
+				"talentRank": 129.5,
+				"netEpa": -.29,
+				"offEpa": -.074,
+				"defEpa": .216
+			},
+			"tenure": {
+				"years": [2024, 2025],
+				"w": 7,
+				"l": 17,
+				"t": 0,
+				"winPct": .292,
+				"recRank": 130,
+				"recPts": 82.46,
+				"talentRank": 129.5,
+				"netEpa": -.29,
+				"offEpa": -.074,
+				"defEpa": .216
+			},
+			"seasons": [
+				{
+					"y": 2022,
+					"w": 7,
+					"l": 6,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [108, 117],
+					"tal": [140, 189.37],
+					"epa": {
+						"off": .001,
+						"de": .2379,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 10,
+					"l": 5,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [113, 116.57],
+					"tal": [115, 378.99],
+					"epa": {
+						"off": .1479,
+						"de": .1751,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 3,
+					"l": 9,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [134, 67.75],
+					"tal": [129, 370.2],
+					"epa": {
+						"off": -.0702,
+						"de": .2946,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 4,
+					"l": 8,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [126, 97.17],
+					"tal": [130, 402.9],
+					"epa": {
+						"off": -.0783,
+						"de": .1373,
+						"n": 136
+					}
+				}
+			],
+			"prior": [{
+				"school": "UNLV",
+				"to": 2019,
+				"w": 20,
+				"l": 40,
+				"t": 0,
+				"from": 2015
+			}]
+		},
+		{
+			"slug": "north-carolina",
+			"school": "North Carolina",
+			"name": "Bill Belichick",
+			"first": 2025,
+			"firstSeason": 2025,
+			"status": "too-new",
+			"n": 0,
+			"completed": 1,
+			"notes": ["Only 1 completed full season (through 2025); needs at least 2 for the compared view."],
+			"before": null,
+			"after": null,
+			"tenure": {
+				"years": [2025, 2025],
+				"w": 4,
+				"l": 8,
+				"t": 0,
+				"winPct": .333,
+				"recRank": 41,
+				"recPts": 207.81,
+				"talentRank": 31,
+				"netEpa": -.112,
+				"offEpa": .053,
+				"defEpa": .165
+			},
+			"seasons": [{
+				"y": 2025,
+				"w": 4,
+				"l": 8,
+				"t": 0,
+				"who": "tenure",
+				"win": null,
+				"mine": 12,
+				"rec": [41, 207.81],
+				"tal": [31, 753.2],
+				"epa": {
+					"off": .0527,
+					"de": .1648,
+					"n": 136
+				}
+			}],
+			"prior": []
+		},
+		{
+			"slug": "north-dakota-state",
+			"school": "North Dakota State",
+			"name": "Tim Polasek",
+			"first": 2026,
+			"firstSeason": 2026,
+			"status": "too-new",
+			"n": 0,
+			"completed": 0,
+			"notes": ["Only 0 completed full seasons (through 2025); needs at least 2 for the compared view."],
+			"before": null,
+			"after": null,
+			"tenure": null,
+			"seasons": [],
+			"prior": []
+		},
+		{
+			"slug": "northern-illinois",
+			"school": "Northern Illinois",
+			"name": "Rob Harley",
+			"first": 2026,
+			"firstSeason": 2026,
+			"status": "too-new",
+			"n": 0,
+			"completed": 0,
+			"notes": ["Only 0 completed full seasons (through 2025); needs at least 2 for the compared view."],
+			"before": null,
+			"after": null,
+			"tenure": null,
+			"seasons": [],
+			"prior": []
+		},
+		{
+			"slug": "north-texas",
+			"school": "North Texas",
+			"name": "Neal Brown",
+			"first": 2026,
+			"firstSeason": 2026,
+			"status": "too-new",
+			"n": 0,
+			"completed": 0,
+			"notes": ["Only 0 completed full seasons (through 2025); needs at least 2 for the compared view."],
+			"before": null,
+			"after": null,
+			"tenure": null,
+			"seasons": [],
+			"prior": [{
+				"school": "Troy",
+				"to": 2018,
+				"w": 35,
+				"l": 16,
+				"t": 0,
+				"from": 2015
+			}, {
+				"school": "West Virginia",
+				"to": 2024,
+				"w": 37,
+				"l": 35,
+				"t": 0,
+				"from": 2019
+			}]
+		},
+		{
+			"slug": "northwestern",
+			"school": "Northwestern",
+			"name": "David Braun",
+			"first": 2023,
+			"firstSeason": 2023,
+			"status": "compared",
+			"n": 3,
+			"completed": 3,
+			"notes": [],
+			"before": {
+				"years": [2020, 2022],
+				"w": 11,
+				"l": 22,
+				"t": 0,
+				"winPct": .333,
+				"recRank": 48.333,
+				"recPts": 188.87,
+				"talentRank": 45.333,
+				"netEpa": -.073,
+				"offEpa": .017,
+				"defEpa": .09
+			},
+			"after": {
+				"years": [2023, 2025],
+				"w": 19,
+				"l": 19,
+				"t": 0,
+				"winPct": .5,
+				"recRank": 64.333,
+				"recPts": 184.53,
+				"talentRank": 54.667,
+				"netEpa": -.03,
+				"offEpa": .042,
+				"defEpa": .072
+			},
+			"tenure": {
+				"years": [2023, 2025],
+				"w": 19,
+				"l": 19,
+				"t": 0,
+				"winPct": .5,
+				"recRank": 64.333,
+				"recPts": 184.53,
+				"talentRank": 54.667,
+				"netEpa": -.03,
+				"offEpa": .042,
+				"defEpa": .072
+			},
+			"seasons": [
+				{
+					"y": 2020,
+					"w": 7,
+					"l": 2,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [47, 190.69],
+					"tal": [46, 629.84],
+					"epa": {
+						"off": .0453,
+						"de": -.0669,
+						"n": 128
+					}
+				},
+				{
+					"y": 2021,
+					"w": 3,
+					"l": 9,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [50, 184.3],
+					"tal": [44, 648.79],
+					"epa": {
+						"off": .0377,
+						"de": .2539,
+						"n": 130
+					}
+				},
+				{
+					"y": 2022,
+					"w": 1,
+					"l": 11,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [48, 191.62],
+					"tal": [46, 653.48],
+					"epa": {
+						"off": -.0323,
+						"de": .0823,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 8,
+					"l": 5,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [47, 200.11],
+					"tal": [52, 657.88],
+					"epa": {
+						"off": .0875,
+						"de": .0631,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 4,
+					"l": 8,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [80, 165.73],
+					"tal": [55, 675.78],
+					"epa": {
+						"off": -.0194,
+						"de": .0715,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 7,
+					"l": 6,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [66, 187.75],
+					"tal": [57, 677.97],
+					"epa": {
+						"off": .0587,
+						"de": .0827,
+						"n": 136
+					}
+				}
+			],
+			"prior": []
+		},
+		{
+			"slug": "notre-dame",
+			"school": "Notre Dame",
+			"name": "Marcus Freeman",
+			"first": 2021,
+			"firstSeason": 2022,
+			"status": "compared",
+			"n": 3,
+			"completed": 4,
+			"notes": ["Started partway through 2021: coached 1 of 13 games that season (interim or mid-season hire). That season is shown but excluded from both windows."],
+			"before": {
+				"years": [2018, 2020],
+				"w": 33,
+				"l": 5,
+				"t": 0,
+				"winPct": .868,
+				"recRank": 14.333,
+				"recPts": 259.623,
+				"talentRank": 11,
+				"netEpa": .214,
+				"offEpa": .193,
+				"defEpa": -.022
+			},
+			"after": {
+				"years": [2022, 2024],
+				"w": 33,
+				"l": 9,
+				"t": 0,
+				"winPct": .786,
+				"recRank": 9.333,
+				"recPts": 274.583,
+				"talentRank": 10.333,
+				"netEpa": .303,
+				"offEpa": .228,
+				"defEpa": -.076
+			},
+			"tenure": {
+				"years": [2022, 2025],
+				"w": 43,
+				"l": 11,
+				"t": 0,
+				"winPct": .796,
+				"recRank": 10,
+				"recPts": 273.493,
+				"talentRank": 10,
+				"netEpa": .326,
+				"offEpa": .243,
+				"defEpa": -.082
+			},
+			"seasons": [
+				{
+					"y": 2018,
+					"w": 12,
+					"l": 1,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [10, 268.86],
+					"tal": [10, 847.85],
+					"epa": {
+						"off": .1655,
+						"de": -.0318,
+						"n": 130
+					}
+				},
+				{
+					"y": 2019,
+					"w": 11,
+					"l": 2,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [16, 258.56],
+					"tal": [14, 843.29],
+					"epa": {
+						"off": .1996,
+						"de": -.0511,
+						"n": 130
+					}
+				},
+				{
+					"y": 2020,
+					"w": 10,
+					"l": 2,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [17, 251.45],
+					"tal": [9, 866.21],
+					"epa": {
+						"off": .2131,
+						"de": .0178,
+						"n": 128
+					}
+				},
+				{
+					"y": 2021,
+					"w": 11,
+					"l": 2,
+					"t": 0,
+					"who": "transition",
+					"win": null,
+					"mine": 1,
+					"rec": [9, 269.15],
+					"tal": [12, 853.1],
+					"epa": {
+						"off": .2311,
+						"de": 1e-4,
+						"n": 130
+					}
+				},
+				{
+					"y": 2022,
+					"w": 9,
+					"l": 4,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [7, 275.44],
+					"tal": [10, 866.48],
+					"epa": {
+						"off": .1217,
+						"de": .0238,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 10,
+					"l": 3,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [12, 272.74],
+					"tal": [11, 870.7],
+					"epa": {
+						"off": .2765,
+						"de": -.1007,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 14,
+					"l": 2,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 16,
+					"rec": [9, 275.57],
+					"tal": [10, 905.52],
+					"epa": {
+						"off": .2854,
+						"de": -.1498,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 10,
+					"l": 2,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 12,
+					"rec": [12, 270.22],
+					"tal": [9, 912.11],
+					"epa": {
+						"off": .2898,
+						"de": -.1026,
+						"n": 136
+					}
+				}
+			],
+			"prior": []
+		},
+		{
+			"slug": "ohio",
+			"school": "Ohio",
+			"name": "John Hauser",
+			"first": 2025,
+			"firstSeason": 2026,
+			"status": "too-new",
+			"n": 0,
+			"completed": 0,
+			"notes": ["Only 0 completed full seasons (through 2025); needs at least 2 for the compared view.", "Started partway through 2025: coached 1 of 13 games that season (interim or mid-season hire). That season is shown but excluded from both windows."],
+			"before": null,
+			"after": null,
+			"tenure": null,
+			"seasons": [{
+				"y": 2025,
+				"w": 9,
+				"l": 4,
+				"t": 0,
+				"who": "transition",
+				"win": null,
+				"mine": 1,
+				"rec": [121, 115.37],
+				"tal": [126, 469.99],
+				"epa": {
+					"off": .0682,
+					"de": .1001,
+					"n": 136
+				}
+			}],
+			"prior": []
+		},
+		{
+			"slug": "ohio-state",
+			"school": "Ohio State",
+			"name": "Ryan Day",
+			"first": 2018,
+			"firstSeason": 2019,
+			"status": "compared",
+			"n": 3,
+			"completed": 7,
+			"notes": ["Started partway through 2018: coached 3 of 14 games that season (interim or mid-season hire). That season is shown but excluded from both windows."],
+			"before": {
+				"years": [2015, 2017],
+				"w": 35,
+				"l": 5,
+				"t": 0,
+				"winPct": .875,
+				"recRank": 4.333,
+				"recPts": 293.62,
+				"talentRank": 3.333,
+				"netEpa": null,
+				"offEpa": null,
+				"defEpa": null
+			},
+			"after": {
+				"years": [2019, 2021],
+				"w": 31,
+				"l": 4,
+				"t": 0,
+				"winPct": .886,
+				"recRank": 7,
+				"recPts": 288.583,
+				"talentRank": 2.667,
+				"netEpa": .379,
+				"offEpa": .398,
+				"defEpa": .018
+			},
+			"tenure": {
+				"years": [2019, 2025],
+				"w": 79,
+				"l": 12,
+				"t": 0,
+				"winPct": .868,
+				"recRank": 5.571,
+				"recPts": 291.79,
+				"talentRank": 2.857,
+				"netEpa": .398,
+				"offEpa": .363,
+				"defEpa": -.035
+			},
+			"seasons": [
+				{
+					"y": 2015,
+					"w": 12,
+					"l": 1,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [7, 279.6],
+					"tal": [3, 907.32],
+					"epa": null
+				},
+				{
+					"y": 2016,
+					"w": 11,
+					"l": 2,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [4, 289.12],
+					"tal": [5, 902.46],
+					"epa": {
+						"off": .2147,
+						"de": -.1373,
+						"n": 128
+					}
+				},
+				{
+					"y": 2017,
+					"w": 12,
+					"l": 2,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [2, 312.14],
+					"tal": [2, 959.12],
+					"epa": {
+						"off": .2444,
+						"de": -.0648,
+						"n": 130
+					}
+				},
+				{
+					"y": 2018,
+					"w": 13,
+					"l": 1,
+					"t": 0,
+					"who": "transition",
+					"win": null,
+					"mine": 3,
+					"rec": [2, 317.06],
+					"tal": [1, 984.3],
+					"epa": {
+						"off": .286,
+						"de": .0652,
+						"n": 130
+					}
+				},
+				{
+					"y": 2019,
+					"w": 13,
+					"l": 1,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 14,
+					"rec": [14, 261.18],
+					"tal": [2, 973.56],
+					"epa": {
+						"off": .4118,
+						"de": -.096,
+						"n": 130
+					}
+				},
+				{
+					"y": 2020,
+					"w": 7,
+					"l": 1,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 8,
+					"rec": [5, 295.08],
+					"tal": [3, 976.48],
+					"epa": {
+						"off": .3669,
+						"de": .0898,
+						"n": 128
+					}
+				},
+				{
+					"y": 2021,
+					"w": 11,
+					"l": 2,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [2, 309.49],
+					"tal": [3, 985.09],
+					"epa": {
+						"off": .4141,
+						"de": .0607,
+						"n": 130
+					}
+				},
+				{
+					"y": 2022,
+					"w": 11,
+					"l": 2,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [4, 300.95],
+					"tal": [3, 983.14],
+					"epa": {
+						"off": .3888,
+						"de": -.0084,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 11,
+					"l": 2,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [5, 288.98],
+					"tal": [3, 974.79],
+					"epa": {
+						"off": .2887,
+						"de": -.0878,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 14,
+					"l": 2,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 16,
+					"rec": [5, 289.13],
+					"tal": [3, 998.62],
+					"epa": {
+						"off": .3776,
+						"de": -.0869,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 12,
+					"l": 2,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 14,
+					"rec": [4, 297.72],
+					"tal": [3, 973.69],
+					"epa": {
+						"off": .2938,
+						"de": -.116,
+						"n": 136
+					}
+				}
+			],
+			"prior": []
+		},
+		{
+			"slug": "oklahoma",
+			"school": "Oklahoma",
+			"name": "Brent Venables",
+			"first": 2022,
+			"firstSeason": 2022,
+			"status": "compared",
+			"n": 3,
+			"completed": 4,
+			"notes": [],
+			"before": {
+				"years": [2019, 2021],
+				"w": 32,
+				"l": 6,
+				"t": 0,
+				"winPct": .842,
+				"recRank": 9.333,
+				"recPts": 268.933,
+				"talentRank": 7.333,
+				"netEpa": .256,
+				"offEpa": .319,
+				"defEpa": .063
+			},
+			"after": {
+				"years": [2022, 2024],
+				"w": 22,
+				"l": 17,
+				"t": 0,
+				"winPct": .564,
+				"recRank": 6.667,
+				"recPts": 277.133,
+				"talentRank": 8.667,
+				"netEpa": .173,
+				"offEpa": .175,
+				"defEpa": .003
+			},
+			"tenure": {
+				"years": [2022, 2025],
+				"w": 32,
+				"l": 20,
+				"t": 0,
+				"winPct": .615,
+				"recRank": 9.25,
+				"recPts": 270,
+				"talentRank": 10,
+				"netEpa": .177,
+				"offEpa": .151,
+				"defEpa": -.026
+			},
+			"seasons": [
+				{
+					"y": 2019,
+					"w": 12,
+					"l": 2,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [6, 279.28],
+					"tal": [8, 869.53],
+					"epa": {
+						"off": .3542,
+						"de": .0619,
+						"n": 130
+					}
+				},
+				{
+					"y": 2020,
+					"w": 9,
+					"l": 2,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [11, 259.6],
+					"tal": [8, 866.36],
+					"epa": {
+						"off": .2988,
+						"de": .0285,
+						"n": 128
+					}
+				},
+				{
+					"y": 2021,
+					"w": 11,
+					"l": 2,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [11, 267.92],
+					"tal": [6, 895.38],
+					"epa": {
+						"off": .3044,
+						"de": .0993,
+						"n": 130
+					}
+				},
+				{
+					"y": 2022,
+					"w": 6,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [8, 266.73],
+					"tal": [9, 870.34],
+					"epa": {
+						"off": .1797,
+						"de": .1156,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 10,
+					"l": 3,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [4, 289.03],
+					"tal": [9, 884.97],
+					"epa": {
+						"off": .2749,
+						"de": -.0659,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 6,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [8, 275.64],
+					"tal": [8, 906.61],
+					"epa": {
+						"off": .0709,
+						"de": -.042,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 10,
+					"l": 3,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [17, 248.6],
+					"tal": [14, 882.59],
+					"epa": {
+						"off": .0801,
+						"de": -.1109,
+						"n": 136
+					}
+				}
+			],
+			"prior": []
+		},
+		{
+			"slug": "oklahoma-state",
+			"school": "Oklahoma State",
+			"name": "Eric Morris",
+			"first": 2026,
+			"firstSeason": 2026,
+			"status": "too-new",
+			"n": 0,
+			"completed": 0,
+			"notes": ["Only 0 completed full seasons (through 2025); needs at least 2 for the compared view."],
+			"before": null,
+			"after": null,
+			"tenure": null,
+			"seasons": [],
+			"prior": [{
+				"school": "North Texas",
+				"to": 2025,
+				"w": 22,
+				"l": 16,
+				"t": 0,
+				"from": 2023
+			}]
+		},
+		{
+			"slug": "old-dominion",
+			"school": "Old Dominion",
+			"name": "Ricky Rahne",
+			"first": 2020,
+			"firstSeason": 2020,
+			"status": "compared",
+			"n": 3,
+			"completed": 5,
+			"notes": [],
+			"before": {
+				"years": [2017, 2019],
+				"w": 10,
+				"l": 26,
+				"t": 0,
+				"winPct": .278,
+				"recRank": 122.667,
+				"recPts": 111.997,
+				"talentRank": 113.333,
+				"netEpa": -.251,
+				"offEpa": -.073,
+				"defEpa": .178
+			},
+			"after": {
+				"years": [2021, 2023],
+				"w": 15,
+				"l": 23,
+				"t": 0,
+				"winPct": .395,
+				"recRank": 109.333,
+				"recPts": 116.573,
+				"talentRank": 109,
+				"netEpa": -.085,
+				"offEpa": .032,
+				"defEpa": .117
+			},
+			"tenure": {
+				"years": [2021, 2025],
+				"w": 30,
+				"l": 33,
+				"t": 0,
+				"winPct": .476,
+				"recRank": 111,
+				"recPts": 122.698,
+				"talentRank": 115.4,
+				"netEpa": -.012,
+				"offEpa": .077,
+				"defEpa": .089
+			},
+			"seasons": [
+				{
+					"y": 2017,
+					"w": 5,
+					"l": 7,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [124, 99.41],
+					"tal": [108, 331.2],
+					"epa": {
+						"off": -.0869,
+						"de": .1762,
+						"n": 130
+					}
+				},
+				{
+					"y": 2018,
+					"w": 4,
+					"l": 8,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [128, 108.27],
+					"tal": [121, 333.18],
+					"epa": {
+						"off": -9e-4,
+						"de": .2486,
+						"n": 130
+					}
+				},
+				{
+					"y": 2019,
+					"w": 1,
+					"l": 11,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [116, 128.31],
+					"tal": [111, 374.74],
+					"epa": {
+						"off": -.1311,
+						"de": .1102,
+						"n": 130
+					}
+				},
+				{
+					"y": 2021,
+					"w": 6,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [100, 135.74],
+					"tal": [104, 409.31],
+					"epa": {
+						"off": .0239,
+						"de": .1248,
+						"n": 130
+					}
+				},
+				{
+					"y": 2022,
+					"w": 3,
+					"l": 9,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [106, 118.85],
+					"tal": [101, 438.06],
+					"epa": {
+						"off": .046,
+						"de": .1787,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 6,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [122, 95.13],
+					"tal": [122, 343.17],
+					"epa": {
+						"off": .0261,
+						"de": .0475,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 5,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 12,
+					"rec": [125, 119.46],
+					"tal": [128, 428.91],
+					"epa": {
+						"off": .1689,
+						"de": .1485,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 10,
+					"l": 3,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [102, 144.31],
+					"tal": [122, 477.45],
+					"epa": {
+						"off": .1202,
+						"de": -.054,
+						"n": 136
+					}
+				}
+			],
+			"prior": []
+		},
+		{
+			"slug": "ole-miss",
+			"school": "Ole Miss",
+			"name": "Pete Golding",
+			"first": 2025,
+			"firstSeason": 2026,
+			"status": "too-new",
+			"n": 0,
+			"completed": 0,
+			"notes": ["Only 0 completed full seasons (through 2025); needs at least 2 for the compared view.", "Started partway through 2025: coached 3 of 15 games that season (interim or mid-season hire). That season is shown but excluded from both windows."],
+			"before": null,
+			"after": null,
+			"tenure": null,
+			"seasons": [{
+				"y": 2025,
+				"w": 13,
+				"l": 2,
+				"t": 0,
+				"who": "transition",
+				"win": null,
+				"mine": 3,
+				"rec": [16, 251.63],
+				"tal": [21, 813.11],
+				"epa": {
+					"off": .3049,
+					"de": .0375,
+					"n": 136
+				}
+			}],
+			"prior": []
+		},
+		{
+			"slug": "oregon",
+			"school": "Oregon",
+			"name": "Dan Lanning",
+			"first": 2022,
+			"firstSeason": 2022,
+			"status": "compared",
+			"n": 3,
+			"completed": 4,
+			"notes": [],
+			"before": {
+				"years": [2019, 2021],
+				"w": 26,
+				"l": 9,
+				"t": 0,
+				"winPct": .743,
+				"recRank": 8.333,
+				"recPts": 274.95,
+				"talentRank": 14,
+				"netEpa": .159,
+				"offEpa": .205,
+				"defEpa": .046
+			},
+			"after": {
+				"years": [2022, 2024],
+				"w": 35,
+				"l": 6,
+				"t": 0,
+				"winPct": .854,
+				"recRank": 8.333,
+				"recPts": 271.677,
+				"talentRank": 7.667,
+				"netEpa": .32,
+				"offEpa": .331,
+				"defEpa": .011
+			},
+			"tenure": {
+				"years": [2022, 2025],
+				"w": 48,
+				"l": 8,
+				"t": 0,
+				"winPct": .857,
+				"recRank": 7.5,
+				"recPts": 277.783,
+				"talentRank": 7,
+				"netEpa": .335,
+				"offEpa": .323,
+				"defEpa": -.012
+			},
+			"seasons": [
+				{
+					"y": 2019,
+					"w": 12,
+					"l": 2,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [7, 277.98],
+					"tal": [17, 817.7],
+					"epa": {
+						"off": .238,
+						"de": -.0864,
+						"n": 130
+					}
+				},
+				{
+					"y": 2020,
+					"w": 4,
+					"l": 3,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [12, 259.49],
+					"tal": [17, 816.74],
+					"epa": {
+						"off": .1536,
+						"de": .1099,
+						"n": 128
+					}
+				},
+				{
+					"y": 2021,
+					"w": 10,
+					"l": 4,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [6, 287.38],
+					"tal": [8, 885.75],
+					"epa": {
+						"off": .2228,
+						"de": .1131,
+						"n": 130
+					}
+				},
+				{
+					"y": 2022,
+					"w": 10,
+					"l": 3,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [13, 243.37],
+					"tal": [7, 877.93],
+					"epa": {
+						"off": .2477,
+						"de": .0717,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 12,
+					"l": 2,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 14,
+					"rec": [9, 278.44],
+					"tal": [10, 874.74],
+					"epa": {
+						"off": .4135,
+						"de": -.042,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 13,
+					"l": 1,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 14,
+					"rec": [3, 293.22],
+					"tal": [6, 916.71],
+					"epa": {
+						"off": .3321,
+						"de": .0044,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 13,
+					"l": 2,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 15,
+					"rec": [5, 296.1],
+					"tal": [5, 941.22],
+					"epa": {
+						"off": .2971,
+						"de": -.0834,
+						"n": 136
+					}
+				}
+			],
+			"prior": []
+		},
+		{
+			"slug": "oregon-state",
+			"school": "Oregon State",
+			"name": "JaMarcus Shephard",
+			"first": 2026,
+			"firstSeason": 2026,
+			"status": "too-new",
+			"n": 0,
+			"completed": 0,
+			"notes": ["Only 0 completed full seasons (through 2025); needs at least 2 for the compared view."],
+			"before": null,
+			"after": null,
+			"tenure": null,
+			"seasons": [],
+			"prior": []
+		},
+		{
+			"slug": "penn-state",
+			"school": "Penn State",
+			"name": "Matt Campbell",
+			"first": 2026,
+			"firstSeason": 2026,
+			"status": "too-new",
+			"n": 0,
+			"completed": 0,
+			"notes": ["Only 0 completed full seasons (through 2025); needs at least 2 for the compared view."],
+			"before": null,
+			"after": null,
+			"tenure": null,
+			"seasons": [],
+			"prior": [{
+				"school": "Toledo",
+				"to": 2015,
+				"w": 35,
+				"l": 15,
+				"t": 0,
+				"from": 2011
+			}, {
+				"school": "Iowa State",
+				"to": 2025,
+				"w": 72,
+				"l": 55,
+				"t": 0,
+				"from": 2016
+			}]
+		},
+		{
+			"slug": "pittsburgh",
+			"school": "Pittsburgh",
+			"name": "Pat Narduzzi",
+			"first": 2015,
+			"firstSeason": 2015,
+			"status": "compared",
+			"n": 3,
+			"completed": 11,
+			"notes": [],
+			"before": {
+				"years": [2012, 2014],
+				"w": 19,
+				"l": 20,
+				"t": 0,
+				"winPct": .487,
+				"recRank": 39.667,
+				"recPts": 194.17,
+				"talentRank": null,
+				"netEpa": null,
+				"offEpa": null,
+				"defEpa": null
+			},
+			"after": {
+				"years": [2015, 2017],
+				"w": 21,
+				"l": 17,
+				"t": 0,
+				"winPct": .553,
+				"recRank": 37.667,
+				"recPts": 198.177,
+				"talentRank": 37,
+				"netEpa": null,
+				"offEpa": null,
+				"defEpa": null
+			},
+			"tenure": {
+				"years": [2015, 2025],
+				"w": 80,
+				"l": 61,
+				"t": 0,
+				"winPct": .567,
+				"recRank": 46.091,
+				"recPts": 193.195,
+				"talentRank": 40.636,
+				"netEpa": null,
+				"offEpa": null,
+				"defEpa": null
+			},
+			"seasons": [
+				{
+					"y": 2012,
+					"w": 6,
+					"l": 7,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [43, 198.81],
+					"tal": null,
+					"epa": null
+				},
+				{
+					"y": 2013,
+					"w": 7,
+					"l": 6,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [32, 196.04],
+					"tal": null,
+					"epa": null
+				},
+				{
+					"y": 2014,
+					"w": 6,
+					"l": 7,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [44, 187.66],
+					"tal": null,
+					"epa": null
+				},
+				{
+					"y": 2015,
+					"w": 8,
+					"l": 5,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [46, 183.18],
+					"tal": [42, 611.18],
+					"epa": null
+				},
+				{
+					"y": 2016,
+					"w": 8,
+					"l": 5,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [30, 209.23],
+					"tal": [35, 649.85],
+					"epa": {
+						"off": .2794,
+						"de": .1567,
+						"n": 128
+					}
+				},
+				{
+					"y": 2017,
+					"w": 5,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [37, 202.12],
+					"tal": [34, 660.36],
+					"epa": {
+						"off": .1029,
+						"de": .0694,
+						"n": 130
+					}
+				},
+				{
+					"y": 2018,
+					"w": 7,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 14,
+					"rec": [47, 193.19],
+					"tal": [38, 637.96],
+					"epa": {
+						"off": .1603,
+						"de": .0451,
+						"n": 130
+					}
+				},
+				{
+					"y": 2019,
+					"w": 8,
+					"l": 5,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [58, 181.53],
+					"tal": [42, 637.95],
+					"epa": {
+						"off": -.015,
+						"de": -.0103,
+						"n": 130
+					}
+				},
+				{
+					"y": 2020,
+					"w": 6,
+					"l": 5,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 11,
+					"rec": [44, 192.65],
+					"tal": [36, 653.05],
+					"epa": {
+						"off": .0093,
+						"de": -.0025,
+						"n": 128
+					}
+				},
+				{
+					"y": 2021,
+					"w": 11,
+					"l": 3,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 14,
+					"rec": [26, 210.45],
+					"tal": [37, 668.67],
+					"epa": {
+						"off": .1839,
+						"de": .021,
+						"n": 130
+					}
+				},
+				{
+					"y": 2022,
+					"w": 9,
+					"l": 4,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [76, 153.09],
+					"tal": [45, 654.56],
+					"epa": {
+						"off": .102,
+						"de": -.0435,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 3,
+					"l": 9,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 12,
+					"rec": [51, 196.32],
+					"tal": [39, 700.42],
+					"epa": {
+						"off": -.054,
+						"de": .025,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 7,
+					"l": 6,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [41, 204.1],
+					"tal": [43, 713.74],
+					"epa": {
+						"off": .047,
+						"de": .0619,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 8,
+					"l": 5,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [51, 199.28],
+					"tal": [56, 681.21],
+					"epa": {
+						"off": .1026,
+						"de": -.0549,
+						"n": 136
+					}
+				}
+			],
+			"prior": []
+		},
+		{
+			"slug": "purdue",
+			"school": "Purdue",
+			"name": "Barry Odom",
+			"first": 2025,
+			"firstSeason": 2025,
+			"status": "too-new",
+			"n": 0,
+			"completed": 1,
+			"notes": ["Only 1 completed full season (through 2025); needs at least 2 for the compared view."],
+			"before": null,
+			"after": null,
+			"tenure": {
+				"years": [2025, 2025],
+				"w": 2,
+				"l": 10,
+				"t": 0,
+				"winPct": .167,
+				"recRank": 99,
+				"recPts": 147.08,
+				"talentRank": 54,
+				"netEpa": -.092,
+				"offEpa": .075,
+				"defEpa": .167
+			},
+			"seasons": [{
+				"y": 2025,
+				"w": 2,
+				"l": 10,
+				"t": 0,
+				"who": "tenure",
+				"win": null,
+				"mine": 12,
+				"rec": [99, 147.08],
+				"tal": [54, 687.74],
+				"epa": {
+					"off": .0747,
+					"de": .1665,
+					"n": 136
+				}
+			}],
+			"prior": [{
+				"school": "Missouri",
+				"to": 2019,
+				"w": 25,
+				"l": 25,
+				"t": 0,
+				"from": 2016
+			}, {
+				"school": "UNLV",
+				"to": 2024,
+				"w": 20,
+				"l": 8,
+				"t": 0,
+				"from": 2023
+			}]
+		},
+		{
+			"slug": "rice",
+			"school": "Rice",
+			"name": "Scott Abell",
+			"first": 2025,
+			"firstSeason": 2025,
+			"status": "too-new",
+			"n": 0,
+			"completed": 1,
+			"notes": ["Only 1 completed full season (through 2025); needs at least 2 for the compared view."],
+			"before": null,
+			"after": null,
+			"tenure": {
+				"years": [2025, 2025],
+				"w": 5,
+				"l": 8,
+				"t": 0,
+				"winPct": .385,
+				"recRank": 100,
+				"recPts": 146.64,
+				"talentRank": 106,
+				"netEpa": -.284,
+				"offEpa": -.074,
+				"defEpa": .21
+			},
+			"seasons": [{
+				"y": 2025,
+				"w": 5,
+				"l": 8,
+				"t": 0,
+				"who": "tenure",
+				"win": null,
+				"mine": 13,
+				"rec": [100, 146.64],
+				"tal": [106, 530.06],
+				"epa": {
+					"off": -.0739,
+					"de": .2098,
+					"n": 136
+				}
+			}],
+			"prior": []
+		},
+		{
+			"slug": "rutgers",
+			"school": "Rutgers",
+			"name": "Greg Schiano",
+			"first": 2020,
+			"firstSeason": 2020,
+			"status": "compared",
+			"n": 3,
+			"completed": 6,
+			"notes": [],
+			"before": {
+				"years": [2017, 2019],
+				"w": 7,
+				"l": 29,
+				"t": 0,
+				"winPct": .194,
+				"recRank": 54,
+				"recPts": 182.54,
+				"talentRank": 56.333,
+				"netEpa": -.228,
+				"offEpa": -.077,
+				"defEpa": .15
+			},
+			"after": {
+				"years": [2020, 2022],
+				"w": 12,
+				"l": 22,
+				"t": 0,
+				"winPct": .353,
+				"recRank": 46,
+				"recPts": 190.627,
+				"talentRank": 60.333,
+				"netEpa": -.158,
+				"offEpa": -.044,
+				"defEpa": .114
+			},
+			"tenure": {
+				"years": [2020, 2025],
+				"w": 31,
+				"l": 41,
+				"t": 0,
+				"winPct": .431,
+				"recRank": 44,
+				"recPts": 198.77,
+				"talentRank": 59,
+				"netEpa": -.086,
+				"offEpa": .05,
+				"defEpa": .136
+			},
+			"seasons": [
+				{
+					"y": 2017,
+					"w": 4,
+					"l": 8,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [42, 189.01],
+					"tal": [51, 574.78],
+					"epa": {
+						"off": -.0489,
+						"de": .1289,
+						"n": 130
+					}
+				},
+				{
+					"y": 2018,
+					"w": 1,
+					"l": 11,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [56, 184.28],
+					"tal": [60, 555.24],
+					"epa": {
+						"off": -.0719,
+						"de": .1201,
+						"n": 130
+					}
+				},
+				{
+					"y": 2019,
+					"w": 2,
+					"l": 10,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [64, 174.33],
+					"tal": [58, 587.28],
+					"epa": {
+						"off": -.1114,
+						"de": .2019,
+						"n": 130
+					}
+				},
+				{
+					"y": 2020,
+					"w": 3,
+					"l": 6,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 9,
+					"rec": [64, 170.14],
+					"tal": [62, 588.56],
+					"epa": {
+						"off": -.0295,
+						"de": .1111,
+						"n": 128
+					}
+				},
+				{
+					"y": 2021,
+					"w": 5,
+					"l": 8,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [41, 191.67],
+					"tal": [64, 573.14],
+					"epa": {
+						"off": -.0134,
+						"de": .1598,
+						"n": 130
+					}
+				},
+				{
+					"y": 2022,
+					"w": 4,
+					"l": 8,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [33, 210.07],
+					"tal": [55, 631.47],
+					"epa": {
+						"off": -.0903,
+						"de": .0705,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 7,
+					"l": 6,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [57, 190.36],
+					"tal": [61, 636.35],
+					"epa": {
+						"off": .0852,
+						"de": .0395,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 7,
+					"l": 6,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [36, 211.78],
+					"tal": [59, 663.55],
+					"epa": {
+						"off": .1617,
+						"de": .1675,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 5,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 12,
+					"rec": [33, 218.6],
+					"tal": [53, 689.22],
+					"epa": {
+						"off": .1864,
+						"de": .2658,
+						"n": 136
+					}
+				}
+			],
+			"prior": []
+		},
+		{
+			"slug": "sacramento-state",
+			"school": "Sacramento State",
+			"name": "Alonzo Carter",
+			"first": 2026,
+			"firstSeason": 2026,
+			"status": "too-new",
+			"n": 0,
+			"completed": 0,
+			"notes": ["Only 0 completed full seasons (through 2025); needs at least 2 for the compared view."],
+			"before": null,
+			"after": null,
+			"tenure": null,
+			"seasons": [],
+			"prior": []
+		},
+		{
+			"slug": "sam-houston",
+			"school": "Sam Houston",
+			"name": "Phil Longo",
+			"first": 2025,
+			"firstSeason": 2025,
+			"status": "too-new",
+			"n": 0,
+			"completed": 1,
+			"notes": ["Only 1 completed full season (through 2025); needs at least 2 for the compared view."],
+			"before": null,
+			"after": null,
+			"tenure": {
+				"years": [2025, 2025],
+				"w": 2,
+				"l": 10,
+				"t": 0,
+				"winPct": .167,
+				"recRank": 122,
+				"recPts": 108.47,
+				"talentRank": 123,
+				"netEpa": -.353,
+				"offEpa": -.097,
+				"defEpa": .256
+			},
+			"seasons": [{
+				"y": 2025,
+				"w": 2,
+				"l": 10,
+				"t": 0,
+				"who": "tenure",
+				"win": null,
+				"mine": 12,
+				"rec": [122, 108.47],
+				"tal": [123, 477.35],
+				"epa": {
+					"off": -.0973,
+					"de": .2562,
+					"n": 136
+				}
+			}],
+			"prior": []
+		},
+		{
+			"slug": "san-diego-state",
+			"school": "San Diego State",
+			"name": "Sean Lewis",
+			"first": 2024,
+			"firstSeason": 2024,
+			"status": "compared",
+			"n": 2,
+			"completed": 2,
+			"notes": [],
+			"before": {
+				"years": [2022, 2023],
+				"w": 11,
+				"l": 14,
+				"t": 0,
+				"winPct": .44,
+				"recRank": 71.5,
+				"recPts": 165.72,
+				"talentRank": 109,
+				"netEpa": -.117,
+				"offEpa": .026,
+				"defEpa": .143
+			},
+			"after": {
+				"years": [2024, 2025],
+				"w": 12,
+				"l": 13,
+				"t": 0,
+				"winPct": .48,
+				"recRank": 75,
+				"recPts": 171.49,
+				"talentRank": 81,
+				"netEpa": -.084,
+				"offEpa": .027,
+				"defEpa": .111
+			},
+			"tenure": {
+				"years": [2024, 2025],
+				"w": 12,
+				"l": 13,
+				"t": 0,
+				"winPct": .48,
+				"recRank": 75,
+				"recPts": 171.49,
+				"talentRank": 81,
+				"netEpa": -.084,
+				"offEpa": .027,
+				"defEpa": .111
+			},
+			"seasons": [
+				{
+					"y": 2022,
+					"w": 7,
+					"l": 6,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [65, 168.39],
+					"tal": [115, 372.29],
+					"epa": {
+						"off": .0061,
+						"de": .0557,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 4,
+					"l": 8,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [78, 163.05],
+					"tal": [103, 440.15],
+					"epa": {
+						"off": .0465,
+						"de": .2304,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 3,
+					"l": 9,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [72, 171.46],
+					"tal": [76, 608.95],
+					"epa": {
+						"off": .0119,
+						"de": .2576,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 9,
+					"l": 4,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [78, 171.52],
+					"tal": [86, 594.27],
+					"epa": {
+						"off": .0417,
+						"de": -.0356,
+						"n": 136
+					}
+				}
+			],
+			"prior": [{
+				"school": "Kent State",
+				"to": 2022,
+				"w": 24,
+				"l": 31,
+				"t": 0,
+				"from": 2018
+			}]
+		},
+		{
+			"slug": "san-jose-state",
+			"school": "San José State",
+			"name": "Ken Niumatalolo",
+			"first": 2024,
+			"firstSeason": 2024,
+			"status": "compared",
+			"n": 2,
+			"completed": 2,
+			"notes": [],
+			"before": {
+				"years": [2022, 2023],
+				"w": 14,
+				"l": 11,
+				"t": 0,
+				"winPct": .56,
+				"recRank": 93.5,
+				"recPts": 137.52,
+				"talentRank": 95.5,
+				"netEpa": -.003,
+				"offEpa": .122,
+				"defEpa": .125
+			},
+			"after": {
+				"years": [2024, 2025],
+				"w": 10,
+				"l": 15,
+				"t": 0,
+				"winPct": .4,
+				"recRank": 110.5,
+				"recPts": 134.52,
+				"talentRank": 112.5,
+				"netEpa": -.089,
+				"offEpa": .052,
+				"defEpa": .141
+			},
+			"tenure": {
+				"years": [2024, 2025],
+				"w": 10,
+				"l": 15,
+				"t": 0,
+				"winPct": .4,
+				"recRank": 110.5,
+				"recPts": 134.52,
+				"talentRank": 112.5,
+				"netEpa": -.089,
+				"offEpa": .052,
+				"defEpa": .141
+			},
+			"seasons": [
+				{
+					"y": 2022,
+					"w": 7,
+					"l": 5,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [75, 157.03],
+					"tal": [105, 417.95],
+					"epa": {
+						"off": .1011,
+						"de": .114,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 7,
+					"l": 6,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [112, 118.01],
+					"tal": [86, 513.83],
+					"epa": {
+						"off": .1429,
+						"de": .1361,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 7,
+					"l": 6,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [104, 145.06],
+					"tal": [116, 480.29],
+					"epa": {
+						"off": .0622,
+						"de": .0883,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 3,
+					"l": 9,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [117, 123.98],
+					"tal": [109, 522.91],
+					"epa": {
+						"off": .0425,
+						"de": .1936,
+						"n": 136
+					}
+				}
+			],
+			"prior": [{
+				"school": "Navy",
+				"to": 2022,
+				"w": 109,
+				"l": 83,
+				"t": 0,
+				"from": 2007
+			}]
+		},
+		{
+			"slug": "smu",
+			"school": "SMU",
+			"name": "Rhett Lashlee",
+			"first": 2022,
+			"firstSeason": 2022,
+			"status": "compared",
+			"n": 3,
+			"completed": 4,
+			"notes": [],
+			"before": {
+				"years": [2019, 2021],
+				"w": 25,
+				"l": 10,
+				"t": 0,
+				"winPct": .714,
+				"recRank": 67.333,
+				"recPts": 168.613,
+				"talentRank": 60.667,
+				"netEpa": .025,
+				"offEpa": .19,
+				"defEpa": .165
+			},
+			"after": {
+				"years": [2022, 2024],
+				"w": 29,
+				"l": 12,
+				"t": 0,
+				"winPct": .707,
+				"recRank": 87,
+				"recPts": 153.193,
+				"talentRank": 40.667,
+				"netEpa": .139,
+				"offEpa": .177,
+				"defEpa": .038
+			},
+			"tenure": {
+				"years": [2022, 2025],
+				"w": 38,
+				"l": 16,
+				"t": 0,
+				"winPct": .704,
+				"recRank": 73,
+				"recPts": 170.108,
+				"talentRank": 36.75,
+				"netEpa": .168,
+				"offEpa": .191,
+				"defEpa": .023
+			},
+			"seasons": [
+				{
+					"y": 2019,
+					"w": 10,
+					"l": 3,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [68, 167.28],
+					"tal": [64, 565.15],
+					"epa": {
+						"off": .1836,
+						"de": .0894,
+						"n": 130
+					}
+				},
+				{
+					"y": 2020,
+					"w": 7,
+					"l": 3,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [81, 156.95],
+					"tal": [55, 604.59],
+					"epa": {
+						"off": .1743,
+						"de": .2211,
+						"n": 128
+					}
+				},
+				{
+					"y": 2021,
+					"w": 8,
+					"l": 4,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [53, 181.61],
+					"tal": [63, 576.03],
+					"epa": {
+						"off": .2127,
+						"de": .184,
+						"n": 130
+					}
+				},
+				{
+					"y": 2022,
+					"w": 7,
+					"l": 6,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [82, 146.38],
+					"tal": [63, 598.49],
+					"epa": {
+						"off": .1928,
+						"de": .1728,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 11,
+					"l": 3,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 14,
+					"rec": [72, 171.15],
+					"tal": [34, 714.21],
+					"epa": {
+						"off": .1582,
+						"de": 2e-4,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 11,
+					"l": 3,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 14,
+					"rec": [107, 142.05],
+					"tal": [25, 788.22],
+					"epa": {
+						"off": .1801,
+						"de": -.0592,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 9,
+					"l": 4,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [31, 220.85],
+					"tal": [25, 766.67],
+					"epa": {
+						"off": .2346,
+						"de": -.021,
+						"n": 136
+					}
+				}
+			],
+			"prior": []
+		},
+		{
+			"slug": "south-alabama",
+			"school": "South Alabama",
+			"name": "Major Applewhite",
+			"first": 2024,
+			"firstSeason": 2024,
+			"status": "compared",
+			"n": 2,
+			"completed": 2,
+			"notes": [],
+			"before": {
+				"years": [2022, 2023],
+				"w": 17,
+				"l": 9,
+				"t": 0,
+				"winPct": .654,
+				"recRank": 97,
+				"recPts": 137.17,
+				"talentRank": 85,
+				"netEpa": .084,
+				"offEpa": .152,
+				"defEpa": .068
+			},
+			"after": {
+				"years": [2024, 2025],
+				"w": 11,
+				"l": 14,
+				"t": 0,
+				"winPct": .44,
+				"recRank": 101,
+				"recPts": 141.82,
+				"talentRank": 98,
+				"netEpa": -.03,
+				"offEpa": .129,
+				"defEpa": .159
+			},
+			"tenure": {
+				"years": [2024, 2025],
+				"w": 11,
+				"l": 14,
+				"t": 0,
+				"winPct": .44,
+				"recRank": 101,
+				"recPts": 141.82,
+				"talentRank": 98,
+				"netEpa": -.03,
+				"offEpa": .129,
+				"defEpa": .159
+			},
+			"seasons": [
+				{
+					"y": 2022,
+					"w": 10,
+					"l": 3,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [104, 119.39],
+					"tal": [89, 466.34],
+					"epa": {
+						"off": .1148,
+						"de": .0849,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 7,
+					"l": 6,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [90, 154.95],
+					"tal": [81, 545.68],
+					"epa": {
+						"off": .1901,
+						"de": .0513,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 7,
+					"l": 6,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [84, 162.93],
+					"tal": [94, 554.77],
+					"epa": {
+						"off": .1942,
+						"de": .1025,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 4,
+					"l": 8,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [118, 120.71],
+					"tal": [102, 544.87],
+					"epa": {
+						"off": .0629,
+						"de": .2147,
+						"n": 136
+					}
+				}
+			],
+			"prior": [{
+				"school": "Houston",
+				"to": 2018,
+				"w": 15,
+				"l": 11,
+				"t": 0,
+				"from": 2016
+			}]
+		},
+		{
+			"slug": "south-carolina",
+			"school": "South Carolina",
+			"name": "Shane Beamer",
+			"first": 2021,
+			"firstSeason": 2021,
+			"status": "compared",
+			"n": 3,
+			"completed": 5,
+			"notes": [],
+			"before": {
+				"years": [2018, 2020],
+				"w": 13,
+				"l": 22,
+				"t": 0,
+				"winPct": .371,
+				"recRank": 17.667,
+				"recPts": 246.473,
+				"talentRank": 21,
+				"netEpa": -.019,
+				"offEpa": .087,
+				"defEpa": .106
+			},
+			"after": {
+				"years": [2021, 2023],
+				"w": 20,
+				"l": 18,
+				"t": 0,
+				"winPct": .526,
+				"recRank": 39,
+				"recPts": 211.117,
+				"talentRank": 21.333,
+				"netEpa": .021,
+				"offEpa": .114,
+				"defEpa": .092
+			},
+			"tenure": {
+				"years": [2021, 2025],
+				"w": 33,
+				"l": 30,
+				"t": 0,
+				"winPct": .524,
+				"recRank": 31.4,
+				"recPts": 223.474,
+				"talentRank": 20.6,
+				"netEpa": .065,
+				"offEpa": .116,
+				"defEpa": .051
+			},
+			"seasons": [
+				{
+					"y": 2018,
+					"w": 7,
+					"l": 6,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [18, 242.04],
+					"tal": [21, 749.98],
+					"epa": {
+						"off": .1448,
+						"de": .0939,
+						"n": 130
+					}
+				},
+				{
+					"y": 2019,
+					"w": 4,
+					"l": 8,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [17, 247.26],
+					"tal": [21, 762.68],
+					"epa": {
+						"off": .0373,
+						"de": .0336,
+						"n": 130
+					}
+				},
+				{
+					"y": 2020,
+					"w": 2,
+					"l": 8,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [18, 250.12],
+					"tal": [21, 771.64],
+					"epa": {
+						"off": .0788,
+						"de": .1919,
+						"n": 128
+					}
+				},
+				{
+					"y": 2021,
+					"w": 7,
+					"l": 6,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [76, 157.05],
+					"tal": [22, 747.88],
+					"epa": {
+						"off": .0896,
+						"de": .0935,
+						"n": 130
+					}
+				},
+				{
+					"y": 2022,
+					"w": 8,
+					"l": 5,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [25, 220.16],
+					"tal": [20, 762.63],
+					"epa": {
+						"off": .1295,
+						"de": .1009,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 5,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [16, 256.14],
+					"tal": [22, 763.02],
+					"epa": {
+						"off": .1222,
+						"de": .0826,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 9,
+					"l": 4,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [22, 239.75],
+					"tal": [21, 798.18],
+					"epa": {
+						"off": .169,
+						"de": -.0402,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 4,
+					"l": 8,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 12,
+					"rec": [18, 244.27],
+					"tal": [18, 833.26],
+					"epa": {
+						"off": .0692,
+						"de": .0171,
+						"n": 136
+					}
+				}
+			],
+			"prior": []
+		},
+		{
+			"slug": "southern-miss",
+			"school": "Southern Miss",
+			"name": "Blake Anderson",
+			"first": 2025,
+			"firstSeason": 2026,
+			"status": "too-new",
+			"n": 0,
+			"completed": 0,
+			"notes": ["Only 0 completed full seasons (through 2025); needs at least 2 for the compared view.", "Started partway through 2025: coached 1 of 13 games that season (interim or mid-season hire). That season is shown but excluded from both windows."],
+			"before": null,
+			"after": null,
+			"tenure": null,
+			"seasons": [{
+				"y": 2025,
+				"w": 7,
+				"l": 6,
+				"t": 0,
+				"who": "transition",
+				"win": null,
+				"mine": 1,
+				"rec": [105, 140.71],
+				"tal": [83, 602.53],
+				"epa": {
+					"off": .0408,
+					"de": .1094,
+					"n": 136
+				}
+			}],
+			"prior": [{
+				"school": "Arkansas State",
+				"to": 2020,
+				"w": 51,
+				"l": 37,
+				"t": 0,
+				"from": 2014
+			}, {
+				"school": "Utah State",
+				"to": 2024,
+				"w": 23,
+				"l": 17,
+				"t": 0,
+				"from": 2021
+			}]
+		},
+		{
+			"slug": "usf",
+			"school": "South Florida",
+			"name": "Brian Hartline",
+			"first": 2026,
+			"firstSeason": 2026,
+			"status": "too-new",
+			"n": 0,
+			"completed": 0,
+			"notes": ["Only 0 completed full seasons (through 2025); needs at least 2 for the compared view."],
+			"before": null,
+			"after": null,
+			"tenure": null,
+			"seasons": [],
+			"prior": []
+		},
+		{
+			"slug": "stanford",
+			"school": "Stanford",
+			"name": "Tavita Pritchard",
+			"first": 2026,
+			"firstSeason": 2026,
+			"status": "too-new",
+			"n": 0,
+			"completed": 0,
+			"notes": ["Only 0 completed full seasons (through 2025); needs at least 2 for the compared view."],
+			"before": null,
+			"after": null,
+			"tenure": null,
+			"seasons": [],
+			"prior": []
+		},
+		{
+			"slug": "syracuse",
+			"school": "Syracuse",
+			"name": "Fran Brown",
+			"first": 2024,
+			"firstSeason": 2024,
+			"status": "compared",
+			"n": 2,
+			"completed": 2,
+			"notes": [],
+			"before": {
+				"years": [2022, 2023],
+				"w": 13,
+				"l": 13,
+				"t": 0,
+				"winPct": .5,
+				"recRank": 78,
+				"recPts": 161.445,
+				"talentRank": 67.5,
+				"netEpa": -.022,
+				"offEpa": .062,
+				"defEpa": .084
+			},
+			"after": {
+				"years": [2024, 2025],
+				"w": 13,
+				"l": 12,
+				"t": 0,
+				"winPct": .52,
+				"recRank": 40,
+				"recPts": 208.48,
+				"talentRank": 41,
+				"netEpa": -.079,
+				"offEpa": .104,
+				"defEpa": .183
+			},
+			"tenure": {
+				"years": [2024, 2025],
+				"w": 13,
+				"l": 12,
+				"t": 0,
+				"winPct": .52,
+				"recRank": 40,
+				"recPts": 208.48,
+				"talentRank": 41,
+				"netEpa": -.079,
+				"offEpa": .104,
+				"defEpa": .183
+			},
+			"seasons": [
+				{
+					"y": 2022,
+					"w": 7,
+					"l": 6,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [68, 166.16],
+					"tal": [66, 590.36],
+					"epa": {
+						"off": .1217,
+						"de": .0675,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 6,
+					"l": 7,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [88, 156.73],
+					"tal": [69, 610.75],
+					"epa": {
+						"off": .0014,
+						"de": .1002,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 10,
+					"l": 3,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [38, 210.55],
+					"tal": [48, 698.59],
+					"epa": {
+						"off": .2371,
+						"de": .1932,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 3,
+					"l": 9,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [42, 206.41],
+					"tal": [34, 727.83],
+					"epa": {
+						"off": -.0288,
+						"de": .1729,
+						"n": 136
+					}
+				}
+			],
+			"prior": []
+		},
+		{
+			"slug": "tcu",
+			"school": "TCU",
+			"name": "Sonny Dykes",
+			"first": 2022,
+			"firstSeason": 2022,
+			"status": "compared",
+			"n": 3,
+			"completed": 4,
+			"notes": [],
+			"before": {
+				"years": [2019, 2021],
+				"w": 16,
+				"l": 18,
+				"t": 0,
+				"winPct": .471,
+				"recRank": 40.667,
+				"recPts": 199.443,
+				"talentRank": 31,
+				"netEpa": .075,
+				"offEpa": .179,
+				"defEpa": .104
+			},
+			"after": {
+				"years": [2022, 2024],
+				"w": 27,
+				"l": 13,
+				"t": 0,
+				"winPct": .675,
+				"recRank": 33.333,
+				"recPts": 214.337,
+				"talentRank": 26.333,
+				"netEpa": .165,
+				"offEpa": .234,
+				"defEpa": .069
+			},
+			"tenure": {
+				"years": [2022, 2025],
+				"w": 36,
+				"l": 17,
+				"t": 0,
+				"winPct": .679,
+				"recRank": 31,
+				"recPts": 218.202,
+				"talentRank": 27.75,
+				"netEpa": .157,
+				"offEpa": .212,
+				"defEpa": .055
+			},
+			"seasons": [
+				{
+					"y": 2019,
+					"w": 5,
+					"l": 7,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [33, 210.62],
+					"tal": [30, 691.63],
+					"epa": {
+						"off": .0903,
+						"de": -.0095,
+						"n": 130
+					}
+				},
+				{
+					"y": 2020,
+					"w": 6,
+					"l": 4,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [28, 215.88],
+					"tal": [28, 712.31],
+					"epa": {
+						"off": .1777,
+						"de": .0574,
+						"n": 128
+					}
+				},
+				{
+					"y": 2021,
+					"w": 5,
+					"l": 7,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [61, 171.83],
+					"tal": [35, 698.52],
+					"epa": {
+						"off": .2685,
+						"de": .2631,
+						"n": 130
+					}
+				},
+				{
+					"y": 2022,
+					"w": 13,
+					"l": 2,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 15,
+					"rec": [45, 194.07],
+					"tal": [32, 712.05],
+					"epa": {
+						"off": .2562,
+						"de": -.0031,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 5,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [21, 235.07],
+					"tal": [19, 768.25],
+					"epa": {
+						"off": .2232,
+						"de": .1126,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 9,
+					"l": 4,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [34, 213.87],
+					"tal": [28, 766.5],
+					"epa": {
+						"off": .2234,
+						"de": .0984,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 9,
+					"l": 4,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [24, 229.8],
+					"tal": [32, 745.01],
+					"epa": {
+						"off": .1451,
+						"de": .0139,
+						"n": 136
+					}
+				}
+			],
+			"prior": [
+				{
+					"school": "Louisiana Tech",
+					"to": 2012,
+					"w": 22,
+					"l": 15,
+					"t": 0,
+					"from": 2010
+				},
+				{
+					"school": "California",
+					"to": 2016,
+					"w": 19,
+					"l": 30,
+					"t": 0,
+					"from": 2013
+				},
+				{
+					"school": "SMU",
+					"to": 2021,
+					"w": 30,
+					"l": 17,
+					"t": 0,
+					"from": 2018
+				}
+			]
+		},
+		{
+			"slug": "temple",
+			"school": "Temple",
+			"name": "K.C. Keeler",
+			"first": 2025,
+			"firstSeason": 2025,
+			"status": "too-new",
+			"n": 0,
+			"completed": 1,
+			"notes": ["Only 1 completed full season (through 2025); needs at least 2 for the compared view."],
+			"before": null,
+			"after": null,
+			"tenure": {
+				"years": [2025, 2025],
+				"w": 5,
+				"l": 7,
+				"t": 0,
+				"winPct": .417,
+				"recRank": 123,
+				"recPts": 101.99,
+				"talentRank": 113,
+				"netEpa": -.083,
+				"offEpa": .116,
+				"defEpa": .199
+			},
+			"seasons": [{
+				"y": 2025,
+				"w": 5,
+				"l": 7,
+				"t": 0,
+				"who": "tenure",
+				"win": null,
+				"mine": 12,
+				"rec": [123, 101.99],
+				"tal": [113, 507.91],
+				"epa": {
+					"off": .1162,
+					"de": .199,
+					"n": 136
+				}
+			}],
+			"prior": [{
+				"school": "Sam Houston",
+				"to": 2024,
+				"w": 12,
+				"l": 12,
+				"t": 0,
+				"from": 2023
+			}]
+		},
+		{
+			"slug": "tennessee",
+			"school": "Tennessee",
+			"name": "Josh Heupel",
+			"first": 2021,
+			"firstSeason": 2021,
+			"status": "compared",
+			"n": 3,
+			"completed": 5,
+			"notes": [],
+			"before": {
+				"years": [2018, 2020],
+				"w": 16,
+				"l": 19,
+				"t": 0,
+				"winPct": .457,
+				"recRank": 14.667,
+				"recPts": 253.97,
+				"talentRank": 14.667,
+				"netEpa": .011,
+				"offEpa": .088,
+				"defEpa": .077
+			},
+			"after": {
+				"years": [2021, 2023],
+				"w": 27,
+				"l": 12,
+				"t": 0,
+				"winPct": .692,
+				"recRank": 14.667,
+				"recPts": 250.057,
+				"talentRank": 18,
+				"netEpa": .235,
+				"offEpa": .294,
+				"defEpa": .059
+			},
+			"tenure": {
+				"years": [2021, 2025],
+				"w": 45,
+				"l": 20,
+				"t": 0,
+				"winPct": .692,
+				"recRank": 13.8,
+				"recPts": 259.072,
+				"talentRank": 17.4,
+				"netEpa": .229,
+				"offEpa": .269,
+				"defEpa": .04
+			},
+			"seasons": [
+				{
+					"y": 2018,
+					"w": 5,
+					"l": 7,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [21, 231.34],
+					"tal": [15, 826.98],
+					"epa": {
+						"off": .0884,
+						"de": .0782,
+						"n": 130
+					}
+				},
+				{
+					"y": 2019,
+					"w": 8,
+					"l": 5,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [13, 269.07],
+					"tal": [16, 830.34],
+					"epa": {
+						"off": .0916,
+						"de": .0511,
+						"n": 130
+					}
+				},
+				{
+					"y": 2020,
+					"w": 3,
+					"l": 7,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [10, 261.5],
+					"tal": [13, 844.16],
+					"epa": {
+						"off": .0834,
+						"de": .1005,
+						"n": 128
+					}
+				},
+				{
+					"y": 2021,
+					"w": 7,
+					"l": 6,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [16, 240.4],
+					"tal": [19, 780.83],
+					"epa": {
+						"off": .2997,
+						"de": .1393,
+						"n": 130
+					}
+				},
+				{
+					"y": 2022,
+					"w": 11,
+					"l": 2,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [18, 232.77],
+					"tal": [19, 764.8],
+					"epa": {
+						"off": .3574,
+						"de": .0369,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 9,
+					"l": 4,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [10, 277],
+					"tal": [16, 821.07],
+					"epa": {
+						"off": .2249,
+						"de": 7e-4,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 10,
+					"l": 3,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [14, 267.26],
+					"tal": [17, 858.67],
+					"epa": {
+						"off": .1933,
+						"de": -.0604,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 8,
+					"l": 5,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [11, 277.93],
+					"tal": [16, 866.57],
+					"epa": {
+						"off": .2684,
+						"de": .0837,
+						"n": 136
+					}
+				}
+			],
+			"prior": [{
+				"school": "UCF",
+				"to": 2020,
+				"w": 28,
+				"l": 8,
+				"t": 0,
+				"from": 2018
+			}]
+		},
+		{
+			"slug": "texas",
+			"school": "Texas",
+			"name": "Steve Sarkisian",
+			"first": 2021,
+			"firstSeason": 2021,
+			"status": "compared",
+			"n": 3,
+			"completed": 5,
+			"notes": [],
+			"before": {
+				"years": [2018, 2020],
+				"w": 25,
+				"l": 12,
+				"t": 0,
+				"winPct": .676,
+				"recRank": 5,
+				"recPts": 286.227,
+				"talentRank": 7,
+				"netEpa": .195,
+				"offEpa": .241,
+				"defEpa": .045
+			},
+			"after": {
+				"years": [2021, 2023],
+				"w": 25,
+				"l": 14,
+				"t": 0,
+				"winPct": .641,
+				"recRank": 8.333,
+				"recPts": 277.48,
+				"talentRank": 7.667,
+				"netEpa": .221,
+				"offEpa": .246,
+				"defEpa": .025
+			},
+			"tenure": {
+				"years": [2021, 2025],
+				"w": 48,
+				"l": 20,
+				"t": 0,
+				"winPct": .706,
+				"recRank": 6.4,
+				"recPts": 286.326,
+				"talentRank": 6.2,
+				"netEpa": .245,
+				"offEpa": .231,
+				"defEpa": -.014
+			},
+			"seasons": [
+				{
+					"y": 2018,
+					"w": 10,
+					"l": 4,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [3, 300.06],
+					"tal": [9, 861.2],
+					"epa": {
+						"off": .1955,
+						"de": .0385,
+						"n": 130
+					}
+				},
+				{
+					"y": 2019,
+					"w": 8,
+					"l": 5,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [3, 287.69],
+					"tal": [7, 877.91],
+					"epa": {
+						"off": .2724,
+						"de": .07,
+						"n": 130
+					}
+				},
+				{
+					"y": 2020,
+					"w": 7,
+					"l": 3,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [9, 270.93],
+					"tal": [5, 892.91],
+					"epa": {
+						"off": .2537,
+						"de": .0268,
+						"n": 128
+					}
+				},
+				{
+					"y": 2021,
+					"w": 5,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [17, 237.09],
+					"tal": [11, 874.19],
+					"epa": {
+						"off": .2684,
+						"de": .1239,
+						"n": 130
+					}
+				},
+				{
+					"y": 2022,
+					"w": 8,
+					"l": 5,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [5, 289.04],
+					"tal": [6, 887.45],
+					"epa": {
+						"off": .2512,
+						"de": .0019,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 12,
+					"l": 2,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 14,
+					"rec": [3, 306.31],
+					"tal": [6, 913.24],
+					"epa": {
+						"off": .2189,
+						"de": -.0511,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 13,
+					"l": 3,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 16,
+					"rec": [6, 286.92],
+					"tal": [4, 953.95],
+					"epa": {
+						"off": .2233,
+						"de": -.1315,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 10,
+					"l": 3,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [1, 312.27],
+					"tal": [4, 973.54],
+					"epa": {
+						"off": .1922,
+						"de": -.0155,
+						"n": 136
+					}
+				}
+			],
+			"prior": [{
+				"school": "Washington",
+				"to": 2013,
+				"w": 34,
+				"l": 29,
+				"t": 0,
+				"from": 2009
+			}, {
+				"school": "USC",
+				"to": 2014,
+				"w": 9,
+				"l": 4,
+				"t": 0,
+				"from": 2014
+			}]
+		},
+		{
+			"slug": "texas-am",
+			"school": "Texas A&M",
+			"name": "Mike Elko",
+			"first": 2024,
+			"firstSeason": 2024,
+			"status": "compared",
+			"n": 2,
+			"completed": 2,
+			"notes": [],
+			"before": {
+				"years": [2022, 2023],
+				"w": 12,
+				"l": 13,
+				"t": 0,
+				"winPct": .48,
+				"recRank": 8,
+				"recPts": 300.99,
+				"talentRank": 4,
+				"netEpa": .12,
+				"offEpa": .135,
+				"defEpa": .015
+			},
+			"after": {
+				"years": [2024, 2025],
+				"w": 19,
+				"l": 7,
+				"t": 0,
+				"winPct": .731,
+				"recRank": 14,
+				"recPts": 263.8,
+				"talentRank": 7.5,
+				"netEpa": .205,
+				"offEpa": .226,
+				"defEpa": .021
+			},
+			"tenure": {
+				"years": [2024, 2025],
+				"w": 19,
+				"l": 7,
+				"t": 0,
+				"winPct": .731,
+				"recRank": 14,
+				"recPts": 263.8,
+				"talentRank": 7.5,
+				"netEpa": .205,
+				"offEpa": .226,
+				"defEpa": .021
+			},
+			"seasons": [
+				{
+					"y": 2022,
+					"w": 5,
+					"l": 7,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [1, 333.13],
+					"tal": [4, 947.3],
+					"epa": {
+						"off": .0994,
+						"de": .038,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 7,
+					"l": 6,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [15, 268.85],
+					"tal": [4, 925.92],
+					"epa": {
+						"off": .1706,
+						"de": -.0085,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 8,
+					"l": 5,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [19, 245.18],
+					"tal": [7, 914.52],
+					"epa": {
+						"off": .1811,
+						"de": .0129,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 11,
+					"l": 2,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [9, 282.42],
+					"tal": [8, 917.29],
+					"epa": {
+						"off": .2718,
+						"de": .0294,
+						"n": 136
+					}
+				}
+			],
+			"prior": [{
+				"school": "Duke",
+				"to": 2023,
+				"w": 16,
+				"l": 9,
+				"t": 0,
+				"from": 2022
+			}]
+		},
+		{
+			"slug": "texas-state",
+			"school": "Texas State",
+			"name": "G.J. Kinne",
+			"first": 2023,
+			"firstSeason": 2023,
+			"status": "compared",
+			"n": 3,
+			"completed": 3,
+			"notes": [],
+			"before": {
+				"years": [2020, 2022],
+				"w": 10,
+				"l": 26,
+				"t": 0,
+				"winPct": .278,
+				"recRank": 138.333,
+				"recPts": 68.663,
+				"talentRank": 95.667,
+				"netEpa": -.165,
+				"offEpa": .038,
+				"defEpa": .203
+			},
+			"after": {
+				"years": [2023, 2025],
+				"w": 23,
+				"l": 16,
+				"t": 0,
+				"winPct": .59,
+				"recRank": 98.333,
+				"recPts": 145.37,
+				"talentRank": 89.667,
+				"netEpa": .03,
+				"offEpa": .179,
+				"defEpa": .15
+			},
+			"tenure": {
+				"years": [2023, 2025],
+				"w": 23,
+				"l": 16,
+				"t": 0,
+				"winPct": .59,
+				"recRank": 98.333,
+				"recPts": 145.37,
+				"talentRank": 89.667,
+				"netEpa": .03,
+				"offEpa": .179,
+				"defEpa": .15
+			},
+			"seasons": [
+				{
+					"y": 2020,
+					"w": 2,
+					"l": 10,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [99, 145.19],
+					"tal": [100, 382.6],
+					"epa": {
+						"off": .065,
+						"de": .181,
+						"n": 128
+					}
+				},
+				{
+					"y": 2021,
+					"w": 4,
+					"l": 8,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [183, 9.46],
+					"tal": [97, 428.48],
+					"epa": {
+						"off": .0392,
+						"de": .3021,
+						"n": 130
+					}
+				},
+				{
+					"y": 2022,
+					"w": 4,
+					"l": 8,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [133, 51.34],
+					"tal": [90, 464.66],
+					"epa": {
+						"off": .0112,
+						"de": .1269,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 8,
+					"l": 5,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [98, 139.15],
+					"tal": [94, 484.79],
+					"epa": {
+						"off": .1125,
+						"de": .1369,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 8,
+					"l": 5,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [96, 152.53],
+					"tal": [99, 540.17],
+					"epa": {
+						"off": .1906,
+						"de": .1228,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 7,
+					"l": 6,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [101, 144.43],
+					"tal": [76, 612.16],
+					"epa": {
+						"off": .235,
+						"de": .1893,
+						"n": 136
+					}
+				}
+			],
+			"prior": []
+		},
+		{
+			"slug": "texas-tech",
+			"school": "Texas Tech",
+			"name": "Joey McGuire",
+			"first": 2022,
+			"firstSeason": 2022,
+			"status": "compared",
+			"n": 3,
+			"completed": 4,
+			"notes": [],
+			"before": {
+				"years": [2019, 2021],
+				"w": 15,
+				"l": 20,
+				"t": 0,
+				"winPct": .429,
+				"recRank": 58,
+				"recPts": 175.997,
+				"talentRank": 56,
+				"netEpa": -.016,
+				"offEpa": .132,
+				"defEpa": .148
+			},
+			"after": {
+				"years": [2022, 2024],
+				"w": 23,
+				"l": 16,
+				"t": 0,
+				"winPct": .59,
+				"recRank": 32,
+				"recPts": 218.503,
+				"talentRank": 40.667,
+				"netEpa": .081,
+				"offEpa": .123,
+				"defEpa": .042
+			},
+			"tenure": {
+				"years": [2022, 2025],
+				"w": 35,
+				"l": 18,
+				"t": 0,
+				"winPct": .66,
+				"recRank": 36,
+				"recPts": 214.255,
+				"talentRank": 37.75,
+				"netEpa": .158,
+				"offEpa": .131,
+				"defEpa": -.027
+			},
+			"seasons": [
+				{
+					"y": 2019,
+					"w": 4,
+					"l": 8,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [61, 177.69],
+					"tal": [60, 577.21],
+					"epa": {
+						"off": .112,
+						"de": .1507,
+						"n": 130
+					}
+				},
+				{
+					"y": 2020,
+					"w": 4,
+					"l": 6,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [49, 183.17],
+					"tal": [49, 619.6],
+					"epa": {
+						"off": .0888,
+						"de": .0932,
+						"n": 128
+					}
+				},
+				{
+					"y": 2021,
+					"w": 7,
+					"l": 6,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [64, 167.13],
+					"tal": [59, 607.1],
+					"epa": {
+						"off": .1953,
+						"de": .2013,
+						"n": 130
+					}
+				},
+				{
+					"y": 2022,
+					"w": 8,
+					"l": 5,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [43, 197.4],
+					"tal": [44, 660.31],
+					"epa": {
+						"off": .124,
+						"de": -.0037,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 7,
+					"l": 6,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [28, 222.02],
+					"tal": [40, 694.26],
+					"epa": {
+						"off": .0922,
+						"de": .0466,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 8,
+					"l": 5,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [25, 236.09],
+					"tal": [38, 732.07],
+					"epa": {
+						"off": .1515,
+						"de": .0832,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 12,
+					"l": 2,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 14,
+					"rec": [48, 201.51],
+					"tal": [29, 757.49],
+					"epa": {
+						"off": .1556,
+						"de": -.2338,
+						"n": 136
+					}
+				}
+			],
+			"prior": []
+		},
+		{
+			"slug": "toledo",
+			"school": "Toledo",
+			"name": "Mike Jacobs",
+			"first": 2026,
+			"firstSeason": 2026,
+			"status": "too-new",
+			"n": 0,
+			"completed": 0,
+			"notes": ["Only 0 completed full seasons (through 2025); needs at least 2 for the compared view."],
+			"before": null,
+			"after": null,
+			"tenure": null,
+			"seasons": [],
+			"prior": []
+		},
+		{
+			"slug": "troy",
+			"school": "Troy",
+			"name": "Gerad Parker",
+			"first": 2024,
+			"firstSeason": 2024,
+			"status": "compared",
+			"n": 2,
+			"completed": 2,
+			"notes": [],
+			"before": {
+				"years": [2022, 2023],
+				"w": 23,
+				"l": 5,
+				"t": 0,
+				"winPct": .821,
+				"recRank": 112,
+				"recPts": 106.495,
+				"talentRank": 96,
+				"netEpa": .104,
+				"offEpa": .092,
+				"defEpa": -.012
+			},
+			"after": {
+				"years": [2024, 2025],
+				"w": 12,
+				"l": 14,
+				"t": 0,
+				"winPct": .462,
+				"recRank": 85.5,
+				"recPts": 162.05,
+				"talentRank": 106,
+				"netEpa": -.124,
+				"offEpa": -.001,
+				"defEpa": .123
+			},
+			"tenure": {
+				"years": [2024, 2025],
+				"w": 12,
+				"l": 14,
+				"t": 0,
+				"winPct": .462,
+				"recRank": 85.5,
+				"recPts": 162.05,
+				"talentRank": 106,
+				"netEpa": -.124,
+				"offEpa": -.001,
+				"defEpa": .123
+			},
+			"seasons": [
+				{
+					"y": 2022,
+					"w": 12,
+					"l": 2,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [130, 65.19],
+					"tal": [91, 464.3],
+					"epa": {
+						"off": .0633,
+						"de": .0071,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 11,
+					"l": 3,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [94, 147.8],
+					"tal": [101, 454.06],
+					"epa": {
+						"off": .1205,
+						"de": -.032,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 4,
+					"l": 8,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [89, 159.41],
+					"tal": [113, 499.56],
+					"epa": {
+						"off": .0536,
+						"de": .1564,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 8,
+					"l": 6,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 14,
+					"rec": [82, 164.69],
+					"tal": [99, 561.87],
+					"epa": {
+						"off": -.0558,
+						"de": .0895,
+						"n": 136
+					}
+				}
+			],
+			"prior": [{
+				"school": "Purdue",
+				"to": 2016,
+				"w": 0,
+				"l": 6,
+				"t": 0,
+				"from": 2016
+			}]
+		},
+		{
+			"slug": "tulane",
+			"school": "Tulane",
+			"name": "Will Hall",
+			"first": 2026,
+			"firstSeason": 2026,
+			"status": "too-new",
+			"n": 0,
+			"completed": 0,
+			"notes": ["Only 0 completed full seasons (through 2025); needs at least 2 for the compared view."],
+			"before": null,
+			"after": null,
+			"tenure": null,
+			"seasons": [],
+			"prior": [{
+				"school": "Southern Miss",
+				"to": 2024,
+				"w": 14,
+				"l": 30,
+				"t": 0,
+				"from": 2021
+			}]
+		},
+		{
+			"slug": "tulsa",
+			"school": "Tulsa",
+			"name": "Tre Lamb",
+			"first": 2025,
+			"firstSeason": 2025,
+			"status": "too-new",
+			"n": 0,
+			"completed": 1,
+			"notes": ["Only 1 completed full season (through 2025); needs at least 2 for the compared view."],
+			"before": null,
+			"after": null,
+			"tenure": {
+				"years": [2025, 2025],
+				"w": 4,
+				"l": 8,
+				"t": 0,
+				"winPct": .333,
+				"recRank": 109,
+				"recPts": 137.85,
+				"talentRank": 85,
+				"netEpa": -.163,
+				"offEpa": -.01,
+				"defEpa": .152
+			},
+			"seasons": [{
+				"y": 2025,
+				"w": 4,
+				"l": 8,
+				"t": 0,
+				"who": "tenure",
+				"win": null,
+				"mine": 12,
+				"rec": [109, 137.85],
+				"tal": [85, 594.78],
+				"epa": {
+					"off": -.0104,
+					"de": .1524,
+					"n": 136
+				}
+			}],
+			"prior": []
+		},
+		{
+			"slug": "uab",
+			"school": "UAB",
+			"name": "Alex Mortensen",
+			"first": 2025,
+			"firstSeason": 2026,
+			"status": "too-new",
+			"n": 0,
+			"completed": 0,
+			"notes": ["Only 0 completed full seasons (through 2025); needs at least 2 for the compared view.", "Started partway through 2025: coached 6 of 12 games that season (interim or mid-season hire). That season is shown but excluded from both windows."],
+			"before": null,
+			"after": null,
+			"tenure": null,
+			"seasons": [{
+				"y": 2025,
+				"w": 4,
+				"l": 8,
+				"t": 0,
+				"who": "transition",
+				"win": null,
+				"mine": 6,
+				"rec": [125, 98.28],
+				"tal": [103, 540.93],
+				"epa": {
+					"off": .0041,
+					"de": .2181,
+					"n": 136
+				}
+			}],
+			"prior": []
+		},
+		{
+			"slug": "ucf",
+			"school": "UCF",
+			"name": "Scott Frost",
+			"first": 2025,
+			"firstSeason": 2025,
+			"status": "too-new",
+			"n": 0,
+			"completed": 1,
+			"notes": ["Only 1 completed full season (through 2025); needs at least 2 for the compared view."],
+			"before": null,
+			"after": null,
+			"tenure": {
+				"years": [2025, 2025],
+				"w": 5,
+				"l": 7,
+				"t": 0,
+				"winPct": .417,
+				"recRank": 79,
+				"recPts": 171.17,
+				"talentRank": 43,
+				"netEpa": -.032,
+				"offEpa": .028,
+				"defEpa": .06
+			},
+			"seasons": [{
+				"y": 2025,
+				"w": 5,
+				"l": 7,
+				"t": 0,
+				"who": "tenure",
+				"win": null,
+				"mine": 12,
+				"rec": [79, 171.17],
+				"tal": [43, 709.99],
+				"epa": {
+					"off": .028,
+					"de": .0603,
+					"n": 136
+				}
+			}],
+			"prior": [{
+				"school": "Nebraska",
+				"to": 2022,
+				"w": 16,
+				"l": 31,
+				"t": 0,
+				"from": 2018
+			}]
+		},
+		{
+			"slug": "ucla",
+			"school": "UCLA",
+			"name": "Bob Chesney",
+			"first": 2026,
+			"firstSeason": 2026,
+			"status": "too-new",
+			"n": 0,
+			"completed": 0,
+			"notes": ["Only 0 completed full seasons (through 2025); needs at least 2 for the compared view."],
+			"before": null,
+			"after": null,
+			"tenure": null,
+			"seasons": [],
+			"prior": [{
+				"school": "James Madison",
+				"to": 2025,
+				"w": 21,
+				"l": 6,
+				"t": 0,
+				"from": 2024
+			}]
+		},
+		{
+			"slug": "uconn",
+			"school": "UConn",
+			"name": "Jason Candle",
+			"first": 2026,
+			"firstSeason": 2026,
+			"status": "too-new",
+			"n": 0,
+			"completed": 0,
+			"notes": ["Only 0 completed full seasons (through 2025); needs at least 2 for the compared view."],
+			"before": null,
+			"after": null,
+			"tenure": null,
+			"seasons": [],
+			"prior": [{
+				"school": "Toledo",
+				"to": 2025,
+				"w": 81,
+				"l": 44,
+				"t": 0,
+				"from": 2015
+			}]
+		},
+		{
+			"slug": "ul-monroe",
+			"school": "UL Monroe",
+			"name": "Bryant Vincent",
+			"first": 2024,
+			"firstSeason": 2024,
+			"status": "compared",
+			"n": 2,
+			"completed": 2,
+			"notes": [],
+			"before": {
+				"years": [2022, 2023],
+				"w": 6,
+				"l": 18,
+				"t": 0,
+				"winPct": .25,
+				"recRank": 130,
+				"recPts": 61.51,
+				"talentRank": 122.5,
+				"netEpa": -.218,
+				"offEpa": -.019,
+				"defEpa": .199
+			},
+			"after": {
+				"years": [2024, 2025],
+				"w": 8,
+				"l": 16,
+				"t": 0,
+				"winPct": .333,
+				"recRank": 114.5,
+				"recPts": 132.945,
+				"talentRank": 127,
+				"netEpa": -.179,
+				"offEpa": -.005,
+				"defEpa": .174
+			},
+			"tenure": {
+				"years": [2024, 2025],
+				"w": 8,
+				"l": 16,
+				"t": 0,
+				"winPct": .333,
+				"recRank": 114.5,
+				"recPts": 132.945,
+				"talentRank": 127,
+				"netEpa": -.179,
+				"offEpa": -.005,
+				"defEpa": .174
+			},
+			"seasons": [
+				{
+					"y": 2022,
+					"w": 4,
+					"l": 8,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [134, 49.36],
+					"tal": [120, 348.53],
+					"epa": {
+						"off": .0247,
+						"de": .2146,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 2,
+					"l": 10,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [126, 73.66],
+					"tal": [125, 336.22],
+					"epa": {
+						"off": -.0631,
+						"de": .1836,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 5,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [114, 138.75],
+					"tal": [130, 329.43],
+					"epa": {
+						"off": .0094,
+						"de": .1267,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 3,
+					"l": 9,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [115, 127.14],
+					"tal": [124, 473.34],
+					"epa": {
+						"off": -.0197,
+						"de": .2213,
+						"n": 136
+					}
+				}
+			],
+			"prior": [{
+				"school": "UAB",
+				"to": 2022,
+				"w": 7,
+				"l": 6,
+				"t": 0,
+				"from": 2022
+			}]
+		},
+		{
+			"slug": "unlv",
+			"school": "UNLV",
+			"name": "Dan Mullen",
+			"first": 2025,
+			"firstSeason": 2025,
+			"status": "too-new",
+			"n": 0,
+			"completed": 1,
+			"notes": ["Only 1 completed full season (through 2025); needs at least 2 for the compared view."],
+			"before": null,
+			"after": null,
+			"tenure": {
+				"years": [2025, 2025],
+				"w": 10,
+				"l": 4,
+				"t": 0,
+				"winPct": .714,
+				"recRank": 95,
+				"recPts": 154.36,
+				"talentRank": 51,
+				"netEpa": .013,
+				"offEpa": .215,
+				"defEpa": .202
+			},
+			"seasons": [{
+				"y": 2025,
+				"w": 10,
+				"l": 4,
+				"t": 0,
+				"who": "tenure",
+				"win": null,
+				"mine": 14,
+				"rec": [95, 154.36],
+				"tal": [51, 700.54],
+				"epa": {
+					"off": .2146,
+					"de": .2017,
+					"n": 136
+				}
+			}],
+			"prior": [{
+				"school": "Mississippi State",
+				"to": 2017,
+				"w": 69,
+				"l": 46,
+				"t": 0,
+				"from": 2009
+			}, {
+				"school": "Florida",
+				"to": 2021,
+				"w": 34,
+				"l": 15,
+				"t": 0,
+				"from": 2018
+			}]
+		},
+		{
+			"slug": "usc",
+			"school": "USC",
+			"name": "Lincoln Riley",
+			"first": 2022,
+			"firstSeason": 2022,
+			"status": "compared",
+			"n": 3,
+			"completed": 4,
+			"notes": [],
+			"before": {
+				"years": [2019, 2021],
+				"w": 17,
+				"l": 14,
+				"t": 0,
+				"winPct": .548,
+				"recRank": 27.667,
+				"recPts": 235.08,
+				"talentRank": 8,
+				"netEpa": .073,
+				"offEpa": .191,
+				"defEpa": .118
+			},
+			"after": {
+				"years": [2022, 2024],
+				"w": 26,
+				"l": 14,
+				"t": 0,
+				"winPct": .65,
+				"recRank": 31.667,
+				"recPts": 233.233,
+				"talentRank": 11.333,
+				"netEpa": .2,
+				"offEpa": .317,
+				"defEpa": .117
+			},
+			"tenure": {
+				"years": [2022, 2025],
+				"w": 35,
+				"l": 18,
+				"t": 0,
+				"winPct": .66,
+				"recRank": 27.25,
+				"recPts": 239.18,
+				"talentRank": 12.75,
+				"netEpa": .214,
+				"offEpa": .317,
+				"defEpa": .102
+			},
+			"seasons": [
+				{
+					"y": 2019,
+					"w": 8,
+					"l": 5,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [20, 243.51],
+					"tal": [4, 915.56],
+					"epa": {
+						"off": .2537,
+						"de": .1142,
+						"n": 130
+					}
+				},
+				{
+					"y": 2020,
+					"w": 5,
+					"l": 1,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [55, 181.01],
+					"tal": [10, 853.16],
+					"epa": {
+						"off": .129,
+						"de": .0281,
+						"n": 128
+					}
+				},
+				{
+					"y": 2021,
+					"w": 4,
+					"l": 8,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [8, 280.72],
+					"tal": [10, 874.5],
+					"epa": {
+						"off": .1912,
+						"de": .2124,
+						"n": 130
+					}
+				},
+				{
+					"y": 2022,
+					"w": 11,
+					"l": 3,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 14,
+					"rec": [70, 165.48],
+					"tal": [11, 860.12],
+					"epa": {
+						"off": .3563,
+						"de": .1692,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 8,
+					"l": 5,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [8, 280.44],
+					"tal": [8, 896.41],
+					"epa": {
+						"off": .3463,
+						"de": .1443,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 7,
+					"l": 6,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [17, 253.78],
+					"tal": [15, 863.09],
+					"epa": {
+						"off": .2488,
+						"de": .0366,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 9,
+					"l": 4,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [14, 257.02],
+					"tal": [17, 847.53],
+					"epa": {
+						"off": .3153,
+						"de": .0588,
+						"n": 136
+					}
+				}
+			],
+			"prior": [{
+				"school": "Oklahoma",
+				"to": 2021,
+				"w": 55,
+				"l": 10,
+				"t": 0,
+				"from": 2017
+			}]
+		},
+		{
+			"slug": "utah",
+			"school": "Utah",
+			"name": "Morgan Scalley",
+			"first": 2025,
+			"firstSeason": 2026,
+			"status": "too-new",
+			"n": 0,
+			"completed": 0,
+			"notes": ["Only 0 completed full seasons (through 2025); needs at least 2 for the compared view.", "Started partway through 2025: coached 1 of 13 games that season (interim or mid-season hire). That season is shown but excluded from both windows."],
+			"before": null,
+			"after": null,
+			"tenure": null,
+			"seasons": [{
+				"y": 2025,
+				"w": 11,
+				"l": 2,
+				"t": 0,
+				"who": "transition",
+				"win": null,
+				"mine": 1,
+				"rec": [40, 207.85],
+				"tal": [44, 707.86],
+				"epa": {
+					"off": .3128,
+					"de": .022,
+					"n": 136
+				}
+			}],
+			"prior": []
+		},
+		{
+			"slug": "utah-state",
+			"school": "Utah State",
+			"name": "Bronco Mendenhall",
+			"first": 2025,
+			"firstSeason": 2025,
+			"status": "too-new",
+			"n": 0,
+			"completed": 1,
+			"notes": ["Only 1 completed full season (through 2025); needs at least 2 for the compared view."],
+			"before": null,
+			"after": null,
+			"tenure": {
+				"years": [2025, 2025],
+				"w": 6,
+				"l": 7,
+				"t": 0,
+				"winPct": .462,
+				"recRank": 87,
+				"recPts": 159.33,
+				"talentRank": 114,
+				"netEpa": -.008,
+				"offEpa": .127,
+				"defEpa": .135
+			},
+			"seasons": [{
+				"y": 2025,
+				"w": 6,
+				"l": 7,
+				"t": 0,
+				"who": "tenure",
+				"win": null,
+				"mine": 13,
+				"rec": [87, 159.33],
+				"tal": [114, 503.59],
+				"epa": {
+					"off": .1266,
+					"de": .135,
+					"n": 136
+				}
+			}],
+			"prior": [
+				{
+					"school": "BYU",
+					"to": 2015,
+					"w": 99,
+					"l": 43,
+					"t": 0,
+					"from": 2005
+				},
+				{
+					"school": "Virginia",
+					"to": 2021,
+					"w": 36,
+					"l": 38,
+					"t": 0,
+					"from": 2016
+				},
+				{
+					"school": "New Mexico",
+					"to": 2024,
+					"w": 5,
+					"l": 7,
+					"t": 0,
+					"from": 2024
+				}
+			]
+		},
+		{
+			"slug": "utep",
+			"school": "UTEP",
+			"name": "Scotty Walden",
+			"first": 2024,
+			"firstSeason": 2024,
+			"status": "compared",
+			"n": 2,
+			"completed": 2,
+			"notes": [],
+			"before": {
+				"years": [2022, 2023],
+				"w": 8,
+				"l": 16,
+				"t": 0,
+				"winPct": .333,
+				"recRank": 125,
+				"recPts": 89.165,
+				"talentRank": 120,
+				"netEpa": -.18,
+				"offEpa": .004,
+				"defEpa": .184
+			},
+			"after": {
+				"years": [2024, 2025],
+				"w": 5,
+				"l": 19,
+				"t": 0,
+				"winPct": .208,
+				"recRank": 76.5,
+				"recPts": 171.295,
+				"talentRank": 111,
+				"netEpa": -.257,
+				"offEpa": -.133,
+				"defEpa": .124
+			},
+			"tenure": {
+				"years": [2024, 2025],
+				"w": 5,
+				"l": 19,
+				"t": 0,
+				"winPct": .208,
+				"recRank": 76.5,
+				"recPts": 171.295,
+				"talentRank": 111,
+				"netEpa": -.257,
+				"offEpa": -.133,
+				"defEpa": .124
+			},
+			"seasons": [
+				{
+					"y": 2022,
+					"w": 5,
+					"l": 7,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [129, 77.74],
+					"tal": [126, 289.39],
+					"epa": {
+						"off": -9e-4,
+						"de": .1675,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 3,
+					"l": 9,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [121, 100.59],
+					"tal": [114, 379.64],
+					"epa": {
+						"off": .0088,
+						"de": .2001,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 3,
+					"l": 9,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [83, 163.05],
+					"tal": [121, 455.97],
+					"epa": {
+						"off": -.0834,
+						"de": .139,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 2,
+					"l": 10,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [70, 179.54],
+					"tal": [101, 551.88],
+					"epa": {
+						"off": -.1822,
+						"de": .1092,
+						"n": 136
+					}
+				}
+			],
+			"prior": [{
+				"school": "Southern Miss",
+				"to": 2020,
+				"w": 1,
+				"l": 3,
+				"t": 0,
+				"from": 2020
+			}]
+		},
+		{
+			"slug": "utsa",
+			"school": "UTSA",
+			"name": "Jeff Traylor",
+			"first": 2020,
+			"firstSeason": 2020,
+			"status": "compared",
+			"n": 3,
+			"completed": 6,
+			"notes": [],
+			"before": {
+				"years": [2017, 2019],
+				"w": 13,
+				"l": 22,
+				"t": 0,
+				"winPct": .371,
+				"recRank": 85.333,
+				"recPts": 148.923,
+				"talentRank": 99,
+				"netEpa": -.203,
+				"offEpa": -.044,
+				"defEpa": .159
+			},
+			"after": {
+				"years": [2020, 2022],
+				"w": 30,
+				"l": 10,
+				"t": 0,
+				"winPct": .75,
+				"recRank": 85.333,
+				"recPts": 153.123,
+				"talentRank": 78.667,
+				"netEpa": .015,
+				"offEpa": .142,
+				"defEpa": .127
+			},
+			"tenure": {
+				"years": [2020, 2025],
+				"w": 53,
+				"l": 26,
+				"t": 0,
+				"winPct": .671,
+				"recRank": 90.833,
+				"recPts": 151.22,
+				"talentRank": 73.667,
+				"netEpa": .01,
+				"offEpa": .114,
+				"defEpa": .104
+			},
+			"seasons": [
+				{
+					"y": 2017,
+					"w": 6,
+					"l": 5,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [75, 151.48],
+					"tal": [119, 291.62],
+					"epa": {
+						"off": -.0132,
+						"de": .0394,
+						"n": 130
+					}
+				},
+				{
+					"y": 2018,
+					"w": 3,
+					"l": 9,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [85, 152.98],
+					"tal": [94, 405.2],
+					"epa": {
+						"off": -.1181,
+						"de": .2081,
+						"n": 130
+					}
+				},
+				{
+					"y": 2019,
+					"w": 4,
+					"l": 8,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [96, 142.31],
+					"tal": [84, 471.36],
+					"epa": {
+						"off": -.0021,
+						"de": .2294,
+						"n": 130
+					}
+				},
+				{
+					"y": 2020,
+					"w": 7,
+					"l": 5,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [105, 142.53],
+					"tal": [82, 458.03],
+					"epa": {
+						"off": .0918,
+						"de": .1181,
+						"n": 128
+					}
+				},
+				{
+					"y": 2021,
+					"w": 12,
+					"l": 2,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 14,
+					"rec": [78, 154.8],
+					"tal": [78, 508.77],
+					"epa": {
+						"off": .1874,
+						"de": .1576,
+						"n": 130
+					}
+				},
+				{
+					"y": 2022,
+					"w": 11,
+					"l": 3,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 14,
+					"rec": [73, 162.04],
+					"tal": [76, 515.76],
+					"epa": {
+						"off": .146,
+						"de": .1054,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 9,
+					"l": 4,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [59, 187.6],
+					"tal": [74, 574.52],
+					"epa": {
+						"off": .0936,
+						"de": .1276,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 7,
+					"l": 6,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [123, 121.57],
+					"tal": [67, 644.36],
+					"epa": {
+						"off": .0439,
+						"de": .0654,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 7,
+					"l": 6,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [107, 138.78],
+					"tal": [65, 662.09],
+					"epa": {
+						"off": .1213,
+						"de": .049,
+						"n": 136
+					}
+				}
+			],
+			"prior": []
+		},
+		{
+			"slug": "vanderbilt",
+			"school": "Vanderbilt",
+			"name": "Clark Lea",
+			"first": 2021,
+			"firstSeason": 2021,
+			"status": "compared",
+			"n": 3,
+			"completed": 5,
+			"notes": [],
+			"before": {
+				"years": [2018, 2020],
+				"w": 9,
+				"l": 25,
+				"t": 0,
+				"winPct": .265,
+				"recRank": 49.667,
+				"recPts": 188.89,
+				"talentRank": 49.667,
+				"netEpa": -.146,
+				"offEpa": .053,
+				"defEpa": .199
+			},
+			"after": {
+				"years": [2021, 2023],
+				"w": 9,
+				"l": 27,
+				"t": 0,
+				"winPct": .25,
+				"recRank": 44.333,
+				"recPts": 197.32,
+				"talentRank": 57.333,
+				"netEpa": -.193,
+				"offEpa": .02,
+				"defEpa": .213
+			},
+			"tenure": {
+				"years": [2021, 2025],
+				"w": 26,
+				"l": 36,
+				"t": 0,
+				"winPct": .419,
+				"recRank": 49.8,
+				"recPts": 194.558,
+				"talentRank": 55.4,
+				"netEpa": -.063,
+				"offEpa": .126,
+				"defEpa": .189
+			},
+			"seasons": [
+				{
+					"y": 2018,
+					"w": 6,
+					"l": 7,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [41, 202.04],
+					"tal": [43, 611.99],
+					"epa": {
+						"off": .2215,
+						"de": .1183,
+						"n": 130
+					}
+				},
+				{
+					"y": 2019,
+					"w": 3,
+					"l": 9,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [56, 182.42],
+					"tal": [52, 605.06],
+					"epa": {
+						"off": -.0392,
+						"de": .1779,
+						"n": 130
+					}
+				},
+				{
+					"y": 2020,
+					"w": 0,
+					"l": 9,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [52, 182.21],
+					"tal": [54, 607.68],
+					"epa": {
+						"off": -.024,
+						"de": .2993,
+						"n": 128
+					}
+				},
+				{
+					"y": 2021,
+					"w": 2,
+					"l": 10,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [49, 184.46],
+					"tal": [57, 609.82],
+					"epa": {
+						"off": .0197,
+						"de": .2512,
+						"n": 130
+					}
+				},
+				{
+					"y": 2022,
+					"w": 5,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [32, 212.11],
+					"tal": [57, 629.76],
+					"epa": {
+						"off": .0663,
+						"de": .1784,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 2,
+					"l": 10,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [52, 195.39],
+					"tal": [58, 639.88],
+					"epa": {
+						"off": -.0253,
+						"de": .2099,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 7,
+					"l": 6,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [40, 207.79],
+					"tal": [50, 695.96],
+					"epa": {
+						"off": .1924,
+						"de": .1703,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 10,
+					"l": 3,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [76, 173.04],
+					"tal": [55, 685.42],
+					"epa": {
+						"off": .3763,
+						"de": .1328,
+						"n": 136
+					}
+				}
+			],
+			"prior": []
+		},
+		{
+			"slug": "virginia",
+			"school": "Virginia",
+			"name": "Tony Elliott",
+			"first": 2022,
+			"firstSeason": 2022,
+			"status": "compared",
+			"n": 3,
+			"completed": 4,
+			"notes": [],
+			"before": {
+				"years": [2019, 2021],
+				"w": 20,
+				"l": 16,
+				"t": 0,
+				"winPct": .556,
+				"recRank": 39.333,
+				"recPts": 197.263,
+				"talentRank": 58.333,
+				"netEpa": -.002,
+				"offEpa": .16,
+				"defEpa": .162
+			},
+			"after": {
+				"years": [2022, 2024],
+				"w": 11,
+				"l": 23,
+				"t": 0,
+				"winPct": .324,
+				"recRank": 72.667,
+				"recPts": 169.093,
+				"talentRank": 62,
+				"netEpa": -.073,
+				"offEpa": .061,
+				"defEpa": .134
+			},
+			"tenure": {
+				"years": [2022, 2025],
+				"w": 22,
+				"l": 26,
+				"t": 0,
+				"winPct": .458,
+				"recRank": 69,
+				"recPts": 175.76,
+				"talentRank": 62,
+				"netEpa": -.028,
+				"offEpa": .072,
+				"defEpa": .1
+			},
+			"seasons": [
+				{
+					"y": 2019,
+					"w": 9,
+					"l": 5,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [39, 200.89],
+					"tal": [59, 580.28],
+					"epa": {
+						"off": .1568,
+						"de": .1377,
+						"n": 130
+					}
+				},
+				{
+					"y": 2020,
+					"w": 5,
+					"l": 5,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [48, 185.57],
+					"tal": [63, 588.54],
+					"epa": {
+						"off": .0915,
+						"de": .1126,
+						"n": 128
+					}
+				},
+				{
+					"y": 2021,
+					"w": 6,
+					"l": 6,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [31, 205.33],
+					"tal": [53, 619.61],
+					"epa": {
+						"off": .231,
+						"de": .2355,
+						"n": 130
+					}
+				},
+				{
+					"y": 2022,
+					"w": 3,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 10,
+					"rec": [66, 166.85],
+					"tal": [59, 625.94],
+					"epa": {
+						"off": .0071,
+						"de": .0826,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 3,
+					"l": 9,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [64, 180.69],
+					"tal": [66, 622.7],
+					"epa": {
+						"off": .1041,
+						"de": .1556,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 5,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [88, 159.74],
+					"tal": [61, 662.28],
+					"epa": {
+						"off": .0722,
+						"de": .1641,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 11,
+					"l": 3,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 14,
+					"rec": [58, 195.76],
+					"tal": [62, 666.74],
+					"epa": {
+						"off": .1064,
+						"de": -.0016,
+						"n": 136
+					}
+				}
+			],
+			"prior": []
+		},
+		{
+			"slug": "virginia-tech",
+			"school": "Virginia Tech",
+			"name": "James Franklin",
+			"first": 2026,
+			"firstSeason": 2026,
+			"status": "too-new",
+			"n": 0,
+			"completed": 0,
+			"notes": ["Only 0 completed full seasons (through 2025); needs at least 2 for the compared view."],
+			"before": null,
+			"after": null,
+			"tenure": null,
+			"seasons": [],
+			"prior": [{
+				"school": "Vanderbilt",
+				"to": 2013,
+				"w": 24,
+				"l": 15,
+				"t": 0,
+				"from": 2011
+			}, {
+				"school": "Penn State",
+				"to": 2025,
+				"w": 104,
+				"l": 45,
+				"t": 0,
+				"from": 2014
+			}]
+		},
+		{
+			"slug": "wake-forest",
+			"school": "Wake Forest",
+			"name": "Jake Dickert",
+			"first": 2025,
+			"firstSeason": 2025,
+			"status": "too-new",
+			"n": 0,
+			"completed": 1,
+			"notes": ["Only 1 completed full season (through 2025); needs at least 2 for the compared view."],
+			"before": null,
+			"after": null,
+			"tenure": {
+				"years": [2025, 2025],
+				"w": 9,
+				"l": 4,
+				"t": 0,
+				"winPct": .692,
+				"recRank": 63,
+				"recPts": 189.05,
+				"talentRank": 74,
+				"netEpa": .117,
+				"offEpa": .072,
+				"defEpa": -.045
+			},
+			"seasons": [{
+				"y": 2025,
+				"w": 9,
+				"l": 4,
+				"t": 0,
+				"who": "tenure",
+				"win": null,
+				"mine": 13,
+				"rec": [63, 189.05],
+				"tal": [74, 627.16],
+				"epa": {
+					"off": .0722,
+					"de": -.0451,
+					"n": 136
+				}
+			}],
+			"prior": [{
+				"school": "Washington State",
+				"to": 2024,
+				"w": 23,
+				"l": 20,
+				"t": 0,
+				"from": 2021
+			}]
+		},
+		{
+			"slug": "washington",
+			"school": "Washington",
+			"name": "Jedd Fisch",
+			"first": 2024,
+			"firstSeason": 2024,
+			"status": "compared",
+			"n": 2,
+			"completed": 2,
+			"notes": [],
+			"before": {
+				"years": [2022, 2023],
+				"w": 25,
+				"l": 3,
+				"t": 0,
+				"winPct": .893,
+				"recRank": 61,
+				"recPts": 176.735,
+				"talentRank": 23.5,
+				"netEpa": .206,
+				"offEpa": .3,
+				"defEpa": .095
+			},
+			"after": {
+				"years": [2024, 2025],
+				"w": 15,
+				"l": 11,
+				"t": 0,
+				"winPct": .577,
+				"recRank": 35,
+				"recPts": 218.525,
+				"talentRank": 36,
+				"netEpa": .208,
+				"offEpa": .219,
+				"defEpa": .011
+			},
+			"tenure": {
+				"years": [2024, 2025],
+				"w": 15,
+				"l": 11,
+				"t": 0,
+				"winPct": .577,
+				"recRank": 35,
+				"recPts": 218.525,
+				"talentRank": 36,
+				"netEpa": .208,
+				"offEpa": .219,
+				"defEpa": .011
+			},
+			"seasons": [
+				{
+					"y": 2022,
+					"w": 11,
+					"l": 2,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [96, 129.55],
+					"tal": [21, 761.72],
+					"epa": {
+						"off": .2891,
+						"de": .1457,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 14,
+					"l": 1,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [26, 223.92],
+					"tal": [26, 751.12],
+					"epa": {
+						"off": .3116,
+						"de": .0434,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 6,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [47, 201.79],
+					"tal": [35, 741.11],
+					"epa": {
+						"off": .224,
+						"de": .0541,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 9,
+					"l": 4,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [23, 235.26],
+					"tal": [37, 720.56],
+					"epa": {
+						"off": .2131,
+						"de": -.032,
+						"n": 136
+					}
+				}
+			],
+			"prior": [{
+				"school": "UCLA",
+				"to": 2017,
+				"w": 1,
+				"l": 1,
+				"t": 0,
+				"from": 2017
+			}, {
+				"school": "Arizona",
+				"to": 2023,
+				"w": 16,
+				"l": 21,
+				"t": 0,
+				"from": 2021
+			}]
+		},
+		{
+			"slug": "washington-state",
+			"school": "Washington State",
+			"name": "Kirby Moore",
+			"first": 2026,
+			"firstSeason": 2026,
+			"status": "too-new",
+			"n": 0,
+			"completed": 0,
+			"notes": ["Only 0 completed full seasons (through 2025); needs at least 2 for the compared view."],
+			"before": null,
+			"after": null,
+			"tenure": null,
+			"seasons": [],
+			"prior": []
+		},
+		{
+			"slug": "western-kentucky",
+			"school": "Western Kentucky",
+			"name": "Tyson Helton",
+			"first": 2019,
+			"firstSeason": 2019,
+			"status": "compared",
+			"n": 3,
+			"completed": 7,
+			"notes": [],
+			"before": {
+				"years": [2016, 2018],
+				"w": 20,
+				"l": 19,
+				"t": 0,
+				"winPct": .513,
+				"recRank": 89,
+				"recPts": 138.967,
+				"talentRank": 104.667,
+				"netEpa": -.064,
+				"offEpa": .087,
+				"defEpa": .152
+			},
+			"after": {
+				"years": [2019, 2021],
+				"w": 23,
+				"l": 16,
+				"t": 0,
+				"winPct": .59,
+				"recRank": 100.667,
+				"recPts": 120.293,
+				"talentRank": 80,
+				"netEpa": .016,
+				"offEpa": .098,
+				"defEpa": .082
+			},
+			"tenure": {
+				"years": [2019, 2025],
+				"w": 57,
+				"l": 36,
+				"t": 0,
+				"winPct": .613,
+				"recRank": 105.286,
+				"recPts": 120.251,
+				"talentRank": 88.143,
+				"netEpa": -.023,
+				"offEpa": .099,
+				"defEpa": .122
+			},
+			"seasons": [
+				{
+					"y": 2016,
+					"w": 11,
+					"l": 3,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [101, 124.1],
+					"tal": [95, 401.82],
+					"epa": {
+						"off": .2723,
+						"de": .1352,
+						"n": 128
+					}
+				},
+				{
+					"y": 2017,
+					"w": 6,
+					"l": 7,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [82, 138.03],
+					"tal": [107, 332.17],
+					"epa": {
+						"off": .0167,
+						"de": .2021,
+						"n": 130
+					}
+				},
+				{
+					"y": 2018,
+					"w": 3,
+					"l": 9,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [84, 154.77],
+					"tal": [112, 353.43],
+					"epa": {
+						"off": -.0268,
+						"de": .1182,
+						"n": 130
+					}
+				},
+				{
+					"y": 2019,
+					"w": 9,
+					"l": 4,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [86, 153.89],
+					"tal": [82, 486.97],
+					"epa": {
+						"off": .0551,
+						"de": .0124,
+						"n": 130
+					}
+				},
+				{
+					"y": 2020,
+					"w": 5,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [80, 157.37],
+					"tal": [84, 447.91],
+					"epa": {
+						"off": -.0168,
+						"de": .1069,
+						"n": 128
+					}
+				},
+				{
+					"y": 2021,
+					"w": 9,
+					"l": 5,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 14,
+					"rec": [136, 49.62],
+					"tal": [74, 524.97],
+					"epa": {
+						"off": .2562,
+						"de": .1275,
+						"n": 130
+					}
+				},
+				{
+					"y": 2022,
+					"w": 9,
+					"l": 5,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 14,
+					"rec": [94, 129.6],
+					"tal": [81, 495.64],
+					"epa": {
+						"off": .158,
+						"de": .0864,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 8,
+					"l": 5,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [134, 58.4],
+					"tal": [89, 491.26],
+					"epa": {
+						"off": .1083,
+						"de": .179,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 8,
+					"l": 6,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 14,
+					"rec": [111, 140.12],
+					"tal": [107, 518.88],
+					"epa": {
+						"off": .0909,
+						"de": .2177,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 9,
+					"l": 4,
+					"t": 0,
+					"who": "tenure",
+					"win": null,
+					"mine": 13,
+					"rec": [96, 152.76],
+					"tal": [100, 561.36],
+					"epa": {
+						"off": .041,
+						"de": .1215,
+						"n": 136
+					}
+				}
+			],
+			"prior": []
+		},
+		{
+			"slug": "western-michigan",
+			"school": "Western Michigan",
+			"name": "Lance Taylor",
+			"first": 2023,
+			"firstSeason": 2023,
+			"status": "compared",
+			"n": 3,
+			"completed": 3,
+			"notes": [],
+			"before": {
+				"years": [2020, 2022],
+				"w": 17,
+				"l": 14,
+				"t": 0,
+				"winPct": .548,
+				"recRank": 96,
+				"recPts": 137.087,
+				"talentRank": 100.667,
+				"netEpa": -.042,
+				"offEpa": .135,
+				"defEpa": .177
+			},
+			"after": {
+				"years": [2023, 2025],
+				"w": 20,
+				"l": 19,
+				"t": 0,
+				"winPct": .513,
+				"recRank": 93.667,
+				"recPts": 147.503,
+				"talentRank": 104.333,
+				"netEpa": -.131,
+				"offEpa": .042,
+				"defEpa": .173
+			},
+			"tenure": {
+				"years": [2023, 2025],
+				"w": 20,
+				"l": 19,
+				"t": 0,
+				"winPct": .513,
+				"recRank": 93.667,
+				"recPts": 147.503,
+				"talentRank": 104.333,
+				"netEpa": -.131,
+				"offEpa": .042,
+				"defEpa": .173
+			},
+			"seasons": [
+				{
+					"y": 2020,
+					"w": 4,
+					"l": 2,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [86, 153.11],
+					"tal": [99, 382.78],
+					"epa": {
+						"off": .2963,
+						"de": .1913,
+						"n": 128
+					}
+				},
+				{
+					"y": 2021,
+					"w": 8,
+					"l": 5,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [97, 139.11],
+					"tal": [106, 396.47],
+					"epa": {
+						"off": .2059,
+						"de": .2212,
+						"n": 130
+					}
+				},
+				{
+					"y": 2022,
+					"w": 5,
+					"l": 7,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [105, 119.04],
+					"tal": [97, 449.89],
+					"epa": {
+						"off": -.096,
+						"de": .1199,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 4,
+					"l": 8,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [106, 129.14],
+					"tal": [112, 401.82],
+					"epa": {
+						"off": .02,
+						"de": .2263,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 6,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [71, 171.51],
+					"tal": [96, 547.19],
+					"epa": {
+						"off": .105,
+						"de": .2679,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 10,
+					"l": 4,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 14,
+					"rec": [104, 141.86],
+					"tal": [105, 534.35],
+					"epa": {
+						"off": -3e-4,
+						"de": .0249,
+						"n": 136
+					}
+				}
+			],
+			"prior": []
+		},
+		{
+			"slug": "west-virginia",
+			"school": "West Virginia",
+			"name": "Rich Rodriguez",
+			"first": 2025,
+			"firstSeason": 2025,
+			"status": "too-new",
+			"n": 0,
+			"completed": 1,
+			"notes": ["Only 1 completed full season (through 2025); needs at least 2 for the compared view."],
+			"before": null,
+			"after": null,
+			"tenure": {
+				"years": [2025, 2025],
+				"w": 4,
+				"l": 8,
+				"t": 0,
+				"winPct": .333,
+				"recRank": 43,
+				"recPts": 205.16,
+				"talentRank": 63,
+				"netEpa": -.086,
+				"offEpa": .015,
+				"defEpa": .101
+			},
+			"seasons": [{
+				"y": 2025,
+				"w": 4,
+				"l": 8,
+				"t": 0,
+				"who": "tenure",
+				"win": null,
+				"mine": 12,
+				"rec": [43, 205.16],
+				"tal": [63, 662.33],
+				"epa": {
+					"off": .015,
+					"de": .1014,
+					"n": 136
+				}
+			}],
+			"prior": [
+				{
+					"school": "Michigan",
+					"to": 2010,
+					"w": 15,
+					"l": 22,
+					"t": 0,
+					"from": 2008
+				},
+				{
+					"school": "Arizona",
+					"to": 2017,
+					"w": 43,
+					"l": 35,
+					"t": 0,
+					"from": 2012
+				},
+				{
+					"school": "Jacksonville State",
+					"to": 2024,
+					"w": 18,
+					"l": 9,
+					"t": 0,
+					"from": 2023
+				}
+			]
+		},
+		{
+			"slug": "wisconsin",
+			"school": "Wisconsin",
+			"name": "Luke Fickell",
+			"first": 2022,
+			"firstSeason": 2023,
+			"status": "compared",
+			"n": 3,
+			"completed": 3,
+			"notes": ["Started partway through 2022: coached 1 of 13 games that season (interim or mid-season hire). That season is shown but excluded from both windows."],
+			"before": {
+				"years": [2019, 2021],
+				"w": 23,
+				"l": 11,
+				"t": 0,
+				"winPct": .676,
+				"recRank": 23,
+				"recPts": 228.617,
+				"talentRank": 28.667,
+				"netEpa": .253,
+				"offEpa": .152,
+				"defEpa": -.1
+			},
+			"after": {
+				"years": [2023, 2025],
+				"w": 16,
+				"l": 21,
+				"t": 0,
+				"winPct": .432,
+				"recRank": 36,
+				"recPts": 218.177,
+				"talentRank": 28.333,
+				"netEpa": -.019,
+				"offEpa": .062,
+				"defEpa": .081
+			},
+			"tenure": {
+				"years": [2023, 2025],
+				"w": 16,
+				"l": 21,
+				"t": 0,
+				"winPct": .432,
+				"recRank": 36,
+				"recPts": 218.177,
+				"talentRank": 28.333,
+				"netEpa": -.019,
+				"offEpa": .062,
+				"defEpa": .081
+			},
+			"seasons": [
+				{
+					"y": 2019,
+					"w": 10,
+					"l": 4,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [29, 219.51],
+					"tal": [33, 675.8],
+					"epa": {
+						"off": .2622,
+						"de": -.0978,
+						"n": 130
+					}
+				},
+				{
+					"y": 2020,
+					"w": 4,
+					"l": 3,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [25, 225.54],
+					"tal": [32, 676.48],
+					"epa": {
+						"off": .0537,
+						"de": -.0762,
+						"n": 128
+					}
+				},
+				{
+					"y": 2021,
+					"w": 9,
+					"l": 4,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [15, 240.8],
+					"tal": [21, 750.89],
+					"epa": {
+						"off": .1401,
+						"de": -.1275,
+						"n": 130
+					}
+				},
+				{
+					"y": 2022,
+					"w": 7,
+					"l": 6,
+					"t": 0,
+					"who": "transition",
+					"win": null,
+					"mine": 1,
+					"rec": [44, 194.42],
+					"tal": [25, 744.44],
+					"epa": {
+						"off": .157,
+						"de": .0349,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 7,
+					"l": 6,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 13,
+					"rec": [58, 188.21],
+					"tal": [30, 741.63],
+					"epa": {
+						"off": .1077,
+						"de": .0747,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 5,
+					"l": 7,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [23, 239.1],
+					"tal": [27, 771.35],
+					"epa": {
+						"off": .074,
+						"de": .1017,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 4,
+					"l": 8,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [27, 227.22],
+					"tal": [28, 763.17],
+					"epa": {
+						"off": .0043,
+						"de": .066,
+						"n": 136
+					}
+				}
+			],
+			"prior": [{
+				"school": "Ohio State",
+				"to": 2011,
+				"w": 6,
+				"l": 7,
+				"t": 0,
+				"from": 2011
+			}, {
+				"school": "Cincinnati",
+				"to": 2021,
+				"w": 48,
+				"l": 15,
+				"t": 0,
+				"from": 2017
+			}]
+		},
+		{
+			"slug": "wyoming",
+			"school": "Wyoming",
+			"name": "Jay Sawvel",
+			"first": 2024,
+			"firstSeason": 2024,
+			"status": "compared",
+			"n": 2,
+			"completed": 2,
+			"notes": [],
+			"before": {
+				"years": [2022, 2023],
+				"w": 16,
+				"l": 10,
+				"t": 0,
+				"winPct": .615,
+				"recRank": 101.5,
+				"recPts": 127.28,
+				"talentRank": 124.5,
+				"netEpa": -.067,
+				"offEpa": .064,
+				"defEpa": .131
+			},
+			"after": {
+				"years": [2024, 2025],
+				"w": 7,
+				"l": 17,
+				"t": 0,
+				"winPct": .292,
+				"recRank": 95.5,
+				"recPts": 152.63,
+				"talentRank": 119.5,
+				"netEpa": -.188,
+				"offEpa": -.065,
+				"defEpa": .123
+			},
+			"tenure": {
+				"years": [2024, 2025],
+				"w": 7,
+				"l": 17,
+				"t": 0,
+				"winPct": .292,
+				"recRank": 95.5,
+				"recPts": 152.63,
+				"talentRank": 119.5,
+				"netEpa": -.188,
+				"offEpa": -.065,
+				"defEpa": .123
+			},
+			"seasons": [
+				{
+					"y": 2022,
+					"w": 7,
+					"l": 6,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [93, 133.87],
+					"tal": [125, 292.03],
+					"epa": {
+						"off": .0299,
+						"de": .1769,
+						"n": 131
+					}
+				},
+				{
+					"y": 2023,
+					"w": 9,
+					"l": 4,
+					"t": 0,
+					"who": "before",
+					"win": "before",
+					"mine": 0,
+					"rec": [110, 120.69],
+					"tal": [124, 338.5],
+					"epa": {
+						"off": .0978,
+						"de": .0854,
+						"n": 133
+					}
+				},
+				{
+					"y": 2024,
+					"w": 3,
+					"l": 9,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [102, 146.14],
+					"tal": [122, 455.45],
+					"epa": {
+						"off": -.049,
+						"de": .1664,
+						"n": 134
+					}
+				},
+				{
+					"y": 2025,
+					"w": 4,
+					"l": 8,
+					"t": 0,
+					"who": "tenure",
+					"win": "after",
+					"mine": 12,
+					"rec": [89, 159.12],
+					"tal": [117, 489.33],
+					"epa": {
+						"off": -.0808,
+						"de": .0796,
+						"n": 136
+					}
+				}
+			],
+			"prior": []
+		}
+	],
+	sources: [
+		{
+			"label": "CollegeFootballData.com /coaches (head coaches and games coached by season, 2005–2026)",
+			"url": "https://collegefootballdata.com/"
+		},
+		{
+			"label": "CollegeFootballData.com /records (team win-loss totals by season, 2005–2025)",
+			"url": "https://collegefootballdata.com/"
+		},
+		{
+			"label": "CollegeFootballData.com /recruiting/teams (247Sports Composite team class rank and points, 2005–2026)",
+			"url": "https://collegefootballdata.com/"
+		},
+		{
+			"label": "CollegeFootballData.com /talent (247Sports Team Talent Composite, 2015–2026)",
+			"url": "https://collegefootballdata.com/"
+		},
+		{
+			"label": "HASHMARK opponent-adjusted EPA/play (same ridge as /stats) on CFBD play-by-play, 2016–2025",
+			"url": "https://hashmarkcfb.com/stats"
+		}
+	]
+};
+/** Server only: reads data/coaches_2026.json (built offline from CFBD; see scripts/data-src/coaches/README.md). */
+var coachesFile = () => coaches_2026_default;
+//#endregion
+export { coachesFile };

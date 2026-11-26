@@ -29,9 +29,14 @@ export function TeamCoordinatorsPanel({ data, teamSlug, teamName }: { data: Bloc
     <Panel className="mb-6">
       <div className="mb-1 flex flex-wrap items-baseline justify-between gap-2">
         <h2 className="font-display text-2xl tracking-wide">Coordinators</h2>
-        <Link to="/coordinators" className="text-sm text-accent hover:underline">
-          All FBS coordinators →
-        </Link>
+        <span className="flex flex-wrap gap-x-4 gap-y-1 text-sm">
+          <Link to="/coaches" search={{ team: teamSlug }} className="text-accent hover:underline">
+            Head coach before and after →
+          </Link>
+          <Link to="/coordinators" className="text-accent hover:underline">
+            All FBS coordinators →
+          </Link>
+        </span>
       </div>
       <p className="mb-4 text-sm text-muted">
         Who runs each side of the ball for {teamName}, this season&apos;s unit numbers, and the units each coordinator ran in 2024–26. Track record of the units, not a coach rating or a forecast.
