@@ -91,3 +91,13 @@ export const getCoordinators = createServerFn({ method: "GET" }).handler(async (
   const teamInfo = Object.fromEntries(teams.filter((t) => used.has(t.slug)).map((t) => [t.slug, { name: t.name, color: t.colorPrimary }]));
   return { built: file.built, source: file.source, units2026: file.units2026, prior2025: file.prior2025, coaches, live, talent: talent2026(), asOf2026: stats2026AsOf(), teams: teamInfo };
 });
+
+/** /coaches: every current FBS head coach with matched before/after windows, plus team names and the live HX rank. */
+export const getCoaches = createServerFn({ method: "GET" }).handler(async () => {
+  const { listTeams } = await import("./queries");
+  const teams = await listTeams();
+  const { coachesFile } = await import("./coaches.server");
+  const file = coachesFile();
+  const info = Object.fromEntries(teams.map((t) => [t.slug, { name: t.name, color: t.colorPrimary, conference: t.conference, hxRank: t.hxRank ?? null }]));
+  return { file, teams: info };
+});

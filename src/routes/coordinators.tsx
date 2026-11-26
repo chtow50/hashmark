@@ -122,7 +122,7 @@ function CoordinatorsPage() {
 
       <Method unit={unit} />
       <p className="mt-4 text-xs leading-relaxed text-muted">
-        {data.source} Built {data.built}. 2026 numbers use the /stats team board through {asOf2026}.
+        {data.source} Built {data.built}. 2026 numbers use the /stats team board through {asOf2026}. Head coaches: <Link to="/coaches" className="text-accent hover:underline">head coach before and after</Link>.
       </p>
     </div>
   );
