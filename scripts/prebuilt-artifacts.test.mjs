@@ -994,4 +994,10 @@ describe("prebuilt deploy artifacts", () => {
     assert.match(text, /and h\.slug = 'eastern-michigan' and a\.slug = 'kent-state';/);
     assert.match(text, /and h\.slug = 'western-michigan' and a\.slug = 'miami-oh';/);
   });
+  it("includes Week 13 Thursday FINALs (0114) with exact home/away orientation in committed output", () => {
+    const text = corpus();
+    assert.match(text, /0114_week13_thu_finals/);
+    assert.match(text, /TCU @ Texas Tech — Texas Tech 48, TCU 27/);
+    assert.match(text, /and h\.slug = 'texas-tech' and a\.slug = 'tcu';/);
+  });
 });

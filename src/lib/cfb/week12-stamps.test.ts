@@ -400,3 +400,19 @@ describe("Week 13 Tuesday FINALs (0113)", () => {
     assert.doesNotMatch(header, /\b401\d{6,}\b/);
   });
 });
+
+describe("Week 13 Thursday FINALs (0114)", () => {
+  const sql14 = readFileSync(join(root, "migrations/0114_week13_thu_finals.sql"), "utf8");
+
+  it("stamps scores+status only, with the exact home/away orientation", () => {
+    assert.equal((sql14.match(/update games/g) ?? []).length, 1);
+    assert.equal((sql14.match(/g\.week = 13/g) ?? []).length, 1);
+    assert.ok(sql14.includes("-- TCU @ Texas Tech — Texas Tech 48, TCU 27"));
+    assert.ok(sql14.includes("home_score = 48,\n    away_score = 27\n"));
+    assert.ok(sql14.includes("and h.slug = 'texas-tech' and a.slug = 'tcu';"));
+    assert.match(sql14, /Source event 401856879/);
+    assert.doesNotMatch(sql14, /kickoff_at|vegas_spread|vegas_total|\btv\s*=|hx_rating|win_title|make_field/);
+    const header = sql14.split(/update games/i)[0] ?? "";
+    assert.doesNotMatch(header, /\b401\d{6,}\b/);
+  });
+});
