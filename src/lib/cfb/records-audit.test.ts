@@ -105,8 +105,8 @@ describe("records: structural W–L (games FINALs + FCS stubs)", () => {
       );
       assert.equal(rows.length, 138);
       const site = new Map(rows.map((r) => [r.slug, formatSeasonRecord(r.w, r.l)]));
-      // ESPN overall records for the newcomers (NDSU 9–2 after the Nov 21 win over Northern Illinois, 0108).
-      assert.equal(site.get("north-dakota-state"), "9–2");
+      // ESPN overall records for the newcomers (NDSU 10–2 after the Nov 27 win at San José State, 0115).
+      assert.equal(site.get("north-dakota-state"), "10–2");
       assert.equal(site.get("sacramento-state"), "2–9");
       const tallyGames = games.map((g) => ({
         status: g.status,

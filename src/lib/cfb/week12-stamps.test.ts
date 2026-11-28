@@ -416,3 +416,20 @@ describe("Week 13 Thursday FINALs (0114)", () => {
     assert.doesNotMatch(header, /\b401\d{6,}\b/);
   });
 });
+describe("Week 13 Friday FINALs (0115)", () => {
+  const sql15 = readFileSync(join(root, "migrations/0115_week13_fri_finals.sql"), "utf8");
+  const games: [string, string, number, number, string][] = [["iowa","nebraska",31,7,"Nebraska @ Iowa — Iowa 31, Nebraska 7"],["ole-miss","mississippi-state",41,17,"Mississippi State @ Ole Miss — Ole Miss 41, Mississippi State 17"],["utsa","tulsa",28,22,"Tulsa @ UTSA — UTSA 28, Tulsa 22"],["akron","buffalo",9,17,"Buffalo @ Akron — Buffalo 17, Akron 9"],["ohio","toledo",31,34,"Toledo @ Ohio — Toledo 34, Ohio 31"],["south-alabama","app-state",20,13,"App State @ South Alabama — South Alabama 20, App State 13"],["florida-state","florida",10,26,"Florida @ Florida State — Florida 26, Florida State 10"],["memphis","temple",31,35,"Temple @ Memphis — Temple 35, Memphis 31"],["san-jose-state","north-dakota-state",31,38,"North Dakota State @ San José State — North Dakota State 38, San José State 31"],["new-mexico","air-force",42,19,"Air Force @ New Mexico — New Mexico 42, Air Force 19"],["texas-am","texas",6,16,"Texas @ Texas A&M — Texas 16, Texas A&M 6"],["wisconsin","minnesota",28,5,"Minnesota @ Wisconsin — Wisconsin 28, Minnesota 5"],["utah","west-virginia",52,28,"West Virginia @ Utah — Utah 52, West Virginia 28"]];
+
+  it("stamps scores+status only, with the exact home/away orientation", () => {
+    assert.equal((sql15.match(/update games/g) ?? []).length, 13);
+    assert.equal((sql15.match(/g\.week = 13/g) ?? []).length, 13);
+    for (const [h, a, hs, as, label] of games) {
+      assert.ok(sql15.includes("-- " + label));
+      assert.ok(sql15.includes(`home_score = ${hs},\n    away_score = ${as}\n`));
+      assert.ok(sql15.includes(`and h.slug = '${h}' and a.slug = '${a}';`));
+    }
+    assert.doesNotMatch(sql15, /kickoff_at|vegas_spread|vegas_total|\btv\s*=|hx_rating|win_title|make_field/);
+    const header = sql15.split(/update games/i)[0] ?? "";
+    assert.doesNotMatch(header, /\b401\d{6,}\b/);
+  });
+});
